@@ -17,5 +17,14 @@ format_bounds <- function(bnds) {
   res
 }
 
+### Check functions
+
+check_label <- function(txt) {
+  if (is.null(txt))
+    return(invisible(txt))
+  if (!is.character(txt) || length(txt) > 1)
+    stop("`label` should be a single character string.", call. = FALSE)
+  invisible(txt)
+}
 
 

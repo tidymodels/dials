@@ -17,6 +17,8 @@
 #'  [scales::log10_trans()] or [scales::reciprocal_trans()]. 
 #' @param values A vector of possible values that is required when `type` is
 #' "character" or "logical" but optional otherwise.  
+#' @param label An optional character string that can be used for
+#' printing and plotting. 
 #' @return An object of class "param" with the primary class being either 
 #' "quant_param" or "qual_param". 
 #' @export
@@ -24,7 +26,7 @@
 new_quant_param <- function(
   type = c("double", "integer"), range, inclusive, 
   default = unknown(),
-  trans = NULL, values = NULL) {
+  trans = NULL, values = NULL, label = NULL) {
   type <- match.arg(type)
   
   range <- as.list(range)
@@ -44,11 +46,14 @@ new_quant_param <- function(
       )
   }
   
+  check_label(label)
+  
   # check values if given
   
   names(range) <- names(inclusive) <- c("lower", "upper")
   res <- list(type = type, range = range, inclusive = inclusive, 
-              trans = trans, values = values, default = default)
+              trans = trans, values = values, default = default,
+              label = label)
   class(res) <- c("quant_param", "param")
   range_validate(res, range)
   
@@ -58,7 +63,7 @@ new_quant_param <- function(
 #' @export
 #' @rdname new_quant_param
 new_qual_param <- function(type = c("character", "logical"), values,
-                           default = unknown()) {
+                           default = unknown(), label = NULL) {
   type <- match.arg(type)
   
   if (type == "logical") {
@@ -72,7 +77,10 @@ new_qual_param <- function(type = c("character", "logical"), values,
   if (is_unknown(default))
     default <- values[1]
   
-  res <- list(type = type, values = values, default = default)
+  check_label(label)
+  
+  res <- list(type = type, values = values, default = default,
+              label = label)
   class(res) <- c("qual_param", "param") 
   res
 }
@@ -84,7 +92,10 @@ new_qual_param <- function(type = c("character", "logical"), values,
 #' @importFrom purrr map_chr
 #' @importFrom glue glue
 print.quant_param <- function(x, digits = 3, ...) {
-  cat("Quantitative Parameter\n")
+  if (!is.null(x$label)) {
+    cat(x$label, " (quantitative)\n")
+  } else
+    cat("Quantitative Parameter\n")
   if (!is.null(x$trans)) {
     print(eval(x$trans))
     cat("Range (transformed scale): ")
@@ -100,7 +111,10 @@ print.quant_param <- function(x, digits = 3, ...) {
 #' @export
 #' @importFrom glue glue_collapse
 print.qual_param <- function(x, ...) {
-  cat("Qualitative Parameter\n")
+  if (!is.null(x$label)) {
+    cat(x$label, " (qualitative)\n")
+  } else
+    cat("Qualitative Parameter\n")
   cat(length(x$values), "possible value include:\n")
   if (x$type == "character")
     lvls <- paste0("'", x$values, "'")

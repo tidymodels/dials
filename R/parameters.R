@@ -13,7 +13,8 @@ mtry <-
     type = "integer",
     range = c(1L, unknown()),
     inclusive = c(TRUE, TRUE),
-    trans = NULL
+    trans = NULL,
+    label = "# Randomly Selected Predictors"
   )
 
 #' @rdname parameters
@@ -23,7 +24,8 @@ trees <-
     type = "integer",
     range = c(1L, 2000L),
     inclusive = c(TRUE, TRUE),
-    trans = NULL
+    trans = NULL,
+    label = "# Trees"
   )
 
 #' @rdname parameters
@@ -33,7 +35,8 @@ min_n <-
     type = "integer",
     range = c(2L, unknown()),
     inclusive = c(TRUE, TRUE),
-    trans = NULL
+    trans = NULL,
+    label = "Minimal Node Size"
   )
 
 #' @rdname parameters
@@ -43,7 +46,8 @@ sample_size <-
     type = "integer",
     range = c(unknown(), unknown()),
     inclusive = c(TRUE, TRUE),
-    trans = NULL
+    trans = NULL,
+    label = "# Observations Sampled"
   )
 
 #' @rdname parameters
@@ -53,7 +57,8 @@ learn_rate <-
     type = "double",
     range = c(unknown(), unknown()),
     inclusive = c(TRUE, TRUE),
-    trans = NULL
+    trans = NULL,
+    label = "Learning Rate"
   )
 
 
@@ -64,7 +69,8 @@ loss_reduction <-
     type = "double",
     range = c(unknown(), unknown()),
     inclusive = c(TRUE, TRUE),
-    trans = NULL
+    trans = NULL,
+    label = "Minimum Loss Reduction"
   )
 
 #' @rdname parameters
@@ -74,7 +80,8 @@ tree_depth <-
     type = "integer",
     range = c(2L, 15L),
     inclusive = c(TRUE, TRUE),
-    trans = NULL
+    trans = NULL,
+    label = "Tree Depth"
   )
 
 
@@ -85,7 +92,8 @@ weight_decay <-
     type = "double",
     range = c(-10, 0),
     inclusive = c(TRUE, TRUE),
-    trans = log10_trans()
+    trans = log10_trans(),
+    label = "L2 Regularization"
   )
 
 #' @rdname parameters
@@ -95,7 +103,8 @@ dropout <-
     type = "double",
     range = c(0, 1),
     inclusive = c(TRUE, TRUE),
-    trans = NULL
+    trans = NULL,
+    label = "Dropout Rate"
   )
 
 #' @rdname parameters
@@ -105,7 +114,8 @@ epochs <-
     type = "integer",
     range = c(1L, 1000L),
     inclusive = c(TRUE, TRUE),
-    trans = NULL
+    trans = NULL,
+    label = "# Epochs"
   )
 
 #' @rdname parameters
@@ -113,7 +123,8 @@ epochs <-
 activation <-
   new_qual_param(
     type = "character",
-    values = c("linear", "softmax", "relu", "elu")
+    values = c("linear", "softmax", "relu", "elu"),
+    label = "Activation Function"
   )
 
 #' @rdname parameters
@@ -123,7 +134,8 @@ mixture <-
     type = "double",
     range = 0:1,
     inclusive = c(TRUE, TRUE),
-    trans = NULL
+    trans = NULL,
+    label = "% lasso Penalty"
   )
 
 #' @rdname parameters
@@ -133,7 +145,8 @@ regularization <-
     type = "double",
     range = c(-10, 0),
     inclusive = c(TRUE, TRUE),
-    trans = log10_trans()
+    trans = log10_trans(),
+    label = "Amount of Regularization"
   )
 
 # in reference to kknn::kknn
@@ -143,7 +156,8 @@ weight_func <-
   new_qual_param(
     type = "character",
     values = c("rectangular", "triangular", "epanechnikov", "biweight", 
-               "triweight", "cos", "inv", "gaussian", "rank", "optimal")
+               "triweight", "cos", "inv", "gaussian", "rank", "optimal"),
+    label = "Distance Weighting Function"
   )
 
 # in reference to survival::survreg
@@ -153,7 +167,8 @@ surv_dist <-
   new_qual_param(
     type = "character",
     values = c("weibull", "exponential", "gaussian", "logistic", 
-               "lognormal", "loglogistic")
+               "lognormal", "loglogistic"),
+    label = "Distribution"
   )
 
 #' @export
@@ -161,5 +176,116 @@ surv_dist <-
 prune <-
   new_qual_param(
     type = "logical",
-    values = c(TRUE, FALSE)
+    values = c(TRUE, FALSE),
+    label = "Pruning"
+  )
+
+#' @export
+#' @rdname parameters
+rbf_sigma <-
+  new_quant_param(
+    type = "double",
+    range = c(-10, 0),
+    inclusive = c(TRUE, TRUE),
+    trans = log10_trans(),
+    label = "Radial Basis Function sigma"
+  )
+
+#' @export
+#' @rdname parameters
+interact_degree <-
+  new_quant_param(
+    type = "integer",
+    range = 1:2,
+    inclusive = c(TRUE, TRUE),
+    trans = NULL,
+    label = "Degree of Interaction"
+  )
+
+#' @export
+#' @rdname parameters
+prod_degree <-
+  new_quant_param(
+    type = "integer",
+    range = 1:2,
+    inclusive = c(TRUE, TRUE),
+    trans = NULL,
+    label = "Degree of Interaction"
+  )
+
+#' @export
+#' @rdname parameters
+num_terms <-
+  new_quant_param(
+    type = "integer",
+    range = c(1L, unknown()),
+    inclusive = c(TRUE, TRUE),
+    trans = NULL,
+    label = "# Model Terms"
+  )
+
+#' @export
+#' @rdname parameters
+num_comp <-
+  new_quant_param(
+    type = "integer",
+    range = c(1L, unknown()),
+    inclusive = c(TRUE, TRUE),
+    trans = NULL,
+    label = "# Components"
+  )
+
+#' @export
+#' @rdname parameters
+Cp <-
+  new_quant_param(
+    type = "double",
+    range = c(-10, -1),
+    inclusive = c(TRUE, TRUE),
+    trans = log10_trans(),
+    label = "Cost-Complexity Parameter"
+  )
+
+#' @export
+#' @rdname parameters
+cost <-
+  new_quant_param(
+    type = "double",
+    range = c(-10, -1),
+    inclusive = c(TRUE, TRUE),
+    trans = log2_trans(),
+    label = "Cost"
+  )
+
+#' @export
+#' @rdname parameters
+degree <-
+  new_quant_param(
+    type = "double",
+    range = c(1, 3),
+    inclusive = c(TRUE, TRUE),
+    trans = NULL,
+    label = "Polynomial Degree"
+  )
+
+#' @export
+#' @rdname parameters
+df <-
+  new_quant_param(
+    type = "double",
+    range = c(1, 5),
+    inclusive = c(TRUE, TRUE),
+    trans = NULL,
+    label = "Degrees of Freedom"
+  )
+
+#' @export
+#' @rdname parameters
+hidden_units <-
+  new_quant_param(
+    type = "integer",
+    range = c(1L, 10),
+    inclusive = c(TRUE, TRUE),
+    trans = NULL,
+    label = "# Hidden Units"
   )
