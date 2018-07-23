@@ -22,7 +22,8 @@ value_inverse(object, values)
 \item{object}{An object with class \code{quant_param}.}
 
 \item{values}{A numeric vector or list (including \code{Inf}). Values
-\emph{cannot} include \code{unknown()}.}
+\emph{cannot} include \code{unknown()}. For \code{value_validate}, the units should be
+consistent with the parameter object's definition.}
 
 \item{n}{An integer for the (maximum) number of values to return. In some
 cases where a sequence is requested, the result might have less than \code{n}

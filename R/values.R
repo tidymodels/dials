@@ -2,7 +2,8 @@
 #' 
 #' @param object An object with class `quant_param`.
 #' @param values A numeric vector or list (including `Inf`). Values
-#'  _cannot_ include `unknown()`.  
+#'  _cannot_ include `unknown()`. For `value_validate`, the units should be
+#'  consistent with the parameter object's definition.  
 #' @param n An integer for the (maximum) number of values to return. In some
 #'  cases where a sequence is requested, the result might have less than `n`
 #'  values. See Details. 
@@ -25,9 +26,54 @@
 #'  For qualitative parameters, sampling is conducted with replacement. For
 #'  qualitative values, a random uniform distribution is used. 
 
+#' @export
 value_validate <- function(object, values) {
-  
+  res <- switch(
+    object$type, 
+    double    = ,
+    integer   = value_validate_quant(object, values),
+    character = ,
+    logical   = value_validate_qual(object, values)
+  )
+  unlist(res)
+
 }
+
+value_validate_quant <- function(object, values) {
+  check_for_unknowns(object$range, "value_validate")
+  check_for_unknowns(values, "value_validate")
+
+  is_valid <- rep(TRUE, length(values))
+  
+  # Are they in a valid range (no matter the scale)?
+  if (object$inclusive[1])
+    is_valid <- ifelse(values >= object$range[[1]], is_valid, FALSE)
+  else
+    is_valid <- ifelse(values > object$range[[1]], is_valid, FALSE)
+  if (object$inclusive[2])
+    is_valid <- ifelse(values <= object$range[[2]], is_valid, FALSE)
+  else
+    is_valid <- ifelse(values < object$range[[2]], is_valid, FALSE)    
+  
+  
+  if (!is.null(object$trans)) {
+    orig_scale <- value_inverse(object, values)
+    is_valid[is.na(orig_scale)] <- FALSE
+  }
+  
+  is_valid[is.na(values)] <- FALSE
+  is_valid
+}
+
+value_validate_qual <- function(object, values) {
+  check_for_unknowns(object$range, "value_validate")
+  check_for_unknowns(values, "value_validate")
+  
+  res <- values %in% object$values
+  res[is.na(res)] <- FALSE
+  res
+}
+
 
 #' @export
 #' @rdname value_validate
