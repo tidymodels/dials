@@ -16,12 +16,20 @@ test_that('no transforms', {
 })
 
 
-
 test_that('transforms', {
   expect_equal(
     range_get(regularization, FALSE), list(lower = -10, upper = 0)
   )  
   expect_equal(
     range_get(regularization), list(lower = 10^-10, upper = 10^0)
+  )  
+})
+
+test_that('setting ranges', {
+  expect_equal(
+    range_set(mtry, c(5L, 10L))$range, list(lower = 5L, upper = 10L)
+  )  
+  expect_equal(
+    range_set(mtry, c(unknown(), 10L))$range, list(lower = unknown(), upper = 10L)
   )  
 })
