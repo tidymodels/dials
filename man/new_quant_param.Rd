@@ -6,10 +6,10 @@
 \title{Tools for Creating New Parameter Objects}
 \usage{
 new_quant_param(type = c("double", "integer"), range, inclusive,
-  default = unknown(), trans = NULL, values = NULL)
+  default = unknown(), trans = NULL, values = NULL, label = NULL)
 
 new_qual_param(type = c("character", "logical"), values,
-  default = unknown())
+  default = unknown(), label = NULL)
 }
 \arguments{
 \item{type}{A single character value. For quantitative parameters, valid
@@ -32,6 +32,9 @@ parameter value. \code{unknown()} can also be used here.}
 
 \item{values}{A vector of possible values that is required when \code{type} is
 "character" or "logical" but optional otherwise.}
+
+\item{label}{An optional character string that can be used for
+printing and plotting.}
 }
 \value{
 An object of class "param" with the primary class being either
