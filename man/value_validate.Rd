@@ -24,7 +24,9 @@ value_inverse(object, values)
 \item{values}{A numeric vector or list (including \code{Inf}). Values
 \emph{cannot} include \code{unknown()}.}
 
-\item{n}{An integer for the number of values to return.}
+\item{n}{An integer for the (maximum) number of values to return. In some
+cases where a sequence is requested, the result might have less than \code{n}
+values. See Details.}
 
 \item{original}{A single logical: should the range values be in the natural
 units (\code{TRUE}) or in the transformed space (\code{FALSE}, if applicable).}
@@ -37,4 +39,17 @@ with the \code{type} field of \code{object}.
 }
 \description{
 Tools for working with parameter values
+}
+\details{
+For sequences of integers, the code uses
+\code{unique(floor(seq(min, max, length = n)))} and this may generate an uneven
+set of values shorter than \code{n}. This also means that if \code{n} is larger than
+the range of the integers, a smaller set will be generated. For qualitative
+parameters, the first \code{n} values are returned.
+
+If a single value sequence is requested, the default value is returned (if
+any). If not default is specified, the regular algorithm is used.
+
+For qualitative parameters, sampling is conducted with replacement. For
+qualitative values, a random uniform distribution is used.
 }
