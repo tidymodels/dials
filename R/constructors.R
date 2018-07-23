@@ -18,7 +18,8 @@
 #' @param values A vector of possible values that is required when `type` is
 #' "character" or "logical" but optional otherwise.  
 #' @return An object of class "param" with the primary class being either 
-#' "quant_param" or "qual_param". 
+#' "quant_param" or "qual_param". The `range` element of the object is always 
+#' converted to a list with elements "lower" and "upper". 
 #' @export
 #' @importFrom scales is.trans
 new_quant_param <- function(
