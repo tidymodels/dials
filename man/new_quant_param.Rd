@@ -38,7 +38,8 @@ printing and plotting.}
 }
 \value{
 An object of class "param" with the primary class being either
-"quant_param" or "qual_param".
+"quant_param" or "qual_param". The \code{range} element of the object is always
+converted to a list with elements "lower" and "upper".
 }
 \description{
 These functions are used to construct new parameter objects.

@@ -30,7 +30,7 @@
 \alias{hidden_units}
 \alias{Laplace}
 \title{Parameter Objects}
-\format{An object of class \code{quant_param} (inherits from \code{param}) of length 7.}
+\format{An object of class \code{quant_param} (inherits from \code{param}) of length 6.}
 \usage{
 mtry
 

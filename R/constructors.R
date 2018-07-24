@@ -49,14 +49,26 @@ new_quant_param <- function(
   
   check_label(label)
   
-  # check values if given
-  
   names(range) <- names(inclusive) <- c("lower", "upper")
   res <- list(type = type, range = range, inclusive = inclusive, 
-              trans = trans, values = values, default = default,
+              trans = trans, default = default,
               label = label)
   class(res) <- c("quant_param", "param")
   range_validate(res, range)
+  
+  if (!is.null(values)) {
+    ok_vals <- value_validate(res, values)
+    if(all(ok_vals))
+      res$values <- values
+    else 
+      stop("Some values are not valid: ",
+           glue_collapse(
+             values[!ok_vals],
+             sep = ", ",
+             last = " and ",
+             width = min(options()$width - 30, 10)
+           ))
+  }
   
   res
 }
@@ -80,9 +92,10 @@ new_qual_param <- function(type = c("character", "logical"), values,
   
   check_label(label)
   
-  res <- list(type = type, values = values, default = default,
-              label = label)
+  res <- list(type = type, default = default,
+              label = label, values = values)
   class(res) <- c("qual_param", "param") 
+
   res
 }
 

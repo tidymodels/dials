@@ -40,6 +40,9 @@ test_that('bad args', {
   expect_error(
     new_quant_param("double", range = 1:2, inclusive = c(TRUE, TRUE), trans = log)
   )
+  expect_error(
+    new_quant_param("double", range = 1:2, inclusive = c(TRUE, TRUE), values = 1:4)
+  )
 })
 
 
