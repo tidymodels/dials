@@ -289,3 +289,16 @@ hidden_units <-
     trans = NULL,
     label = "# Hidden Units"
   )
+
+
+#' @export
+#' @rdname parameters
+Laplace <-
+  new_quant_param(
+    type = "double",
+    range = c(0, 3),
+    inclusive = c(TRUE, TRUE),
+    trans = NULL,
+    default = 0,
+    label = "Laplace Correction"
+  )

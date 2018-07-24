@@ -3,6 +3,7 @@
 S3method(print,qual_param)
 S3method(print,quant_param)
 export(Cp)
+export(Laplace)
 export(activation)
 export(cost)
 export(degree)
