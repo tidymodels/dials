@@ -54,6 +54,8 @@ range_get <- function(object, original = TRUE) {
 #' @export
 #' @rdname range_validate
 range_set <- function(object, range) {
+  if (length(range) != 2)
+    stop("`range` should have two elements.")
   if (inherits(object, "quant_param")) {
     object <- 
       new_quant_param(
