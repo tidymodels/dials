@@ -17,4 +17,5 @@ Imports:
     glue,
     purrr
 Suggests: 
-    testthat
+    testthat,
+    dplyr
