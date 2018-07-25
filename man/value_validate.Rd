@@ -6,6 +6,7 @@
 \alias{value_sample}
 \alias{value_transform}
 \alias{value_inverse}
+\alias{value_set}
 \title{Tools for working with parameter values}
 \usage{
 value_validate(object, values)
@@ -17,6 +18,8 @@ value_sample(object, n, original = TRUE)
 value_transform(object, values)
 
 value_inverse(object, values)
+
+value_set(object, values)
 }
 \arguments{
 \item{object}{An object with class \code{quant_param}.}
@@ -53,4 +56,30 @@ any). If not default is specified, the regular algorithm is used.
 
 For qualitative parameters, sampling is conducted with replacement. For
 qualitative values, a random uniform distribution is used.
+}
+\examples{
+library(dplyr)
+
+weight_decay \%>\% value_set(-4:-1))
+
+# Is a specific value valid?
+weight_decay
+weight_decay \%>\% range_get()
+value_validate(weight_decay, 17)
+
+# get a sequence of values
+Cp
+Cp \%>\% value_seq(4)
+Cp \%>\% value_seq(4, original = FALSE)
+
+on_log_scale <- Cp \%>\% value_seq(4, original = FALSE)
+nat_units <- value_inverse(Cp, on_log_scale)
+nat_units
+value_transform(Cp, nat_units)
+
+# random values in the range
+set.seed(3666)
+Cp \%>\% value_sample(2)
+
+
 }

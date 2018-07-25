@@ -25,7 +25,31 @@
 #'  
 #'  For qualitative parameters, sampling is conducted with replacement. For
 #'  qualitative values, a random uniform distribution is used. 
-
+#' @examples 
+#' library(dplyr)
+#' 
+#' weight_decay %>% value_set(-4:-1))
+#' 
+#' # Is a specific value valid?
+#' weight_decay
+#' weight_decay %>% range_get()
+#' value_validate(weight_decay, 17)
+#' 
+#' # get a sequence of values
+#' Cp
+#' Cp %>% value_seq(4)
+#' Cp %>% value_seq(4, original = FALSE)
+#' 
+#' on_log_scale <- Cp %>% value_seq(4, original = FALSE)
+#' nat_units <- value_inverse(Cp, on_log_scale)
+#' nat_units
+#' value_transform(Cp, nat_units)
+#' 
+#' # random values in the range
+#' set.seed(3666)
+#' Cp %>% value_sample(2)
+#' 
+#' 
 #' @export
 value_validate <- function(object, values) {
   res <- switch(
@@ -104,8 +128,6 @@ value_seq_dbl <- function(object, n, original = TRUE) {
     res <- value_inverse(object, res)
   res
 }
-
-#TODO what about ranges in transformed units?
 
 value_seq_int <- function(object, n, original = TRUE) {
   if (n == 1 && (!is.null(object$default) & !is_unknown(object$default)))
@@ -224,3 +246,36 @@ inv_wrap <- function(x, object) {
   else
     unknown()
 }
+
+
+#' @export
+#' @rdname value_validate
+value_set <- function(object, values) {
+  check_for_unknowns(values, "value_set")
+  if (length(values) == 0)
+    stop("`values` should at least one element.")
+  if (!inherits(object, "param"))
+    stop("`object` should be a 'param' object", call. = FALSE)
+  
+  if (inherits(object, "quant_param")) {
+    object <- 
+      new_quant_param(
+        type = object$type, 
+        range = object$range, 
+        inclusive = object$inclusive, 
+        default = object$default,
+        trans = object$trans, 
+        values = values
+      )
+  } else {
+    object <- 
+      new_qual_param(
+        type = object$type, 
+        default = object$default,
+        values = values
+      )
+  }
+  object
+}
+
+
