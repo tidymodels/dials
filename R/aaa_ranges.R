@@ -14,27 +14,28 @@ range_validate <- function(object, range, ukn_ok = TRUE) {
     "`Inf` and `unknown()` are acceptable values."
   else
     ""
-  
   if (length(range) != 2)
     stop(
       "`range` must have an upper and lower bound. ", ukn_txt, call. = FALSE
     )
-  
-  if (any(map_lgl(range, function(x) !is_unknown(x) && is.na(x))))
-    stop("Value ranges must be non-missing.", ukn_txt, call. = FALSE)
-  if (any(map_lgl(range, function(x) !is_unknown(x) && !is.numeric(x))))
-    stop("Value ranges must be numeric.", ukn_txt, call. = FALSE)
-  
-  is_unk <- map_lgl(range, is_unknown)
+
+  is_unk <- is_unknown(range)
+  is_na <- is.na(range)
+  is_num <- map_lgl(range, is.numeric)
 
   if (!ukn_ok) {
     if (any(is_unk))
       stop("Cannot validate ranges when they contains 1+ unknown values.",
            call. = FALSE)
-    if (!any(map_lgl(range, is.numeric)))
+    if (!any(is_num))
       stop("`range` should be numeric.", call. = FALSE)
     
     # TODO check with transform
+  } else {
+    if (any(is_na[!is_unk]))
+      stop("Value ranges must be non-missing.", ukn_txt, call. = FALSE)
+    if (any(!is_num[!is_unk]))
+      stop("Value ranges must be numeric.", ukn_txt, call. = FALSE)
   }
   range
 }

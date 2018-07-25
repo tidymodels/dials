@@ -3,8 +3,9 @@
 #' This creates a simple expression used to signify that the value will be 
 #' specified at a later time.
 #' 
-#' @param x An object. 
-#' @return An expression value for `unknown()` and a logical for `is_unknown()`.
+#' @param x An object or vector or objects.  
+#' @return `unknown` returns expression value for `unknown()` and logicals for 
+#'  `is_unknown()` and `has_unknowns()`.
 #'  
 #'@export
 unknown <- function()
@@ -12,8 +13,34 @@ unknown <- function()
 
 #'@export
 #'@rdname unknown
-is_unknown <- function(x) 
+#'@importFrom purrr map_lgl
+is_unknown <- function(x) {
+  # in case `x` is not a vector (language)
+  if(length(x) == 1)
+    return(is_unknown_val(x))
+  map_lgl(x, is_unknown_val)
+}
+
+is_unknown_val <- function(x) 
   isTRUE(all.equal(x, quote(unknown())))
+
+#'@export
+#'@rdname unknown
+#'@param object An object of class `param`
+has_unknowns <- function(object) {
+  if(inherits(object, "param"))
+    return(has_unknowns_val(object))
+  map_lgl(object, has_unknowns_val)
+}
+
+has_unknowns_val <- function(object) {
+  if (any(names(object) == "range"))
+    rng_check <- any(is_unknown(object$range))
+  else
+    rng_check <- TRUE
+  val_check <- any(is_unknown(object$values))
+  rng_check | val_check
+}
 
 #' @importFrom purrr map_lgl
 check_for_unknowns <- function(x, label = "") {
@@ -25,3 +52,4 @@ check_for_unknowns <- function(x, label = "") {
     stop(err_txt, call. = FALSE)
   invisible(TRUE)
 }
+

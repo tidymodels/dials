@@ -3,17 +3,23 @@
 \name{unknown}
 \alias{unknown}
 \alias{is_unknown}
+\alias{has_unknowns}
 \title{Placeholder for Unknown Parameter Values}
 \usage{
 unknown()
 
 is_unknown(x)
+
+has_unknowns(object)
 }
 \arguments{
-\item{x}{An object.}
+\item{x}{An object or vector or objects.}
+
+\item{object}{An object of class \code{param}}
 }
 \value{
-An expression value for \code{unknown()} and a logical for \code{is_unknown()}.
+\code{unknown} returns expression value for \code{unknown()} and logicals for
+\code{is_unknown()} and \code{has_unknowns()}.
 }
 \description{
 This creates a simple expression used to signify that the value will be
