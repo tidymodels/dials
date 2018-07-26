@@ -77,7 +77,24 @@ test_param_4 <-
     trans = sqrt_trans(),
     default = sqrt(.6)
   )
-
+value_seq <-
+  new_quant_param(
+    type = "double",
+    range = 0:1,
+    inclusive = c(TRUE, TRUE),
+    trans = NULL,
+    values = (0:5)/5,
+    default = .6
+  )
+int_seq <-
+  new_quant_param(
+    type = "integer",
+    range = c(0, 100),
+    inclusive = c(TRUE, TRUE),
+    trans = NULL,
+    values = 1:10,
+    default = 60
+  )
 
 test_that('sequences - doubles', {
   expect_equal(
@@ -100,6 +117,12 @@ test_that('sequences - doubles', {
   )
   expect_equal(
     value_seq(test_param_4, 1, FALSE), sqrt(.6)
+  )  
+  expect_equal(
+    value_seq(value_seq, 2, FALSE), (0:1)/5
+  )     
+  expect_equal(
+    value_seq(value_seq, 1, FALSE), .6
   )    
 })
 
@@ -135,6 +158,12 @@ test_that('sequences - integers', {
   expect_equal(
     value_seq(tree_depth, 14, FALSE), 2L:15L
   )    
+  expect_equal(
+    value_seq(int_seq, 2, FALSE), 1:2
+  ) 
+  expect_equal(
+    value_seq(int_seq, 1, FALSE), 60
+  )   
 })
 
 
@@ -153,6 +182,12 @@ test_that('sampling - doubles', {
   L2_tran <- value_sample(regularization, 5000, FALSE)
   expect_true(min(L2_tran) > regularization$range$lower)
   expect_true(max(L2_tran) < regularization$range$upper)   
+  
+  set.seed(2489)
+  expect_equal(
+    sort(unique(value_sample(value_seq, 40))),
+    value_seq$values
+  )
 })
 
 test_that('sampling - integers', {
@@ -174,6 +209,11 @@ test_that('sampling - integers', {
   expect_true(max(p2_tran) < test_param_2$range$upper) 
   expect_true(!is.integer(p2_tran))
   
+  set.seed(2489)
+  expect_equal(
+    sort(unique(value_sample(int_seq, 50))),
+    int_seq$values
+  )
 })
 
 context("qualitative parameter values")

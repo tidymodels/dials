@@ -15,7 +15,9 @@ Depends:
     scales
 Imports:
     glue,
-    purrr
+    purrr,
+    rlang,
+    tibble
 Suggests: 
     testthat,
     dplyr

@@ -54,13 +54,18 @@ parameters, the first \code{n} values are returned.
 If a single value sequence is requested, the default value is returned (if
 any). If not default is specified, the regular algorithm is used.
 
+For quantitative parameters, any values contained in the object
+are sampled with replacement. Otherwise, a sequence of values
+between the range values is returned. It is possible that less
+than \code{n} values are returned.
+
 For qualitative parameters, sampling is conducted with replacement. For
 qualitative values, a random uniform distribution is used.
 }
 \examples{
 library(dplyr)
 
-weight_decay \%>\% value_set(-4:-1))
+weight_decay \%>\% value_set(-4:-1)
 
 # Is a specific value valid?
 weight_decay

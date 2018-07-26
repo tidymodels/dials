@@ -23,12 +23,17 @@
 #'  If a single value sequence is requested, the default value is returned (if
 #'  any). If not default is specified, the regular algorithm is used. 
 #'  
+#'  For quantitative parameters, any values contained in the object
+#'  are sampled with replacement. Otherwise, a sequence of values 
+#'  between the range values is returned. It is possible that less
+#'  than `n` values are returned. 
+#'  
 #'  For qualitative parameters, sampling is conducted with replacement. For
 #'  qualitative values, a random uniform distribution is used. 
 #' @examples 
 #' library(dplyr)
 #' 
-#' weight_decay %>% value_set(-4:-1))
+#' weight_decay %>% value_set(-4:-1)
 #' 
 #' # Is a specific value valid?
 #' weight_decay
@@ -118,12 +123,17 @@ value_seq <- function(object, n, original = TRUE) {
 value_seq_dbl <- function(object, n, original = TRUE) {
   if (n == 1 && (!is.null(object$default) & !is_unknown(object$default)))
     res <- object$default
-  else 
-    res <- seq(
-      from = min(unlist(object$range)), 
-      to = max(unlist(object$range)),
-      length = n
-    )
+  else {
+    if (!is.null(object$values)) {
+      res <- object$values[1:min(length(object$values), n)]
+    } else {
+      res <- seq(
+        from = min(unlist(object$range)),
+        to = max(unlist(object$range)),
+        length = n
+      )
+    }
+  }
   if (original)
     res <- value_inverse(object, res)
   res
@@ -132,12 +142,17 @@ value_seq_dbl <- function(object, n, original = TRUE) {
 value_seq_int <- function(object, n, original = TRUE) {
   if (n == 1 && (!is.null(object$default) & !is_unknown(object$default)))
     res <- object$default
-  else 
-    res <- seq(
-      from = min(unlist(object$range)), 
-      to = max(unlist(object$range)),
-      length = n
-    )
+  else {
+    if (!is.null(object$values)) {
+      res <- object$values[1:min(length(object$values), n)]
+    } else {
+      res <- seq(
+        from = min(unlist(object$range)), 
+        to = max(unlist(object$range)),
+        length = n
+      )
+    }
+  }
   if (original) {
     res <- value_inverse(object, res)
     res <- unique(floor(res))
@@ -172,11 +187,19 @@ value_sample <- function(object, n, original = TRUE) {
 }
 
 value_samp_dbl <- function(object, n, original = TRUE) {
-  res <- runif(
-    n,
-    min = min(unlist(object$range)), 
-    max = max(unlist(object$range))
-  )
+  if (is.null(object$values)) {
+    res <- runif(
+      n,
+      min = min(unlist(object$range)), 
+      max = max(unlist(object$range))
+    )
+  } else {
+    res <- sample(
+      object$values,
+      size = n,
+      replace = TRUE
+    )
+  }
   if (original)
     res <- value_inverse(object, res)
   res
@@ -184,18 +207,34 @@ value_samp_dbl <- function(object, n, original = TRUE) {
 
 value_samp_int <- function(object, n, original = TRUE) {
   if (is.null(object$trans)) {
-    res <- sample(
-      min(unlist(object$range)):max(unlist(object$range)),
-      size = n,
-      replace = TRUE
-    )
+    if (is.null(object$values)) {
+      res <- sample(
+        min(unlist(object$range)):max(unlist(object$range)),
+        size = n,
+        replace = TRUE
+      )
+    } else {
+      res <- sample(
+        object$values,
+        size = n,
+        replace = TRUE
+      )
+    }
   } else {
-    res <- runif(
-      n,
-      min = min(unlist(object$range)), 
-      max = max(unlist(object$range))
-    )
-    if(original) {
+    if (is.null(object$values)) {
+      res <- runif(
+        n,
+        min = min(unlist(object$range)), 
+        max = max(unlist(object$range))
+      )
+    } else {
+      res <- sample(
+        object$values,
+        size = n,
+        replace = TRUE
+      )
+    }
+    if (original) {
       res <- value_inverse(object, res)
       res <- floor(res)
       res <- as.integer(res)
