@@ -2,7 +2,7 @@
 
 This package contains tools to create and manage values of tuning parameters and is designed to integrate well with the [`parsnip`](https://github.com/topepo/parsnip) package. 
 
-The name is temporary and is meant to reflect the idea that tuning predictive models is often like turning a set of dials on a complex machine. 
+The name reflects the idea that tuning predictive models can be like turning a set of dials on a complex machine under duress. 
 
 ![dials and dials!](http://tos.trekcore.com/hd/albums/1x04hd/thenakedtimehd1013.jpg)
 
