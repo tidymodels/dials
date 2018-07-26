@@ -1,0 +1,12 @@
+template:
+  params:
+    bootswatch: united
+
+navbar:
+  left:
+  - text: Basic Usage 
+    href: articles/Basics.html   
+  - text: Reference
+    href: reference/index.html
+  - text: News
+    href: news/index.html

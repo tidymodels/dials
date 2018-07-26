@@ -20,7 +20,7 @@ library(dials)
 library(rpart)
 ```
 
-# Tuning Parameters 
+## Tuning Parameters 
 
 Some statistical and machine learning models contain _tuning parameters_ (also known as _hyperparameters_), which are parameters that cannot be directly estimated by the model. An example would be the number of neighbors in a _K_-nearest neighbors model. To determine reasonable values of these elements, some indirect method is used such as resampling or profile likelihood. Search methods, such as genetic algorithms or Bayesian search can also be used to [determine good values](https://github.com/topepo/Optimization-Methods-for-Tuning-Predictive-Models). 
 
@@ -34,9 +34,7 @@ In any case, some information is needed to create a grid or to validate whether 
 The main type of objects in `dials` have class `param`.
 
 
-change `units` to `hidden_units` and `weight_decay` to `regularization`
-
-# `param` Objects
+## `param` Objects
 
 `param` objects contain information about possible values, ranges, types, and other aspects. There are two main subclasses related to the type of variable. Double and integer valued data have the subclass "quant_param" while character and logicals have "qual_param." There are some common elements for each:
 
@@ -46,7 +44,7 @@ change `units` to `hidden_units` and `weight_decay` to `regularization`
 Otherwise, the information contained in `param` objects are different for different data types. 
 
 
-# Numeric Parameters
+### Numeric Parameters
 
 An example of a numeric tuning parameter is the cost-complexity parameter of CART trees, other wise known as $C_p$. The parameter object in `dials` is:
 
@@ -109,7 +107,7 @@ mtcars_cp %>%
 ```
 
 
-# Discrete Parameters
+### Discrete Parameters
 
 In this case there is no notion or a range scale. The parameter objects are defined by their values. For example, consider a parameter for the types of kernel functions that is used with distance functions:
 
@@ -127,11 +125,11 @@ weight_func %>% value_sample(3)
 weight_func %>% value_seq(3)
 ```
 
-# Creating Novel Parameters
+## Creating Novel Parameters
 
 The package contains two constructors that can be used to create new quantitative and qualitative parameters. [This file](https://github.com/topepo/dials/blob/master/R/parameters.R) contains the code to create the parameters contained in the package. 
 
-# Unknown Values
+## Unknown Values
 
 There are some cases where the range of parameter values are data dependent. For example, the upper bound on the number of neighbors cannot be known if the number of data points in the training set is not known. For that reason, some parameters have _unknown_ placeholder:
 
@@ -147,7 +145,7 @@ num_comp
 
 These values must be initialized prior to generating parameter values. 
 
-# Parameter Grids
+## Parameter Grids
 
 Sets or combinations or parameters can be created for use in grid search. `regular_grid` and `random_grid` take any number of `param` objects. 
 

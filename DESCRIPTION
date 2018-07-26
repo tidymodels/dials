@@ -11,6 +11,7 @@ LazyData: true
 ByteCompile: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.0.1
+VignetteBuilder: knitr
 Depends:
     scales
 Imports:
@@ -20,4 +21,7 @@ Imports:
     tibble
 Suggests: 
     testthat,
-    dplyr
+    dplyr,
+    knitr,
+    rpart,
+    tidymodels

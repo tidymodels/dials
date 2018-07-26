@@ -1,3 +1,6 @@
 ^revdep$
 ^dials\.Rproj$
 ^\.Rproj\.user$
+^_pkgdown\.yml$
+^pkgdown$
+^docs$
