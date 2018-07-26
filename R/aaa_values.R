@@ -304,14 +304,14 @@ value_set <- function(object, values) {
         inclusive = object$inclusive, 
         default = object$default,
         trans = object$trans, 
-        values = values
+        values = unname(values)
       )
   } else {
     object <- 
       new_qual_param(
         type = object$type, 
         default = object$default,
-        values = values
+        values = unname(values)
       )
   }
   object
