@@ -98,7 +98,7 @@ mtcars_cp <- Cp %>% value_set(log10(cp_vals))
 mtcars_cp
 ```
 
-Now, if we want a sequence or random sample, it uses the set values:
+Now, if sequence or random sample is requested, it uses the set values:
 
 ```{r rpart-cp-vals}
 mtcars_cp %>% value_seq(2)
@@ -111,12 +111,64 @@ mtcars_cp %>%
 
 # Discrete Parameters
 
+In this case there is no notion or a range scale. The parameter objects are defined by their values. For example, consider a parameter for the types of kernel functions that is used with distance functions:
 
+```{r wts}
+weight_func
+```
+
+The helper functions are analogues to the quantitative parameters:
+
+```{r wts-ex}
+# redefine values
+weight_func %>% value_set(c("rectangular", "triangular"))
+weight_func %>% value_sample(3)
+# the sequence is returned in the order of the levels
+weight_func %>% value_seq(3)
+```
+
+# Creating Novel Parameters
+
+The package contains two constructors that can be used to create new quantitative and qualitative parameters. [This file](https://github.com/topepo/dials/blob/master/R/parameters.R) contains the code to create the parameters contained in the package. 
 
 # Unknown Values
 
+There are some cases where the range of parameter values are data dependent. For example, the upper bound on the number of neighbors cannot be known if the number of data points in the training set is not known. For that reason, some parameters have _unknown_ placeholder:
+
+```{r unk}
+mtry
+neighbors
+min_n
+sample_size
+num_terms
+num_comp
+# and so on
+```
+
+These values must be initialized prior to generating parameter values. 
 
 # Parameter Grids
 
+Sets or combinations or parameters can be created for use in grid search. `regular_grid` and `random_grid` take any number of `param` objects. 
 
+For example, for a glmnet model, a regular grid might be:
+
+```{r glm-reg}
+regular_grid(
+  mixture,
+  regularization,
+  levels = 3 # or c(3, 4), etc
+)
+```
+
+and, similarly, a random grid is created using
+
+```{r glm-rnd}
+set.seed(1041)
+random_grid(
+  mixture,
+  regularization,
+  size = 6 
+)
+```
 
