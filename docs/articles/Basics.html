@@ -93,13 +93,13 @@
 <div id="numeric-parameters" class="section level3">
 <h3 class="hasAnchor">
 <a href="#numeric-parameters" class="anchor"></a>Numeric Parameters</h3>
-<p>An example of a numeric tuning parameter is the cost-complexity parameter of CART trees, other wise known as <span class="math inline">\(C_p\)</span>. The parameter object in <code>dials</code> is:</p>
+<p>An example of a numeric tuning parameter is the cost-complexity parameter of CART trees, otherwise known as <span class="math inline">\(C_p\)</span>. The parameter object in <code>dials</code> is:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(dials)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">Cp</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">#&gt; Cost-Complexity Parameter  (quantitative)</span></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#&gt; Transformer:  log-10 </span></a>
 <a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co">#&gt; Range (transformed scale): [-10, -1]</span></a></code></pre></div>
-<p>Note that this parameter is handled in log units and the default range of values is between `10^-10$ and 0.1. The range of possible values can be returned and changed based on some utility functions. We’ll use the pipe operator here:</p>
+<p>Note that this parameter is handled in log units and the default range of values is between <code>10^-10</code> and 0.1. The range of possible values can be returned and changed based on some utility functions. We’ll use the pipe operator here:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(tidymodels)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="co">#&gt; Warning: 'DESCRIPTION' file has an 'Encoding' field and re-encoding is not</span></a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="co">#&gt; possible</span></a>

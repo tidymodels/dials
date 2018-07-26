@@ -46,14 +46,14 @@ Otherwise, the information contained in `param` objects are different for differ
 
 ### Numeric Parameters
 
-An example of a numeric tuning parameter is the cost-complexity parameter of CART trees, other wise known as $C_p$. The parameter object in `dials` is:
+An example of a numeric tuning parameter is the cost-complexity parameter of CART trees, otherwise known as $C_p$. The parameter object in `dials` is:
 
 ```{r cp}
 library(dials)
 Cp
 ```
 
-Note that this parameter is handled in log units and the default range of values is between `10^-10$ and 0.1. The range of possible values can be returned and changed based on some utility functions. We'll use the pipe operator here:
+Note that this parameter is handled in log units and the default range of values is between `10^-10` and 0.1. The range of possible values can be returned and changed based on some utility functions. We'll use the pipe operator here:
 
 ```{r cp-range}
 library(tidymodels)
