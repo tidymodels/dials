@@ -55,7 +55,7 @@ regular_grid <- function(..., levels = 3, original = TRUE) {
   
   names(param_seq) <- param_names
   param_set <- expand.grid(param_seq, stringsAsFactors = FALSE)
-  new_grid(param_set, labels = param_labs, cls = "regular_grid")
+  new_grid(param_set, labels = param_labs, cls = c("regular_grid", "param_grid"))
 }
 
 #' @export
@@ -79,7 +79,7 @@ random_grid <- function(..., size = 5, original = TRUE) {
   # for now assume equal levels
   param_set <- map_dfc(params, value_sample, n = size, original = original)
   names(param_set) <- param_names
-  new_grid(param_set, labels = param_labs, cls = "random_grid")
+  new_grid(param_set, labels = param_labs, cls = c("random_grid", "param_grid"))
 }
 
 #' @importFrom tibble as_tibble
