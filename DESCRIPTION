@@ -20,10 +20,10 @@ Imports:
     glue,
     purrr,
     rlang,
-    tibble
+    tibble,
+    dplyr
 Suggests: 
     testthat,
-    dplyr,
     knitr,
     rpart,
     tidymodels
