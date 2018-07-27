@@ -64,7 +64,8 @@ range_set <- function(object, range) {
         inclusive = object$inclusive, 
         default = object$default,
         trans = object$trans, 
-        values = object$values
+        values = object$values,
+        label = object$label
       )
   } else {
     stop("`object` should be a 'quant_param' object", call. = FALSE)
