@@ -37,9 +37,9 @@ has_unknowns_val <- function(object) {
   if (any(names(object) == "range"))
     rng_check <- any(is_unknown(object$range))
   else
-    rng_check <- TRUE
+    rng_check <- FALSE
   val_check <- any(is_unknown(object$values))
-  rng_check | val_check
+  any(rng_check) | any(val_check)
 }
 
 #' @importFrom purrr map_lgl
