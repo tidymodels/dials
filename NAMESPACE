@@ -2,6 +2,7 @@
 
 S3method("[",param_grid)
 S3method(merge,model_spec)
+S3method(merge,param_grid)
 S3method(print,qual_param)
 S3method(print,quant_param)
 export(Cp)
