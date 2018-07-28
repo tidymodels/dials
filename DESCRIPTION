@@ -26,5 +26,4 @@ Imports:
 Suggests: 
     testthat,
     knitr,
-    rpart,
-    tidymodels
+    rpart
