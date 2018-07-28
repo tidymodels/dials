@@ -70,6 +70,9 @@
   <a href="../articles/Basics.html">Basic Usage</a>
 </li>
 <li>
+  <a href="../articles/articles/Dials_and_Parsnip.html">Working with parsnip</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -167,18 +170,18 @@ qualitative values, a random uniform distribution is used.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>library</span>(<span class='no'>dplyr</span>)
 
-<span class='no'>weight_decay</span> <span class='kw'>%&gt;%</span> <span class='fu'>value_set</span>(-<span class='fl'>4</span>:-<span class='fl'>1</span>)</div><div class='output co'>#&gt; Quantitative Parameter
+<span class='no'>regularization</span> <span class='kw'>%&gt;%</span> <span class='fu'>value_set</span>(-<span class='fl'>4</span>:-<span class='fl'>1</span>)</div><div class='output co'>#&gt; Amount of Regularization  (quantitative)
 #&gt; Transformer:  log-10 
 #&gt; Range (transformed scale): [-10, 0]</div><div class='input'>
 <span class='co'># Is a specific value valid?</span>
-<span class='no'>weight_decay</span></div><div class='output co'>#&gt; L2 Regularization  (quantitative)
+<span class='no'>regularization</span></div><div class='output co'>#&gt; Amount of Regularization  (quantitative)
 #&gt; Transformer:  log-10 
-#&gt; Range (transformed scale): [-10, 0]</div><div class='input'><span class='no'>weight_decay</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='range_validate.html'>range_get</a></span>()</div><div class='output co'>#&gt; $lower
+#&gt; Range (transformed scale): [-10, 0]</div><div class='input'><span class='no'>regularization</span> <span class='kw'>%&gt;%</span> <span class='fu'><a href='range_validate.html'>range_get</a></span>()</div><div class='output co'>#&gt; $lower
 #&gt; [1] 1e-10
 #&gt; 
 #&gt; $upper
 #&gt; [1] 1
-#&gt; </div><div class='input'><span class='fu'>value_validate</span>(<span class='no'>weight_decay</span>, <span class='fl'>17</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
+#&gt; </div><div class='input'><span class='fu'>value_validate</span>(<span class='no'>regularization</span>, <span class='fl'>17</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
 <span class='co'># get a sequence of values</span>
 <span class='no'>Cp</span></div><div class='output co'>#&gt; Cost-Complexity Parameter  (quantitative)
 #&gt; Transformer:  log-10 

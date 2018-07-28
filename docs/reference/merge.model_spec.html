@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Placeholder for Unknown Parameter Values — unknown • dials</title>
+<title>Merge parameter grid values into a parsnip object — merge.model_spec • dials</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,10 +30,11 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="Placeholder for Unknown Parameter Values — unknown" />
+<meta property="og:title" content="Merge parameter grid values into a parsnip object — merge.model_spec" />
 
-<meta property="og:description" content="This creates a simple expression used to signify that the value will be
-specified at a later time." />
+<meta property="og:description" content="parsnip contains model objects that have consistent names with
+dials. merge can be used to easily update any of the main parameters
+in a parsnip model." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -95,41 +96,42 @@ specified at a later time." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Placeholder for Unknown Parameter Values</h1>
+    <h1>Merge parameter grid values into a parsnip object</h1>
     
-    <div class="hidden name"><code>unknown.Rd</code></div>
+    <div class="hidden name"><code>merge.model_spec.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>This creates a simple expression used to signify that the value will be
-specified at a later time.</p>
+    <p><span class="pkg">parsnip</span> contains model objects that have consistent names with
+<span class="pkg">dials</span>. <code>merge</code> can be used to easily update any of the main parameters
+in a <span class="pkg">parsnip</span> model.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>unknown</span>()
-
-<span class='fu'>is_unknown</span>(<span class='no'>x</span>)
-
-<span class='fu'>has_unknowns</span>(<span class='no'>object</span>)</pre>
+    <pre class="usage"><span class='co'># S3 method for model_spec</span>
+<span class='fu'>merge</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>An object or vector or objects.</p></td>
+      <td><p>A <span class="pkg">parsnip</span> model object (that has class <code>model_spec</code>).</p></td>
     </tr>
     <tr>
-      <th>object</th>
-      <td><p>An object of class <code>param</code></p></td>
+      <th>y</th>
+      <td><p>A parameter grid resulting from <code>regular_grid</code> or <code>random_grid</code>.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Not currently used.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>unknown</code> returns expression value for <code>unknown()</code> and logicals for
-<code>is_unknown()</code> and <code>has_unknowns()</code>.</p>
+    <p>An updated model object.</p>
     
 
   </div>

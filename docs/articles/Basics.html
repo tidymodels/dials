@@ -40,6 +40,9 @@
   <a href="../articles/Basics.html">Basic Usage</a>
 </li>
 <li>
+  <a href="../articles/articles/Dials_and_Parsnip.html">Working with parsnip</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -110,7 +113,7 @@
 <a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; $upper</span></a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co">#&gt; [1] 0.1</span></a>
 <a class="sourceLine" id="cb2-10" data-line-number="10">Cp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../reference/range_validate.html">range_set</a></span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; Quantitative Parameter</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; Cost-Complexity Parameter  (quantitative)</span></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; Transformer:  log-10 </span></a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt; Range (transformed scale): [-5, 1]</span></a></code></pre></div>
 <p>Values for this parameter can be obtained in a few different ways. To get a sequence of values that span the range:</p>
@@ -140,20 +143,19 @@
 <p>The error occurs because the values are not in the transformed scale:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">mtcars_cp &lt;-<span class="st"> </span>Cp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../reference/value_validate.html">value_set</a></span>(<span class="kw">log10</span>(cp_vals))</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2">mtcars_cp</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; Quantitative Parameter</span></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; Cost-Complexity Parameter  (quantitative)</span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; Transformer:  log-10 </span></a>
 <a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; Range (transformed scale): [-10, -1]</span></a></code></pre></div>
 <p>Now, if sequence or random sample is requested, it uses the set values:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">mtcars_cp <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../reference/value_validate.html">value_seq</a></span>(<span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt;        2        3 </span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co">#&gt; 0.097484 0.000001</span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="co"># Sampling specific values is done with replacement</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">mtcars_cp <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="st">  </span><span class="kw"><a href="../reference/value_validate.html">value_sample</a></span>(<span class="dv">20</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="st">  </span><span class="kw">table</span>()</a>
-<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt; .</span></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt;              1e-06 0.0974840733898344 </span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="co">#&gt;                  8                 12</span></a></code></pre></div>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="co">#&gt; [1] 0.097484 0.000001</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="co"># Sampling specific values is done with replacement</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">mtcars_cp <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="st">  </span><span class="kw"><a href="../reference/value_validate.html">value_sample</a></span>(<span class="dv">20</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="st">  </span><span class="kw">table</span>()</a>
+<a class="sourceLine" id="cb7-7" data-line-number="7"><span class="co">#&gt; .</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8"><span class="co">#&gt;              1e-06 0.0974840733898344 </span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9"><span class="co">#&gt;                  8                 12</span></a></code></pre></div>
 </div>
 <div id="discrete-parameters" class="section level3">
 <h3 class="hasAnchor">
@@ -166,7 +168,7 @@
 <p>The helper functions are analogues to the quantitative parameters:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># redefine values</span></a>
 <a class="sourceLine" id="cb9-2" data-line-number="2">weight_func <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../reference/value_validate.html">value_set</a></span>(<span class="kw">c</span>(<span class="st">"rectangular"</span>, <span class="st">"triangular"</span>))</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co">#&gt; Qualitative Parameter</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co">#&gt; Distance Weighting Function  (qualitative)</span></a>
 <a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co">#&gt; 2 possible value include:</span></a>
 <a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co">#&gt; 'rectangular' and 'triangular'</span></a>
 <a class="sourceLine" id="cb9-6" data-line-number="6">weight_func <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../reference/value_validate.html">value_sample</a></span>(<span class="dv">3</span>)</a>

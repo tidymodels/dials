@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Parameter objects related to parametric models. — weight_decay • dials</title>
+<title>Parameter objects related to parametric models. — dropout • dials</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -30,7 +30,7 @@
 
   <link href="../extra.css" rel="stylesheet">
   
-<meta property="og:title" content="Parameter objects related to parametric models. — weight_decay" />
+<meta property="og:title" content="Parameter objects related to parametric models. — dropout" />
 
 <meta property="og:description" content="These are objects that can be used for modeling, especially in conjunction
 with the parsnip package." />
@@ -71,6 +71,9 @@ with the parsnip package." />
   <a href="../articles/Basics.html">Basic Usage</a>
 </li>
 <li>
+  <a href="../articles/articles/Dials_and_Parsnip.html">Working with parsnip</a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
@@ -104,9 +107,7 @@ with the <span class="pkg">parsnip</span> package.</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>weight_decay</span>
-
-<span class='no'>dropout</span>
+    <pre class="usage"><span class='no'>dropout</span>
 
 <span class='no'>epochs</span>
 
@@ -149,7 +150,6 @@ based on some type of slope/intercept model.</p><ul>
 <code><a href='http://www.rdocumentation.org/packages/parsnip/topics/linear_reg'>parsnip::linear_reg()</a></code> and <code><a href='http://www.rdocumentation.org/packages/parsnip/topics/logistic_reg'>parsnip::logistic_reg()</a></code> with glmnet models.</p></li>
 <li><p><code>mixture</code>: the proportion of L1 regularization in the model.
 (<code><a href='http://www.rdocumentation.org/packages/parsnip/topics/linear_reg'>parsnip::linear_reg()</a></code> and <code><a href='http://www.rdocumentation.org/packages/parsnip/topics/logistic_reg'>parsnip::logistic_reg()</a></code>)</p></li>
-<li><p><code>weight_decay</code>: the amount of L2 regularization. (<code>parsnip:::mlp()</code>)</p></li>
 <li><p><code>dropout</code>: the parameter dropout rate. (<code>parsnip:::mlp()</code>)</p></li>
 <li><p><code>epochs</code>: the number of iterations of training. (<code>parsnip:::mlp()</code>)</p></li>
 <li><p><code>activation</code>: the type of activation function between network layers.
