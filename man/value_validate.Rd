@@ -65,12 +65,12 @@ qualitative values, a random uniform distribution is used.
 \examples{
 library(dplyr)
 
-weight_decay \%>\% value_set(-4:-1)
+regularization \%>\% value_set(-4:-1)
 
 # Is a specific value valid?
-weight_decay
-weight_decay \%>\% range_get()
-value_validate(weight_decay, 17)
+regularization
+regularization \%>\% range_get()
+value_validate(regularization, 17)
 
 # get a sequence of values
 Cp
