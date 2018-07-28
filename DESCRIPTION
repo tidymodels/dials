@@ -21,7 +21,8 @@ Imports:
     purrr,
     rlang,
     tibble,
-    dplyr
+    dplyr,
+    utils
 Suggests: 
     testthat,
     knitr,
