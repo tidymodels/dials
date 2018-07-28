@@ -30,9 +30,8 @@ regular_grid <- function(..., levels = 3, original = TRUE) {
   param_quos <- quos(...)
   if (length(param_quos) == 0)
     stop("At least one parameter object is required.", call. = FALSE)
-  param_names <- map(param_quos, quo_get_expr)
-  param_names <- map_chr(param_names, as.character)
   params <- map(param_quos, eval_tidy)
+  param_names <- map_chr(params, function(x) x$label)
   is_param <- map_lgl(params, function(x) inherits(x, "param"))
   if (!all(is_param))
     stop("All objects must have class 'param'.", call. = FALSE)
@@ -64,9 +63,8 @@ random_grid <- function(..., size = 5, original = TRUE) {
   param_quos <- quos(...)
   if (length(param_quos) == 0)
     stop("At least one parameter object is required.", call. = FALSE)
-  param_names <- map(param_quos, quo_get_expr)
-  param_names <- map_chr(param_names, as.character)
   params <- map(param_quos, eval_tidy)
+  param_names <- map_chr(params, function(x) x$label)
   is_param <- map_lgl(params, function(x) inherits(x, "param"))
   if (!all(is_param))
     stop("All objects must have class 'param'.", call. = FALSE)
@@ -74,7 +72,6 @@ random_grid <- function(..., size = 5, original = TRUE) {
   if(any(bad_param))
     stop("At least one parameter contains unknowns.", call. = FALSE)
   param_labs <- map_chr(params, function(x) x$label)
-  names(param_labs) <- param_names
   
   # for now assume equal levels
   param_set <- map_dfc(params, value_sample, n = size, original = original)
