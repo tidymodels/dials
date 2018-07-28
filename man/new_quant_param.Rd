@@ -33,8 +33,9 @@ parameter value. \code{unknown()} can also be used here.}
 \item{values}{A vector of possible values that is required when \code{type} is
 "character" or "logical" but optional otherwise.}
 
-\item{label}{An optional character string that can be used for
-printing and plotting.}
+\item{label}{An optional named character string that can be used for
+printing and plotting. The named should reflect the object name (e.g.
+"mtry", "neighbors", etc.)}
 }
 \value{
 An object of class "param" with the primary class being either

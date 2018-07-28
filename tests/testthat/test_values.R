@@ -23,8 +23,10 @@ test_that('transforms', {
   expect_equal(
     value_transform(regularization, 1:3), log10(1:3)
   )
-  expect_equal(
-    value_transform(regularization, -1:3), c(NaN, -Inf, log10(1:3))
+  expect_warning(
+    expect_equal(
+      value_transform(regularization, -1:3), c(NaN, -Inf, log10(1:3))
+    )
   )
   expect_equal(
     value_transform(mtry, 1:3), 1:3
@@ -51,7 +53,8 @@ test_param_1 <-
     range = c(1L, 10L),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    default = 3
+    default = 3,
+    label = c(param = "param")
   )
 test_param_2 <-
   new_quant_param(
@@ -59,7 +62,8 @@ test_param_2 <-
     range = c(2.1, 5.3),
     inclusive = c(TRUE, TRUE),
     trans = sqrt_trans(),
-    default = sqrt(2)
+    default = sqrt(2),
+    label = c(param = "param")
   )
 test_param_3 <-
   new_quant_param(
@@ -67,7 +71,8 @@ test_param_3 <-
     range = 0:1,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    default = .40
+    default = .40,
+    label = c(param = "param")
   )
 test_param_4 <-
   new_quant_param(
@@ -75,7 +80,8 @@ test_param_4 <-
     range = 0:1,
     inclusive = c(TRUE, TRUE),
     trans = sqrt_trans(),
-    default = sqrt(.6)
+    default = sqrt(.6),
+    label = c(param = "param")
   )
 value_seq <-
   new_quant_param(
@@ -84,7 +90,8 @@ value_seq <-
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     values = (0:5)/5,
-    default = .6
+    default = .6,
+    label = c(param = "param")
   )
 int_seq <-
   new_quant_param(
@@ -93,7 +100,8 @@ int_seq <-
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     values = 1:10,
-    default = 60
+    default = 60,
+    label = c(param = "param")
   )
 
 test_that('sequences - doubles', {
@@ -222,12 +230,14 @@ test_param_5 <-
   new_qual_param(
     type = "character",
     values = letters[1:10],
-    default = "c"
+    default = "c",
+    label = c(param = "param")
   )
 test_param_6 <-
   new_qual_param(
     type = "logical",
-    values = TRUE
+    values = TRUE,
+    label = c(param = "param")
   )
 
 test_that('sequences - character', {

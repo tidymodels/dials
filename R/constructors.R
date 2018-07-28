@@ -17,8 +17,9 @@
 #'  [scales::log10_trans()] or [scales::reciprocal_trans()]. 
 #' @param values A vector of possible values that is required when `type` is
 #' "character" or "logical" but optional otherwise.  
-#' @param label An optional character string that can be used for
-#' printing and plotting. 
+#' @param label An optional named character string that can be used for
+#' printing and plotting. The named should reflect the object name (e.g. 
+#' "mtry", "neighbors", etc.)
 #' @return An object of class "param" with the primary class being either 
 #' "quant_param" or "qual_param". The `range` element of the object is always 
 #' converted to a list with elements "lower" and "upper". 

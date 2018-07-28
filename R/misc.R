@@ -21,9 +21,14 @@ format_bounds <- function(bnds) {
 
 check_label <- function(txt) {
   if (is.null(txt))
-    return(invisible(txt))
+    stop("`label` should be a single named character string or NULL.", 
+         call. = FALSE)
   if (!is.character(txt) || length(txt) > 1)
-    stop("`label` should be a single character string.", call. = FALSE)
+    stop("`label` should be a single named character string or NULL.", 
+         call. = FALSE)
+  if(length(names(txt)) != 1)
+    stop("`label` should be a single named character string or NULL.", 
+         call. = FALSE)
   invisible(txt)
 }
 

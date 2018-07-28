@@ -42,7 +42,7 @@ mtry <-
     range = c(1L, unknown()),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "# Randomly Selected Predictors"
+    label = c(mtry = "# Randomly Selected Predictors")
   )
 
 #' @export
@@ -53,7 +53,7 @@ mtry_long <-
     range = c(0L, unknown()),
     inclusive = c(TRUE, TRUE),
     trans = log10_trans(),
-    label = "# Randomly Selected Predictors"
+    label = c(mtry_long = "# Randomly Selected Predictors")
   )
 
 #' @rdname tree_parameters
@@ -64,7 +64,7 @@ trees <-
     range = c(1L, 2000L),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "# Trees"
+    label = c(trees = "# Trees")
   )
 
 #' @rdname tree_parameters
@@ -75,7 +75,7 @@ min_n <-
     range = c(2L, unknown()),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "Minimal Node Size"
+    label = c(min_n = "Minimal Node Size")
   )
 
 #' @rdname tree_parameters
@@ -86,7 +86,7 @@ sample_size <-
     range = c(unknown(), unknown()),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "# Observations Sampled"
+    label = c(sample_size = "# Observations Sampled")
   )
 
 #' @rdname tree_parameters
@@ -97,7 +97,7 @@ learn_rate <-
     range = c(unknown(), unknown()),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "Learning Rate"
+    label = c(learn_rate = "Learning Rate")
   )
 
 
@@ -109,7 +109,7 @@ loss_reduction <-
     range = c(unknown(), unknown()),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "Minimum Loss Reduction"
+    label = c(loss_reduction = "Minimum Loss Reduction")
   )
 
 #' @rdname tree_parameters
@@ -120,7 +120,7 @@ tree_depth <-
     range = c(2L, 15L),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "Tree Depth"
+    label = c(tree_depth = "Tree Depth")
   )
 
 #' @export
@@ -129,7 +129,7 @@ prune <-
   new_qual_param(
     type = "logical",
     values = c(TRUE, FALSE),
-    label = "Pruning"
+    label = c(prune = "Pruning")
   )
 
 #' @export
@@ -140,7 +140,7 @@ Cp <-
     range = c(-10, -1),
     inclusive = c(TRUE, TRUE),
     trans = log10_trans(),
-    label = "Cost-Complexity Parameter"
+    label = c(Cp = "Cost-Complexity Parameter")
   )
 
 ###################################################################
@@ -158,7 +158,6 @@ Cp <-
 #'   `parsnip::linear_reg()` and `parsnip::logistic_reg()` with glmnet models. 
 #' * `mixture`: the proportion of L1 regularization in the model. 
 #'   (`parsnip::linear_reg()` and `parsnip::logistic_reg()`)
-#' * `weight_decay`: the amount of L2 regularization. (`parsnip:::mlp()`)
 #' * `dropout`: the parameter dropout rate. (`parsnip:::mlp()`)
 #' * `epochs`: the number of iterations of training. (`parsnip:::mlp()`)
 #' * `activation`: the type of activation function between network layers. 
@@ -179,16 +178,6 @@ Cp <-
 #' @aliases para_parameters
 #' @rdname para_parameters
 #' @export
-weight_decay <-
-  new_quant_param(
-    type = "double",
-    range = c(-10, 0),
-    inclusive = c(TRUE, TRUE),
-    trans = log10_trans(),
-    label = "L2 Regularization"
-  )
-
-#' @rdname para_parameters
 #' @export
 dropout <-
   new_quant_param(
@@ -196,7 +185,7 @@ dropout <-
     range = c(0, 1),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "Dropout Rate"
+    label = c(dropout = "Dropout Rate")
   )
 
 #' @rdname para_parameters
@@ -207,7 +196,7 @@ epochs <-
     range = c(1L, 1000L),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "# Epochs"
+    label = c(epochs = "# Epochs")
   )
 
 #' @rdname para_parameters
@@ -216,7 +205,7 @@ activation <-
   new_qual_param(
     type = "character",
     values = c("linear", "softmax", "relu", "elu"),
-    label = "Activation Function"
+    label = c(activation = "Activation Function")
   )
 
 #' @rdname para_parameters
@@ -227,7 +216,7 @@ mixture <-
     range = 0:1,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "% lasso Penalty"
+    label = c(mixture = "% lasso Penalty")
   )
 
 #' @rdname para_parameters
@@ -238,7 +227,7 @@ regularization <-
     range = c(-10, 0),
     inclusive = c(TRUE, TRUE),
     trans = log10_trans(),
-    label = "Amount of Regularization"
+    label = c(regularization = "Amount of Regularization")
   )
 
 #' @export
@@ -249,7 +238,7 @@ rbf_sigma <-
     range = c(-10, 0),
     inclusive = c(TRUE, TRUE),
     trans = log10_trans(),
-    label = "Radial Basis Function sigma"
+    label = c(rbf_sigma = "Radial Basis Function sigma")
   )
 
 #' @export
@@ -260,7 +249,7 @@ prod_degree <-
     range = 1:2,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "Degree of Interaction"
+    label = c(prod_degree = "Degree of Interaction")
   )
 
 #' @export
@@ -271,7 +260,7 @@ num_terms <-
     range = c(1L, unknown()),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "# Model Terms"
+    label = c(num_terms = "# Model Terms")
   )
 
 #' @export
@@ -282,7 +271,7 @@ num_comp <-
     range = c(1L, unknown()),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "# Components"
+    label = c(num_comp = "# Components")
   )
 
 #' @export
@@ -293,7 +282,7 @@ cost <-
     range = c(-10, -1),
     inclusive = c(TRUE, TRUE),
     trans = log2_trans(),
-    label = "Cost"
+    label = c(cost = "Cost")
   )
 
 #' @export
@@ -304,7 +293,7 @@ degree <-
     range = c(1, 3),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "Polynomial Degree"
+    label = c(degree = "Polynomial Degree")
   )
 
 #' @export
@@ -315,7 +304,7 @@ deg_free <-
     range = c(1, 5),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "Degrees of Freedom"
+    label = c(deg_free = "Degrees of Freedom")
   )
 
 #' @export
@@ -326,7 +315,7 @@ hidden_units <-
     range = c(1L, 10),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "# Hidden Units"
+    label = c(hidden_units = "# Hidden Units")
   )
 
 ###################################################################
@@ -357,7 +346,7 @@ weight_func <-
     type = "character",
     values = c("rectangular", "triangular", "epanechnikov", "biweight", 
                "triweight", "cos", "inv", "gaussian", "rank", "optimal"),
-    label = "Distance Weighting Function"
+    label = c(weight_func = "Distance Weighting Function")
   )
 
 # in reference to survival::survreg
@@ -368,7 +357,7 @@ surv_dist <-
     type = "character",
     values = c("weibull", "exponential", "gaussian", "logistic", 
                "lognormal", "loglogistic"),
-    label = "Distribution"
+    label = c(surv_dist = "Distribution")
   )
 
 
@@ -382,7 +371,7 @@ Laplace <-
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     default = 0,
-    label = "Laplace Correction"
+    label = c(Laplace = "Laplace Correction")
   )
 
 
@@ -394,5 +383,5 @@ neighbors <-
     range = c(1L, unknown()),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = "# Nearest Neighbors"
+    label = c(neighbors = "# Nearest Neighbors")
   )
