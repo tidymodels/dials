@@ -71,7 +71,7 @@
 
     
     
-<p><a href="https://topepo.github.io/parsnip"><code>parsnip</code></a> is a package in development that provides more unified interfaces to model functions. It has functions to create a <em>model specification</em> that can be used to fit a particular model using different R packages (or by other means). these model specifications have main arguments for important tuning parameters. For example, a minimal model specification is:</p>
+<p><a href="https://tidymodels.github.io/parsnip"><code>parsnip</code></a> is a package in development that provides more unified interfaces to model functions. It has functions to create a <em>model specification</em> that can be used to fit a particular model using different R packages (or by other means). these model specifications have main arguments for important tuning parameters. For example, a minimal model specification is:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(parsnip)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="http://www.rdocumentation.org/packages/parsnip/topics/boost_tree">boost_tree</a></span>(<span class="dt">mode =</span> <span class="st">"classification"</span>)</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">#&gt; Boosted Tree Model Specification (classification)</span></a></code></pre></div>
@@ -107,23 +107,25 @@
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">library</span>(tidymodels)</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; Warning: 'DESCRIPTION' file has an 'Encoding' field and re-encoding is not</span></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; possible</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw">set.seed</span>(<span class="dv">1263</span>)</a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">bst_grid &lt;-<span class="st"> </span><span class="kw"><a href="../../reference/regular_grid.html">random_grid</a></span>(</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">  trees <span class="op">%&gt;%</span><span class="st">       </span><span class="kw"><a href="../../reference/range_validate.html">range_set</a></span>(<span class="kw">c</span>( <span class="dv">1</span>,  <span class="dv">50</span>)), </a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">  min_n <span class="op">%&gt;%</span><span class="st">       </span><span class="kw"><a href="../../reference/range_validate.html">range_set</a></span>(<span class="kw">c</span>( <span class="dv">2</span>,  <span class="dv">30</span>)), </a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">  sample_size <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../../reference/range_validate.html">range_set</a></span>(<span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">130</span>)), </a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">  <span class="dt">size =</span> <span class="dv">3</span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">)</a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">bst_grid</a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt; # A tibble: 3 x 3</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt;   trees min_n sample_size</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt;   &lt;int&gt; &lt;int&gt;       &lt;int&gt;</span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt; 1    35    27          59</span></a>
-<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt; 2     5    21         103</span></a>
-<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt; 3    41     5          21</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="kw">library</span>(dials)</a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="kw">set.seed</span>(<span class="dv">1263</span>)</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">bst_grid &lt;-<span class="st"> </span><span class="kw"><a href="../../reference/regular_grid.html">random_grid</a></span>(</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">  trees <span class="op">%&gt;%</span><span class="st">       </span><span class="kw"><a href="../../reference/range_validate.html">range_set</a></span>(<span class="kw">c</span>( <span class="dv">1</span>,  <span class="dv">50</span>)), </a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">  min_n <span class="op">%&gt;%</span><span class="st">       </span><span class="kw"><a href="../../reference/range_validate.html">range_set</a></span>(<span class="kw">c</span>( <span class="dv">2</span>,  <span class="dv">30</span>)), </a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">  sample_size <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../../reference/range_validate.html">range_set</a></span>(<span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">130</span>)), </a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">  <span class="dt">size =</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12">)</a>
+<a class="sourceLine" id="cb5-13" data-line-number="13">bst_grid</a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt; # A tibble: 3 x 3</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt;   trees min_n sample_size</span></a>
+<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt;   &lt;int&gt; &lt;int&gt;       &lt;int&gt;</span></a>
+<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt; 1    35    27          59</span></a>
+<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt; 2     5    21         103</span></a>
+<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">#&gt; 3    41     5          21</span></a></code></pre></div>
 <p>We can use the <code>merge</code> function to combine these parameters with the model specification:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(bst_grid)) {</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="kw">print</span>(<span class="kw">merge</span>(mod_obj, bst_grid[i,]))</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">  <span class="kw">print</span>(<span class="kw">merge</span>(mod_obj, bst_grid[i, ]))</a>
 <a class="sourceLine" id="cb6-3" data-line-number="3">}</a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; Boosted Tree Model Specification (classification)</span></a>
 <a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; </span></a>

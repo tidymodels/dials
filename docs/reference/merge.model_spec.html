@@ -110,18 +110,20 @@ in a <span class="pkg">parsnip</span> model.</p>
     </div>
 
     <pre class="usage"><span class='co'># S3 method for model_spec</span>
+<span class='fu'>merge</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>...</span>)
+
+<span class='co'># S3 method for param_grid</span>
 <span class='fu'>merge</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>A <span class="pkg">parsnip</span> model object (that has class <code>model_spec</code>).</p></td>
-    </tr>
-    <tr>
-      <th>y</th>
-      <td><p>A parameter grid resulting from <code>regular_grid</code> or <code>random_grid</code>.</p></td>
+      <th>x, y</th>
+      <td><p>A combination of one <span class="pkg">parsnip</span> model object (that has class
+<code>model_spec</code>) and one parameter grid resulting from <code>regular_grid</code> or
+<code>random_grid</code>. As long as this combination is present, the assignment to
+<code>x</code> and <code>y</code> isn't restricted.</p></td>
     </tr>
     <tr>
       <th>...</th>
