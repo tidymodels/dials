@@ -22,14 +22,14 @@ library(rpart)
 
 ## Tuning Parameters 
 
-Some statistical and machine learning models contain _tuning parameters_ (also known as _hyperparameters_), which are parameters that cannot be directly estimated by the model. An example would be the number of neighbors in a _K_-nearest neighbors model. To determine reasonable values of these elements, some indirect method is used such as resampling or profile likelihood. Search methods, such as genetic algorithms or Bayesian search can also be used to [determine good values](https://github.com/topepo/Optimization-Methods-for-Tuning-Predictive-Models). 
+Some statistical and machine learning models contain _tuning parameters_ (also known as _hyperparameters_), which are parameters that cannot be directly estimated by the model. An example would be the number of neighbors in a _K_-nearest neighbors model. To determine reasonable values of these elements, some indirect method is used such as resampling or profile likelihood. Search methods, such as genetic algorithms or Bayesian search can also be used to [determine good values](https://github.com/tidymodels/Optimization-Methods-for-Tuning-Predictive-Models). 
 
 In any case, some information is needed to create a grid or to validate whether a candidate value is appropriate (i.e. neighbors should be a positive integer). `dials` is designed to:
 
  * Create an easy to use framework for describing and querying tuning parameters. this can include getting sequences or random tuning values, validating current values, transforming parameters, and other tasks.
  * Standardize the names of different parameters. Different packages in R use different argument names for the same quantities. `dials` proposes some standardized names so that the user doesn't need to memorize the syntactical minutiae of every package. 
- * Work with the [`parsnip`](https://topepo.github.io/parsnip/)  package which is a modern attempt to standardize the interfaces for specific models across R packages and computational engines. 
- * Adhere to [tidy principals](https://cran.r-project.org/web/packages/tidyverse/vignettes/manifesto.html). 
+ * Work with the [`parsnip`](https://tidymodels.github.io/parsnip/)  package which is a modern attempt to standardize the interfaces for specific models across R packages and computational engines. 
+ * Adhere to [tidy principals](https://cran.r-project.org/package=tidyverse/vignettes/manifesto.html). 
 
 The main type of objects in `dials` have class `param`.
 
@@ -127,7 +127,7 @@ weight_func %>% value_seq(3)
 
 ## Creating Novel Parameters
 
-The package contains two constructors that can be used to create new quantitative and qualitative parameters. [This file](https://github.com/topepo/dials/blob/master/R/parameters.R) contains the code to create the parameters contained in the package. 
+The package contains two constructors that can be used to create new quantitative and qualitative parameters. [This file](https://github.com/tidymodels/dials/blob/master/R/parameters.R) contains the code to create the parameters contained in the package. 
 
 ## Unknown Values
 

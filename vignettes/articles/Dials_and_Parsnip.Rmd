@@ -20,7 +20,7 @@ library(dials)
 library(parsnip)
 ```
 
-[`parsnip`](https://topepo.github.io/parsnip) is a package in development that provides more unified interfaces to model functions. It has functions to create a _model specification_ that can be used to fit a particular model using different R packages (or by other means). these model specifications have main arguments for important tuning parameters.  For example, a minimal model specification is:
+[`parsnip`](https://tidymodels.github.io/parsnip) is a package in development that provides more unified interfaces to model functions. It has functions to create a _model specification_ that can be used to fit a particular model using different R packages (or by other means). these model specifications have main arguments for important tuning parameters.  For example, a minimal model specification is:
 
 ```{r bst-spec}
 library(parsnip)

@@ -7,7 +7,7 @@ Authors@R: c(
     person("RStudio", role = "cph"))
 License: GPL-2
 URL: https://tidymodels.github.io/dials
-BugReports: https://github.com/topepo/dials/issues
+BugReports: https://github.com/tidymodels/dials/issues
 Encoding: UTF-8
 LazyData: true
 ByteCompile: true
