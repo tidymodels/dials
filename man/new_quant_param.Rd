@@ -3,7 +3,7 @@
 \name{new_quant_param}
 \alias{new_quant_param}
 \alias{new_qual_param}
-\title{Tools for Creating New Parameter Objects}
+\title{Tools for creating new parameter objects}
 \usage{
 new_quant_param(type = c("double", "integer"), range, inclusive,
   default = unknown(), trans = NULL, values = NULL, label = NULL)

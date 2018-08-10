@@ -1,4 +1,4 @@
-#' Placeholder for Unknown Parameter Values
+#' Placeholder for unknown parameter values
 #' 
 #' This creates a simple expression used to signify that the value will be 
 #' specified at a later time.

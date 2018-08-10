@@ -4,7 +4,7 @@
 \alias{unknown}
 \alias{is_unknown}
 \alias{has_unknowns}
-\title{Placeholder for Unknown Parameter Values}
+\title{Placeholder for unknown parameter values}
 \usage{
 unknown()
 

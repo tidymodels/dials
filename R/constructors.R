@@ -1,4 +1,4 @@
-#' Tools for Creating New Parameter Objects
+#' Tools for creating new parameter objects
 #' 
 #' These functions are used to construct new parameter objects. 
 #' 
