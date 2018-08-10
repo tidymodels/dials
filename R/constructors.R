@@ -22,7 +22,16 @@
 #' "mtry", "neighbors", etc.)
 #' @return An object of class "param" with the primary class being either 
 #' "quant_param" or "qual_param". The `range` element of the object is always 
-#' converted to a list with elements "lower" and "upper". 
+#' converted to a list with elements "lower" and "upper". '
+#' @examples
+#' num_subgroups <-
+#'   new_quant_param(
+#'     type = "integer",
+#'     range = c(1L, 20L),
+#'     inclusive = c(TRUE, TRUE),
+#'     trans = NULL,
+#'     label = c(num_subgroups = "# Subgroups")
+#'   )
 #' @export
 #' @importFrom scales is.trans
 new_quant_param <- function(

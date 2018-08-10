@@ -7,6 +7,20 @@
 #' @param ukn_ok A single logical for wether `unknown()` is an acceptable value. 
 #' @param original A single logical: should the range values be in the natural
 #'  units (`TRUE`) or in the transformed space (`FALSE`, if applicable). 
+#' @return `range_validate` returns the range if it passes the validation 
+#' process (and throws an error otherwise). `range_get` returns also returns
+#' the range of the object. `range_set` returns an updated version of the 
+#' parameter object. 
+#' @examples 
+#' library(dplyr)
+#' my_lambda <- 
+#'   regularization %>% 
+#'   value_set(-4:-1) 
+#' try(my_lambda %>% range_validate(c(-10, NA), silent = TRUE)) %>% print()
+#' 
+#' range_get(my_lambda)
+#' 
+#' range_set(my_lambda, c(-10, 2)) %>% range_get()
 #' @export
 #' @importFrom purrr map_lgl
 range_validate <- function(object, range, ukn_ok = TRUE) {

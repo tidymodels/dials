@@ -40,8 +40,18 @@ printing and plotting. The named should reflect the object name (e.g.
 \value{
 An object of class "param" with the primary class being either
 "quant_param" or "qual_param". The \code{range} element of the object is always
-converted to a list with elements "lower" and "upper".
+converted to a list with elements "lower" and "upper". '
 }
 \description{
 These functions are used to construct new parameter objects.
+}
+\examples{
+num_subgroups <-
+  new_quant_param(
+    type = "integer",
+    range = c(1L, 20L),
+    inclusive = c(TRUE, TRUE),
+    trans = NULL,
+    label = c(num_subgroups = "# Subgroups")
+  )
 }

@@ -23,6 +23,23 @@ can include \code{unknown()} when \code{ukn_ok = TRUE}}
 \item{original}{A single logical: should the range values be in the natural
 units (\code{TRUE}) or in the transformed space (\code{FALSE}, if applicable).}
 }
+\value{
+\code{range_validate} returns the range if it passes the validation
+process (and throws an error otherwise). \code{range_get} returns also returns
+the range of the object. \code{range_set} returns an updated version of the
+parameter object.
+}
 \description{
 Tools for working with parameter ranges
+}
+\examples{
+library(dplyr)
+my_lambda <- 
+  regularization \%>\% 
+  value_set(-4:-1) 
+try(my_lambda \%>\% range_validate(c(-10, NA), silent = TRUE)) \%>\% print()
+
+range_get(my_lambda)
+
+range_set(my_lambda, c(-10, 2)) \%>\% range_get()
 }
