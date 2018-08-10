@@ -84,8 +84,10 @@ library(rpart)
 cart_mod <- rpart(mpg ~ ., data = mtcars, control = rpart.control(cp = 0.000001))
 cart_mod$cptable
 cp_vals <- cart_mod$cptable[, "CP"]
-# Ww should only keep values associated with at least one split:
+# We should only keep values associated with at least one split:
 cp_vals <- cp_vals[ cart_mod$cptable[, "nsplit"] > 0 ]
+
+# Here the specific Cp values, on their natural scale, are added:
 mtcars_cp <- Cp %>% value_set(cp_vals)
 ```
 

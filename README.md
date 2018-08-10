@@ -7,7 +7,7 @@ This package contains tools to create and manage values of tuning parameters and
 
 The name reflects the idea that tuning predictive models can be like turning a set of dials on a complex machine under duress. 
 
-![dials and dials!](http://tos.trekcore.com/hd/albums/1x04hd/thenakedtimehd1013.jpg)
+<img src="http://tos.trekcore.com/hd/albums/1x04hd/thenakedtimehd1013.jpg" width="576">
 
 It is a work in progress but can be installed via 
 

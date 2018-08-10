@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Merge parameter grid values into a parsnip object — merge.model_spec • dials</title>
+<title>Create grids of tuning parameters — grid_regular • dials</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -75,46 +75,93 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Merge parameter grid values into a parsnip object</h1>
+    <h1>Create grids of tuning parameters</h1>
     
-    <div class="hidden name"><code>merge.model_spec.Rd</code></div>
+    <div class="hidden name"><code>grid_regular.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p><span class="pkg">parsnip</span> contains model objects that have consistent names with
-<span class="pkg">dials</span>. <code>merge</code> can be used to easily update any of the main parameters
-in a <span class="pkg">parsnip</span> model.</p>
+    <p>Random and regular grids can be created for any number of parameter objects.</p>
     
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for model_spec</span>
-<span class='fu'>merge</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>...</span>)
+    <pre class="usage"><span class='fu'>grid_regular</span>(<span class='no'>...</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='co'># S3 method for param_grid</span>
-<span class='fu'>merge</span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>...</span>)</pre>
+<span class='fu'>grid_random</span>(<span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x, y</th>
-      <td><p>A combination of one <span class="pkg">parsnip</span> model object (that has class
-<code>model_spec</code>) and one parameter grid resulting from <code>grid_regular</code> or
-<code>grid_random</code>. As long as this combination is present, the assignment to
-<code>x</code> and <code>y</code> isn't restricted.</p></td>
+      <th>...</th>
+      <td><p>One or more <code>param</code> objects (such as <code><a href='tree_parameters.html'>mtry()</a></code> or
+<code><a href='para_parameters.html'>regularization()</a></code>). None of the objects can have <code><a href='unknown.html'>unknown()</a></code> values in
+the parameter ranges or values.</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>Not currently used.</p></td>
+      <th>levels</th>
+      <td><p>An integer for how many value of each parameter will be used
+to make the regular grid? <code>levels</code> can be a single integer or a vector of
+integers that is the same length as the number of parameters in <code>...</code>.</p></td>
+    </tr>
+    <tr>
+      <th>original</th>
+      <td><p>A logical: should the parameters be in the original units or
+in the transformed space (if any)?</p></td>
+    </tr>
+    <tr>
+      <th>size</th>
+      <td><p>A single integer for the total number of parameter values
+returned for the random grid.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An updated model object.</p>
+    <p>A tibble with an additional class for the type of type of grid
+("grid_regular" or "grid_random"). There are columns for each parameter and
+a row for every parameter or parameter combination.</p>
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># Will fail due to unknowns:</span>
+<span class='co'># grid_regular(mtry, min_n)</span>
+
+<span class='fu'>grid_regular</span>(<span class='no'>regularization</span>, <span class='no'>mixture</span>)</div><div class='output co'>#&gt; # A tibble: 9 x 2
+#&gt;   regularization mixture
+#&gt;            &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1   0.0000000001     0  
+#&gt; 2   0.00001          0  
+#&gt; 3   1                0  
+#&gt; 4   0.0000000001     0.5
+#&gt; 5   0.00001          0.5
+#&gt; 6   1                0.5
+#&gt; 7   0.0000000001     1  
+#&gt; 8   0.00001          1  
+#&gt; 9   1                1  </div><div class='input'><span class='fu'>grid_regular</span>(<span class='no'>regularization</span>, <span class='no'>mixture</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>3</span>, <span class='fl'>4</span>))</div><div class='output co'>#&gt; # A tibble: 12 x 2
+#&gt;    regularization mixture
+#&gt;             &lt;dbl&gt;   &lt;dbl&gt;
+#&gt;  1   0.0000000001   0    
+#&gt;  2   0.00001        0    
+#&gt;  3   1              0    
+#&gt;  4   0.0000000001   0.333
+#&gt;  5   0.00001        0.333
+#&gt;  6   1              0.333
+#&gt;  7   0.0000000001   0.667
+#&gt;  8   0.00001        0.667
+#&gt;  9   1              0.667
+#&gt; 10   0.0000000001   1    
+#&gt; 11   0.00001        1    
+#&gt; 12   1              1    </div><div class='input'><span class='fu'>grid_random</span>(<span class='no'>regularization</span>, <span class='no'>mixture</span>)</div><div class='output co'>#&gt; # A tibble: 5 x 2
+#&gt;   regularization mixture
+#&gt;            &lt;dbl&gt;   &lt;dbl&gt;
+#&gt; 1 0.000000000642   0.466
+#&gt; 2 0.0220           0.498
+#&gt; 3 0.000102         0.290
+#&gt; 4 0.00000000373    0.733
+#&gt; 5 0.000000000119   0.773</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -122,7 +169,9 @@ in a <span class="pkg">parsnip</span> model.</p>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>
