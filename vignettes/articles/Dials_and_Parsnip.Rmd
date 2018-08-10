@@ -59,7 +59,7 @@ library(tidymodels)
 library(dials)
 
 set.seed(1263)
-bst_grid <- random_grid(
+bst_grid <- grid_random(
   trees %>%       range_set(c( 1,  50)), 
   min_n %>%       range_set(c( 2,  30)), 
   sample_size %>% range_set(c(20, 130)), 

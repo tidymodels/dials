@@ -4,8 +4,8 @@
 #' \pkg{dials}. `merge` can be used to easily update any of the main parameters
 #' in a \pkg{parsnip} model. 
 #' @param x,y A combination of one \pkg{parsnip} model object (that has class 
-#'  `model_spec`) and one parameter grid resulting from `regular_grid` or 
-#'  `random_grid`. As long as this combination is present, the assignment to 
+#'  `model_spec`) and one parameter grid resulting from `grid_regular` or 
+#'  `grid_random`. As long as this combination is present, the assignment to 
 #'  `x` and `y` isn't restricted. 
 #' @param ... Not currently used. 
 #' @return An updated model object. 

@@ -11,8 +11,8 @@
 }
 \arguments{
 \item{x, y}{A combination of one \pkg{parsnip} model object (that has class
-\code{model_spec}) and one parameter grid resulting from \code{regular_grid} or
-\code{random_grid}. As long as this combination is present, the assignment to
+\code{model_spec}) and one parameter grid resulting from \code{grid_regular} or
+\code{grid_random}. As long as this combination is present, the assignment to
 \code{x} and \code{y} isn't restricted.}
 
 \item{...}{Not currently used.}

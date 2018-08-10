@@ -5,33 +5,33 @@ context("parameter grids")
 
 test_that('regular grid', {
   expect_error(
-    regular_grid(mtcars)
+    grid_regular(mtcars)
   )
   expect_error(
-    regular_grid()
+    grid_regular()
   )  
   expect_error(
-    regular_grid(mixture, trees, levels = 1:4)
+    grid_regular(mixture, trees, levels = 1:4)
   )
   expect_equal(
-    nrow(regular_grid(mixture, trees, levels = 2)),
+    nrow(grid_regular(mixture, trees, levels = 2)),
     4
   )  
   expect_equal(
-    nrow(regular_grid(mixture, trees, levels = 2:3)),
+    nrow(grid_regular(mixture, trees, levels = 2:3)),
     prod(2:3)
   )    
 })
 
 test_that('random grid', {
   expect_error(
-    random_grid(mtcars)
+    grid_random(mtcars)
   )
   expect_error(
-    random_grid()
+    grid_random()
   )  
   expect_equal(
-    nrow(random_grid(mixture, trees, size = 2)),
+    nrow(grid_random(mixture, trees, size = 2)),
     2
   )  
 })

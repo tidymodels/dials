@@ -13,20 +13,20 @@
 #' @param original A logical: should the parameters be in the original units or
 #'  in the transformed space (if any)?
 #' @return A tibble with an additional class for the type of type of grid 
-#'  ("regular_grid" or "random_grid"). There are columns for each parameter and
+#'  ("grid_regular" or "grid_random"). There are columns for each parameter and
 #'  a row for every parameter or parameter combination. 
 #' @examples 
 #' # Will fail due to unknowns:
-#' # regular_grid(mtry, min_n)
+#' # grid_regular(mtry, min_n)
 #' 
-#' regular_grid(regularization, mixture)
-#' regular_grid(regularization, mixture, levels = c(3, 4))
-#' random_grid(regularization, mixture)
+#' grid_regular(regularization, mixture)
+#' grid_regular(regularization, mixture, levels = c(3, 4))
+#' grid_random(regularization, mixture)
 #'
 #' @importFrom rlang quos eval_tidy quo_get_expr
 #' @importFrom purrr map map_chr map2 map_dfc
 #' @export
-regular_grid <- function(..., levels = 3, original = TRUE) {
+grid_regular <- function(..., levels = 3, original = TRUE) {
   param_quos <- quos(...)
   if (length(param_quos) == 0)
     stop("At least one parameter object is required.", call. = FALSE)
@@ -54,12 +54,12 @@ regular_grid <- function(..., levels = 3, original = TRUE) {
   
   names(param_seq) <- param_names
   param_set <- expand.grid(param_seq, stringsAsFactors = FALSE)
-  new_grid(param_set, labels = param_labs, cls = c("regular_grid", "param_grid"))
+  new_grid(param_set, labels = param_labs, cls = c("grid_regular", "param_grid"))
 }
 
 #' @export
-#' @rdname regular_grid
-random_grid <- function(..., size = 5, original = TRUE) {
+#' @rdname grid_regular
+grid_random <- function(..., size = 5, original = TRUE) {
   param_quos <- quos(...)
   if (length(param_quos) == 0)
     stop("At least one parameter object is required.", call. = FALSE)
@@ -76,7 +76,7 @@ random_grid <- function(..., size = 5, original = TRUE) {
   # for now assume equal levels
   param_set <- map_dfc(params, value_sample, n = size, original = original)
   names(param_set) <- param_names
-  new_grid(param_set, labels = param_labs, cls = c("random_grid", "param_grid"))
+  new_grid(param_set, labels = param_labs, cls = c("grid_random", "param_grid"))
 }
 
 #' @importFrom tibble as_tibble

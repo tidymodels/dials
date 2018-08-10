@@ -4,9 +4,9 @@ library(dplyr)
 
 ###################################################################
 
-reg <- regular_grid(regularization, mixture, activation)
+reg <- grid_regular(regularization, mixture, activation)
 set.seed(311)
-rnd <- random_grid(dropout, prune, degree)
+rnd <- grid_random(dropout, prune, degree)
 
 ###################################################################
 

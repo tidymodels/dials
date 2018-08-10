@@ -147,12 +147,12 @@ These values must be initialized prior to generating parameter values.
 
 ## Parameter Grids
 
-Sets or combinations or parameters can be created for use in grid search. `regular_grid` and `random_grid` take any number of `param` objects. 
+Sets or combinations or parameters can be created for use in grid search. `grid_regular` and `grid_random` take any number of `param` objects. 
 
 For example, for a glmnet model, a regular grid might be:
 
 ```{r glm-reg}
-regular_grid(
+grid_regular(
   mixture,
   regularization,
   levels = 3 # or c(3, 4), etc
@@ -163,7 +163,7 @@ and, similarly, a random grid is created using
 
 ```{r glm-rnd}
 set.seed(1041)
-random_grid(
+grid_random(
   mixture,
   regularization,
   size = 6 
