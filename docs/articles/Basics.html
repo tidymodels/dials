@@ -70,12 +70,12 @@
 <div id="tuning-parameters" class="section level2">
 <h2 class="hasAnchor">
 <a href="#tuning-parameters" class="anchor"></a>Tuning Parameters</h2>
-<p>Some statistical and machine learning models contain <em>tuning parameters</em> (also known as <em>hyperparameters</em>), which are parameters that cannot be directly estimated by the model. An example would be the number of neighbors in a <em>K</em>-nearest neighbors model. To determine reasonable values of these elements, some indirect method is used such as resampling or profile likelihood. Search methods, such as genetic algorithms or Bayesian search can also be used to <a href="https://github.com/tidymodels/Optimization-Methods-for-Tuning-Predictive-Models">determine good values</a>.</p>
+<p>Some statistical and machine learning models contain <em>tuning parameters</em> (also known as <em>hyperparameters</em>), which are parameters that cannot be directly estimated by the model. An example would be the number of neighbors in a <em>K</em>-nearest neighbors model. To determine reasonable values of these elements, some indirect method is used such as resampling or profile likelihood. Search methods, such as genetic algorithms or Bayesian search can also be used to <a href="https://github.com/topepo/Optimization-Methods-for-Tuning-Predictive-Models">determine good values</a>.</p>
 <p>In any case, some information is needed to create a grid or to validate whether a candidate value is appropriate (i.e. neighbors should be a positive integer). <code>dials</code> is designed to:</p>
 <ul>
 <li>Create an easy to use framework for describing and querying tuning parameters. this can include getting sequences or random tuning values, validating current values, transforming parameters, and other tasks.</li>
 <li>Standardize the names of different parameters. Different packages in R use different argument names for the same quantities. <code>dials</code> proposes some standardized names so that the user doesn’t need to memorize the syntactical minutiae of every package.</li>
-<li>Work with the <a href="https://tidymodels.github.io/parsnip/"><code>parsnip</code></a> package which is a modern attempt to standardize the interfaces for specific models across R packages and computational engines.</li>
+<li>Work with the <a href="https://topepo.github.io/parsnip/"><code>parsnip</code></a> package which is a modern attempt to standardize the interfaces for specific models across R packages and computational engines.</li>
 <li>Adhere to <a href="https://cran.r-project.org/package=tidyverse/vignettes/manifesto.html">tidy principals</a>.</li>
 </ul>
 <p>The main type of objects in <code>dials</code> have class <code>param</code>.</p>
