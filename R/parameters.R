@@ -183,7 +183,7 @@ dropout <-
   new_quant_param(
     type = "double",
     range = c(0, 1),
-    inclusive = c(TRUE, TRUE),
+    inclusive = c(TRUE, FALSE),
     trans = NULL,
     label = c(dropout = "Dropout Rate")
   )
