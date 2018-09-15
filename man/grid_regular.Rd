@@ -11,7 +11,7 @@ grid_random(..., size = 5, original = TRUE)
 }
 \arguments{
 \item{...}{One or more \code{param} objects (such as \code{mtry()} or
-\code{regularization()}). None of the objects can have \code{unknown()} values in
+\code{penalty()}). None of the objects can have \code{unknown()} values in
 the parameter ranges or values.}
 
 \item{levels}{An integer for how many value of each parameter will be used
@@ -36,8 +36,8 @@ Random and regular grids can be created for any number of parameter objects.
 # Will fail due to unknowns:
 # grid_regular(mtry, min_n)
 
-grid_regular(regularization, mixture)
-grid_regular(regularization, mixture, levels = c(3, 4))
-grid_random(regularization, mixture)
+grid_regular(penalty, mixture)
+grid_regular(penalty, mixture, levels = c(3, 4))
+grid_random(penalty, mixture)
 
 }

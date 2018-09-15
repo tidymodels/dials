@@ -33,12 +33,12 @@
 #' @examples 
 #' library(dplyr)
 #' 
-#' regularization %>% value_set(-4:-1)
+#' penalty %>% value_set(-4:-1)
 #' 
 #' # Is a specific value valid?
-#' regularization
-#' regularization %>% range_get()
-#' value_validate(regularization, 17)
+#' penalty
+#' penalty %>% range_get()
+#' value_validate(penalty, 17)
 #' 
 #' # get a sequence of values
 #' Cp

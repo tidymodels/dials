@@ -5,27 +5,27 @@ context("qualitative parameter values")
 
 test_that('transforms with unknowns', {
   expect_error(
-    value_transform(regularization, unknown())
+    value_transform(penalty, unknown())
   )
   expect_error(
-    value_transform(regularization, c(unknown(), 1, unknown()))
+    value_transform(penalty, c(unknown(), 1, unknown()))
   )  
   expect_error(
-    value_inverse(regularization, unknown())
+    value_inverse(penalty, unknown())
   )
   expect_error(
-    value_inverse(regularization, c(unknown(), 1, unknown()))
+    value_inverse(penalty, c(unknown(), 1, unknown()))
   )  
 })
 
 
 test_that('transforms', {
   expect_equal(
-    value_transform(regularization, 1:3), log10(1:3)
+    value_transform(penalty, 1:3), log10(1:3)
   )
   expect_warning(
     expect_equal(
-      value_transform(regularization, -1:3), c(NaN, -Inf, log10(1:3))
+      value_transform(penalty, -1:3), c(NaN, -Inf, log10(1:3))
     )
   )
   expect_equal(
@@ -36,10 +36,10 @@ test_that('transforms', {
 
 test_that('inverses', {
   expect_equal(
-    value_inverse(regularization, 1:3), 10^(1:3)
+    value_inverse(penalty, 1:3), 10^(1:3)
   )
   expect_equal(
-    value_inverse(regularization,  c(NA, 1:3)), c(NA, 10^(1:3))
+    value_inverse(penalty,  c(NA, 1:3)), c(NA, 10^(1:3))
   )
   expect_equal(
     value_inverse(mtry, 1:3), 1:3
@@ -118,10 +118,10 @@ test_that('sequences - doubles', {
     value_seq(test_param_4, 1), .60
   )    
   expect_equal(
-    value_seq(regularization, 5, FALSE), seq(-10, 0, length = 5)
+    value_seq(penalty, 5, FALSE), seq(-10, 0, length = 5)
   )  
   expect_equal(
-    value_seq(regularization, 1, FALSE), -10
+    value_seq(penalty, 1, FALSE), -10
   )
   expect_equal(
     value_seq(test_param_4, 1, FALSE), sqrt(.6)
@@ -182,14 +182,14 @@ test_that('sampling - doubles', {
   expect_true(max(mix_test) < 1) 
   
   set.seed(2489)
-  L2_orig <- value_sample(regularization, 5000)
-  expect_true(min(L2_orig) > 10^regularization$range$lower)
-  expect_true(max(L2_orig) < 10^regularization$range$upper) 
+  L2_orig <- value_sample(penalty, 5000)
+  expect_true(min(L2_orig) > 10^penalty$range$lower)
+  expect_true(max(L2_orig) < 10^penalty$range$upper) 
   
   set.seed(2489)
-  L2_tran <- value_sample(regularization, 5000, FALSE)
-  expect_true(min(L2_tran) > regularization$range$lower)
-  expect_true(max(L2_tran) < regularization$range$upper)   
+  L2_tran <- value_sample(penalty, 5000, FALSE)
+  expect_true(min(L2_tran) > penalty$range$lower)
+  expect_true(max(L2_tran) < penalty$range$upper)   
   
   set.seed(2489)
   expect_equal(

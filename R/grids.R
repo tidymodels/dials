@@ -3,7 +3,7 @@
 #' Random and regular grids can be created for any number of parameter objects.
 #'
 #' @param ... One or more `param` objects (such as `mtry()` or 
-#'  `regularization()`). None of the objects can have `unknown()` values in 
+#'  `penalty()`). None of the objects can have `unknown()` values in 
 #'  the parameter ranges or values. 
 #' @param levels An integer for how many value of each parameter will be used 
 #'  to make the regular grid? `levels` can be a single integer or a vector of 
@@ -19,9 +19,9 @@
 #' # Will fail due to unknowns:
 #' # grid_regular(mtry, min_n)
 #' 
-#' grid_regular(regularization, mixture)
-#' grid_regular(regularization, mixture, levels = c(3, 4))
-#' grid_random(regularization, mixture)
+#' grid_regular(penalty, mixture)
+#' grid_regular(penalty, mixture, levels = c(3, 4))
+#' grid_random(penalty, mixture)
 #'
 #' @importFrom rlang quos eval_tidy quo_get_expr
 #' @importFrom purrr map map_chr map2 map_dfc

@@ -154,7 +154,7 @@ Cp <-
 #' These objects are pre-made parameter sets that are useful when the model is
 #'  based on some type of slope/intercept model. 
 #' 
-#' * `regularization`: The total amount of regularization used. This is used by 
+#' * `penalty`: The total amount of regularization used. This is used by 
 #'   `parsnip::linear_reg()` and `parsnip::logistic_reg()` with glmnet models. 
 #' * `mixture`: the proportion of L1 regularization in the model. 
 #'   (`parsnip::linear_reg()` and `parsnip::logistic_reg()`)
@@ -221,13 +221,13 @@ mixture <-
 
 #' @rdname para_parameters
 #' @export
-regularization <- 
+penalty <- 
   new_quant_param(
     type = "double",
     range = c(-10, 0),
     inclusive = c(TRUE, TRUE),
     trans = log10_trans(),
-    label = c(regularization = "Amount of Regularization")
+    label = c(penalty = "Amount of Regularization")
   )
 
 #' @export

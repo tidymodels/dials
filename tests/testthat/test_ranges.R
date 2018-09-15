@@ -18,10 +18,10 @@ test_that('no transforms', {
 
 test_that('transforms', {
   expect_equal(
-    range_get(regularization, FALSE), list(lower = -10, upper = 0)
+    range_get(penalty, FALSE), list(lower = -10, upper = 0)
   )  
   expect_equal(
-    range_get(regularization), list(lower = 10^-10, upper = 10^0)
+    range_get(penalty), list(lower = 10^-10, upper = 10^0)
   )  
 })
 

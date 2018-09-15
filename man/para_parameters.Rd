@@ -7,7 +7,7 @@
 \alias{epochs}
 \alias{activation}
 \alias{mixture}
-\alias{regularization}
+\alias{penalty}
 \alias{rbf_sigma}
 \alias{prod_degree}
 \alias{num_terms}
@@ -27,7 +27,7 @@ activation
 
 mixture
 
-regularization
+penalty
 
 rbf_sigma
 
@@ -57,7 +57,7 @@ with the \pkg{parsnip} package.
 These objects are pre-made parameter sets that are useful when the model is
 based on some type of slope/intercept model.
 \itemize{
-\item \code{regularization}: The total amount of regularization used. This is used by
+\item \code{penalty}: The total amount of regularization used. This is used by
 \code{parsnip::linear_reg()} and \code{parsnip::logistic_reg()} with glmnet models.
 \item \code{mixture}: the proportion of L1 regularization in the model.
 (\code{parsnip::linear_reg()} and \code{parsnip::logistic_reg()})

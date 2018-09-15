@@ -35,9 +35,9 @@ Tools for working with parameter ranges
 \examples{
 library(dplyr)
 my_lambda <- 
-  regularization \%>\% 
+  penalty \%>\% 
   value_set(-4:-1) 
-try(my_lambda \%>\% range_validate(c(-10, NA), silent = TRUE)) \%>\% print()
+try(my_lambda \%>\% range_validate(c(-10, NA)), silent = TRUE) \%>\% print()
 
 range_get(my_lambda)
 
