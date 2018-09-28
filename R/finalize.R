@@ -1,0 +1,126 @@
+#' Functions to finalize data-specific parameter ranges
+#' 
+#' These functions take a parameter object and modify the unknown parts of 
+#'  ranges based on simple heuristics. 
+#'
+#' @param object A `param` object or list. 
+#' @param x The predictor data. In some cases (see below) this should only
+#'  include numeric data. 
+#' @param log_vals A logical: should the ranges be set on the log10 scale? 
+#' @param ... Other arguments to pass to [kernlab::sigest].  
+#' @param frac A double for the fraction of the data to be used for the upper 
+#'  bound. 
+#' @param seed An integer to control the randomness of the calculations. 
+#' @return An updated `param` object.
+#' @details 
+#'  `finalize` runes the embedded finalization code contained in the `param`
+#'   object and returns the updated version. 
+#' 
+#' `get_p` and `get_log_p` set the upper value of the range to be the number of
+#'  columns in the data (on the natural and log10 scale, respectively). `get_n`
+#'  and `get_n_frac` set the upper value to be a value that uses the number of 
+#'  rows. 
+#'  
+#' `get_rbf_range` sets both bounds based on the heuristic defined in 
+#'  [kernlab::sigest]. It requires that all columns in `x` be numeric. 
+#' @examples 
+#' 
+#' mtry
+#' finalize(mtry, mtcars[, -1])
+#' 
+#' # Nothing to do here since no unknowns
+#' penalty
+#' finalize(penalty, mtcars[, -1])
+#' 
+#' finalize(list(mtry, num_terms, neighbors), mtcars[, -1])
+#' @export
+finalize <- function (object, ...) 
+  UseMethod("finalize")
+
+#' @export
+#' @rdname finalize
+#' @importFrom purrr map
+finalize.list <- function (object, x, ...) {
+  map(object, finalize, x, ...)  
+}
+
+#' @export
+#' @rdname finalize
+finalize.param <- function(object, x, ...) {
+  if (is.null(object$finalize))
+    return(object)
+  object$finalize(object, x = x, ...)
+}
+
+#' @export
+#' @rdname finalize
+get_p <- function(object, x, log_vals = FALSE, ...) {
+  rngs <- range_get(object, original = FALSE)
+  if (!is_unknown(rngs$upper))
+    return(object)
+  
+  x_dims <- dim(x)
+  if (is.null(x_dims)) 
+    stop("Cannot determine number of columns. Is `x` a 2D data object?", 
+         .call = TRUE)
+  
+  if (log_vals) {
+    rngs[2] <- log10(x_dims[2])
+  } else {
+    rngs[2] <- x_dims[2]
+  }
+  
+  range_set(object, rngs)
+}
+
+#' @export
+#' @rdname finalize
+get_log_p <- function(object, x, ...) {
+  get_p(object, x, log_vals = TRUE, ...)
+}
+
+#' @export
+#' @rdname finalize
+get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ...) {
+  rngs <- range_get(object, original = FALSE)
+  if (!is_unknown(rngs$upper))
+    return(object)
+  
+  x_dims <- dim(x)
+  if (is.null(x_dims)) 
+    stop("Cannot determine number of columns. Is `x` a 2D data object?", 
+         .call = TRUE)
+  
+  n_frac <- floor(x_dims[1]*frac)
+  
+  if (log_vals) {
+    rngs[2] <- log10(n_frac)
+  } else {
+    rngs[2] <- n_frac
+  }
+  
+  range_set(object, rngs)
+}
+
+#' @export
+#' @rdname finalize
+get_n <- function(object, x, log_vals = FALSE, ...) {
+  get_n_frac(object, x, log_vals, frac = 1, ...)
+}
+
+#' @export
+#' @rdname finalize
+#' @importFrom withr with_seed
+get_rbf_range <- function(object, x, seed = sample.int(10 ^ 5, 1), ...) {
+  check_installs("kernlab")
+  suppressPackageStartupMessages(requireNamespace("kernlab", quietly = TRUE))
+  x_mat <- as.matrix(x)
+  if (!is.numeric(x_mat)) {
+    stop("The matrix version of the initialization data is not numeric.",
+         .call = FALSE)
+  }
+  with_seed(seed, rng <- kernlab::sigest(x_mat, ...)[-2])
+  rng <- log10(rng)
+  range_set(object, rng)
+}
+

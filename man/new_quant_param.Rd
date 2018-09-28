@@ -6,10 +6,11 @@
 \title{Tools for creating new parameter objects}
 \usage{
 new_quant_param(type = c("double", "integer"), range, inclusive,
-  default = unknown(), trans = NULL, values = NULL, label = NULL)
+  default = unknown(), trans = NULL, values = NULL, label = NULL,
+  finalize = NULL)
 
 new_qual_param(type = c("character", "logical"), values,
-  default = unknown(), label = NULL)
+  default = unknown(), label = NULL, finalize = NULL)
 }
 \arguments{
 \item{type}{A single character value. For quantitative parameters, valid
@@ -36,6 +37,9 @@ parameter value. \code{unknown()} can also be used here.}
 \item{label}{An optional named character string that can be used for
 printing and plotting. The named should reflect the object name (e.g.
 "mtry", "neighbors", etc.)}
+
+\item{finalize}{A function that can be used to set the  data-specific
+values of a parameter (such as the range).}
 }
 \value{
 An object of class "param" with the primary class being either
@@ -52,6 +56,7 @@ num_subgroups <-
     range = c(1L, 20L),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
-    label = c(num_subgroups = "# Subgroups")
+    label = c(num_subgroups = "# Subgroups"),
+    finalize = NULL
   )
 }

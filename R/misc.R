@@ -17,7 +17,21 @@ format_bounds <- function(bnds) {
   res
 }
 
-### Check functions
+# From parsnip:::check_installs
+#' @importFrom utils installed.packages
+check_installs <- function (x) {
+  lib_inst <- rownames(installed.packages())
+  is_inst <- x %in% lib_inst
+  if (any(!is_inst)) {
+    stop(
+      "This engine requires some package installs: ",
+      paste0("'", x[!is_inst], "'", collapse = ", "),
+      call. = FALSE
+    )
+  }
+}
+
+# checking functions -----------------------------------------------------------
 
 check_label <- function(txt) {
   if (is.null(txt))
@@ -32,4 +46,8 @@ check_label <- function(txt) {
   invisible(txt)
 }
 
-
+check_finalize <- function(x) {
+  if (!is.null(x) & !is.function(x))
+    stop("`finalize` should be NULL or a function.", .call = FALSE)
+  invisible(x)
+}
