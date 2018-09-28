@@ -55,6 +55,9 @@ finalize.param <- function(object, x, ...) {
 #' @export
 #' @rdname finalize
 get_p <- function(object, x, log_vals = FALSE, ...) {
+  if (!inherits(object, "param"))
+    stop("`object` should be a 'param' object.", call. = FALSE)
+  
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$upper))
     return(object)
@@ -117,7 +120,7 @@ get_rbf_range <- function(object, x, seed = sample.int(10 ^ 5, 1), ...) {
   x_mat <- as.matrix(x)
   if (!is.numeric(x_mat)) {
     stop("The matrix version of the initialization data is not numeric.",
-         .call = FALSE)
+         call. = FALSE)
   }
   with_seed(seed, rng <- kernlab::sigest(x_mat, ...)[-2])
   rng <- log10(rng)
