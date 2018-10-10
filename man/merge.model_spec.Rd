@@ -18,7 +18,7 @@
 \item{...}{Not currently used.}
 }
 \value{
-An updated model object.
+A list containing updated model objects.
 }
 \description{
 \pkg{parsnip} contains model objects that have consistent names with
