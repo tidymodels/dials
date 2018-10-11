@@ -11,7 +11,7 @@
 #' @param log_vals A logical: should the ranges be set on the log10 scale? 
 #' @param ... Other arguments to pass to [kernlab::sigest].  
 #' @param frac A double for the fraction of the data to be used for the upper 
-#'  bound. 
+#'  bound. For `get_n_frac_range`, two fractional values are required. 
 #' @param seed An integer to control the randomness of the calculations. 
 #' @return An updated `param` object.
 #' @details 
@@ -133,6 +133,29 @@ get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ...) {
     rngs[2] <- log10(n_frac)
   } else {
     rngs[2] <- n_frac
+  }
+  
+  range_set(object, rngs)
+}
+
+#' @export
+#' @rdname finalize
+get_n_frac_range <- function(object, x, log_vals = FALSE, frac = c(1/10, 5/10), ...) {
+  rngs <- range_get(object, original = FALSE)
+  if (!is_unknown(rngs$upper))
+    return(object)
+  
+  x_dims <- dim(x)
+  if (is.null(x_dims)) 
+    stop("Cannot determine number of columns. Is `x` a 2D data object?", 
+         .call = TRUE)
+  
+  n_frac <- sort(floor(x_dims[1]*frac))
+  
+  if (log_vals) {
+    rngs <- log10(n_frac)
+  } else {
+    rngs <- n_frac
   }
   
   range_set(object, rngs)

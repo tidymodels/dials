@@ -91,7 +91,7 @@ sample_size <-
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(sample_size = "# Observations Sampled"),
-    finalize = get_n
+    finalize = get_n_frac_range
   )
 
 #' @rdname tree_parameters
