@@ -7,21 +7,25 @@
 \alias{get_p}
 \alias{get_log_p}
 \alias{get_n_frac}
+\alias{get_n_frac_range}
 \alias{get_n}
 \alias{get_rbf_range}
 \title{Functions to finalize data-specific parameter ranges}
 \usage{
 finalize(object, ...)
 
-\method{finalize}{list}(object, x, ...)
+\method{finalize}{list}(object, x, force = TRUE, ...)
 
-\method{finalize}{param}(object, x, ...)
+\method{finalize}{param}(object, x, force = TRUE, ...)
 
 get_p(object, x, log_vals = FALSE, ...)
 
 get_log_p(object, x, ...)
 
 get_n_frac(object, x, log_vals = FALSE, frac = 1/3, ...)
+
+get_n_frac_range(object, x, log_vals = FALSE, frac = c(1/10, 5/10),
+  ...)
 
 get_n(object, x, log_vals = FALSE, ...)
 
@@ -35,10 +39,13 @@ get_rbf_range(object, x, seed = sample.int(10^5, 1), ...)
 \item{x}{The predictor data. In some cases (see below) this should only
 include numeric data.}
 
+\item{force}{A single logical that indicates that, even if the parameter
+object is complete, should it update the ranges anyway?}
+
 \item{log_vals}{A logical: should the ranges be set on the log10 scale?}
 
 \item{frac}{A double for the fraction of the data to be used for the upper
-bound.}
+bound. For \code{get_n_frac_range}, two fractional values are required.}
 
 \item{seed}{An integer to control the randomness of the calculations.}
 }
@@ -88,8 +95,15 @@ params <-
     "rbf_sigma", rbf_sigma
   ) 
 params
-   
-params \%>\%
+  
+# Note that `rbf_sigma` has a default range that does not need to be
+# finalized but will be changed if used in the function:
+complete_params <- 
+  params \%>\%
   mutate(object = map(object, finalize, car_pred))
+complete_params
+
+params \%>\% dplyr::filter(parameter == "rbf_sigma") \%>\% pull(object)
+complete_params \%>\% dplyr::filter(parameter == "rbf_sigma") \%>\% pull(object)
 
 }

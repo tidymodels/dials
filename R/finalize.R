@@ -6,10 +6,12 @@
 #' @param object A `param` object or list. 
 #' @param x The predictor data. In some cases (see below) this should only
 #'  include numeric data. 
+#' @param force A single logical that indicates that, even if the parameter 
+#'  object is complete, should it update the ranges anyway? 
 #' @param log_vals A logical: should the ranges be set on the log10 scale? 
 #' @param ... Other arguments to pass to [kernlab::sigest].  
 #' @param frac A double for the fraction of the data to be used for the upper 
-#'  bound. 
+#'  bound. For `get_n_frac_range`, two fractional values are required. 
 #' @param seed An integer to control the randomness of the calculations. 
 #' @return An updated `param` object.
 #' @details 
@@ -50,10 +52,18 @@
 #'     "rbf_sigma", rbf_sigma
 #'   ) 
 #' params
-#'    
-#' params %>%
+#'   
+#' # Note that `rbf_sigma` has a default range that does not need to be
+#' # finalized but will be changed if used in the function:
+#' complete_params <- 
+#'   params %>%
 #'   mutate(object = map(object, finalize, car_pred))
+#' complete_params
 #' 
+#' params %>% dplyr::filter(parameter == "rbf_sigma") %>% pull(object)
+#' complete_params %>% dplyr::filter(parameter == "rbf_sigma") %>% pull(object)
+#' 
+
 #' @export
 finalize <- function (object, ...) 
   UseMethod("finalize")
@@ -61,14 +71,16 @@ finalize <- function (object, ...)
 #' @export
 #' @rdname finalize
 #' @importFrom purrr map
-finalize.list <- function (object, x, ...) {
-  map(object, finalize, x, ...)  
+finalize.list <- function (object, x, force = TRUE, ...) {
+  map(object, finalize, x, force, ...)  
 }
 
 #' @export
 #' @rdname finalize
-finalize.param <- function(object, x, ...) {
+finalize.param <- function(object, x, force = TRUE, ...) {
   if (is.null(object$finalize))
+    return(object)
+  if (!has_unknowns(object) & !force)
     return(object)
   object$finalize(object, x = x, ...)
 }
@@ -121,6 +133,29 @@ get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ...) {
     rngs[2] <- log10(n_frac)
   } else {
     rngs[2] <- n_frac
+  }
+  
+  range_set(object, rngs)
+}
+
+#' @export
+#' @rdname finalize
+get_n_frac_range <- function(object, x, log_vals = FALSE, frac = c(1/10, 5/10), ...) {
+  rngs <- range_get(object, original = FALSE)
+  if (!is_unknown(rngs$upper))
+    return(object)
+  
+  x_dims <- dim(x)
+  if (is.null(x_dims)) 
+    stop("Cannot determine number of columns. Is `x` a 2D data object?", 
+         .call = TRUE)
+  
+  n_frac <- sort(floor(x_dims[1]*frac))
+  
+  if (log_vals) {
+    rngs <- log10(n_frac)
+  } else {
+    rngs <- n_frac
   }
   
   range_set(object, rngs)

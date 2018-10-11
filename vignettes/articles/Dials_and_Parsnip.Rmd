@@ -24,7 +24,7 @@ library(parsnip)
 
 ```{r bst-spec}
 library(parsnip)
-boost_tree(mode = "classification")
+boost_tree(mode = "regression")
 ```
 
 This particular model has a number of different arguments for tuning parameters:
@@ -36,7 +36,7 @@ str(boost_tree)
 If we know exactly what specific value of a parameter should be, it can be specified:
 
 ```{r bst-args}
-boost_tree(mode = "classification", trees = 50, min_n = 5, sample_size = 3/4)
+boost_tree(mode = "regression", trees = 50, min_n = 5, sample_size = 3/4)
 ```
 
 Note that :
@@ -48,30 +48,43 @@ Note that :
 What happens if you know that you want to optimize the value of a parameter but don't know what the value will be? In this case, the `parsnip` function `varying()` can be used as a placeholder. For example, `min_n` is conditional on the sample size of the training set, so we may not know a feasible value until be have the exact training or analysis set: 
 
 ```{r bst-vary}
-mod_obj <- boost_tree(mode = "classification", trees = 50, min_n = varying(), sample_size = 3/4)
+mod_obj <-
+  boost_tree(
+    mode = "regression",
+    trees = varying(),
+    min_n = varying(),
+    sample_size = varying()
+  )
 mod_obj
 ```
 
-If some type of grid search is used, there is a simple function in `dials` can be used to update this parameter specification with candidate values. Let's create a small, random grid for these parameters. We will set the ranges for these parameters in-line when creating the grid:
+If some type of grid search is used, there is a simple function in `dials` can be used to update this parameter specification with candidate values. Let's create a small, random grid for these parameters as if we were going to model the `mtcars` data set. We will set the ranges for these parameters in-line when creating the grid:
 
 ```{r bst-grid}
 library(tidymodels)
 library(dials)
 
+mtcars_pred <- mtcars %>% select(-mpg)
+
 set.seed(1263)
 bst_grid <- grid_random(
-  trees %>%       range_set(c( 1,  50)), 
-  min_n %>%       range_set(c( 2,  30)), 
-  sample_size %>% range_set(c(20, 130)), 
-  size = 3
+  trees,      # Has complete default ranges      
+  min_n       %>% finalize(mtcars_pred), 
+  sample_size %>% finalize(mtcars_pred), 
+  size = 10
 )
 bst_grid
 ```
 
 We can use the `merge` function to combine these parameters with the model specification:
 
-```{r bst-loop}
-for(i in 1:nrow(bst_grid)) {
-  print(merge(mod_obj, bst_grid[i, ]))
-}
+```{r bst-merge, eval = FALSE}
+bst_grid <- 
+  bst_grid %>%
+  mutate(specs = merge(mod_obj, .))
+
+bst_grid[1, ]
+bst_grid %>% 
+  slice(1) %>% 
+  pull(specs)
 ```
