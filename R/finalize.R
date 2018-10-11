@@ -16,6 +16,9 @@
 #'  `finalize` runes the embedded finalization code contained in the `param`
 #'   object and returns the updated version. 
 #' 
+#' The "get" helper functions are designed to be used with the pipe and update
+#'  the parameter object in-place. 
+#' 
 #' `get_p` and `get_log_p` set the upper value of the range to be the number of
 #'  columns in the data (on the natural and log10 scale, respectively). `get_n`
 #'  and `get_n_frac` set the upper value to be a value that uses the number of 
@@ -24,15 +27,33 @@
 #' `get_rbf_range` sets both bounds based on the heuristic defined in 
 #'  [kernlab::sigest]. It requires that all columns in `x` be numeric. 
 #' @examples 
+#' library(dplyr)
+#' car_pred <- mtcars %>% select(-mpg)
 #' 
+#' # Needs an upper bound
 #' mtry
-#' finalize(mtry, mtcars[, -1])
+#' finalize(mtry, car_pred)
 #' 
 #' # Nothing to do here since no unknowns
 #' penalty
-#' finalize(penalty, mtcars[, -1])
+#' finalize(penalty, car_pred)
 #' 
-#' finalize(list(mtry, num_terms, neighbors), mtcars[, -1])
+#' library(kernlab)
+#' library(tibble)
+#' library(purrr)
+#' 
+#' params <- 
+#'   tribble(
+#'      ~parameter,   ~object,
+#'          "mtry",      mtry, 
+#'     "num_terms", num_terms, 
+#'     "rbf_sigma", rbf_sigma
+#'   ) 
+#' params
+#'    
+#' params %>%
+#'   mutate(object = map(object, finalize, car_pred))
+#' 
 #' @export
 finalize <- function (object, ...) 
   UseMethod("finalize")
