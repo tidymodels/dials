@@ -87,10 +87,11 @@
     </div>
 
     <pre class="usage"><span class='fu'>new_quant_param</span>(<span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"double"</span>, <span class='st'>"integer"</span>), <span class='no'>range</span>, <span class='no'>inclusive</span>,
-  <span class='kw'>default</span> <span class='kw'>=</span> <span class='fu'><a href='unknown.html'>unknown</a></span>(), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>values</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+  <span class='kw'>default</span> <span class='kw'>=</span> <span class='fu'><a href='unknown.html'>unknown</a></span>(), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>values</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>finalize</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='fu'>new_qual_param</span>(<span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='st'>"character"</span>, <span class='st'>"logical"</span>), <span class='no'>values</span>,
-  <span class='kw'>default</span> <span class='kw'>=</span> <span class='fu'><a href='unknown.html'>unknown</a></span>(), <span class='kw'>label</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+  <span class='kw'>default</span> <span class='kw'>=</span> <span class='fu'><a href='unknown.html'>unknown</a></span>(), <span class='kw'>label</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>finalize</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -134,6 +135,11 @@ parameter value. <code><a href='unknown.html'>unknown()</a></code> can also be u
 printing and plotting. The named should reflect the object name (e.g.
 "mtry", "neighbors", etc.)</p></td>
     </tr>
+    <tr>
+      <th>finalize</th>
+      <td><p>A function that can be used to set the  data-specific
+values of a parameter (such as the range).</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -150,7 +156,8 @@ converted to a list with elements "lower" and "upper". '</p>
     <span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>1L</span>, <span class='fl'>20L</span>),
     <span class='kw'>inclusive</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>),
     <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-    <span class='kw'>label</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='kw'>num_subgroups</span> <span class='kw'>=</span> <span class='st'>"# Subgroups"</span>)
+    <span class='kw'>label</span> <span class='kw'>=</span> <span class='fu'>c</span>(<span class='kw'>num_subgroups</span> <span class='kw'>=</span> <span class='st'>"# Subgroups"</span>),
+    <span class='kw'>finalize</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
   )</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
