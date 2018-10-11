@@ -22,9 +22,11 @@ Imports:
     rlang,
     tibble,
     dplyr,
-    utils
+    utils,
+    withr
 Suggests: 
     testthat,
     knitr,
     rpart,
-    covr
+    covr,
+    kernlab

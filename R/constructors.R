@@ -20,6 +20,8 @@
 #' @param label An optional named character string that can be used for
 #' printing and plotting. The named should reflect the object name (e.g. 
 #' "mtry", "neighbors", etc.)
+#' @param finalize A function that can be used to set the  data-specific 
+#'  values of a parameter (such as the range).
 #' @return An object of class "param" with the primary class being either 
 #' "quant_param" or "qual_param". The `range` element of the object is always 
 #' converted to a list with elements "lower" and "upper". '
@@ -30,14 +32,15 @@
 #'     range = c(1L, 20L),
 #'     inclusive = c(TRUE, TRUE),
 #'     trans = NULL,
-#'     label = c(num_subgroups = "# Subgroups")
+#'     label = c(num_subgroups = "# Subgroups"),
+#'     finalize = NULL
 #'   )
 #' @export
 #' @importFrom scales is.trans
 new_quant_param <- function(
   type = c("double", "integer"), range, inclusive, 
   default = unknown(),
-  trans = NULL, values = NULL, label = NULL) {
+  trans = NULL, values = NULL, label = NULL, finalize = NULL) {
   type <- match.arg(type)
   
   range <- as.list(range)
@@ -58,11 +61,12 @@ new_quant_param <- function(
   }
   
   check_label(label)
+  check_finalize(finalize)
   
   names(range) <- names(inclusive) <- c("lower", "upper")
   res <- list(type = type, range = range, inclusive = inclusive, 
               trans = trans, default = default,
-              label = label)
+              label = label, finalize = finalize)
   class(res) <- c("quant_param", "param")
   range_validate(res, range)
   
@@ -86,7 +90,8 @@ new_quant_param <- function(
 #' @export
 #' @rdname new_quant_param
 new_qual_param <- function(type = c("character", "logical"), values,
-                           default = unknown(), label = NULL) {
+                           default = unknown(), label = NULL, 
+                           finalize = NULL) {
   type <- match.arg(type)
   
   if (type == "logical") {
@@ -101,9 +106,11 @@ new_qual_param <- function(type = c("character", "logical"), values,
     default <- values[1]
   
   check_label(label)
+  check_finalize(finalize)
   
   res <- list(type = type, default = default,
-              label = label, values = values)
+              label = label, values = values, 
+              finalize = finalize)
   class(res) <- c("qual_param", "param") 
 
   res

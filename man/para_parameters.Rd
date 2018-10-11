@@ -17,7 +17,7 @@
 \alias{deg_free}
 \alias{hidden_units}
 \title{Parameter objects related to parametric models.}
-\format{An object of class \code{quant_param} (inherits from \code{param}) of length 6.}
+\format{An object of class \code{quant_param} (inherits from \code{param}) of length 7.}
 \usage{
 dropout
 

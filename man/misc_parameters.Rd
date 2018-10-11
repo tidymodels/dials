@@ -9,7 +9,7 @@
 \alias{neighbors}
 \alias{dist_power}
 \title{Parameter objects related to miscellaneous models.}
-\format{An object of class \code{qual_param} (inherits from \code{param}) of length 4.}
+\format{An object of class \code{qual_param} (inherits from \code{param}) of length 5.}
 \usage{
 weight_func
 

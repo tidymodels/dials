@@ -1,6 +1,7 @@
 
 #' @import rlang 
 
+# nocov start
 .onLoad <- function(libname, pkgname) {
 
   if (requireNamespace("dplyr", quietly = TRUE)) {
@@ -13,3 +14,4 @@
   }
   invisible()
 }
+# nocov end
