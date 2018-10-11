@@ -54,3 +54,14 @@ test_that('estimate sigma', {
 })
 
 
+test_that('force', {
+  rbf_sigma_final <- finalize(rbf_sigma, mtcars)
+  rbf_sigma_same  <- finalize(rbf_sigma, mtcars, force = FALSE)
+
+  expect_false(rbf_sigma_final$range$lower == rbf_sigma$range$lower)
+  expect_false(rbf_sigma_final$range$upper == rbf_sigma$range$upper)
+  expect_true(rbf_sigma_same$range$lower == rbf_sigma$range$lower)
+  expect_true(rbf_sigma_same$range$upper == rbf_sigma$range$upper)  
+})
+
+
