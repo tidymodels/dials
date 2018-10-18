@@ -11,7 +11,8 @@
 #' @param log_vals A logical: should the ranges be set on the log10 scale? 
 #' @param ... Other arguments to pass to [kernlab::sigest].  
 #' @param frac A double for the fraction of the data to be used for the upper 
-#'  bound. For `get_n_frac_range`, two fractional values are required. 
+#'  bound. For `get_n_frac_range` and `get_batch_sizes`, two fractional values 
+#'  are required. 
 #' @param seed An integer to control the randomness of the calculations. 
 #' @return An updated `param` object.
 #' @details 
@@ -181,5 +182,23 @@ get_rbf_range <- function(object, x, seed = sample.int(10 ^ 5, 1), ...) {
   with_seed(seed, rng <- kernlab::sigest(x_mat, ...)[-2])
   rng <- log10(rng)
   range_set(object, rng)
+}
+
+#' @export
+#' @rdname finalize
+get_batch_sizes  <- function(object, x, frac = c(1/10, 1/3), ...) {
+  rngs <- range_get(object, original = FALSE)
+  if (!is_unknown(rngs$lower) & !is_unknown(rngs$upper))
+    return(object)
+  
+  x_dims <- dim(x)
+  if (is.null(x_dims)) 
+    stop("Cannot determine number of columns. Is `x` a 2D data object?", 
+         .call = TRUE)
+  
+  n_frac <- sort(floor(x_dims[1]*frac))
+  n_frac <- log2(n_frac)
+
+  range_set(object, n_frac)
 }
 

@@ -174,6 +174,7 @@ Cp <-
 #'    (`parsnip:::mlp()`)
 #' * `hidden_units`: the number of hidden units in a network layer.
 #'    (`parsnip:::mlp()`)
+#' * `batch_size`: the mini-batch size for neural networks. 
 #' * `rbf_sigma`: the sigma parameters of a radial basis function.
 #' * `cost`: a cost value for SVM models.
 #' * `degree`: the polynomial degree.
@@ -340,6 +341,19 @@ hidden_units <-
     label = c(hidden_units = "# Hidden Units"),
     finalize = NULL
   )
+
+#' @export
+#' @rdname para_parameters
+batch_size <-
+  new_quant_param(
+    type = "double",
+    range = c(unknown(), unknown()),
+    inclusive = c(TRUE, TRUE),
+    trans = log2_trans(),
+    label = c(cost = "Batch Size"),
+    finalize = get_batch_sizes
+  )
+
 
 ###################################################################
 
