@@ -10,6 +10,7 @@
 \alias{get_n_frac_range}
 \alias{get_n}
 \alias{get_rbf_range}
+\alias{get_batch_sizes}
 \title{Functions to finalize data-specific parameter ranges}
 \usage{
 finalize(object, ...)
@@ -30,6 +31,8 @@ get_n_frac_range(object, x, log_vals = FALSE, frac = c(1/10, 5/10),
 get_n(object, x, log_vals = FALSE, ...)
 
 get_rbf_range(object, x, seed = sample.int(10^5, 1), ...)
+
+get_batch_sizes(object, x, frac = c(1/10, 1/3), ...)
 }
 \arguments{
 \item{object}{A \code{param} object or list.}
@@ -45,7 +48,8 @@ object is complete, should it update the ranges anyway?}
 \item{log_vals}{A logical: should the ranges be set on the log10 scale?}
 
 \item{frac}{A double for the fraction of the data to be used for the upper
-bound. For \code{get_n_frac_range}, two fractional values are required.}
+bound. For \code{get_n_frac_range} and \code{get_batch_sizes}, two fractional values
+are required.}
 
 \item{seed}{An integer to control the randomness of the calculations.}
 }
