@@ -13,6 +13,8 @@
 \alias{num_terms}
 \alias{num_comp}
 \alias{cost}
+\alias{scale_factor}
+\alias{margin}
 \alias{degree}
 \alias{deg_free}
 \alias{hidden_units}
@@ -39,6 +41,10 @@ num_terms
 num_comp
 
 cost
+
+scale_factor
+
+margin
 
 degree
 
@@ -73,6 +79,9 @@ based on some type of slope/intercept model.
 \item \code{batch_size}: the mini-batch size for neural networks.
 \item \code{rbf_sigma}: the sigma parameters of a radial basis function.
 \item \code{cost}: a cost value for SVM models.
+\item \code{scale_factor}: the polynomial and hyperbolic tangent kernel scaling factor.
+\item \code{margin}: the SVM margin parameter (e.g. epsilon in the insensitive-loss
+function for regression).
 \item \code{degree}: the polynomial degree.
 \item \code{prod_degree}: the number of terms to combine into interactions. A value of
 1 implies an additive model. Useful for MARS models.

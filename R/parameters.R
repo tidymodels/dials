@@ -177,6 +177,9 @@ Cp <-
 #' * `batch_size`: the mini-batch size for neural networks. 
 #' * `rbf_sigma`: the sigma parameters of a radial basis function.
 #' * `cost`: a cost value for SVM models.
+#' * `scale_factor`: the polynomial and hyperbolic tangent kernel scaling factor. 
+#' * `margin`: the SVM margin parameter (e.g. epsilon in the insensitive-loss 
+#'    function for regression).
 #' * `degree`: the polynomial degree.
 #' * `prod_degree`: the number of terms to combine into interactions. A value of
 #'    1 implies an additive model. Useful for MARS models.
@@ -303,6 +306,30 @@ cost <-
     inclusive = c(TRUE, TRUE),
     trans = log2_trans(),
     label = c(cost = "Cost"),
+    finalize = NULL
+  )
+
+#' @export
+#' @rdname para_parameters
+scale_factor <-
+  new_quant_param(
+    type = "double",
+    range = c(-10, -1),
+    inclusive = c(TRUE, TRUE),
+    trans = log2_trans(),
+    label = c(cost = "Scale Factor"),
+    finalize = NULL
+  )
+
+#' @export
+#' @rdname para_parameters
+margin <-
+  new_quant_param(
+    type = "double",
+    range = c(0, .2),
+    inclusive = c(TRUE, TRUE),
+    trans = NULL,,
+    label = c(cost = "Insensitivity Margin"),
     finalize = NULL
   )
 
