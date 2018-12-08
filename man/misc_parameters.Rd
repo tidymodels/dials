@@ -44,7 +44,7 @@ analysis model (e.g. \code{parsnip::surv_reg()}) .
 \item \code{neighbors}: a parameter for the number of neighbors used in a prototype
 model.
 \item \code{dist_power}: The order parameter used in calculating a Minkowski distance.
-\item \code{threshold}: A general thresholding parameter for values between \link{0, 1}.
+\item \code{threshold}: A general thresholding parameter for values between \code{[0, 1]}.
 }
 }
 \keyword{datasets}
