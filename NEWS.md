@@ -1,4 +1,4 @@
-# dials 0.0.1.9000
+# dials 0.0.2
 
 * Parameter objects now contain code to finalize their values and a number of helper functions for certain data-specific parameters. A `force` option can be used to avoid updating the values.  
 * Parameter objects are printed differently inside of tibbles. 
