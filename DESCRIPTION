@@ -1,5 +1,5 @@
 Package: dials
-Version: 0.0.1.9000
+Version: 0.0.2
 Title: Tools for Creating Tuning Parameter Values
 Description: Many models contain tuning parameters (i.e. parameters that cannot be directly estimated from the data). These tools can be used to define objects for creating, simulating, or validating values for such parameters. 
 Authors@R: c(
@@ -12,7 +12,7 @@ Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.0.9000
+RoxygenNote: 6.1.1
 VignetteBuilder: knitr
 Depends:
     scales
