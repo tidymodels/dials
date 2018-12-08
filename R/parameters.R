@@ -551,7 +551,7 @@ token <-
 max_times <-
   new_quant_param(
     type = "integer",
-    range = c(1L, Inf),
+    range = c(1L, .Machine$integer.max),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(max_times = "Maximum Token Frequency"),
@@ -577,7 +577,7 @@ min_times <-
 max_tokens <-
   new_quant_param(
     type = "integer",
-    range = c(0L, Inf),
+    range = c(0L, .Machine$integer.max),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(min_times = "Number Retained Tokens"),
