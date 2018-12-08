@@ -482,7 +482,7 @@ threshold <-
 
 ###################################################################
 
-#' Parameter objects related to ttext analysis.
+#' Parameter objects related to text analysis.
 #'
 #' These are objects that can be used for modeling, especially in conjunction
 #'  with the \pkg{textrecipes} package.

@@ -9,7 +9,7 @@
 \alias{max_times}
 \alias{min_times}
 \alias{max_tokens}
-\title{Parameter objects related to ttext analysis.}
+\title{Parameter objects related to text analysis.}
 \format{An object of class \code{quant_param} (inherits from \code{param}) of length 7.}
 \usage{
 weight
