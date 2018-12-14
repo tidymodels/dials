@@ -36,122 +36,132 @@
 #' @aliases tree_parameters
 #' @export
 #' @rdname tree_parameters
-mtry <-
+mtry <- function(range = c(1L, unknown())) {
   new_quant_param(
     type = "integer",
-    range = c(1L, unknown()),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(mtry = "# Randomly Selected Predictors"),
     finalize = get_p
   )
+}
 
 #' @export
 #' @rdname tree_parameters
-mtry_long <-
+mtry_long <- function(range = c(0L, unknown())) {
   new_quant_param(
     type = "integer",
-    range = c(0L, unknown()),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = log10_trans(),
     label = c(mtry_long = "# Randomly Selected Predictors"),
     finalize = get_log_p
   )
+}
 
 #' @rdname tree_parameters
 #' @export
-trees <-
+trees <- function(range = c(1L, 2000L)) {
   new_quant_param(
     type = "integer",
-    range = c(1L, 2000L),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(trees = "# Trees"),
     finalize = NULL
   )
+}
 
 #' @rdname tree_parameters
 #' @export
-min_n <-
+min_n <- function(range = c(2L, unknown())) {
   new_quant_param(
     type = "integer",
-    range = c(2L, unknown()),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(min_n = "Minimal Node Size"),
     finalize = get_n_frac
   )
+}
 
 #' @rdname tree_parameters
 #' @export
-sample_size <-
+sample_size <- function(range = c(unknown(), unknown())) {
   new_quant_param(
     type = "integer",
-    range = c(unknown(), unknown()),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(sample_size = "# Observations Sampled"),
     finalize = get_n_frac_range
   )
+}
 
 #' @rdname tree_parameters
 #' @export
-learn_rate <-
+learn_rate <- function(range = c(unknown(), unknown())) {
   new_quant_param(
     type = "double",
-    range = c(unknown(), unknown()),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(learn_rate = "Learning Rate"),
     finalize = NULL
   )
+}
 
 
 #' @rdname tree_parameters
 #' @export
-loss_reduction <-
+loss_reduction <- function(range = c(unknown(), unknown())) {
   new_quant_param(
     type = "double",
-    range = c(unknown(), unknown()),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(loss_reduction = "Minimum Loss Reduction"),
     finalize = NULL
   )
+}
 
 #' @rdname tree_parameters
 #' @export
-tree_depth <-
+tree_depth <- function(range = c(2L, 15L)) {
   new_quant_param(
     type = "integer",
-    range = c(2L, 15L),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(tree_depth = "Tree Depth"),
     finalize = NULL
   )
+}
 
 #' @export
 #' @rdname tree_parameters
-prune <-
+prune <- function(values = c(TRUE, FALSE)) {
   new_qual_param(
     type = "logical",
-    values = c(TRUE, FALSE),
+    values = values,
     label = c(prune = "Pruning"),
     finalize = NULL
   )
+}
 
 #' @export
 #' @rdname tree_parameters
-Cp <-
+Cp <- function(range = c(-10, -1)) {
   new_quant_param(
     type = "double",
-    range = c(-10, -1),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = log10_trans(),
     label = c(Cp = "Cost-Complexity Parameter"),
     finalize = NULL
   )
+}
 
 ###################################################################
 
@@ -174,11 +184,11 @@ Cp <-
 #'    (`parsnip:::mlp()`)
 #' * `hidden_units`: the number of hidden units in a network layer.
 #'    (`parsnip:::mlp()`)
-#' * `batch_size`: the mini-batch size for neural networks. 
+#' * `batch_size`: the mini-batch size for neural networks.
 #' * `rbf_sigma`: the sigma parameters of a radial basis function.
 #' * `cost`: a cost value for SVM models.
-#' * `scale_factor`: the polynomial and hyperbolic tangent kernel scaling factor. 
-#' * `margin`: the SVM margin parameter (e.g. epsilon in the insensitive-loss 
+#' * `scale_factor`: the polynomial and hyperbolic tangent kernel scaling factor.
+#' * `margin`: the SVM margin parameter (e.g. epsilon in the insensitive-loss
 #'    function for regression).
 #' * `degree`: the polynomial degree.
 #' * `prod_degree`: the number of terms to combine into interactions. A value of
@@ -193,19 +203,20 @@ Cp <-
 #' @rdname para_parameters
 #' @export
 #' @export
-dropout <-
+dropout <- function(range = c(0, 1)) {
   new_quant_param(
     type = "double",
-    range = c(0, 1),
+    range = range,
     inclusive = c(TRUE, FALSE),
     trans = NULL,
     label = c(dropout = "Dropout Rate"),
     finalize = NULL
   )
+}
 
 #' @rdname para_parameters
 #' @export
-epochs <-
+epochs <- function(range = c(1L, 1000L)) {
   new_quant_param(
     type = "integer",
     range = c(1L, 1000L),
@@ -214,172 +225,187 @@ epochs <-
     label = c(epochs = "# Epochs"),
     finalize = NULL
   )
+}
 
 #' @rdname para_parameters
 #' @export
-activation <-
+activation <- function(values = c("linear", "softmax", "relu", "elu")) {
   new_qual_param(
     type = "character",
-    values = c("linear", "softmax", "relu", "elu"),
+    values = values,
     label = c(activation = "Activation Function"),
     finalize = NULL
   )
+}
 
 #' @rdname para_parameters
 #' @export
-mixture <-
+mixture <- function(range = c(0, 1)) {
   new_quant_param(
     type = "double",
-    range = 0:1,
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(mixture = "% lasso Penalty"),
     finalize = NULL
   )
+}
 
 #' @rdname para_parameters
 #' @export
-penalty <-
+penalty <- function(range = c(-10, 0)) {
   new_quant_param(
     type = "double",
-    range = c(-10, 0),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = log10_trans(),
     label = c(penalty = "Amount of Regularization"),
     finalize = NULL
   )
+}
 
 #' @export
 #' @rdname para_parameters
-rbf_sigma <-
+rbf_sigma <- function(range = c(-10, 0)) {
   new_quant_param(
     type = "double",
-    range = c(-10, 0),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = log10_trans(),
     label = c(rbf_sigma = "Radial Basis Function sigma"),
     finalize = get_rbf_range
   )
+}
 
 #' @export
 #' @rdname para_parameters
-prod_degree <-
+prod_degree <- function(range = c(1L, 2L)) {
   new_quant_param(
     type = "integer",
-    range = 1:2,
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(prod_degree = "Degree of Interaction"),
     finalize = NULL
   )
+}
 
 #' @export
 #' @rdname para_parameters
-num_terms <-
+num_terms <- function(range = c(1L, unknown())) {
   new_quant_param(
     type = "integer",
-    range = c(1L, unknown()),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(num_terms = "# Model Terms"),
     finalize = get_p
   )
+}
 
 #' @export
 #' @rdname para_parameters
-num_comp <-
+num_comp <- function(range = c(1L, unknown())) {
   new_quant_param(
     type = "integer",
-    range = c(1L, unknown()),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(num_comp = "# Components"),
     finalize = get_p
   )
+}
 
 #' @export
 #' @rdname para_parameters
-cost <-
+cost <- function(range = c(-10, -1)) {
   new_quant_param(
     type = "double",
-    range = c(-10, -1),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = log2_trans(),
     label = c(cost = "Cost"),
     finalize = NULL
   )
+}
 
 #' @export
 #' @rdname para_parameters
-scale_factor <-
+scale_factor <- function(range = c(-10, -1)) {
   new_quant_param(
     type = "double",
-    range = c(-10, -1),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = log2_trans(),
     label = c(cost = "Scale Factor"),
     finalize = NULL
   )
+}
 
 #' @export
 #' @rdname para_parameters
-margin <-
+margin <- function(range = c(0, .2)) {
   new_quant_param(
     type = "double",
-    range = c(0, .2),
+    range = range,
     inclusive = c(TRUE, TRUE),
-    trans = NULL,,
+    trans = NULL,
     label = c(cost = "Insensitivity Margin"),
     finalize = NULL
   )
+}
 
 #' @export
 #' @rdname para_parameters
-degree <-
+degree <- function(range = c(1, 3)) {
   new_quant_param(
     type = "double",
-    range = c(1, 3),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(degree = "Polynomial Degree"),
     finalize = NULL
   )
+}
 
 #' @export
 #' @rdname para_parameters
-deg_free <-
+deg_free <- function(range = c(1, 5)) {
   new_quant_param(
     type = "double",
-    range = c(1, 5),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(deg_free = "Degrees of Freedom"),
     finalize = NULL
   )
+}
 
 #' @export
 #' @rdname para_parameters
-hidden_units <-
+hidden_units <- function(range = c(1L, 10)) {
   new_quant_param(
     type = "integer",
-    range = c(1L, 10),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(hidden_units = "# Hidden Units"),
     finalize = NULL
   )
+}
 
 #' @export
 #' @rdname para_parameters
-batch_size <-
+batch_size <- function(range = c(unknown(), unknown())) {
   new_quant_param(
     type = "double",
-    range = c(unknown(), unknown()),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = log2_trans(),
     label = c(cost = "Batch Size"),
     finalize = get_batch_sizes
   )
+}
 
 
 ###################################################################
@@ -401,83 +427,90 @@ batch_size <-
 #' * `neighbors`: a parameter for the number of neighbors used in a prototype
 #'   model.
 #' * `dist_power`: The order parameter used in calculating a Minkowski distance.
-#' * `threshold`: A general thresholding parameter for values between `[0, 1]`. 
+#' * `threshold`: A general thresholding parameter for values between `[0, 1]`.
 #' @return Each object is generated by either `new_quant_param` or
 #' `new_qual_param`.
 #' @aliases misc_parameters
 #' @rdname misc_parameters
 #' @export
-weight_func <-
+weight_func <- function(values = c("rectangular", "triangular", "epanechnikov",
+                                   "biweight", "triweight", "cos", "inv",
+                                   "gaussian", "rank", "optimal")) {
   new_qual_param(
     type = "character",
-    values = c("rectangular", "triangular", "epanechnikov", "biweight",
-               "triweight", "cos", "inv", "gaussian", "rank", "optimal"),
+    values = values,
     label = c(weight_func = "Distance Weighting Function"),
     finalize = NULL
   )
+}
 
 # in reference to survival::survreg
 #' @rdname misc_parameters
 #' @export
-surv_dist <-
+surv_dist <- function(values = c("weibull", "exponential", "gaussian",
+                                 "logistic", "lognormal", "loglogistic")) {
   new_qual_param(
     type = "character",
-    values = c("weibull", "exponential", "gaussian", "logistic",
-               "lognormal", "loglogistic"),
+    values = values,
     label = c(surv_dist = "Distribution"),
     finalize = NULL
   )
+}
 
 #' @export
 #' @rdname misc_parameters
-Laplace <-
+Laplace <- function(range = c(0, 3)) {
   new_quant_param(
     type = "double",
-    range = c(0, 3),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     default = 0,
     label = c(Laplace = "Laplace Correction"),
     finalize = NULL
   )
+}
 
 
 #' @export
 #' @rdname misc_parameters
-neighbors <-
+neighbors <- function(range = c(1L, unknown())) {
   new_quant_param(
     type = "integer",
-    range = c(1L, unknown()),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(neighbors = "# Nearest Neighbors"),
     finalize = get_n_frac
   )
+}
 
 #' @export
 #' @rdname misc_parameters
-dist_power <-
+dist_power <- function(range = c(1, 2)) {
   new_quant_param(
     type = "double",
-    range = c(1, 2),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(neighbors = "Minkowski Distance Order")
   )
+}
 
 
 #' @export
 #' @rdname misc_parameters
-threshold <-
+threshold <- function(range = c(0, 1)) {
   new_quant_param(
     type = "double",
-    range = c(0, 1),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     default = 0.5,
     label = c(threshold = "Threshold"),
     finalize = NULL
   )
+}
 
 
 ###################################################################
@@ -492,16 +525,16 @@ threshold <-
 #' models.
 #'
 #' * `min_times`, `max_times`: frequency of word occurances for removal.
-#'   See `?step_tokenfilter`. 
-#' * `max_tokens`: the number of tokens that will be retained. See 
-#'   `?step_tokenfilter`.  
-#' * `weight`: A parameter for "double normalization" when creating token 
+#'   See `?step_tokenfilter`.
+#' * `max_tokens`: the number of tokens that will be retained. See
+#'   `?step_tokenfilter`.
+#' * `weight`: A parameter for "double normalization" when creating token
 #'   counts. See `?step_tf`.
-#' * `weight_scheme`: the method for  term frequency calculations. Possible 
+#' * `weight_scheme`: the method for  term frequency calculations. Possible
 #'    values are: "binary", "raw count", "term frequency", "log normalization",
 #'    or "double normalization". See `?step_tf`.
-#' * `token`: the type of token with possible values: "characters", 
-#'   "character_shingle", "lines", "ngrams", "paragraphs", "ptb", "regex", 
+#' * `token`: the type of token with possible values: "characters",
+#'   "character_shingle", "lines", "ngrams", "paragraphs", "ptb", "regex",
 #'   "sentences", "skip_ngrams", "tweets", "words", "word_stems". See
 #'   `?step_tokenize`
 #' @return Each object is generated by either `new_quant_param` or
@@ -509,80 +542,88 @@ threshold <-
 #' @aliases text_parameters
 #' @rdname text_parameters
 #' @export
-#' 
+#'
 
 #' @export
 #' @rdname text_parameters
-weight <-
+weight <- function(range = c(-10, 0)) {
   new_quant_param(
     type = "double",
-    range = c(-10, 0),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = log10_trans(),
     label = c(weight = "Weight"),
     finalize = NULL
   )
+}
 
 #' @export
 #' @rdname text_parameters
-weight_scheme <-
+weight_scheme <- function(values = c("raw count", "binary",
+                                     "term frequency", "log normalization",
+                                     "double normalization")) {
   new_qual_param(
     type = "character",
-    values = c("raw count", "binary", "term frequency", "log normalization",
-               "double normalization"),
+    values = values,
     label = c(weight_scheme = "Term Frequency Weight Method"),
     finalize = NULL
   )
+}
 
 #' @export
 #' @rdname text_parameters
-token <-
+token <- function(values = c("words", "characters", "character_shingle",
+                             "lines", "ngrams", "paragraphs", "ptb", "regex",
+                             "sentences", "skip_ngrams", "tweets",
+                             "word_stems")) {
   new_qual_param(
     type = "character",
-    values = c("words", "characters", "character_shingle", "lines", "ngrams", 
-               "paragraphs", "ptb", "regex", "sentences", "skip_ngrams", 
-               "tweets", "word_stems"),
+    values = values,
     label = c(weight_scheme = "Token Unit"),
     finalize = NULL
   )
+}
 
 #' @export
 #' @rdname text_parameters
-max_times <-
+max_times <- function(range = c(1L, as.integer(10^5))) {
   new_quant_param(
     type = "integer",
-    range = c(1L, as.integer(10^5)),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(max_times = "Maximum Token Frequency"),
     finalize = NULL
   )
+}
 
 
 #' @export
 #' @rdname text_parameters
-min_times <-
+min_times <- function(range = c(0L, 1000L)) {
   new_quant_param(
     type = "integer",
-    range = c(0L, 1000L),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(min_times = "Minimum Token Frequency"),
     finalize = NULL
   )
+}
 
 
 #' @export
 #' @rdname text_parameters
-max_tokens <-
+max_tokens <- function(range = c(0L, as.integer(10^5))) {
   new_quant_param(
     type = "integer",
-    range = c(0L, as.integer(10^5)),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     label = c(min_times = "# Retained Tokens"),
     finalize = NULL
   )
+}
 
 
 
