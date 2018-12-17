@@ -49,6 +49,7 @@ mtry <- function(range = c(1L, unknown())) {
 
 #' @export
 #' @rdname tree_parameters
+#' @importFrom scales log10_trans
 mtry_long <- function(range = c(0L, unknown())) {
   new_quant_param(
     type = "integer",
@@ -396,6 +397,7 @@ hidden_units <- function(range = c(1L, 10)) {
 
 #' @export
 #' @rdname para_parameters
+#' @importFrom scales log2_trans
 batch_size <- function(range = c(unknown(), unknown())) {
   new_quant_param(
     type = "double",
