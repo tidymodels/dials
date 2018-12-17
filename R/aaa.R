@@ -1,6 +1,4 @@
 
-#' @import rlang 
-
 # nocov start
 .onLoad <- function(libname, pkgname) {
 
