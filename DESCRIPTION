@@ -20,6 +20,7 @@ Imports:
     glue,
     purrr,
     tibble,
+    rlang,
     dplyr,
     utils,
     withr
