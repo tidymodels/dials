@@ -2,7 +2,6 @@
 ## https://github.com/tidyverse/googledrive/commit/95455812d2e0d6bdf92b5f6728e3265bf65d8467#diff-ba61d4f2ccd992868e27305a9ab68a3c
 
 #' @importFrom tibble is_tibble tibble
-#' @importFrom dplyr as_tibble
 #' @importFrom rlang is_string
 
 reset_param_grid <- function(x) {
