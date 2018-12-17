@@ -34,10 +34,10 @@ Random and regular grids can be created for any number of parameter objects.
 }
 \examples{
 # Will fail due to unknowns:
-# grid_regular(mtry, min_n)
+# grid_regular(mtry(), min_n())
 
-grid_regular(penalty, mixture)
-grid_regular(penalty, mixture, levels = c(3, 4))
-grid_random(penalty, mixture)
+grid_regular(penalty(), mixture())
+grid_regular(penalty(), mixture(), levels = c(3, 4))
+grid_random(penalty(), mixture())
 
 }

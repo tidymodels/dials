@@ -80,29 +80,29 @@ library(dplyr)
 car_pred <- mtcars \%>\% select(-mpg)
 
 # Needs an upper bound
-mtry
-finalize(mtry, car_pred)
+mtry()
+finalize(mtry(), car_pred)
 
 # Nothing to do here since no unknowns
-penalty
-finalize(penalty, car_pred)
+penalty()
+finalize(penalty(), car_pred)
 
 library(kernlab)
 library(tibble)
 library(purrr)
 
-params <- 
+params <-
   tribble(
      ~parameter,   ~object,
-         "mtry",      mtry, 
-    "num_terms", num_terms, 
-    "rbf_sigma", rbf_sigma
-  ) 
+         "mtry",      mtry(),
+    "num_terms", num_terms(),
+    "rbf_sigma", rbf_sigma()
+  )
 params
-  
-# Note that `rbf_sigma` has a default range that does not need to be
+
+# Note that `rbf_sigma()` has a default range that does not need to be
 # finalized but will be changed if used in the function:
-complete_params <- 
+complete_params <-
   params \%>\%
   mutate(object = map(object, finalize, car_pred))
 complete_params

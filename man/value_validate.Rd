@@ -65,26 +65,26 @@ qualitative values, a random uniform distribution is used.
 \examples{
 library(dplyr)
 
-penalty \%>\% value_set(-4:-1)
+penalty() \%>\% value_set(-4:-1)
 
 # Is a specific value valid?
-penalty
-penalty \%>\% range_get()
-value_validate(penalty, 17)
+penalty()
+penalty() \%>\% range_get()
+value_validate(penalty(), 17)
 
 # get a sequence of values
-Cp
-Cp \%>\% value_seq(4)
-Cp \%>\% value_seq(4, original = FALSE)
+Cp()
+Cp() \%>\% value_seq(4)
+Cp() \%>\% value_seq(4, original = FALSE)
 
-on_log_scale <- Cp \%>\% value_seq(4, original = FALSE)
-nat_units <- value_inverse(Cp, on_log_scale)
+on_log_scale <- Cp() \%>\% value_seq(4, original = FALSE)
+nat_units <- value_inverse(Cp(), on_log_scale)
 nat_units
-value_transform(Cp, nat_units)
+value_transform(Cp(), nat_units)
 
 # random values in the range
 set.seed(3666)
-Cp \%>\% value_sample(2)
+Cp() \%>\% value_sample(2)
 
 
 }
