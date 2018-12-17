@@ -1,4 +1,12 @@
 # dials 0.0.2.9000
+
+## Breaking changes
+
+* All parameter _objects_ are now parameter _functions_. For example, the 
+pre-configured object `mtry` is now a function, `mtry()`, with arguments for the
+`range` and the `trans`form. This provides greater flexibility in parameter
+creation, and should feel more natural.
+
 # dials 0.0.2
 
 * Parameter objects now contain code to finalize their values and a number of helper functions for certain data-specific parameters. A `force` option can be used to avoid updating the values.  
