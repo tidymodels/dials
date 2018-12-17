@@ -19,7 +19,6 @@ Depends:
 Imports:
     glue,
     purrr,
-    rlang,
     tibble,
     dplyr,
     utils,
