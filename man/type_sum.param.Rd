@@ -13,7 +13,7 @@
 A character value.
 }
 \description{
-\code{type_sum} controls how objects are shown when inside tibble
+\code{type_sum()} controls how objects are shown when inside tibble
 columns.
 }
 \details{

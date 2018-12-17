@@ -2,19 +2,26 @@
 #'
 #' Random and regular grids can be created for any number of parameter objects.
 #'
-#' @param ... One or more `param` objects (such as `mtry()` or
-#'  `penalty()`). None of the objects can have `unknown()` values in
-#'  the parameter ranges or values.
-#' @param levels An integer for how many value of each parameter will be used
-#'  to make the regular grid? `levels` can be a single integer or a vector of
-#'  integers that is the same length as the number of parameters in `...`.
-#' @param size A single integer for the total number of parameter values
-#'  returned for the random grid.
+#' @param ... One or more `param` objects (such as [mtry()] or
+#' [penalty()]). None of the objects can have `unknown()` values in
+#' the parameter ranges or values.
+#'
+#' @param levels An integer for the number of values of each parameter to use
+#' to make the regular grid. `levels` can be a single integer or a vector of
+#' integers that is the same length as the number of parameters in `...`.
+#'
+#' @param size A single integer for the total number of parameter value
+#' combinations returned for the random grid.
+#'
 #' @param original A logical: should the parameters be in the original units or
-#'  in the transformed space (if any)?
-#' @return A tibble with an additional class for the type of type of grid
-#'  ("grid_regular" or "grid_random"). There are columns for each parameter and
-#'  a row for every parameter or parameter combination.
+#' in the transformed space (if any)?
+#'
+#' @return
+#'
+#' A tibble with an additional class for the type of grid
+#' (`"grid_regular"` or `"grid_random"`). There are columns for
+#' each parameter and a row for every parameter combination.
+#'
 #' @examples
 #' # Will fail due to unknowns:
 #' # grid_regular(mtry(), min_n())
@@ -26,6 +33,7 @@
 #' @importFrom rlang quos eval_tidy quo_get_expr
 #' @importFrom purrr map map_chr map2 map_dfc
 #' @export
+#'
 grid_regular <- function(..., levels = 3, original = TRUE) {
   param_quos <- quos(...)
   if (length(param_quos) == 0)

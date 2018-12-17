@@ -13,15 +13,43 @@ is_unknown(x)
 has_unknowns(object)
 }
 \arguments{
-\item{x}{An object or vector or objects.}
+\item{x}{An object or vector or objects to test for unknown-ness.}
 
-\item{object}{An object of class \code{param}}
+\item{object}{An object of class \code{param}.}
 }
 \value{
-\code{unknown} returns expression value for \code{unknown()} and logicals for
-\code{is_unknown()} and \code{has_unknowns()}.
+\code{unknown()} returns expression value for \code{unknown()}.
+
+\code{is_unknown()} returns a vector of logicals as long as \code{x} that are \code{TRUE}
+is the element of \code{x} is unknown, and \code{FALSE} otherwise.
+
+\code{has_unknowns()} returns a single logical indicating if the \code{range} of a \code{param}
+object has any unknown values.
 }
 \description{
-This creates a simple expression used to signify that the value will be
+\code{unknown()} creates an expression used to signify that the value will be
 specified at a later time.
+}
+\examples{
+
+# Just returns an expression
+unknown()
+
+# Of course, true!
+is_unknown(unknown())
+
+# Create a range with a minimum of 1
+# and an unknown maximum
+range <- c(1, unknown())
+
+range
+
+# The first value is known, the
+# second is not
+is_unknown(range)
+
+# mtry()'s maximum value is not known at
+# creation time
+has_unknowns(mtry())
+
 }

@@ -16,30 +16,41 @@ range_set(object, range)
 \item{object}{An object with class \code{quant_param}.}
 
 \item{range}{A two-element numeric vector or list (including \code{Inf}). Values
-can include \code{unknown()} when \code{ukn_ok = TRUE}}
+can include \code{unknown()} when \code{ukn_ok = TRUE}.}
 
-\item{ukn_ok}{A single logical for wether \code{unknown()} is an acceptable value.}
+\item{ukn_ok}{A single logical for whether \code{unknown()} is
+an acceptable value.}
 
-\item{original}{A single logical: should the range values be in the natural
-units (\code{TRUE}) or in the transformed space (\code{FALSE}, if applicable).}
+\item{original}{A single logical. Should the range values be in the natural
+units (\code{TRUE}) or in the transformed space (\code{FALSE}, if applicable)?}
 }
 \value{
-\code{range_validate} returns the range if it passes the validation
-process (and throws an error otherwise). \code{range_get} returns also returns
-the range of the object. \code{range_set} returns an updated version of the
-parameter object.
+\code{range_validate()} returns the new range if it passes the validation
+process (and throws an error otherwise).
+
+\code{range_get()} returns the current range of the object.
+
+\code{range_set()} returns an updated version of the parameter object with
+a new range.
 }
 \description{
-Tools for working with parameter ranges
+Setters, getters, and validators for parameter ranges.
 }
 \examples{
 library(dplyr)
-my_lambda <-
-  penalty() \%>\%
+
+my_lambda <- penalty() \%>\%
   value_set(-4:-1)
-try(my_lambda \%>\% range_validate(c(-10, NA)), silent = TRUE) \%>\% print()
+
+try(
+  range_validate(my_lambda, c(-10, NA)), silent = TRUE
+) \%>\%
+  print()
 
 range_get(my_lambda)
 
-range_set(my_lambda, c(-10, 2)) \%>\% range_get()
+my_lambda \%>\%
+  range_set(c(-10, 2)) \%>\%
+  range_get()
+
 }
