@@ -1,37 +1,55 @@
 #' Functions to finalize data-specific parameter ranges
 #'
 #' These functions take a parameter object and modify the unknown parts of
-#'  ranges based on simple heuristics.
+#' `ranges` based on a data set and simple heuristics.
 #'
-#' @param object A `param` object or list.
+#' @param object A `param` object or a list of `param` objects.
+#'
 #' @param x The predictor data. In some cases (see below) this should only
-#'  include numeric data.
+#' include numeric data.
+#'
 #' @param force A single logical that indicates that, even if the parameter
-#'  object is complete, should it update the ranges anyway?
-#' @param log_vals A logical: should the ranges be set on the log10 scale?
-#' @param ... Other arguments to pass to [kernlab::sigest].
+#' object is complete, should it update the ranges anyway?
+#'
+#' @param log_vals A logical: should the ranges be set on the log-10 scale?
+#'
+#' @param ... Other arguments to pass to the underlying parameter
+#' finalizer functions. For example, for `get_rbf_range()`, the dots are passed
+#' along to [kernlab::sigest()].
+#'
 #' @param frac A double for the fraction of the data to be used for the upper
-#'  bound. For `get_n_frac_range` and `get_batch_sizes`, two fractional values
-#'  are required.
+#' bound. For `get_n_frac_range()` and `get_batch_sizes()`, a vector of two
+#' fractional values are required.
+#'
 #' @param seed An integer to control the randomness of the calculations.
-#' @return An updated `param` object.
+#'
+#' @return
+#'
+#' An updated `param` object or a list of updated `param` objects depending
+#' on what is provided in `object`.
+#'
 #' @details
-#'  `finalize` runes the embedded finalization code contained in the `param`
-#'   object and returns the updated version.
 #'
-#' The "get" helper functions are designed to be used with the pipe and update
-#'  the parameter object in-place.
+#' `finalize()` runs the embedded finalizer function contained in the `param`
+#' object (`object$finalize`) and returns the updated version. The finalization
+#' function is one of the `get_*()` helpers.
 #'
-#' `get_p` and `get_log_p` set the upper value of the range to be the number of
-#'  columns in the data (on the natural and log10 scale, respectively). `get_n`
-#'  and `get_n_frac` set the upper value to be a value that uses the number of
-#'  rows.
+#' The `get_*()` helper functions are designed to be used with the pipe
+#' and update the parameter object in-place.
 #'
-#' `get_rbf_range` sets both bounds based on the heuristic defined in
-#'  [kernlab::sigest]. It requires that all columns in `x` be numeric.
+#' `get_p()` and `get_log_p()` set the upper value of the range to be
+#' the number of columns in the data (on the natural and
+#' log10 scale, respectively).
+#'
+#' `get_n()` and `get_n_frac()` set the upper value to be to be the number of
+#' rows in the data, or a fraction of the total number of rows.
+#'
+#' `get_rbf_range()` sets both bounds based on the heuristic defined in
+#' [kernlab::sigest()]. It requires that all columns in `x` be numeric.
+#'
 #' @examples
 #' library(dplyr)
-#' car_pred <- mtcars %>% select(-mpg)
+#' car_pred <- select(mtcars, -mpg)
 #'
 #' # Needs an upper bound
 #' mtry()
@@ -64,10 +82,10 @@
 #' params %>% dplyr::filter(parameter == "rbf_sigma") %>% pull(object)
 #' complete_params %>% dplyr::filter(parameter == "rbf_sigma") %>% pull(object)
 #'
-
 #' @export
-finalize <- function (object, ...)
+finalize <- function (object, ...) {
   UseMethod("finalize")
+}
 
 #' @export
 #' @rdname finalize

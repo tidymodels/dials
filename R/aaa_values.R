@@ -1,35 +1,53 @@
 #' Tools for working with parameter values
 #'
+#' Setters and validators for parameter values. Additionally, tools for creating
+#' sequences of parameter values and for transforming parameter values
+#' are provided.
+#'
 #' @param object An object with class `quant_param`.
+#'
 #' @param values A numeric vector or list (including `Inf`). Values
-#'  _cannot_ include `unknown()`. For `value_validate`, the units should be
+#'  _cannot_ include `unknown()`. For `value_validate()`, the units should be
 #'  consistent with the parameter object's definition.
+#'
 #' @param n An integer for the (maximum) number of values to return. In some
 #'  cases where a sequence is requested, the result might have less than `n`
 #'  values. See Details.
-#' @param original A single logical: should the range values be in the natural
-#'  units (`TRUE`) or in the transformed space (`FALSE`, if applicable).
-#' @return `value_validate()` throws an error or silently returns the values.
-#' `value_transform` and `value_inverse` return a _vector_ of numeric values
-#' while `value_seq` and `value_sample` return a vector of values consistent
+#'
+#' @param original A single logical. Should the range values be in the natural
+#'  units (`TRUE`) or in the transformed space (`FALSE`, if applicable)?
+#'
+#' @return
+#'
+#' `value_validate()` throws an error or silently returns `values` if they are
+#' contained in the values of the `object`.
+#'
+#' `value_transform()` and `value_inverse()` return a _vector_ of
+#' numeric values.
+#'
+#' `value_seq()` and `value_sample()` return a vector of values consistent
 #' with the `type` field of `object`.
+#'
 #' @details
+#'
 #' For sequences of integers, the code uses
-#'  `unique(floor(seq(min, max, length = n)))` and this may generate an uneven
-#'  set of values shorter than `n`. This also means that if `n` is larger than
-#'  the range of the integers, a smaller set will be generated. For qualitative
-#'  parameters, the first `n` values are returned.
+#' `unique(floor(seq(min, max, length = n)))` and this may generate an uneven
+#' set of values shorter than `n`. This also means that if `n` is larger than
+#' the range of the integers, a smaller set will be generated. For qualitative
+#' parameters, the first `n` values are returned.
 #'
-#'  If a single value sequence is requested, the default value is returned (if
-#'  any). If not default is specified, the regular algorithm is used.
+#' If a single value sequence is requested, the default value is returned (if
+#' any). If no default is specified, the regular algorithm is used.
 #'
-#'  For quantitative parameters, any values contained in the object
-#'  are sampled with replacement. Otherwise, a sequence of values
-#'  between the range values is returned. It is possible that less
-#'  than `n` values are returned.
+#' For quantitative parameters, any `values` contained in the object
+#' are sampled with replacement. Otherwise, a sequence of values
+#' between the `range` values is returned. It is possible that less
+#' than `n` values are returned.
 #'
-#'  For qualitative parameters, sampling is conducted with replacement. For
-#'  qualitative values, a random uniform distribution is used.
+#' For qualitative parameters, sampling of the `values` is conducted
+#' with replacement. For qualitative values, a random uniform distribution
+#' is used.
+#'
 #' @examples
 #' library(dplyr)
 #'

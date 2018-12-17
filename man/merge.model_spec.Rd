@@ -11,9 +11,9 @@
 }
 \arguments{
 \item{x, y}{A combination of one \pkg{parsnip} model object (that has class
-\code{model_spec}) and one parameter grid resulting from \code{grid_regular()} or
-\code{grid_random()}. As long as this combination is present, the assignment to
-\code{x} and \code{y} isn't restricted.}
+\code{"model_spec"}) and one parameter grid resulting from \code{\link[=grid_regular]{grid_regular()}} or
+\code{\link[=grid_random]{grid_random()}}. As long as this combination is present, the order that
+they are provided in does not matter.}
 
 \item{...}{Not currently used.}
 }
@@ -24,4 +24,7 @@ A list containing updated model objects.
 \pkg{parsnip} contains model objects that have consistent names with
 \pkg{dials}. \code{merge()} can be used to easily update any of the main parameters
 in a \pkg{parsnip} model.
+
+For more information and examples, see the article,
+\href{https://tidymodels.github.io/dials/articles/articles/Dials_and_Parsnip.html}{Using dials with parsnip}.
 }
