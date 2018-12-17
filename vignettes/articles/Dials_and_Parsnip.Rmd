@@ -68,9 +68,9 @@ mtcars_pred <- mtcars %>% select(-mpg)
 
 set.seed(1263)
 bst_grid <- grid_random(
-  trees,      # Has complete default ranges      
-  min_n       %>% finalize(mtcars_pred), 
-  sample_size %>% finalize(mtcars_pred), 
+  trees(),      # Has complete default ranges      
+  min_n()       %>% finalize(mtcars_pred), 
+  sample_size() %>% finalize(mtcars_pred), 
   size = 10
 )
 bst_grid
