@@ -46,19 +46,23 @@ Otherwise, the information contained in `param` objects are different for differ
 
 ### Numeric Parameters
 
-An example of a numeric tuning parameter is the cost-complexity parameter of CART trees, otherwise known as $C_p$. The parameter object in `dials` is:
+An example of a numeric tuning parameter is the cost-complexity parameter of CART trees, otherwise known as $C_p$. A parameter object for $C_p$ can be created in `dials` using:
 
 ```{r cp}
 library(dials)
 Cp()
 ```
 
-Note that this parameter is handled in log units and the default range of values is between `10^-10` and 0.1. The range of possible values can be returned and changed based on some utility functions. We'll use the pipe operator here:
+Note that this parameter is handled in log units and the default range of values is between `10^-10` and `0.1`. The range of possible values can be returned and changed based on some utility functions. We'll use the pipe operator here:
 
 ```{r cp-range}
 library(dplyr)
 Cp() %>% range_get()
 Cp() %>% range_set(c(-5, 1))
+
+# Or using the `range` argument
+# during creation
+Cp(range = c(-5, 1))
 ```
 
 Values for this parameter can be obtained in a few different ways. To get a sequence of values that span the range: 
@@ -66,11 +70,12 @@ Values for this parameter can be obtained in a few different ways. To get a sequ
 ```{r cp-seq}
 # Natural units:
 Cp() %>% value_seq(n = 4)
+
 # Stay in the transformed space:
 Cp() %>% value_seq(n = 4, original = FALSE)
 ```
 
-Random values can be sampled too. A random uniform distribution is used (between the range values). Since this parameter has a transformation associated with it, the values are simulated in the transformed scale and then returned in the natural units (although another `original` argument can be used here): 
+Random values can be sampled too. A random uniform distribution is used (between the range values). Since this parameter has a transformation associated with it, the values are simulated in the transformed scale and then returned in the natural units (although the `original` argument can be used here): 
 
 ```{r cp-sim}
 set.seed(5473)
@@ -84,6 +89,7 @@ library(rpart)
 cart_mod <- rpart(mpg ~ ., data = mtcars, control = rpart.control(cp = 0.000001))
 cart_mod$cptable
 cp_vals <- cart_mod$cptable[, "CP"]
+
 # We should only keep values associated with at least one split:
 cp_vals <- cp_vals[ cart_mod$cptable[, "nsplit"] > 0 ]
 
@@ -98,7 +104,7 @@ mtcars_cp <- Cp() %>% value_set(log10(cp_vals))
 mtcars_cp
 ```
 
-Now, if sequence or random sample is requested, it uses the set values:
+Now, if a sequence or random sample is requested, it uses the set values:
 
 ```{r rpart-cp-vals}
 mtcars_cp %>% value_seq(2)
@@ -108,10 +114,9 @@ mtcars_cp %>%
   table()
 ```
 
-
 ### Discrete Parameters
 
-In this case there is no notion or a range scale. The parameter objects are defined by their values. For example, consider a parameter for the types of kernel functions that is used with distance functions:
+In the discrete case there is no notion of a range. The parameter objects are defined by their discrete values. For example, consider a parameter for the types of kernel functions that is used with distance functions:
 
 ```{r wts}
 weight_func()
@@ -123,6 +128,7 @@ The helper functions are analogues to the quantitative parameters:
 # redefine values
 weight_func() %>% value_set(c("rectangular", "triangular"))
 weight_func() %>% value_sample(3)
+
 # the sequence is returned in the order of the levels
 weight_func() %>% value_seq(3)
 ```
@@ -133,7 +139,7 @@ The package contains two constructors that can be used to create new quantitativ
 
 ## Unknown Values
 
-There are some cases where the range of parameter values are data dependent. For example, the upper bound on the number of neighbors cannot be known if the number of data points in the training set is not known. For that reason, some parameters have _unknown_ placeholder:
+There are some cases where the range of parameter values are data dependent. For example, the upper bound on the number of neighbors cannot be known if the number of data points in the training set is not known. For that reason, some parameters have an _unknown_ placeholder:
 
 ```{r unk}
 mtry()
@@ -149,7 +155,7 @@ These values must be initialized prior to generating parameter values.
 
 ## Parameter Grids
 
-Sets or combinations or parameters can be created for use in grid search. `grid_regular` and `grid_random` take any number of `param` objects. 
+Sets or combinations of parameters can be created for use in grid search. `grid_regular()` and `grid_random()` take any number of `param` objects. 
 
 For example, for a glmnet model, a regular grid might be:
 
