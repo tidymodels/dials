@@ -21,7 +21,6 @@ Imports:
     purrr,
     tibble,
     rlang,
-    dplyr,
     utils,
     withr
 Suggests: 
@@ -29,4 +28,5 @@ Suggests:
     knitr,
     rpart,
     covr,
+    dplyr,
     kernlab
