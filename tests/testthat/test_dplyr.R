@@ -31,6 +31,12 @@ test_that('are methods available?', {
 ###################################################################
 
 test_that('dplyr ops', {
+
+  # R 3.1 has an obscure bug that occurs when you use NextMethod() and
+  # try to pass along the dots unevaluated (as we do with things like filter.param_grid)
+  # It will evaluate them apparently, which breaks our dplyr examples
+  skip_if_below_r_version("3.2")
+
   expect_true(
     grid_test(rnd %>% filter(prune))
   )
