@@ -10,11 +10,9 @@
 \alias{threshold}
 \title{Parameter functions related to miscellaneous models.}
 \usage{
-weight_func(values = c("rectangular", "triangular", "epanechnikov",
-  "biweight", "triweight", "cos", "inv", "gaussian", "rank", "optimal"))
+weight_func(values = values_weight_func)
 
-surv_dist(values = c("weibull", "exponential", "gaussian", "logistic",
-  "lognormal", "loglogistic"))
+surv_dist(values = values_surv_dist)
 
 Laplace(range = c(0, 3), trans = NULL)
 

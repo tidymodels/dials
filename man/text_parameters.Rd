@@ -12,12 +12,9 @@
 \usage{
 weight(range = c(-10, 0), trans = log10_trans())
 
-weight_scheme(values = c("raw count", "binary", "term frequency",
-  "log normalization", "double normalization"))
+weight_scheme(values = values_weight_scheme)
 
-token(values = c("words", "characters", "character_shingle", "lines",
-  "ngrams", "paragraphs", "ptb", "regex", "sentences", "skip_ngrams",
-  "tweets", "word_stems"))
+token(values = values_token)
 
 max_times(range = c(1L, as.integer(10^5)), trans = NULL)
 
