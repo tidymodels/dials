@@ -27,7 +27,7 @@ dropout(range = c(0, 1), trans = NULL)
 
 epochs(range = c(1L, 1000L), trans = NULL)
 
-activation(values = c("linear", "softmax", "relu", "elu"))
+activation(values = values_activation)
 
 mixture(range = c(0, 1), trans = NULL)
 

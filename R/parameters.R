@@ -1,3 +1,17 @@
+#' Default parameter values
+#'
+#' These are default parameter value objects for parameters that take a `values`
+#' argument. When optimizing over qualitative parameter values, you can subset
+#' the default arguments listed here and supply the result to `values` if you
+#' want to optimize a different set of `values`.
+#'
+#' @format A character vector of parameter values.
+#'
+#' @name default_parameters
+NULL
+
+# ------------------------------------------------------------------------------
+
 #' Parameter functions related to tree- and rule-based models.
 #'
 #' These are parameter generating functions that can be used for modeling,
@@ -275,7 +289,7 @@ epochs <- function(range = c(1L, 1000L), trans = NULL) {
 
 #' @rdname para_parameters
 #' @export
-activation <- function(values = c("linear", "softmax", "relu", "elu")) {
+activation <- function(values = values_activation) {
   new_qual_param(
     type = "character",
     values = values,
@@ -283,6 +297,10 @@ activation <- function(values = c("linear", "softmax", "relu", "elu")) {
     finalize = NULL
   )
 }
+
+#' @rdname default_parameters
+#' @export
+values_activation <- c("linear", "softmax", "relu", "elu")
 
 #' @rdname para_parameters
 #' @export
@@ -500,9 +518,7 @@ prune_method <-
 #' @aliases misc_parameters
 #' @rdname misc_parameters
 #' @export
-weight_func <- function(values = c("rectangular", "triangular", "epanechnikov",
-                                   "biweight", "triweight", "cos", "inv",
-                                   "gaussian", "rank", "optimal")) {
+weight_func <- function(values = values_weight_func) {
   new_qual_param(
     type = "character",
     values = values,
@@ -511,11 +527,16 @@ weight_func <- function(values = c("rectangular", "triangular", "epanechnikov",
   )
 }
 
+#' @rdname default_parameters
+#' @export
+values_weight_func <- c("rectangular", "triangular", "epanechnikov",
+                        "biweight", "triweight", "cos", "inv",
+                        "gaussian", "rank", "optimal")
+
 # in reference to survival::survreg
 #' @rdname misc_parameters
 #' @export
-surv_dist <- function(values = c("weibull", "exponential", "gaussian",
-                                 "logistic", "lognormal", "loglogistic")) {
+surv_dist <- function(values = values_surv_dist) {
   new_qual_param(
     type = "character",
     values = values,
@@ -523,6 +544,11 @@ surv_dist <- function(values = c("weibull", "exponential", "gaussian",
     finalize = NULL
   )
 }
+
+#' @rdname default_parameters
+#' @export
+values_surv_dist <- c("weibull", "exponential", "gaussian",
+                      "logistic", "lognormal", "loglogistic")
 
 #' @export
 #' @rdname misc_parameters
@@ -629,9 +655,7 @@ weight <- function(range = c(-10, 0), trans = log10_trans()) {
 
 #' @export
 #' @rdname text_parameters
-weight_scheme <- function(values = c("raw count", "binary",
-                                     "term frequency", "log normalization",
-                                     "double normalization")) {
+weight_scheme <- function(values = values_weight_scheme) {
   new_qual_param(
     type = "character",
     values = values,
@@ -640,12 +664,15 @@ weight_scheme <- function(values = c("raw count", "binary",
   )
 }
 
+#' @rdname default_parameters
+#' @export
+values_weight_scheme <- c("raw count", "binary",
+                          "term frequency", "log normalization",
+                          "double normalization")
+
 #' @export
 #' @rdname text_parameters
-token <- function(values = c("words", "characters", "character_shingle",
-                             "lines", "ngrams", "paragraphs", "ptb", "regex",
-                             "sentences", "skip_ngrams", "tweets",
-                             "word_stems")) {
+token <- function(values = values_token) {
   new_qual_param(
     type = "character",
     values = values,
@@ -653,6 +680,13 @@ token <- function(values = c("words", "characters", "character_shingle",
     finalize = NULL
   )
 }
+
+#' @rdname default_parameters
+#' @export
+values_token <- c("words", "characters", "character_shingle",
+                  "lines", "ngrams", "paragraphs", "ptb", "regex",
+                  "sentences", "skip_ngrams", "tweets",
+                  "word_stems")
 
 #' @export
 #' @rdname text_parameters
