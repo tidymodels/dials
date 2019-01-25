@@ -4,6 +4,7 @@
 \name{default_parameters}
 \alias{default_parameters}
 \alias{values_activation}
+\alias{values_prune_method}
 \alias{values_weight_func}
 \alias{values_surv_dist}
 \alias{values_weight_scheme}
@@ -12,6 +13,8 @@
 \format{A character vector of parameter values.}
 \usage{
 values_activation
+
+values_prune_method
 
 values_weight_func
 

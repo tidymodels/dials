@@ -474,15 +474,22 @@ batch_size <- function(range = c(unknown(), unknown()), trans = log2_trans()) {
 
 #' @export
 #' @rdname para_parameters
-prune_method <-
+prune_method <- function(values = values_prune_method) {
   new_qual_param(
     type     = c("character"),
-    values   = c("backward", "none", "exhaustive", "forward", "seqrep", "cv"),
+    values   = values,
     default  = "backward",
     label    = c(prune_method = "Pruning Method"),
     finalize = NULL
   )
+}
 
+#' @rdname default_parameters
+#' @export
+values_prune_method <- c(
+  "backward", "none", "exhaustive",
+  "forward", "seqrep", "cv"
+)
 
 ###################################################################
 
