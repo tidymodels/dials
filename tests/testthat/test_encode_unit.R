@@ -14,7 +14,7 @@ test_that('to [0, 1] for qualitative values', {
   z_0 <- encode_unit(z, prune_method()$values, direction = "forward")
   expect_equal(z_0, (0:5)/5)
 
-  z_back <- encode_unit(z, rev(z_1), direction = "backward")
+  z_back <- encode_unit(z, rev(z_0), direction = "backward")
   expect_equal(z_back, rev(prune_method()$values))
 })
 
