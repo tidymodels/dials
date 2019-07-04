@@ -9,7 +9,7 @@ Status](https://travis-ci.org/tidymodels/dials.svg?branch=master)](https://travi
 status](https://codecov.io/gh/tidymodels/dials/branch/master/graph/badge.svg)](https://codecov.io/github/tidymodels/dials?branch=master)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dials)](https://CRAN.R-project.org/package=dials)
 [![Downloads](http://cranlogs.r-pkg.org/badges/dials)](https://CRAN.R-project.org/package=dials)
-[![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
 ## Overview
 
