@@ -1,79 +1,97 @@
 #' Functions to finalize data-specific parameter ranges
-#' 
-#' These functions take a parameter object and modify the unknown parts of 
-#'  ranges based on simple heuristics. 
 #'
-#' @param object A `param` object or list. 
+#' These functions take a parameter object and modify the unknown parts of
+#' `ranges` based on a data set and simple heuristics.
+#'
+#' @param object A `param` object or a list of `param` objects.
+#'
 #' @param x The predictor data. In some cases (see below) this should only
-#'  include numeric data. 
-#' @param force A single logical that indicates that, even if the parameter 
-#'  object is complete, should it update the ranges anyway? 
-#' @param log_vals A logical: should the ranges be set on the log10 scale? 
-#' @param ... Other arguments to pass to [kernlab::sigest].  
-#' @param frac A double for the fraction of the data to be used for the upper 
-#'  bound. For `get_n_frac_range` and `get_batch_sizes`, two fractional values 
-#'  are required. 
-#' @param seed An integer to control the randomness of the calculations. 
-#' @return An updated `param` object.
-#' @details 
-#'  `finalize` runes the embedded finalization code contained in the `param`
-#'   object and returns the updated version. 
-#' 
-#' The "get" helper functions are designed to be used with the pipe and update
-#'  the parameter object in-place. 
-#' 
-#' `get_p` and `get_log_p` set the upper value of the range to be the number of
-#'  columns in the data (on the natural and log10 scale, respectively). `get_n`
-#'  and `get_n_frac` set the upper value to be a value that uses the number of 
-#'  rows. 
-#'  
-#' `get_rbf_range` sets both bounds based on the heuristic defined in 
-#'  [kernlab::sigest]. It requires that all columns in `x` be numeric. 
-#' @examples 
+#' include numeric data.
+#'
+#' @param force A single logical that indicates that, even if the parameter
+#' object is complete, should it update the ranges anyway?
+#'
+#' @param log_vals A logical: should the ranges be set on the log-10 scale?
+#'
+#' @param ... Other arguments to pass to the underlying parameter
+#' finalizer functions. For example, for `get_rbf_range()`, the dots are passed
+#' along to [kernlab::sigest()].
+#'
+#' @param frac A double for the fraction of the data to be used for the upper
+#' bound. For `get_n_frac_range()` and `get_batch_sizes()`, a vector of two
+#' fractional values are required.
+#'
+#' @param seed An integer to control the randomness of the calculations.
+#'
+#' @return
+#'
+#' An updated `param` object or a list of updated `param` objects depending
+#' on what is provided in `object`.
+#'
+#' @details
+#'
+#' `finalize()` runs the embedded finalizer function contained in the `param`
+#' object (`object$finalize`) and returns the updated version. The finalization
+#' function is one of the `get_*()` helpers.
+#'
+#' The `get_*()` helper functions are designed to be used with the pipe
+#' and update the parameter object in-place.
+#'
+#' `get_p()` and `get_log_p()` set the upper value of the range to be
+#' the number of columns in the data (on the natural and
+#' log10 scale, respectively).
+#'
+#' `get_n()` and `get_n_frac()` set the upper value to be to be the number of
+#' rows in the data, or a fraction of the total number of rows.
+#'
+#' `get_rbf_range()` sets both bounds based on the heuristic defined in
+#' [kernlab::sigest()]. It requires that all columns in `x` be numeric.
+#'
+#' @examples
 #' library(dplyr)
-#' car_pred <- mtcars %>% select(-mpg)
-#' 
+#' car_pred <- select(mtcars, -mpg)
+#'
 #' # Needs an upper bound
-#' mtry
-#' finalize(mtry, car_pred)
-#' 
+#' mtry()
+#' finalize(mtry(), car_pred)
+#'
 #' # Nothing to do here since no unknowns
-#' penalty
-#' finalize(penalty, car_pred)
-#' 
+#' penalty()
+#' finalize(penalty(), car_pred)
+#'
 #' library(kernlab)
 #' library(tibble)
 #' library(purrr)
-#' 
-#' params <- 
+#'
+#' params <-
 #'   tribble(
 #'      ~parameter,   ~object,
-#'          "mtry",      mtry, 
-#'     "num_terms", num_terms, 
-#'     "rbf_sigma", rbf_sigma
-#'   ) 
+#'          "mtry",      mtry(),
+#'     "num_terms", num_terms(),
+#'     "rbf_sigma", rbf_sigma()
+#'   )
 #' params
-#'   
-#' # Note that `rbf_sigma` has a default range that does not need to be
+#'
+#' # Note that `rbf_sigma()` has a default range that does not need to be
 #' # finalized but will be changed if used in the function:
-#' complete_params <- 
+#' complete_params <-
 #'   params %>%
 #'   mutate(object = map(object, finalize, car_pred))
 #' complete_params
-#' 
+#'
 #' params %>% dplyr::filter(parameter == "rbf_sigma") %>% pull(object)
 #' complete_params %>% dplyr::filter(parameter == "rbf_sigma") %>% pull(object)
-#' 
-
+#'
 #' @export
-finalize <- function (object, ...) 
+finalize <- function (object, ...) {
   UseMethod("finalize")
+}
 
 #' @export
 #' @rdname finalize
 #' @importFrom purrr map
 finalize.list <- function (object, x, force = TRUE, ...) {
-  map(object, finalize, x, force, ...)  
+  map(object, finalize, x, force, ...)
 }
 
 #' @export
@@ -91,22 +109,22 @@ finalize.param <- function(object, x, force = TRUE, ...) {
 get_p <- function(object, x, log_vals = FALSE, ...) {
   if (!inherits(object, "param"))
     stop("`object` should be a 'param' object.", call. = FALSE)
-  
+
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$upper))
     return(object)
-  
+
   x_dims <- dim(x)
-  if (is.null(x_dims)) 
-    stop("Cannot determine number of columns. Is `x` a 2D data object?", 
+  if (is.null(x_dims))
+    stop("Cannot determine number of columns. Is `x` a 2D data object?",
          .call = TRUE)
-  
+
   if (log_vals) {
     rngs[2] <- log10(x_dims[2])
   } else {
     rngs[2] <- x_dims[2]
   }
-  
+
   range_set(object, rngs)
 }
 
@@ -122,20 +140,20 @@ get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ...) {
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$upper))
     return(object)
-  
+
   x_dims <- dim(x)
-  if (is.null(x_dims)) 
-    stop("Cannot determine number of columns. Is `x` a 2D data object?", 
+  if (is.null(x_dims))
+    stop("Cannot determine number of columns. Is `x` a 2D data object?",
          .call = TRUE)
-  
+
   n_frac <- floor(x_dims[1]*frac)
-  
+
   if (log_vals) {
     rngs[2] <- log10(n_frac)
   } else {
     rngs[2] <- n_frac
   }
-  
+
   range_set(object, rngs)
 }
 
@@ -145,20 +163,20 @@ get_n_frac_range <- function(object, x, log_vals = FALSE, frac = c(1/10, 5/10), 
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$upper))
     return(object)
-  
+
   x_dims <- dim(x)
-  if (is.null(x_dims)) 
-    stop("Cannot determine number of columns. Is `x` a 2D data object?", 
+  if (is.null(x_dims))
+    stop("Cannot determine number of columns. Is `x` a 2D data object?",
          .call = TRUE)
-  
+
   n_frac <- sort(floor(x_dims[1]*frac))
-  
+
   if (log_vals) {
     rngs <- log10(n_frac)
   } else {
     rngs <- n_frac
   }
-  
+
   range_set(object, rngs)
 }
 
@@ -190,12 +208,12 @@ get_batch_sizes  <- function(object, x, frac = c(1/10, 1/3), ...) {
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$lower) & !is_unknown(rngs$upper))
     return(object)
-  
+
   x_dims <- dim(x)
-  if (is.null(x_dims)) 
-    stop("Cannot determine number of columns. Is `x` a 2D data object?", 
+  if (is.null(x_dims))
+    stop("Cannot determine number of columns. Is `x` a 2D data object?",
          .call = TRUE)
-  
+
   n_frac <- sort(floor(x_dims[1]*frac))
   n_frac <- log2(n_frac)
 

@@ -1,14 +1,26 @@
 #' Merge parameter grid values into a parsnip object
 #'
+#'
+#' @description
+#'
 #' \pkg{parsnip} contains model objects that have consistent names with
-#' \pkg{dials}. `merge` can be used to easily update any of the main parameters
+#' \pkg{dials}. `merge()` can be used to easily update any of the main parameters
 #' in a \pkg{parsnip} model.
+#'
+#' For more information and examples, see the article,
+#' [Using dials with parsnip](https://tidymodels.github.io/dials/articles/articles/Dials_and_Parsnip.html).
+#'
 #' @param x,y A combination of one \pkg{parsnip} model object (that has class
-#'  `model_spec`) and one parameter grid resulting from `grid_regular` or
-#'  `grid_random`. As long as this combination is present, the assignment to
-#'  `x` and `y` isn't restricted.
+#' `"model_spec"`) and one parameter grid resulting from [grid_regular()] or
+#' [grid_random()]. As long as this combination is present, the order that
+#' they are provided in does not matter.
+#'
 #' @param ... Not currently used.
-#' @return A list containing updated model objects.
+#'
+#' @return
+#'
+#' A list containing updated model objects.
+#'
 #' @importFrom utils getS3method
 #' @export
 merge.model_spec <- function(x, y, ...) {

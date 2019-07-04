@@ -2,20 +2,24 @@ template:
   package: tidytemplate
   params:
     part_of: <a href="https://github.com/tidymodels">tidymodels</a>
-    footer: <code>dials</code> is a part of the <strong>tidymodels</strong> ecosystem, a collection of modeling packages designed with common APIs and a shared philosophy.
-
-
-# https://github.com/tidyverse/tidytemplate for css
+    footer: dials is a part of the <strong>tidymodels</strong> ecosystem, a collection of modeling packages designed with common APIs and a shared philosophy.
 
 development:
   mode: auto
 
+home:
+  strip_header: true
+
+figures:
+  fig.width: 8
+  fig.height: 5.75
+
 navbar:
   left:
-  - text: Basic Usage 
-    href: articles/Basics.html   
-  - text: Working with parsnip 
-    href: articles/articles/Dials_and_Parsnip.html       
+  - text: Basic Usage
+    href: articles/Basics.html
+  - text: Working with parsnip
+    href: articles/articles/Dials_and_Parsnip.html
   - text: Reference
     href: reference/index.html
   - text: News

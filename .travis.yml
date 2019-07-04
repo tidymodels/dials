@@ -4,17 +4,17 @@ language: R
 sudo: false
 cache: packages
 
+env:
+  global:
+  - MAKEFLAGS="-j 2"
+
 r:
-- 3.2
-- oldrel
-- release
 - devel
-
-matrix:
-  allow_failures:
-    - r: 3.2
-
-warnings_are_errors: false
+- release
+- 3.5
+- 3.4
+- 3.3
+- 3.2
 
 after_success:
   - Rscript -e 'covr::codecov()'

@@ -10,34 +10,34 @@ grid_regular(..., levels = 3, original = TRUE)
 grid_random(..., size = 5, original = TRUE)
 }
 \arguments{
-\item{...}{One or more \code{param} objects (such as \code{mtry()} or
-\code{penalty()}). None of the objects can have \code{unknown()} values in
+\item{...}{One or more \code{param} objects (such as \code{\link[=mtry]{mtry()}} or
+\code{\link[=penalty]{penalty()}}). None of the objects can have \code{unknown()} values in
 the parameter ranges or values.}
 
-\item{levels}{An integer for how many value of each parameter will be used
-to make the regular grid? \code{levels} can be a single integer or a vector of
+\item{levels}{An integer for the number of values of each parameter to use
+to make the regular grid. \code{levels} can be a single integer or a vector of
 integers that is the same length as the number of parameters in \code{...}.}
 
 \item{original}{A logical: should the parameters be in the original units or
 in the transformed space (if any)?}
 
-\item{size}{A single integer for the total number of parameter values
-returned for the random grid.}
+\item{size}{A single integer for the total number of parameter value
+combinations returned for the random grid.}
 }
 \value{
-A tibble with an additional class for the type of type of grid
-("grid_regular" or "grid_random"). There are columns for each parameter and
-a row for every parameter or parameter combination.
+A tibble with an additional class for the type of grid
+(\code{"grid_regular"} or \code{"grid_random"}). There are columns for
+each parameter and a row for every parameter combination.
 }
 \description{
 Random and regular grids can be created for any number of parameter objects.
 }
 \examples{
 # Will fail due to unknowns:
-# grid_regular(mtry, min_n)
+# grid_regular(mtry(), min_n())
 
-grid_regular(penalty, mixture)
-grid_regular(penalty, mixture, levels = c(3, 4))
-grid_random(penalty, mixture)
+grid_regular(penalty(), mixture())
+grid_regular(penalty(), mixture(), levels = c(3, 4))
+grid_random(penalty(), mixture())
 
 }

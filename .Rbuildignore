@@ -1,3 +1,4 @@
+^README\.Rmd$
 ^revdep$
 ^dials\.Rproj$
 ^\.Rproj\.user$

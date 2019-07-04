@@ -1,27 +1,47 @@
 #' Tools for working with parameter ranges
-#' 
-#' @importFrom purrr map_lgl
+#'
+#' Setters, getters, and validators for parameter ranges.
+#'
 #' @param object An object with class `quant_param`.
+#'
 #' @param range A two-element numeric vector or list (including `Inf`). Values
-#'  can include `unknown()` when `ukn_ok = TRUE`
-#' @param ukn_ok A single logical for wether `unknown()` is an acceptable value. 
-#' @param original A single logical: should the range values be in the natural
-#'  units (`TRUE`) or in the transformed space (`FALSE`, if applicable). 
-#' @return `range_validate` returns the range if it passes the validation 
-#' process (and throws an error otherwise). `range_get` returns also returns
-#' the range of the object. `range_set` returns an updated version of the 
-#' parameter object. 
-#' @examples 
+#'  can include `unknown()` when `ukn_ok = TRUE`.
+#'
+#' @param ukn_ok A single logical for whether `unknown()` is
+#' an acceptable value.
+#'
+#' @param original A single logical. Should the range values be in the natural
+#'  units (`TRUE`) or in the transformed space (`FALSE`, if applicable)?
+#'
+#' @return
+#'
+#' `range_validate()` returns the new range if it passes the validation
+#' process (and throws an error otherwise).
+#'
+#' `range_get()` returns the current range of the object.
+#'
+#' `range_set()` returns an updated version of the parameter object with
+#' a new range.
+#'
+#' @examples
 #' library(dplyr)
-#' my_lambda <- 
-#'   penalty %>% 
-#'   value_set(-4:-1) 
-#' try(my_lambda %>% range_validate(c(-10, NA)), silent = TRUE) %>% print()
-#' 
+#'
+#' my_lambda <- penalty() %>%
+#'   value_set(-4:-1)
+#'
+#' try(
+#'   range_validate(my_lambda, c(-10, NA)), silent = TRUE
+#' ) %>%
+#'   print()
+#'
 #' range_get(my_lambda)
-#' 
-#' range_set(my_lambda, c(-10, 2)) %>% range_get()
+#'
+#' my_lambda %>%
+#'   range_set(c(-10, 2)) %>%
+#'   range_get()
+#'
 #' @export
+#'
 #' @importFrom purrr map_lgl
 range_validate <- function(object, range, ukn_ok = TRUE) {
   ukn_txt <- if (ukn_ok)
@@ -43,7 +63,7 @@ range_validate <- function(object, range, ukn_ok = TRUE) {
            call. = FALSE)
     if (!any(is_num))
       stop("`range` should be numeric.", call. = FALSE)
-    
+
     # TODO check with transform
   } else {
     if (any(is_na[!is_unk]))
@@ -71,13 +91,13 @@ range_set <- function(object, range) {
   if (length(range) != 2)
     stop("`range` should have two elements.")
   if (inherits(object, "quant_param")) {
-    object <- 
+    object <-
       new_quant_param(
-        type = object$type, 
-        range = range, 
-        inclusive = object$inclusive, 
+        type = object$type,
+        range = range,
+        inclusive = object$inclusive,
         default = object$default,
-        trans = object$trans, 
+        trans = object$trans,
         values = object$values,
         label = object$label
       )

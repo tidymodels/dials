@@ -5,45 +5,45 @@ context("qualitative parameter values")
 
 test_that('transforms with unknowns', {
   expect_error(
-    value_transform(penalty, unknown())
+    value_transform(penalty(), unknown())
   )
   expect_error(
-    value_transform(penalty, c(unknown(), 1, unknown()))
-  )  
-  expect_error(
-    value_inverse(penalty, unknown())
+    value_transform(penalty(), c(unknown(), 1, unknown()))
   )
   expect_error(
-    value_inverse(penalty, c(unknown(), 1, unknown()))
-  )  
+    value_inverse(penalty(), unknown())
+  )
+  expect_error(
+    value_inverse(penalty(), c(unknown(), 1, unknown()))
+  )
 })
 
 
 test_that('transforms', {
   expect_equal(
-    value_transform(penalty, 1:3), log10(1:3)
+    value_transform(penalty(), 1:3), log10(1:3)
   )
   expect_warning(
     expect_equal(
-      value_transform(penalty, -1:3), c(NaN, -Inf, log10(1:3))
+      value_transform(penalty(), -1:3), c(NaN, -Inf, log10(1:3))
     )
   )
   expect_equal(
-    value_transform(mtry, 1:3), 1:3
-  )  
+    value_transform(mtry(), 1:3), 1:3
+  )
 })
 
 
 test_that('inverses', {
   expect_equal(
-    value_inverse(penalty, 1:3), 10^(1:3)
+    value_inverse(penalty(), 1:3), 10^(1:3)
   )
   expect_equal(
-    value_inverse(penalty,  c(NA, 1:3)), c(NA, 10^(1:3))
+    value_inverse(penalty(),  c(NA, 1:3)), c(NA, 10^(1:3))
   )
   expect_equal(
-    value_inverse(mtry, 1:3), 1:3
-  )  
+    value_inverse(mtry(), 1:3), 1:3
+  )
 })
 
 
@@ -106,91 +106,91 @@ int_seq <-
 
 test_that('sequences - doubles', {
   expect_equal(
-    value_seq(mixture, 5), seq(0, 1, length = 5)
-  )  
+    value_seq(mixture(), 5), seq(0, 1, length = 5)
+  )
   expect_equal(
-    value_seq(mixture, 1), 0
+    value_seq(mixture(), 1), 0
   )
   expect_equal(
     value_seq(test_param_3, 1), .40
-  ) 
+  )
   expect_equal(
     value_seq(test_param_4, 1), .60
-  )    
+  )
   expect_equal(
-    value_seq(penalty, 5, FALSE), seq(-10, 0, length = 5)
-  )  
+    value_seq(penalty(), 5, FALSE), seq(-10, 0, length = 5)
+  )
   expect_equal(
-    value_seq(penalty, 1, FALSE), -10
+    value_seq(penalty(), 1, FALSE), -10
   )
   expect_equal(
     value_seq(test_param_4, 1, FALSE), sqrt(.6)
-  )  
+  )
   expect_equal(
     value_seq(value_seq, 2, FALSE), (0:1)/5
-  )     
+  )
   expect_equal(
     value_seq(value_seq, 1, FALSE), .6
-  )    
+  )
 })
 
 
 test_that('sequences - integers', {
   expect_equal(
-    value_seq(tree_depth, 5), c(2, 5, 8, 11, 15)
-  )  
+    value_seq(tree_depth(), 5), c(2, 5, 8, 11, 15)
+  )
   expect_equal(
-    value_seq(tree_depth, 1), 2L
-  ) 
+    value_seq(tree_depth(), 1), 2L
+  )
   expect_equal(
     value_seq(test_param_1, 1), 3L
-  )  
+  )
   expect_equal(
     value_seq(test_param_2, 1), 2L
-  )   
+  )
   expect_equal(
-    value_seq(tree_depth, 14), 2L:15L
-  )  
+    value_seq(tree_depth(), 14), 2L:15L
+  )
   expect_equal(
-    value_seq(tree_depth, 5, FALSE), seq(2, 15, length = 5)
-  )  
+    value_seq(tree_depth(), 5, FALSE), seq(2, 15, length = 5)
+  )
   expect_equal(
-    value_seq(tree_depth, 1, FALSE), 2L
-  ) 
+    value_seq(tree_depth(), 1, FALSE), 2L
+  )
   expect_equal(
     value_seq(test_param_1, 1, FALSE), 3L
-  )  
+  )
   expect_equal(
     value_seq(test_param_2, 1, FALSE), sqrt(2)
-  )   
+  )
   expect_equal(
-    value_seq(tree_depth, 14, FALSE), 2L:15L
-  )    
+    value_seq(tree_depth(), 14, FALSE), 2L:15L
+  )
   expect_equal(
     value_seq(int_seq, 2, FALSE), 1:2
-  ) 
+  )
   expect_equal(
     value_seq(int_seq, 1, FALSE), 60
-  )   
+  )
 })
 
 
 test_that('sampling - doubles', {
   set.seed(2489)
-  mix_test <- value_sample(mixture, 5000)
+  mix_test <- value_sample(mixture(), 5000)
   expect_true(min(mix_test) > 0)
-  expect_true(max(mix_test) < 1) 
-  
+  expect_true(max(mix_test) < 1)
+
   set.seed(2489)
-  L2_orig <- value_sample(penalty, 5000)
-  expect_true(min(L2_orig) > 10^penalty$range$lower)
-  expect_true(max(L2_orig) < 10^penalty$range$upper) 
-  
+  L2_orig <- value_sample(penalty(), 5000)
+  expect_true(min(L2_orig) > 10^penalty()$range$lower)
+  expect_true(max(L2_orig) < 10^penalty()$range$upper)
+
   set.seed(2489)
-  L2_tran <- value_sample(penalty, 5000, FALSE)
-  expect_true(min(L2_tran) > penalty$range$lower)
-  expect_true(max(L2_tran) < penalty$range$upper)   
-  
+  L2_tran <- value_sample(penalty(), 5000, FALSE)
+  expect_true(min(L2_tran) > penalty()$range$lower)
+  expect_true(max(L2_tran) < penalty()$range$upper)
+
   set.seed(2489)
   expect_equal(
     sort(unique(value_sample(value_seq, 40))),
@@ -200,23 +200,23 @@ test_that('sampling - doubles', {
 
 test_that('sampling - integers', {
   set.seed(2489)
-  depth_test <- value_sample(tree_depth, 500)
-  expect_true(min(depth_test) >= tree_depth$range$lower)
-  expect_true(max(depth_test) <= tree_depth$range$upper) 
+  depth_test <- value_sample(tree_depth(), 500)
+  expect_true(min(depth_test) >= tree_depth()$range$lower)
+  expect_true(max(depth_test) <= tree_depth()$range$upper)
   expect_true(is.integer(depth_test))
-  
+
   set.seed(2489)
   p2_orig <- value_sample(test_param_2, 500)
   expect_true(min(p2_orig) >= floor(2^test_param_2$range$lower))
   expect_true(max(p2_orig) <= floor(2^test_param_2$range$upper))
   expect_true(is.integer(p2_orig))
-  
+
   set.seed(2489)
   p2_tran <- value_sample(test_param_2, 500, FALSE)
   expect_true(min(p2_tran) > test_param_2$range$lower)
-  expect_true(max(p2_tran) < test_param_2$range$upper) 
+  expect_true(max(p2_tran) < test_param_2$range$upper)
   expect_true(!is.integer(p2_tran))
-  
+
   set.seed(2489)
   expect_equal(
     sort(unique(value_sample(int_seq, 50))),
@@ -242,44 +242,44 @@ test_param_6 <-
 
 test_that('sequences - character', {
   expect_equal(
-    value_seq(surv_dist, 5), surv_dist$values[1:5]
-  )  
+    value_seq(surv_dist(), 5), surv_dist()$values[1:5]
+  )
   expect_equal(
-    value_seq(surv_dist, 1), surv_dist$values[1]
-  )   
+    value_seq(surv_dist(), 1), surv_dist()$values[1]
+  )
   expect_equal(
-    value_seq(surv_dist, Inf), surv_dist$values
-  )     
+    value_seq(surv_dist(), Inf), surv_dist()$values
+  )
   expect_equal(
     value_seq(test_param_5, 1), "c"
-  )    
+  )
 })
 
 test_that('sequences - logical', {
   expect_equal(
-    value_seq(prune, 1), TRUE
-  )  
+    value_seq(prune(), 1), TRUE
+  )
   expect_equal(
-    value_seq(prune, 2), c(TRUE, FALSE)
-  )   
+    value_seq(prune(), 2), c(TRUE, FALSE)
+  )
   expect_equal(
-    value_seq(prune, 21), c(TRUE, FALSE)
-  )    
+    value_seq(prune(), 21), c(TRUE, FALSE)
+  )
   expect_equal(
     value_seq(test_param_6, Inf), TRUE
-  )     
+  )
 })
 
 
 test_that('sampling - character and logical', {
   set.seed(9950)
   expect_equal(
-    sort(unique(value_sample(surv_dist, 500))), sort(surv_dist$values)
-  )  
+    sort(unique(value_sample(surv_dist(), 500))), sort(surv_dist()$values)
+  )
   set.seed(9950)
   expect_equal(
-    sort(unique(value_sample(prune, 500))), sort(prune$values)
-  )   
+    sort(unique(value_sample(prune(), 500))), sort(prune()$values)
+  )
 })
 
 

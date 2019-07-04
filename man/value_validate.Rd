@@ -25,24 +25,30 @@ value_set(object, values)
 \item{object}{An object with class \code{quant_param}.}
 
 \item{values}{A numeric vector or list (including \code{Inf}). Values
-\emph{cannot} include \code{unknown()}. For \code{value_validate}, the units should be
+\emph{cannot} include \code{unknown()}. For \code{value_validate()}, the units should be
 consistent with the parameter object's definition.}
 
 \item{n}{An integer for the (maximum) number of values to return. In some
 cases where a sequence is requested, the result might have less than \code{n}
 values. See Details.}
 
-\item{original}{A single logical: should the range values be in the natural
-units (\code{TRUE}) or in the transformed space (\code{FALSE}, if applicable).}
+\item{original}{A single logical. Should the range values be in the natural
+units (\code{TRUE}) or in the transformed space (\code{FALSE}, if applicable)?}
 }
 \value{
-\code{value_validate()} throws an error or silently returns the values.
-\code{value_transform} and \code{value_inverse} return a \emph{vector} of numeric values
-while \code{value_seq} and \code{value_sample} return a vector of values consistent
+\code{value_validate()} throws an error or silently returns \code{values} if they are
+contained in the values of the \code{object}.
+
+\code{value_transform()} and \code{value_inverse()} return a \emph{vector} of
+numeric values.
+
+\code{value_seq()} and \code{value_sample()} return a vector of values consistent
 with the \code{type} field of \code{object}.
 }
 \description{
-Tools for working with parameter values
+Setters and validators for parameter values. Additionally, tools for creating
+sequences of parameter values and for transforming parameter values
+are provided.
 }
 \details{
 For sequences of integers, the code uses
@@ -52,39 +58,40 @@ the range of the integers, a smaller set will be generated. For qualitative
 parameters, the first \code{n} values are returned.
 
 If a single value sequence is requested, the default value is returned (if
-any). If not default is specified, the regular algorithm is used.
+any). If no default is specified, the regular algorithm is used.
 
-For quantitative parameters, any values contained in the object
+For quantitative parameters, any \code{values} contained in the object
 are sampled with replacement. Otherwise, a sequence of values
-between the range values is returned. It is possible that less
+between the \code{range} values is returned. It is possible that less
 than \code{n} values are returned.
 
-For qualitative parameters, sampling is conducted with replacement. For
-qualitative values, a random uniform distribution is used.
+For qualitative parameters, sampling of the \code{values} is conducted
+with replacement. For qualitative values, a random uniform distribution
+is used.
 }
 \examples{
 library(dplyr)
 
-penalty \%>\% value_set(-4:-1)
+penalty() \%>\% value_set(-4:-1)
 
 # Is a specific value valid?
-penalty
-penalty \%>\% range_get()
-value_validate(penalty, 17)
+penalty()
+penalty() \%>\% range_get()
+value_validate(penalty(), 17)
 
 # get a sequence of values
-Cp
-Cp \%>\% value_seq(4)
-Cp \%>\% value_seq(4, original = FALSE)
+Cp()
+Cp() \%>\% value_seq(4)
+Cp() \%>\% value_seq(4, original = FALSE)
 
-on_log_scale <- Cp \%>\% value_seq(4, original = FALSE)
-nat_units <- value_inverse(Cp, on_log_scale)
+on_log_scale <- Cp() \%>\% value_seq(4, original = FALSE)
+nat_units <- value_inverse(Cp(), on_log_scale)
 nat_units
-value_transform(Cp, nat_units)
+value_transform(Cp(), nat_units)
 
 # random values in the range
 set.seed(3666)
-Cp \%>\% value_sample(2)
+Cp() \%>\% value_sample(2)
 
 
 }
