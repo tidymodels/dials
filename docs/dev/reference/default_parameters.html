@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • dials</title>
+<title>Default parameter values — default_parameters • dials</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -31,7 +31,13 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Default parameter values — default_parameters" />
+
+<meta property="og:description" content="These are default parameter value objects for parameters that take a values
+argument. When optimizing over qualitative parameter values, you can subset
+the default arguments listed here and supply the result to values if you
+want to optimize a different set of values." />
+<meta name="twitter:card" content="summary" />
 
 <meta name="robots" content="noindex">
 
@@ -56,7 +62,7 @@
   </head>
 
   <body>
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -104,18 +110,45 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>Default parameter values</h1>
+    
+    <div class="hidden name"><code>default_parameters.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <ul>
-        <li><a href="Basics.html">Working with Tuning Parameters</a></li>
-        <li><a href="articles/Dials_and_Parsnip.html">Using Dials with Parsnip</a></li>
-      </ul>
+    <div class="ref-description">
+    
+    <p>These are default parameter value objects for parameters that take a <code>values</code>
+argument. When optimizing over qualitative parameter values, you can subset
+the default arguments listed here and supply the result to <code>values</code> if you
+want to optimize a different set of <code>values</code>.</p>
+    
     </div>
+
+    <pre class="usage"><span class='no'>values_activation</span>
+
+<span class='no'>values_prune_method</span>
+
+<span class='no'>values_weight_func</span>
+
+<span class='no'>values_surv_dist</span>
+
+<span class='no'>values_weight_scheme</span>
+
+<span class='no'>values_token</span></pre>
+        
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>A character vector of parameter values.</p>
+    
+
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      
+      <li><a href="#format">Format</a></li>
+          </ul>
+
   </div>
 </div>
 

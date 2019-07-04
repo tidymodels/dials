@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Parameter functions related to miscellaneous models. — weight_func • dials</title>
+<title>Parameter functions related to text analysis. — text_parameters • dials</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -31,10 +31,10 @@
 
 
 
-<meta property="og:title" content="Parameter functions related to miscellaneous models. — weight_func" />
+<meta property="og:title" content="Parameter functions related to text analysis. — text_parameters" />
 
 <meta property="og:description" content="These are parameter generating functions that can be used for modeling,
-especially in conjunction with the parsnip package." />
+especially in conjunction with the textrecipes package." />
 <meta name="twitter:card" content="summary" />
 
 <meta name="robots" content="noindex">
@@ -108,39 +108,33 @@ especially in conjunction with the parsnip package." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Parameter functions related to miscellaneous models.</h1>
+    <h1>Parameter functions related to text analysis.</h1>
     
-    <div class="hidden name"><code>misc_parameters.Rd</code></div>
+    <div class="hidden name"><code>text_parameters.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
     <p>These are parameter generating functions that can be used for modeling,
-especially in conjunction with the <span class="pkg">parsnip</span> package.</p>
+especially in conjunction with the <span class="pkg">textrecipes</span> package.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>weight_func</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>values_weight_func</span>)
+    <pre class="usage"><span class='fu'>weight</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(-<span class='fl'>10</span>, <span class='fl'>0</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='fu'>log10_trans</span>())
 
-<span class='fu'>surv_dist</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>values_surv_dist</span>)
+<span class='fu'>weight_scheme</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>values_weight_scheme</span>)
 
-<span class='fu'>Laplace</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>3</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>token</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>values_token</span>)
 
-<span class='fu'>neighbors</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fu'><a href='unknown.html'>unknown</a></span>()), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>max_times</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span>(<span class='fl'>10</span>^<span class='fl'>5</span>)), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>dist_power</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>2</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>min_times</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0L</span>, <span class='fl'>1000L</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>threshold</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+<span class='fu'>max_tokens</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0L</span>, <span class='fu'><a href='https://rdrr.io/r/base/integer.html'>as.integer</a></span>(<span class='fl'>10</span>^<span class='fl'>5</span>)), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>values</th>
-      <td><p>A vector of possible parameter values. For qualitative
-parameters, character and logical defaults have been set, but can be modified
-as needed.</p></td>
-    </tr>
     <tr>
       <th>range</th>
       <td><p>A two-element vector holding the smallest and largest possible
@@ -156,28 +150,32 @@ an educated guess at the range of each parameter.</p></td>
 the default is used which matches the units used in <code>range</code>. If no
 transformation, <code>NULL</code>.</p></td>
     </tr>
+    <tr>
+      <th>values</th>
+      <td><p>A vector of possible parameter values. For qualitative
+parameters, character and logical defaults have been set, but can be modified
+as needed.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A <code>param</code> object. The underlying functions that generate the parameters are
-<code><a href='new-param.html'>new_quant_param()</a></code> and <code><a href='new-param.html'>new_qual_param()</a></code>.</p>
+    <p>Each object is generated by either <code><a href='new-param.html'>new_quant_param()</a></code> or
+<code><a href='new-param.html'>new_qual_param()</a></code>.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>These functions generate parameters that are useful in a variety of
-models.</p><ul>
-<li><p><code>weight_func()</code>: The type of kernel function that weights the distances
-between samples (e.g. in a K-nearest neighbors model).</p></li>
-<li><p><code>surv_dist()</code>: The statistical distribution of the data in a survival
-analysis model. (See <code><a href='https://rdrr.io/pkg/parsnip/man/surv_reg.html'>parsnip::surv_reg()</a></code>) .</p></li>
-<li><p><code>Laplace()</code>: The Laplace correction used to smooth low-frequency counts.</p></li>
-<li><p><code>neighbors()</code>: A parameter for the number of neighbors used in a prototype
-model.</p></li>
-<li><p><code>dist_power()</code>: The order parameter used in calculating a
-Minkowski distance.</p></li>
-<li><p><code>threshold()</code>: A general thresholding parameter for values
-between <code>[0, 1]</code>.</p></li>
+text models.</p><ul>
+<li><p><code>min_times()</code>, <code>max_times()</code>: The frequency of word occurances for removal.
+(See <code><a href='https://rdrr.io/pkg/textrecipes/man/step_tokenfilter.html'>textrecipes::step_tokenfilter()</a></code>).</p></li>
+<li><p><code>max_tokens()</code>: The number of tokens that will be retained. (See
+<code><a href='https://rdrr.io/pkg/textrecipes/man/step_tokenfilter.html'>textrecipes::step_tokenfilter</a></code>).</p></li>
+<li><p><code>weight()</code>: A parameter for <code>"double normalization"</code> when creating token
+counts. (See <code><a href='https://rdrr.io/pkg/textrecipes/man/step_tf.html'>textrecipes::step_tf()</a></code>).</p></li>
+<li><p><code>weight_scheme()</code>: The method for term frequency calculations.
+(See <code><a href='https://rdrr.io/pkg/textrecipes/man/step_tf.html'>textrecipes::step_tf()</a></code>).</p></li>
+<li><p><code>token()</code>: The type of token. (See <code><a href='https://rdrr.io/pkg/textrecipes/man/step_tokenize.html'>textrecipes::step_tokenize()</a></code>).</p></li>
 </ul>
     
 

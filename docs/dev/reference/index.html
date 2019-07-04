@@ -19,7 +19,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
 <!-- sticky kit -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
@@ -28,6 +28,8 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
+
+
 
 <meta property="og:title" content="Function reference" />
 
@@ -50,6 +52,7 @@
 
  gtag('config', 'UA-115082821-1');
 </script>
+
   </head>
 
   <body>
@@ -69,7 +72,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.1.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.2.9000</span>
         </div>
       </div>
     </div>
@@ -95,6 +98,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -121,6 +125,12 @@
       <tr>
         
         <td>
+          <p><code><a href="default_parameters.html">values_activation</a></code> <code><a href="default_parameters.html">values_prune_method</a></code> <code><a href="default_parameters.html">values_weight_func</a></code> <code><a href="default_parameters.html">values_surv_dist</a></code> <code><a href="default_parameters.html">values_weight_scheme</a></code> <code><a href="default_parameters.html">values_token</a></code> </p>
+        </td>
+        <td><p>Default parameter values</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="finalize.html">finalize()</a></code> <code><a href="finalize.html">get_p()</a></code> <code><a href="finalize.html">get_log_p()</a></code> <code><a href="finalize.html">get_n_frac()</a></code> <code><a href="finalize.html">get_n_frac_range()</a></code> <code><a href="finalize.html">get_n()</a></code> <code><a href="finalize.html">get_rbf_range()</a></code> <code><a href="finalize.html">get_batch_sizes()</a></code> </p>
         </td>
         <td><p>Functions to finalize data-specific parameter ranges</p></td>
@@ -139,21 +149,21 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="misc_parameters.html">weight_func</a></code> <code><a href="misc_parameters.html">surv_dist</a></code> <code><a href="misc_parameters.html">Laplace</a></code> <code><a href="misc_parameters.html">neighbors</a></code> <code><a href="misc_parameters.html">dist_power</a></code> </p>
+          <p><code><a href="misc_parameters.html">weight_func()</a></code> <code><a href="misc_parameters.html">surv_dist()</a></code> <code><a href="misc_parameters.html">Laplace()</a></code> <code><a href="misc_parameters.html">neighbors()</a></code> <code><a href="misc_parameters.html">dist_power()</a></code> <code><a href="misc_parameters.html">threshold()</a></code> </p>
         </td>
-        <td><p>Parameter objects related to miscellaneous models.</p></td>
+        <td><p>Parameter functions related to miscellaneous models.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="new_quant_param.html">new_quant_param()</a></code> <code><a href="new_quant_param.html">new_qual_param()</a></code> </p>
+          <p><code><a href="new-param.html">new_quant_param()</a></code> <code><a href="new-param.html">new_qual_param()</a></code> </p>
         </td>
         <td><p>Tools for creating new parameter objects</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="para_parameters.html">dropout</a></code> <code><a href="para_parameters.html">epochs</a></code> <code><a href="para_parameters.html">activation</a></code> <code><a href="para_parameters.html">mixture</a></code> <code><a href="para_parameters.html">penalty</a></code> <code><a href="para_parameters.html">rbf_sigma</a></code> <code><a href="para_parameters.html">prod_degree</a></code> <code><a href="para_parameters.html">num_terms</a></code> <code><a href="para_parameters.html">num_comp</a></code> <code><a href="para_parameters.html">cost</a></code> <code><a href="para_parameters.html">scale_factor</a></code> <code><a href="para_parameters.html">margin</a></code> <code><a href="para_parameters.html">degree</a></code> <code><a href="para_parameters.html">deg_free</a></code> <code><a href="para_parameters.html">hidden_units</a></code> <code><a href="para_parameters.html">batch_size</a></code> </p>
+          <p><code><a href="para_parameters.html">dropout()</a></code> <code><a href="para_parameters.html">epochs()</a></code> <code><a href="para_parameters.html">activation()</a></code> <code><a href="para_parameters.html">mixture()</a></code> <code><a href="para_parameters.html">penalty()</a></code> <code><a href="para_parameters.html">rbf_sigma()</a></code> <code><a href="para_parameters.html">prod_degree()</a></code> <code><a href="para_parameters.html">num_terms()</a></code> <code><a href="para_parameters.html">num_comp()</a></code> <code><a href="para_parameters.html">cost()</a></code> <code><a href="para_parameters.html">scale_factor()</a></code> <code><a href="para_parameters.html">margin()</a></code> <code><a href="para_parameters.html">degree()</a></code> <code><a href="para_parameters.html">deg_free()</a></code> <code><a href="para_parameters.html">hidden_units()</a></code> <code><a href="para_parameters.html">batch_size()</a></code> <code><a href="para_parameters.html">prune_method()</a></code> </p>
         </td>
-        <td><p>Parameter objects related to parametric models.</p></td>
+        <td><p>Parameter functions related to parametric models.</p></td>
       </tr><tr>
         
         <td>
@@ -163,9 +173,15 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="tree_parameters.html">mtry</a></code> <code><a href="tree_parameters.html">mtry_long</a></code> <code><a href="tree_parameters.html">trees</a></code> <code><a href="tree_parameters.html">min_n</a></code> <code><a href="tree_parameters.html">sample_size</a></code> <code><a href="tree_parameters.html">learn_rate</a></code> <code><a href="tree_parameters.html">loss_reduction</a></code> <code><a href="tree_parameters.html">tree_depth</a></code> <code><a href="tree_parameters.html">prune</a></code> <code><a href="tree_parameters.html">Cp</a></code> </p>
+          <p><code><a href="text_parameters.html">weight()</a></code> <code><a href="text_parameters.html">weight_scheme()</a></code> <code><a href="text_parameters.html">token()</a></code> <code><a href="text_parameters.html">max_times()</a></code> <code><a href="text_parameters.html">min_times()</a></code> <code><a href="text_parameters.html">max_tokens()</a></code> </p>
         </td>
-        <td><p>Parameter objects related to tree- and rule-based models.</p></td>
+        <td><p>Parameter functions related to text analysis.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="tree_parameters.html">mtry()</a></code> <code><a href="tree_parameters.html">mtry_long()</a></code> <code><a href="tree_parameters.html">trees()</a></code> <code><a href="tree_parameters.html">min_n()</a></code> <code><a href="tree_parameters.html">sample_size()</a></code> <code><a href="tree_parameters.html">learn_rate()</a></code> <code><a href="tree_parameters.html">loss_reduction()</a></code> <code><a href="tree_parameters.html">tree_depth()</a></code> <code><a href="tree_parameters.html">prune()</a></code> <code><a href="tree_parameters.html">Cp()</a></code> </p>
+        </td>
+        <td><p>Parameter functions related to tree- and rule-based models.</p></td>
       </tr><tr>
         
         <td>
@@ -191,9 +207,10 @@
   </div>
 </div>
 
+
       <footer>
       <div class="tidyverse">
-  <p><code>dials</code> is a part of the <strong>tidymodels</strong> ecosystem, a collection of modeling packages designed with common APIs and a shared philosophy.</p>
+  <p>dials is a part of the <strong>tidymodels</strong> ecosystem, a collection of modeling packages designed with common APIs and a shared philosophy.</p>
 </div>
 
 <div class="author">
@@ -202,11 +219,14 @@
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 

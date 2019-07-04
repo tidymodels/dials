@@ -19,7 +19,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
 <!-- sticky kit -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
@@ -28,6 +28,8 @@
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
+
+
 
 <meta property="og:title" content="Changelog" />
 
@@ -50,6 +52,7 @@
 
  gtag('config', 'UA-115082821-1');
 </script>
+
   </head>
 
   <body>
@@ -69,7 +72,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.1.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.2.9000</span>
         </div>
       </div>
     </div>
@@ -95,6 +98,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -104,18 +108,31 @@
       
     </div>
 
-    <div id="dials-0-0-1-9000" class="section level1">
+    <div id="dials-0-0-2-9000" class="section level1">
 <h1 class="page-header">
-<a href="#dials-0-0-1-9000" class="anchor"></a>dials 0.0.1.9000<small> Unreleased </small>
+<a href="#dials-0-0-2-9000" class="anchor"></a>dials 0.0.2.9000<small> Unreleased </small>
+</h1>
+<div id="breaking-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
+<ul>
+<li>All parameter <em>objects</em> are now parameter <em>functions</em>. For example, the pre-configured object <code>mtry</code> is now a function, <code><a href="../reference/tree_parameters.html">mtry()</a></code>, with arguments for the <code>range</code> and the <code>trans</code>form. This provides greater flexibility in parameter creation, and should feel more natural.</li>
+</ul>
+</div>
+</div>
+    <div id="dials-0-0-2" class="section level1">
+<h1 class="page-header">
+<a href="#dials-0-0-2" class="anchor"></a>dials 0.0.2<small> 2018-12-09 </small>
 </h1>
 <ul>
-<li>
-<code>regularization</code> was changed to <code>penalty</code> in a few models to be consistent with <a href="tidymodels/model-implementation-principles<a href='http://github.com/08d3afd'>@08d3afd</a>">this change</a>.</li>
 <li>Parameter objects now contain code to finalize their values and a number of helper functions for certain data-specific parameters. A <code>force</code> option can be used to avoid updating the values.<br>
 </li>
 <li>Parameter objects are printed differently inside of tibbles.</li>
 <li>
-<code>batch_size</code> was added.</li>
+<code>regularization</code> was changed to <code>penalty</code> in a few models to be consistent with <a href="tidymodels/model-implementation-principles@08d3afd">this change</a>.</li>
+<li>
+<code>batch_size</code> and <code>threshold</code> were added.</li>
+<li>Added a set of parameters for the <code>textrecipes</code> package <a href="https://github.com/tidymodels/dials/issues/16">issue 16</a>.</li>
 </ul>
 </div>
     <div id="dials-0-0-1" class="section level1">
@@ -132,7 +149,8 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#dials-0-0-1-9000">0.0.1.9000</a></li>
+        <li><a href="#dials-0-0-2-9000">0.0.2.9000</a></li>
+        <li><a href="#dials-0-0-2">0.0.2</a></li>
         <li><a href="#dials-0-0-1">0.0.1</a></li>
       </ul>
     </div>
@@ -140,9 +158,10 @@
 
 </div>
 
+
       <footer>
       <div class="tidyverse">
-  <p><code>dials</code> is a part of the <strong>tidymodels</strong> ecosystem, a collection of modeling packages designed with common APIs and a shared philosophy.</p>
+  <p>dials is a part of the <strong>tidymodels</strong> ecosystem, a collection of modeling packages designed with common APIs and a shared philosophy.</p>
 </div>
 
 <div class="author">
@@ -151,11 +170,14 @@
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 
