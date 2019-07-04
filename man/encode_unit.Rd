@@ -12,6 +12,8 @@ encode_unit(x, value, direction, ...)
 \item{value}{The original values should be either numeric or character. When
 converting back, these should be on \code{[0, 1]}.}
 
+\item{direction}{Either "forward" (to \code{[0, 1]}) or "backward".}
+
 \item{original}{A logical; should the values be transformed to their natural
 units (not currently working).}
 }

@@ -5,8 +5,8 @@
 #' Class for converting parameter values back and forth to the unit range
 #' @param x A `param` object.
 #' @param value The original values should be either numeric or character. When
-#'  converting back, these should be on `[0, 1]`.
-#' @direction Either "forward" (to `[0, 1]`) or "backward".
+#'  converting back, these should be on \code{[0, 1]}.
+#' @param direction Either "forward" (to \code{[0, 1]}) or "backward".
 #' @param original A logical; should the values be transformed to their natural
 #'  units (not currently working).
 #' @return A vector of values.
