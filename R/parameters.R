@@ -64,7 +64,7 @@ NULL
 #'
 #' * `prune()`: A logical for whether a tree or set of rules should be pruned.
 #'
-#' * `Cp()`: The cost-complexity parameter in classical CART models.
+#' * `cost_complexity()`: The cost-complexity parameter in classical CART models.
 #'
 #' @return
 #'
@@ -191,13 +191,13 @@ prune <- function(values = c(TRUE, FALSE)) {
 
 #' @export
 #' @rdname tree_parameters
-Cp <- function(range = c(-10, -1), trans = log10_trans()) {
+cost_complexity <- function(range = c(-10, -1), trans = log10_trans()) {
   new_quant_param(
     type = "double",
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(Cp = "Cost-Complexity Parameter"),
+    label = c(cost_complexity = "Cost-Complexity Parameter"),
     finalize = NULL
   )
 }
