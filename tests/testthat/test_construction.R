@@ -17,6 +17,9 @@ context("quantitative parameter object creation")
 
 test_that('bad args', {
   expect_error(
+    new_quant_param("mucus", range = 1:2, inclusive = c(TRUE, TRUE))
+  )
+  expect_error(
     new_quant_param("double", range = 1, inclusive = c(TRUE, TRUE))
   )
   expect_error(

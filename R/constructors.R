@@ -75,6 +75,11 @@ new_quant_param <- function(
   trans = NULL, values = NULL, label = NULL, finalize = NULL) {
   type <- match.arg(type)
 
+  if (!(type %in% c("double", "integer"))) {
+    stop("`type should be either 'double' or 'integer'.", call. = FALSE)
+  }
+
+
   range <- as.list(range)
 
   if (length(inclusive) != 2)

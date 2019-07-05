@@ -11,7 +11,7 @@
 \alias{loss_reduction}
 \alias{tree_depth}
 \alias{prune}
-\alias{Cp}
+\alias{cost_complexity}
 \title{Parameter functions related to tree- and rule-based models.}
 \usage{
 mtry(range = c(1L, unknown()), trans = NULL)
@@ -32,7 +32,7 @@ tree_depth(range = c(2L, 15L), trans = NULL)
 
 prune(values = c(TRUE, FALSE))
 
-Cp(range = c(-10, -1), trans = log10_trans())
+cost_complexity(range = c(-10, -1), trans = log10_trans())
 }
 \arguments{
 \item{range}{A two-element vector holding the smallest and largest possible
@@ -82,6 +82,6 @@ further. (See \code{parsnip::boost_tree()}).
 \item \code{tree_depth()}: The maximum depth of the tree (i.e. number of splits).
 (See \code{parsnip::boost_tree()}).
 \item \code{prune()}: A logical for whether a tree or set of rules should be pruned.
-\item \code{Cp()}: The cost-complexity parameter in classical CART models.
+\item \code{cost_complexity()}: The cost-complexity parameter in classical CART models.
 }
 }
