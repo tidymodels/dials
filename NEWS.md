@@ -7,6 +7,10 @@ pre-configured object `mtry` is now a function, `mtry()`, with arguments for the
 `range` and the `trans`form. This provides greater flexibility in parameter
 creation, and should feel more natural.
 
+## Other changes
+
+* Two functions for space-filling designs were added: `grid_max_entropy()` and `grid_latin_hypercube()`. 
+
 # dials 0.0.2
 
 * Parameter objects now contain code to finalize their values and a number of helper functions for certain data-specific parameters. A `force` option can be used to avoid updating the values.  

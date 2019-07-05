@@ -22,7 +22,8 @@ Imports:
     tibble,
     rlang,
     utils,
-    withr
+    withr,
+    DiceDesign
 Suggests: 
     testthat,
     knitr,
