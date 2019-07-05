@@ -279,7 +279,7 @@ dropout <- function(range = c(0, 1), trans = NULL) {
 epochs <- function(range = c(1L, 1000L), trans = NULL) {
   new_quant_param(
     type = "integer",
-    range = c(1L, 1000L),
+    range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
     label = c(epochs = "# Epochs"),
