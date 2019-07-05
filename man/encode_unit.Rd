@@ -23,4 +23,7 @@ A vector of values.
 \description{
 Class for converting parameter values back and forth to the unit range
 }
+\details{
+For integer parameters, the encoding can be lossy.
+}
 \keyword{internal}
