@@ -9,6 +9,7 @@
 #' @param direction Either "forward" (to \code{[0, 1]}) or "backward".
 #' @param original A logical; should the values be transformed to their natural
 #'  units (not currently working).
+#' @details For integer parameters, the encoding can be lossy.
 #' @return A vector of values.
 #' @keywords internal
 #' @export
@@ -48,10 +49,13 @@ encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
     }
 
     value <- (value * param_rng) + x$range$lower
-    # original currently ignored until we have inverse transformations
-    # issue #54
 
-    if (x$type == "integer") {
+    # convert to natural units if req
+    if (original && !is.null(x$trans)) {
+      value <- x$trans$inv(value)
+    }
+
+    if (x$type == "integer" && original) {
       value <- round(value)
       value <- as.integer(value)
     }
