@@ -94,7 +94,7 @@ mtry_long <- function(range = c(0L, unknown()), trans = log10_trans()) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(mtry_long = "# Randomly Selected Predictors"),
+    label = c(mtry = "# Randomly Selected Predictors"),
     finalize = get_log_p
   )
 }
@@ -401,7 +401,7 @@ scale_factor <- function(range = c(-10, -1), trans = log2_trans()) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(cost = "Scale Factor"),
+    label = c(scale_factor = "Scale Factor"),
     finalize = NULL
   )
 }
@@ -414,7 +414,7 @@ margin <- function(range = c(0, .2), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(cost = "Insensitivity Margin"),
+    label = c(margin = "Insensitivity Margin"),
     finalize = NULL
   )
 }
@@ -467,7 +467,7 @@ batch_size <- function(range = c(unknown(), unknown()), trans = log2_trans()) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(cost = "Batch Size"),
+    label = c(batch_size = "Batch Size"),
     finalize = get_batch_sizes
   )
 }
@@ -593,7 +593,7 @@ dist_power <- function(range = c(1, 2), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(neighbors = "Minkowski Distance Order")
+    label = c(dist_power = "Minkowski Distance Order")
   )
 }
 
@@ -683,7 +683,7 @@ token <- function(values = values_token) {
   new_qual_param(
     type = "character",
     values = values,
-    label = c(weight_scheme = "Token Unit"),
+    label = c(token = "Token Unit"),
     finalize = NULL
   )
 }
@@ -731,7 +731,7 @@ max_tokens <- function(range = c(0L, as.integer(10^5)), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(min_times = "# Retained Tokens"),
+    label = c(max_tokens = "# Retained Tokens"),
     finalize = NULL
   )
 }
