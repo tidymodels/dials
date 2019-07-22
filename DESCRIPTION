@@ -15,7 +15,8 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
 Depends:
-    scales
+    scales,
+    R (>= 2.10)
 Imports:
     glue,
     purrr,
