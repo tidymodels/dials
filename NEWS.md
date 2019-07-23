@@ -3,9 +3,12 @@
 ## Breaking changes
 
 * All parameter _objects_ are now parameter _functions_. For example, the 
-pre-configured object `mtry` is now a function, `mtry()`, with arguments for the
-`range` and the `trans`form. This provides greater flexibility in parameter
+pre-configured object `mtry` is now a function, `mtry()`, with arguments for the `range` and the `trans`form. This provides greater flexibility in parameter
 creation, and should feel more natural.
+
+* `deg_free()` is now integer-based. 
+
+* A data set was added for modeling ridership on the Chicago L trains.
 
 ## Other changes
 
