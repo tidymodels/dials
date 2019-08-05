@@ -1,0 +1,48 @@
+#' Kernel parameters
+#'
+#' Parameters related to the radial basis or other kernel functions.
+#'
+#' @inheritParams Laplace
+#' @details
+#' `degree()` can also be used in kernel functions.
+#' @examples
+#' rbf_sigma()
+#' scale_factor()
+#' offset()
+#' @export
+rbf_sigma <- function(range = c(-10, 0), trans = log10_trans()) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(rbf_sigma = "Radial Basis Function sigma"),
+    finalize = get_rbf_range
+  )
+}
+
+#' @rdname rbf_sigma
+#' @export
+scale_factor <- function(range = c(-10, -1), trans = log10_trans()) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(scale_factor = "Scale Factor"),
+    finalize = NULL
+  )
+}
+
+#' @rdname rbf_sigma
+#' @export
+offset <- function(range = c(0, 2), trans = NULL) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(offset = "Offset"),
+    finalize = NULL
+  )
+}

@@ -137,10 +137,10 @@ test_that('sequences - doubles', {
 
 test_that('sequences - integers', {
   expect_equal(
-    value_seq(tree_depth(), 5), c(2, 5, 8, 11, 15)
+    value_seq(tree_depth(), 5), c(1, 4, 8, 11, 15)
   )
   expect_equal(
-    value_seq(tree_depth(), 1), 2L
+    value_seq(tree_depth(), 1), 1L
   )
   expect_equal(
     value_seq(test_param_1, 1), 3L
@@ -149,13 +149,13 @@ test_that('sequences - integers', {
     value_seq(test_param_2, 1), 2L
   )
   expect_equal(
-    value_seq(tree_depth(), 14), 2L:15L
+    value_seq(tree_depth(), 15), 1L:15L
   )
   expect_equal(
-    value_seq(tree_depth(), 5, FALSE), seq(2, 15, length = 5)
+    value_seq(tree_depth(), 5, FALSE), seq(1, 15, length = 5)
   )
   expect_equal(
-    value_seq(tree_depth(), 1, FALSE), 2L
+    value_seq(tree_depth(), 1, FALSE), 1L
   )
   expect_equal(
     value_seq(test_param_1, 1, FALSE), 3L
@@ -164,7 +164,7 @@ test_that('sequences - integers', {
     value_seq(test_param_2, 1, FALSE), sqrt(2)
   )
   expect_equal(
-    value_seq(tree_depth(), 14, FALSE), 2L:15L
+    value_seq(tree_depth(), 15, FALSE), 1L:15L
   )
   expect_equal(
     value_seq(int_seq, 2, FALSE), 1:2

@@ -116,14 +116,18 @@
 <h2 class="hasAnchor">
 <a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
 <ul>
-<li>All parameter <em>objects</em> are now parameter <em>functions</em>. For example, the pre-configured object <code>mtry</code> is now a function, <code><a href="../reference/tree_parameters.html">mtry()</a></code>, with arguments for the <code>range</code> and the <code>trans</code>form. This provides greater flexibility in parameter creation, and should feel more natural.</li>
+<li><p>All parameter <em>objects</em> are now parameter <em>functions</em>. For example, the pre-configured object <code>mtry</code> is now a function, <code><a href="../reference/mtry.html">mtry()</a></code>, with arguments for the <code>range</code> and the <code>trans</code>form. This provides greater flexibility in parameter creation, and should feel more natural.</p></li>
+<li><p><code><a href="../reference/deg_free.html">deg_free()</a></code> erroneously produced real values; integers are now returned.</p></li>
+<li><p>Default ranges were changed for <code><a href="../reference/learn_rate.html">learn_rate()</a></code> and <code><a href="../reference/neighbors.html">neighbors()</a></code> were changed.</p></li>
 </ul>
 </div>
 <div id="other-changes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#other-changes" class="anchor"></a>Other changes</h2>
 <ul>
-<li>Two functions for space-filling designs were added: <code><a href="../reference/grid_max_entropy.html">grid_max_entropy()</a></code> and <code><a href="../reference/grid_max_entropy.html">grid_latin_hypercube()</a></code>.</li>
+<li><p>Two functions for space-filling designs were added: <code><a href="../reference/grid_max_entropy.html">grid_max_entropy()</a></code> and <code><a href="../reference/grid_max_entropy.html">grid_latin_hypercube()</a></code>.</p></li>
+<li><p>Parameters <code><a href="../reference/degree.html">spline_degree()</a></code>, <code><a href="../reference/over_ratio.html">over_ratio()</a></code>, <code><a href="../reference/over_ratio.html">under_ratio()</a></code>, <code><a href="../reference/freq_cut.html">freq_cut()</a></code>, <code><a href="../reference/freq_cut.html">unique_cut()</a></code>, <code><a href="../reference/num_breaks.html">num_breaks()</a></code> and <code><a href="../reference/min_unique.html">min_unique()</a></code> were added.</p></li>
+<li><p>A data set was added for modeling ridership on the Chicago L trains.</p></li>
 </ul>
 </div>
 </div>

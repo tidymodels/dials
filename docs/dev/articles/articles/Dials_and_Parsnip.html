@@ -128,25 +128,25 @@
 <a class="sourceLine" id="cb5-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb5-6" data-line-number="6"><span class="kw"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="dv">1263</span>)</a>
 <a class="sourceLine" id="cb5-7" data-line-number="7">bst_grid &lt;-<span class="st"> </span><span class="kw"><a href="../../reference/grid_regular.html">grid_random</a></span>(</a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">  <span class="kw"><a href="../../reference/tree_parameters.html">trees</a></span>(),      <span class="co"># Has complete default ranges      </span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">  <span class="kw"><a href="../../reference/tree_parameters.html">min_n</a></span>()       <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../../reference/finalize.html">finalize</a></span>(mtcars_pred), </a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">  <span class="kw"><a href="../../reference/tree_parameters.html">sample_size</a></span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../../reference/finalize.html">finalize</a></span>(mtcars_pred), </a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">  <span class="kw"><a href="../../reference/trees.html">trees</a></span>(),      <span class="co"># Has complete default ranges      </span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">  <span class="kw"><a href="../../reference/trees.html">min_n</a></span>()       <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../../reference/finalize.html">finalize</a></span>(mtcars_pred), </a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">  <span class="kw"><a href="../../reference/trees.html">sample_size</a></span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../../reference/finalize.html">finalize</a></span>(mtcars_pred), </a>
 <a class="sourceLine" id="cb5-11" data-line-number="11">  <span class="dt">size =</span> <span class="dv">10</span></a>
 <a class="sourceLine" id="cb5-12" data-line-number="12">)</a>
 <a class="sourceLine" id="cb5-13" data-line-number="13">bst_grid</a>
 <a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt; # A tibble: 10 x 3</span></a>
 <a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt;    trees min_n sample_size</span></a>
 <a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt;    &lt;int&gt; &lt;int&gt;       &lt;int&gt;</span></a>
-<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt;  1  1849     8          11</span></a>
-<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt;  2  1431     2           3</span></a>
-<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">#&gt;  3   317     6           7</span></a>
-<a class="sourceLine" id="cb5-20" data-line-number="20"><span class="co">#&gt;  4  1355     5          10</span></a>
-<a class="sourceLine" id="cb5-21" data-line-number="21"><span class="co">#&gt;  5  1078     2           8</span></a>
-<a class="sourceLine" id="cb5-22" data-line-number="22"><span class="co">#&gt;  6   270     8          14</span></a>
-<a class="sourceLine" id="cb5-23" data-line-number="23"><span class="co">#&gt;  7   630     2           3</span></a>
-<a class="sourceLine" id="cb5-24" data-line-number="24"><span class="co">#&gt;  8   369     2           4</span></a>
-<a class="sourceLine" id="cb5-25" data-line-number="25"><span class="co">#&gt;  9  1067     5           6</span></a>
-<a class="sourceLine" id="cb5-26" data-line-number="26"><span class="co">#&gt; 10   219     2          15</span></a></code></pre></div>
+<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt;  1  1849     8           6</span></a>
+<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt;  2  1431    34          14</span></a>
+<a class="sourceLine" id="cb5-19" data-line-number="19"><span class="co">#&gt;  3   317    22           3</span></a>
+<a class="sourceLine" id="cb5-20" data-line-number="20"><span class="co">#&gt;  4  1355    28          11</span></a>
+<a class="sourceLine" id="cb5-21" data-line-number="21"><span class="co">#&gt;  5  1078    21           3</span></a>
+<a class="sourceLine" id="cb5-22" data-line-number="22"><span class="co">#&gt;  6   270    18           7</span></a>
+<a class="sourceLine" id="cb5-23" data-line-number="23"><span class="co">#&gt;  7   630    11          10</span></a>
+<a class="sourceLine" id="cb5-24" data-line-number="24"><span class="co">#&gt;  8   369    40           8</span></a>
+<a class="sourceLine" id="cb5-25" data-line-number="25"><span class="co">#&gt;  9  1067    18          14</span></a>
+<a class="sourceLine" id="cb5-26" data-line-number="26"><span class="co">#&gt; 10   219    34           3</span></a></code></pre></div>
 <p>We can use <code><a href="https://rdrr.io/r/base/merge.html">merge()</a></code> to combine these parameters with the model specification:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">bst_grid &lt;-<span class="st"> </span></a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span>bst_grid <span class="op">%&gt;%</span></a>
@@ -156,7 +156,7 @@
 <a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; # A tibble: 1 x 4</span></a>
 <a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt;   trees min_n sample_size specs    </span></a>
 <a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt; * &lt;int&gt; &lt;int&gt;       &lt;int&gt; &lt;list&gt;   </span></a>
-<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt; 1  1849     8          11 &lt;spec[+]&gt;</span></a>
+<a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt; 1  1849     8           6 &lt;spec[+]&gt;</span></a>
 <a class="sourceLine" id="cb6-10" data-line-number="10"></a>
 <a class="sourceLine" id="cb6-11" data-line-number="11">bst_grid <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb6-12" data-line-number="12"><span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -167,7 +167,7 @@
 <a class="sourceLine" id="cb6-17" data-line-number="17"><span class="co">#&gt; Main Arguments:</span></a>
 <a class="sourceLine" id="cb6-18" data-line-number="18"><span class="co">#&gt;   trees = 1849</span></a>
 <a class="sourceLine" id="cb6-19" data-line-number="19"><span class="co">#&gt;   min_n = 8</span></a>
-<a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co">#&gt;   sample_size = 11</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-20" data-line-number="20"><span class="co">#&gt;   sample_size = 6</span></a></code></pre></div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

@@ -173,6 +173,7 @@ print.quant_param <- function(x, digits = 3, ...) {
   vals <- map_chr(x$range, format_range_val)
   bnds <- format_bounds(x$inclusive)
   cat(glue('{bnds[1]}{vals[1]}, {vals[2]}{bnds[2]}\n'))
+  cat("\n")
   invisible(x)
 }
 
