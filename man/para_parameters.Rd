@@ -15,6 +15,7 @@
 \alias{scale_factor}
 \alias{margin}
 \alias{degree}
+\alias{spline_degree}
 \alias{deg_free}
 \alias{hidden_units}
 \alias{batch_size}
@@ -47,7 +48,9 @@ margin(range = c(0, 0.2), trans = NULL)
 
 degree(range = c(1, 3), trans = NULL)
 
-deg_free(range = c(2, 10), trans = NULL)
+spline_degree(range = c(3, 10), trans = NULL)
+
+deg_free(range = c(1, 5), trans = NULL)
 
 hidden_units(range = c(1L, 10), trans = NULL)
 

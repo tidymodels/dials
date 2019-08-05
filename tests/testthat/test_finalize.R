@@ -26,18 +26,6 @@ test_that('estimate rows', {
   expect_error(get_n(mtry(), 1:10))
 
   expect_equal(
-    range_get(get_n_frac(neighbors(), mtcars, frac = 1)),
-    list(lower = 1, upper = nrow(mtcars))
-  )
-  expect_equal(
-    range_get(get_n(neighbors(), mtcars)),
-    list(lower = 1, upper = nrow(mtcars))
-  )
-  expect_equal(
-    range_get(get_n_frac(neighbors(), mtcars)),
-    list(lower = 1, upper = floor(nrow(mtcars)/3))
-  )
-  expect_equal(
     range_get(get_n_frac(mtry_long(), mtcars, log_vals = TRUE), original = FALSE),
     list(lower = 0, upper = 1)
   )

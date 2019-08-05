@@ -20,11 +20,11 @@ mtry_long(range = c(0L, unknown()), trans = log10_trans())
 
 trees(range = c(1L, 2000L), trans = NULL)
 
-min_n(range = c(2L, unknown()), trans = NULL)
+min_n(range = c(2L, 40L), trans = NULL)
 
 sample_size(range = c(unknown(), unknown()), trans = NULL)
 
-learn_rate(range = c(unknown(), unknown()), trans = NULL)
+learn_rate(range = c(-10, -1), trans = log10_trans())
 
 loss_reduction(range = c(unknown(), unknown()), trans = NULL)
 

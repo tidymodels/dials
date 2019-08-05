@@ -8,6 +8,12 @@
 \alias{neighbors}
 \alias{dist_power}
 \alias{threshold}
+\alias{over_ratio}
+\alias{under_ratio}
+\alias{freq_cut}
+\alias{unique_cut}
+\alias{num_breaks}
+\alias{min_unique}
 \title{Parameter functions related to miscellaneous models.}
 \usage{
 weight_func(values = values_weight_func)
@@ -16,11 +22,23 @@ surv_dist(values = values_surv_dist)
 
 Laplace(range = c(0, 3), trans = NULL)
 
-neighbors(range = c(1L, unknown()), trans = NULL)
+neighbors(range = c(1L, 10L), trans = NULL)
 
 dist_power(range = c(1, 2), trans = NULL)
 
 threshold(range = c(0, 1), trans = NULL)
+
+over_ratio(range = c(0.8, 1.2), trans = NULL)
+
+under_ratio(range = c(0.8, 1.2), trans = NULL)
+
+freq_cut(range = c(5, 25), trans = NULL)
+
+unique_cut(range = c(0, 100), trans = NULL)
+
+num_breaks(range = c(2L, 10L), trans = NULL)
+
+min_unique(range = c(5L, 15L), trans = NULL)
 }
 \arguments{
 \item{values}{A vector of possible parameter values. For qualitative
