@@ -3,7 +3,7 @@ Version: 0.0.2.9000
 Title: Tools for Creating Tuning Parameter Values
 Description: Many models contain tuning parameters (i.e. parameters that cannot be directly estimated from the data). These tools can be used to define objects for creating, simulating, or validating values for such parameters. 
 Authors@R: c(
-    person("Max", "Kuhn", , "max@rstudio.com", c("aut", "cre")),
+    person(given = "Max", family = "Kuhn", email = "max@rstudio.com", role = c("aut", "cre")),
     person("RStudio", role = "cph"))
 License: GPL-2
 URL: https://tidymodels.github.io/dials

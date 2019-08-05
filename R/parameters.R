@@ -114,7 +114,7 @@ trees <- function(range = c(1L, 2000L), trans = NULL) {
 
 #' @rdname tree_parameters
 #' @export
-min_n <- function(range = c(2L, unknown()), trans = NULL) {
+min_n <- function(range = c(2L, 40L), trans = NULL) {
   new_quant_param(
     type = "integer",
     range = range,
@@ -140,7 +140,7 @@ sample_size <- function(range = c(unknown(), unknown()), trans = NULL) {
 
 #' @rdname tree_parameters
 #' @export
-learn_rate <- function(range = c(unknown(), unknown()), trans = NULL) {
+learn_rate <- function(range = c(-10, -1), trans = log10_trans()) {
   new_quant_param(
     type = "double",
     range = range,
@@ -434,9 +434,22 @@ degree <- function(range = c(1, 3), trans = NULL) {
 
 #' @export
 #' @rdname para_parameters
-deg_free <- function(range = c(1, 5), trans = NULL) {
+spline_degree <- function(range = c(3, 10), trans = NULL) {
   new_quant_param(
     type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(spline_degree = "Piecewise Polynomial Degree"),
+    finalize = NULL
+  )
+}
+
+#' @export
+#' @rdname para_parameters
+deg_free <- function(range = c(1, 5), trans = NULL) {
+  new_quant_param(
+    type = "integer",
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
@@ -574,7 +587,7 @@ Laplace <- function(range = c(0, 3), trans = NULL) {
 
 #' @export
 #' @rdname misc_parameters
-neighbors <- function(range = c(1L, unknown()), trans = NULL) {
+neighbors <- function(range = c(1L, 10L), trans = NULL) {
   new_quant_param(
     type = "integer",
     range = range,
@@ -612,6 +625,96 @@ threshold <- function(range = c(0, 1), trans = NULL) {
   )
 }
 
+
+
+#' @export
+#' @rdname misc_parameters
+over_ratio <- function(range = c(0.8, 1.2), trans = NULL) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    default = 1,
+    label = c(over_ratio = "Over-Sampling Ratio"),
+    finalize = NULL
+  )
+}
+
+#' @export
+#' @rdname misc_parameters
+under_ratio <- function(range = c(0.8, 1.2), trans = NULL) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    default = 1,
+    label = c(under_ratio = "Under-Sampling Ratio"),
+    finalize = NULL
+  )
+}
+
+
+#' @export
+#' @rdname misc_parameters
+freq_cut <- function(range = c(5, 25), trans = NULL) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    default = 95/5,
+    label = c(freq_cut = "Frequency Distribution Ratio"),
+    finalize = NULL
+  )
+}
+
+
+#' @export
+#' @rdname misc_parameters
+unique_cut <- function(range = c(0, 100), trans = NULL) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    default = 10,
+    label = c(unique_cut = "% Unique Values"),
+    finalize = NULL
+  )
+}
+
+
+
+#' @export
+#' @rdname misc_parameters
+num_breaks <- function(range = c(2L, 10L), trans = NULL) {
+  new_quant_param(
+    type = "integer",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    default = 4,
+    label = c(num_breaks = "Number of Cut Points"),
+    finalize = NULL
+  )
+}
+
+
+#' @export
+#' @rdname misc_parameters
+min_unique <- function(range = c(5L, 15L), trans = NULL) {
+  new_quant_param(
+    type = "integer",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    default = 10,
+    label = c(min_unique = "Unique Value Threshold"),
+    finalize = NULL
+  )
+}
 
 ###################################################################
 

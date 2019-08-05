@@ -7,9 +7,15 @@ pre-configured object `mtry` is now a function, `mtry()`, with arguments for the
 `range` and the `trans`form. This provides greater flexibility in parameter
 creation, and should feel more natural.
 
+* `deg_free()` erroneously produced real values; integers are now returned. 
+
+* Default ranges were changed for `learn_rate()` and `neighbors()` were changed.
+
 ## Other changes
 
 * Two functions for space-filling designs were added: `grid_max_entropy()` and `grid_latin_hypercube()`. 
+
+* Parameters `spline_degree()`, `over_ratio()`, `under_ratio()`, `freq_cut()`, `unique_cut()`,  `num_breaks()` and `min_unique()` were added. 
 
 # dials 0.0.2
 
