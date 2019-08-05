@@ -1,3 +1,4 @@
+#' @importFrom scales log10_trans
 
 # nocov start
 .onLoad <- function(libname, pkgname) {

@@ -135,7 +135,7 @@ weight_func() %>% value_seq(3)
 
 ## Creating Novel Parameters
 
-The package contains two constructors that can be used to create new quantitative and qualitative parameters. [This file](https://github.com/tidymodels/dials/blob/master/R/parameters.R) contains the code to create the parameters contained in the package. 
+The package contains two constructors that can be used to create new quantitative and qualitative parameters. The examples for [`mtry()`](https://github.com/tidymodels/dials/blob/master/R/mtry.R) and [`activation()`](https://github.com/tidymodels/dials/blob/master/R/activation.R) contain examples of the code to create the parameters contained in the package. 
 
 ## Unknown Values
 
