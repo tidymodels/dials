@@ -38,21 +38,14 @@
 #'
 #' grid_latin_hypercube(penalty(), mixture(), original = TRUE)
 #' @importFrom DiceDesign dmaxDesign
-#' @importFrom purrr map2_dfc
+#' @importFrom purrr map2_dfc map_chr
 #' @export
 grid_max_entropy <- function(..., size = 3, original = TRUE,
                              variogram_range = 0.5, iter = 1000) {
+  validate_params(...)
   param_quos <- quos(...)
-  if (length(param_quos) == 0)
-    stop("At least one parameter object is required.", call. = FALSE)
   params <- map(param_quos, eval_tidy)
   param_names <- map_chr(params, function(x) names(x$label))
-  is_param <- map_lgl(params, function(x) inherits(x, "param"))
-  if (!all(is_param))
-    stop("All objects must have class 'param'.", call. = FALSE)
-  bad_param <- has_unknowns(params)
-  if (any(bad_param))
-    stop("At least one parameter contains unknowns.", call. = FALSE)
   param_labs <- map_chr(params, function(x) x$label)
   names(param_labs) <- param_names
 
@@ -83,18 +76,11 @@ grid_max_entropy <- function(..., size = 3, original = TRUE,
 #' @importFrom DiceDesign lhsDesign
 #' @export
 grid_latin_hypercube <- function(..., size = 3, original = TRUE) {
+  validate_params(...)
   param_quos <- quos(...)
-  if (length(param_quos) == 0)
-    stop("At least one parameter object is required.", call. = FALSE)
   params <- map(param_quos, eval_tidy)
-  param_names <- map_chr(params, function(x) names(x$label))
-  is_param <- map_lgl(params, function(x) inherits(x, "param"))
-  if (!all(is_param))
-    stop("All objects must have class 'param'.", call. = FALSE)
-  bad_param <- has_unknowns(params)
-  if (any(bad_param))
-    stop("At least one parameter contains unknowns.", call. = FALSE)
   param_labs <- map_chr(params, function(x) x$label)
+  param_names <- map_chr(params, function(x) names(x$label))
   names(param_labs) <- param_names
 
   # ----------------------------------------------------------------------------

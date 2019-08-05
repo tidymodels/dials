@@ -47,7 +47,7 @@ margin(range = c(0, 0.2), trans = NULL)
 
 degree(range = c(1, 3), trans = NULL)
 
-deg_free(range = c(1, 5), trans = NULL)
+deg_free(range = c(2, 10), trans = NULL)
 
 hidden_units(range = c(1L, 10), trans = NULL)
 
@@ -108,7 +108,7 @@ A value of 1 implies an additive model. Useful for MARS models.
 This can be used with models that include feature selection, such as MARS.
 \item \code{num_comp()}: The number of components in a model
 (e.g. PCA or PLS components).
-\item \code{deg_free()}: A parameter for the degrees of freedom.
+\item \code{deg_free()}: A parameter for integer degrees of freedom.
 \item \code{prune_method()}: A parameter for pruming methods for MARS.
 }
 }

@@ -254,7 +254,7 @@ cost_complexity <- function(range = c(-10, -1), trans = log10_trans()) {
 #' * `num_comp()`: The number of components in a model
 #' (e.g. PCA or PLS components).
 #'
-#' * `deg_free()`: A parameter for the degrees of freedom.
+#' * `deg_free()`: A parameter for integer degrees of freedom.
 #'
 #' * `prune_method()`: A parameter for pruming methods for MARS.
 #'
@@ -436,7 +436,7 @@ degree <- function(range = c(1, 3), trans = NULL) {
 #' @rdname para_parameters
 spline_degree <- function(range = c(3, 10), trans = NULL) {
   new_quant_param(
-    type = "double",
+    type = "integer",
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
