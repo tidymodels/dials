@@ -140,7 +140,8 @@ method, a \code{NULL} is returned.
 }
 \examples{
 
-load(system.file(package = "dials", "objects", "tunable_examples.RData"))
+load(system.file(package = "dials", "objects", "tunable_examples.RData"),
+     verbose = TRUE)
 
 tunable(bare_rec)
 

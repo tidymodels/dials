@@ -73,21 +73,14 @@ tunable.model_spec <- function(x, ...) {
   }
 
   arg_name <- paste0(mod_type(x), "_args")
-  if (arg_name == names(mod_env)) {
+  if (!(any(arg_name == names(mod_env)))) {
     stop("The `parsnip` model database doesn't know about the arguments for ",
          "model `", mod_type(x), "`. Was it registered?",
          sep = "", call. = FALSE)
   }
 
-  arg_vals <- mod_env[[arg_name]]
-  if (!any(x$engine == arg_vals$engine)) {
-    stop("The `parsnip` model database doesn't know about engine `",
-         x$engine, "`. Was it registered?",
-         sep = "", call. = FALSE)
-  }
-
   arg_vals <-
-    arg_vals %>%
+    mod_env[[arg_name]] %>%
     dplyr::filter(engine == x$engine) %>%
     dplyr::select(name = parsnip, call_info = func) %>%
     dplyr::full_join(

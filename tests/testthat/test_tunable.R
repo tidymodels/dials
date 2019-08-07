@@ -63,12 +63,17 @@ test_that('model with main and engine parameters', {
 
 
 test_that('bad model inputs', {
-  no_engine <- lm_model
-  no_engine$engine <- NULL
-  lm_info <- tunable(no_engine)
+  expect_error(
+    tunable(no_engine),
+    "Please declare an engine first using"
+  )
 
-  check_tunable_tibble(lm_info)
-  expect_equal(nrow(lm_info), 0)
+  bad_class <- lm_model
+  class(bad_class) <- c("potato", "model_spec")
+  expect_error(
+    tunable(bad_class),
+    "model database doesn't know about the arguments for model"
+  )
 })
 
 
