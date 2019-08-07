@@ -93,7 +93,7 @@ tune_args <- function(object, ...) {
 tune_args.model_spec <- function(object, full = FALSE, ...) {
 
   # use the model_spec top level class as the id
-  id <- class(object)[1]
+  model_type <- class(object)[1]
 
   if (length(object$args) == 0L & length(object$eng_args) == 0L) {
     return(tune_tbl())
@@ -111,7 +111,9 @@ tune_args.model_spec <- function(object, full = FALSE, ...) {
     name = names(res),
     tunable = unname(!is.na(res)),
     id = res,
-    source = paste("model_spec:", id),
+    source = "model_spec",
+    component = model_type,
+    component_id = NA_character_,
     full = full
   ) %>%
     mutate(id = ifelse(id == "", name, id))
@@ -121,7 +123,7 @@ tune_args.model_spec <- function(object, full = FALSE, ...) {
 # that "Subsetting quosures with `[[` is deprecated as of rlang 0.4.0"
 
 convert_args <- function(x) {
-  if (is_quosure(x)) {
+  if (rlang::is_quosure(x)) {
     x <- rlang::quo_get_expr(x)
   }
   x
@@ -138,7 +140,7 @@ tune_args.recipe <- function(object, full = FALSE, ...) {
     return(tune_tbl())
   }
 
-  map_dfr(object$steps, tune_args, full = full)
+  purrr::map_dfr(object$steps, tune_args, full = full)
 }
 
 #' @importFrom purrr map map_lgl
@@ -146,9 +148,7 @@ tune_args.recipe <- function(object, full = FALSE, ...) {
 #' @rdname tune_args.model_spec
 tune_args.step <- function(object, full = FALSE, ...) {
 
-  # Unique step id
-  id <- object$id
-
+  step_id <- object$id
   # Grab the step class before the subset, as that removes the class
   step_type <- class(object)[1]
 
@@ -169,7 +169,9 @@ tune_args.step <- function(object, full = FALSE, ...) {
     name = names(res),
     tunable = unname(!is.na(res)),
     id = unname(res),
-    source = paste("recipe:", id),
+    source = "recipe",
+    component = step_type,
+    component_id = step_id,
     full = full
   ) %>%
     mutate(id = ifelse(id == "", name, id))
@@ -181,13 +183,17 @@ tune_tbl <- function(name = character(),
                      tunable = logical(),
                      id = character(),
                      source = character(),
+                     component = character(),
+                     component_id = character(),
                      full = FALSE) {
 
   vry_tbl <- tibble(
     name = name,
     tunable = tunable,
     id = id,
-    source = source
+    source = source,
+    component = component,
+    component_id = component_id
   )
 
   if (!full) {
@@ -241,12 +247,12 @@ non_tunable_step_arguments <- c(
 # helpers ----------------------------------------------------------------------
 
 # Return the `id` arg in tune(); if not specified, then returns "" or if not
-# a tunable arg then returns na_chr
+# a tunable arg then returns NA_character_
 tune_id <- function(x) {
   if (is.null(x)) {
-    return(na_chr)
+    return(NA_character_)
   } else {
-    if (is_quosures(x)) {
+    if (rlang::is_quosures(x)) {
       # Try to evaluate to catch things in the global envir.
       .x <- try(map(x, eval_tidy), silent = TRUE)
       if (inherits(.x, "try-error")) {
@@ -255,13 +261,13 @@ tune_id <- function(x) {
         x <- .x
       }
       if (is.null(x)) {
-        return(na_chr)
+        return(NA_character_)
       }
     }
 
     # `tune()` will always return a call object
     if (is.call(x)) {
-      if (call_name(x) == "tune") {
+      if (rlang::call_name(x) == "tune") {
         # If an id was specified:
         if (length(x) > 1) {
           return(x[[2]])
@@ -271,11 +277,11 @@ tune_id <- function(x) {
         }
         return(x$id)
       } else {
-        return(na_chr)
+        return(NA_character_)
       }
     }
   }
-  na_chr
+  NA_character_
 }
 
 find_tune_id <- function(x) {
@@ -284,11 +290,11 @@ find_tune_id <- function(x) {
 
   # Early exit for empty elements (like list())
   if (length(x) == 0L) {
-    return(na_chr)
+    return(NA_character_)
   }
 
   # turn quosures into expressions before continuing
-  if (is_quosures(x)) {
+  if (rlang::is_quosures(x)) {
     # Try to evaluate to catch things in the global envir. If it is a dplyr
     # selector, it will fail to evaluate.
     .x <- try(map(x, eval_tidy), silent = TRUE)
@@ -305,7 +311,7 @@ find_tune_id <- function(x) {
   }
 
   if (is.atomic(x) | is.name(x) | length(x) == 1) {
-    return(na_chr)
+    return(NA_character_)
   }
 
   # STEP 2 - Recursion
@@ -320,7 +326,7 @@ find_tune_id <- function(x) {
 
   tunable_elems <- tunable_elems[!is.na(tunable_elems)]
   if (length(tunable_elems) == 0) {
-    tunable_elems <- na_chr
+    tunable_elems <- NA_character_
   }
 
   if (sum(tunable_elems == "", na.rm = TRUE) > 1) {

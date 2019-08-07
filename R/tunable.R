@@ -48,7 +48,8 @@ no_param <-
     name = NA_character_,
     call_info = list(),
     source = NA_character_,
-    component = NA_character_
+    component = NA_character_,
+    component_id = NA_character_
   )
 
 #' @rdname tunable
@@ -89,16 +90,17 @@ tunable.model_spec <- function(x, ...) {
     ) %>%
     # TODO inlcude submodels?
     dplyr::mutate(
-      source = mod_type(x),
-      component = ifelse(name %in% names(x$args), "main", "engine"))
+      source = "model_spec",
+      component = mod_type(x),
+      component_id = ifelse(name %in% names(x$args), "main", "engine"))
 
   if (nrow(arg_vals) > 0) {
     has_info <- purrr::map_lgl(arg_vals$call_info, is.null)
-    rm_list <- !(has_info & (arg_vals$component == "main"))
+    rm_list <- !(has_info & (arg_vals$component_id == "main"))
 
     arg_vals <- arg_vals[rm_list,]
   }
-  arg_vals
+  arg_vals %>% dplyr::select(name, call_info, source, component, component_id)
 }
 
 # ------------------------------------------------------------------------------
@@ -110,7 +112,8 @@ tunable.step_bagimpute <- function(x, ...) {
     name = "trees",
     call_info = list(list(pkg = "dials", fun = "trees")),
     source = "recipe",
-    component = "step_bagimpute"
+    component = "step_bagimpute",
+    component_id = x$id
   )
 }
 
@@ -124,7 +127,8 @@ tunable.step_bs <- function(x, ...) {
       list(pkg = "dials", fun = "degree")
     ),
     source = "recipe",
-    component = "step_bs"
+    component = "step_bs",
+    component_id = x$id
   )
 }
 
@@ -137,7 +141,8 @@ tunable.step_corr <- function(x, ...) {
       list(pkg = "dials", fun = "threshold")
     ),
     source = "recipe",
-    component = "step_corr"
+    component = "step_corr",
+    component_id = x$id
   )
 }
 
@@ -151,7 +156,8 @@ tunable.step_discretizes <- function(x, ...) {
       list(pkg = "dials", fun = "num_breaks")
     ),
     source = "recipe",
-    component = "step_discretize"
+    component = "step_discretize",
+    component_id = x$id
   )
 }
 
@@ -164,7 +170,8 @@ tunable.step_downsample <- function(x, ...) {
       list(pkg = "dials", fun = "under_ratio")
     ),
     source = "recipe",
-    component = "step_downsample"
+    component = "step_downsample",
+    component_id = x$id
   )
 }
 
@@ -175,7 +182,8 @@ tunable.step_ica <- function(x, ...) {
     name = "num_comp",
     call_info = list(list(pkg = "dials", fun = "num_comp")),
     source = "recipe",
-    component = "step_ica"
+    component = "step_ica",
+    component_id = x$id
   )
 }
 
@@ -189,7 +197,8 @@ tunable.step_isomap <- function(x, ...) {
       list(pkg = "dials", fun = "neighbors")
     ),
     source = "recipe",
-    component = "step_isomap"
+    component = "step_isomap",
+    component_id = x$id
   )
 }
 
@@ -200,7 +209,8 @@ tunable.step_knnimpute <- function(x, ...) {
     name = "neighbors",
     call_info = list(list(pkg = "dials", fun = "neighbors")),
     source = "recipe",
-    component = "step_knnimpute"
+    component = "step_knnimpute",
+    component_id = x$id
   )
 }
 
@@ -216,7 +226,8 @@ tunable.step_kpca_poly <- function(x, ...) {
       list(pkg = "dials", fun = "offset")
       ),
     source = "recipe",
-    component = "step_kpca_poly"
+    component = "step_kpca_poly",
+    component_id = x$id
   )
 }
 
@@ -230,7 +241,8 @@ tunable.step_kpca_rbf <- function(x, ...) {
       list(pkg = "dials", fun = "rbf_sigma")
     ),
     source = "recipe",
-    component = "step_kpca_rbf"
+    component = "step_kpca_rbf",
+    component_id = x$id
   )
 }
 
@@ -243,7 +255,8 @@ tunable.step_meanimpute <- function(x, ...) {
       list(pkg = "dials", fun = "trim_amount")
     ),
     source = "recipe",
-    component = "step_meanimpute"
+    component = "step_meanimpute",
+    component_id = x$id
   )
 }
 
@@ -257,7 +270,8 @@ tunable.step_nnmf <- function(x, ...) {
       list(pkg = "dials", fun = "num_run")
     ),
     source = "recipe",
-    component = "step_nnmf"
+    component = "step_nnmf",
+    component_id = x$id
   )
 }
 
@@ -270,7 +284,8 @@ tunable.step_ns <- function(x, ...) {
       list(pkg = "dials", fun = "deg_free")
     ),
     source = "recipe",
-    component = "step_ns"
+    component = "step_ns",
+    component_id = x$id
   )
 }
 
@@ -284,7 +299,8 @@ tunable.step_nzv <- function(x, ...) {
       list(pkg = "dials", fun = "unique_cut")
     ),
     source = "recipe",
-    component = "step_nzv"
+    component = "step_nzv",
+    component_id = x$id
   )
 }
 
@@ -297,7 +313,8 @@ tunable.step_other <- function(x, ...) {
       list(pkg = "dials", fun = "threshold")
     ),
     source = "recipe",
-    component = "step_other"
+    component = "step_other",
+    component_id = x$id
   )
 }
 
@@ -308,7 +325,8 @@ tunable.step_pca <- function(x, ...) {
     name = "num_comp",
     call_info = list(list(pkg = "dials", fun = "num_comp")),
     source = "recipe",
-    component = "step_pca"
+    component = "step_pca",
+    component_id = x$id
   )
 }
 
@@ -321,7 +339,8 @@ tunable.step_poly <- function(x, ...) {
       list(pkg = "dials", fun = "degree_num")
     ),
     source = "recipe",
-    component = "step_poly"
+    component = "step_poly",
+    component_id = x$id
   )
 }
 
@@ -332,7 +351,8 @@ tunable.step_pls <- function(x, ...) {
     name = "num_comp",
     call_info = list(list(pkg = "dials", fun = "num_comp")),
     source = "recipe",
-    component = "step_pls"
+    component = "step_pls",
+    component_id = x$id
   )
 }
 
@@ -346,7 +366,8 @@ tunable.step_rollimpute <- function(x, ...) {
       list(pkg = "dials", fun = "window")
     ),
     source = "recipe",
-    component = "step_rollimpute"
+    component = "step_rollimpute",
+    component_id = x$id
   )
 }
 
@@ -360,7 +381,8 @@ tunable.step_rollimpute <- function(x, ...) {
       list(pkg = "dials", fun = "window")
     ),
     source = "recipe",
-    component = "step_rollimpute"
+    component = "step_rollimpute",
+    component_id = x$id
   )
 }
 
@@ -373,7 +395,8 @@ tunable.step_upsample <- function(x, ...) {
       list(pkg = "dials", fun = "over_ratio")
     ),
     source = "recipe",
-    component = "step_upsample"
+    component = "step_upsample",
+    component_id = x$id
   )
 }
 
@@ -387,7 +410,8 @@ tunable.step_window <- function(x, ...) {
       list(pkg = "dials", fun = "window")
     ),
     source = "recipe",
-    component = "step_window"
+    component = "step_window",
+    component_id = x$id
   )
 }
 
@@ -401,7 +425,8 @@ tunable.step_embed <- function(x, ...) {
       list(pkg = "dials", fun = "hidden_units")
     ),
     source = "recipe",
-    component = "step_embed"
+    component = "step_embed",
+    component_id = x$id
   )
 }
 
@@ -418,7 +443,8 @@ tunable.step_umap <- function(x, ...) {
       list(pkg = "dials", fun = "epochs")
     ),
     source = "recipe",
-    component = "step_umap"
+    component = "step_umap",
+    component_id = x$id
   )
 }
 
@@ -431,7 +457,8 @@ tunable.step_woe <- function(x, ...) {
       list(pkg = "dials", fun = "Laplace")
     ),
     source = "recipe",
-    component = "step_woe"
+    component = "step_woe",
+    component_id = x$id
   )
 }
 
@@ -445,7 +472,8 @@ tunable.step_texthash <- function(x, ...) {
       list(pkg = "dials", fun = "num_hash")
     ),
     source = "recipe",
-    component = "step_texthash"
+    component = "step_texthash",
+    component_id = x$id
   )
 }
 
@@ -459,7 +487,8 @@ tunable.step_tf <- function(x, ...) {
       list(pkg = "dials", fun = "weight")
     ),
     source = "recipe",
-    component = "step_tf"
+    component = "step_tf",
+    component_id = x$id
   )
 }
 
@@ -474,7 +503,8 @@ tunable.step_tokenfilter <- function(x, ...) {
       list(pkg = "dials", fun = "max_tokens")
     ),
     source = "recipe",
-    component = "step_tokenfilter"
+    component = "step_tokenfilter",
+    component_id = x$id
   )
 }
 
@@ -487,7 +517,8 @@ tunable.step_tokenize <- function(x, ...) {
       list(pkg = "dials", fun = "token")
     ),
     source = "recipe",
-    component = "step_tokenize"
+    component = "step_tokenize",
+    component_id = x$id
   )
 }
 
