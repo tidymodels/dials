@@ -1,0 +1,336 @@
+
+# TODO make tune_args have a better class
+#      add tuneable() call
+#      update method
+#      dplyr-compat
+#      source/component
+#      wrapper around eval code for dials for non-dials stuff
+#      constructor function
+
+
+#' A placeholder function for argument values that are to be tuned.
+#'
+#' [tune()] is used when a parameter will be specified at a later date.
+#' @param id A single character value that can be used to differentiate
+#'  parameters that are used in multiple places but have the same name or if
+#'  the user wants a note associated with the parameter.
+#' @return A call object that echos the user input.
+#' @examples
+#' tune()
+#' class(tune())
+#' tune("your name here")
+#'
+#' @export
+tune <- function(id = "") {
+  if (!is.character(id) || length(id) != 1) {
+    stop("The `id` should be a single character string.", call. = FALSE)
+  }
+  if (id != "") {
+    res <- rlang::call2("tune", id)
+  } else {
+    res <- rlang::call2("tune")
+  }
+  res
+}
+
+#' @export
+tune_args <- function(object, ...) {
+  UseMethod("tune_args")
+}
+
+#' Determine arguments delegate for tuning
+#'
+#' `tune_args()` takes a model specification or a recipe and returns a tibble
+#'  of information on all possible tunable arguments and whether or not they
+#'  are actually tunable.
+#'
+#' The `source` column is determined differently depending on whether a `model_spec`
+#'  or a `recipe` is used (with additional detail on the type).
+#'
+#' The `id` field has any identifier that was passed to `tune()` (e.g.
+#'  `tune("some note")`). If not additional detail was used in that function,
+#'  the `id` field reverts to the name of the parameters.
+#'
+#' @param object A `model_spec` or a `recipe`.
+#' @param full A single logical. Should all possible tunable parameters be
+#' returned? If `FALSE`, then only the parameters that
+#' are actually tunable are returned.
+#'
+#' @param ... Not currently used.
+#'
+#' @return A tibble with columns for the parameter name (`name`), whether it
+#' contains _any_ tunable value (`tune`), the `id` for the parameter (`id`),
+#' and the information on where the parameter was located (`source`).
+#'
+#' @examples
+#'
+#' # List all possible tunable args for the random forest spec
+#' rand_forest() %>% tune_args()
+#'
+#' # mtry is now recognized as tunable
+#' rand_forest(mtry = tune()) %>% tune_args()
+#'
+#' # Even engine specific arguments can vary
+#' rand_forest() %>%
+#'   set_engine("ranger", sample.fraction = tune()) %>%
+#'   tune_args()
+#'
+#' # List only the arguments that actually vary
+#' rand_forest() %>%
+#'   set_engine("ranger", sample.fraction = tune()) %>%
+#'   tune_args(full = FALSE)
+#'
+#' rand_forest() %>%
+#'   set_engine(
+#'     "randomForest",
+#'     strata = Class,
+#'     sampsize = tune()
+#'   ) %>%
+#'   tune_args()
+#'
+#' @importFrom purrr map map_lgl
+#' @export
+tune_args.model_spec <- function(object, full = FALSE, ...) {
+
+  # use the model_spec top level class as the id
+  id <- class(object)[1]
+
+  if (length(object$args) == 0L & length(object$eng_args) == 0L) {
+    return(tune_tbl())
+  }
+
+  # Locate tunable args in spec args and engine specific args
+  object$args     <- map(object$args, convert_args)
+  object$eng_args <- map(object$eng_args, convert_args)
+
+  arg_id <- map_chr(object$args, find_tune_id)
+  eng_arg_id <- map_chr(object$eng_args, find_tune_id)
+  res <- c(arg_id, eng_arg_id)
+
+  tune_tbl(
+    name = names(res),
+    tunable = unname(!is.na(res)),
+    id = res,
+    source = paste("model_spec:", id),
+    full = full
+  ) %>%
+    mutate(id = ifelse(id == "", name, id))
+}
+
+# If we map over a list or arguments and some are quosures, we get the message
+# that "Subsetting quosures with `[[` is deprecated as of rlang 0.4.0"
+
+convert_args <- function(x) {
+  if (is_quosure(x)) {
+    x <- rlang::quo_get_expr(x)
+  }
+  x
+}
+
+#' @importFrom purrr map2_dfr map_chr
+#' @export
+#' @rdname tune_args.model_spec
+tune_args.recipe <- function(object, full = FALSE, ...) {
+
+  steps <- object$steps
+
+  if (length(steps) == 0L) {
+    return(tune_tbl())
+  }
+
+  map_dfr(object$steps, tune_args, full = full)
+}
+
+#' @importFrom purrr map map_lgl
+#' @export
+#' @rdname tune_args.model_spec
+tune_args.step <- function(object, full = FALSE, ...) {
+
+  # Unique step id
+  id <- object$id
+
+  # Grab the step class before the subset, as that removes the class
+  step_type <- class(object)[1]
+
+  # Remove NULL argument steps. These are reserved
+  # for deprecated args or those set at prep() time.
+  object <- object[!map_lgl(object, is.null)]
+
+  # remove the non-tunable arguments as they are not important
+  object <- object[!(names(object) %in% non_tunable_step_arguments)]
+
+  # ensure the user didn't specify a non-tunable argument as vary()
+  # TODO update this
+  # validate_only_allowed_step_args(res, step_type)
+
+  res <- map_chr(object, find_tune_id)
+
+  tune_tbl(
+    name = names(res),
+    tunable = unname(!is.na(res)),
+    id = unname(res),
+    source = paste("recipe:", id),
+    full = full
+  ) %>%
+    mutate(id = ifelse(id == "", name, id))
+}
+
+# useful for standardization and for creating a 0 row tunable tbl
+# (i.e. for when there are no steps in a recipe)
+tune_tbl <- function(name = character(),
+                     tunable = logical(),
+                     id = character(),
+                     source = character(),
+                     full = FALSE) {
+
+  vry_tbl <- tibble(
+    name = name,
+    tunable = tunable,
+    id = id,
+    source = source
+  )
+
+  if (!full) {
+    vry_tbl <- vry_tbl[vry_tbl$tunable,]
+  }
+
+  vry_tbl
+}
+
+validate_only_allowed_step_args <- function(x, step_type) {
+
+  check_allowed_arg <- function(x, nm) {
+
+    # not tunable
+    if (rlang::is_false(x)) {
+      return(invisible(x))
+    }
+
+    # not a non-tunable step arg name
+    bad_nm <- nm %in% non_tunable_step_arguments
+    if (!bad_nm) {
+      return(invisible(x))
+    }
+
+    rlang::abort(glue::glue(
+      "The following argument for a recipe step of type ",
+      "'{step_type}' is not allowed to tune: '{nm}'."
+    ))
+  }
+
+  purrr::iwalk(x, check_allowed_arg)
+  invisible(x)
+}
+
+# TODO use tunable method
+non_tunable_step_arguments <- c(
+  '...', 'abbr', 'base', 'class', 'column', 'columns', 'convert',
+  'custom_token', 'data', 'default', 'denom', 'dictionary', 'features',
+  'func', 'id', 'impute_with', 'index', 'input', 'inputs', 'inverse', 'keep',
+  'key', 'label', 'language', 'lat', 'levels', 'limits', 'log', 'lon', 'mapping',
+  'max', 'means', 'medians', 'min', 'models', 'modes', 'na_rm', 'name', 'names',
+  'naming', 'new_level', 'norm', 'normalize', 'object', 'objects', 'options',
+  'ordinal', 'other', 'outcome', 'pattern', 'pct', 'percentage', 'predictors',
+  'prefix', 'preserve', 'profile', 'ranges', 'ratio', 'recipe', 'ref_data',
+  'ref_first', 'removals', 'replace', 'res', 'result', 'retain', 'reverse',
+  'role', 'sds', 'seed', 'seed_val', 'sep', 'skip', 'statistic', 'strict',
+  'sublinear_tf', 'target', 'terms', 'trained', 'transform', 'use', 'value',
+  'verbose', 'vocabulary', 'x', 'zero_based'
+)
+
+# helpers ----------------------------------------------------------------------
+
+# Return the `id` arg in tune(); if not specified, then returns "" or if not
+# a tunable arg then returns na_chr
+tune_id <- function(x) {
+  if (is.null(x)) {
+    return(na_chr)
+  } else {
+    if (is_quosures(x)) {
+      # Try to evaluate to catch things in the global envir.
+      .x <- try(map(x, eval_tidy), silent = TRUE)
+      if (inherits(.x, "try-error")) {
+        x <- map(x, quo_get_expr)
+      } else {
+        x <- .x
+      }
+      if (is.null(x)) {
+        return(na_chr)
+      }
+    }
+
+    # `tune()` will always return a call object
+    if (is.call(x)) {
+      if (call_name(x) == "tune") {
+        # If an id was specified:
+        if (length(x) > 1) {
+          return(x[[2]])
+        } else {
+          # no id
+          return("")
+        }
+        return(x$id)
+      } else {
+        return(na_chr)
+      }
+    }
+  }
+  na_chr
+}
+
+find_tune_id <- function(x) {
+
+  # STEP 1 - Early exits
+
+  # Early exit for empty elements (like list())
+  if (length(x) == 0L) {
+    return(na_chr)
+  }
+
+  # turn quosures into expressions before continuing
+  if (is_quosures(x)) {
+    # Try to evaluate to catch things in the global envir. If it is a dplyr
+    # selector, it will fail to evaluate.
+    .x <- try(map(x, eval_tidy), silent = TRUE)
+    if (inherits(.x, "try-error")) {
+      x <- map(x, quo_get_expr)
+    } else {
+      x <- .x
+    }
+  }
+
+  id <- tune_id(x)
+  if (!is.na(id)) {
+    return(id)
+  }
+
+  if (is.atomic(x) | is.name(x) | length(x) == 1) {
+    return(na_chr)
+  }
+
+  # STEP 2 - Recursion
+
+  # tunable_elems <- map_lgl(x, find_tune)
+  tunable_elems <- vector("character", length = length(x))
+
+  # use map_lgl
+  for (i in seq_along(x)) {
+    tunable_elems[i] <- find_tune_id(x[[i]])
+  }
+
+  tunable_elems <- tunable_elems[!is.na(tunable_elems)]
+  if (length(tunable_elems) == 0) {
+    tunable_elems <- na_chr
+  }
+
+  if (sum(tunable_elems == "", na.rm = TRUE) > 1) {
+    stop(
+      "Only one tunable value is currently allowed per argument. ",
+      "The current argument has: `",
+      paste0(deparse(x), collapse = ""),
+      "`.",
+      call. = FALSE)
+  }
+
+  return(tunable_elems)
+}

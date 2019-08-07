@@ -24,11 +24,11 @@ Imports:
     rlang,
     utils,
     withr,
-    DiceDesign
+    DiceDesign,
+    dplyr
 Suggests: 
     testthat,
     knitr,
     rpart,
     covr,
-    dplyr,
     kernlab
