@@ -126,6 +126,13 @@ tune_tbl <- function(name = character(),
                      component_id = character(),
                      full = FALSE) {
 
+  dups <- duplicated(id)
+  if (any(dups)) {
+    stop("There are duplicate `id` values listed in `tune()`: ",
+         paste0("'", unique(id[dups]), "'", collapse = ", "),
+         ".", sep = "", call. = FALSE)
+  }
+
   vry_tbl <- tibble(
     name = name,
     tunable = tunable,

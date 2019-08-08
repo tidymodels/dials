@@ -211,10 +211,47 @@ print.param_set <- function(x, ...) {
       cat("\n")
     }
 
-    cat("See `?finalize for more information.\n")
+    cat("See `?dials::finalize` for more information.\n")
   }
 
   invisible(x)
+}
+
+# ------------------------------------------------------------------------------
+
+#' Update a single parameter in a parameter set
+#'
+#' @param object A parameter set.
+#' @param id A single character value that will be used in a regular expression
+#' to select a single parameter for updating.
+#' @param value A `param` object or `NA`
+#' @param ... Options to pass to `grep()`
+#' @return The modified parameter set.
+#' @examples
+#' params <- list(lambda = penalty(), alpha = mixture(), `rand forest` = mtry())
+#' pset <- param_set(params)
+#' pset
+#'
+#' update(pset, "forest", finalize(mtry(), iris))
+#' @export
+update.param_set <- function(object, id, value, ...) {
+  if (!inherits(value, "param") & all(!is.na(value))) {
+    stop("`value` should be NA or a `param` object.", call. = FALSE)
+  }
+  if (!is.character(id)) {
+    stop("`id` should be a character string.", call. = FALSE)
+  }
+  idx <- grep(id, object$id, ...)
+  if (length(idx) == 0) {
+    stop("Regular expression '", id, "' did not select any parameters.",
+         call. = FALSE)
+  }
+  if (length(idx) != 1) {
+    stop("Regular expression '", id, "' selected more than one parameter.",
+         call. = FALSE)
+  }
+  object$object[[idx]] <- value
+  object
 }
 
 # ------------------------------------------------------------------------------
