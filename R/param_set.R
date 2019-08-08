@@ -31,10 +31,16 @@ param_set.list <- function(x, ...) {
     stop("The objects should all be `param` objects.", call. = FALSE)
   }
   elem_name <- purrr::map_chr(x, ~ names(.x$label))
+  elem_id <- names(x)
+  if (length(elem_id) == 0) {
+    elem_id <- elem_name
+  } else {
+    elem_id[elem_id == ""] <- elem_name[elem_id == ""]
+  }
   p <- length(x)
   param_set_constr(
     elem_name,
-    elem_name,
+    elem_id,
     rep("list", p),
     rep("unknown", p),
     rep("unknown", p),
@@ -161,6 +167,7 @@ unk_check <- function(x) {
   res
 }
 
+#' @export
 print.param_set <- function(x, ...) {
   cat("Collection of", nrow(x), "parameters for tuning\n\n")
   null_obj <- map_lgl(x$object, ~ all(is.na(.x)))
@@ -195,6 +202,12 @@ print.param_set <- function(x, ...) {
     if (nrow(rec_obj) > 0) {
       cat("Recipe parameters needing finalization:\n")
       cat(rec_obj$note, sep = "")
+      cat("\n")
+    }
+    lst_obj <- as_tibble(other_obj) %>% dplyr::filter(source == "list" & not_final)
+    if (nrow(lst_obj) > 0) {
+      cat("Parameters needing finalization:\n")
+      cat(lst_obj$note, sep = "")
       cat("\n")
     }
 

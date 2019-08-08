@@ -2,14 +2,37 @@
 % Please edit documentation in R/grids.R
 \name{grid_regular}
 \alias{grid_regular}
+\alias{grid_regular.param_set}
+\alias{grid_regular.list}
+\alias{grid_regular.param}
+\alias{make_regular_grid}
 \alias{grid_random}
+\alias{grid_random.param_set}
+\alias{grid_random.list}
+\alias{grid_random.param}
 \title{Create grids of tuning parameters}
 \usage{
-grid_regular(..., levels = 3, original = TRUE)
+grid_regular(x, ..., levels = 3, original = TRUE)
 
-grid_random(..., size = 5, original = TRUE)
+\method{grid_regular}{param_set}(x, ..., levels = 3, original = TRUE)
+
+\method{grid_regular}{list}(x, ..., levels = 3, original = TRUE)
+
+\method{grid_regular}{param}(x, ..., levels = 3, original = TRUE)
+
+make_regular_grid(..., levels = 3, original = TRUE)
+
+grid_random(x, ..., size = 5, original = TRUE)
+
+\method{grid_random}{param_set}(x, ..., size = 5, original = TRUE)
+
+\method{grid_random}{list}(x, ..., size = 5, original = TRUE)
+
+\method{grid_random}{param}(x, ..., size = 5, original = TRUE)
 }
 \arguments{
+\item{x}{A \code{param} object, list, or \code{param_set}.}
+
 \item{...}{One or more \code{param} objects (such as \code{\link[=mtry]{mtry()}} or
 \code{\link[=penalty]{penalty()}}). None of the objects can have \code{unknown()} values in
 the parameter ranges or values.}

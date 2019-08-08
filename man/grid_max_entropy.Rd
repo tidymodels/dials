@@ -2,15 +2,39 @@
 % Please edit documentation in R/space_filling.R
 \name{grid_max_entropy}
 \alias{grid_max_entropy}
+\alias{grid_max_entropy.param_set}
+\alias{grid_max_entropy.list}
+\alias{grid_max_entropy.param}
 \alias{grid_latin_hypercube}
+\alias{grid_latin_hypercube.param_set}
+\alias{grid_latin_hypercube.list}
+\alias{grid_latin_hypercube.param}
 \title{Space-filling parameter grids}
 \usage{
-grid_max_entropy(..., size = 3, original = TRUE,
+grid_max_entropy(x, ..., size = 3, original = TRUE,
   variogram_range = 0.5, iter = 1000)
 
-grid_latin_hypercube(..., size = 3, original = TRUE)
+\method{grid_max_entropy}{param_set}(x, ..., size = 3, original = TRUE,
+  variogram_range = 0.5, iter = 1000)
+
+\method{grid_max_entropy}{list}(x, ..., size = 3, original = TRUE,
+  variogram_range = 0.5, iter = 1000)
+
+\method{grid_max_entropy}{param}(x, ..., size = 3, original = TRUE,
+  variogram_range = 0.5, iter = 1000)
+
+grid_latin_hypercube(x, ..., size = 3, original = TRUE)
+
+\method{grid_latin_hypercube}{param_set}(x, ..., size = 3,
+  original = TRUE)
+
+\method{grid_latin_hypercube}{list}(x, ..., size = 3, original = TRUE)
+
+\method{grid_latin_hypercube}{param}(x, ..., size = 3, original = TRUE)
 }
 \arguments{
+\item{x}{A \code{param} object, list, or \code{param_set}.}
+
 \item{...}{One or more \code{param} objects (such as \code{\link[=mtry]{mtry()}} or
 \code{\link[=penalty]{penalty()}}). None of the objects can have \code{unknown()} values in
 the parameter ranges or values.}

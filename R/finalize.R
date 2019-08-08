@@ -104,6 +104,24 @@ finalize.param <- function(object, x, force = TRUE, ...) {
   object$finalize(object, x = x, ...)
 }
 
+
+safe_finalize <- function(object, x, force = TRUE, ...) {
+  if (all(is.na(object))) {
+    res <- NA
+  } else {
+    res <- finalize(object, x, force = TRUE, ...)
+  }
+  res
+}
+
+#' @export
+#' @rdname finalize
+finalize.param_set <- function(object, x, force = TRUE, ...) {
+  object$object <- map(object$object, safe_finalize, x, force, ...)
+  object
+}
+
+
 #' @export
 #' @rdname finalize
 get_p <- function(object, x, log_vals = FALSE, ...) {

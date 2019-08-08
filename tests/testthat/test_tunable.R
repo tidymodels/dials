@@ -43,12 +43,14 @@ test_that('recipe with tunable parameters', {
 # ------------------------------------------------------------------------------
 
 test_that('model with no parameters', {
+  skip_if_not_installed("parsnip")
   lm_info <- tunable(lm_model)
   check_tunable_tibble(lm_info)
   expect_equal(nrow(lm_info), 0)
 })
 
 test_that('model with main and engine parameters', {
+  skip_if_not_installed("parsnip")
   c5_info <- tunable(bst_model)
   check_tunable_tibble(c5_info)
   expect_equal(nrow(c5_info), 5)
@@ -65,6 +67,7 @@ test_that('model with main and engine parameters', {
 
 
 test_that('bad model inputs', {
+  skip_if_not_installed("parsnip")
   expect_error(
     tunable(no_engine),
     "Please declare an engine first using"
