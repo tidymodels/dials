@@ -5,6 +5,7 @@
 \alias{tune_args.model_spec}
 \alias{tune_args.recipe}
 \alias{tune_args.step}
+\alias{tune_args.workflow}
 \title{Determine arguments delegate for tuning}
 \usage{
 tune_args(object, ...)
@@ -14,6 +15,8 @@ tune_args(object, ...)
 \method{tune_args}{recipe}(object, full = FALSE, ...)
 
 \method{tune_args}{step}(object, full = FALSE, ...)
+
+\method{tune_args}{workflow}(x, ...)
 }
 \arguments{
 \item{object}{A \code{model_spec} or a \code{recipe}.}

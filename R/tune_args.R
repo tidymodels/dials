@@ -45,6 +45,7 @@ tune_args.model_spec <- function(object, full = FALSE, ...) {
   arg_id <- map_chr(object$args, find_tune_id)
   eng_arg_id <- map_chr(object$eng_args, find_tune_id)
   res <- c(arg_id, eng_arg_id)
+  res <- ifelse(res == "", names(res), res)
 
   tune_tbl(
     name = names(res),
@@ -54,8 +55,7 @@ tune_args.model_spec <- function(object, full = FALSE, ...) {
     component = model_type,
     component_id = NA_character_,
     full = full
-  ) %>%
-    mutate(id = ifelse(id == "", name, id))
+  )
 }
 
 # If we map over a list or arguments and some are quosures, we get the message
@@ -103,6 +103,7 @@ tune_args.step <- function(object, full = FALSE, ...) {
   # validate_only_allowed_step_args(res, step_type)
 
   res <- map_chr(object, find_tune_id)
+  res <- ifelse(res == "", names(res), res)
 
   tune_tbl(
     name = names(res),
@@ -112,9 +113,27 @@ tune_args.step <- function(object, full = FALSE, ...) {
     component = step_type,
     component_id = step_id,
     full = full
-  ) %>%
-    mutate(id = ifelse(id == "", name, id))
+  )
 }
+
+
+# ------------------------------------------------------------------------------
+
+#' @export
+#' @importFrom dplyr bind_rows
+#' @rdname tune_args
+tune_args.workflow <- function(x, ...) {
+  param_data <- tune_args(x$fit$model$model)
+  if (any(names(x$pre) == "recipe")) {
+    param_data <-
+      dplyr::bind_rows(
+        param_data,
+        tune_args(x$pre$recipe$recipe)
+      )
+  }
+  param_data
+}
+
 
 # useful for standardization and for creating a 0 row tunable tbl
 # (i.e. for when there are no steps in a recipe)
@@ -126,10 +145,12 @@ tune_tbl <- function(name = character(),
                      component_id = character(),
                      full = FALSE) {
 
-  dups <- duplicated(id)
+
+  complete_id <- id[!is.na(id)]
+  dups <- duplicated(complete_id)
   if (any(dups)) {
     stop("There are duplicate `id` values listed in `tune()`: ",
-         paste0("'", unique(id[dups]), "'", collapse = ", "),
+         paste0("'", unique(complete_id[dups]), "'", collapse = ", "),
          ".", sep = "", call. = FALSE)
   }
 

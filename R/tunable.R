@@ -534,6 +534,23 @@ tunable.recipe <- function(x, ...) {
   res
 }
 
+# ------------------------------------------------------------------------------
+
+#' @export
+#' @importFrom dplyr bind_rows
+#' @rdname tunable
+tunable.workflow <- function(x, ...) {
+  param_data <- tunable(x$fit$model$model)
+  if (any(names(x$pre) == "recipe")) {
+    param_data <-
+      dplyr::bind_rows(
+        param_data,
+        tunable(x$pre$recipe$recipe)
+      )
+  }
+  param_data
+}
+
 
 #' @importFrom utils globalVariables
 utils::globalVariables(c("engine", "name", "func", "parsnip", "call_name", ".step"))

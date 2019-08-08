@@ -35,6 +35,7 @@
 \alias{tunable.step_tokenfilter}
 \alias{tunable.step_tokenize}
 \alias{tunable.recipe}
+\alias{tunable.workflow}
 \title{Find recommended methods for generating parameter values}
 \format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 0 rows and 5 columns.}
 \usage{
@@ -105,6 +106,8 @@ no_param
 \method{tunable}{step_tokenize}(x, ...)
 
 \method{tunable}{recipe}(x, ...)
+
+\method{tunable}{workflow}(x, ...)
 }
 \arguments{
 \item{x}{An object, such as a recipe, recipe step, or \code{parsnip} model
