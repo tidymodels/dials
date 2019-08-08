@@ -52,8 +52,6 @@ no_param <-
     component_id = NA_character_
   )
 
-#' @rdname tunable
-#' @export
 step_type <- function(.step) class(.step)[class(.step) != "step"][1]
 mod_type <- function(.mod) class(.mod)[class(.mod) != "model_spec"][1]
 
@@ -538,4 +536,4 @@ tunable.recipe <- function(x, ...) {
 
 
 #' @importFrom utils globalVariables
-utils::globalVariables(c("engine", "name", "func", "parsnip", "call_name"))
+utils::globalVariables(c("engine", "name", "func", "parsnip", "call_name", ".step"))

@@ -4,7 +4,6 @@
 \name{tunable}
 \alias{tunable}
 \alias{no_param}
-\alias{step_type}
 \alias{tunable.step}
 \alias{tunable.model_spec}
 \alias{tunable.step_bagimpute}
@@ -42,8 +41,6 @@
 tunable(x, ...)
 
 no_param
-
-step_type(.step)
 
 \method{tunable}{step}(x, ...)
 
