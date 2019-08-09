@@ -1,86 +1,87 @@
-#' Merge parameter grid values into a parsnip object
-#'
+#' Merge parameter grid values into objects
 #'
 #' @description
 #'
-#' \pkg{parsnip} contains model objects that have consistent names with
-#' \pkg{dials}. `merge()` can be used to easily update any of the main parameters
-#' in a \pkg{parsnip} model.
+#' `merge()` can be used to easily update any of the arguments in a
+#'  \pkg{parsnip} model or recipe.
 #'
-#' For more information and examples, see the article,
-#' [Using dials with parsnip](https://tidymodels.github.io/dials/articles/articles/Dials_and_Parsnip.html).
+#' @param x A recipe or model specification object.
+#' @param y A data frame or a parameter grid resulting from one of the
+#'  `grid_*` functions. The column names should correspond to the parameter
+#'  names (or their annotations) in the object.
+#' @param ... Not used but required for S3 completeness.
 #'
-#' @param x,y A combination of one \pkg{parsnip} model object (that has class
-#' `"model_spec"`) and one parameter grid resulting from [grid_regular()] or
-#' [grid_random()]. As long as this combination is present, the order that
-#' they are provided in does not matter.
+#' @return A tibble with a column `x` that has as many rows as were in `y`.
 #'
-#' @param ... Not currently used.
-#'
-#' @return
-#'
-#' A list containing updated model objects.
-#'
-#' @importFrom utils getS3method
 #' @export
+merge.recipe <- function(x, y, ...) {
+  merger(x, y, ...)
+}
+
+#' @export
+#' @rdname merge.recipe
 merge.model_spec <- function(x, y, ...) {
-
-  # x is known to be a model_spec
-  is_param_grid <- inherits(y, "param_grid")
-
-  if(!is_param_grid) {
-    stop("`x` and `y` should contain one 'param_grid' object and one ",
-         "'model_spec' object.", call. = FALSE)
-  }
-
-  actual_model_spec <- class(x)[1]
-
-  upd_mth <- try(getS3method("update", actual_model_spec), silent = TRUE)
-
-  if (inherits(upd_mth, "try-error")) {
-    stop(
-      "No `update` method for class '", actual_model_spec, "'.",
-      call. = FALSE
-    )
-  }
-
-  mod_param <- names(x$args)
-  param_names <- names(y)
-  common <- intersect(mod_param, param_names)
-
-  if (length(common) == 0) {
-    return(x)
-  }
-
-  # always return a list for type stability, even if nrow = 1
-  nrow_y <- nrow(y)
-  nrow_seq <- seq_len(nrow_y)
-  spec_list <- rlang::new_list(nrow_y)
-
-  param_obj <- list(object = x)
-
-  spec_list <- purrr::map(nrow_seq, ~{
-
-    param_lst <- as.list(y[.x, common, drop = FALSE])
-    param_lst <- c(param_lst, param_obj)
-    do.call(upd_mth, param_lst)
-
-  })
-
-  spec_list
+  merger(x, y, ...)
 }
 
-#' @export
-#' @rdname merge.model_spec
-merge.param_grid <- function(x, y, ...) {
+update_model <- function(grid, object, pset, step_id, nms, ...) {
+  for (i in nms) {
+    param_info <- pset %>% dplyr::filter(id == i & source == "model_spec")
+    if (nrow(param_info) > 1) {
+      # TODO figure this out and write a better message
+      stop("There are too many things.", call. = FALSE)
+    }
+    if (nrow(param_info) == 1) {
+      if (param_info$component_id == "main") {
+        object$args[[param_info$name]] <- grid[[i]]
+      } else {
+        object$eng_args[[param_info$name]] <- grid[[i]]
+      }
+    }
+  }
+  object
+}
 
-  # x is known to be a param_grid
-  is_model_spec <- inherits(y, "model_spec")
+update_recipe <- function(grid, object, pset, step_id, nms, ...) {
+  for (i in nms) {
+    param_info <- pset %>% dplyr::filter(id == i & source == "recipe")
+    # check nrow()
+    idx <- which(step_id == param_info$component_id)
+    # check index
+    # should use the contructor but maybe dangerous/difficult
+    object$steps[[ idx ]][[param_info$name]] <- grid[[i]]
+  }
+  object
+}
 
-  if(!is_model_spec) {
-    stop("`x` and `y` should contain one 'param_grid' object and one ",
-         "'model_spec' object.", call. = FALSE)
+
+merger <- function(x, y, ...) {
+  if (!is.data.frame(y)) {
+    stop("The second argument should be a data frame.", call. = FALSE)
+  }
+  pset <- param_set(x)
+
+  if (nrow(pset) == 0) {
+    res <- tibble::tibble(x = map(1:nrow(y), ~ x))
+    return(res)
+  }
+  grid_name <- colnames(y)
+  # We will deliberately allow `y` to lack some tunable parameters in `x`
+
+  step_ids <- purrr::map_chr(x$steps, ~ .x$id)
+
+  if (inherits(x, "recipe")) {
+    updater <- update_recipe
+  } else {
+    updater <- update_model
   }
 
-  merge.model_spec(y, x, ...)
+  y %>%
+    dplyr::mutate(
+      ..object = map(1:nrow(y), ~ updater(y[.x,], x, pset, step_ids, grid_name))
+    ) %>%
+    dplyr::select(x = ..object)
 }
+
+#' @importFrom utils globalVariables
+utils::globalVariables(c("..object"))
