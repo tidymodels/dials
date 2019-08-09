@@ -122,13 +122,13 @@ tune_args.step <- function(object, full = FALSE, ...) {
 #' @export
 #' @importFrom dplyr bind_rows
 #' @rdname tune_args
-tune_args.workflow <- function(x, ...) {
-  param_data <- tune_args(x$fit$model$model)
-  if (any(names(x$pre) == "recipe")) {
+tune_args.workflow <- function(object, ...) {
+  param_data <- tune_args(object$fit$model$model)
+  if (any(names(object$pre) == "recipe")) {
     param_data <-
       dplyr::bind_rows(
         param_data,
-        tune_args(x$pre$recipe$recipe)
+        tune_args(object$pre$recipe$recipe)
       )
   }
   param_data

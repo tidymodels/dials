@@ -16,7 +16,7 @@ tune_args(object, ...)
 
 \method{tune_args}{step}(object, full = FALSE, ...)
 
-\method{tune_args}{workflow}(x, ...)
+\method{tune_args}{workflow}(object, ...)
 }
 \arguments{
 \item{object}{A \code{model_spec} or a \code{recipe}.}
