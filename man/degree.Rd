@@ -2,11 +2,14 @@
 % Please edit documentation in R/param_degree.R
 \name{degree}
 \alias{degree}
+\alias{degree_int}
 \alias{spline_degree}
 \alias{prod_degree}
 \title{Parameters for exponents}
 \usage{
 degree(range = c(1, 3), trans = NULL)
+
+degree_int(range = c(1, 3), trans = NULL)
 
 spline_degree(range = c(3, 10), trans = NULL)
 
@@ -26,7 +29,11 @@ These parameters help model cases where an exponent is of interest (e.g.
 \code{degree()} or \code{spline_degree()}) or a product is used (e.g. \code{prod_degree}).
 }
 \details{
-The difference between \code{degree()} and \code{spline_degree()} is the default ranges
+\code{degree()} is helpful for parameters that are real number exponents (e.g.
+\code{x^degree}) whereas \code{degree_int()} is for cases where the exponent should be
+an integer.
+
+The difference between \code{degree_int()} and \code{spline_degree()} is the default ranges
 (which is based on the context of how/where they are used).
 
 \code{prod_degree()} is used by \code{parsnip::mars()} for the number of terms in
@@ -34,6 +41,7 @@ interactions (and generates an integer).
 }
 \examples{
 degree()
+degree_int()
 spline_degree()
 prod_degree()
 }

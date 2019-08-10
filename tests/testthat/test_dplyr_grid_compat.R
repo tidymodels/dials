@@ -2,13 +2,13 @@ library(dials)
 library(testthat)
 library(dplyr)
 
-###################################################################
+# ------------------------------------------------------------------------------
 
 reg <- grid_regular(penalty(), mixture(), activation())
 set.seed(311)
 rnd <- grid_random(dropout(), prune(), degree())
 
-###################################################################
+# ------------------------------------------------------------------------------
 
 check_att <- function(x, y)
   length(setdiff(names(attributes(x)), names(attributes(x)))) == 0
@@ -17,7 +17,7 @@ grid_test <- function(x)
   inherits(x, "param_grid") &
     "info" %in%  names(attributes(x))
 
-###################################################################
+# ------------------------------------------------------------------------------
 
 test_that('are methods available?', {
   dplyr_meth <- c('[.param_grid', 'arrange.param_grid', 'filter.param_grid',
@@ -28,7 +28,7 @@ test_that('are methods available?', {
   )
 })
 
-###################################################################
+# ------------------------------------------------------------------------------
 
 test_that('dplyr ops', {
 
