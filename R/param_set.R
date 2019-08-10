@@ -58,6 +58,20 @@ chr_check <- function(x) {
   invisible(TRUE)
 }
 
+unique_check <- function(x) {
+  x2 <- x[!is.na(x)]
+  is_dup <- duplicated(x2)
+  if (any(is_dup)) {
+    dup_list <- x2[is_dup]
+    cl <- match.call()
+    msg <- paste0("Element `", deparse(cl$x), "` should have unique values. Duplicates exist ",
+                  "for item(s): ",
+                  paste0("'", dup_list, "'", collapse = ", "))
+    stop(msg, call. = FALSE)
+  }
+  invisible(TRUE)
+}
+
 param_or_na <- function(x) {
   inherits(x, "param") | all(is.na(x))
 }
@@ -77,6 +91,7 @@ param_set_constr <-
     chr_check(source)
     chr_check(component)
     chr_check(component_id)
+    unique_check(id)
     if (!is.list(object)) {
       stop("`object` should be a list.", call. = FALSE)
     }
