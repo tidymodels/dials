@@ -68,7 +68,6 @@ NULL
 
 #' @export
 #' @rdname new-param
-#' @importFrom scales is.trans
 new_quant_param <- function(
   type = c("double", "integer"), range, inclusive,
   default = unknown(),
@@ -157,8 +156,6 @@ new_qual_param <- function(type = c("character", "logical"), values,
 ###################################################################
 
 #' @export
-#' @importFrom purrr map_chr
-#' @importFrom glue glue
 print.quant_param <- function(x, digits = 3, ...) {
   if (!is.null(x$label)) {
     cat(x$label, " (quantitative)\n")
@@ -178,7 +175,6 @@ print.quant_param <- function(x, digits = 3, ...) {
 }
 
 #' @export
-#' @importFrom glue glue_collapse
 print.qual_param <- function(x, ...) {
   if (!is.null(x$label)) {
     cat(x$label, " (qualitative)\n")

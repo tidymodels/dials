@@ -37,8 +37,6 @@
 #'   original = FALSE)
 #'
 #' grid_latin_hypercube(penalty(), mixture(), original = TRUE)
-#' @importFrom DiceDesign dmaxDesign
-#' @importFrom purrr map2_dfc map_chr
 #' @export
 grid_max_entropy <- function(x, ..., size = 3, original = TRUE,
                              variogram_range = 0.5, iter = 1000) {
@@ -118,7 +116,6 @@ make_max_entropy_grid <- function(..., size = 3, original = TRUE,
   sf_grid
 }
 
-#' @importFrom DiceDesign lhsDesign
 #' @export
 #' @rdname grid_max_entropy
 grid_latin_hypercube <- function(x, ..., size = 3, original = TRUE) {

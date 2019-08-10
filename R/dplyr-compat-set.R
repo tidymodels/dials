@@ -3,9 +3,6 @@
 
 base_classes <- c(class(tibble::tibble()))
 
-#' @importFrom tibble is_tibble tibble
-#' @importFrom rlang is_string
-
 reset_param_set <- function(x) {
   stopifnot(inherits(x, "data.frame"))
   structure(x, class = c("param_set", base_classes))

@@ -189,7 +189,6 @@ value_seq_qual <- function(object, n) {
 
 #' @export
 #' @rdname value_validate
-#' @importFrom stats runif
 value_sample <- function(object, n, original = TRUE) {
   if (inherits(object, "quant_param"))
     range_validate(object, object$range, ukn_ok = FALSE)
@@ -271,7 +270,6 @@ value_samp_qual <- function(object, n) {
 
 #' @export
 #' @rdname value_validate
-#' @importFrom purrr map map_lgl map_dbl
 value_transform <- function(object, values) {
   check_for_unknowns(values, "value_transform")
 

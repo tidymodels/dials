@@ -89,7 +89,6 @@ finalize <- function (object, ...) {
 
 #' @export
 #' @rdname finalize
-#' @importFrom purrr map
 finalize.list <- function (object, x, force = TRUE, ...) {
   map(object, finalize, x, force, ...)
 }
@@ -206,7 +205,6 @@ get_n <- function(object, x, log_vals = FALSE, ...) {
 
 #' @export
 #' @rdname finalize
-#' @importFrom withr with_seed
 get_rbf_range <- function(object, x, seed = sample.int(10 ^ 5, 1), ...) {
   check_installs("kernlab")
   suppressPackageStartupMessages(requireNamespace("kernlab", quietly = TRUE))

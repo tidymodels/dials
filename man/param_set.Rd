@@ -5,9 +5,6 @@
 \alias{param_set.default}
 \alias{param_set.param}
 \alias{param_set.list}
-\alias{param_set.workflow}
-\alias{param_set.model_spec}
-\alias{param_set.recipe}
 \title{Information on tuning parameters within an object}
 \usage{
 param_set(x, ...)
@@ -17,15 +14,10 @@ param_set(x, ...)
 \method{param_set}{param}(x, ...)
 
 \method{param_set}{list}(x, ...)
-
-\method{param_set}{workflow}(x, ...)
-
-\method{param_set}{model_spec}(x, ...)
-
-\method{param_set}{recipe}(x, ...)
 }
 \arguments{
-\item{x}{An object, such as a recipe, model specification, or workflow.}
+\item{x}{An object, such as a list of \code{param} objects or an actual \code{param}
+object.}
 
 \item{...}{Only used for the \code{param} method so that multiple \code{param} objects
 can be passed to the function.}

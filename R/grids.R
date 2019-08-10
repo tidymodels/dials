@@ -31,8 +31,6 @@
 #' grid_regular(penalty(), mixture(), levels = c(3, 4))
 #' grid_random(penalty(), mixture())
 #'
-#' @importFrom rlang quos eval_tidy quo_get_expr
-#' @importFrom purrr map map_chr map2 map_dfc
 #' @export
 grid_regular <- function(x, ..., levels = 3, original = TRUE) {
   UseMethod("grid_regular")
@@ -160,8 +158,6 @@ make_random_grid <- function(..., size = 5, original = TRUE) {
 
 # ------------------------------------------------------------------------------
 
-
-#' @importFrom tibble as_tibble
 new_grid <- function(x, labels, cls) {
   x <- as_tibble(x)
   attr(x, "info") <- list(labels = labels)
