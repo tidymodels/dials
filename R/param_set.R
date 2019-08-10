@@ -62,6 +62,15 @@ param_or_na <- function(x) {
   inherits(x, "param") | all(is.na(x))
 }
 
+#' Construct a new parameter set object
+#'
+#' @param name,id,source,component,component_id Character strings with the same
+#' length.
+#' @param object A list of `param` objects or NA values.
+#' @return A tibble that encapsulates the input vectors into a tibble with an
+#' additional class of "param_set".
+#' @keywords internal
+#' @export
 param_set_constr <-
   function(name, id, source, component, component_id, object) {
     chr_check(name)
