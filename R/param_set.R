@@ -12,7 +12,7 @@ param_set <- function(x, ...) {
 #' @export
 #' @rdname param_set
 param_set.default <- function(x, ...) {
-  stop("nope")
+  stop("`param_set` objects cannot be created from this type of object.", call. = FALSE)
 }
 
 #' @export
@@ -104,7 +104,8 @@ param_set_constr <-
     is_good_boi <- map_lgl(object, param_or_na)
     if (any(!is_good_boi)) {
       stop("`object` values in the following positions should be NA or a ",
-           "`param` object:", paste0(which(!is_good_boi), collapse = ", "))
+           "`param` object:", paste0(which(!is_good_boi), collapse = ", "),
+           call. = FALSE)
     }
     res <-
       tibble(
