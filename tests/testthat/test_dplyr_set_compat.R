@@ -31,37 +31,60 @@ test_that('are methods available?', {
 test_that('dplyr ops', {
 
   expect_true(
-    set_test(set_2 %>% filter(id == "prune"))
+    set_test(set_2 %>% dplyr::filter(id == "prune"))
   )
+  expect_equal(
+    set_2 %>% dplyr::filter(id == "prune") %>% nrow(), 1
+  )
+
   expect_true(
-    set_test(set_1 %>% filter(is.na(object)))
+    set_test(set_1 %>% dplyr::filter(is.na(object)))
   )
+  expect_equal(
+    set_1 %>% dplyr::filter(is.na(object)) %>% nrow(), 0
+  )
+
   expect_true(
     set_test(set_2 %>% mutate(id = letters[1:nrow(set_2)]))
   )
-  # expect_error(
-  #   set_test(set_1 %>% dplyr::select(id))
-  # )
+  expect_warning(
+    expect_true(
+      set_test(set_2 %>% mutate(id2 = letters[1:nrow(set_2)]))
+    )
+  )
+  expect_error(
+    set_1 %>% dplyr::select(id),
+    "A `param_set` object has required columns"
+  )
   expect_true(
     set_test(set_1 %>% arrange(id))
   )
-  # expect_error(
-  #   set_test(
-  #     set_2 %>%
-  #       mutate(id = letters[1:nrow(set_2)]) %>%
-  #       rename(id2 = id)
-  #   )
-  # )
+  expect_error(
+    set_test(
+      set_2 %>%
+        mutate(id = letters[1:nrow(set_2)]) %>%
+        rename(id2 = id)
+    )
+  )
   expect_true(
     set_test(set_2 %>% slice(1L))
   )
+  expect_equal(
+    set_2 %>% slice(1L) %>% nrow(), 1
+  )
+
   expect_true(
     set_test(set_1[1,])
   )
-  # expect_error(
-  #   set_test(set_2[,2])
-  # )
-  # expect_error(
-  #   set_test(set_2[1,2])
-  # )
+  expect_equal(
+    set_1[1,] %>% nrow(), 1
+  )
+  expect_error(
+    set_2[,2],
+    "A `param_set` object has required columns"
+  )
+  expect_error(
+    set_2[1,2],
+    "A `param_set` object has required columns"
+  )
 })

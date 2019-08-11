@@ -49,10 +49,12 @@ param_set.list <- function(x, ...) {
   )
 }
 
-
 chr_check <- function(x) {
+  cl <- match.call()
+  if (is.null(x)) {
+    stop("Element `", cl$x, "` should not be NULL.", call. = FALSE)
+  }
   if (!is.character(x)) {
-    cl <- match.call()
     stop("Element `", cl$x, "` should be a character string.", call. = FALSE)
   }
   invisible(TRUE)
@@ -88,10 +90,14 @@ param_or_na <- function(x) {
 param_set_constr <-
   function(name, id, source, component, component_id, object) {
     chr_check(name)
+    chr_check(id)
     chr_check(source)
     chr_check(component)
     chr_check(component_id)
     unique_check(id)
+    if (is.null(object)) {
+      stop("Element `object` should not be NULL.", call. = FALSE)
+    }
     if (!is.list(object)) {
       stop("`object` should be a list.", call. = FALSE)
     }
@@ -125,6 +131,7 @@ unk_check <- function(x) {
 
 #' @export
 print.param_set <- function(x, ...) {
+  x <- tibble::as_tibble(x)
   cat("Collection of", nrow(x), "parameters for tuning\n\n")
   null_obj <- map_lgl(x$object, ~ all(is.na(.x)))
   num_missing <- sum(null_obj)

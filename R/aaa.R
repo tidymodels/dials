@@ -6,6 +6,13 @@
     s3_register("dplyr::rename",  "param_grid")
     s3_register("dplyr::select",  "param_grid")
     s3_register("dplyr::slice",   "param_grid")
+
+    s3_register("dplyr::arrange", "param_set")
+    s3_register("dplyr::filter",  "param_set")
+    s3_register("dplyr::mutate",  "param_set")
+    s3_register("dplyr::rename",  "param_set")
+    s3_register("dplyr::select",  "param_set")
+    s3_register("dplyr::slice",   "param_set")
 }
 # nocov end
 
