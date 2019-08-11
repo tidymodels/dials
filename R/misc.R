@@ -18,12 +18,12 @@ format_bounds <- function(bnds) {
 }
 
 # From parsnip:::check_installs
-check_installs <- function (x) {
+check_installs <- function(x) {
   lib_inst <- rownames(installed.packages())
   is_inst <- x %in% lib_inst
   if (any(!is_inst)) {
     stop(
-      "This engine requires some package installs: ",
+      "Package(s) not installed: ",
       paste0("'", x[!is_inst], "'", collapse = ", "),
       call. = FALSE
     )
