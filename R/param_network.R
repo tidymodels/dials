@@ -53,7 +53,6 @@ hidden_units <- function(range = c(1L, 10), trans = NULL) {
 
 #' @export
 #' @rdname dropout
-#' @importFrom scales log2_trans
 batch_size <- function(range = c(unknown(), unknown()), trans = log2_trans()) {
   new_quant_param(
     type = "double",

@@ -18,8 +18,6 @@ navbar:
   left:
   - text: Basic Usage
     href: articles/Basics.html
-  - text: Working with parsnip
-    href: articles/articles/Dials_and_Parsnip.html
   - text: Reference
     href: reference/index.html
   - text: News

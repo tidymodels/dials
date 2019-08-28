@@ -37,15 +37,59 @@
 #'   original = FALSE)
 #'
 #' grid_latin_hypercube(penalty(), mixture(), original = TRUE)
-#' @importFrom DiceDesign dmaxDesign
-#' @importFrom purrr map2_dfc map_chr
 #' @export
-grid_max_entropy <- function(..., size = 3, original = TRUE,
+grid_max_entropy <- function(x, ..., size = 3, original = TRUE,
+                             variogram_range = 0.5, iter = 1000) {
+  UseMethod("grid_max_entropy")
+}
+
+#' @export
+#' @rdname grid_max_entropy
+grid_max_entropy.param_set <- function(x, ..., size = 3, original = TRUE,
+                                       variogram_range = 0.5, iter = 1000) {
+  # test for NA and finalized
+  # test for empty ...
+  params <- x$object
+  names(params) <- x$id
+  grd <- make_max_entropy_grid(!!!params, size = size, original = original,
+                               variogram_range = variogram_range, iter = iter)
+  names(grd) <- x$id
+  grd
+}
+
+#' @export
+#' @rdname grid_max_entropy
+grid_max_entropy.list <- function(x, ..., size = 3, original = TRUE,
+                                  variogram_range = 0.5, iter = 1000) {
+  y <- param_set(x)
+  params <- y$object
+  names(params) <- y$id
+  grd <- make_max_entropy_grid(!!!params, size = size, original = original,
+                               variogram_range = variogram_range, iter = iter)
+  names(grd) <- y$id
+  grd
+}
+
+
+#' @export
+#' @rdname grid_max_entropy
+grid_max_entropy.param <- function(x, ..., size = 3, original = TRUE,
+                                   variogram_range = 0.5, iter = 1000) {
+  y <- param_set(list(x, ...))
+  params <- y$object
+  names(params) <- y$id
+  grd <- make_max_entropy_grid(!!!params, size = size, original = original,
+                               variogram_range = variogram_range, iter = iter)
+  names(grd) <- y$id
+  grd
+}
+
+make_max_entropy_grid <- function(..., size = 3, original = TRUE,
                              variogram_range = 0.5, iter = 1000) {
   validate_params(...)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
-  param_names <- map_chr(params, function(x) names(x$label))
+  param_names <- names(param_quos)
   param_labs <- map_chr(params, function(x) x$label)
   names(param_labs) <- param_names
 
@@ -72,15 +116,55 @@ grid_max_entropy <- function(..., size = 3, original = TRUE,
   sf_grid
 }
 
-#' @rdname grid_max_entropy
-#' @importFrom DiceDesign lhsDesign
 #' @export
-grid_latin_hypercube <- function(..., size = 3, original = TRUE) {
+#' @rdname grid_max_entropy
+grid_latin_hypercube <- function(x, ..., size = 3, original = TRUE) {
+  UseMethod("grid_latin_hypercube")
+}
+
+#' @export
+#' @rdname grid_max_entropy
+grid_latin_hypercube.param_set <- function(x, ..., size = 3, original = TRUE) {
+  # test for NA and finalized
+  # test for empty ...
+  params <- x$object
+  names(params) <- x$id
+  grd <- make_latin_hypercube_grid(!!!params, size = size, original = original)
+
+  names(grd) <- x$id
+  grd
+}
+
+#' @export
+#' @rdname grid_max_entropy
+grid_latin_hypercube.list <- function(x, ..., size = 3, original = TRUE) {
+  y <- param_set(x)
+  params <- y$object
+  names(params) <- y$id
+  grd <- make_latin_hypercube_grid(!!!params, size = size, original = original)
+  names(grd) <- y$id
+  grd
+}
+
+
+#' @export
+#' @rdname grid_max_entropy
+grid_latin_hypercube.param <- function(x, ..., size = 3, original = TRUE) {
+  y <- param_set(list(x, ...))
+  params <- y$object
+  names(params) <- y$id
+  grd <- make_latin_hypercube_grid(!!!params, size = size, original = original)
+  names(grd) <- y$id
+  grd
+}
+
+
+make_latin_hypercube_grid <- function(..., size = 3, original = TRUE) {
   validate_params(...)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
   param_labs <- map_chr(params, function(x) x$label)
-  param_names <- map_chr(params, function(x) names(x$label))
+  param_names <- names(param_quos)
   names(param_labs) <- param_names
 
   # ----------------------------------------------------------------------------

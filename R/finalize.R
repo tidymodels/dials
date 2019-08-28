@@ -89,7 +89,6 @@ finalize <- function (object, ...) {
 
 #' @export
 #' @rdname finalize
-#' @importFrom purrr map
 finalize.list <- function (object, x, force = TRUE, ...) {
   map(object, finalize, x, force, ...)
 }
@@ -103,6 +102,24 @@ finalize.param <- function(object, x, force = TRUE, ...) {
     return(object)
   object$finalize(object, x = x, ...)
 }
+
+
+safe_finalize <- function(object, x, force = TRUE, ...) {
+  if (all(is.na(object))) {
+    res <- NA
+  } else {
+    res <- finalize(object, x, force = TRUE, ...)
+  }
+  res
+}
+
+#' @export
+#' @rdname finalize
+finalize.param_set <- function(object, x, force = TRUE, ...) {
+  object$object <- map(object$object, safe_finalize, x, force, ...)
+  object
+}
+
 
 #' @export
 #' @rdname finalize
@@ -188,7 +205,6 @@ get_n <- function(object, x, log_vals = FALSE, ...) {
 
 #' @export
 #' @rdname finalize
-#' @importFrom withr with_seed
 get_rbf_range <- function(object, x, seed = sample.int(10 ^ 5, 1), ...) {
   check_installs("kernlab")
   suppressPackageStartupMessages(requireNamespace("kernlab", quietly = TRUE))

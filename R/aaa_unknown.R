@@ -46,7 +46,6 @@ unknown <- function() {
 
 #'@export
 #'@rdname unknown
-#'@importFrom purrr map_lgl
 is_unknown <- function(x) {
   # in case `x` is not a vector (language)
   if(length(x) == 1)
@@ -60,7 +59,7 @@ is_unknown_val <- function(x)
 #'@export
 #'@rdname unknown
 has_unknowns <- function(object) {
-  if(inherits(object, "param"))
+  if (inherits(object, "param"))
     return(has_unknowns_val(object))
   map_lgl(object, has_unknowns_val)
 }
@@ -74,7 +73,6 @@ has_unknowns_val <- function(object) {
   any(rng_check) | any(val_check)
 }
 
-#' @importFrom purrr map_lgl
 check_for_unknowns <- function(x, label = "") {
   err_txt <- paste0("Unknowns not allowed in `", label, "`.")
   if (length(x) == 1 && is_unknown(x))

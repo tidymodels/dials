@@ -10,7 +10,11 @@ test_that('param ranges', {
   expect_equal(loss_reduction(0:1)$range, list(lower = 0, upper = 1))
   expect_equal(cost_complexity(0:1)$range, list(lower = 0, upper = 1))
   expect_equal(epochs(1:2)$range, list(lower = 1L, upper = 2L))
-  expect_equal(prod_degree(1:2)$range, list(lower = 1, upper = 2))
+  expect_equal(degree()$range, list(lower = 1, upper = 3))
+  expect_equal(degree_int()$range, list(lower = 1L, upper = 3L))
+  expect_equal(spline_degree()$range, list(lower = 3L, upper = 10L))
+  expect_equal(spline_degree()$range, list(lower = 3L, upper = 10L))
+  expect_equal(prod_degree(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(num_terms(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(num_comp(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(cost(-2:-1)$range, list(lower = -2, upper = -1))
@@ -26,6 +30,19 @@ test_that('param ranges', {
   expect_equal(max_times(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(min_times(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(max_tokens(1:2)$range, list(lower = 1L, upper = 2L))
+  expect_equal(neighbors()$range, list(lower = 1L, upper = 10L))
+  expect_equal(neighbors(1:2)$range, list(lower = 1L, upper = 2L))
+  expect_equal(num_breaks()$range, list(lower = 2L, upper = 10L))
+  expect_equal(num_breaks(1:2)$range, list(lower = 1L, upper = 2L))
+  expect_equal(min_unique()$range, list(lower = 5L, upper = 15L))
+  expect_equal(min_unique(1:2)$range, list(lower = 1L, upper = 2L))
+  expect_equal(freq_cut(1:2)$range, list(lower = 1L, upper = 2L))
+  expect_equal(unique_cut(1:2)$range, list(lower = 1L, upper = 2L))
+  expect_equal(over_ratio(c(.5, 1.5))$range, list(lower = .5, upper = 1.5))
+  expect_equal(under_ratio(c(.5, 1.5))$range, list(lower = .5, upper = 1.5))
+  expect_equal(rbf_sigma(-1:0)$range, list(lower = -1, upper = 0))
+  expect_equal(offset(0:1)$range, list(lower = 0, upper = 1))
+
 })
 
 
@@ -33,6 +50,7 @@ test_that('param values', {
   expect_equal(token(letters[1:3])$values, letters[1:3])
   expect_equal(weight_scheme(letters[1:3])$values, letters[1:3])
   expect_equal(prune_method(letters[1:3])$values, letters[1:3])
+  expect_equal(weight_func(letters[1:3])$values, letters[1:3])
 
 
 })

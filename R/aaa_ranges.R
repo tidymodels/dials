@@ -41,8 +41,6 @@
 #'   range_get()
 #'
 #' @export
-#'
-#' @importFrom purrr map_lgl
 range_validate <- function(object, range, ukn_ok = TRUE) {
   ukn_txt <- if (ukn_ok)
     "`Inf` and `unknown()` are acceptable values."
@@ -76,7 +74,6 @@ range_validate <- function(object, range, ukn_ok = TRUE) {
 
 #' @export
 #' @rdname range_validate
-#' @importFrom purrr map
 range_get <- function(object, original = TRUE) {
   if (original & !is.null(object$trans))
     res <- map(object$range, inv_wrap, object)

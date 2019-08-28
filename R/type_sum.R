@@ -17,7 +17,6 @@
 #'
 #' @return A character value.
 #'
-#' @importFrom tibble type_sum
 #' @method type_sum param
 #' @keywords internal
 #' @export

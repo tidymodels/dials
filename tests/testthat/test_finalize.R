@@ -29,6 +29,18 @@ test_that('estimate rows', {
     range_get(get_n_frac(mtry_long(), mtcars, log_vals = TRUE), original = FALSE),
     list(lower = 0, upper = 1)
   )
+  expect_equal(
+    get_n_frac_range(mtry(), iris, frac = c(.3, .7))$range,
+    list(lower = 45, upper = 105)
+  )
+  expect_equal(
+    get_n_frac_range(mtry(), iris, frac = c(.3, .7), log_vals = TRUE)$range,
+    list(lower = log10(45), upper = log10(105))
+  )
+  expect_equal(
+    get_batch_sizes(mtry(), iris, frac = c(.3, .7))$range,
+    list(lower = log2(45), upper = log2(105))
+  )
 })
 
 
