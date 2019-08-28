@@ -218,17 +218,3 @@ update.param_set <- function(object, id, value, ...) {
   object
 }
 
-# ------------------------------------------------------------------------------
-
-eval_call_info <- function(x) {
-  if (!is.null(x)) {
-    res <- try(rlang::eval_tidy(rlang::call2(x$fun, .ns = x$pkg)), silent = TRUE)
-    if (inherits(res, "try-error")) {
-      res <- NA
-    }
-  } else {
-    res <- NA
-  }
-  res
-}
-
