@@ -20,6 +20,9 @@
 #'   iteration of the modeling algorithm, such as stochastic gradient boosting.
 #'   (See `parsnip::boost_tree()`).
 #'
+#' * `sample_prop()`: The same as `sample_size()` but as a proporiton of the
+#'    total sample.
+#'
 #' * `loss_reduction()`: The reduction in the loss function required to split
 #'   further. (See `parsnip::boost_tree()`). This corresponds to `gamma` in
 #'   \pkg{xgboost}.
@@ -75,6 +78,21 @@ sample_size <- function(range = c(unknown(), unknown()), trans = NULL) {
     finalize = get_n_frac_range
   )
 }
+
+
+#' @rdname trees
+#' @export
+sample_prop <- function(range = c(1/10, 0), trans = NULL) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(sample_size = "Proportion Observations Sampled"),
+    finalize = NULL
+  )
+}
+
 
 #' @rdname trees
 #' @export

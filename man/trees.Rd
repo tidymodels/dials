@@ -4,6 +4,7 @@
 \alias{trees}
 \alias{min_n}
 \alias{sample_size}
+\alias{sample_prop}
 \alias{loss_reduction}
 \alias{tree_depth}
 \alias{prune}
@@ -15,6 +16,8 @@ trees(range = c(1L, 2000L), trans = NULL)
 min_n(range = c(2L, 40L), trans = NULL)
 
 sample_size(range = c(unknown(), unknown()), trans = NULL)
+
+sample_prop(range = c(1/10, 0), trans = NULL)
 
 loss_reduction(range = c(-10, 1.5), trans = log10_trans())
 
@@ -52,6 +55,8 @@ for the node to be split further. (See \code{parsnip::rand_forest()} and
 \item \code{sample_size()}: The size of the data set used for modeling within an
 iteration of the modeling algorithm, such as stochastic gradient boosting.
 (See \code{parsnip::boost_tree()}).
+\item \code{sample_prop()}: The same as \code{sample_size()} but as a proporiton of the
+total sample.
 \item \code{loss_reduction()}: The reduction in the loss function required to split
 further. (See \code{parsnip::boost_tree()}). This corresponds to \code{gamma} in
 \pkg{xgboost}.
