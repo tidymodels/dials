@@ -45,6 +45,7 @@ test_that('param ranges', {
   expect_equal(offset(0:1)$range, list(lower = 0, upper = 1))
   expect_equal(min_dist(c(-3, 0))$range, list(lower = -3, upper = 0))
   expect_equal(sample_prop(c(.5, .6))$range, list(lower = .5, upper = .6))
+  expect_equal(num_hash(c(1, 2))$range, list(lower = 1, upper = 2))
 
 })
 
@@ -54,6 +55,8 @@ test_that('param values', {
   expect_equal(weight_scheme(letters[1:3])$values, letters[1:3])
   expect_equal(prune_method(letters[1:3])$values, letters[1:3])
   expect_equal(weight_func(letters[1:3])$values, letters[1:3])
+  expect_equal(weight_func(letters[1:3])$values, letters[1:3])
+  expect_equal(signed_hash(TRUE)$values, TRUE)
 
 
 })
