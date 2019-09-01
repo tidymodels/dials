@@ -3,6 +3,7 @@
 #' Used in `textrecipes::step_texthash()`.
 #'
 #' @inheritParams Laplace
+#' @param values	A vector of possible values (TRUE or FALSE).
 #' @examples
 #' num_hash()
 #' signed_hash()

@@ -17,6 +17,8 @@ largest possible values, respectively.}
 \code{scales::log10_trans()} or \code{scales::reciprocal_trans()}. If not provided,
 the default is used which matches the units used in \code{range}. If no
 transformation, \code{NULL}.}
+
+\item{values}{A vector of possible values (TRUE or FALSE).}
 }
 \description{
 Used in \code{textrecipes::step_texthash()}.
