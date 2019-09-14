@@ -130,10 +130,18 @@ unk_check <- function(x) {
   res
 }
 
+#' @importFrom dplyr select
+#' @importFrom purrr map_chr
 #' @export
 print.param_set <- function(x, ...) {
   x <- tibble::as_tibble(x)
   cat("Collection of", nrow(x), "parameters for tuning\n\n")
+
+  print_x <- x %>% dplyr::select(id, `parameter type` = name, `object class` = object)
+  print_x$`object class` <- purrr::map_chr(print_x$`object class`, type_sum.param)
+  print.data.frame(print_x, row.names = FALSE)
+  cat("\n")
+
   null_obj <- map_lgl(x$object, ~ all(is.na(.x)))
   num_missing <- sum(null_obj)
   if (num_missing > 0) {
@@ -174,8 +182,7 @@ print.param_set <- function(x, ...) {
       cat(lst_obj$note, sep = "")
       cat("\n")
     }
-
-    cat("See `?dials::finalize` for more information.\n")
+    cat("See `?dials::finalize` or `?dials::update.param_set` for more information.\n\n")
   }
 
   invisible(x)
