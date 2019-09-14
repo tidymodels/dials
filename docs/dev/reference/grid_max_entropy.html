@@ -36,6 +36,8 @@
 <meta property="og:description" content="Experimental designs for computer experiments are used to construct parameter
 grids that try to cover the parameter space such that any portion of the
 space has an observed combination that is not too far from it." />
+
+<meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
 <meta name="robots" content="noindex">
@@ -77,7 +79,7 @@ space has an observed combination that is not too far from it." />
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.2.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.2.9001</span>
         </div>
       </div>
     </div>
@@ -85,9 +87,6 @@ space has an observed combination that is not too far from it." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../articles/Basics.html">Basic Usage</a>
-</li>
-<li>
-  <a href="../articles/articles/Dials_and_Parsnip.html">Working with parsnip</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
@@ -122,14 +121,48 @@ space has an observed combination that is not too far from it.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>grid_max_entropy</span>(<span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+    <pre class="usage"><span class='fu'>grid_max_entropy</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>variogram_range</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
 
-<span class='fu'>grid_latin_hypercube</span>(<span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+<span class='co'># S3 method for param_set</span>
+<span class='fu'>grid_max_entropy</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>variogram_range</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+
+<span class='co'># S3 method for list</span>
+<span class='fu'>grid_max_entropy</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>variogram_range</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+
+<span class='co'># S3 method for param</span>
+<span class='fu'>grid_max_entropy</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>variogram_range</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+
+<span class='co'># S3 method for workflow</span>
+<span class='fu'>grid_max_entropy</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>variogram_range</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+
+<span class='fu'>grid_latin_hypercube</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='co'># S3 method for param_set</span>
+<span class='fu'>grid_latin_hypercube</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='co'># S3 method for list</span>
+<span class='fu'>grid_latin_hypercube</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='co'># S3 method for param</span>
+<span class='fu'>grid_latin_hypercube</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='co'># S3 method for workflow</span>
+<span class='fu'>grid_latin_hypercube</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>A <code>param</code> object, list, or <code>param_set</code>.</p></td>
+    </tr>
     <tr>
       <th>...</th>
       <td><p>One or more <code>param</code> objects (such as <code><a href='mtry.html'>mtry()</a></code> or

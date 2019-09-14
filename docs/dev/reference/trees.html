@@ -35,6 +35,8 @@
 
 <meta property="og:description" content="These are parameter generating functions that can be used for modeling,
 especially in conjunction with the parsnip package." />
+
+<meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
 <meta name="robots" content="noindex">
@@ -76,7 +78,7 @@ especially in conjunction with the parsnip package." />
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.2.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.2.9001</span>
         </div>
       </div>
     </div>
@@ -84,9 +86,6 @@ especially in conjunction with the parsnip package." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../articles/Basics.html">Basic Usage</a>
-</li>
-<li>
-  <a href="../articles/articles/Dials_and_Parsnip.html">Working with parsnip</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
@@ -125,6 +124,8 @@ especially in conjunction with the <span class="pkg">parsnip</span> package.</p>
 <span class='fu'>min_n</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2L</span>, <span class='fl'>40L</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='fu'>sample_size</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='unknown.html'>unknown</a></span>(), <span class='fu'><a href='unknown.html'>unknown</a></span>()), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+
+<span class='fu'>sample_prop</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>/<span class='fl'>10</span>, <span class='fl'>0</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='fu'>loss_reduction</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(-<span class='fl'>10</span>, <span class='fl'>1.5</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='fu'>log10_trans</span>())
 
@@ -168,6 +169,8 @@ for the node to be split further. (See <code><a href='https://rdrr.io/pkg/parsni
 <li><p><code>sample_size()</code>: The size of the data set used for modeling within an
 iteration of the modeling algorithm, such as stochastic gradient boosting.
 (See <code><a href='https://rdrr.io/pkg/parsnip/man/boost_tree.html'>parsnip::boost_tree()</a></code>).</p></li>
+<li><p><code>sample_prop()</code>: The same as <code>sample_size()</code> but as a proporiton of the
+total sample.</p></li>
 <li><p><code>loss_reduction()</code>: The reduction in the loss function required to split
 further. (See <code><a href='https://rdrr.io/pkg/parsnip/man/boost_tree.html'>parsnip::boost_tree()</a></code>). This corresponds to <code>gamma</code> in
 <span class="pkg">xgboost</span>.</p></li>

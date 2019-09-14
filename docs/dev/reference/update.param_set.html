@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Parameters for exponents — degree • dials</title>
+<title>Update a single parameter in a parameter set — update.param_set • dials</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -31,10 +31,9 @@
 
 
 
-<meta property="og:title" content="Parameters for exponents — degree" />
+<meta property="og:title" content="Update a single parameter in a parameter set — update.param_set" />
 
-<meta property="og:description" content="These parameters help model cases where an exponent is of interest (e.g.
-degree() or spline_degree()) or a product is used (e.g. prod_degree)." />
+<meta property="og:description" content="Update a single parameter in a parameter set" />
 
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
@@ -107,67 +106,76 @@ degree() or spline_degree()) or a product is used (e.g. prod_degree)." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Parameters for exponents</h1>
+    <h1>Update a single parameter in a parameter set</h1>
     
-    <div class="hidden name"><code>degree.Rd</code></div>
+    <div class="hidden name"><code>update.param_set.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>These parameters help model cases where an exponent is of interest (e.g.
-<code>degree()</code> or <code>spline_degree()</code>) or a product is used (e.g. <code>prod_degree</code>).</p>
+    <p>Update a single parameter in a parameter set</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>degree</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
-
-<span class='fu'>degree_int</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
-
-<span class='fu'>spline_degree</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3</span>, <span class='fl'>10</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
-
-<span class='fu'>prod_degree</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fl'>2L</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='co'># S3 method for param_set</span>
+<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span>(<span class='no'>object</span>, <span class='no'>id</span>, <span class='no'>value</span>, <span class='no'>...</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>range</th>
-      <td><p>A two-element vector holding the <em>defaults</em> for the smallest and
-largest possible values, respectively.</p></td>
+      <th>object</th>
+      <td><p>A parameter set.</p></td>
     </tr>
     <tr>
-      <th>trans</th>
-      <td><p>A <code>trans</code> object from the <code>scales</code> package, such as
-<code><a href='https://rdrr.io/pkg/scales/man/log_trans.html'>scales::log10_trans()</a></code> or <code><a href='https://rdrr.io/pkg/scales/man/reciprocal_trans.html'>scales::reciprocal_trans()</a></code>. If not provided,
-the default is used which matches the units used in <code>range</code>. If no
-transformation, <code>NULL</code>.</p></td>
+      <th>id</th>
+      <td><p>A single character value that will be used in a regular expression
+to select a single parameter for updating.</p></td>
+    </tr>
+    <tr>
+      <th>value</th>
+      <td><p>A <code>param</code> object or <code>NA</code></p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Options to pass to <code><a href='https://rdrr.io/r/base/grep.html'>grep()</a></code></p></td>
     </tr>
     </table>
     
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>degree()</code> is helpful for parameters that are real number exponents (e.g.
-<code>x^degree</code>) whereas <code>degree_int()</code> is for cases where the exponent should be
-an integer.</p>
-<p>The difference between <code>degree_int()</code> and <code>spline_degree()</code> is the default ranges
-(which is based on the context of how/where they are used).</p>
-<p><code>prod_degree()</code> is used by <code><a href='https://rdrr.io/pkg/parsnip/man/mars.html'>parsnip::mars()</a></code> for the number of terms in
-interactions (and generates an integer).</p>
+    <p>The modified parameter set.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>degree</span>()</div><div class='output co'>#&gt; Polynomial Degree  (quantitative)
-#&gt; Range: [1, 3]</div><div class='input'><span class='fu'>degree_int</span>()</div><div class='output co'>#&gt; Polynomial Degree  (quantitative)
-#&gt; Range: [1, 3]</div><div class='input'><span class='fu'>spline_degree</span>()</div><div class='output co'>#&gt; Piecewise Polynomial Degree  (quantitative)
-#&gt; Range: [3, 10]</div><div class='input'><span class='fu'>prod_degree</span>()</div><div class='output co'>#&gt; Degree of Interaction  (quantitative)
-#&gt; Range: [1, 2]</div></pre>
+    <pre class="examples"><div class='input'><span class='no'>params</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fu'><a href='mixture.html'>mixture</a></span>(), <span class='kw'>`rand forest`</span> <span class='kw'>=</span> <span class='fu'><a href='mtry.html'>mtry</a></span>())
+<span class='no'>pset</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='param_set.html'>param_set</a></span>(<span class='no'>params</span>)
+<span class='no'>pset</span></div><div class='output co'>#&gt; Collection of 3 parameters for tuning
+#&gt; 
+#&gt;           id parameter type object class
+#&gt;       lambda        penalty    nparam[+]
+#&gt;        alpha        mixture    nparam[+]
+#&gt;  rand forest           mtry    nparam[?]
+#&gt; 
+#&gt; Parameters needing finalization:
+#&gt;    # Randomly Selected Predictors ('rand forest')
+#&gt; 
+#&gt; See `?dials::finalize` or `?dials::update.param_set` for more information.
+#&gt; </div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span>(<span class='no'>pset</span>, <span class='st'>"forest"</span>, <span class='fu'><a href='finalize.html'>finalize</a></span>(<span class='fu'><a href='mtry.html'>mtry</a></span>(), <span class='no'>iris</span>))</div><div class='output co'>#&gt; Collection of 3 parameters for tuning
+#&gt; 
+#&gt;           id parameter type object class
+#&gt;       lambda        penalty    nparam[+]
+#&gt;        alpha        mixture    nparam[+]
+#&gt;  rand forest           mtry    nparam[+]
+#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
       
-      <li><a href="#details">Details</a></li>
+      <li><a href="#value">Value</a></li>
       
       <li><a href="#examples">Examples</a></li>
     </ul>

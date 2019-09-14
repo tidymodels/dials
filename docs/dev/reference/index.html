@@ -33,6 +33,9 @@
 
 <meta property="og:title" content="Function reference" />
 
+<meta property="og:image" content="/logo.png" />
+<meta name="twitter:card" content="summary" />
+
 <meta name="robots" content="noindex">
 
 <!-- mathjax -->
@@ -72,7 +75,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.2.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.2.9001</span>
         </div>
       </div>
     </div>
@@ -80,9 +83,6 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../articles/Basics.html">Basic Usage</a>
-</li>
-<li>
-  <a href="../articles/articles/Dials_and_Parsnip.html">Working with parsnip</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
@@ -155,7 +155,7 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="degree.html">degree()</a></code> <code><a href="degree.html">spline_degree()</a></code> <code><a href="degree.html">prod_degree()</a></code> </p>
+          <p><code><a href="degree.html">degree()</a></code> <code><a href="degree.html">degree_int()</a></code> <code><a href="degree.html">spline_degree()</a></code> <code><a href="degree.html">prod_degree()</a></code> </p>
         </td>
         <td><p>Parameters for exponents</p></td>
       </tr><tr>
@@ -191,7 +191,7 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="grid_regular.html">grid_regular()</a></code> <code><a href="grid_regular.html">grid_random()</a></code> </p>
+          <p><code><a href="grid_regular.html">grid_regular()</a></code> <code><a href="grid_regular.html">make_regular_grid()</a></code> <code><a href="grid_regular.html">grid_random()</a></code> </p>
         </td>
         <td><p>Create grids of tuning parameters</p></td>
       </tr><tr>
@@ -215,9 +215,9 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="merge.model_spec.html">merge(<i>&lt;model_spec&gt;</i>)</a></code> <code><a href="merge.model_spec.html">merge(<i>&lt;param_grid&gt;</i>)</a></code> </p>
+          <p><code><a href="min_dist.html">min_dist()</a></code> </p>
         </td>
-        <td><p>Merge parameter grid values into a parsnip object</p></td>
+        <td><p>Parameter for the effective minimum distance between embedded points</p></td>
       </tr><tr>
         
         <td>
@@ -269,6 +269,12 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="param_set.html">param_set()</a></code> </p>
+        </td>
+        <td><p>Information on tuning parameters within an object</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="penalty.html">penalty()</a></code> </p>
         </td>
         <td><p>Amount of regularization/penalization</p></td>
@@ -299,6 +305,12 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="texthash.html">num_hash()</a></code> <code><a href="texthash.html">signed_hash()</a></code> </p>
+        </td>
+        <td><p>Text hashing parameters</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="threshold.html">threshold()</a></code> </p>
         </td>
         <td><p>General thresholding parameter</p></td>
@@ -311,7 +323,7 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="trees.html">trees()</a></code> <code><a href="trees.html">min_n()</a></code> <code><a href="trees.html">sample_size()</a></code> <code><a href="trees.html">loss_reduction()</a></code> <code><a href="trees.html">tree_depth()</a></code> <code><a href="trees.html">prune()</a></code> <code><a href="trees.html">cost_complexity()</a></code> </p>
+          <p><code><a href="trees.html">trees()</a></code> <code><a href="trees.html">min_n()</a></code> <code><a href="trees.html">sample_size()</a></code> <code><a href="trees.html">sample_prop()</a></code> <code><a href="trees.html">loss_reduction()</a></code> <code><a href="trees.html">tree_depth()</a></code> <code><a href="trees.html">prune()</a></code> <code><a href="trees.html">cost_complexity()</a></code> </p>
         </td>
         <td><p>Parameter functions related to tree- and rule-based models.</p></td>
       </tr><tr>
@@ -320,6 +332,12 @@
           <p><code><a href="unknown.html">unknown()</a></code> <code><a href="unknown.html">is_unknown()</a></code> <code><a href="unknown.html">has_unknowns()</a></code> </p>
         </td>
         <td><p>Placeholder for unknown parameter values</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="update.param_set.html">update(<i>&lt;param_set&gt;</i>)</a></code> </p>
+        </td>
+        <td><p>Update a single parameter in a parameter set</p></td>
       </tr><tr>
         
         <td>
@@ -344,6 +362,12 @@
           <p><code><a href="weight_scheme.html">weight_scheme()</a></code> <code><a href="weight_scheme.html">values_weight_scheme</a></code> </p>
         </td>
         <td><p>Term frequency weighting methods</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="window_size.html">window_size()</a></code> </p>
+        </td>
+        <td><p>Parameter for the moving window size</p></td>
       </tr>
     </tbody>
     </table>
