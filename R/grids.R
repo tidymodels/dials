@@ -71,6 +71,12 @@ grid_regular.param <- function(x, ..., levels = 3, original = TRUE) {
   grd
 }
 
+#' @export
+#' @rdname grid_regular
+grid_regular.workflow <- function(x, ..., levels = 3, original = TRUE) {
+  grid_regular.param_set(param_set(x), ..., levels = levels, original = original)
+}
+
 
 #' @export
 #' @rdname grid_regular
@@ -141,6 +147,14 @@ grid_random.param <- function(x, ..., size = 5, original = TRUE) {
   names(grd) <- y$id
   grd
 }
+
+
+#' @export
+#' @rdname grid_regular
+grid_random.workflow <- function(x, ..., size = 5, original = TRUE) {
+  grid_random.param_set(param_set(x), ..., size = size, original = original)
+}
+
 
 make_random_grid <- function(..., size = 5, original = TRUE) {
   validate_params(...)

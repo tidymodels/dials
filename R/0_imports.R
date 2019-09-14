@@ -7,10 +7,10 @@
 #' @importFrom glue glue glue_collapse
 #' @importFrom withr with_seed
 #' @importFrom stats runif
-#' @importFrom dplyr %>% filter mutate pull
+#' @importFrom dplyr %>% filter mutate pull select type_sum
 
 # ------------------------------------------------------------------------------
 
 utils::globalVariables(c("component_id", "call_info", "object", "label",
-                         "id", "not_final", "component"))
+                         "id", "not_final", "component", "name"))
 

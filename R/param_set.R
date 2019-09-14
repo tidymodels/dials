@@ -130,15 +130,13 @@ unk_check <- function(x) {
   res
 }
 
-#' @importFrom dplyr select
-#' @importFrom purrr map_chr
 #' @export
 print.param_set <- function(x, ...) {
   x <- tibble::as_tibble(x)
   cat("Collection of", nrow(x), "parameters for tuning\n\n")
 
   print_x <- x %>% dplyr::select(id, `parameter type` = name, `object class` = object)
-  print_x$`object class` <- purrr::map_chr(print_x$`object class`, type_sum.param)
+  print_x$`object class` <- purrr::map_chr(print_x$`object class`, dplyr::type_sum)
   print.data.frame(print_x, row.names = FALSE)
   cat("\n")
 
