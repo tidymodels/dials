@@ -77,8 +77,6 @@ grid_regular.workflow <- function(x, ..., levels = 3, original = TRUE) {
   grid_regular.param_set(param_set(x), ..., levels = levels, original = original)
 }
 
-
-#' @export
 #' @rdname grid_regular
 make_regular_grid <- function(..., levels = 3, original = TRUE) {
   validate_params(...)
