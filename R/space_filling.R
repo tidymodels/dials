@@ -84,6 +84,16 @@ grid_max_entropy.param <- function(x, ..., size = 3, original = TRUE,
   grd
 }
 
+#' @export
+#' @rdname grid_max_entropy
+grid_max_entropy.workflow <- function(x, ..., size = 3, original = TRUE,
+                                       variogram_range = 0.5, iter = 1000) {
+  grid_max_entropy.param_set(param_set(x), ..., size = size, original = original,
+                             variogram_range = variogram_range, iter = iter)
+}
+
+
+
 make_max_entropy_grid <- function(..., size = 3, original = TRUE,
                              variogram_range = 0.5, iter = 1000) {
   validate_params(...)
@@ -157,6 +167,14 @@ grid_latin_hypercube.param <- function(x, ..., size = 3, original = TRUE) {
   names(grd) <- y$id
   grd
 }
+
+
+#' @export
+#' @rdname grid_max_entropy
+grid_latin_hypercube.workflow <- function(x, ..., size = 3, original = TRUE) {
+  grid_latin_hypercube.param_set(param_set(x), ..., size = size, original = original)
+}
+
 
 
 make_latin_hypercube_grid <- function(..., size = 3, original = TRUE) {

@@ -33,6 +33,9 @@
 
 <meta property="og:title" content="Changelog" />
 
+<meta property="og:image" content="/logo.png" />
+<meta name="twitter:card" content="summary" />
+
 <meta name="robots" content="noindex">
 
 <!-- mathjax -->
@@ -72,7 +75,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.2.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.2.9001</span>
         </div>
       </div>
     </div>
@@ -80,9 +83,6 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="../articles/Basics.html">Basic Usage</a>
-</li>
-<li>
-  <a href="../articles/articles/Dials_and_Parsnip.html">Working with parsnip</a>
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
@@ -116,7 +116,7 @@
 <h2 class="hasAnchor">
 <a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
 <ul>
-<li><p>All parameter <em>objects</em> are now parameter <em>functions</em>. For example, the pre-configured object <code>mtry</code> is now a function, <code><a href="../reference/mtry.html">mtry()</a></code>, with arguments for the <code>range</code> and the <code>trans</code>form. This provides greater flexibility in parameter creation, and should feel more natural.</p></li>
+<li><p>All parameter <em>objects</em> are now parameter <em>functions</em>. For example, the pre-configured object <code>mtry</code> is now a function, <code><a href="../reference/mtry.html">mtry()</a></code>, with arguments for the <code>range</code> and the <code>trans</code>. This provides greater flexibility in parameter creation, and should feel more natural.</p></li>
 <li><p><code><a href="../reference/deg_free.html">deg_free()</a></code> erroneously produced real values; integers are now returned.</p></li>
 <li><p>Default ranges were changed for <code><a href="../reference/learn_rate.html">learn_rate()</a></code> and <code><a href="../reference/neighbors.html">neighbors()</a></code> were changed.</p></li>
 </ul>
@@ -126,8 +126,14 @@
 <a href="#other-changes" class="anchor"></a>Other changes</h2>
 <ul>
 <li><p>Two functions for space-filling designs were added: <code><a href="../reference/grid_max_entropy.html">grid_max_entropy()</a></code> and <code><a href="../reference/grid_max_entropy.html">grid_latin_hypercube()</a></code>.</p></li>
-<li><p>Parameters <code><a href="../reference/degree.html">spline_degree()</a></code>, <code><a href="../reference/over_ratio.html">over_ratio()</a></code>, <code><a href="../reference/over_ratio.html">under_ratio()</a></code>, <code><a href="../reference/freq_cut.html">freq_cut()</a></code>, <code><a href="../reference/freq_cut.html">unique_cut()</a></code>, <code><a href="../reference/num_breaks.html">num_breaks()</a></code> and <code><a href="../reference/min_unique.html">min_unique()</a></code> were added.</p></li>
 <li><p>A data set was added for modeling ridership on the Chicago L trains.</p></li>
+</ul>
+</div>
+<div id="new-parameter-functions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-parameter-functions" class="anchor"></a>New parameter functions:</h2>
+<ul>
+<li>Parameters <code><a href="../reference/degree.html">spline_degree()</a></code>, <code><a href="../reference/over_ratio.html">over_ratio()</a></code>, <code><a href="../reference/over_ratio.html">under_ratio()</a></code>, <code><a href="../reference/freq_cut.html">freq_cut()</a></code>, <code><a href="../reference/freq_cut.html">unique_cut()</a></code>, <code><a href="../reference/num_breaks.html">num_breaks()</a></code>, <code><a href="../reference/min_unique.html">min_unique()</a></code>, <code><a href="../reference/texthash.html">num_hash()</a></code>, <code><a href="../reference/texthash.html">signed_hash()</a></code>, <code><a href="../reference/trees.html">sample_prop()</a></code>, <code><a href="../reference/window_size.html">window_size()</a></code>, <code><a href="../reference/min_dist.html">min_dist()</a></code>, and <code><a href="../reference/degree.html">degree_int()</a></code> were added.</li>
 </ul>
 </div>
 </div>

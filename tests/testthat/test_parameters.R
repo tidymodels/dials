@@ -30,6 +30,7 @@ test_that('param ranges', {
   expect_equal(max_times(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(min_times(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(max_tokens(1:2)$range, list(lower = 1L, upper = 2L))
+  expect_equal(window_size(c(3, 5))$range, list(lower = 3L, upper = 5L))
   expect_equal(neighbors()$range, list(lower = 1L, upper = 10L))
   expect_equal(neighbors(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(num_breaks()$range, list(lower = 2L, upper = 10L))
@@ -42,7 +43,9 @@ test_that('param ranges', {
   expect_equal(under_ratio(c(.5, 1.5))$range, list(lower = .5, upper = 1.5))
   expect_equal(rbf_sigma(-1:0)$range, list(lower = -1, upper = 0))
   expect_equal(offset(0:1)$range, list(lower = 0, upper = 1))
-
+  expect_equal(min_dist(c(-3, 0))$range, list(lower = -3, upper = 0))
+  expect_equal(sample_prop(c(.5, .6))$range, list(lower = .5, upper = .6))
+  expect_equal(num_hash(c(1, 2))$range, list(lower = 1, upper = 2))
 })
 
 
@@ -51,6 +54,7 @@ test_that('param values', {
   expect_equal(weight_scheme(letters[1:3])$values, letters[1:3])
   expect_equal(prune_method(letters[1:3])$values, letters[1:3])
   expect_equal(weight_func(letters[1:3])$values, letters[1:3])
-
-
+  expect_equal(weight_func(letters[1:3])$values, letters[1:3])
+  expect_equal(signed_hash(TRUE)$values, TRUE)
 })
+

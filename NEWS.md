@@ -14,9 +14,12 @@ pre-configured object `mtry` is now a function, `mtry()`, with arguments for the
 
 * Two functions for space-filling designs were added: `grid_max_entropy()` and `grid_latin_hypercube()`. 
 
-* Parameters `spline_degree()`, `over_ratio()`, `under_ratio()`, `freq_cut()`, `unique_cut()`,  `num_breaks()` and `min_unique()` were added. 
-
 * A data set was added for modeling ridership on the Chicago L trains.
+
+## New parameter functions:
+
+* Parameters `spline_degree()`, `over_ratio()`, `under_ratio()`, `freq_cut()`, `unique_cut()`,  `num_breaks()`, `min_unique()`, `num_hash()`, `signed_hash()`, `sample_prop()`, `window_size()`, `min_dist()`, and `degree_int()` were added. 
+
 
 # dials 0.0.2
 
