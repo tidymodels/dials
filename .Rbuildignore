@@ -6,3 +6,4 @@
 ^pkgdown$
 ^docs$
 ^\.travis\.yml$
+^azure-pipelines\.yml$

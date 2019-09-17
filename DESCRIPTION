@@ -31,4 +31,5 @@ Suggests:
     knitr,
     rpart,
     covr,
-    kernlab
+    kernlab,
+    xml2
