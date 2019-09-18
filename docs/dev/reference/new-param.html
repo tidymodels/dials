@@ -32,13 +32,12 @@
 
 
 <meta property="og:title" content="Tools for creating new parameter objects — new-param" />
-
 <meta property="og:description" content="These functions are used to construct new parameter objects. Generally,
 these functions are called from higher level parameter generating functions
 like mtry()." />
-
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
+
 
 <meta name="robots" content="noindex">
 
@@ -114,11 +113,9 @@ like mtry()." />
     </div>
 
     <div class="ref-description">
-    
     <p>These functions are used to construct new parameter objects. Generally,
 these functions are called from higher level parameter generating functions
 like <code><a href='mtry.html'>mtry()</a></code>.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>new_quant_param</span>(<span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"double"</span>, <span class='st'>"integer"</span>), <span class='no'>range</span>, <span class='no'>inclusive</span>,
@@ -127,7 +124,7 @@ like <code><a href='mtry.html'>mtry()</a></code>.</p>
 
 <span class='fu'>new_qual_param</span>(<span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"character"</span>, <span class='st'>"logical"</span>), <span class='no'>values</span>,
   <span class='kw'>default</span> <span class='kw'>=</span> <span class='fu'><a href='unknown.html'>unknown</a></span>(), <span class='kw'>label</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>finalize</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -178,13 +175,12 @@ printing and plotting. The name should match the object name (e.g.
 values of a parameter (such as the <code>range</code>).</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>An object of class <code>"param"</code> with the primary class being either
 <code>"quant_param"</code> or <code>"qual_param"</code>. The <code>range</code> element of the object
 is always converted to a list with elements <code>"lower"</code> and <code>"upper"</code>.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Create a function that generates a quantitative parameter</span>
@@ -213,9 +209,7 @@ is always converted to a list with elements <code>"lower"</code> and <code>"uppe
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 

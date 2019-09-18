@@ -32,12 +32,11 @@
 
 
 <meta property="og:title" content="Functions to finalize data-specific parameter ranges — finalize" />
-
 <meta property="og:description" content="These functions take a parameter object and modify the unknown parts of
 ranges based on a data set and simple heuristics." />
-
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
+
 
 <meta name="robots" content="noindex">
 
@@ -113,10 +112,8 @@ ranges based on a data set and simple heuristics." />
     </div>
 
     <div class="ref-description">
-    
     <p>These functions take a parameter object and modify the unknown parts of
 <code>ranges</code> based on a data set and simple heuristics.</p>
-    
     </div>
 
     <pre class="usage"><span class='fu'>finalize</span>(<span class='no'>object</span>, <span class='no'>...</span>)
@@ -144,7 +141,7 @@ ranges based on a data set and simple heuristics." />
 <span class='fu'>get_rbf_range</span>(<span class='no'>object</span>, <span class='no'>x</span>, <span class='kw'>seed</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample.int</a></span>(<span class='fl'>10</span>^<span class='fl'>5</span>, <span class='fl'>1</span>), <span class='no'>...</span>)
 
 <span class='fu'>get_batch_sizes</span>(<span class='no'>object</span>, <span class='no'>x</span>, <span class='kw'>frac</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>/<span class='fl'>10</span>, <span class='fl'>1</span>/<span class='fl'>3</span>), <span class='no'>...</span>)</pre>
-    
+
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
@@ -183,12 +180,11 @@ fractional values are required.</p></td>
       <td><p>An integer to control the randomness of the calculations.</p></td>
     </tr>
     </table>
-    
+
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>An updated <code>param</code> object or a list of updated <code>param</code> objects depending
 on what is provided in <code>object</code>.</p>
-    
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p><code>finalize()</code> runs the embedded finalizer function contained in the <code>param</code>
@@ -203,7 +199,6 @@ log10 scale, respectively).</p>
 rows in the data, or a fraction of the total number of rows.</p>
 <p><code>get_rbf_range()</code> sets both bounds based on the heuristic defined in
 <code><a href='https://rdrr.io/pkg/kernlab/man/sigest.html'>kernlab::sigest()</a></code>. It requires that all columns in <code>x</code> be numeric.</p>
-    
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>dplyr</span>)</div><div class='output co'>#&gt; <span class='message'></span>
@@ -276,11 +271,8 @@ rows in the data, or a fraction of the total number of rows.</p>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
       <li><a href="#value">Value</a></li>
-
       <li><a href="#details">Details</a></li>
-      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
