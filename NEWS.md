@@ -9,6 +9,8 @@ pre-configured object `mtry` is now a function, `mtry()`, with arguments for the
 
 * Default ranges were changed for `learn_rate()` and `neighbors()` were changed.
 
+* `update.param_set()` now takes multiple named arguments. 
+
 
 ## Other changes
 

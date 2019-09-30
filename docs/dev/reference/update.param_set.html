@@ -115,7 +115,7 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for param_set</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span>(<span class='no'>object</span>, <span class='no'>id</span>, <span class='no'>value</span>, <span class='no'>...</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span>(<span class='no'>object</span>, <span class='no'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -125,17 +125,10 @@
       <td><p>A parameter set.</p></td>
     </tr>
     <tr>
-      <th>id</th>
-      <td><p>A single character value that will be used in a regular expression
-to select a single parameter for updating.</p></td>
-    </tr>
-    <tr>
-      <th>value</th>
-      <td><p>A <code>param</code> object or <code>NA</code></p></td>
-    </tr>
-    <tr>
       <th>...</th>
-      <td><p>Options to pass to <code><a href='https://rdrr.io/r/base/grep.html'>grep()</a></code></p></td>
+      <td><p>One or more unquoted named values separated by commas. The names
+should correspond to the <code>id</code> values in the parameter set. The values should
+be parameter objects or <code>NA</code> values.</p></td>
     </tr>
     </table>
 
@@ -158,7 +151,7 @@ to select a single parameter for updating.</p></td>
 #&gt; 
 #&gt; See `?dials::finalize` or `?dials::update.param_set` for more information.
 #&gt; </div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span>(<span class='no'>pset</span>, <span class='st'>"forest"</span>, <span class='fu'><a href='finalize.html'>finalize</a></span>(<span class='fu'><a href='mtry.html'>mtry</a></span>(), <span class='no'>iris</span>))</div><div class='output co'>#&gt; Collection of 3 parameters for tuning
+<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span>(<span class='no'>pset</span>, <span class='kw'>`rand forest`</span> <span class='kw'>=</span> <span class='fu'><a href='finalize.html'>finalize</a></span>(<span class='fu'><a href='mtry.html'>mtry</a></span>(), <span class='no'>iris</span>), <span class='kw'>alpha</span> <span class='kw'>=</span> <span class='fu'><a href='mixture.html'>mixture</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>.1</span>, <span class='fl'>.2</span>)))</div><div class='output co'>#&gt; Collection of 3 parameters for tuning
 #&gt; 
 #&gt;           id parameter type object class
 #&gt;       lambda        penalty    nparam[+]
