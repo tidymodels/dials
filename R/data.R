@@ -15,15 +15,18 @@
 #'
 #'
 #' @name Chicago
-#' @aliases Chicago
+#' @aliases Chicago stations
 #' @docType data
-#' @return \item{Chicago}{a tibble}
+#' @return \item{Chicago}{a tibble} \item{stations}{a vector of station names}
 #'
-#' @source Kuhn and Johnson (2020), _Feature Engineering and Selection_, Chapman and Hall/CRC . \url{https://bookdown.org/max/FES/} and \url{https://github.com/topepo/FES}
+#' @source Kuhn and Johnson (2020), _Feature Engineering and Selection_,
+#' Chapman and Hall/CRC . \url{https://bookdown.org/max/FES/} and
+#' \url{https://github.com/topepo/FES}
 #'
 #'
 #' @keywords datasets
 #' @examples
 #' data(Chicago)
 #' str(Chicago)
+#' stations
 NULL

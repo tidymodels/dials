@@ -3,12 +3,15 @@
 \docType{data}
 \name{Chicago}
 \alias{Chicago}
+\alias{stations}
 \title{Chicago Ridership Data}
 \source{
-Kuhn and Johnson (2020), \emph{Feature Engineering and Selection}, Chapman and Hall/CRC . \url{https://bookdown.org/max/FES/} and \url{https://github.com/topepo/FES}
+Kuhn and Johnson (2020), \emph{Feature Engineering and Selection},
+Chapman and Hall/CRC . \url{https://bookdown.org/max/FES/} and
+\url{https://github.com/topepo/FES}
 }
 \value{
-\item{Chicago}{a tibble}
+\item{Chicago}{a tibble} \item{stations}{a vector of station names}
 }
 \description{
 Chicago Ridership Data
@@ -30,5 +33,6 @@ make it a valid R column name.
 \examples{
 data(Chicago)
 str(Chicago)
+stations
 }
 \keyword{datasets}
