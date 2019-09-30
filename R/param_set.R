@@ -191,35 +191,48 @@ print.param_set <- function(x, ...) {
 #' Update a single parameter in a parameter set
 #'
 #' @param object A parameter set.
-#' @param id A single character value that will be used in a regular expression
-#' to select a single parameter for updating.
-#' @param value A `param` object or `NA`
-#' @param ... Options to pass to `grep()`
+#' @param ... One or more unquoted named values separated by commas. The names
+#'  should correspond to the `id` values in the parameter set. The values should
+#'  be parameter objects or `NA` values.
 #' @return The modified parameter set.
 #' @examples
 #' params <- list(lambda = penalty(), alpha = mixture(), `rand forest` = mtry())
 #' pset <- param_set(params)
 #' pset
 #'
-#' update(pset, "forest", finalize(mtry(), iris))
+#' update(pset, `rand forest` = finalize(mtry(), iris), alpha = mixture(c(.1, .2)))
 #' @export
-update.param_set <- function(object, id, value, ...) {
-  if (!inherits(value, "param") & all(!is.na(value))) {
-    stop("`value` should be NA or a `param` object.", call. = FALSE)
+update.param_set <- function(object, ...) {
+  args <- rlang::list2(...)
+  if (length(args) == 0) {
+    rlang::abort("Please supply at least one parameter object.")
   }
-  if (!is.character(id)) {
-    stop("`id` should be a character string.", call. = FALSE)
+  nms <- names(args)
+  if (length(nms) == 0 || any(nms == "")) {
+    rlang::abort("All arguments should be named.")
   }
-  idx <- grep(id, object$id, ...)
-  if (length(idx) == 0) {
-    stop("Regular expression '", id, "' did not select any parameters.",
-         call. = FALSE)
+
+  in_set <- nms %in% object$id
+  if (!all(in_set)) {
+    msg <- paste0("'", nms[!in_set], "'", collapse = ", ")
+    msg <- paste("At least one parameter does not match any id's in the set:",
+                 msg)
+    rlang::abort(msg)
   }
-  if (length(idx) != 1) {
-    stop("Regular expression '", id, "' selected more than one parameter.",
-         call. = FALSE)
+  not_param <- !purrr::map_lgl(args, inherits, "param")
+  not_null <- !purrr::map_lgl(args, ~ all(is.na(.x)))
+  bad_input <- not_param & not_null
+  if (any(bad_input)) {
+    msg <- paste0("'", nms[bad_input], "'", collapse = ", ")
+    msg <- paste("At least one parameter is not a dials parameter object",
+                 "or NA:", msg)
+    rlang::abort(msg)
   }
-  object$object[[idx]] <- value
+
+  for (p in nms) {
+    ind <- which(object$id == p)
+    object$object[[ind]] <- args[[p]]
+  }
   object
 }
 

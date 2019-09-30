@@ -4,17 +4,14 @@
 \alias{update.param_set}
 \title{Update a single parameter in a parameter set}
 \usage{
-\method{update}{param_set}(object, id, value, ...)
+\method{update}{param_set}(object, ...)
 }
 \arguments{
 \item{object}{A parameter set.}
 
-\item{id}{A single character value that will be used in a regular expression
-to select a single parameter for updating.}
-
-\item{value}{A \code{param} object or \code{NA}}
-
-\item{...}{Options to pass to \code{grep()}}
+\item{...}{One or more unquoted named values separated by commas. The names
+should correspond to the \code{id} values in the parameter set. The values should
+be parameter objects or \code{NA} values.}
 }
 \value{
 The modified parameter set.
@@ -27,5 +24,5 @@ params <- list(lambda = penalty(), alpha = mixture(), `rand forest` = mtry())
 pset <- param_set(params)
 pset
 
-update(pset, "forest", finalize(mtry(), iris))
+update(pset, `rand forest` = finalize(mtry(), iris), alpha = mixture(c(.1, .2)))
 }

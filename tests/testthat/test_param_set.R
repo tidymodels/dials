@@ -52,26 +52,30 @@ test_that('create from lists of param objects', {
 
 test_that('updating', {
   p_1 <- param_set(list(mtry(), penalty()))
-  p_2 <- update(p_1, id = "penalty", NA)
+  p_2 <- update(p_1, penalty = NA)
   expect_true(set_test(p_2))
   expect_true(is.na(p_2$object[2]))
 
   new_pen <- penalty(c(-5, -3))
-  p_3 <- update(p_1, id = "penalty", new_pen)
+  p_3 <- update(p_1, penalty = new_pen)
   expect_true(set_test(p_3))
   expect_equal(p_3$object[[2]], new_pen)
 
   expect_error(
-    update(p_1, id = "topepo", new_pen),
-    "Regular expression 'topepo' did not select any parameters"
+    update(p_1, new_pen),
+    "All arguments should be named."
   )
   expect_error(
-    update(p_1, id = "t", new_pen),
-    "Regular expression 't' selected more than one parameter."
+    update(p_1, penalty = 1:2),
+    "At least one parameter is not a dials parameter"
   )
   expect_error(
-    update(p_1, id = 1, new_pen),
-    "`id` should be a character string."
+    update(p_1, penalty(), mtry = mtry(3:4)),
+    "All arguments should be named."
+  )
+  expect_error(
+    update(p_1, penalty = NA),
+    NA
   )
 })
 
@@ -87,10 +91,4 @@ test_that('printing', {
     "Parameters needing finalization"
   )
 
-  p_1 <- param_set(list(mtry(), penalty()))
-  p_2 <- update(p_1, id = "penalty", NA)
-  expect_output(
-    print(p_2),
-    "One needs a `param` object: 'penalty'"
-  )
 })
