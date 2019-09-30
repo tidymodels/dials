@@ -1,9 +1,8 @@
-# dials 0.0.2.9000
+# dials 0.0.3
 
 ## Breaking changes
 
-* All parameter _objects_ are now parameter _functions_. For example, the 
-pre-configured object `mtry` is now a function, `mtry()`, with arguments for the `range` and the `trans`. This provides greater flexibility in parameter creation, and should feel more natural.
+* All parameter _objects_ are now parameter _functions_. For example, the pre-configured object `mtry` is now a function, `mtry()`, with arguments for the `range` and the `trans`. This provides greater flexibility in parameter creation, and should feel more natural.
 
 * `deg_free()` erroneously produced real values; integers are now returned. 
 
@@ -25,10 +24,14 @@ pre-configured object `mtry` is now a function, `mtry()`, with arguments for the
 
 # dials 0.0.2
 
-* Parameter objects now contain code to finalize their values and a number of helper functions for certain data-specific parameters. A `force` option can be used to avoid updating the values.  
+* Parameter objects now contain code to finalize their values and a number of helper functions for certain data-specific parameters. A `force` option can be used to avoid updating the values. 
+
 * Parameter objects are printed differently inside of tibbles. 
+
 * `regularization` was changed to `penalty` in a few models to be consistent with [this change](tidymodels/model-implementation-principles@08d3afd). 
+
 * `batch_size` and `threshold` were added.
+
 * Added a set of parameters for the `textrecipes` package [issue 16](https://github.com/tidymodels/dials/issues/16). 
 
 # dials 0.0.1

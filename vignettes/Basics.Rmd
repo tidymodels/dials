@@ -135,7 +135,7 @@ weight_func() %>% value_seq(3)
 
 ## Creating Novel Parameters
 
-The package contains two constructors that can be used to create new quantitative and qualitative parameters. The examples for [`mtry()`](https://github.com/tidymodels/dials/blob/master/R/mtry.R) and [`activation()`](https://github.com/tidymodels/dials/blob/master/R/activation.R) contain examples of the code to create the parameters contained in the package. 
+The package contains two constructors that can be used to create new quantitative and qualitative parameters. The examples for `mtry()` and `activation()` contain examples of the code to create the parameters contained in the package. 
 
 ## Unknown Values
 
@@ -143,19 +143,35 @@ There are some cases where the range of parameter values are data dependent. For
 
 ```{r unk}
 mtry()
-neighbors()
-min_n()
 sample_size()
 num_terms()
 num_comp()
 # and so on
 ```
 
-These values must be initialized prior to generating parameter values. 
+These values must be initialized prior to generating parameter values. The `finalize()` methods can be used to help remove the unknowns:
+
+```{r finalize-mtry}
+finalize(mtry(), x = mtcars[, -1])
+```
+
+## Parameter Sets
+
+These are collection of parameters used in a model, recipe, or other object. They can also be created manually and can have alternate identification fields:
+
+```{r p-set}
+glmnet_set <- param_set(list(lambda = penalty(), alpha = mixture()))
+glmnet_set
+
+# can be updated too
+update(glmnet_set, alpha = mixture(c(.3, .6)))
+```
+
+These objects can be very helpful when creating tuning grids. 
 
 ## Parameter Grids
 
-Sets or combinations of parameters can be created for use in grid search. `grid_regular()` and `grid_random()` take any number of `param` objects. 
+Sets or combinations of parameters can be created for use in grid search. `grid_regular()`, `grid_random()`, `grid_max_entropy()`, and `grid_latin_hypercube()` take any number of `param` objects or a parameter set. 
 
 For example, for a glmnet model, a regular grid might be:
 

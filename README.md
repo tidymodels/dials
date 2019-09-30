@@ -15,7 +15,7 @@ output: github_document
 [![Azure pipelines coverage status](https://img.shields.io/azure-devops/coverage/tidymodels/dials/2)](https://dev.azure.com/tidymodels/dials/_build/latest?definitionId=1&branchName=master)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/dials)](https://CRAN.R-project.org/package=dials)
 [![Downloads](http://cranlogs.r-pkg.org/badges/dials)](https://CRAN.R-project.org/package=dials)
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
 
 ## Overview
 

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Articles • dials</title>
+<title>Class for converting parameter values back and forth to the unit range — encode_unit • dials</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -31,7 +31,8 @@
 
 
 
-<meta property="og:title" content="Articles" />
+<meta property="og:title" content="Class for converting parameter values back and forth to the unit range — encode_unit" />
+<meta property="og:description" content="Class for converting parameter values back and forth to the unit range" />
 <meta property="og:image" content="/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -59,7 +60,7 @@
   </head>
 
   <body>
-    <div class="container template-article-index">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -104,17 +105,56 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Articles</h1>
+    <h1>Class for converting parameter values back and forth to the unit range</h1>
+    
+    <div class="hidden name"><code>encode_unit.Rd</code></div>
     </div>
 
-    <div class="section ">
-      <h3>All vignettes</h3>
-      <p class="section-desc"></p>
-
-      <ul>
-        <li><a href="Basics.html">Working with Tuning Parameters</a></li>
-      </ul>
+    <div class="ref-description">
+    <p>Class for converting parameter values back and forth to the unit range</p>
     </div>
+
+    <pre class="usage"><span class='fu'>encode_unit</span>(<span class='no'>x</span>, <span class='no'>value</span>, <span class='no'>direction</span>, <span class='no'>...</span>)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>A <code>param</code> object.</p></td>
+    </tr>
+    <tr>
+      <th>value</th>
+      <td><p>The original values should be either numeric or character. When
+converting back, these should be on <code>[0, 1]</code>.</p></td>
+    </tr>
+    <tr>
+      <th>direction</th>
+      <td><p>Either "forward" (to <code>[0, 1]</code>) or "backward".</p></td>
+    </tr>
+    <tr>
+      <th>original</th>
+      <td><p>A logical; should the values be transformed to their natural
+units (not currently working).</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A vector of values.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>For integer parameters, the encoding can be lossy.</p>
+
+  </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+    <h2>Contents</h2>
+    <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#value">Value</a></li>
+      <li><a href="#details">Details</a></li>
+    </ul>
+
   </div>
 </div>
 
