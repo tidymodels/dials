@@ -28,7 +28,7 @@
 
 * Parameter objects are printed differently inside of tibbles. 
 
-* `regularization` was changed to `penalty` in a few models to be consistent with [this change](tidymodels/model-implementation-principles@08d3afd). 
+* `regularization` was changed to `penalty` in a few models to be consistent with [this change](https://tidymodels.github.io/model-implementation-principles/standardized-argument-names.html#tuning-parameters). 
 
 * `batch_size` and `threshold` were added.
 
