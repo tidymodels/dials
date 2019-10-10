@@ -1,3 +1,9 @@
+# dials 0.0.3.9000
+
+## New parameter functions:
+
+* Parameters `smoothness()` was added. 
+
 # dials 0.0.3
 
 ## Breaking changes
