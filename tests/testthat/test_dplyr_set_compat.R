@@ -4,26 +4,26 @@ library(dplyr)
 
 # ------------------------------------------------------------------------------
 
-set_1 <- param_set(penalty(), mixture(), activation())
+set_1 <- parameters(penalty(), mixture(), activation())
 
-set_2 <- param_set(dropout(), prune(), degree())
+set_2 <- parameters(dropout(), prune(), degree())
 
 # ------------------------------------------------------------------------------
 
 set_test <- function(x) {
-  inherits(x, "param_set")
+  inherits(x, "parameters")
 }
 
 # ------------------------------------------------------------------------------
 
 test_that('are methods available?', {
-  expect_true(is.function(dials:::arrange.param_set))
-  expect_true(is.function(dials:::filter.param_set))
-  expect_true(is.function(dials:::mutate.param_set))
-  expect_true(is.function(dials:::rename.param_set))
-  expect_true(is.function(dials:::select.param_set))
-  expect_true(is.function(dials:::slice.param_set))
-  expect_true(is.function(dials:::`[.param_set`))
+  expect_true(is.function(dials:::arrange.parameters))
+  expect_true(is.function(dials:::filter.parameters))
+  expect_true(is.function(dials:::mutate.parameters))
+  expect_true(is.function(dials:::rename.parameters))
+  expect_true(is.function(dials:::select.parameters))
+  expect_true(is.function(dials:::slice.parameters))
+  expect_true(is.function(dials:::`[.parameters`))
 })
 
 # ------------------------------------------------------------------------------
@@ -54,7 +54,7 @@ test_that('dplyr ops', {
   )
   expect_error(
     set_1 %>% dplyr::select(id),
-    "A `param_set` object has required columns"
+    "A `parameters` object has required columns"
   )
   expect_true(
     set_test(set_1 %>% arrange(id))
@@ -81,10 +81,10 @@ test_that('dplyr ops', {
   )
   expect_error(
     set_2[,2],
-    "A `param_set` object has required columns"
+    "A `parameters` object has required columns"
   )
   expect_error(
     set_2[1,2],
-    "A `param_set` object has required columns"
+    "A `parameters` object has required columns"
   )
 })

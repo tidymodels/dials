@@ -115,7 +115,7 @@ safe_finalize <- function(object, x, force = TRUE, ...) {
 
 #' @export
 #' @rdname finalize
-finalize.param_set <- function(object, x, force = TRUE, ...) {
+finalize.parameters <- function(object, x, force = TRUE, ...) {
   object$object <- map(object$object, safe_finalize, x, force, ...)
   object
 }

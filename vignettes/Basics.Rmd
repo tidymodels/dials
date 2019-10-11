@@ -160,7 +160,7 @@ finalize(mtry(), x = mtcars[, -1])
 These are collection of parameters used in a model, recipe, or other object. They can also be created manually and can have alternate identification fields:
 
 ```{r p-set}
-glmnet_set <- param_set(list(lambda = penalty(), alpha = mixture()))
+glmnet_set <- parameters(list(lambda = penalty(), alpha = mixture()))
 glmnet_set
 
 # can be updated too

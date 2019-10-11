@@ -4,19 +4,19 @@
 base_classes <- c(class(tibble::tibble()))
 
 check_new_names <- function(x) {
-  param_set_cols <- c('name', 'id', 'source', 'component', 'component_id', 'object')
-  if (!all(param_set_cols %in% names(x))) {
+  parameters_cols <- c('name', 'id', 'source', 'component', 'component_id', 'object')
+  if (!all(parameters_cols %in% names(x))) {
     stop(
-      "A `param_set` object has required columns.\nMissing columns: ",
-      paste0("'", param_set_cols[!param_set_cols %in% names(x)], "'",
+      "A `parameters` object has required columns.\nMissing columns: ",
+      paste0("'", parameters_cols[!parameters_cols %in% names(x)], "'",
              collapse = ", "),
       call. = FALSE
     )
   }
-  extra_names <- names(x)[!names(x) %in% param_set_cols]
+  extra_names <- names(x)[!names(x) %in% parameters_cols]
   if (length(extra_names) != 0) {
     warning(
-      "Extra names were added to the `param_set`, which has a specific data ",
+      "Extra names were added to the `parameters`, which has a specific data ",
       "structure. These columns will be removed: ",
       paste0("'", extra_names, "'", collapse = ", "),
       call. = FALSE
@@ -26,9 +26,9 @@ check_new_names <- function(x) {
 }
 
 
-maybe_param_set <- function(x, extras = NULL, att = NULL) {
+maybe_parameters <- function(x, extras = NULL, att = NULL) {
   if (is_tibble(x)) {
-    x <- reset_param_set(x)
+    x <- reset_parameters(x)
 
     ## Add missing classes
     if (length(extras) > 0)
@@ -39,63 +39,63 @@ maybe_param_set <- function(x, extras = NULL, att = NULL) {
   x
 }
 
-reset_param_set <- function(x) {
+reset_parameters <- function(x) {
   stopifnot(inherits(x, "data.frame"))
-  structure(x, class = c("param_set", base_classes))
+  structure(x, class = c("parameters", base_classes))
 }
 
 #' @export
-`[.param_set` <- function(x, i, j, drop = FALSE) {
+`[.parameters` <- function(x, i, j, drop = FALSE) {
   res <- NextMethod()
   check_new_names(res)
-  param_set_constr(res$name, res$id, res$source, res$component, res$component_id,
+  parameters_constr(res$name, res$id, res$source, res$component, res$component_id,
                    res$object)
 }
 
 
 ## dials does not import any generics from dplyr,
 ## but if dplyr is loaded and main verbs are used on a
-## `param_set` object, we want to retain the `param_set` class (and
+## `parameters` object, we want to retain the `parameters` class (and
 ## any others) if it is proper to do so therefore these
 ## S3 methods are registered manually in .onLoad()
 
-arrange.param_set <- function(.data, ...) {
+arrange.parameters <- function(.data, ...) {
   res <- NextMethod()
-  param_set_constr(res$name, res$id, res$source, res$component, res$component_id,
+  parameters_constr(res$name, res$id, res$source, res$component, res$component_id,
                    res$object)
 }
 
-filter.param_set <- function(.data, ...) {
+filter.parameters <- function(.data, ...) {
   res <- NextMethod()
-  param_set_constr(res$name, res$id, res$source, res$component, res$component_id,
+  parameters_constr(res$name, res$id, res$source, res$component, res$component_id,
                    res$object)
 }
 
 # `mutate` appears to add rownames but remove other attributes. We'll
 # add them back in.
-mutate.param_set <- function(.data, ...) {
+mutate.parameters <- function(.data, ...) {
   res <- NextMethod()
   check_new_names(res)
-  param_set_constr(res$name, res$id, res$source, res$component, res$component_id,
+  parameters_constr(res$name, res$id, res$source, res$component, res$component_id,
                    res$object)
 }
 
-rename.param_set <- function(.data, ...) {
+rename.parameters <- function(.data, ...) {
   res <- NextMethod()
   check_new_names(res)
-  param_set_constr(res$name, res$id, res$source, res$component, res$component_id,
+  parameters_constr(res$name, res$id, res$source, res$component, res$component_id,
                    res$object)
 }
 
-select.param_set <- function(.data, ...) {
+select.parameters <- function(.data, ...) {
   res <- NextMethod()
   check_new_names(res)
-  param_set_constr(res$name, res$id, res$source, res$component, res$component_id,
+  parameters_constr(res$name, res$id, res$source, res$component, res$component_id,
                    res$object)
 }
 
-slice.param_set <- function(.data, ...) {
+slice.parameters <- function(.data, ...) {
   res <- NextMethod()
-  param_set_constr(res$name, res$id, res$source, res$component, res$component_id,
+  parameters_constr(res$name, res$id, res$source, res$component, res$component_id,
                    res$object)
 }

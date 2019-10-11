@@ -7,12 +7,12 @@
     s3_register("dplyr::select",  "param_grid")
     s3_register("dplyr::slice",   "param_grid")
 
-    s3_register("dplyr::arrange", "param_set")
-    s3_register("dplyr::filter",  "param_set")
-    s3_register("dplyr::mutate",  "param_set")
-    s3_register("dplyr::rename",  "param_set")
-    s3_register("dplyr::select",  "param_set")
-    s3_register("dplyr::slice",   "param_set")
+    s3_register("dplyr::arrange", "parameters")
+    s3_register("dplyr::filter",  "parameters")
+    s3_register("dplyr::mutate",  "parameters")
+    s3_register("dplyr::rename",  "parameters")
+    s3_register("dplyr::select",  "parameters")
+    s3_register("dplyr::slice",   "parameters")
 }
 # nocov end
 

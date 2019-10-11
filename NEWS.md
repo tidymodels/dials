@@ -1,8 +1,12 @@
-# dials 0.0.3.9000
+# dials 0.0.3.9001
 
 ## New parameter functions:
 
 * Parameters `smoothness()` was added. 
+
+## Other changes
+
+* `param_set()` is being renamed `parameters()`. The old name implied that you _only_ use it to set parameters (say from a recipe or model rather than _de novo_). `param_set()` will be available until version 0.0.5.    
 
 # dials 0.0.3
 

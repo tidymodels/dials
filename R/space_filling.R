@@ -45,7 +45,7 @@ grid_max_entropy <- function(x, ..., size = 3, original = TRUE,
 
 #' @export
 #' @rdname grid_max_entropy
-grid_max_entropy.param_set <- function(x, ..., size = 3, original = TRUE,
+grid_max_entropy.parameters <- function(x, ..., size = 3, original = TRUE,
                                        variogram_range = 0.5, iter = 1000) {
   # test for NA and finalized
   # test for empty ...
@@ -61,7 +61,7 @@ grid_max_entropy.param_set <- function(x, ..., size = 3, original = TRUE,
 #' @rdname grid_max_entropy
 grid_max_entropy.list <- function(x, ..., size = 3, original = TRUE,
                                   variogram_range = 0.5, iter = 1000) {
-  y <- param_set(x)
+  y <- parameters(x)
   params <- y$object
   names(params) <- y$id
   grd <- make_max_entropy_grid(!!!params, size = size, original = original,
@@ -75,7 +75,7 @@ grid_max_entropy.list <- function(x, ..., size = 3, original = TRUE,
 #' @rdname grid_max_entropy
 grid_max_entropy.param <- function(x, ..., size = 3, original = TRUE,
                                    variogram_range = 0.5, iter = 1000) {
-  y <- param_set(list(x, ...))
+  y <- parameters(list(x, ...))
   params <- y$object
   names(params) <- y$id
   grd <- make_max_entropy_grid(!!!params, size = size, original = original,
@@ -88,7 +88,7 @@ grid_max_entropy.param <- function(x, ..., size = 3, original = TRUE,
 #' @rdname grid_max_entropy
 grid_max_entropy.workflow <- function(x, ..., size = 3, original = TRUE,
                                        variogram_range = 0.5, iter = 1000) {
-  grid_max_entropy.param_set(param_set(x), ..., size = size, original = original,
+  grid_max_entropy.parameters(parameters(x), ..., size = size, original = original,
                              variogram_range = variogram_range, iter = iter)
 }
 
@@ -134,7 +134,7 @@ grid_latin_hypercube <- function(x, ..., size = 3, original = TRUE) {
 
 #' @export
 #' @rdname grid_max_entropy
-grid_latin_hypercube.param_set <- function(x, ..., size = 3, original = TRUE) {
+grid_latin_hypercube.parameters <- function(x, ..., size = 3, original = TRUE) {
   # test for NA and finalized
   # test for empty ...
   params <- x$object
@@ -148,7 +148,7 @@ grid_latin_hypercube.param_set <- function(x, ..., size = 3, original = TRUE) {
 #' @export
 #' @rdname grid_max_entropy
 grid_latin_hypercube.list <- function(x, ..., size = 3, original = TRUE) {
-  y <- param_set(x)
+  y <- parameters(x)
   params <- y$object
   names(params) <- y$id
   grd <- make_latin_hypercube_grid(!!!params, size = size, original = original)
@@ -160,7 +160,7 @@ grid_latin_hypercube.list <- function(x, ..., size = 3, original = TRUE) {
 #' @export
 #' @rdname grid_max_entropy
 grid_latin_hypercube.param <- function(x, ..., size = 3, original = TRUE) {
-  y <- param_set(list(x, ...))
+  y <- parameters(list(x, ...))
   params <- y$object
   names(params) <- y$id
   grd <- make_latin_hypercube_grid(!!!params, size = size, original = original)
@@ -172,7 +172,7 @@ grid_latin_hypercube.param <- function(x, ..., size = 3, original = TRUE) {
 #' @export
 #' @rdname grid_max_entropy
 grid_latin_hypercube.workflow <- function(x, ..., size = 3, original = TRUE) {
-  grid_latin_hypercube.param_set(param_set(x), ..., size = size, original = original)
+  grid_latin_hypercube.parameters(parameters(x), ..., size = size, original = original)
 }
 
 
