@@ -5,28 +5,28 @@
 #' @param ... Only used for the `param` method so that multiple `param` objects
 #'can be passed to the function.
 #' @export
-param_set <- function(x, ...) {
-  UseMethod("param_set")
+parameters <- function(x, ...) {
+  UseMethod("parameters")
 }
 
 #' @export
-#' @rdname param_set
-param_set.default <- function(x, ...) {
-  stop("`param_set` objects cannot be created from this type of object.", call. = FALSE)
+#' @rdname parameters
+parameters.default <- function(x, ...) {
+  stop("`parameters` objects cannot be created from this type of object.", call. = FALSE)
 }
 
 #' @export
-#' @rdname param_set
-param_set.param <- function(x, ...) {
+#' @rdname parameters
+parameters.param <- function(x, ...) {
   x <- list(x, ...)
-  res <- param_set(x)
+  res <- parameters(x)
   res
 }
 
 
 #' @export
-#' @rdname param_set
-param_set.list <- function(x, ...) {
+#' @rdname parameters
+parameters.list <- function(x, ...) {
   elem_param <- purrr::map_lgl(x, inherits, "param")
   if (any(!elem_param)) {
     stop("The objects should all be `param` objects.", call. = FALSE)
@@ -39,7 +39,7 @@ param_set.list <- function(x, ...) {
     elem_id[elem_id == ""] <- elem_name[elem_id == ""]
   }
   p <- length(x)
-  param_set_constr(
+  parameters_constr(
     elem_name,
     elem_id,
     rep("list", p),
@@ -84,10 +84,10 @@ param_or_na <- function(x) {
 #' length.
 #' @param object A list of `param` objects or NA values.
 #' @return A tibble that encapsulates the input vectors into a tibble with an
-#' additional class of "param_set".
+#' additional class of "parameters".
 #' @keywords internal
 #' @export
-param_set_constr <-
+parameters_constr <-
   function(name, id, source, component, component_id, object) {
     chr_check(name)
     chr_check(id)
@@ -116,7 +116,7 @@ param_set_constr <-
         component_id = component_id,
         object = object
       )
-    class(res) <- c("param_set", class(res))
+    class(res) <- c("parameters", class(res))
     res
   }
 
@@ -131,7 +131,7 @@ unk_check <- function(x) {
 }
 
 #' @export
-print.param_set <- function(x, ...) {
+print.parameters <- function(x, ...) {
   x <- tibble::as_tibble(x)
   cat("Collection of", nrow(x), "parameters for tuning\n\n")
 
@@ -180,7 +180,7 @@ print.param_set <- function(x, ...) {
       cat(lst_obj$note, sep = "")
       cat("\n")
     }
-    cat("See `?dials::finalize` or `?dials::update.param_set` for more information.\n\n")
+    cat("See `?dials::finalize` or `?dials::update.parameters` for more information.\n\n")
   }
 
   invisible(x)
@@ -197,12 +197,12 @@ print.param_set <- function(x, ...) {
 #' @return The modified parameter set.
 #' @examples
 #' params <- list(lambda = penalty(), alpha = mixture(), `rand forest` = mtry())
-#' pset <- param_set(params)
+#' pset <- parameters(params)
 #' pset
 #'
 #' update(pset, `rand forest` = finalize(mtry(), iris), alpha = mixture(c(.1, .2)))
 #' @export
-update.param_set <- function(object, ...) {
+update.parameters <- function(object, ...) {
   args <- rlang::list2(...)
   if (length(args) == 0) {
     rlang::abort("Please supply at least one parameter object.")
@@ -235,4 +235,13 @@ update.param_set <- function(object, ...) {
   }
   object
 }
+
+#' @export
+#' @rdname parameters
+param_set <- function(x, ...) {
+  warning("`param_set()` is deprecated in favor of `parameters()`.",
+          "`param_set()` will be available until version 0.0.5.")
+  parameters(x, ...)
+}
+
 

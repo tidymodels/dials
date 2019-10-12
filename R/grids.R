@@ -2,7 +2,7 @@
 #'
 #' Random and regular grids can be created for any number of parameter objects.
 #'
-#' @param x A `param` object, list, or `param_set`.
+#' @param x A `param` object, list, or `parameters`.
 #' @param ... One or more `param` objects (such as [mtry()] or
 #' [penalty()]). None of the objects can have `unknown()` values in
 #' the parameter ranges or values.
@@ -38,7 +38,7 @@ grid_regular <- function(x, ..., levels = 3, original = TRUE) {
 
 #' @export
 #' @rdname grid_regular
-grid_regular.param_set <- function(x, ..., levels = 3, original = TRUE) {
+grid_regular.parameters <- function(x, ..., levels = 3, original = TRUE) {
   # test for NA and finalized
   # test for empty ...
   params <- x$object
@@ -51,7 +51,7 @@ grid_regular.param_set <- function(x, ..., levels = 3, original = TRUE) {
 #' @export
 #' @rdname grid_regular
 grid_regular.list <- function(x, ..., levels = 3, original = TRUE) {
-  y <- param_set(x)
+  y <- parameters(x)
   params <- y$object
   names(params) <- y$id
   grd <- make_regular_grid(!!!params, levels = levels, original = original)
@@ -63,7 +63,7 @@ grid_regular.list <- function(x, ..., levels = 3, original = TRUE) {
 #' @export
 #' @rdname grid_regular
 grid_regular.param <- function(x, ..., levels = 3, original = TRUE) {
-  y <- param_set(list(x, ...))
+  y <- parameters(list(x, ...))
   params <- y$object
   names(params) <- y$id
   grd <- make_regular_grid(!!!params, levels = levels, original = original)
@@ -74,7 +74,7 @@ grid_regular.param <- function(x, ..., levels = 3, original = TRUE) {
 #' @export
 #' @rdname grid_regular
 grid_regular.workflow <- function(x, ..., levels = 3, original = TRUE) {
-  grid_regular.param_set(param_set(x), ..., levels = levels, original = original)
+  grid_regular.parameters(parameters(x), ..., levels = levels, original = original)
 }
 
 #' @rdname grid_regular
@@ -99,8 +99,8 @@ make_regular_grid <- function(..., levels = 3, original = TRUE) {
   }
 
   names(param_seq) <- param_names
-  param_set <- expand.grid(param_seq, stringsAsFactors = FALSE)
-  new_grid(param_set, labels = param_labs, cls = c("grid_regular", "param_grid"))
+  parameters <- expand.grid(param_seq, stringsAsFactors = FALSE)
+  new_grid(parameters, labels = param_labs, cls = c("grid_regular", "param_grid"))
 }
 
 # ------------------------------------------------------------------------------
@@ -113,7 +113,7 @@ grid_random <- function(x, ..., size = 5, original = TRUE) {
 
 #' @export
 #' @rdname grid_regular
-grid_random.param_set <- function(x, ..., size = 5, original = TRUE) {
+grid_random.parameters <- function(x, ..., size = 5, original = TRUE) {
   # test for NA and finalized
   # test for empty ...
   params <- x$object
@@ -126,7 +126,7 @@ grid_random.param_set <- function(x, ..., size = 5, original = TRUE) {
 #' @export
 #' @rdname grid_regular
 grid_random.list <- function(x, ..., size = 5, original = TRUE) {
-  y <- param_set(x)
+  y <- parameters(x)
   params <- y$object
   names(params) <- y$id
   grd <- make_random_grid(!!!params, size = size, original = original)
@@ -138,7 +138,7 @@ grid_random.list <- function(x, ..., size = 5, original = TRUE) {
 #' @export
 #' @rdname grid_regular
 grid_random.param <- function(x, ..., size = 5, original = TRUE) {
-  y <- param_set(list(x, ...))
+  y <- parameters(list(x, ...))
   params <- y$object
   names(params) <- y$id
   grd <- make_random_grid(!!!params, size = size, original = original)
@@ -150,7 +150,7 @@ grid_random.param <- function(x, ..., size = 5, original = TRUE) {
 #' @export
 #' @rdname grid_regular
 grid_random.workflow <- function(x, ..., size = 5, original = TRUE) {
-  grid_random.param_set(param_set(x), ..., size = size, original = original)
+  grid_random.parameters(parameters(x), ..., size = size, original = original)
 }
 
 
@@ -162,10 +162,10 @@ make_random_grid <- function(..., size = 5, original = TRUE) {
   param_labs <- map_chr(params, function(x) x$label)
 
   # for now assume equal levels
-  param_set <- map_dfc(params, value_sample, n = size, original = original)
+  parameters <- map_dfc(params, value_sample, n = size, original = original)
   param_names <- names(param_quos)
-  names(param_set) <- param_names
-  new_grid(param_set, labels = param_labs, cls = c("grid_random", "param_grid"))
+  names(parameters) <- param_names
+  new_grid(parameters, labels = param_labs, cls = c("grid_random", "param_grid"))
 }
 
 # ------------------------------------------------------------------------------
