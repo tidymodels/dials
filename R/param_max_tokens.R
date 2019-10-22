@@ -6,7 +6,7 @@
 #' @examples
 #' max_tokens()
 #' @export
-max_tokens <- function(range = c(0L, as.integer(10^5)), trans = NULL) {
+max_tokens <- function(range = c(0L, as.integer(10^3)), trans = NULL) {
   new_quant_param(
     type = "integer",
     range = range,
