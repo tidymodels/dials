@@ -9,11 +9,8 @@ output: github_document
 # dials <img src="man/figures/logo.png" align="right" height="80px"/> 
 
 [![Build Status](https://travis-ci.org/tidymodels/dials.svg?branch=master)](https://travis-ci.org/tidymodels/dials)
-[![Azure pipelines build status](https://img.shields.io/azure-devops/build/tidymodels/dials/2)](https://dev.azure.com/tidymodels/dials/_build/latest?definitionId=1&branchName=master)
-[![Azure pipelines test status](https://img.shields.io/azure-devops/tests/tidymodels/dials/2?color=brightgreen&compact_message)](https://dev.azure.com/tidymodels/dials/_build/latest?definitionId=1&branchName=master)
 [![R build status](https://github.com/tidymodels/dials/workflows/R/badge.svg)](https://github.com/tidymodels/dials/actions?workflow=R)
 [![Coverage status](https://codecov.io/gh/tidymodels/dials/branch/master/graph/badge.svg)](https://codecov.io/github/tidymodels/dials?branch=master)
-[![Azure pipelines coverage status](https://img.shields.io/azure-devops/coverage/tidymodels/dials/2)](https://dev.azure.com/tidymodels/dials/_build/latest?definitionId=1&branchName=master)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/dials)](https://CRAN.R-project.org/package=dials)
 [![Downloads](http://cranlogs.r-pkg.org/badges/dials)](https://CRAN.R-project.org/package=dials)
 [![Lifecycle: maturing](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://www.tidyverse.org/lifecycle/#maturing)
