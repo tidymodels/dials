@@ -6,7 +6,7 @@ Authors@R: c(
     person(given = "Max", family = "Kuhn", email = "max@rstudio.com", role = c("aut", "cre")),
     person("RStudio", role = "cph"))
 License: GPL-2
-URL: https://tidymodels.github.io/dials
+URL: https://tidymodels.github.io/dials, https://github.com/tidymodels/dials
 BugReports: https://github.com/tidymodels/dials/issues
 Encoding: UTF-8
 LazyData: true
