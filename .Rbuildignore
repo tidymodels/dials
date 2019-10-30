@@ -7,3 +7,4 @@
 ^docs$
 ^\.travis\.yml$
 ^azure-pipelines\.yml$
+^\.github/workflows/R\.yaml$
