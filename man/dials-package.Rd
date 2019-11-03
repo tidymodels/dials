@@ -38,6 +38,7 @@ design_set
 Useful links:
 \itemize{
   \item \url{https://tidymodels.github.io/dials}
+  \item \url{https://github.com/tidymodels/dials}
   \item Report bugs at \url{https://github.com/tidymodels/dials/issues}
 }
 

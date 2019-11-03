@@ -10,7 +10,7 @@
 #' @export
 #' @export
 #' @rdname texthash
-num_hash <- function(range = c(1, 10), trans = log2_trans()) {
+num_hash <- function(range = c(8, 12), trans = log2_trans()) {
   new_quant_param(
     type = "integer",
     range = range,
