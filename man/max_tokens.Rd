@@ -4,7 +4,7 @@
 \alias{max_tokens}
 \title{Maximum number of retained tokens}
 \usage{
-max_tokens(range = c(0L, as.integer(10^5)), trans = NULL)
+max_tokens(range = c(0L, as.integer(10^3)), trans = NULL)
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and

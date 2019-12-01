@@ -81,7 +81,7 @@ space has an observed combination that is not too far from it." />
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.3.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.3.9002</span>
         </div>
       </div>
     </div>
@@ -96,7 +96,12 @@ space has an observed combination that is not too far from it." />
 <li>
   <a href="../news/index.html">News</a>
 </li>
-        
+        <li>
+  <a href="https://github.com/tidymodels/dials">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -111,7 +116,7 @@ space has an observed combination that is not too far from it." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Space-filling parameter grids</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/space_filling.R'><code>R/space_filling.R</code></a></small>
     <div class="hidden name"><code>grid_max_entropy.Rd</code></div>
     </div>
 
@@ -121,30 +126,59 @@ grids that try to cover the parameter space such that any portion of the
 space has an observed combination that is not too far from it.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>grid_max_entropy</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>variogram_range</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+    <pre class="usage"><span class='fu'>grid_max_entropy</span>(
+  <span class='no'>x</span>,
+  <span class='no'>...</span>,
+  <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>variogram_range</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
+  <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>1000</span>
+)
 
 <span class='co'># S3 method for parameters</span>
-<span class='fu'>grid_max_entropy</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>variogram_range</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+<span class='fu'>grid_max_entropy</span>(
+  <span class='no'>x</span>,
+  <span class='no'>...</span>,
+  <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>variogram_range</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
+  <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>1000</span>
+)
 
 <span class='co'># S3 method for list</span>
-<span class='fu'>grid_max_entropy</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>variogram_range</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+<span class='fu'>grid_max_entropy</span>(
+  <span class='no'>x</span>,
+  <span class='no'>...</span>,
+  <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>variogram_range</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
+  <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>1000</span>
+)
 
 <span class='co'># S3 method for param</span>
-<span class='fu'>grid_max_entropy</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>variogram_range</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+<span class='fu'>grid_max_entropy</span>(
+  <span class='no'>x</span>,
+  <span class='no'>...</span>,
+  <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>variogram_range</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
+  <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>1000</span>
+)
 
 <span class='co'># S3 method for workflow</span>
-<span class='fu'>grid_max_entropy</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>variogram_range</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+<span class='fu'>grid_max_entropy</span>(
+  <span class='no'>x</span>,
+  <span class='no'>...</span>,
+  <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>,
+  <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>variogram_range</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
+  <span class='kw'>iter</span> <span class='kw'>=</span> <span class='fl'>1000</span>
+)
 
 <span class='fu'>grid_latin_hypercube</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='co'># S3 method for parameters</span>
-<span class='fu'>grid_latin_hypercube</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>grid_latin_hypercube</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='co'># S3 method for list</span>
 <span class='fu'>grid_latin_hypercube</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
@@ -153,8 +187,7 @@ space has an observed combination that is not too far from it.</p>
 <span class='fu'>grid_latin_hypercube</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='co'># S3 method for workflow</span>
-<span class='fu'>grid_latin_hypercube</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>,
-  <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+<span class='fu'>grid_latin_hypercube</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -214,7 +247,7 @@ Statistical Software, 65(11)</p>
   <span class='fu'><a href='penalty.html'>penalty</a></span>(),
   <span class='fu'><a href='dropout.html'>epochs</a></span>(),
   <span class='fu'><a href='activation.html'>activation</a></span>(),
-  <span class='fu'><a href='learn_rate.html'>learn_rate</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw pkg'>scales</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/scales/man/log_trans.html'>log_trans</a></span>()),
+  <span class='fu'><a href='learn_rate.html'>learn_rate</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw pkg'>scales</span><span class='kw ns'>::</span><span class='fu'><a href='https://scales.r-lib.org//reference/log_trans.html'>log_trans</a></span>()),
   <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>10</span>,
   <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 10 x 5</span><span>
 #&gt;    hidden_units penalty epochs activation learn_rate
@@ -236,7 +269,7 @@ Statistical Software, 65(11)</p>
 #&gt; </span><span style='color: #555555;'>2</span><span> 0.000</span><span style='text-decoration: underline;'>423</span><span>       0.215
 #&gt; </span><span style='color: #555555;'>3</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>023</span><span style='text-decoration: underline;'>0</span><span>   0.690</div></span></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>

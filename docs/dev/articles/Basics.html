@@ -43,7 +43,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.3.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.3.9002</span>
         </div>
       </div>
     </div>
@@ -58,7 +58,12 @@
 <li>
   <a href="../news/index.html">News</a>
 </li>
-        
+        <li>
+  <a href="https://github.com/tidymodels/dials">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
 </div>
 <!--/.nav-collapse -->
@@ -75,7 +80,7 @@
       <h1>Working with Tuning Parameters</h1>
             
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/tidymodels/dials/blob/master/vignettes/Basics.Rmd"><code>vignettes/Basics.Rmd</code></a></small>
       <div class="hidden name"><code>Basics.Rmd</code></div>
 
     </div>
@@ -184,7 +189,7 @@
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="../reference/weight_func.html">weight_func</a></span>()</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; Distance Weighting Function  (qualitative)</span></a>
 <a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt; 10 possible value include:</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; 'rectangular', 'triangular', 'epanechnikov', 'biweight', 'triweight', 'c...</span></a></code></pre></div>
+<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; 'rectangular', 'triangular', 'epanechnikov', 'biweight', 'triweight', 'cos', ...</span></a></code></pre></div>
 <p>The helper functions are analogues to the quantitative parameters:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># redefine values</span></a>
 <a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw"><a href="../reference/weight_func.html">weight_func</a></span>() <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="../reference/value_validate.html">value_set</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"rectangular"</span>, <span class="st">"triangular"</span>))</a>
@@ -288,7 +293,7 @@
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
         <div id="tocnav">
       <h2 class="hasAnchor">

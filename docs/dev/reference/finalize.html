@@ -80,7 +80,7 @@ ranges based on a data set and simple heuristics." />
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.3.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.3.9002</span>
         </div>
       </div>
     </div>
@@ -95,7 +95,12 @@ ranges based on a data set and simple heuristics." />
 <li>
   <a href="../news/index.html">News</a>
 </li>
-        
+        <li>
+  <a href="https://github.com/tidymodels/dials">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -110,7 +115,7 @@ ranges based on a data set and simple heuristics." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Functions to finalize data-specific parameter ranges</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/finalize.R'><code>R/finalize.R</code></a></small>
     <div class="hidden name"><code>finalize.Rd</code></div>
     </div>
 
@@ -136,8 +141,7 @@ ranges based on a data set and simple heuristics." />
 
 <span class='fu'>get_n_frac</span>(<span class='no'>object</span>, <span class='no'>x</span>, <span class='kw'>log_vals</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>frac</span> <span class='kw'>=</span> <span class='fl'>1</span>/<span class='fl'>3</span>, <span class='no'>...</span>)
 
-<span class='fu'>get_n_frac_range</span>(<span class='no'>object</span>, <span class='no'>x</span>, <span class='kw'>log_vals</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>frac</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>/<span class='fl'>10</span>, <span class='fl'>5</span>/<span class='fl'>10</span>),
-  <span class='no'>...</span>)
+<span class='fu'>get_n_frac_range</span>(<span class='no'>object</span>, <span class='no'>x</span>, <span class='kw'>log_vals</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>frac</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>/<span class='fl'>10</span>, <span class='fl'>5</span>/<span class='fl'>10</span>), <span class='no'>...</span>)
 
 <span class='fu'>get_n</span>(<span class='no'>object</span>, <span class='no'>x</span>, <span class='kw'>log_vals</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='no'>...</span>)
 
@@ -266,7 +270,7 @@ rows in the data, or a fraction of the total number of rows.</p>
 #&gt; </div><div class='input'>
 </div></span></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>

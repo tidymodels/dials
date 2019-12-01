@@ -78,7 +78,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.3.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.3.9002</span>
         </div>
       </div>
     </div>
@@ -93,7 +93,12 @@
 <li>
   <a href="../news/index.html">News</a>
 </li>
-        
+        <li>
+  <a href="https://github.com/tidymodels/dials">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -108,12 +113,12 @@
   <div class="col-md-9 contents">
     <div class="page-header">
       <h1>Changelog <small></small></h1>
-      
+      <small>Source: <a href='https://github.com/tidymodels/dials/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="dials-0-0-3-9000" class="section level1">
+    <div id="dials-0-0-4" class="section level1">
 <h1 class="page-header">
-<a href="#dials-0-0-3-9000" class="anchor"></a>dials 0.0.3.9000<small> Unreleased </small>
+<a href="#dials-0-0-4" class="anchor"></a>dials 0.0.4<small> Unreleased </small>
 </h1>
 <div id="new-parameter-functions" class="section level2">
 <h2 class="hasAnchor">
@@ -122,14 +127,30 @@
 <li>Parameters <code><a href="../reference/smoothness.html">smoothness()</a></code> was added.</li>
 </ul>
 </div>
+<div id="other-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#other-changes" class="anchor"></a>Other changes</h2>
+<ul>
+<li><p><code><a href="../reference/parameters.html">param_set()</a></code> is being renamed <code><a href="../reference/parameters.html">parameters()</a></code>. The old name implied that you <em>only</em> use it to set parameters (say from a recipe or model rather than <em>de novo</em>). <code><a href="../reference/parameters.html">param_set()</a></code> will be available until version 0.0.5.</p></li>
+<li><p>The range for <code><a href="../reference/texthash.html">num_hash()</a></code> was increase to be <code>2^8</code> to <code>2^12</code>.</p></li>
+</ul>
+</div>
+<div id="breaking-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
+<ul>
+<li>
+<code><a href="https://rdrr.io/r/stats/offset.html">offset()</a></code> has been renamed <code><a href="../reference/rbf_sigma.html">kernel_offset()</a></code> to avoid name conflicts.</li>
+</ul>
+</div>
 </div>
     <div id="dials-0-0-3" class="section level1">
 <h1 class="page-header">
 <a href="#dials-0-0-3" class="anchor"></a>dials 0.0.3<small> 2019-10-01 </small>
 </h1>
-<div id="breaking-changes" class="section level2">
+<div id="breaking-changes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
+<a href="#breaking-changes-1" class="anchor"></a>Breaking changes</h2>
 <ul>
 <li><p>All parameter <em>objects</em> are now parameter <em>functions</em>. For example, the pre-configured object <code>mtry</code> is now a function, <code><a href="../reference/mtry.html">mtry()</a></code>, with arguments for the <code>range</code> and the <code>trans</code>. This provides greater flexibility in parameter creation, and should feel more natural.</p></li>
 <li><p><code><a href="../reference/deg_free.html">deg_free()</a></code> erroneously produced real values; integers are now returned.</p></li>
@@ -137,9 +158,9 @@
 <li><p><code>update.param_set()</code> now takes multiple named arguments.</p></li>
 </ul>
 </div>
-<div id="other-changes" class="section level2">
+<div id="other-changes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#other-changes" class="anchor"></a>Other changes</h2>
+<a href="#other-changes-1" class="anchor"></a>Other changes</h2>
 <ul>
 <li><p>Two functions for space-filling designs were added: <code><a href="../reference/grid_max_entropy.html">grid_max_entropy()</a></code> and <code><a href="../reference/grid_max_entropy.html">grid_latin_hypercube()</a></code>.</p></li>
 <li><p>A data set was added for modeling ridership on the Chicago L trains.</p></li>
@@ -175,11 +196,11 @@
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#dials-0-0-3-9000">0.0.3.9000</a></li>
+        <li><a href="#dials-0-0-4">0.0.4</a></li>
         <li><a href="#dials-0-0-3">0.0.3</a></li>
         <li><a href="#dials-0-0-2">0.0.2</a></li>
         <li><a href="#dials-0-0-1">0.0.1</a></li>

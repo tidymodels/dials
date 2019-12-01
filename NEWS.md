@@ -10,6 +10,8 @@
 
 * The range for `num_hash()` was increase to be `2^8` to `2^12`. 
 
+* The range for `max_tokens()` was changed to be 0 to 1000. 
+
 ## Breaking changes
 
 * `offset()` has been renamed `kernel_offset()` to avoid name conflicts. 

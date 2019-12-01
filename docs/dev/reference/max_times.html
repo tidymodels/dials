@@ -79,7 +79,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.3.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.3.9002</span>
         </div>
       </div>
     </div>
@@ -94,7 +94,12 @@
 <li>
   <a href="../news/index.html">News</a>
 </li>
-        
+        <li>
+  <a href="https://github.com/tidymodels/dials">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -109,7 +114,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Word frequencies for removal</h1>
-    
+    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/param_max_times.R'><code>R/param_max_times.R</code></a></small>
     <div class="hidden name"><code>max_times.Rd</code></div>
     </div>
 
@@ -132,7 +137,7 @@ largest possible values, respectively.</p></td>
     <tr>
       <th>trans</th>
       <td><p>A <code>trans</code> object from the <code>scales</code> package, such as
-<code><a href='https://rdrr.io/pkg/scales/man/log_trans.html'>scales::log10_trans()</a></code> or <code><a href='https://rdrr.io/pkg/scales/man/reciprocal_trans.html'>scales::reciprocal_trans()</a></code>. If not provided,
+<code><a href='https://scales.r-lib.org//reference/log_trans.html'>scales::log10_trans()</a></code> or <code><a href='https://scales.r-lib.org//reference/reciprocal_trans.html'>scales::reciprocal_trans()</a></code>. If not provided,
 the default is used which matches the units used in <code>range</code>. If no
 transformation, <code>NULL</code>.</p></td>
     </tr>
@@ -144,7 +149,7 @@ transformation, <code>NULL</code>.</p></td>
 #&gt; Range: [1, 100000]</div><div class='input'><span class='fu'>min_times</span>()</div><div class='output co'>#&gt; Minimum Token Frequency  (quantitative)
 #&gt; Range: [0, 1000]</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
