@@ -9,7 +9,6 @@ output: github_document
 # dials <img src="man/figures/logo.png" align="right" height="80px"/> 
 
 [![Build Status](https://travis-ci.org/tidymodels/dials.svg?branch=master)](https://travis-ci.org/tidymodels/dials)
-[![R build status](https://github.com/tidymodels/dials/workflows/R/badge.svg)](https://github.com/tidymodels/dials/actions?workflow=R)
 [![Coverage status](https://codecov.io/gh/tidymodels/dials/branch/master/graph/badge.svg)](https://codecov.io/github/tidymodels/dials?branch=master)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/dials)](https://CRAN.R-project.org/package=dials)
 [![Downloads](http://cranlogs.r-pkg.org/badges/dials)](https://CRAN.R-project.org/package=dials)
