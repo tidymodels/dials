@@ -12,7 +12,7 @@ Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.1.9000
 VignetteBuilder: knitr
 Depends:
     scales,

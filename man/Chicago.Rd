@@ -24,7 +24,7 @@ who enter the Clark and Lake L station.
 The \code{date} column corresponds to the current date. The columns with station
 names (\code{Austin} through \code{California}) are a \emph{sample} of the columns used in
 the original analysis (for file size reasons). These are 14 day lag
-variables (i.e. \code{date - 14 days}). There are columns related to weather and
+variables (i.e. \verb{date - 14 days}). There are columns related to weather and
 sports team schedules.
 
 The station at 35th and Archer is contained in the column \code{Archer_35th} to
