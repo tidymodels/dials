@@ -42,7 +42,7 @@ test_that('param ranges', {
   expect_equal(over_ratio(c(.5, 1.5))$range, list(lower = .5, upper = 1.5))
   expect_equal(under_ratio(c(.5, 1.5))$range, list(lower = .5, upper = 1.5))
   expect_equal(rbf_sigma(-1:0)$range, list(lower = -1, upper = 0))
-  expect_equal(offset(0:1)$range, list(lower = 0, upper = 1))
+  expect_equal(kernel_offset(0:1)$range, list(lower = 0, upper = 1))
   expect_equal(min_dist(c(-3, 0))$range, list(lower = -3, upper = 0))
   expect_equal(sample_prop(c(.5, .6))$range, list(lower = .5, upper = .6))
   expect_equal(num_hash(c(1, 2))$range, list(lower = 1, upper = 2))

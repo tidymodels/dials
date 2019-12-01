@@ -8,7 +8,7 @@
 #' @examples
 #' rbf_sigma()
 #' scale_factor()
-#' offset()
+#' kernel_offset()
 #' @export
 rbf_sigma <- function(range = c(-10, 0), trans = log10_trans()) {
   new_quant_param(
@@ -36,13 +36,13 @@ scale_factor <- function(range = c(-10, -1), trans = log10_trans()) {
 
 #' @rdname rbf_sigma
 #' @export
-offset <- function(range = c(0, 2), trans = NULL) {
+kernel_offset <- function(range = c(0, 2), trans = NULL) {
   new_quant_param(
     type = "double",
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(offset = "Offset"),
+    label = c(kernel_offset = "Offset"),
     finalize = NULL
   )
 }

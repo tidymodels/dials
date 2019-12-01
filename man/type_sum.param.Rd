@@ -20,9 +20,9 @@ columns.
 For \code{param} objects, the summary prefix is either
 "\code{dparam}" (if a qualitative parameter) or "\code{nparam}" (if
 quantitative). Additionally, brackets are used to indicate if
-there are unknown values. For example, "\code{nparam[?]}" would
+there are unknown values. For example, "\verb{nparam[?]}" would
 indicate that part of the numeric range is has not been
-finalized and "\code{nparam[+]}" indicates a parameter that is
+finalized and "\verb{nparam[+]}" indicates a parameter that is
 complete.
 }
 \keyword{internal}

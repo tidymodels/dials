@@ -6,12 +6,24 @@
 \alias{new_qual_param}
 \title{Tools for creating new parameter objects}
 \usage{
-new_quant_param(type = c("double", "integer"), range, inclusive,
-  default = unknown(), trans = NULL, values = NULL, label = NULL,
-  finalize = NULL)
+new_quant_param(
+  type = c("double", "integer"),
+  range,
+  inclusive,
+  default = unknown(),
+  trans = NULL,
+  values = NULL,
+  label = NULL,
+  finalize = NULL
+)
 
-new_qual_param(type = c("character", "logical"), values,
-  default = unknown(), label = NULL, finalize = NULL)
+new_qual_param(
+  type = c("character", "logical"),
+  values,
+  default = unknown(),
+  label = NULL,
+  finalize = NULL
+)
 }
 \arguments{
 \item{type}{A single character value. For quantitative parameters, valid
