@@ -3,14 +3,14 @@
 \name{rbf_sigma}
 \alias{rbf_sigma}
 \alias{scale_factor}
-\alias{offset}
+\alias{kernel_offset}
 \title{Kernel parameters}
 \usage{
 rbf_sigma(range = c(-10, 0), trans = log10_trans())
 
 scale_factor(range = c(-10, -1), trans = log10_trans())
 
-offset(range = c(0, 2), trans = NULL)
+kernel_offset(range = c(0, 2), trans = NULL)
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and
@@ -30,5 +30,5 @@ Parameters related to the radial basis or other kernel functions.
 \examples{
 rbf_sigma()
 scale_factor()
-offset()
+kernel_offset()
 }
