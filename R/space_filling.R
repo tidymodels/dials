@@ -40,6 +40,10 @@
 #' @export
 grid_max_entropy <- function(x, ..., size = 3, original = TRUE,
                              variogram_range = 0.5, iter = 1000) {
+  dots <- list(...)
+  if (any(names(dots) == "levels")) {
+    rlang::warn("`levels` is not an argument to `grid_max_entropy()`. Did you mean `size`?")
+  }
   UseMethod("grid_max_entropy")
 }
 
@@ -129,6 +133,10 @@ make_max_entropy_grid <- function(..., size = 3, original = TRUE,
 #' @export
 #' @rdname grid_max_entropy
 grid_latin_hypercube <- function(x, ..., size = 3, original = TRUE) {
+  dots <- list(...)
+  if (any(names(dots) == "levels")) {
+    rlang::warn("`levels` is not an argument to `grid_latin_hypercube()`. Did you mean `size`?")
+  }
   UseMethod("grid_latin_hypercube")
 }
 

@@ -36,3 +36,24 @@ test_that('random grid', {
   )
 })
 
+
+test_that('wrong argument name', {
+  p <- parameters(penalty(), mixture())
+  expect_warning(
+    grid_latin_hypercube(p, levels = 5),
+    "Did you mean `size`"
+  )
+  expect_warning(
+    grid_max_entropy(p, levels = 5),
+    "Did you mean `size`"
+  )
+  expect_warning(
+    grid_random(p, levels = 5),
+    "Did you mean `size`"
+  )
+  expect_warning(
+    grid_regular(p, size = 5),
+    "Did you mean `levels`"
+  )
+})
+

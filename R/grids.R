@@ -33,6 +33,10 @@
 #'
 #' @export
 grid_regular <- function(x, ..., levels = 3, original = TRUE) {
+  dots <- list(...)
+  if (any(names(dots) == "size")) {
+    rlang::warn("`size` is not an argument to `grid_regular()`. Did you mean `levels`?")
+  }
   UseMethod("grid_regular")
 }
 
@@ -108,6 +112,10 @@ make_regular_grid <- function(..., levels = 3, original = TRUE) {
 #' @export
 #' @rdname grid_regular
 grid_random <- function(x, ..., size = 5, original = TRUE) {
+  dots <- list(...)
+  if (any(names(dots) == "levels")) {
+    rlang::warn("`levels` is not an argument to `grid_random()`. Did you mean `size`?")
+  }
   UseMethod("grid_random")
 }
 
