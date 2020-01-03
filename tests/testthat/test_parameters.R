@@ -57,5 +57,6 @@ test_that('param values', {
   expect_equal(weight_func(letters[1:3])$values, letters[1:3])
   expect_equal(weight_func(letters[1:3])$values, letters[1:3])
   expect_equal(signed_hash(TRUE)$values, TRUE)
+  expect_equal(all_neighbors(TRUE)$values, TRUE)
 })
 
