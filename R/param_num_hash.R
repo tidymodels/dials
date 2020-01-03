@@ -8,7 +8,6 @@
 #' num_hash()
 #' signed_hash()
 #' @export
-#' @export
 #' @rdname texthash
 num_hash <- function(range = c(8, 12), trans = log2_trans()) {
   new_quant_param(
