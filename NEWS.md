@@ -1,5 +1,7 @@
 # dials (development version)
 
+* Added a vignette on creating novel parameters (#25, @jonthegeek).
+
 # dials 0.0.4
 
 ## New parameter functions:

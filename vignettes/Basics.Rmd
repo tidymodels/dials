@@ -133,10 +133,6 @@ weight_func() %>% value_sample(3)
 weight_func() %>% value_seq(3)
 ```
 
-## Creating Novel Parameters
-
-The package contains two constructors that can be used to create new quantitative and qualitative parameters. The examples for `mtry()` and `activation()` contain examples of the code to create the parameters contained in the package. 
-
 ## Unknown Values
 
 There are some cases where the range of parameter values are data dependent. For example, the upper bound on the number of neighbors cannot be known if the number of data points in the training set is not known. For that reason, some parameters have an _unknown_ placeholder:

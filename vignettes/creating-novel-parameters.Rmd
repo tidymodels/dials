@@ -1,0 +1,167 @@
+---
+title: "Creating Novel Parameters"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Creating Novel Parameters}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(dials)
+```
+
+Some models and recipe steps contain parameters that `dials` does not know about.
+You can construct new quantitative and qualitative parameters using `new_quant_param` or `new_qual_param`, respectively. 
+For example, imagine you're adding a `recipes` step to extract embeddings from a multi-layer transformer, such as BERT. 
+You might wish to tune the number of layers to include, and how to aggregate the embeddings output.
+
+## num_layers: `new_quant_param`
+
+```{r get_layers, include = FALSE}
+# Create the get_layers function so it can be referenced in num_layers. We'll
+# show it's definition later.
+get_layers <- function(object, 
+                       x, 
+                       model_name = c(
+                         "bert_base_uncased", "bert_base_cased", 
+                         "bert_large_uncased", "bert_large_cased"
+                       ), 
+                       ...) {
+  if (!inherits(object, "param"))
+    stop("`object` should be a 'param' object.", call. = FALSE)
+
+  rngs <- range_get(object, original = FALSE)
+  if (!is_unknown(rngs$upper))
+    return(object)
+  
+  model_name <- match.arg(model_name)
+  
+  model_sizes <- data.frame(
+    model = c(
+      "bert_base_uncased", "bert_base_cased", 
+      "bert_large_uncased", "bert_large_cased"),
+    layers = c(
+      12L, 12L,
+      24L, 24L
+    ),
+    stringsAsFactors = FALSE
+  )
+  
+  rngs[2] <- model_sizes$layers[model_sizes$model == model_name]
+
+  range_set(object, rngs)
+}
+```
+
+First we'll create a parameter for the number of layers from which we want to extract embeddings. 
+We use the `new_quant_param` function since this is a numeric parameter. 
+We specify that we're looking for an "integer" (not "double") for the `type`. 
+Since the maximum number of layers depends on the exact model we're using, we'll use the `unknown()` function to leave that as a variable.
+It's ok for our tuning to include the minimum or maximum, so we'll use `c(TRUE, TRUE)` for `inclusive`. 
+If the value cannot include one end of the range, set one or both of these values to `FALSE`. 
+For example, the `dropout` parameter can range from 0 to 1, but it doesn't make sense to drop 100% of parameters, so for dropout `inclusive = c(TRUE, FALSE)`.
+We'll allow for transformation (`trans`) for very large neural nets, but we'll default to leaving the number untransformed.
+We give our parameter an informative label, so we can understand what we're seeing in printed output.
+Finally we'll create a function, `get_layers`, to finalize the `unknown()` maximum of the range based on the model.
+
+```{r num-layers}
+num_layers <- function(range = c(1L, unknown()), trans = NULL) {
+  new_quant_param(
+    type = "integer",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(num_layers = "# of Layers to Use from a Neural Net"),
+    finalize = get_layers
+  )
+}
+```
+
+For many cases, this function will already work.
+
+```{r num-layers-use}
+num_layers()
+num_layers(range = c(1, 12))
+```
+
+However, we still need to finalize the `unknown()` value if the user does not provide it. To do so, we'll add a `get_layers` finalizer. This function sets the maximum of the range based on the models that we know about. Tip: Start from an existing `get_*` function, and edit as needed for your use case. 
+
+```{r get-layers, eval = FALSE}
+get_layers <- function(object, 
+                       x, 
+                       model_name = c(
+                         "bert_base_uncased", "bert_base_cased", 
+                         "bert_large_uncased", "bert_large_cased"
+                       ), 
+                       ...) {
+  if (!inherits(object, "param"))
+    stop("`object` should be a 'param' object.", call. = FALSE)
+
+  rngs <- range_get(object, original = FALSE)
+  if (!is_unknown(rngs$upper))
+    return(object)
+  
+  model_name <- match.arg(model_name)
+  
+  model_sizes <- data.frame(
+    model = c(
+      "bert_base_uncased", "bert_base_cased", 
+      "bert_large_uncased", "bert_large_cased"),
+    layers = c(
+      12L, 12L,
+      24L, 24L
+    ),
+    stringsAsFactors = FALSE
+  )
+  
+  rngs[2] <- model_sizes$layers[model_sizes$model == model_name]
+
+  range_set(object, rngs)
+}
+```
+
+Now we can use a finalized version of `num_layers` in functions like `value_seq`.
+
+```{r num-layers-finalize}
+my_param <- finalize(num_layers(), model_name = "bert_base_uncased")
+value_seq(my_param, 4)
+```
+
+## aggregation: `new_qual_param`
+
+We want to allow users to tune how our parameters are aggregated. 
+We'll allow them to use the `min` for each embeddings dimension, the `max`, the `mean`, the `sum`, or to not aggregate ("none").
+The user will choose this method from a list, so this is a `new_qual_param`.
+We'll take "character" input (not "logical"), and we must specify the allowed values.
+By default we won't aggregate.
+
+```{r aggregation}
+aggregation <- function(values = c("none", "min", "max", "mean", "sum")) {
+  new_qual_param(
+    type = "character",
+    values = values,
+    # By default, the first value is selected as default. We'll specify that to
+    # make it clear.
+    default = "none",
+    label = c(aggregation = "Aggregation Method")
+  )
+}
+```
+
+We can use our `aggregation` parameters with `dials` functions.
+
+```{r aggregation-use}
+aggregation()
+value_sample(aggregation(), 3)
+```
+
+Or we can put our parameters together in a tuning grid.
+
+```{r param-grid}
+grid_max_entropy(list(num_layers(c(1, 12)), aggregation()))
+```
