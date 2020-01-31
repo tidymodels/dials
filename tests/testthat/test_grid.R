@@ -1,5 +1,3 @@
-library(testthat)
-library(dials)
 
 context("parameter grids")
 
@@ -54,6 +52,22 @@ test_that('wrong argument name', {
   expect_warning(
     grid_regular(p, size = 5),
     "Did you mean `levels`"
+  )
+})
+
+test_that('filter arg yields same results', {
+  p <- parameters(penalty(), mixture())
+  expect_equal(
+    filter(with_seed(36L, grid_random(p)), penalty < .01),
+    with_seed(36L, grid_random(p, filter = penalty < .01))
+  )
+  expect_equal(
+    filter(with_seed(36L, grid_random(p)), penalty > .001),
+    with_seed(36L, grid_random(p, filter = penalty > .001))
+  )
+  expect_equal(
+    filter(with_seed(36L, grid_random(p)), mixture == .01),
+    with_seed(36L, grid_random(p, filter = mixture == .01))
   )
 })
 

@@ -12,7 +12,7 @@ Encoding: UTF-8
 LazyData: true
 ByteCompile: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.0.1.9000
+RoxygenNote: 7.0.2
 VignetteBuilder: knitr
 Depends:
     scales,
@@ -25,7 +25,8 @@ Imports:
     utils,
     withr,
     DiceDesign,
-    dplyr
+    dplyr,
+    lifecycle
 Suggests: 
     testthat,
     knitr,

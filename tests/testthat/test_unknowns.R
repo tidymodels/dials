@@ -1,5 +1,3 @@
-library(testthat)
-library(dials)
 
 context("finding unknown values")
 

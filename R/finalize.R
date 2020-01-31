@@ -125,7 +125,7 @@ finalize.parameters <- function(object, x, force = TRUE, ...) {
 #' @rdname finalize
 get_p <- function(object, x, log_vals = FALSE, ...) {
   if (!inherits(object, "param"))
-    stop("`object` should be a 'param' object.", call. = FALSE)
+    rlang::abort("`object` should be a 'param' object.")
 
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$upper))
@@ -133,8 +133,7 @@ get_p <- function(object, x, log_vals = FALSE, ...) {
 
   x_dims <- dim(x)
   if (is.null(x_dims))
-    stop("Cannot determine number of columns. Is `x` a 2D data object?",
-         .call = TRUE)
+    rlang::abort("Cannot determine number of columns. Is `x` a 2D data object?")
 
   if (log_vals) {
     rngs[2] <- log10(x_dims[2])
@@ -160,8 +159,7 @@ get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ...) {
 
   x_dims <- dim(x)
   if (is.null(x_dims))
-    stop("Cannot determine number of columns. Is `x` a 2D data object?",
-         .call = TRUE)
+    rlang::abort("Cannot determine number of columns. Is `x` a 2D data object?")
 
   n_frac <- floor(x_dims[1]*frac)
 
@@ -183,8 +181,7 @@ get_n_frac_range <- function(object, x, log_vals = FALSE, frac = c(1/10, 5/10), 
 
   x_dims <- dim(x)
   if (is.null(x_dims))
-    stop("Cannot determine number of columns. Is `x` a 2D data object?",
-         .call = TRUE)
+    rlang::abort("Cannot determine number of columns. Is `x` a 2D data object?")
 
   n_frac <- sort(floor(x_dims[1]*frac))
 
@@ -210,8 +207,7 @@ get_rbf_range <- function(object, x, seed = sample.int(10 ^ 5, 1), ...) {
   suppressPackageStartupMessages(requireNamespace("kernlab", quietly = TRUE))
   x_mat <- as.matrix(x)
   if (!is.numeric(x_mat)) {
-    stop("The matrix version of the initialization data is not numeric.",
-         call. = FALSE)
+    rlang::abort("The matrix version of the initialization data is not numeric.")
   }
   with_seed(seed, rng <- kernlab::sigest(x_mat, ...)[-2])
   rng <- log10(rng)
@@ -227,8 +223,7 @@ get_batch_sizes  <- function(object, x, frac = c(1/10, 1/3), ...) {
 
   x_dims <- dim(x)
   if (is.null(x_dims))
-    stop("Cannot determine number of columns. Is `x` a 2D data object?",
-         .call = TRUE)
+    rlang::abort("Cannot determine number of columns. Is `x` a 2D data object?")
 
   n_frac <- sort(floor(x_dims[1]*frac))
   n_frac <- log2(n_frac)
