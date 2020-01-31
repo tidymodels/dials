@@ -1,5 +1,7 @@
 # dials (development version)
 
+JENNY SAYS DO NOT MERGE THIS! IT'S AN EXPERIMENT.
+
 # dials 0.0.4
 
 ## New parameter functions:
