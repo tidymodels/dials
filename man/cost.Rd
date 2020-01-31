@@ -3,11 +3,14 @@
 \name{cost}
 \alias{cost}
 \alias{margin}
+\alias{svm_margin}
 \title{Support vector machine parameters}
 \usage{
 cost(range = c(-10, -1), trans = log2_trans())
 
 margin(range = c(0, 0.2), trans = NULL)
+
+svm_margin(range = c(0, 0.2), trans = NULL)
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and
