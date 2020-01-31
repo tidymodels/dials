@@ -1,5 +1,4 @@
-library(testthat)
-library(dials)
+
 library(kernlab)
 
 context("finalizing ranges")

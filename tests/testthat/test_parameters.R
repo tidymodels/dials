@@ -1,5 +1,3 @@
-library(testthat)
-library(dials)
 
 context("qualitative parameter objects")
 
@@ -19,10 +17,7 @@ test_that('param ranges', {
   expect_equal(num_comp(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(cost(-2:-1)$range, list(lower = -2, upper = -1))
   expect_equal(scale_factor(-2:-1)$range, list(lower = -2, upper = -1))
-  expect_warning(
-    expect_equal(dials::margin(c(.1, .15))$range, list(lower = .1, upper = .15))
-  )
-  expect_equal(dials::svm_margin(c(.1, .15))$range, list(lower = .1, upper = .15))
+  expect_equal(svm_margin(c(.1, .15))$range, list(lower = .1, upper = .15))
   expect_equal(deg_free(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(hidden_units(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(batch_size(1:2)$range, list(lower = 1L, upper = 2L))

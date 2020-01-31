@@ -29,14 +29,7 @@ margin <- function(range = c(0, .2), trans = NULL) {
     for more details."
   )
 
-  new_quant_param(
-    type = "double",
-    range = range,
-    inclusive = c(TRUE, TRUE),
-    trans = trans,
-    label = c(margin = "Insensitivity Margin"),
-    finalize = NULL
-  )
+  svm_margin(range = range, trans = trans)
 }
 
 #' @rdname cost

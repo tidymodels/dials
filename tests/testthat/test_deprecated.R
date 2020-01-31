@@ -1,5 +1,3 @@
-library(testthat)
-library(dials)
 
 context("test for deprecation warnings")
 
@@ -8,5 +6,11 @@ test_that("deprecation warnings appear", {
   expect_false(
     package_version(packageVersion("dials")) > package_version("0.0.6.9000"),
     "deprecate allowing `margins` instead of `svm_margins`"
+  )
+})
+
+test_that("param ranges", {
+  expect_warning(
+    expect_equal(dials::margin(c(.1, .15))$range, list(lower = .1, upper = .15))
   )
 })

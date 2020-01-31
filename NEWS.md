@@ -1,6 +1,6 @@
 # dials (development version)
 
-* Renamed `margin()` to `svm_margin()` (#85). We've updated the tests for `margin()` and `svm_margin()` and added the `test_deprecated.R` test script. (@gabrielodom and @gralgomez, #85)
+* Renamed `margin()` to `svm_margin()` (@gabrielodom and @gralgomez, #85)
 
 # dials 0.0.4
 
