@@ -51,7 +51,8 @@ integers that is the same length as the number of parameters in \code{...}.}
 in the transformed space (if any)?}
 
 \item{filter}{A logical: should the parameters be filtered prior to
-generating the grid. Must be captured as a single condition.}
+generating the grid. Must be a single expression referencing parameter
+names that evaluates to a logical vector.}
 
 \item{size}{A single integer for the total number of parameter value
 combinations returned for the random grid.}

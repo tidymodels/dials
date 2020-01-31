@@ -18,7 +18,8 @@
 #' in the transformed space (if any)?
 #'
 #' @param filter A logical: should the parameters be filtered prior to
-#' generating the grid. Must be captured as a single condition.
+#' generating the grid. Must be a single expression referencing parameter
+#' names that evaluates to a logical vector.
 #'
 #' @return
 #'
