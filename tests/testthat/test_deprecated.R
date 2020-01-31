@@ -10,7 +10,9 @@ test_that("deprecation warnings appear", {
 })
 
 test_that("param ranges", {
+  rlang::local_options(lifecycle_verbosity = "warning")
+
   expect_warning(
-    expect_equal(dials::margin(c(.1, .15))$range, list(lower = .1, upper = .15))
+    expect_equal(margin(c(.1, .15))$range, list(lower = .1, upper = .15))
   )
 })

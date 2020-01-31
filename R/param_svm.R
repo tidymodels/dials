@@ -5,6 +5,7 @@
 #' @inheritParams Laplace
 #' @details
 #' These are used by `parsnip::svm_rbf()` and `parsnip::svm_poly()`
+#' @importFrom lifecycle deprecate_soft
 #' @examples
 #' cost()
 #' margin()
@@ -23,10 +24,11 @@ cost <- function(range = c(-10, -1), trans = log2_trans()) {
 #' @rdname cost
 #' @export
 margin <- function(range = c(0, .2), trans = NULL) {
-  warning(
-    "The margin() function will be deprecated in versions >= 0.0.6.9000. Please
-    use svm_margin() instead. See https://github.com/tidymodels/dials/issues/85
-    for more details."
+  deprecate_soft(
+    when = "0.0.5",
+    what = "margin()",
+    with = "svm_margin()",
+    details = "Details: https://github.com/tidymodels/dials/issues/85"
   )
 
   svm_margin(range = range, trans = trans)
