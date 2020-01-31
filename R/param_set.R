@@ -12,7 +12,7 @@ parameters <- function(x, ...) {
 #' @export
 #' @rdname parameters
 parameters.default <- function(x, ...) {
-  stop("`parameters` objects cannot be created from this type of object.", call. = FALSE)
+  rlang::abort("`parameters` objects cannot be created from this type of object.")
 }
 
 #' @export
@@ -29,7 +29,7 @@ parameters.param <- function(x, ...) {
 parameters.list <- function(x, ...) {
   elem_param <- purrr::map_lgl(x, inherits, "param")
   if (any(!elem_param)) {
-    stop("The objects should all be `param` objects.", call. = FALSE)
+    rlang::abort("The objects should all be `param` objects.")
   }
   elem_name <- purrr::map_chr(x, ~ names(.x$label))
   elem_id <- names(x)
@@ -52,10 +52,14 @@ parameters.list <- function(x, ...) {
 chr_check <- function(x) {
   cl <- match.call()
   if (is.null(x)) {
-    stop("Element `", cl$x, "` should not be NULL.", call. = FALSE)
+    rlang::abort(
+      glue::glue("Element `{cl$x}` should not be NULL.")
+    )
   }
   if (!is.character(x)) {
-    stop("Element `", cl$x, "` should be a character string.", call. = FALSE)
+    rlang::abort(
+      glue::glue("Element `{cl$x}` should be a character string.")
+    )
   }
   invisible(TRUE)
 }
@@ -69,7 +73,7 @@ unique_check <- function(x) {
     msg <- paste0("Element `", deparse(cl$x), "` should have unique values. Duplicates exist ",
                   "for item(s): ",
                   paste0("'", dup_list, "'", collapse = ", "))
-    stop(msg, call. = FALSE)
+    rlang::abort(msg)
   }
   invisible(TRUE)
 }
@@ -96,16 +100,20 @@ parameters_constr <-
     chr_check(component_id)
     unique_check(id)
     if (is.null(object)) {
-      stop("Element `object` should not be NULL.", call. = FALSE)
+      rlang::abort("Element `object` should not be NULL.")
     }
     if (!is.list(object)) {
-      stop("`object` should be a list.", call. = FALSE)
+      rlang::abort("`object` should be a list.")
     }
     is_good_boi <- map_lgl(object, param_or_na)
     if (any(!is_good_boi)) {
-      stop("`object` values in the following positions should be NA or a ",
-           "`param` object:", paste0(which(!is_good_boi), collapse = ", "),
-           call. = FALSE)
+      rlang::abort(
+        paste0(
+          "`object` values in the following positions should be NA or a ",
+          "`param` object:",
+          paste0(which(!is_good_boi), collapse = ", ")
+        )
+      )
     }
     res <-
       tibble(
@@ -239,8 +247,12 @@ update.parameters <- function(object, ...) {
 #' @export
 #' @rdname parameters
 param_set <- function(x, ...) {
-  warning("`param_set()` is deprecated in favor of `parameters()`.",
-          "`param_set()` will be available until version 0.0.5.")
+  rlang::warn(
+    paste0(
+      "`param_set()` is deprecated in favor of `parameters()`. ",
+      "`param_set()` will be available until version 0.0.5."
+    )
+  )
   parameters(x, ...)
 }
 

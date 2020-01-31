@@ -94,7 +94,9 @@ make_regular_grid <- function(..., levels = 3, original = TRUE) {
   # check levels
   p <- length(levels)
   if (p > 1 && p != length(param_quos))
-    stop("`levels` should have length 1 or ", length(param_quos), call. = FALSE)
+    rlang::abort(
+      paste0("`levels` should have length 1 or ", length(param_quos))
+    )
 
   if (p == 1) {
     param_seq <- map(params, value_seq, n = levels, original = original)
