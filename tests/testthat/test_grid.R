@@ -1,5 +1,3 @@
-library(testthat)
-library(dials)
 
 context("parameter grids")
 

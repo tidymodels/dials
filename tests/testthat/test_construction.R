@@ -1,5 +1,3 @@
-library(testthat)
-library(dials)
 
 context("qualitative parameter object creation")
 

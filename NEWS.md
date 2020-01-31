@@ -1,5 +1,7 @@
 # dials (development version)
 
+* Renamed `margin()` to `svm_margin()` (@gabrielodom and @gralgomez, #85)
+
 # dials 0.0.4
 
 ## New parameter functions:
