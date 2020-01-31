@@ -6,20 +6,22 @@ base_classes <- c(class(tibble::tibble()))
 check_new_names <- function(x) {
   parameters_cols <- c('name', 'id', 'source', 'component', 'component_id', 'object')
   if (!all(parameters_cols %in% names(x))) {
-    stop(
-      "A `parameters` object has required columns.\nMissing columns: ",
-      paste0("'", parameters_cols[!parameters_cols %in% names(x)], "'",
-             collapse = ", "),
-      call. = FALSE
+    rlang::abort(
+      paste0(
+        "A `parameters` object has required columns.\nMissing columns: ",
+        paste0("'", parameters_cols[!parameters_cols %in% names(x)], "'",
+               collapse = ", ")
+      )
     )
   }
   extra_names <- names(x)[!names(x) %in% parameters_cols]
   if (length(extra_names) != 0) {
-    warning(
-      "Extra names were added to the `parameters`, which has a specific data ",
-      "structure. These columns will be removed: ",
-      paste0("'", extra_names, "'", collapse = ", "),
-      call. = FALSE
+    rlang::warn(
+      paste0(
+        "Extra names were added to the `parameters`, which has a specific data ",
+        "structure. These columns will be removed: ",
+        paste0("'", extra_names, "'", collapse = ", ")
+      )
     )
   }
   invisible(x)

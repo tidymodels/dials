@@ -13,60 +13,32 @@
 \alias{grid_latin_hypercube.workflow}
 \title{Space-filling parameter grids}
 \usage{
-grid_max_entropy(
-  x,
-  ...,
-  size = 3,
-  original = TRUE,
-  variogram_range = 0.5,
-  iter = 1000
-)
+grid_max_entropy(x, ..., size = 3, original = TRUE,
+  variogram_range = 0.5, iter = 1000)
 
-\method{grid_max_entropy}{parameters}(
-  x,
-  ...,
-  size = 3,
-  original = TRUE,
-  variogram_range = 0.5,
-  iter = 1000
-)
+\method{grid_max_entropy}{parameters}(x, ..., size = 3,
+  original = TRUE, variogram_range = 0.5, iter = 1000)
 
-\method{grid_max_entropy}{list}(
-  x,
-  ...,
-  size = 3,
-  original = TRUE,
-  variogram_range = 0.5,
-  iter = 1000
-)
+\method{grid_max_entropy}{list}(x, ..., size = 3, original = TRUE,
+  variogram_range = 0.5, iter = 1000)
 
-\method{grid_max_entropy}{param}(
-  x,
-  ...,
-  size = 3,
-  original = TRUE,
-  variogram_range = 0.5,
-  iter = 1000
-)
+\method{grid_max_entropy}{param}(x, ..., size = 3, original = TRUE,
+  variogram_range = 0.5, iter = 1000)
 
-\method{grid_max_entropy}{workflow}(
-  x,
-  ...,
-  size = 3,
-  original = TRUE,
-  variogram_range = 0.5,
-  iter = 1000
-)
+\method{grid_max_entropy}{workflow}(x, ..., size = 3, original = TRUE,
+  variogram_range = 0.5, iter = 1000)
 
 grid_latin_hypercube(x, ..., size = 3, original = TRUE)
 
-\method{grid_latin_hypercube}{parameters}(x, ..., size = 3, original = TRUE)
+\method{grid_latin_hypercube}{parameters}(x, ..., size = 3,
+  original = TRUE)
 
 \method{grid_latin_hypercube}{list}(x, ..., size = 3, original = TRUE)
 
 \method{grid_latin_hypercube}{param}(x, ..., size = 3, original = TRUE)
 
-\method{grid_latin_hypercube}{workflow}(x, ..., size = 3, original = TRUE)
+\method{grid_latin_hypercube}{workflow}(x, ..., size = 3,
+  original = TRUE)
 }
 \arguments{
 \item{x}{A \code{param} object, list, or \code{parameters}.}

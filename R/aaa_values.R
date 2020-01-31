@@ -308,9 +308,9 @@ inv_wrap <- function(x, object) {
 value_set <- function(object, values) {
   check_for_unknowns(values, "value_set")
   if (length(values) == 0)
-    stop("`values` should at least one element.")
+    rlang::abort("`values` should at least one element.")
   if (!inherits(object, "param"))
-    stop("`object` should be a 'param' object", call. = FALSE)
+    rlang::abort("`object` should be a 'param' object")
 
   if (inherits(object, "quant_param")) {
     object <-
