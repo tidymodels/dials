@@ -64,6 +64,11 @@ each parameter and a row for every parameter combination.
 Random and regular grids can be created for any number of parameter objects.
 }
 \examples{
+# filter arg will allow you to filter subsequent grid data frame based on some condition.
+p <- parameters(penalty(), mixture())
+grid_regular(p)
+grid_regular(p, filter = penalty <= .01)
+
 # Will fail due to unknowns:
 # grid_regular(mtry(), min_n())
 
