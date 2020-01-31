@@ -14,27 +14,27 @@
 \alias{grid_random.workflow}
 \title{Create grids of tuning parameters}
 \usage{
-grid_regular(x, ..., levels = 3, original = TRUE, filter = FALSE)
+grid_regular(x, ..., levels = 3, original = TRUE, filter = NULL)
 
-\method{grid_regular}{parameters}(x, ..., levels = 3, original = TRUE, filter = FALSE)
+\method{grid_regular}{parameters}(x, ..., levels = 3, original = TRUE, filter = NULL)
 
-\method{grid_regular}{list}(x, ..., levels = 3, original = TRUE, filter = FALSE)
+\method{grid_regular}{list}(x, ..., levels = 3, original = TRUE, filter = NULL)
 
-\method{grid_regular}{param}(x, ..., levels = 3, original = TRUE, filter = FALSE)
+\method{grid_regular}{param}(x, ..., levels = 3, original = TRUE, filter = NULL)
 
-\method{grid_regular}{workflow}(x, ..., levels = 3, original = TRUE, filter = FALSE)
+\method{grid_regular}{workflow}(x, ..., levels = 3, original = TRUE, filter = NULL)
 
-make_regular_grid(..., levels = 3, original = TRUE, filter = FALSE)
+make_regular_grid(..., levels = 3, original = TRUE, filter = NULL)
 
-grid_random(x, ..., size = 5, original = TRUE, filter = FALSE)
+grid_random(x, ..., size = 5, original = TRUE, filter = NULL)
 
-\method{grid_random}{parameters}(x, ..., size = 5, original = TRUE, filter = FALSE)
+\method{grid_random}{parameters}(x, ..., size = 5, original = TRUE, filter = NULL)
 
-\method{grid_random}{list}(x, ..., size = 5, original = TRUE, filter = FALSE)
+\method{grid_random}{list}(x, ..., size = 5, original = TRUE, filter = NULL)
 
-\method{grid_random}{param}(x, ..., size = 5, original = TRUE, filter = FALSE)
+\method{grid_random}{param}(x, ..., size = 5, original = TRUE, filter = NULL)
 
-\method{grid_random}{workflow}(x, ..., size = 5, original = TRUE, filter = FALSE)
+\method{grid_random}{workflow}(x, ..., size = 5, original = TRUE, filter = NULL)
 }
 \arguments{
 \item{x}{A \code{param} object, list, or \code{parameters}.}
