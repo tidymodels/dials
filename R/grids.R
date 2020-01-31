@@ -17,7 +17,8 @@
 #' @param original A logical: should the parameters be in the original units or
 #' in the transformed space (if any)?
 #'
-#' @param filter A logical: should the parameters be filtered prior to generating grid. Must be captured as a single condition.
+#' @param filter A logical: should the parameters be filtered prior to
+#' generating the grid. Must be captured as a single condition.
 #'
 #' @return
 #'

@@ -50,7 +50,8 @@ integers that is the same length as the number of parameters in \code{...}.}
 \item{original}{A logical: should the parameters be in the original units or
 in the transformed space (if any)?}
 
-\item{filter}{A logical: should the parameters be filtered prior to generating grid. Must be captured as a single condition.}
+\item{filter}{A logical: should the parameters be filtered prior to
+generating the grid. Must be captured as a single condition.}
 
 \item{size}{A single integer for the total number of parameter value
 combinations returned for the random grid.}
