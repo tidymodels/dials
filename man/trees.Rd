@@ -17,7 +17,7 @@ min_n(range = c(2L, 40L), trans = NULL)
 
 sample_size(range = c(unknown(), unknown()), trans = NULL)
 
-sample_prop(range = c(1/10, 0), trans = NULL)
+sample_prop(range = c(1/10, 1), trans = NULL)
 
 loss_reduction(range = c(-10, 1.5), trans = log10_trans())
 
