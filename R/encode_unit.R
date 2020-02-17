@@ -103,7 +103,7 @@ encode_unit.qual_param <- function(x, value, direction, ...) {
       rlang::abort("`value` should be a numeric vector.")
     }
 
-    ind <- floor(value * (num_lvl - 1)) + 1
+    ind <- cut(value, breaks = seq(0, 1, length.out = num_lvl + 1), include.lowest = TRUE)
     value <- ref_vals[as.integer(ind)]
   }
 

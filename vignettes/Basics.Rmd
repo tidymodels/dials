@@ -34,14 +34,14 @@ In any case, some information is needed to create a grid or to validate whether 
 The main type of objects in `dials` have class `param`.
 
 
-## `param` Objects
+## `parameters` Objects
 
-`param` objects contain information about possible values, ranges, types, and other aspects. There are two main subclasses related to the type of variable. Double and integer valued data have the subclass "quant_param" while character and logicals have "qual_param." There are some common elements for each:
+`parameters` objects contain information about possible values, ranges, types, and other aspects. There are two main subclasses related to the type of variable. Double and integer valued data have the subclass "quant_param" while character and logicals have "qual_param." There are some common elements for each:
 
  * Labels are strings that describe the parameter (e.g. "Number of Components")
  * Defaults are optional single values that can be set when one non-random value is requested. 
 
-Otherwise, the information contained in `param` objects are different for different data types. 
+Otherwise, the information contained in `parameters` objects are different for different data types. 
 
 
 ### Numeric Parameters
