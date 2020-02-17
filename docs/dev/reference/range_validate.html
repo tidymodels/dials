@@ -169,11 +169,26 @@ a new range.</p>
 <span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(
   <span class='fu'>range_validate</span>(<span class='no'>my_lambda</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(-<span class='fl'>10</span>, <span class='fl'>NA</span>)), <span class='kw'>silent</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
 ) <span class='kw'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>()</div><div class='output co'>#&gt; [1] "Error : Value ranges must be non-missing.`Inf` and `unknown()` are acceptable values.\n"
+  <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>()</div><div class='output co'>#&gt; [1] "Error : Value ranges must be non-missing.\n"
 #&gt; attr(,"class")
 #&gt; [1] "try-error"
 #&gt; attr(,"condition")
-#&gt; &lt;simpleError: Value ranges must be non-missing.`Inf` and `unknown()` are acceptable values.&gt;</div><div class='input'>
+#&gt; <span style='font-weight: bold;'>&lt;error/`Inf` and `unknown()` are acceptable values.&gt;</span><span>
+#&gt; Value ranges must be non-missing.
+#&gt; </span><span style='font-weight: bold;'>Backtrace:</span><span>
+#&gt; </span><span style='color: #555555;'>  1. </span><span>base::tryCatch(...)
+#&gt; </span><span style='color: #555555;'> 13. </span><span>pkgdown::build_site(...)
+#&gt; </span><span style='color: #555555;'> 14. </span><span>pkgdown:::build_site_local(...)
+#&gt; </span><span style='color: #555555;'> 15. </span><span>pkgdown::build_reference(...)
+#&gt; </span><span style='color: #555555;'> 16. </span><span>purrr::map(...)
+#&gt; </span><span style='color: #555555;'> 17. </span><span>pkgdown:::.f(.x[[i]], ...)
+#&gt; </span><span style='color: #555555;'> 18. </span><span>pkgdown:::data_reference_topic(...)
+#&gt; </span><span style='color: #555555;'> 19. </span><span>pkgdown:::run_examples(...)
+#&gt; </span><span style='color: #555555;'> 20. </span><span>pkgdown:::highlight_examples(code, topic, env = env)
+#&gt; </span><span style='color: #555555;'> 21. </span><span>evaluate::evaluate(x, child_env(env), new_device = TRUE)
+#&gt; </span><span style='color: #555555;'> 22. </span><span>evaluate:::evaluate_call(...)
+#&gt; </span><span style='color: #555555;'> 32. </span><span>[ base::eval(...) ]</span><span style='color: #555555;'> with 1 more call</span><span>
+#&gt; </span><span style='color: #555555;'> 42. </span><span>dials::range_validate(my_lambda, c(-10, NA))</div><div class='input'>
 <span class='fu'>range_get</span>(<span class='no'>my_lambda</span>)</div><div class='output co'>#&gt; $lower
 #&gt; [1] 1e-10
 #&gt; 
@@ -188,7 +203,7 @@ a new range.</p>
 #&gt; $upper
 #&gt; [1] 100
 #&gt; </div><div class='input'>
-</div></pre>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <h2>Contents</h2>

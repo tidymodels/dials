@@ -126,24 +126,12 @@ these functions are called from higher level parameter generating functions
 like <code><a href='mtry.html'>mtry()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>new_quant_param</span>(
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"double"</span>, <span class='st'>"integer"</span>),
-  <span class='no'>range</span>,
-  <span class='no'>inclusive</span>,
-  <span class='kw'>default</span> <span class='kw'>=</span> <span class='fu'><a href='unknown.html'>unknown</a></span>(),
-  <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>values</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>label</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>finalize</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
-)
+    <pre class="usage"><span class='fu'>new_quant_param</span>(<span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"double"</span>, <span class='st'>"integer"</span>), <span class='no'>range</span>, <span class='no'>inclusive</span>,
+  <span class='kw'>default</span> <span class='kw'>=</span> <span class='fu'><a href='unknown.html'>unknown</a></span>(), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>values</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>label</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>finalize</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>new_qual_param</span>(
-  <span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"character"</span>, <span class='st'>"logical"</span>),
-  <span class='no'>values</span>,
-  <span class='kw'>default</span> <span class='kw'>=</span> <span class='fu'><a href='unknown.html'>unknown</a></span>(),
-  <span class='kw'>label</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>finalize</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
-)</pre>
+<span class='fu'>new_qual_param</span>(<span class='kw'>type</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"character"</span>, <span class='st'>"logical"</span>), <span class='no'>values</span>,
+  <span class='kw'>default</span> <span class='kw'>=</span> <span class='fu'><a href='unknown.html'>unknown</a></span>(), <span class='kw'>label</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>finalize</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
