@@ -6,6 +6,7 @@
 
 * A better error message was created when grids are used with parameters sets that contain parameters that require finalization [#99](https://github.com/tidymodels/dials/issues/99)
 
+* Space-filling desings now share the same attributes as other grid objects [#100](https://github.com/tidymodels/dials/issues/100)
 
 
 # dials 0.0.4

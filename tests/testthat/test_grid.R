@@ -1,6 +1,12 @@
 
 context("parameter grids")
 
+# ------------------------------------------------------------------------------
+
+source("helper-functions.R")
+
+# ------------------------------------------------------------------------------
+
 test_that('regular grid', {
   expect_error(
     grid_regular(mtcars)
@@ -71,3 +77,15 @@ test_that('filter arg yields same results', {
   )
 })
 
+
+test_that('grid attributes', {
+  p <- parameters(penalty(), mixture())
+  expect_true(proper_grid(grid_regular(p), "grid_regular"))
+  expect_true(proper_grid(grid_regular(penalty(), mixture()), "grid_regular"))
+  expect_true(proper_grid(grid_regular(list(penalty(), mixture())), "grid_regular"))
+
+  expect_true(proper_grid(grid_random(p), "grid_random"))
+  expect_true(proper_grid(grid_random(penalty(), mixture()), "grid_random"))
+  expect_true(proper_grid(grid_random(list(penalty(), mixture())), "grid_random"))
+
+})
