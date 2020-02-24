@@ -4,6 +4,10 @@
 
 * A bug in space filling designs with qualitative parameters was fixed [#94](https://github.com/tidymodels/dials/issues/94)
 
+* A better error message was created when grids are used with parameters sets that contain parameters that require finalization [#99](https://github.com/tidymodels/dials/issues/99)
+
+
+
 # dials 0.0.4
 
 ## New parameter functions:

@@ -16,10 +16,12 @@ validate_params <- function(...) {
   }
   bad_param <- has_unknowns(params)
   if (any(bad_param)) {
+    bad_param <- names(bad_param)[bad_param]
     rlang::abort(
       paste0(
         "These arguments contains unknowns: ",
-        paste0("`", param_expr[bad_param], "`", collapse = ","))
+        paste0("`", bad_param, "`", collapse = ","),
+        '. See the `finalize()` function.')
     )
   }
   invisible(NULL)

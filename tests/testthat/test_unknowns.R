@@ -26,3 +26,75 @@ test_that('has_unknown', {
     c(TRUE, FALSE)
   )
 })
+
+test_that("unknowns in grid functions", {
+  p1 <- parameters(q = mtry(), min_n())
+  p2 <- parameters(mtry())
+
+  expect_error(
+    grid_regular(p1),
+    "These arguments contains unknowns: `q`"
+  )
+  expect_error(
+    grid_regular(p2),
+    "These arguments contains unknowns: `mtry`"
+  )
+  expect_error(
+    grid_random(p1),
+    "These arguments contains unknowns: `q`"
+  )
+  expect_error(
+    grid_random(p2),
+    "These arguments contains unknowns: `mtry`"
+  )
+  expect_error(
+    grid_latin_hypercube(p1),
+    "These arguments contains unknowns: `q`"
+  )
+  expect_error(
+    grid_latin_hypercube(p2),
+    "These arguments contains unknowns: `mtry`"
+  )
+  expect_error(
+    grid_max_entropy(p1),
+    "These arguments contains unknowns: `q`"
+  )
+  expect_error(
+    grid_max_entropy(p2),
+    "These arguments contains unknowns: `mtry`"
+  )
+
+  expect_error(
+    grid_regular(min_n(), q = mtry()),
+    "These arguments contains unknowns: `q`"
+  )
+  expect_error(
+    grid_regular(mtry()),
+    "These arguments contains unknowns: `mtry`"
+  )
+  expect_error(
+    grid_random(min_n(), q = mtry()),
+    "These arguments contains unknowns: `q`"
+  )
+  expect_error(
+    grid_random(mtry()),
+    "These arguments contains unknowns: `mtry`"
+  )
+  expect_error(
+    grid_regular(min_n(), q = mtry()),
+    "These arguments contains unknowns: `q`"
+  )
+  expect_error(
+    grid_latin_hypercube(mtry()),
+    "These arguments contains unknowns: `mtry`"
+  )
+  expect_error(
+    grid_max_entropy(min_n(), q = mtry()),
+    "These arguments contains unknowns: `q`"
+  )
+  expect_error(
+    grid_max_entropy(mtry()),
+    "These arguments contains unknowns: `mtry`"
+  )
+})
+
