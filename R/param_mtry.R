@@ -13,8 +13,8 @@
 #' data set, the upper bound is set to `unknown` but can be filled in via the
 #' `finalize()` method.
 #' @examples
-#' mtry(c(1, 10))
-#' mtry_long(c(0, 5))
+#' mtry(c(1L, 10L))   # in original units
+#' mtry_long(c(0, 5)) # in log10 units
 #' @export
 mtry <- function(range = c(1L, unknown()), trans = NULL) {
   new_quant_param(

@@ -11,7 +11,7 @@ dropout(range = c(0, 1), trans = NULL)
 
 epochs(range = c(1L, 1000L), trans = NULL)
 
-hidden_units(range = c(1L, 10), trans = NULL)
+hidden_units(range = c(1L, 10L), trans = NULL)
 
 batch_size(range = c(unknown(), unknown()), trans = log2_trans())
 }

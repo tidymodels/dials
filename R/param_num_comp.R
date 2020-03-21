@@ -11,7 +11,7 @@
 #' The difference between `num_comp()` and `num_terms()` is semantics.
 #' @examples
 #' num_terms()
-#' num_terms(c(2, 10))
+#' num_terms(c(2L, 10L))
 #' @export
 num_comp <- function(range = c(1L, unknown()), trans = NULL) {
   new_quant_param(

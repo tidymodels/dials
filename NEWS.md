@@ -1,6 +1,6 @@
 # dials (development version)
 
-* Renamed `margin()` to `svm_margin()` (@gabrielodom and @gralgomez, #85)
+* Renamed `margin()` to `svm_margin()` (@gabrielodom and @gralgomez, [#85](https://github.com/tidymodels/dials/issues/85))
 
 * A bug in space filling designs with qualitative parameters was fixed [#94](https://github.com/tidymodels/dials/issues/94)
 

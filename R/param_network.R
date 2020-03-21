@@ -40,7 +40,7 @@ epochs <- function(range = c(1L, 1000L), trans = NULL) {
 
 #' @export
 #' @rdname dropout
-hidden_units <- function(range = c(1L, 10), trans = NULL) {
+hidden_units <- function(range = c(1L, 10L), trans = NULL) {
   new_quant_param(
     type = "integer",
     range = range,
@@ -55,7 +55,7 @@ hidden_units <- function(range = c(1L, 10), trans = NULL) {
 #' @rdname dropout
 batch_size <- function(range = c(unknown(), unknown()), trans = log2_trans()) {
   new_quant_param(
-    type = "double",
+    type = "integer",
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,

@@ -4,7 +4,7 @@
 \alias{deg_free}
 \title{Degrees of freedom (integer)}
 \usage{
-deg_free(range = c(1, 5), trans = NULL)
+deg_free(range = c(1L, 5L), trans = NULL)
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and

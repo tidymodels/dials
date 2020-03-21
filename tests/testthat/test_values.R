@@ -66,7 +66,7 @@ test_param_2 <-
 test_param_3 <-
   new_quant_param(
     type = "double",
-    range = 0:1,
+    range = c(0.0, 1.0),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     default = .40,
@@ -75,7 +75,7 @@ test_param_3 <-
 test_param_4 <-
   new_quant_param(
     type = "double",
-    range = 0:1,
+    range = c(0.0, 1.0),
     inclusive = c(TRUE, TRUE),
     trans = sqrt_trans(),
     default = sqrt(.6),
@@ -84,7 +84,7 @@ test_param_4 <-
 value_seq <-
   new_quant_param(
     type = "double",
-    range = 0:1,
+    range = c(0.0, 1.0),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     values = (0:5)/5,
@@ -94,7 +94,7 @@ value_seq <-
 int_seq <-
   new_quant_param(
     type = "integer",
-    range = c(0, 100),
+    range = c(0L, 100L),
     inclusive = c(TRUE, TRUE),
     trans = NULL,
     values = 1:10,
