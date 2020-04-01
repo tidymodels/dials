@@ -30,5 +30,5 @@ The difference between \code{num_comp()} and \code{num_terms()} is semantics.
 }
 \examples{
 num_terms()
-num_terms(c(2, 10))
+num_terms(c(2L, 10L))
 }

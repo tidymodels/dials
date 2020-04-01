@@ -82,7 +82,7 @@ num_subgroups <- function(range = c(1L, 20L), trans = NULL) {
 
 num_subgroups()
 
-num_subgroups(range = c(3, 5))
+num_subgroups(range = c(3L, 5L))
 
 # Custom parameters instantly have access
 # to sequence generating functions

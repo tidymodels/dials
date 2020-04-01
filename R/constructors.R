@@ -56,7 +56,7 @@
 #'
 #' num_subgroups()
 #'
-#' num_subgroups(range = c(3, 5))
+#' num_subgroups(range = c(3L, 5L))
 #'
 #' # Custom parameters instantly have access
 #' # to sequence generating functions
@@ -75,7 +75,9 @@ new_quant_param <- function(
   type <- match.arg(type)
 
   if (!(type %in% c("double", "integer"))) {
-    rlang::abort("`type should be either 'double' or 'integer'.")
+    rlang::abort("`type` should be either 'double' or 'integer'.")
+  } else {
+    check_range(range, type, trans)
   }
 
 
@@ -110,7 +112,7 @@ new_quant_param <- function(
 
   if (!is.null(values)) {
     ok_vals <- value_validate(res, values)
-    if(all(ok_vals))
+    if (all(ok_vals))
       res$values <- values
     else
       rlang::abort(

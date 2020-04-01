@@ -1,6 +1,8 @@
 # dials (development version)
 
-* Renamed `margin()` to `svm_margin()` (@gabrielodom and @gralgomez, #85)
+* When kept in the original units, a parameter's range must now be the same data type as the parameter. 
+
+* Renamed `margin()` to `svm_margin()` (@gabrielodom and @gralgomez, [#85](https://github.com/tidymodels/dials/issues/85))
 
 * A bug in space filling designs with qualitative parameters was fixed [#94](https://github.com/tidymodels/dials/issues/94)
 

@@ -8,7 +8,7 @@
 #' @examples
 #' deg_free()
 #' @export
-deg_free <- function(range = c(1, 5), trans = NULL) {
+deg_free <- function(range = c(1L, 5L), trans = NULL) {
   new_quant_param(
     type = "integer",
     range = range,

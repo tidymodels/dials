@@ -10,15 +10,13 @@
 |collate  |en_US.UTF-8                  |
 |ctype    |en_US.UTF-8                  |
 |tz       |America/New_York             |
-|date     |2019-12-01                   |
+|date     |2020-03-21                   |
 
 # Dependencies
 
-|package |old   |new   |Δ  |
-|:-------|:-----|:-----|:--|
-|dials   |0.0.3 |0.0.4 |*  |
-|farver  |NA    |2.0.1 |*  |
-|scales  |NA    |1.1.0 |*  |
+|package |old   |new        |Δ  |
+|:-------|:-----|:----------|:--|
+|dials   |0.0.4 |0.0.4.9000 |*  |
 
 # Revdeps
 

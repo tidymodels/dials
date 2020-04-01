@@ -83,13 +83,13 @@
 #' complete_params %>% dplyr::filter(parameter == "rbf_sigma") %>% pull(object)
 #'
 #' @export
-finalize <- function (object, ...) {
+finalize <- function(object, ...) {
   UseMethod("finalize")
 }
 
 #' @export
 #' @rdname finalize
-finalize.list <- function (object, x, force = TRUE, ...) {
+finalize.list <- function(object, x, force = TRUE, ...) {
   map(object, finalize, x, force, ...)
 }
 
@@ -141,6 +141,10 @@ get_p <- function(object, x, log_vals = FALSE, ...) {
     rngs[2] <- x_dims[2]
   }
 
+  if (object$type == "integer" & is.null(object$trans)) {
+    rngs <- as.integer(rngs)
+  }
+
   range_set(object, rngs)
 }
 
@@ -168,7 +172,9 @@ get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ...) {
   } else {
     rngs[2] <- n_frac
   }
-
+  if (object$type == "integer" & is.null(object$trans) & !log_vals) {
+    rngs <- as.integer(rngs)
+  }
   range_set(object, rngs)
 }
 
@@ -191,6 +197,10 @@ get_n_frac_range <- function(object, x, log_vals = FALSE, frac = c(1/10, 5/10), 
     rngs <- n_frac
   }
 
+  if (object$type == "integer" & is.null(object$trans) & !log_vals) {
+    rngs <- as.integer(rngs)
+  }
+
   range_set(object, rngs)
 }
 
@@ -198,6 +208,7 @@ get_n_frac_range <- function(object, x, log_vals = FALSE, frac = c(1/10, 5/10), 
 #' @rdname finalize
 get_n <- function(object, x, log_vals = FALSE, ...) {
   get_n_frac(object, x, log_vals, frac = 1, ...)
+
 }
 
 #' @export
@@ -227,6 +238,10 @@ get_batch_sizes  <- function(object, x, frac = c(1/10, 1/3), ...) {
 
   n_frac <- sort(floor(x_dims[1]*frac))
   n_frac <- log2(n_frac)
+
+  if (object$type == "integer" & is.null(object$trans)) {
+    n_frac <- as.integer(n_frac)
+  }
 
   range_set(object, n_frac)
 }

@@ -5,7 +5,9 @@
 \alias{prune_method}
 \alias{values_prune_method}
 \title{MARS pruning methods}
-\format{An object of class \code{character} of length 6.}
+\format{
+An object of class \code{character} of length 6.
+}
 \usage{
 prune_method(values = values_prune_method)
 
