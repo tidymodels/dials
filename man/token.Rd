@@ -5,7 +5,9 @@
 \alias{token}
 \alias{values_token}
 \title{Token types}
-\format{An object of class \code{character} of length 12.}
+\format{
+An object of class \code{character} of length 12.
+}
 \usage{
 token(values = values_token)
 

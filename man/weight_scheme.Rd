@@ -5,7 +5,9 @@
 \alias{weight_scheme}
 \alias{values_weight_scheme}
 \title{Term frequency weighting methods}
-\format{An object of class \code{character} of length 5.}
+\format{
+An object of class \code{character} of length 5.
+}
 \usage{
 weight_scheme(values = values_weight_scheme)
 

@@ -5,7 +5,9 @@
 \alias{weight_func}
 \alias{values_weight_func}
 \title{Kernel functions for distance weighting}
-\format{An object of class \code{character} of length 10.}
+\format{
+An object of class \code{character} of length 10.
+}
 \usage{
 weight_func(values = values_weight_func)
 

@@ -5,7 +5,9 @@
 \alias{surv_dist}
 \alias{values_surv_dist}
 \title{Parametric distributions for censored data}
-\format{An object of class \code{character} of length 6.}
+\format{
+An object of class \code{character} of length 6.
+}
 \usage{
 surv_dist(values = values_surv_dist)
 
