@@ -63,7 +63,7 @@ degree() or spline_degree()) or a product is used (e.g. prod_degree)." />
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -80,7 +80,7 @@ degree() or spline_degree()) or a product is used (e.g. prod_degree)." />
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5</span>
         </div>
       </div>
     </div>
@@ -96,7 +96,7 @@ degree() or spline_degree()) or a product is used (e.g. prod_degree)." />
   <a href="../news/index.html">News</a>
 </li>
         <li>
-  <a href="https://github.com/tidymodels/dials">
+  <a href="https://github.com/tidymodels/dials/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -126,9 +126,9 @@ degree() or spline_degree()) or a product is used (e.g. prod_degree)." />
 
     <pre class="usage"><span class='fu'>degree</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>degree_int</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>3</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>degree_int</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fl'>3L</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>spline_degree</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3</span>, <span class='fl'>10</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
+<span class='fu'>spline_degree</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3L</span>, <span class='fl'>10L</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='fu'>prod_degree</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fl'>2L</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
@@ -167,13 +167,9 @@ interactions (and generates an integer).</p>
 #&gt; Range: [1, 2]</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 

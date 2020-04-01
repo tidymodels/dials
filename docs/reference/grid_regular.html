@@ -62,7 +62,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -79,7 +79,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.4</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.5</span>
         </div>
       </div>
     </div>
@@ -95,7 +95,7 @@
   <a href="../news/index.html">News</a>
 </li>
         <li>
-  <a href="https://github.com/tidymodels/dials">
+  <a href="https://github.com/tidymodels/dials/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -122,35 +122,35 @@
     <p>Random and regular grids can be created for any number of parameter objects.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>grid_regular</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+    <pre class="usage"><span class='fu'>grid_regular</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='co'># S3 method for parameters</span>
-<span class='fu'>grid_regular</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>grid_regular</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='co'># S3 method for list</span>
-<span class='fu'>grid_regular</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>grid_regular</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='co'># S3 method for param</span>
-<span class='fu'>grid_regular</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>grid_regular</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='co'># S3 method for workflow</span>
-<span class='fu'>grid_regular</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>grid_regular</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>make_regular_grid</span>(<span class='no'>...</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>make_regular_grid</span>(<span class='no'>...</span>, <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>3</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
-<span class='fu'>grid_random</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>grid_random</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='co'># S3 method for parameters</span>
-<span class='fu'>grid_random</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>grid_random</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='co'># S3 method for list</span>
-<span class='fu'>grid_random</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>grid_random</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='co'># S3 method for param</span>
-<span class='fu'>grid_random</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>grid_random</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)
 
 <span class='co'># S3 method for workflow</span>
-<span class='fu'>grid_random</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
+<span class='fu'>grid_random</span>(<span class='no'>x</span>, <span class='no'>...</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>5</span>, <span class='kw'>original</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>filter</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -177,6 +177,12 @@ integers that is the same length as the number of parameters in <code>...</code>
 in the transformed space (if any)?</p></td>
     </tr>
     <tr>
+      <th>filter</th>
+      <td><p>A logical: should the parameters be filtered prior to
+generating the grid. Must be a single expression referencing parameter
+names that evaluates to a logical vector.</p></td>
+    </tr>
+    <tr>
       <th>size</th>
       <td><p>A single integer for the total number of parameter value
 combinations returned for the random grid.</p></td>
@@ -190,10 +196,32 @@ combinations returned for the random grid.</p></td>
 each parameter and a row for every parameter combination.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Will fail due to unknowns:</span>
+    <pre class="examples"><div class='input'><span class='co'># filter arg will allow you to filter subsequent grid data frame based on some condition.</span>
+<span class='no'>p</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='parameters.html'>parameters</a></span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>())
+<span class='fu'>grid_regular</span>(<span class='no'>p</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 9 x 2</span><span>
+#&gt;        penalty mixture
+#&gt;          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0  
+#&gt; </span><span style='color: #555555;'>2</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          0  
+#&gt; </span><span style='color: #555555;'>3</span><span> 1                0  
+#&gt; </span><span style='color: #555555;'>4</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0.5
+#&gt; </span><span style='color: #555555;'>5</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          0.5
+#&gt; </span><span style='color: #555555;'>6</span><span> 1                0.5
+#&gt; </span><span style='color: #555555;'>7</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     1  
+#&gt; </span><span style='color: #555555;'>8</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          1  
+#&gt; </span><span style='color: #555555;'>9</span><span> 1                1  </div><div class='input'><span class='fu'>grid_regular</span>(<span class='no'>p</span>, <span class='kw'>filter</span> <span class='kw'>=</span> <span class='no'>penalty</span> <span class='kw'>&lt;=</span> <span class='fl'>.01</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 2</span><span>
+#&gt;        penalty mixture
+#&gt;          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'>1</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0  
+#&gt; </span><span style='color: #555555;'>2</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          0  
+#&gt; </span><span style='color: #555555;'>3</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0.5
+#&gt; </span><span style='color: #555555;'>4</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          0.5
+#&gt; </span><span style='color: #555555;'>5</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     1  
+#&gt; </span><span style='color: #555555;'>6</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          1  </div><div class='input'>
+<span class='co'># Will fail due to unknowns:</span>
 <span class='co'># grid_regular(mtry(), min_n())</span>
 
-<span class='fu'>grid_regular</span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>())</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 9 x 2</span><span>
+<span class='fu'>grid_regular</span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>())</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 9 x 2</span><span>
 #&gt;        penalty mixture
 #&gt;          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0  
@@ -229,13 +257,9 @@ each parameter and a row for every parameter combination.</p>
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 

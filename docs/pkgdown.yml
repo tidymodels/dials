@@ -1,6 +1,7 @@
-pandoc: 2.3.1
+pandoc: 2.9.1
 pkgdown: 1.4.1.9000
-pkgdown_sha: 891cd8be82e2fdebe9ef3b2623687f7ac26297f8
+pkgdown_sha: b7045baef5c241c61ecf06d95b8bd4f12a3fc622
 articles:
   Basics: Basics.html
+last_built: 2020-04-01T13:19Z
 
