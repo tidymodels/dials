@@ -31,10 +31,10 @@
 #' @details
 #'
 #' For sequences of integers, the code uses
-#' `unique(floor(seq(min, max, length = n)))` and this may generate an uneven
-#' set of values shorter than `n`. This also means that if `n` is larger than
-#' the range of the integers, a smaller set will be generated. For qualitative
-#' parameters, the first `n` values are returned.
+#' `unique(floor(seq(min, max, length.out = n)))` and this may generate an
+#' uneven set of values shorter than `n`. This also means that if `n` is larger
+#' than the range of the integers, a smaller set will be generated. For
+#' qualitative parameters, the first `n` values are returned.
 #'
 #' If a single value sequence is requested, the default value is returned (if
 #' any). If no default is specified, the regular algorithm is used.
@@ -148,7 +148,7 @@ value_seq_dbl <- function(object, n, original = TRUE) {
       res <- seq(
         from = min(unlist(object$range)),
         to = max(unlist(object$range)),
-        length = n
+        length.out = n
       )
     }
   }
@@ -167,7 +167,7 @@ value_seq_int <- function(object, n, original = TRUE) {
       res <- seq(
         from = min(unlist(object$range)),
         to = max(unlist(object$range)),
-        length = n
+        length.out = n
       )
     }
   }

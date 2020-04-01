@@ -52,10 +52,10 @@ are provided.
 }
 \details{
 For sequences of integers, the code uses
-\code{unique(floor(seq(min, max, length = n)))} and this may generate an uneven
-set of values shorter than \code{n}. This also means that if \code{n} is larger than
-the range of the integers, a smaller set will be generated. For qualitative
-parameters, the first \code{n} values are returned.
+\code{unique(floor(seq(min, max, length.out = n)))} and this may generate an
+uneven set of values shorter than \code{n}. This also means that if \code{n} is larger
+than the range of the integers, a smaller set will be generated. For
+qualitative parameters, the first \code{n} values are returned.
 
 If a single value sequence is requested, the default value is returned (if
 any). If no default is specified, the regular algorithm is used.
