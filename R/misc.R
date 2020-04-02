@@ -53,17 +53,36 @@ check_range <- function(x, type, trans) {
   if (!is.null(trans)) {
     return(invisible(x))
   }
-  x0 <- 0
   if (!is.list(x)) {
     x <- as.list(x)
   }
-  x <- x[!is_unknown(x)]
-  right_type <- purrr::map_lgl(x, ~ all(typeof(.x) == type))
-  if (length(right_type) > 0 && any(!right_type)) {
-    msg <- paste0(
-      "Since `type = '", type, "'`, please use that data type for the range."
-    )
-    rlang::abort(msg)
+  x0 <- x
+  known <- !is_unknown(x)
+  x <- x[known]
+  x_type <- purrr::map_chr(x, typeof)
+  wrong_type <- any(x_type != type)
+  convert_type <- all(x_type == "double") & type == "integer"
+  if (length(x) > 0 && wrong_type) {
+    if (convert_type) {
+      # logic from from ?is.integer
+      whole <-
+        purrr::map_lgl(x0[known], ~ abs(.x - round(.x)) < .Machine$double.eps^0.5)
+      if (!all(whole)) {
+        msg <- paste(x0[known][!whole], collapse = ", ")
+        msg <- paste0(
+          "An integer is required for the range and these do not appear to be ",
+          "whole numbers: ", msg
+        )
+        rlang::abort(msg)
+      }
+
+      x0[known] <- as.integer(x0[known])
+    } else {
+      msg <- paste0(
+        "Since `type = '", type, "'`, please use that data type for the range."
+      )
+      rlang::abort(msg)
+    }
   }
   invisible(x0)
 }

@@ -1,3 +1,7 @@
+# dials 0.0.6
+
+* Quick bug fix release related to range checks in 0.0.5. The check is more forgiving when the required type is integer and a double is provided. 
+
 # dials 0.0.5
 
 * When kept in the original units, a parameter's range must now be the same data type as the parameter. 
