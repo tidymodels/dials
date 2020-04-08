@@ -4,9 +4,9 @@
 #'
 #' @inheritParams dials::Laplace
 #' @examples
-#' n_tokens()
+#' num_tokens()
 #' @export
-n_tokens <- function(range = c(1, 3), trans = NULL) {
+num_tokens <- function(range = c(1, 3), trans = NULL) {
   dials::new_quant_param(
     type = "integer",
     range = range,
