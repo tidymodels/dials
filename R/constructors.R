@@ -77,11 +77,12 @@ new_quant_param <- function(
   if (!(type %in% c("double", "integer"))) {
     rlang::abort("`type` should be either 'double' or 'integer'.")
   } else {
-    check_range(range, type, trans)
+    range <- check_range(range, type, trans)
   }
 
-
-  range <- as.list(range)
+  if (!is.list(range)) {
+    range <- as.list(range)
+  }
 
   if (length(inclusive) != 2)
     rlang::abort("`inclusive` must have upper and lower values.")
