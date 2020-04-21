@@ -2,7 +2,7 @@
 #'
 #' Used in `textrecipes::step_ngram()`.
 #'
-#' @inheritParams dials::Laplace
+#' @inheritParams Laplace
 #' @examples
 #' num_tokens()
 #' @export
