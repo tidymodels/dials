@@ -1,3 +1,5 @@
+url: https://dials.tidymodels.org
+
 template:
   package: tidytemplate
   params:
