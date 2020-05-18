@@ -12,9 +12,9 @@ rnd <- grid_random(dropout(), prune(), degree())
 check_att <- function(x, y)
   length(setdiff(names(attributes(x)), names(attributes(x)))) == 0
 
-grid_test <- function(x)
-  inherits(x, "param_grid") &
-    "info" %in%  names(attributes(x))
+grid_test <- function(x) {
+  inherits(x, "param_grid")
+}
 
 # ------------------------------------------------------------------------------
 

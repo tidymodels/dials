@@ -3,7 +3,6 @@ proper_grid <- function(x, cls = NULL) {
   for (i in cls) {
     res <- res & inherits(x, i)
   }
-  res <- res & sum(names(attributes(x)) == "info") == 1
   res
 }
 
