@@ -25,8 +25,9 @@ Imports:
     utils,
     withr,
     DiceDesign,
-    dplyr,
-    lifecycle
+    dplyr (>= 0.8.5),
+    lifecycle,
+    vctrs (>= 0.3.0)
 Suggests: 
     testthat,
     knitr,
