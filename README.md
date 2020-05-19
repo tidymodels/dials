@@ -3,14 +3,10 @@
 
 # dials
 
-[![Build
-Status](https://travis-ci.org/tidymodels/dials.svg?branch=master)](https://travis-ci.org/tidymodels/dials)
 [![R build
 status](https://github.com/tidymodels/dials/workflows/R-CMD-check/badge.svg)](https://github.com/tidymodels/dials/actions)
-[![Coverage
-status](https://codecov.io/gh/tidymodels/dials/branch/master/graph/badge.svg)](https://codecov.io/github/tidymodels/dials?branch=master)
 [![Codecov test
-coverage](https://codecov.io/gh/topepo/dials/branch/master/graph/badge.svg)](https://codecov.io/gh/topepo/dials?branch=master)
+coverage](https://codecov.io/gh/tidymodels/dials/branch/master/graph/badge.svg)](https://codecov.io/gh/tidymodels/dials?branch=master)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dials)](https://CRAN.R-project.org/package=dials)
 [![Downloads](http://cranlogs.r-pkg.org/badges/dials)](https://CRAN.R-project.org/package=dials)
 [![Lifecycle:
