@@ -40,13 +40,6 @@ vec_ptype2.data.frame.parameters <- function(x, y, ..., x_arg = "", y_arg = "") 
   tib_ptype2(x, y, ..., x_arg = x_arg, y_arg = y_arg)
 }
 
-# The common type of a <parameters> and <parameters> is another <parameters>
-# data frame as long as the `id` column doesn't get duplicated in the result.
-parameters_ptype2 <- function(x, y, ..., x_arg = "", y_arg = "") {
-  out <- tib_ptype2(x, y, ..., x_arg = x_arg, y_arg = y_arg)
-  parameters_maybe_reconstruct(out, x)
-}
-
 
 #' @export
 vec_cast.parameters.parameters <- function(x, to, ..., x_arg = "", to_arg = "") {
