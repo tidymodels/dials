@@ -46,28 +46,16 @@ test_that("filter() keeps parameters class when rows are modified", {
 # ------------------------------------------------------------------------------
 # rename()
 
-# TODO: Fix me
-# test_that("renaming can keep the parameters class", {
-#   for (x in parameters_subclasses) {
-#     x <- mutate(x, a = 1)
-#     x <- rename(x, b = a)
-#     expect_s3_class_parameters(x)
-#   }
-# })
-#
-# test_that("renaming `id` at all drops the parameters class", {
-#   for (x in parameters_subclasses) {
-#     x <- rename(x, id9 = id)
-#     expect_s3_class_bare_tibble(x)
-#   }
-# })
-#
-# test_that("renaming `id` to a non-id name drops the parameters class", {
-#   for (x in parameters_subclasses) {
-#     x <- rename(x, stuff = id)
-#     expect_s3_class_bare_tibble(x)
-#   }
-# })
+test_that("renaming can keep the parameters class if nothing is renamed", {
+  x <- parameters(list(penalty(), mixture()))
+  expect_s3_class_parameters(rename(x))
+  expect_s3_class_parameters(rename(x, name = name))
+})
+
+test_that("renaming drops the parameters class if anything is renamed", {
+  x <- parameters(list(penalty(), mixture()))
+  expect_s3_class_bare_tibble(rename(x, foo = name))
+})
 
 # ------------------------------------------------------------------------------
 # select()

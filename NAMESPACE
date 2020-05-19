@@ -2,6 +2,7 @@
 
 S3method("[",param_grid)
 S3method("[",parameters)
+S3method("names<-",parameters)
 S3method(encode_unit,default)
 S3method(encode_unit,qual_param)
 S3method(encode_unit,quant_param)

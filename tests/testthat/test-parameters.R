@@ -202,3 +202,36 @@ test_that("additional attributes are kept when subsetting and rset class is drop
   expect_s3_class_bare_tibble(result)
   expect_identical(attr(result, "foo"), "bar")
 })
+
+# ------------------------------------------------------------------------------
+# `names<-`
+
+test_that("renaming triggers a fallback", {
+  x <- parameters(list(penalty(), mixture()))
+
+  names <- names(x)
+  names[[1]] <- "foo"
+
+  names(x) <- names
+
+  expect_s3_class_bare_tibble(x)
+})
+
+test_that("swapping names triggers a fallback", {
+  x <- parameters(list(penalty(), mixture()))
+
+  names <- names(x)
+  one <- names[[1]]
+  names[[1]] <- names[[3]]
+  names[[3]] <- one
+
+  names(x) <- names
+
+  expect_s3_class_bare_tibble(x)
+})
+
+test_that("renaming with the same names doesn't fall back", {
+  x <- parameters(list(penalty(), mixture()))
+  names(x) <- names(x)
+  expect_s3_class_parameters(x)
+})
