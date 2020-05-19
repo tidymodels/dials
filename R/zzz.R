@@ -11,6 +11,13 @@
   } else {
     vctrs::s3_register("dplyr::dplyr_reconstruct", "parameters", method = dplyr_reconstruct_parameters)
   }
+
+  vctrs::s3_register("dplyr::arrange", "param_grid")
+  vctrs::s3_register("dplyr::filter",  "param_grid")
+  vctrs::s3_register("dplyr::mutate",  "param_grid")
+  vctrs::s3_register("dplyr::rename",  "param_grid")
+  vctrs::s3_register("dplyr::select",  "param_grid")
+  vctrs::s3_register("dplyr::slice",   "param_grid")
 }
 
 # nocov end
