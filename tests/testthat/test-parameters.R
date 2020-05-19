@@ -139,6 +139,12 @@ test_that("duplicating rows removes parameters subclass because `id` is duplicat
   expect_s3_class_bare_tibble(x[c(1, 2, 1),])
 })
 
+test_that("row slicing with `NA_integer_` drops the subclass", {
+  x <- parameters(penalty(), mixture())
+  expect_s3_class_bare_tibble(x[NA_integer_,])
+  expect_s3_class_bare_tibble(x[c(1, NA_integer_),])
+})
+
 # ------------------------------------------------------------------------------
 # `[,j]`
 

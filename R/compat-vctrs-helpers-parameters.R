@@ -30,6 +30,7 @@ parameters_reconstruct <- function(x, to) {
 # - Row order doesn't matter
 # - Row presence / absence doesn't matter
 #   - Caveat that the `$id` column cannot be duplicated
+#   - Caveat that no rows can have `NA` values
 # - Column types must be the same
 #   - And `$object` must be a list of `param`s
 parameters_reconstructable <- function(x, to) {
@@ -78,6 +79,16 @@ parameters_reconstructable <- function(x, to) {
   any_duplicates <- vec_duplicate_any(x_col_id)
 
   if (any_duplicates) {
+    return(FALSE)
+  }
+
+  # Rows must not contain any `NA` values.
+  # `$object` is checked earlier.
+  x_cols <- unclass(x_df)
+  x_cols[["object"]] <- NULL
+  any_na <- any(map_lgl(x_cols, anyNA))
+
+  if (any_na) {
     return(FALSE)
   }
 

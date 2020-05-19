@@ -175,12 +175,10 @@ test_that("right_join() can lose parameters class if rows are duplicated", {
   expect_s3_class_bare_tibble(right_join(x, y, by = "id"))
 })
 
-test_that("right_join() can lose the parameters class if rows are added as `NA`", {
-  skip("until NA drop is supported")
+test_that("right_join() can lose the parameters class if rows with `NA` are added", {
   x <- parameters(list(penalty(), mixture()))
-
   y <- tibble(id = c(x$id, "foo"), object = x$object[1])
-  expect_s3_class_bare_tibble(right_join(x, y, by = "id"))
+  expect_s3_class_bare_tibble(right_join(x, y, by = c("id", "object")))
 })
 
 test_that("right_join() restores to the type of first input", {
@@ -261,7 +259,6 @@ test_that("bind_rows() drops the class with new duplicated rows", {
 })
 
 test_that("bind_rows() drops the class with new rows with any `NA`", {
-  skip("until NA drop is supported")
   x <- parameters(list(penalty()))
   y <- vec_init(x, 1)
   y$object[[1]] <- x$object[[1]]

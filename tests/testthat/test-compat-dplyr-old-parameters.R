@@ -95,9 +95,3 @@ test_that("slice() drops parameters class when rows are duplicated", {
   x <- parameters(list(penalty(), mixture()))
   expect_s3_class_bare_tibble(slice(x, c(1, 1)))
 })
-
-test_that("slice() drops parameters class when rows are NA_integer_ sliced", {
-  skip("until NA drop is supported")
-  x <- parameters(list(penalty(), mixture()))
-  expect_s3_class_bare_tibble(slice(x, NA_integer_))
-})
