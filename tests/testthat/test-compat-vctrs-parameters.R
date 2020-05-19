@@ -128,23 +128,21 @@ test_that("vec_rbind() returns a parameters when all inputs are parameters unles
   expect_identical(vec_rbind(x), x)
   expect_identical(vec_rbind(x, x), vec_rbind(tbl, tbl))
   expect_identical(vec_rbind(x, tbl), vec_rbind(tbl, tbl))
+  expect_identical(vec_rbind(tbl, x), vec_rbind(tbl, tbl))
 
   expect_identical(vec_rbind(x, y), parameters(params))
   expect_identical(vec_rbind(y, x), parameters(params[2:1]))
 })
 
-# TODO: Finish `[` method
-# test_that("vec_cbind() returns a bare tibble", {
-#   params <- list(penalty(), mixture())
-#   x <- parameters(params[1])
-#   y <- parameters(params[2])
-#
-#   tbl <- parameters_strip(x)
-#
-#   expect_identical(vec_cbind(x), x)
-#   expect_identical(vec_cbind(x, x), vec_rbind(tbl, tbl))
-#   expect_identical(vec_cbind(x, tbl), vec_rbind(tbl, tbl))
-#
-#   expect_identical(vec_cbind(x, y), parameters(params))
-#   expect_identical(vec_cbind(y, x), parameters(params[2:1]))
-# })
+test_that("vec_cbind() returns a bare tibble", {
+  params <- list(penalty(), mixture())
+  x <- parameters(params[1])
+  y <- parameters(params[2])
+
+  tbl <- parameters_strip(x)
+
+  expect_identical(vec_cbind(x), vec_cbind(tbl))
+  expect_identical(vec_cbind(x, x), vec_cbind(tbl, tbl))
+  expect_identical(vec_cbind(x, tbl), vec_cbind(tbl, tbl))
+  expect_identical(vec_cbind(tbl, x), vec_cbind(tbl, tbl))
+})

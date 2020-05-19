@@ -244,6 +244,16 @@ update.parameters <- function(object, ...) {
   object
 }
 
+# ------------------------------------------------------------------------------
+
+#' @export
+`[.parameters` <- function(x, i, j, drop = FALSE, ...) {
+  out <- NextMethod()
+  parameters_maybe_reconstruct(out, x)
+}
+
+# ------------------------------------------------------------------------------
+
 #' @export
 #' @rdname parameters
 param_set <- function(x, ...) {
@@ -255,5 +265,3 @@ param_set <- function(x, ...) {
   )
   parameters(x, ...)
 }
-
-

@@ -46,14 +46,6 @@ reset_parameters <- function(x) {
   structure(x, class = c("parameters", base_classes))
 }
 
-#' @export
-`[.parameters` <- function(x, i, j, drop = FALSE) {
-  res <- NextMethod()
-  check_new_names(res)
-  parameters_constr(res$name, res$id, res$source, res$component, res$component_id,
-                   res$object)
-}
-
 
 ## dials does not import any generics from dplyr,
 ## but if dplyr is loaded and main verbs are used on a
