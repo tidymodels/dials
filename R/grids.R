@@ -96,9 +96,7 @@ make_regular_grid <- function(..., levels = 3, original = TRUE, filter = NULL) {
   filter_quo <- enquo(filter)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
-  param_labs <- map_chr(params, function(x) x$label)
   param_names <- names(param_quos)
-  names(param_labs) <- param_names
 
 
   # check levels
@@ -119,7 +117,7 @@ make_regular_grid <- function(..., levels = 3, original = TRUE, filter = NULL) {
   if (!(quo_is_null(filter_quo))) {
     parameters <- dplyr::filter(parameters, !!filter_quo)
   }
-  new_grid(parameters, labels = param_labs, cls = c("grid_regular", "param_grid"))
+  new_grid(parameters, cls = c("grid_regular", "param_grid"))
 }
 
 # ------------------------------------------------------------------------------
@@ -183,8 +181,6 @@ make_random_grid <- function(..., size = 5, original = TRUE, filter = NULL) {
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
 
-  param_labs <- map_chr(params, function(x) x$label)
-
   # for now assume equal levels
   parameters <- map_dfc(params, value_sample, n = size, original = original)
   param_names <- names(param_quos)
@@ -192,14 +188,13 @@ make_random_grid <- function(..., size = 5, original = TRUE, filter = NULL) {
   if (!(quo_is_null(filter_quo))) {
     parameters <- dplyr::filter(parameters, !!filter_quo)
   }
-  new_grid(parameters, labels = param_labs, cls = c("grid_random", "param_grid"))
+  new_grid(parameters, cls = c("grid_random", "param_grid"))
 }
 
 # ------------------------------------------------------------------------------
 
-new_grid <- function(x, labels, cls) {
+new_grid <- function(x, cls) {
   x <- as_tibble(x)
-  attr(x, "info") <- list(labels = labels)
   class(x) <- c(cls, class(x))
   x
 }

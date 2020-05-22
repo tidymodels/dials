@@ -15,7 +15,7 @@ reset_param_grid <- function(x) {
 
 # A list of attribute names in the object. These could get stripped off by
 # dplyr operations
-param_grid_att <- "info"
+param_grid_att <- character()
 
 maybe_param_grid <- function(x, extras = NULL, att = NULL) {
   if (is_tibble(x)) {

@@ -25,8 +25,9 @@ Imports:
     utils,
     withr,
     DiceDesign,
-    dplyr,
-    lifecycle
+    dplyr (>= 0.8.5),
+    lifecycle,
+    vctrs (>= 0.3.0.9000)
 Suggests: 
     testthat,
     knitr,
@@ -34,3 +35,5 @@ Suggests:
     covr,
     kernlab,
     xml2
+Remotes:
+    r-lib/vctrs

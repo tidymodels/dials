@@ -8,6 +8,8 @@
 #' @importFrom withr with_seed
 #' @importFrom stats runif
 #' @importFrom dplyr %>% filter mutate pull select type_sum
+#' @import vctrs
+NULL
 
 # ------------------------------------------------------------------------------
 
