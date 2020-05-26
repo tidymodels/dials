@@ -14,7 +14,7 @@ test_that("vec_restore() returns bare tibble if `x` loses parameters structure",
   expect_s3_class_bare_tibble(vec_restore(x, to))
 })
 
-test_that("vec_restore() retains extra attributes of `to` no matter what", {
+test_that("vec_restore() retains extra attributes of `to` when not falling back", {
   x <- parameters(penalty())
   to <- x
   attr(to, "foo") <- "bar"
@@ -23,7 +23,7 @@ test_that("vec_restore() retains extra attributes of `to` no matter what", {
   x_tbl <- x_tbl[1]
 
   expect_identical(attr(vec_restore(x, to), "foo"), "bar")
-  expect_identical(attr(vec_restore(x_tbl, to), "foo"), "bar")
+  expect_identical(attr(vec_restore(x_tbl, to), "foo"), NULL)
 
   expect_s3_class_parameters(vec_restore(x, to))
   expect_s3_class_bare_tibble(vec_restore(x_tbl, to))
@@ -46,17 +46,17 @@ test_that("vec_ptype2() is working", {
   tbl <- tibble::tibble(x = 1)
   df <- data.frame(x = 1)
 
-  # rset-rset
+  # parameters-parameters
   expect_identical(vec_ptype2(x, x), dials_global_empty_parameters)
   expect_identical(vec_ptype2(x, y), dials_global_empty_parameters)
 
-  # rset-tbl_df
-  expect_identical(vec_ptype2(x, tbl), vec_ptype2(parameters_strip(x), tbl))
-  expect_identical(vec_ptype2(tbl, x), vec_ptype2(tbl, parameters_strip(x)))
+  # parameters-tbl_df
+  expect_identical(vec_ptype2(x, tbl), vec_ptype2(tib_upcast(x), tbl))
+  expect_identical(vec_ptype2(tbl, x), vec_ptype2(tbl, tib_upcast(x)))
 
-  # rset-df
-  expect_identical(vec_ptype2(x, df), vec_ptype2(parameters_strip(x), df))
-  expect_identical(vec_ptype2(df, x), vec_ptype2(df, parameters_strip(x)))
+  # parameters-df
+  expect_identical(vec_ptype2(x, df), vec_ptype2(tib_upcast(x), df))
+  expect_identical(vec_ptype2(df, x), vec_ptype2(df, tib_upcast(x)))
 })
 
 # ------------------------------------------------------------------------------
@@ -64,7 +64,7 @@ test_that("vec_ptype2() is working", {
 
 test_that("vec_cast() is working", {
   x <- parameters(penalty())
-  tbl <- parameters_strip(x)
+  tbl <- tib_upcast(x)
   df <- as.data.frame(tbl)
 
   # rset-rset
@@ -99,7 +99,7 @@ test_that("vec_slice() generally returns a parameters", {
 test_that("vec_slice() can return an bare tibble if `id` is duplicated", {
   params <- list(penalty(), mixture())
   x <- parameters(params)
-  expect_identical(vec_slice(x, c(1, 1)), vec_slice(parameters_strip(x), c(1, 1)))
+  expect_identical(vec_slice(x, c(1, 1)), vec_slice(tib_upcast(x), c(1, 1)))
   expect_s3_class_bare_tibble(vec_slice(x, c(1, 1)))
 })
 
@@ -108,7 +108,7 @@ test_that("vec_c() returns a parameters when all inputs are parameters unless `i
   x <- parameters(params[1])
   y <- parameters(params[2])
 
-  tbl <- parameters_strip(x)
+  tbl <- tib_upcast(x)
 
   expect_identical(vec_c(x), x)
   expect_identical(vec_c(x, x), vec_c(tbl, tbl))
@@ -123,7 +123,7 @@ test_that("vec_rbind() returns a parameters when all inputs are parameters unles
   x <- parameters(params[1])
   y <- parameters(params[2])
 
-  tbl <- parameters_strip(x)
+  tbl <- tib_upcast(x)
 
   expect_identical(vec_rbind(x), x)
   expect_identical(vec_rbind(x, x), vec_rbind(tbl, tbl))
@@ -139,7 +139,7 @@ test_that("vec_cbind() returns a bare tibble", {
   x <- parameters(params[1])
   y <- parameters(params[2])
 
-  tbl <- parameters_strip(x)
+  tbl <- tib_upcast(x)
 
   expect_identical(vec_cbind(x), vec_cbind(tbl))
   expect_identical(vec_cbind(x, x), vec_cbind(tbl, tbl))

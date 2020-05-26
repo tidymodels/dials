@@ -23,9 +23,8 @@
 #'
 #' @return
 #'
-#' A tibble with an additional class for the type of grid
-#' (`"grid_regular"` or `"grid_random"`). There are columns for
-#' each parameter and a row for every parameter combination.
+#' A tibble. There are columns for each parameter and a row for every
+#' parameter combination.
 #'
 #' @examples
 #' # filter arg will allow you to filter subsequent grid data frame based on some condition.
@@ -117,7 +116,8 @@ make_regular_grid <- function(..., levels = 3, original = TRUE, filter = NULL) {
   if (!(quo_is_null(filter_quo))) {
     parameters <- dplyr::filter(parameters, !!filter_quo)
   }
-  new_grid(parameters, cls = c("grid_regular", "param_grid"))
+
+  new_param_grid(parameters)
 }
 
 # ------------------------------------------------------------------------------
@@ -188,13 +188,25 @@ make_random_grid <- function(..., size = 5, original = TRUE, filter = NULL) {
   if (!(quo_is_null(filter_quo))) {
     parameters <- dplyr::filter(parameters, !!filter_quo)
   }
-  new_grid(parameters, cls = c("grid_random", "param_grid"))
+
+  new_param_grid(parameters)
 }
 
 # ------------------------------------------------------------------------------
 
-new_grid <- function(x, cls) {
-  x <- as_tibble(x)
-  class(x) <- c(cls, class(x))
-  x
+new_param_grid <- function(x = new_data_frame()) {
+  if (!is.data.frame(x)) {
+    rlang::abort("`x` must be a data frame to construct a new grid from.")
+  }
+
+  size <- vec_size(x)
+
+  # Strip down to a named list with no extra attributes. This serves
+  # as the core object to build the tibble from.
+  attributes(x) <- list(names = names(x))
+
+  tibble::new_tibble(
+    x = x,
+    nrow = size
+  )
 }

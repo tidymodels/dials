@@ -1,27 +1,12 @@
 # ------------------------------------------------------------------------------
 # parameters
 
-parameters_maybe_reconstruct <- function(x, to) {
-  if (parameters_reconstructable(x, to)) {
-    parameters_reconstruct(x, to)
-  } else {
-    parameters_strip(x)
-  }
-}
-
-# `parameters` objects don't have any custom attributes beyond the class.
-# This keeps all additional user supplied attributes.
-parameters_strip <- function(x) {
-  tib_downcast(x)
-}
-
-# This is dplyr_reconstruct.data.frame()
 parameters_reconstruct <- function(x, to) {
-  attrs <- attributes(to)
-  attrs$names <- names(x)
-  attrs$row.names <- .row_names_info(x, type = 0L)
-  attributes(x) <- attrs
-  x
+  if (parameters_reconstructable(x, to)) {
+    df_reconstruct(x, to)
+  } else {
+    tib_upcast(x)
+  }
 }
 
 # Invariants:
@@ -97,23 +82,27 @@ parameters_reconstructable <- function(x, to) {
 
 # ------------------------------------------------------------------------------
 
-# Fallback to a tibble from the current data frame subclass. Removes subclass
-# specific attributes marked with `remove`. Maybe this should live in vctrs?
-tib_downcast <- function(x, remove = character()) {
-  attrs <- attributes(x)
+is_param <- function(x) {
+  inherits(x, "param")
+}
 
-  attrs[remove] <- NULL
+is_parameters <- function(x) {
+  inherits(x, "parameters")
+}
 
-  # Don't try to add or materialize row names
-  attrs["row.names"] <- NULL
+# ------------------------------------------------------------------------------
 
+# Maybe this should live in vctrs?
+# Fallback to a tibble from the current data frame subclass.
+# Removes subclass specific attributes and additional ones added by the user.
+tib_upcast <- function(x) {
   size <- df_size(x)
 
   # Strip all attributes except names to construct
   # a bare list to build the tibble back up from.
-  attributes(x) <- list(names = attrs[["names"]])
+  attributes(x) <- list(names = names(x))
 
-  tibble::new_tibble(x, !!!attrs, nrow = size)
+  tibble::new_tibble(x, nrow = size)
 }
 
 df_size <- function(x) {
@@ -132,10 +121,11 @@ df_size <- function(x) {
 
 # ------------------------------------------------------------------------------
 
-is_param <- function(x) {
-  inherits(x, "param")
-}
-
-is_parameters <- function(x) {
-  inherits(x, "parameters")
+# Maybe this should live in vctrs?
+df_reconstruct <- function(x, to) {
+  attrs <- attributes(to)
+  attrs$names <- names(x)
+  attrs$row.names <- .row_names_info(x, type = 0L)
+  attributes(x) <- attrs
+  x
 }
