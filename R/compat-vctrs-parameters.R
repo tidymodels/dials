@@ -8,7 +8,7 @@ delayedAssign("dials_global_empty_parameters", parameters(list()))
 
 #' @export
 vec_restore.parameters <- function(x, to, ...) {
-  parameters_maybe_reconstruct(x, to)
+  parameters_reconstruct(x, to)
 }
 
 

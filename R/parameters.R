@@ -249,7 +249,7 @@ update.parameters <- function(object, ...) {
 #' @export
 `[.parameters` <- function(x, i, j, drop = FALSE, ...) {
   out <- NextMethod()
-  parameters_maybe_reconstruct(out, x)
+  parameters_reconstruct(out, x)
 }
 
 # ------------------------------------------------------------------------------

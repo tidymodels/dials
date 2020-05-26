@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 # parameters
 
-parameters_maybe_reconstruct <- function(x, to) {
+parameters_reconstruct <- function(x, to) {
   if (parameters_reconstructable(x, to)) {
     df_reconstruct(x, to)
   } else {
