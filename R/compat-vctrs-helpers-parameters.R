@@ -92,23 +92,17 @@ is_parameters <- function(x) {
 
 # ------------------------------------------------------------------------------
 
-# Fallback to a tibble from the current data frame subclass. Removes subclass
-# specific attributes marked with `remove`. Maybe this should live in vctrs?
-tib_upcast <- function(x, remove = character()) {
-  attrs <- attributes(x)
-
-  attrs[remove] <- NULL
-
-  # Don't try to add or materialize row names
-  attrs["row.names"] <- NULL
-
+# Maybe this should live in vctrs?
+# Fallback to a tibble from the current data frame subclass.
+# Removes subclass specific attributes and additional ones added by the user.
+tib_upcast <- function(x) {
   size <- df_size(x)
 
   # Strip all attributes except names to construct
   # a bare list to build the tibble back up from.
-  attributes(x) <- list(names = attrs[["names"]])
+  attributes(x) <- list(names = names(x))
 
-  tibble::new_tibble(x, !!!attrs, nrow = size)
+  tibble::new_tibble(x, nrow = size)
 }
 
 df_size <- function(x) {
@@ -127,7 +121,7 @@ df_size <- function(x) {
 
 # ------------------------------------------------------------------------------
 
-# Can this live in vctrs?
+# Maybe this should live in vctrs?
 df_reconstruct <- function(x, to) {
   attrs <- attributes(to)
   attrs$names <- names(x)

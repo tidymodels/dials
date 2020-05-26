@@ -188,14 +188,14 @@ test_that("additional attributes are kept when subsetting and parameters class i
   expect_identical(attr(result, "foo"), "bar")
 })
 
-test_that("additional attributes are kept when subsetting and rset class is dropped", {
+test_that("additional attributes are dropped when subsetting and rset class is dropped", {
   x <- parameters(penalty(), mixture())
   attr(x, "foo") <- "bar"
 
   result <- x[1]
 
   expect_s3_class_bare_tibble(result)
-  expect_identical(attr(result, "foo"), "bar")
+  expect_identical(attr(result, "foo"), NULL)
 })
 
 # ------------------------------------------------------------------------------

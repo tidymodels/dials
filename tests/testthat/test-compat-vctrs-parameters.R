@@ -14,7 +14,7 @@ test_that("vec_restore() returns bare tibble if `x` loses parameters structure",
   expect_s3_class_bare_tibble(vec_restore(x, to))
 })
 
-test_that("vec_restore() retains extra attributes of `to` no matter what", {
+test_that("vec_restore() retains extra attributes of `to` when not falling back", {
   x <- parameters(penalty())
   to <- x
   attr(to, "foo") <- "bar"
@@ -23,7 +23,7 @@ test_that("vec_restore() retains extra attributes of `to` no matter what", {
   x_tbl <- x_tbl[1]
 
   expect_identical(attr(vec_restore(x, to), "foo"), "bar")
-  expect_identical(attr(vec_restore(x_tbl, to), "foo"), "bar")
+  expect_identical(attr(vec_restore(x_tbl, to), "foo"), NULL)
 
   expect_s3_class_parameters(vec_restore(x, to))
   expect_s3_class_bare_tibble(vec_restore(x_tbl, to))
