@@ -1,5 +1,5 @@
 Package: dials
-Version: 0.0.6
+Version: 0.0.6.9000
 Title: Tools for Creating Tuning Parameter Values
 Description: Many models contain tuning parameters (i.e. parameters that cannot be directly estimated from the data). These tools can be used to define objects for creating, simulating, or validating values for such parameters. 
 Authors@R: c(

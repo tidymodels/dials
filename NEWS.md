@@ -1,3 +1,5 @@
+# dials (development version)
+
 # dials 0.0.6
 
 * Quick bug fix release related to range checks in 0.0.5. The check is more forgiving when the required type is integer and a double is provided. 
