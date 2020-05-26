@@ -3,10 +3,6 @@ context("space filling designs")
 
 # ------------------------------------------------------------------------------
 
-source("helper-functions.R")
-
-# ------------------------------------------------------------------------------
-
 test_that('max entropy designs', {
 
   grid_1 <- grid_max_entropy(
@@ -104,19 +100,11 @@ test_that('latin square designs', {
 
 test_that('grid attributes', {
   p <- parameters(penalty(), mixture())
-  expect_true(proper_grid(grid_latin_hypercube(p), "grid_latin_hypercube"))
-  expect_true(proper_grid(
-    grid_latin_hypercube(penalty(), mixture()),
-    "grid_latin_hypercube"
-  ))
-  expect_true(proper_grid(grid_latin_hypercube(list(
-    penalty(), mixture()
-  )), "grid_latin_hypercube"))
+  expect_true(is_param_grid(grid_latin_hypercube(p)))
+  expect_true(is_param_grid(grid_latin_hypercube(penalty(), mixture())))
+  expect_true(is_param_grid(grid_latin_hypercube(list(penalty(), mixture()))))
 
-  expect_true(proper_grid(grid_max_entropy(p), "grid_max_entropy"))
-  expect_true(proper_grid(grid_max_entropy(penalty(), mixture()), "grid_max_entropy"))
-  expect_true(proper_grid(grid_max_entropy(list(
-    penalty(), mixture()
-  )), "grid_max_entropy"))
-
+  expect_true(is_param_grid(grid_max_entropy(p)))
+  expect_true(is_param_grid(grid_max_entropy(penalty(), mixture())))
+  expect_true(is_param_grid(grid_max_entropy(list(penalty(), mixture()))))
 })
