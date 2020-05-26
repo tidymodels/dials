@@ -196,7 +196,7 @@ make_random_grid <- function(..., size = 5, original = TRUE, filter = NULL) {
 
 new_param_grid <- function(x = new_data_frame()) {
   if (!is.data.frame(x)) {
-    abort("`x` must be a data frame to construct a new grid from.")
+    rlang::abort("`x` must be a data frame to construct a new grid from.")
   }
 
   size <- vec_size(x)
