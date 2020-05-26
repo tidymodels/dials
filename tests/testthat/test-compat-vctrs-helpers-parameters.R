@@ -1,16 +1,16 @@
 # ------------------------------------------------------------------------------
-# parameters_strip()
+# tib_downcast()
 
 test_that("parameters can be stripped down to a tibble", {
   x <- parameters(penalty())
-  expect_s3_class_bare_tibble(parameters_strip(x))
+  expect_s3_class_bare_tibble(tib_downcast(x))
 })
 
 test_that("parameters stripping retains extra attributes", {
   x <- parameters(penalty())
   attr(x, "foo") <- "bar"
 
-  x <- parameters_strip(x)
+  x <- tib_downcast(x)
 
   expect_identical(attr(x, "foo"), "bar")
 })

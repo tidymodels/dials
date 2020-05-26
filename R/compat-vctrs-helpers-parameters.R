@@ -3,25 +3,10 @@
 
 parameters_maybe_reconstruct <- function(x, to) {
   if (parameters_reconstructable(x, to)) {
-    parameters_reconstruct(x, to)
+    df_reconstruct(x, to)
   } else {
-    parameters_strip(x)
+    tib_downcast(x)
   }
-}
-
-# `parameters` objects don't have any custom attributes beyond the class.
-# This keeps all additional user supplied attributes.
-parameters_strip <- function(x) {
-  tib_downcast(x)
-}
-
-# This is dplyr_reconstruct.data.frame()
-parameters_reconstruct <- function(x, to) {
-  attrs <- attributes(to)
-  attrs$names <- names(x)
-  attrs$row.names <- .row_names_info(x, type = 0L)
-  attributes(x) <- attrs
-  x
 }
 
 # Invariants:
@@ -97,6 +82,16 @@ parameters_reconstructable <- function(x, to) {
 
 # ------------------------------------------------------------------------------
 
+is_param <- function(x) {
+  inherits(x, "param")
+}
+
+is_parameters <- function(x) {
+  inherits(x, "parameters")
+}
+
+# ------------------------------------------------------------------------------
+
 # Fallback to a tibble from the current data frame subclass. Removes subclass
 # specific attributes marked with `remove`. Maybe this should live in vctrs?
 tib_downcast <- function(x, remove = character()) {
@@ -132,10 +127,11 @@ df_size <- function(x) {
 
 # ------------------------------------------------------------------------------
 
-is_param <- function(x) {
-  inherits(x, "param")
-}
-
-is_parameters <- function(x) {
-  inherits(x, "parameters")
+# Can this live in vctrs?
+df_reconstruct <- function(x, to) {
+  attrs <- attributes(to)
+  attrs$names <- names(x)
+  attrs$row.names <- .row_names_info(x, type = 0L)
+  attributes(x) <- attrs
+  x
 }
