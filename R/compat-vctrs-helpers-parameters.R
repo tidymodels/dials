@@ -5,7 +5,7 @@ parameters_maybe_reconstruct <- function(x, to) {
   if (parameters_reconstructable(x, to)) {
     df_reconstruct(x, to)
   } else {
-    tib_downcast(x)
+    tib_upcast(x)
   }
 }
 
@@ -94,7 +94,7 @@ is_parameters <- function(x) {
 
 # Fallback to a tibble from the current data frame subclass. Removes subclass
 # specific attributes marked with `remove`. Maybe this should live in vctrs?
-tib_downcast <- function(x, remove = character()) {
+tib_upcast <- function(x, remove = character()) {
   attrs <- attributes(x)
 
   attrs[remove] <- NULL

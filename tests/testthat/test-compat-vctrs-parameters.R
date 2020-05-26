@@ -51,12 +51,12 @@ test_that("vec_ptype2() is working", {
   expect_identical(vec_ptype2(x, y), dials_global_empty_parameters)
 
   # parameters-tbl_df
-  expect_identical(vec_ptype2(x, tbl), vec_ptype2(tib_downcast(x), tbl))
-  expect_identical(vec_ptype2(tbl, x), vec_ptype2(tbl, tib_downcast(x)))
+  expect_identical(vec_ptype2(x, tbl), vec_ptype2(tib_upcast(x), tbl))
+  expect_identical(vec_ptype2(tbl, x), vec_ptype2(tbl, tib_upcast(x)))
 
   # parameters-df
-  expect_identical(vec_ptype2(x, df), vec_ptype2(tib_downcast(x), df))
-  expect_identical(vec_ptype2(df, x), vec_ptype2(df, tib_downcast(x)))
+  expect_identical(vec_ptype2(x, df), vec_ptype2(tib_upcast(x), df))
+  expect_identical(vec_ptype2(df, x), vec_ptype2(df, tib_upcast(x)))
 })
 
 # ------------------------------------------------------------------------------
@@ -64,7 +64,7 @@ test_that("vec_ptype2() is working", {
 
 test_that("vec_cast() is working", {
   x <- parameters(penalty())
-  tbl <- tib_downcast(x)
+  tbl <- tib_upcast(x)
   df <- as.data.frame(tbl)
 
   # rset-rset
@@ -99,7 +99,7 @@ test_that("vec_slice() generally returns a parameters", {
 test_that("vec_slice() can return an bare tibble if `id` is duplicated", {
   params <- list(penalty(), mixture())
   x <- parameters(params)
-  expect_identical(vec_slice(x, c(1, 1)), vec_slice(tib_downcast(x), c(1, 1)))
+  expect_identical(vec_slice(x, c(1, 1)), vec_slice(tib_upcast(x), c(1, 1)))
   expect_s3_class_bare_tibble(vec_slice(x, c(1, 1)))
 })
 
@@ -108,7 +108,7 @@ test_that("vec_c() returns a parameters when all inputs are parameters unless `i
   x <- parameters(params[1])
   y <- parameters(params[2])
 
-  tbl <- tib_downcast(x)
+  tbl <- tib_upcast(x)
 
   expect_identical(vec_c(x), x)
   expect_identical(vec_c(x, x), vec_c(tbl, tbl))
@@ -123,7 +123,7 @@ test_that("vec_rbind() returns a parameters when all inputs are parameters unles
   x <- parameters(params[1])
   y <- parameters(params[2])
 
-  tbl <- tib_downcast(x)
+  tbl <- tib_upcast(x)
 
   expect_identical(vec_rbind(x), x)
   expect_identical(vec_rbind(x, x), vec_rbind(tbl, tbl))
@@ -139,7 +139,7 @@ test_that("vec_cbind() returns a bare tibble", {
   x <- parameters(params[1])
   y <- parameters(params[2])
 
-  tbl <- tib_downcast(x)
+  tbl <- tib_upcast(x)
 
   expect_identical(vec_cbind(x), vec_cbind(tbl))
   expect_identical(vec_cbind(x, x), vec_cbind(tbl, tbl))

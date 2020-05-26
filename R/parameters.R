@@ -269,7 +269,7 @@ set_names_maybe_reconstruct <- function(x, to) {
   if (identical(x_names, to_names)) {
     df_reconstruct(x, to)
   } else {
-    tib_downcast(x)
+    tib_upcast(x)
   }
 }
 
