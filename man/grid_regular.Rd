@@ -58,9 +58,8 @@ names that evaluates to a logical vector.}
 combinations returned for the random grid.}
 }
 \value{
-A tibble with an additional class for the type of grid
-(\code{"grid_regular"} or \code{"grid_random"}). There are columns for
-each parameter and a row for every parameter combination.
+A tibble. There are columns for each parameter and a row for every
+parameter combination.
 }
 \description{
 Random and regular grids can be created for any number of parameter objects.

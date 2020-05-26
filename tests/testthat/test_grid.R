@@ -72,15 +72,3 @@ test_that('filter arg yields same results', {
     with_seed(36L, grid_random(p, filter = mixture == .01))
   )
 })
-
-
-test_that('grid attributes', {
-  p <- parameters(penalty(), mixture())
-  expect_true(is_param_grid(grid_regular(p)))
-  expect_true(is_param_grid(grid_regular(penalty(), mixture())))
-  expect_true(is_param_grid(grid_regular(list(penalty(), mixture()))))
-
-  expect_true(is_param_grid(grid_random(p)))
-  expect_true(is_param_grid(grid_random(penalty(), mixture())))
-  expect_true(is_param_grid(grid_random(list(penalty(), mixture()))))
-})

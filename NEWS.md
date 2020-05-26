@@ -1,6 +1,6 @@
 # dials (development version)
 
-* The `grid_*()` functions no longer generate grids subclassed with the specific grid design. All grids now only use a `"param_grid"` subclass.
+* The `grid_*()` functions no longer generate subclassed tibbles.
 
 # dials 0.0.6
 

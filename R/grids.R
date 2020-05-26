@@ -23,9 +23,8 @@
 #'
 #' @return
 #'
-#' A tibble with an additional class for the type of grid
-#' (`"grid_regular"` or `"grid_random"`). There are columns for
-#' each parameter and a row for every parameter combination.
+#' A tibble. There are columns for each parameter and a row for every
+#' parameter combination.
 #'
 #' @examples
 #' # filter arg will allow you to filter subsequent grid data frame based on some condition.
@@ -189,12 +188,13 @@ make_random_grid <- function(..., size = 5, original = TRUE, filter = NULL) {
   if (!(quo_is_null(filter_quo))) {
     parameters <- dplyr::filter(parameters, !!filter_quo)
   }
+
   new_param_grid(parameters)
 }
 
 # ------------------------------------------------------------------------------
 
-new_param_grid <- function(x) {
+new_param_grid <- function(x = new_data_frame()) {
   if (!is.data.frame(x)) {
     abort("`x` must be a data frame to construct a new grid from.")
   }
@@ -207,11 +207,6 @@ new_param_grid <- function(x) {
 
   tibble::new_tibble(
     x = x,
-    nrow = size,
-    class = "param_grid"
+    nrow = size
   )
-}
-
-is_param_grid <- function(x) {
-  inherits(x, "param_grid")
 }
