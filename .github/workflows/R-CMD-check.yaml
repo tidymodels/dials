@@ -18,9 +18,9 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: macOS-latest,   r: 'devel',   dev_dplyr = false}
-          - {os: macOS-latest,   r: 'release', dev_dplyr = false}
-          - {os: macOS-latest,   r: 'release', dev_dplyr = true}
+          - {os: macOS-latest,   r: 'devel',   dev_dplyr: false}
+          - {os: macOS-latest,   r: 'release', dev_dplyr: false}
+          - {os: macOS-latest,   r: 'release', dev_dplyr: true}
           - {os: windows-latest, r: 'release'}
           - {os: ubuntu-16.04,   r: 'release', rspm: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest"}
           - {os: ubuntu-16.04,   r: 'oldrel',  rspm: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest"}
