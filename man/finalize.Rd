@@ -49,7 +49,7 @@ include numeric data.}
 \item{force}{A single logical that indicates that, even if the parameter
 object is complete, should it update the ranges anyway?}
 
-\item{log_vals}{A logical: should the ranges be set on the log-10 scale?}
+\item{log_vals}{A logical: should the ranges be set on the log10 scale?}
 
 \item{frac}{A double for the fraction of the data to be used for the upper
 bound. For \code{get_n_frac_range()} and \code{get_batch_sizes()}, a vector of two

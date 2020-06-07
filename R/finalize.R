@@ -11,7 +11,7 @@
 #' @param force A single logical that indicates that, even if the parameter
 #' object is complete, should it update the ranges anyway?
 #'
-#' @param log_vals A logical: should the ranges be set on the log-10 scale?
+#' @param log_vals A logical: should the ranges be set on the log10 scale?
 #'
 #' @param ... Other arguments to pass to the underlying parameter
 #' finalizer functions. For example, for `get_rbf_range()`, the dots are passed

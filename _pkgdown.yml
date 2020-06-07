@@ -3,6 +3,7 @@ url: https://dials.tidymodels.org
 template:
   package: tidytemplate
   params:
+    theme: tidymodels
     part_of: <a href="https://github.com/tidymodels">tidymodels</a>
     footer: dials is a part of the <strong>tidymodels</strong> ecosystem, a collection of modeling packages designed with common APIs and a shared philosophy.
 
