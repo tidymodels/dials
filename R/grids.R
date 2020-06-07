@@ -21,6 +21,8 @@
 #' generating the grid. Must be a single expression referencing parameter
 #' names that evaluates to a logical vector.
 #'
+#' @includeRmd man/rmd/rand_notes.Rmd details
+#'
 #' @return
 #'
 #' A tibble. There are columns for each parameter and a row for every

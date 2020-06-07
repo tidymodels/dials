@@ -9,6 +9,8 @@
 #'  between coordinates. Both designs use random sampling of points in the
 #'  parameter space.
 #'
+#' @includeRmd man/rmd/sfd_notes.Rmd details
+#'
 #' @inheritParams grid_random
 #' @param size A single integer for the total number of parameter value
 #' combinations returned.
