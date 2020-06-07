@@ -21,7 +21,7 @@
 #' generating the grid. Must be a single expression referencing parameter
 #' names that evaluates to a logical vector.
 #'
-#' @includeRmd man/rmd/rand_notes.Rmd details
+#' @includeRmd man/rmd/rand_notes.md details
 #'
 #' @return
 #'
