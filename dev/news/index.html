@@ -139,6 +139,13 @@
 <ul>
 <li>The <code>grid_*()</code> functions no longer generate subclassed tibbles.</li>
 </ul>
+<div id="breaking-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
+<ul>
+<li>The range of <code><a href="../reference/dist_power.html">dist_power()</a></code> was changed so that the lower limit is 1.</li>
+</ul>
+</div>
 </div>
     <div id="dials-006" class="section level1">
 <h1 class="page-header" data-toc-text="0.0.6">
@@ -181,9 +188,9 @@
 <li><p>The range for <code><a href="../reference/max_tokens.html">max_tokens()</a></code> was changed to be 0 to 1000.</p></li>
 </ul>
 </div>
-<div id="breaking-changes" class="section level2">
+<div id="breaking-changes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
+<a href="#breaking-changes-1" class="anchor"></a>Breaking changes</h2>
 <ul>
 <li>
 <code><a href="https://rdrr.io/r/stats/offset.html">offset()</a></code> has been renamed <code><a href="../reference/rbf_sigma.html">kernel_offset()</a></code> to avoid name conflicts.</li>
@@ -194,9 +201,9 @@
 <h1 class="page-header" data-toc-text="0.0.3">
 <a href="#dials-003" class="anchor"></a>dials 0.0.3<small> 2019-10-01 </small>
 </h1>
-<div id="breaking-changes-1" class="section level2">
+<div id="breaking-changes-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#breaking-changes-1" class="anchor"></a>Breaking changes</h2>
+<a href="#breaking-changes-2" class="anchor"></a>Breaking changes</h2>
 <ul>
 <li><p>All parameter <em>objects</em> are now parameter <em>functions</em>. For example, the pre-configured object <code>mtry</code> is now a function, <code><a href="../reference/mtry.html">mtry()</a></code>, with arguments for the <code>range</code> and the <code>trans</code>. This provides greater flexibility in parameter creation, and should feel more natural.</p></li>
 <li><p><code><a href="../reference/deg_free.html">deg_free()</a></code> erroneously produced real values; integers are now returned.</p></li>
