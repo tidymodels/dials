@@ -10,7 +10,7 @@
 #' @examples
 #' dist_power()
 #' @export
-dist_power <- function(range = c(-1, 2), trans = NULL) {
+dist_power <- function(range = c(1, 2), trans = NULL) {
   new_quant_param(
     type = "double",
     range = range,

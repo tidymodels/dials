@@ -2,6 +2,11 @@
 
 * The `grid_*()` functions no longer generate subclassed tibbles.
 
+## Breaking changes
+
+* The range of `dist_power()` was changed so that the lower limit is 1. 
+
+
 # dials 0.0.6
 
 * Quick bug fix release related to range checks in 0.0.5. The check is more forgiving when the required type is integer and a double is provided. 
