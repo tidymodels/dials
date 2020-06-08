@@ -16,7 +16,7 @@ predictor_prop <- function(range = c(0, 1), trans = NULL) {
     range = range,
     inclusive = c(FALSE, TRUE),
     trans = trans,
-    label = c(predictor_prop = "# Proportion of Predictors"),
+    label = c(predictor_prop = "Proportion of Predictors"),
     finalize = NULL
   )
 }
