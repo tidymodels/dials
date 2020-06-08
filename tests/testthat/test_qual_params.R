@@ -45,6 +45,7 @@ test_that('param ranges', {
   expect_equal(sample_prop(c(.5, .6))$range, list(lower = .5, upper = .6))
   expect_equal(num_hash(1:2)$range, list(lower = 1, upper = 2))
   expect_equal(smoothness(c(.25, 1.75))$range, list(lower = .25, upper = 1.75))
+  expect_equal(predictor_prop(c(.1, .5))$range, list(lower = .1, upper = .5))
 })
 
 
