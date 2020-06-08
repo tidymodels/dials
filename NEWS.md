@@ -2,6 +2,8 @@
 
 * The `grid_*()` functions no longer generate subclassed tibbles.
 
+* `predictor_prop()` was added. 
+
 ## Breaking changes
 
 * The range of `dist_power()` was changed so that the lower limit is 1. 
