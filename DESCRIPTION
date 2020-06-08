@@ -34,6 +34,7 @@ Suggests:
     rpart,
     covr,
     kernlab,
-    xml2
+    xml2,
+    ggplot2
 Remotes:
     r-lib/vctrs
