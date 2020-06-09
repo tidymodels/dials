@@ -22,15 +22,19 @@ test_that('regular grid', {
     prod(2:3)
   )
   expect_equal(
-    n_distinct(select(grid_regular(mixture(), trees(),
-                                   levels = c(trees = 2, mixture = 3)),
-                      trees)),
+    dplyr::n_distinct(
+      select(grid_regular(mixture(), trees(),
+                          levels = c(trees = 2, mixture = 3)),
+             trees)
+    ),
     2
   )
   expect_equal(
-    n_distinct(select(grid_regular(mixture(), trees(),
-                                   levels = c(mixture = 3, trees = 2)),
-                      trees)),
+    dplyr::n_distinct(
+      select(grid_regular(mixture(), trees(),
+                          levels = c(mixture = 3, trees = 2)),
+             trees)
+    ),
     2
   )
 })
