@@ -26,7 +26,6 @@ Imports:
     withr,
     DiceDesign,
     dplyr (>= 0.8.5),
-    lifecycle,
     vctrs (>= 0.3.0.9000)
 Suggests: 
     testthat,
