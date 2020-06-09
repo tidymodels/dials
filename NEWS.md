@@ -4,6 +4,8 @@
 
 * `predictor_prop()` was added. 
 
+* The `levels` argument for `tune_grid()` can now handle a named vector, to account for differences in ordering.
+
 ## Breaking changes
 
 * The range of `dist_power()` was changed so that the lower limit is 1. 

@@ -45,7 +45,9 @@ the parameter ranges or values.}
 
 \item{levels}{An integer for the number of values of each parameter to use
 to make the regular grid. \code{levels} can be a single integer or a vector of
-integers that is the same length as the number of parameters in \code{...}.}
+integers that is the same length as the number of parameters in \code{...}.
+\code{levels} can be a named integer vector, with names that match the id values
+of parameters.}
 
 \item{original}{A logical: should the parameters be in the original units or
 in the transformed space (if any)?}
@@ -104,7 +106,8 @@ grid_regular(p, filter = penalty <= .01)
 # grid_regular(mtry(), min_n())
 
 grid_regular(penalty(), mixture())
-grid_regular(penalty(), mixture(), levels = c(3, 4))
+grid_regular(penalty(), mixture(), levels = 3:4)
+grid_regular(penalty(), mixture(), levels = c(mixture = 4, penalty = 3))
 grid_random(penalty(), mixture())
 
 }
