@@ -113,7 +113,7 @@ make_regular_grid <- function(..., levels = 3, original = TRUE, filter = NULL) {
   if (p == 1) {
     param_seq <- map(params, value_seq, n = levels, original = original)
   } else {
-    if (all(has_name(levels, names(params)))) {
+    if (all(rlang::has_name(levels, names(params)))) {
       levels <- levels[names(params)]
     }
     param_seq <- map2(params, as.list(levels), value_seq, original = original)
