@@ -10,6 +10,8 @@
 #' @param levels An integer for the number of values of each parameter to use
 #' to make the regular grid. `levels` can be a single integer or a vector of
 #' integers that is the same length as the number of parameters in `...`.
+#' `levels` can be a named integer vector, with names that match the id values
+#' of parameters.
 #'
 #' @param size A single integer for the total number of parameter value
 #' combinations returned for the random grid.
@@ -38,7 +40,8 @@
 #' # grid_regular(mtry(), min_n())
 #'
 #' grid_regular(penalty(), mixture())
-#' grid_regular(penalty(), mixture(), levels = c(3, 4))
+#' grid_regular(penalty(), mixture(), levels = 3:4)
+#' grid_regular(penalty(), mixture(), levels = c(mixture = 4, penalty = 3))
 #' grid_random(penalty(), mixture())
 #'
 #' @export
