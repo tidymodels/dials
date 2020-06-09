@@ -115,6 +115,8 @@ make_regular_grid <- function(..., levels = 3, original = TRUE, filter = NULL) {
   } else {
     if (all(rlang::has_name(levels, names(params)))) {
       levels <- levels[names(params)]
+    } else if (any(rlang::has_name(levels, names(params)))) {
+      rlang::abort("Elements of `levels` should either be all named or unnamed, not mixed.")
     }
     param_seq <- map2(params, as.list(levels), value_seq, original = original)
   }
