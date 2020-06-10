@@ -5,7 +5,7 @@
 #' @inheritParams Laplace
 #' @examples
 #' cost()
-#' margin()
+#' svm_margin()
 #' @export
 cost <- function(range = c(-10, -1), trans = log2_trans()) {
   new_quant_param(
@@ -20,7 +20,7 @@ cost <- function(range = c(-10, -1), trans = log2_trans()) {
 
 #' @rdname cost
 #' @export
-margin <- function(range = c(0, .2), trans = NULL) {
+svm_margin <- function(range = c(0, .2), trans = NULL) {
   new_quant_param(
     type = "double",
     range = range,

@@ -10,7 +10,7 @@
 
 * The range of `dist_power()` was changed so that the lower limit is 1. 
 
-* The deprecation period for `svm_margins()` is over; please use `margins()` instead. 
+* The deprecation period for `margin()` is over; please use `svm_margin()` instead. 
 
 
 # dials 0.0.6
