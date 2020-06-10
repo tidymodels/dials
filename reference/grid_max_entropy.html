@@ -43,6 +43,10 @@
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+<!--optional theme-->
+<link href="../tidymodels.css" rel="stylesheet">
+
+
 
 
 <meta property="og:title" content="Space-filling parameter grids — grid_max_entropy" />
@@ -93,7 +97,7 @@ space has an observed combination that is not too far from it." />
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.6</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.7</span>
         </div>
       </div>
     </div>
@@ -242,6 +246,30 @@ a good design.</p></td>
 that attempt to maximize the determinant of the spatial correlation matrix
 between coordinates. Both designs use random sampling of points in the
 parameter space.</p>
+<p>Note that there may a difference in grids depending on how the function
+is called. If the call uses the parameter objects directly the possible
+ranges come from the objects in <code>dials</code>. For example:<div class="r"></p><pre><span class='fu'><a href='cost.html'>cost</a></span>()</pre><p></div></p><pre><span class='co'>## Cost  (quantitative)</span>
+<span class='co'>## Transformer:  log-2 </span>
+<span class='co'>## Range (transformed scale): [-10, -1]</span></pre><p><div class="r"></p><pre><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>283</span>)
+<span class='no'>cost_grid_1</span> <span class='kw'>&lt;-</span> <span class='fu'>grid_latin_hypercube</span>(<span class='fu'><a href='cost.html'>cost</a></span>(), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log2</a></span>(<span class='no'>cost_grid_1</span>$<span class='no'>cost</span>))</pre><p></div></p><pre><span class='co'>## [1] -9.998623 -1.000423</span></pre>
+
+<p>However, in some cases, the <code>tune</code> package overrides the default ranges
+for specific models. If the grid function uses a <code>parameters</code> object
+created from a model or recipe, the ranges my have different defaults
+(specific to those models). Using the example above, the <code>cost</code> argument
+above is different for SVM models:<div class="r"></p><pre><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>parsnip</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>tune</span>)
+
+<span class='co'># When used in tune, the log2 range is [-10, 5]</span>
+<span class='no'>svm_mod</span> <span class='kw'>&lt;-</span>
+  <span class='fu'>svm_rbf</span>(<span class='kw'>cost</span> <span class='kw'>=</span> <span class='fu'>tune</span>()) <span class='kw'>%&gt;%</span>
+  <span class='fu'>set_engine</span>(<span class='st'>"kernlab"</span>)
+
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>283</span>)
+<span class='no'>cost_grid_2</span> <span class='kw'>&lt;-</span> <span class='fu'>grid_latin_hypercube</span>(<span class='fu'><a href='parameters.html'>parameters</a></span>(<span class='no'>svm_mod</span>), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log2</a></span>(<span class='no'>cost_grid_2</span>$<span class='no'>cost</span>))</pre><p></div></p><pre><span class='co'>## [1] -9.997704  4.999296</span></pre>
+
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Sacks, Jerome &amp; Welch, William &amp; J. Mitchell, Toby, and Wynn, Henry.

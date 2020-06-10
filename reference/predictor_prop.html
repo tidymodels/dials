@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Placeholder for unknown parameter values — unknown • dials</title>
+<title>Proportion of predictors — predictor_prop • dials</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -49,9 +49,9 @@
 
 
 
-<meta property="og:title" content="Placeholder for unknown parameter values — unknown" />
-<meta property="og:description" content="unknown() creates an expression used to signify that the value will be
-specified at a later time." />
+<meta property="og:title" content="Proportion of predictors — predictor_prop" />
+<meta property="og:description" content="The parameter is used in models where a parameter is the proportion of
+predictor variables." />
 <meta property="og:image" content="https://dials.tidymodels.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -130,66 +130,42 @@ specified at a later time." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Placeholder for unknown parameter values</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/aaa_unknown.R'><code>R/aaa_unknown.R</code></a></small>
-    <div class="hidden name"><code>unknown.Rd</code></div>
+    <h1>Proportion of predictors</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/param_predictor_prop.R'><code>R/param_predictor_prop.R</code></a></small>
+    <div class="hidden name"><code>predictor_prop.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><code>unknown()</code> creates an expression used to signify that the value will be
-specified at a later time.</p>
+    <p>The parameter is used in models where a parameter is the proportion of
+predictor variables.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>unknown</span>()
-
-<span class='fu'>is_unknown</span>(<span class='no'>x</span>)
-
-<span class='fu'>has_unknowns</span>(<span class='no'>object</span>)</pre>
+    <pre class="usage"><span class='fu'>predictor_prop</span>(<span class='kw'>range</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), <span class='kw'>trans</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>x</th>
-      <td><p>An object or vector or objects to test for unknown-ness.</p></td>
+      <th>range</th>
+      <td><p>A two-element vector holding the <em>defaults</em> for the smallest and
+largest possible values, respectively.</p></td>
     </tr>
     <tr>
-      <th>object</th>
-      <td><p>An object of class <code>param</code>.</p></td>
+      <th>trans</th>
+      <td><p>A <code>trans</code> object from the <code>scales</code> package, such as
+<code><a href='https://scales.r-lib.org//reference/log_trans.html'>scales::log10_trans()</a></code> or <code><a href='https://scales.r-lib.org//reference/reciprocal_trans.html'>scales::reciprocal_trans()</a></code>. If not provided,
+the default is used which matches the units used in <code>range</code>. If no
+transformation, <code>NULL</code>.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>unknown()</code> returns expression value for <code>unknown()</code>.</p>
-<p><code>is_unknown()</code> returns a vector of logicals as long as <code>x</code> that are <code>TRUE</code>
-is the element of <code>x</code> is unknown, and <code>FALSE</code> otherwise.</p>
-<p><code>has_unknowns()</code> returns a single logical indicating if the <code>range</code> of a <code>param</code>
-object has any unknown values.</p>
+    <p><code>predictor_prop()</code> is used in <code>step_pls()</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'># Just returns an expression</span>
-<span class='fu'>unknown</span>()</div><div class='output co'>#&gt; unknown()</div><div class='input'>
-<span class='co'># Of course, true!</span>
-<span class='fu'>is_unknown</span>(<span class='fu'>unknown</span>())</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
-<span class='co'># Create a range with a minimum of 1</span>
-<span class='co'># and an unknown maximum</span>
-<span class='no'>range</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fu'>unknown</span>())
-
-<span class='no'>range</span></div><div class='output co'>#&gt; [[1]]
-#&gt; [1] 1
-#&gt; 
-#&gt; [[2]]
-#&gt; unknown()
-#&gt; </div><div class='input'>
-<span class='co'># The first value is known, the</span>
-<span class='co'># second is not</span>
-<span class='fu'>is_unknown</span>(<span class='no'>range</span>)</div><div class='output co'>#&gt; [1] FALSE  TRUE</div><div class='input'>
-<span class='co'># mtry()'s maximum value is not known at</span>
-<span class='co'># creation time</span>
-<span class='fu'>has_unknowns</span>(<span class='fu'><a href='mtry.html'>mtry</a></span>())</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
-</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>predictor_prop</span>()</div><div class='output co'>#&gt; Proportion of Predictors  (quantitative)
+#&gt; Range: (0, 1]</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

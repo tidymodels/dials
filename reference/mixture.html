@@ -43,6 +43,10 @@
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+<!--optional theme-->
+<link href="../tidymodels.css" rel="stylesheet">
+
+
 
 
 <meta property="og:title" content="Mixture of penalization terms — mixture" />
@@ -92,7 +96,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.6</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.7</span>
         </div>
       </div>
     </div>
@@ -159,7 +163,9 @@ transformation, <code>NULL</code>.</p></td>
 
     <p>This parameter is used for regularized or penalized models such as
 <code>parsnip::linear_reg()</code>, <code>parsnip::logistic_reg()</code>, and others. It is
-formulated as the proportion of L1 regularization in the model.</p>
+formulated as the proportion of L1 regularization (i.e. lasso) in the model.
+In the <code>glmnet</code> model, <code>mixture = 1</code> is a pure lasso model while <code>mixture = 0</code>
+indicates that ridge regression is being used.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='fu'>mixture</span>()</div><div class='output co'>#&gt; Proportion of lasso Penalty  (quantitative)

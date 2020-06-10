@@ -43,6 +43,10 @@
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+<!--optional theme-->
+<link href="../tidymodels.css" rel="stylesheet">
+
+
 
 
 <meta property="og:title" content="Changelog" />
@@ -90,7 +94,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.6</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.7</span>
         </div>
       </div>
     </div>
@@ -128,6 +132,24 @@
       <small>Source: <a href='https://github.com/tidymodels/dials/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="dials-007" class="section level1">
+<h1 class="page-header" data-toc-text="0.0.7">
+<a href="#dials-007" class="anchor"></a>dials 0.0.7<small> 2020-06-10 </small>
+</h1>
+<ul>
+<li><p>The <code>grid_*()</code> functions no longer generate subclassed tibbles.</p></li>
+<li><p><code><a href="../reference/predictor_prop.html">predictor_prop()</a></code> was added.</p></li>
+<li><p>The <code>levels</code> argument for <code>tune_grid()</code> can now handle a named vector, to account for differences in ordering.</p></li>
+</ul>
+<div id="breaking-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
+<ul>
+<li><p>The range of <code><a href="../reference/dist_power.html">dist_power()</a></code> was changed so that the lower limit is 1.</p></li>
+<li><p>The deprecation period for <code>margin()</code> is over; please use <code><a href="../reference/cost.html">svm_margin()</a></code> instead.</p></li>
+</ul>
+</div>
+</div>
     <div id="dials-006" class="section level1">
 <h1 class="page-header" data-toc-text="0.0.6">
 <a href="#dials-006" class="anchor"></a>dials 0.0.6<small> 2020-04-03 </small>
@@ -142,7 +164,7 @@
 </h1>
 <ul>
 <li><p>When kept in the original units, a parameter’s range must now be the same data type as the parameter.</p></li>
-<li><p>Renamed <code><a href="../reference/cost.html">margin()</a></code> to <code><a href="../reference/cost.html">svm_margin()</a></code> (<a href='https://github.com/gabrielodom'>@gabrielodom</a> and <a href='https://github.com/gralgomez'>@gralgomez</a>, <a href='https://github.com/tidymodels/dials/issues/85'>#85</a>)</p></li>
+<li><p>Renamed <code>margin()</code> to <code><a href="../reference/cost.html">svm_margin()</a></code> (<a href='https://github.com/gabrielodom'>@gabrielodom</a> and <a href='https://github.com/gralgomez'>@gralgomez</a>, <a href='https://github.com/tidymodels/dials/issues/85'>#85</a>)</p></li>
 <li><p>A bug in space filling designs with qualitative parameters was fixed (<a href='https://github.com/tidymodels/dials/issues/94'>#94</a>)</p></li>
 <li><p>A better error message was created when grids are used with parameters sets that contain parameters that require finalization (<a href='https://github.com/tidymodels/dials/issues/99'>#99</a>)</p></li>
 <li><p>Space-filling desings now share the same attributes as other grid objects (<a href='https://github.com/tidymodels/dials/issues/100'>#100</a>)</p></li>
@@ -169,9 +191,9 @@
 <li><p>The range for <code><a href="../reference/max_tokens.html">max_tokens()</a></code> was changed to be 0 to 1000.</p></li>
 </ul>
 </div>
-<div id="breaking-changes" class="section level2">
+<div id="breaking-changes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
+<a href="#breaking-changes-1" class="anchor"></a>Breaking changes</h2>
 <ul>
 <li>
 <code><a href="https://rdrr.io/r/stats/offset.html">offset()</a></code> has been renamed <code><a href="../reference/rbf_sigma.html">kernel_offset()</a></code> to avoid name conflicts.</li>
@@ -182,9 +204,9 @@
 <h1 class="page-header" data-toc-text="0.0.3">
 <a href="#dials-003" class="anchor"></a>dials 0.0.3<small> 2019-10-01 </small>
 </h1>
-<div id="breaking-changes-1" class="section level2">
+<div id="breaking-changes-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#breaking-changes-1" class="anchor"></a>Breaking changes</h2>
+<a href="#breaking-changes-2" class="anchor"></a>Breaking changes</h2>
 <ul>
 <li><p>All parameter <em>objects</em> are now parameter <em>functions</em>. For example, the pre-configured object <code>mtry</code> is now a function, <code><a href="../reference/mtry.html">mtry()</a></code>, with arguments for the <code>range</code> and the <code>trans</code>. This provides greater flexibility in parameter creation, and should feel more natural.</p></li>
 <li><p><code><a href="../reference/deg_free.html">deg_free()</a></code> erroneously produced real values; integers are now returned.</p></li>

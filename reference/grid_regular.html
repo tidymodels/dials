@@ -43,6 +43,10 @@
 <script src="../pkgdown.js"></script>
 <link href="../tidyverse-2.css" rel="stylesheet">
 
+<!--optional theme-->
+<link href="../tidymodels.css" rel="stylesheet">
+
+
 
 
 <meta property="og:title" content="Create grids of tuning parameters — grid_regular" />
@@ -91,7 +95,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.6</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.7</span>
         </div>
       </div>
     </div>
@@ -181,7 +185,9 @@ the parameter ranges or values.</p></td>
       <th>levels</th>
       <td><p>An integer for the number of values of each parameter to use
 to make the regular grid. <code>levels</code> can be a single integer or a vector of
-integers that is the same length as the number of parameters in <code>...</code>.</p></td>
+integers that is the same length as the number of parameters in <code>...</code>.
+<code>levels</code> can be a named integer vector, with names that match the id values
+of parameters.</p></td>
     </tr>
     <tr>
       <th>original</th>
@@ -203,9 +209,33 @@ combinations returned for the random grid.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A tibble with an additional class for the type of grid
-(<code>"grid_regular"</code> or <code>"grid_random"</code>). There are columns for
-each parameter and a row for every parameter combination.</p>
+    <p>A tibble. There are columns for each parameter and a row for every
+parameter combination.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Note that there may a difference in grids depending on how the function
+is called. If the call uses the parameter objects directly the possible
+ranges come from the objects in <code>dials</code>. For example:<div class="r"></p><pre><span class='fu'><a href='mixture.html'>mixture</a></span>()</pre><p></div></p><pre><span class='co'>## Proportion of lasso Penalty  (quantitative)</span>
+<span class='co'>## Range: [0, 1]</span></pre><p><div class="r"></p><pre><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>283</span>)
+<span class='no'>mix_grid_1</span> <span class='kw'>&lt;-</span> <span class='fu'>grid_random</span>(<span class='fu'><a href='mixture.html'>mixture</a></span>(), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span>(<span class='no'>mix_grid_1</span>$<span class='no'>mixture</span>)</pre><p></div></p><pre><span class='co'>## [1] 0.001490161 0.999741096</span></pre>
+
+<p>However, in some cases, the <code>tune</code> package overrides the default ranges
+for specific models. If the grid function uses a <code>parameters</code> object
+created from a model or recipe, the ranges my have different defaults
+(specific to those models). Using the example above, the <code>mixture</code>
+argument above is different for <code>glmnet</code> models:<div class="r"></p><pre><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>parsnip</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>tune</span>)
+
+<span class='co'># When used with glmnet, the range is [0.05, 1.00]</span>
+<span class='no'>glmn_mod</span> <span class='kw'>&lt;-</span>
+  <span class='fu'>linear_reg</span>(<span class='kw'>mixture</span> <span class='kw'>=</span> <span class='fu'>tune</span>()) <span class='kw'>%&gt;%</span>
+  <span class='fu'>set_engine</span>(<span class='st'>"glmnet"</span>)
+
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>283</span>)
+<span class='no'>mix_grid_2</span> <span class='kw'>&lt;-</span> <span class='fu'>grid_random</span>(<span class='fu'><a href='parameters.html'>parameters</a></span>(<span class='no'>glmn_mod</span>), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>1000</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span>(<span class='no'>mix_grid_2</span>$<span class='no'>mixture</span>)</pre><p></div></p><pre><span class='co'>## [1] 0.05141565 0.99975404</span></pre>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># filter arg will allow you to filter subsequent grid data frame based on some condition.</span>
@@ -244,7 +274,21 @@ each parameter and a row for every parameter combination.</p>
 #&gt; </span><span style='color: #555555;'>6</span><span> 1                0.5
 #&gt; </span><span style='color: #555555;'>7</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     1  
 #&gt; </span><span style='color: #555555;'>8</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          1  
-#&gt; </span><span style='color: #555555;'>9</span><span> 1                1  </div><div class='input'><span class='fu'>grid_regular</span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>(), <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3</span>, <span class='fl'>4</span>))</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 12 x 2</span><span>
+#&gt; </span><span style='color: #555555;'>9</span><span> 1                1  </div><div class='input'><span class='fu'>grid_regular</span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>(), <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>3</span>:<span class='fl'>4</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 12 x 2</span><span>
+#&gt;         penalty mixture
+#&gt;           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'> 1</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>   0    
+#&gt; </span><span style='color: #555555;'> 2</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>        0    
+#&gt; </span><span style='color: #555555;'> 3</span><span> 1              0    
+#&gt; </span><span style='color: #555555;'> 4</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>   0.333
+#&gt; </span><span style='color: #555555;'> 5</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>        0.333
+#&gt; </span><span style='color: #555555;'> 6</span><span> 1              0.333
+#&gt; </span><span style='color: #555555;'> 7</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>   0.667
+#&gt; </span><span style='color: #555555;'> 8</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>        0.667
+#&gt; </span><span style='color: #555555;'> 9</span><span> 1              0.667
+#&gt; </span><span style='color: #555555;'>10</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>   1    
+#&gt; </span><span style='color: #555555;'>11</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>        1    
+#&gt; </span><span style='color: #555555;'>12</span><span> 1              1    </div><div class='input'><span class='fu'>grid_regular</span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>(), <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='kw'>mixture</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>penalty</span> <span class='kw'>=</span> <span class='fl'>3</span>))</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 12 x 2</span><span>
 #&gt;         penalty mixture
 #&gt;           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
 #&gt; </span><span style='color: #555555;'> 1</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>   0    
