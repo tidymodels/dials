@@ -1,4 +1,4 @@
-# dials (development version)
+# dials 0.0.7
 
 * The `grid_*()` functions no longer generate subclassed tibbles.
 
@@ -9,6 +9,8 @@
 ## Breaking changes
 
 * The range of `dist_power()` was changed so that the lower limit is 1. 
+
+* The deprecation period for `margin()` is over; please use `svm_margin()` instead. 
 
 
 # dials 0.0.6
