@@ -24,5 +24,5 @@ params <- list(lambda = penalty(), alpha = mixture(), `rand forest` = mtry())
 pset <- parameters(params)
 pset
 
-update(pset, `rand forest` = finalize(mtry(), iris), alpha = mixture(c(.1, .2)))
+update(pset, `rand forest` = finalize(mtry(), mtcars), alpha = mixture(c(.1, .2)))
 }

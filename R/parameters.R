@@ -208,7 +208,7 @@ print.parameters <- function(x, ...) {
 #' pset <- parameters(params)
 #' pset
 #'
-#' update(pset, `rand forest` = finalize(mtry(), iris), alpha = mixture(c(.1, .2)))
+#' update(pset, `rand forest` = finalize(mtry(), mtcars), alpha = mixture(c(.1, .2)))
 #' @export
 update.parameters <- function(object, ...) {
   args <- rlang::list2(...)

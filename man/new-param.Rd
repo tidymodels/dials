@@ -42,7 +42,7 @@ values should be inclusive or exclusive.}
 parameter value. \code{unknown()} can also be used here.}
 
 \item{trans}{A \code{trans} object from the \pkg{scales} package, such as
-\code{\link[scales:log10_trans]{scales::log10_trans()}} or \code{\link[scales:reciprocal_trans]{scales::reciprocal_trans()}}. Create custom
+\code{\link[scales:log_trans]{scales::log10_trans()}} or \code{\link[scales:reciprocal_trans]{scales::reciprocal_trans()}}. Create custom
 transforms with \code{\link[scales:trans_new]{scales::trans_new()}}.}
 
 \item{values}{A vector of possible values that is required when \code{type} is
