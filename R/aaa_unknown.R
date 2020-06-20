@@ -65,10 +65,14 @@ has_unknowns <- function(object) {
 }
 
 has_unknowns_val <- function(object) {
-  if (any(names(object) == "range"))
+  if (all(is.na(object))) {
+    return(FALSE)
+  }
+  if (any(names(object) == "range")) {
     rng_check <- any(is_unknown(object$range))
-  else
+  } else {
     rng_check <- FALSE
+  }
   val_check <- any(is_unknown(object$values))
   any(rng_check) | any(val_check)
 }

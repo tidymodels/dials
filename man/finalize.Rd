@@ -5,6 +5,8 @@
 \alias{finalize.list}
 \alias{finalize.param}
 \alias{finalize.parameters}
+\alias{finalize.logical}
+\alias{finalize.default}
 \alias{get_p}
 \alias{get_log_p}
 \alias{get_n_frac}
@@ -21,6 +23,10 @@ finalize(object, ...)
 \method{finalize}{param}(object, x, force = TRUE, ...)
 
 \method{finalize}{parameters}(object, x, force = TRUE, ...)
+
+\method{finalize}{logical}(object, x, force = TRUE, ...)
+
+\method{finalize}{default}(object, x, force = TRUE, ...)
 
 get_p(object, x, log_vals = FALSE, ...)
 

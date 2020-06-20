@@ -120,6 +120,28 @@ finalize.parameters <- function(object, x, force = TRUE, ...) {
   object
 }
 
+# These two finalize methods are for cases when a tuning parameter has no
+# parameter object or isn't listed in the tunable method.
+
+
+#' @export
+#' @rdname finalize
+finalize.logical <- function(object, x, force = TRUE, ...) {
+  object
+}
+
+#' @export
+#' @rdname finalize
+finalize.default <- function(object, x, force = TRUE, ...) {
+  if (all_is.na(object)) {
+    return(object)
+  } else {
+    cls <- paste0("'", class(x), "'", collapse = ", ")
+    rlang::abort(paste0("Cannot finalize an object with class(es): ", cls))
+  }
+  object
+}
+
 
 #' @export
 #' @rdname finalize
