@@ -138,9 +138,9 @@
     <p>Term frequency weighting methods</p>
     </div>
 
-    <pre class="usage"><span class='fu'>weight_scheme</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>values_weight_scheme</span>)
+    <pre class="usage"><span class='fu'>weight_scheme</span>(values = <span class='kw'>values_weight_scheme</span>)
 
-<span class='no'>values_weight_scheme</span></pre>
+<span class='kw'>values_weight_scheme</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -160,7 +160,7 @@ in examples below.</p></td>
     <p>This parameter is used in <code>textrecipes::step_tf()</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>values_weight_scheme</span></div><div class='output co'>#&gt; [1] "raw count"            "binary"               "term frequency"      
+    <pre class="examples"><div class='input'><span class='kw'>values_weight_scheme</span></div><div class='output co'>#&gt; [1] "raw count"            "binary"               "term frequency"      
 #&gt; [4] "log normalization"    "double normalization"</div><div class='input'><span class='fu'>weight_scheme</span>()</div><div class='output co'>#&gt; Term Frequency Weight Method  (qualitative)
 #&gt; 5 possible value include:
 #&gt; 'raw count', 'binary', 'term frequency', 'log normalization' and 'double norm... </div></pre>

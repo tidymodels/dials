@@ -138,9 +138,9 @@
     <p>Token types</p>
     </div>
 
-    <pre class="usage"><span class='fu'>token</span>(<span class='kw'>values</span> <span class='kw'>=</span> <span class='no'>values_token</span>)
+    <pre class="usage"><span class='fu'>token</span>(values = <span class='kw'>values_token</span>)
 
-<span class='no'>values_token</span></pre>
+<span class='kw'>values_token</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -160,7 +160,7 @@ in examples below.</p></td>
     <p>This parameter is used in <code>textrecipes::step_tokenize()</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>values_token</span></div><div class='output co'>#&gt;  [1] "words"             "characters"        "character_shingle"
+    <pre class="examples"><div class='input'><span class='kw'>values_token</span></div><div class='output co'>#&gt;  [1] "words"             "characters"        "character_shingle"
 #&gt;  [4] "lines"             "ngrams"            "paragraphs"       
 #&gt;  [7] "ptb"               "regex"             "sentences"        
 #&gt; [10] "skip_ngrams"       "tweets"            "word_stems"       </div><div class='input'><span class='fu'>token</span>()</div><div class='output co'>#&gt; Token Unit  (qualitative)
