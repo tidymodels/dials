@@ -52,6 +52,8 @@ test_that('param ranges', {
   expect_equal(regularization_factor(c(.1, .5))$range, list(lower = .1, upper = .5))
   expect_equal(confidence_factor(c(-1, -.5))$range, list(lower = -1, upper = -.5))
   expect_equal(rule_bands(c(5L, 10L))$range, list(lower = 5L, upper = 10L))
+  expect_equal(max_rules(c(5L, 10L))$range, list(lower = 5L, upper = 10L))
+  expect_equal(extrapolation(c(1, 10))$range, list(lower = 1, upper = 10))
 })
 
 
@@ -67,5 +69,6 @@ test_that('param values', {
   expect_equal(predictor_winnowing(TRUE)$values, TRUE)
   expect_equal(fuzzy_thresholding(TRUE)$values, TRUE)
   expect_equal(splitting_rule("gini")$values, "gini")
+  expect_equal(unbiased_rules(TRUE)$values, TRUE)
 })
 
