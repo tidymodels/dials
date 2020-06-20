@@ -133,7 +133,7 @@ finalize.logical <- function(object, x, force = TRUE, ...) {
 #' @export
 #' @rdname finalize
 finalize.default <- function(object, x, force = TRUE, ...) {
-  if (all_is.na(object)) {
+  if (all(is.na(object))) {
     return(object)
   } else {
     cls <- paste0("'", class(x), "'", collapse = ", ")
