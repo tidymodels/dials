@@ -1,3 +1,7 @@
+# dials 0.0.7.9000
+
+* A number of new parameter objects associated with engine-specific functions were added for engines "ranger", "randomForest", "earth" and "C5.0". 
+
 # dials 0.0.7
 
 * The `grid_*()` functions no longer generate subclassed tibbles.

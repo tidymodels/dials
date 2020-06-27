@@ -46,6 +46,14 @@ test_that('param ranges', {
   expect_equal(num_hash(1:2)$range, list(lower = 1, upper = 2))
   expect_equal(smoothness(c(.25, 1.75))$range, list(lower = .25, upper = 1.75))
   expect_equal(predictor_prop(c(.1, .5))$range, list(lower = .1, upper = .5))
+  expect_equal(num_random_splits(c(7L, 15L))$range, list(lower = 7L, upper = 15L))
+  expect_equal(lower_quantile(c(.1, .5))$range, list(lower = .1, upper = .5))
+  expect_equal(significance_threshold(c(-3, -2))$range, list(lower = -3, upper = -2))
+  expect_equal(regularization_factor(c(.1, .5))$range, list(lower = .1, upper = .5))
+  expect_equal(confidence_factor(c(-1, -.5))$range, list(lower = -1, upper = -.5))
+  expect_equal(rule_bands(c(5L, 10L))$range, list(lower = 5L, upper = 10L))
+  expect_equal(max_rules(c(5L, 10L))$range, list(lower = 5L, upper = 10L))
+  expect_equal(extrapolation(c(1, 10))$range, list(lower = 1, upper = 10))
 })
 
 
@@ -56,5 +64,11 @@ test_that('param values', {
   expect_equal(weight_func(letters[1:3])$values, letters[1:3])
   expect_equal(weight_func(letters[1:3])$values, letters[1:3])
   expect_equal(signed_hash(TRUE)$values, TRUE)
+  expect_equal(regularize_depth(TRUE)$values, TRUE)
+  expect_equal(no_global_pruning(TRUE)$values, TRUE)
+  expect_equal(predictor_winnowing(TRUE)$values, TRUE)
+  expect_equal(fuzzy_thresholding(TRUE)$values, TRUE)
+  expect_equal(splitting_rule("gini")$values, "gini")
+  expect_equal(unbiased_rules(TRUE)$values, TRUE)
 })
 
