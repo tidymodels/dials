@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Number of new features — num_comp • dials</title>
+<title>Parameters for possible engine parameters for ranger — regularization_factor • dials</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -49,8 +49,10 @@
 
 
 
-<meta property="og:title" content="Number of new features — num_comp" />
-<meta property="og:description" content="The number of derived predictors from models or feature engineering methods." />
+<meta property="og:title" content="Parameters for possible engine parameters for ranger — regularization_factor" />
+<meta property="og:description" content="These parameters are auxiliary to random forest models that use the &quot;ranger&quot;
+engine. They correspond to tuning parameters that would be specified using
+set_engine(&quot;ranger&quot;, ...)." />
 <meta property="og:image" content="https://dials.tidymodels.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -129,18 +131,34 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Number of new features</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/param_num_comp.R'><code>R/param_num_comp.R</code></a></small>
-    <div class="hidden name"><code>num_comp.Rd</code></div>
+    <h1>Parameters for possible engine parameters for ranger</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/param_engine_ranger.R'><code>R/param_engine_ranger.R</code></a></small>
+    <div class="hidden name"><code>ranger_parameters.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The number of derived predictors from models or feature engineering methods.</p>
+    <p>These parameters are auxiliary to random forest models that use the "ranger"
+engine. They correspond to tuning parameters that would be specified using
+<code>set_engine("ranger", ...)</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>num_comp</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fu'>unknown</span>()), trans = <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>regularization_factor</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), trans = <span class='kw'>NULL</span>)
 
-<span class='fu'>num_terms</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fu'>unknown</span>()), trans = <span class='kw'>NULL</span>)</pre>
+<span class='fu'>regularize_depth</span>(values = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>))
+
+<span class='fu'>significance_threshold</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>0</span>), trans = <span class='fu'>log10_trans</span>())
+
+<span class='fu'>lower_quantile</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), trans = <span class='kw'>NULL</span>)
+
+<span class='fu'>splitting_rule</span>(values = <span class='kw'>ranger_split_rules</span>)
+
+<span class='kw'>ranger_class_rules</span>
+
+<span class='kw'>ranger_reg_rules</span>
+
+<span class='kw'>ranger_split_rules</span>
+
+<span class='fu'>num_random_splits</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fl'>15L</span>), trans = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -157,19 +175,31 @@ largest possible values, respectively.</p></td>
 the default is used which matches the units used in <code>range</code>. If no
 transformation, <code>NULL</code>.</p></td>
     </tr>
+    <tr>
+      <th>values</th>
+      <td><p>For <code>splitting_rule()</code>, a character string of possible values.
+See <code>ranger_split_rules</code>, <code>ranger_class_rules</code>, and <code>ranger_reg_rules</code> for
+appropriate values. For <code>regularize_depth()</code>, either <code>TRUE</code> or <code>FALSE</code>.</p></td>
+    </tr>
     </table>
 
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+
+    <p>An object of class <code>character</code> of length 4.</p>
+<p>An object of class <code>character</code> of length 3.</p>
+<p>An object of class <code>character</code> of length 7.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Since the scale of these parameters often depends on the number of columns
-in the data set, the upper bound is set to <code>unknown</code>. For example, the
-number of PCA components is limited by the number of columns and so on.</p>
-<p>The difference between <code>num_comp()</code> and <code>num_terms()</code> is semantics.</p>
+    <p>To use these, check <code>?ranger::ranger</code> to see how they are used. Some are
+conditional on others. For example, <code>significance_threshold()</code>,
+<code>num_random_splits()</code>, and others are only used when
+<code>splitting_rule = "extratrees"</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>num_terms</span>()</div><div class='output co'>#&gt; # Model Terms  (quantitative)
-#&gt; Range: [1, ?]</div><div class='input'><span class='fu'>num_terms</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2L</span>, <span class='fl'>10L</span>))</div><div class='output co'>#&gt; # Model Terms  (quantitative)
-#&gt; Range: [2, 10]</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>regularization_factor</span>()</div><div class='output co'>#&gt; Gain Penalization  (quantitative)
+#&gt; Range: [0, 1]</div><div class='input'><span class='fu'>regularize_depth</span>()</div><div class='output co'>#&gt; Regularize Tree Depth?  (qualitative)
+#&gt; 2 possible value include:
+#&gt; TRUE and FALSE </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

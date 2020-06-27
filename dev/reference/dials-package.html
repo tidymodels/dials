@@ -100,7 +100,7 @@ random values or specifying a transformation of the parameters." />
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.6.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.7.9000</span>
         </div>
       </div>
     </div>
@@ -142,9 +142,9 @@ random values or specifying a transformation of the parameters." />
     <div class="ref-description">
     <p><code>dials</code> provides a framework for defining, creating, and
 managing tuning parameters for modeling. It contains functions
-to create tuning parameter objects (e.g. <code><a href='mtry.html'>mtry()</a></code> or
-<code><a href='penalty.html'>penalty()</a></code>) and others for creating tuning grids (e.g.
-<code><a href='grid_regular.html'>grid_regular()</a></code>). There are also functions for generating
+to create tuning parameter objects (e.g. <code>mtry()</code> or
+<code>penalty()</code>) and others for creating tuning grids (e.g.
+<code>grid_regular()</code>). There are also functions for generating
 random values or specifying a transformation of the parameters.</p>
     </div>
 
@@ -177,8 +177,8 @@ random values or specifying a transformation of the parameters.</p>
 
 <span class='co'># A full 3^3 factorial design where the regularization parameter is on</span>
 <span class='co'># the log scale:</span>
-<span class='no'>simple_set</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='grid_regular.html'>grid_regular</a></span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>(), <span class='fu'><a href='deg_free.html'>deg_free</a></span>(), <span class='kw'>levels</span> <span class='kw'>=</span> <span class='fl'>3</span>)
-<span class='no'>simple_set</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 27 x 3</span><span>
+<span class='kw'>simple_set</span> <span class='op'>&lt;-</span> <span class='fu'>grid_regular</span>(<span class='fu'>penalty</span>(), <span class='fu'>mixture</span>(), <span class='fu'>deg_free</span>(), levels = <span class='fl'>3</span>)
+<span class='kw'>simple_set</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 27 x 3</span><span>
 #&gt;         penalty mixture deg_free
 #&gt;           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
 #&gt; </span><span style='color: #555555;'> 1</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0          1
@@ -194,8 +194,8 @@ random values or specifying a transformation of the parameters.</p>
 #&gt; </span><span style='color: #555555;'># … with 17 more rows</span><span></div><div class='input'>
 <span class='co'># A random grid of 5 combinations</span>
 <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>362</span>)
-<span class='no'>random_set</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='grid_regular.html'>grid_random</a></span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>(), <span class='fu'><a href='deg_free.html'>deg_free</a></span>(), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>5</span>)
-<span class='no'>random_set</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 5 x 3</span><span>
+<span class='kw'>random_set</span> <span class='op'>&lt;-</span> <span class='fu'>grid_random</span>(<span class='fu'>penalty</span>(), <span class='fu'>mixture</span>(), <span class='fu'>deg_free</span>(), size = <span class='fl'>5</span>)
+<span class='kw'>random_set</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 5 x 3</span><span>
 #&gt;        penalty mixture deg_free
 #&gt;          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span> 0.001</span><span style='text-decoration: underline;'>37</span><span>        0.186        1
@@ -204,8 +204,8 @@ random values or specifying a transformation of the parameters.</p>
 #&gt; </span><span style='color: #555555;'>4</span><span> 0.000</span><span style='text-decoration: underline;'>007</span><span>66     0.790        2
 #&gt; </span><span style='color: #555555;'>5</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>032</span><span style='text-decoration: underline;'>4</span><span>   0.251        3</div><div class='input'>
 <span class='co'># A small space-filling design based on experimental design methods:</span>
-<span class='no'>design_set</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='grid_max_entropy.html'>grid_max_entropy</a></span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>(), <span class='fu'><a href='deg_free.html'>deg_free</a></span>(), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>5</span>)
-<span class='no'>design_set</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 5 x 3</span><span>
+<span class='kw'>design_set</span> <span class='op'>&lt;-</span> <span class='fu'>grid_max_entropy</span>(<span class='fu'>penalty</span>(), <span class='fu'>mixture</span>(), <span class='fu'>deg_free</span>(), size = <span class='fl'>5</span>)
+<span class='kw'>design_set</span></div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 5 x 3</span><span>
 #&gt;         penalty mixture deg_free
 #&gt;           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>1</span><span> 0.071</span><span style='text-decoration: underline;'>2</span><span>         0.339         5

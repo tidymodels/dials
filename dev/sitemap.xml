@@ -13,7 +13,13 @@
     <loc>https://dials.tidymodels.org/reference/activation.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/reference/c5_parameters.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/reference/cost.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/reference/cubist_parameters.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/deg_free.html</loc>
@@ -29,6 +35,9 @@
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/dropout.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/reference/earth_parameters.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/encode_unit.html</loc>
@@ -100,7 +109,13 @@
     <loc>https://dials.tidymodels.org/reference/prune_method.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/reference/randomForest_parameters.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/reference/range_validate.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/reference/ranger_parameters.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/rbf_sigma.html</loc>
