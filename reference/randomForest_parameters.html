@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Update a single parameter in a parameter set — update.parameters • dials</title>
+<title>Parameters for possible engine parameters for randomForest — max_nodes • dials</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -49,8 +49,10 @@
 
 
 
-<meta property="og:title" content="Update a single parameter in a parameter set — update.parameters" />
-<meta property="og:description" content="Update a single parameter in a parameter set" />
+<meta property="og:title" content="Parameters for possible engine parameters for randomForest — max_nodes" />
+<meta property="og:description" content="These parameters are auxiliary to random forest models that use the &quot;randomForest&quot;
+engine. They correspond to tuning parameters that would be specified using
+set_engine(&quot;randomForest&quot;, ...)." />
 <meta property="og:image" content="https://dials.tidymodels.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -129,59 +131,40 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Update a single parameter in a parameter set</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/parameters.R'><code>R/parameters.R</code></a></small>
-    <div class="hidden name"><code>update.parameters.Rd</code></div>
+    <h1>Parameters for possible engine parameters for randomForest</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/param_engine_randomForest.R'><code>R/param_engine_randomForest.R</code></a></small>
+    <div class="hidden name"><code>randomForest_parameters.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Update a single parameter in a parameter set</p>
+    <p>These parameters are auxiliary to random forest models that use the "randomForest"
+engine. They correspond to tuning parameters that would be specified using
+<code>set_engine("randomForest", ...)</code>.</p>
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for parameters</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>max_nodes</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>100L</span>, <span class='fl'>10000L</span>), trans = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>object</th>
-      <td><p>A parameter set.</p></td>
+      <th>range</th>
+      <td><p>A two-element vector holding the <em>defaults</em> for the smallest and
+largest possible values, respectively.</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>One or more unquoted named values separated by commas. The names
-should correspond to the <code>id</code> values in the parameter set. The values should
-be parameter objects or <code>NA</code> values.</p></td>
+      <th>trans</th>
+      <td><p>A <code>trans</code> object from the <code>scales</code> package, such as
+<code><a href='https://scales.r-lib.org//reference/log_trans.html'>scales::log10_trans()</a></code> or <code><a href='https://scales.r-lib.org//reference/reciprocal_trans.html'>scales::reciprocal_trans()</a></code>. If not provided,
+the default is used which matches the units used in <code>range</code>. If no
+transformation, <code>NULL</code>.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>The modified parameter set.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>params</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(lambda = <span class='fu'>penalty</span>(), alpha = <span class='fu'>mixture</span>(), `rand forest` = <span class='fu'>mtry</span>())
-<span class='kw'>pset</span> <span class='op'>&lt;-</span> <span class='fu'>parameters</span>(<span class='kw'>params</span>)
-<span class='kw'>pset</span></div><div class='output co'>#&gt; Collection of 3 parameters for tuning
-#&gt; 
-#&gt;           id parameter type object class
-#&gt;       lambda        penalty    nparam[+]
-#&gt;        alpha        mixture    nparam[+]
-#&gt;  rand forest           mtry    nparam[?]
-#&gt; 
-#&gt; Parameters needing finalization:
-#&gt;    # Randomly Selected Predictors ('rand forest')
-#&gt; 
-#&gt; See `?dials::finalize` or `?dials::update.parameters` for more information.
-#&gt; </div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span>(<span class='kw'>pset</span>, `rand forest` = <span class='fu'>finalize</span>(<span class='fu'>mtry</span>(), <span class='kw'>mtcars</span>), alpha = <span class='fu'>mixture</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>.1</span>, <span class='fl'>.2</span>)))</div><div class='output co'>#&gt; Collection of 3 parameters for tuning
-#&gt; 
-#&gt;           id parameter type object class
-#&gt;       lambda        penalty    nparam[+]
-#&gt;        alpha        mixture    nparam[+]
-#&gt;  rand forest           mtry    nparam[+]
-#&gt; </div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>max_nodes</span>()</div><div class='output co'>#&gt; Maximum Number of Terminal Nodes  (quantitative)
+#&gt; Range: [100, 10000]</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
