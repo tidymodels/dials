@@ -10,6 +10,8 @@
 #' @param levels An integer for the number of values of each parameter to use
 #' to make the regular grid. `levels` can be a single integer or a vector of
 #' integers that is the same length as the number of parameters in `...`.
+#' `levels` can be a named integer vector, with names that match the id values
+#' of parameters.
 #'
 #' @param size A single integer for the total number of parameter value
 #' combinations returned for the random grid.
@@ -21,11 +23,12 @@
 #' generating the grid. Must be a single expression referencing parameter
 #' names that evaluates to a logical vector.
 #'
+#' @includeRmd man/rmd/rand_notes.md details
+#'
 #' @return
 #'
-#' A tibble with an additional class for the type of grid
-#' (`"grid_regular"` or `"grid_random"`). There are columns for
-#' each parameter and a row for every parameter combination.
+#' A tibble. There are columns for each parameter and a row for every
+#' parameter combination.
 #'
 #' @examples
 #' # filter arg will allow you to filter subsequent grid data frame based on some condition.
@@ -37,7 +40,8 @@
 #' # grid_regular(mtry(), min_n())
 #'
 #' grid_regular(penalty(), mixture())
-#' grid_regular(penalty(), mixture(), levels = c(3, 4))
+#' grid_regular(penalty(), mixture(), levels = 3:4)
+#' grid_regular(penalty(), mixture(), levels = c(mixture = 4, penalty = 3))
 #' grid_random(penalty(), mixture())
 #'
 #' @export
@@ -96,9 +100,7 @@ make_regular_grid <- function(..., levels = 3, original = TRUE, filter = NULL) {
   filter_quo <- enquo(filter)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
-  param_labs <- map_chr(params, function(x) x$label)
   param_names <- names(param_quos)
-  names(param_labs) <- param_names
 
 
   # check levels
@@ -111,6 +113,11 @@ make_regular_grid <- function(..., levels = 3, original = TRUE, filter = NULL) {
   if (p == 1) {
     param_seq <- map(params, value_seq, n = levels, original = original)
   } else {
+    if (all(rlang::has_name(levels, names(params)))) {
+      levels <- levels[names(params)]
+    } else if (any(rlang::has_name(levels, names(params)))) {
+      rlang::abort("Elements of `levels` should either be all named or unnamed, not mixed.")
+    }
     param_seq <- map2(params, as.list(levels), value_seq, original = original)
   }
 
@@ -119,7 +126,8 @@ make_regular_grid <- function(..., levels = 3, original = TRUE, filter = NULL) {
   if (!(quo_is_null(filter_quo))) {
     parameters <- dplyr::filter(parameters, !!filter_quo)
   }
-  new_grid(parameters, labels = param_labs, cls = c("grid_regular", "param_grid"))
+
+  new_param_grid(parameters)
 }
 
 # ------------------------------------------------------------------------------
@@ -183,8 +191,6 @@ make_random_grid <- function(..., size = 5, original = TRUE, filter = NULL) {
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
 
-  param_labs <- map_chr(params, function(x) x$label)
-
   # for now assume equal levels
   parameters <- map_dfc(params, value_sample, n = size, original = original)
   param_names <- names(param_quos)
@@ -192,14 +198,25 @@ make_random_grid <- function(..., size = 5, original = TRUE, filter = NULL) {
   if (!(quo_is_null(filter_quo))) {
     parameters <- dplyr::filter(parameters, !!filter_quo)
   }
-  new_grid(parameters, labels = param_labs, cls = c("grid_random", "param_grid"))
+
+  new_param_grid(parameters)
 }
 
 # ------------------------------------------------------------------------------
 
-new_grid <- function(x, labels, cls) {
-  x <- as_tibble(x)
-  attr(x, "info") <- list(labels = labels)
-  class(x) <- c(cls, class(x))
-  x
+new_param_grid <- function(x = new_data_frame()) {
+  if (!is.data.frame(x)) {
+    rlang::abort("`x` must be a data frame to construct a new grid from.")
+  }
+
+  size <- vec_size(x)
+
+  # Strip down to a named list with no extra attributes. This serves
+  # as the core object to build the tibble from.
+  attributes(x) <- list(names = names(x))
+
+  tibble::new_tibble(
+    x = x,
+    nrow = size
+  )
 }

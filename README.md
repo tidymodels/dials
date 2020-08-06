@@ -3,14 +3,10 @@
 
 # dials
 
-[![Build
-Status](https://travis-ci.org/tidymodels/dials.svg?branch=master)](https://travis-ci.org/tidymodels/dials)
 [![R build
 status](https://github.com/tidymodels/dials/workflows/R-CMD-check/badge.svg)](https://github.com/tidymodels/dials/actions)
-[![Coverage
-status](https://codecov.io/gh/tidymodels/dials/branch/master/graph/badge.svg)](https://codecov.io/github/tidymodels/dials?branch=master)
 [![Codecov test
-coverage](https://codecov.io/gh/topepo/dials/branch/master/graph/badge.svg)](https://codecov.io/gh/topepo/dials?branch=master)
+coverage](https://codecov.io/gh/tidymodels/dials/branch/master/graph/badge.svg)](https://codecov.io/gh/tidymodels/dials?branch=master)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dials)](https://CRAN.R-project.org/package=dials)
 [![Downloads](http://cranlogs.r-pkg.org/badges/dials)](https://CRAN.R-project.org/package=dials)
 [![Lifecycle:
@@ -41,3 +37,24 @@ You can install the development version from Github with:
 ``` r
 devtools::install_github("tidymodels/dials")
 ```
+
+## Contributing
+
+This project is released with a [Contributor Code of
+Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
+
+  - For questions and discussions about tidymodels packages, modeling,
+    and machine learning, please [post on RStudio
+    Community](https://rstd.io/tidymodels-community).
+
+  - If you think you have encountered a bug, please [submit an
+    issue](https://github.com/tidymodels/dials/issues).
+
+  - Either way, learn how to create and share a
+    [reprex](https://rstd.io/reprex) (a minimal, reproducible example),
+    to clearly communicate about your code.
+
+  - Check out further details on [contributing guidelines for tidymodels
+    packages](https://www.tidymodels.org/contribute/) and [how to get
+    help](https://www.tidymodels.org/help/).

@@ -29,17 +29,17 @@ test_that('estimate rows', {
     list(lower = 0, upper = 1)
   )
   expect_equal(
-    get_n_frac_range(sample_size(c(unknown(), unknown())), iris, frac = c(.3, .7))$range,
-    list(lower = 45, upper = 105)
+    get_n_frac_range(sample_size(c(unknown(), unknown())), warpbreaks, frac = c(.3, .7))$range,
+    list(lower = 16, upper = 37)
   )
   expect_equal(
     get_n_frac_range(
       sample_size(c(unknown(), unknown()), trans = log10_trans()),
-      x = iris,
+      x = warpbreaks,
       log_vals = TRUE,
       frac = c(.3, .7)
     )$range,
-    list(lower = log10(45), upper = log10(105))
+    list(lower = log10(16), upper = log10(37))
   )
 
   expect_equal(

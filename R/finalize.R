@@ -11,7 +11,7 @@
 #' @param force A single logical that indicates that, even if the parameter
 #' object is complete, should it update the ranges anyway?
 #'
-#' @param log_vals A logical: should the ranges be set on the log-10 scale?
+#' @param log_vals A logical: should the ranges be set on the log10 scale?
 #'
 #' @param ... Other arguments to pass to the underlying parameter
 #' finalizer functions. For example, for `get_rbf_range()`, the dots are passed
@@ -117,6 +117,28 @@ safe_finalize <- function(object, x, force = TRUE, ...) {
 #' @rdname finalize
 finalize.parameters <- function(object, x, force = TRUE, ...) {
   object$object <- map(object$object, safe_finalize, x, force, ...)
+  object
+}
+
+# These two finalize methods are for cases when a tuning parameter has no
+# parameter object or isn't listed in the tunable method.
+
+
+#' @export
+#' @rdname finalize
+finalize.logical <- function(object, x, force = TRUE, ...) {
+  object
+}
+
+#' @export
+#' @rdname finalize
+finalize.default <- function(object, x, force = TRUE, ...) {
+  if (all(is.na(object))) {
+    return(object)
+  } else {
+    cls <- paste0("'", class(x), "'", collapse = ", ")
+    rlang::abort(paste0("Cannot finalize an object with class(es): ", cls))
+  }
   object
 }
 

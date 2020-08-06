@@ -45,7 +45,9 @@ the parameter ranges or values.}
 
 \item{levels}{An integer for the number of values of each parameter to use
 to make the regular grid. \code{levels} can be a single integer or a vector of
-integers that is the same length as the number of parameters in \code{...}.}
+integers that is the same length as the number of parameters in \code{...}.
+\code{levels} can be a named integer vector, with names that match the id values
+of parameters.}
 
 \item{original}{A logical: should the parameters be in the original units or
 in the transformed space (if any)?}
@@ -58,12 +60,41 @@ names that evaluates to a logical vector.}
 combinations returned for the random grid.}
 }
 \value{
-A tibble with an additional class for the type of grid
-(\code{"grid_regular"} or \code{"grid_random"}). There are columns for
-each parameter and a row for every parameter combination.
+A tibble. There are columns for each parameter and a row for every
+parameter combination.
 }
 \description{
 Random and regular grids can be created for any number of parameter objects.
+}
+\details{
+Note that there may a difference in grids depending on how the function
+is called. If the call uses the parameter objects directly the possible
+ranges come from the objects in \code{dials}. For example:\if{html}{\out{<div class="r">}}\preformatted{mixture()
+}\if{html}{\out{</div>}}\preformatted{## Proportion of lasso Penalty  (quantitative)
+## Range: [0, 1]
+}\if{html}{\out{<div class="r">}}\preformatted{set.seed(283)
+mix_grid_1 <- grid_random(mixture(), size = 1000)
+range(mix_grid_1$mixture)
+}\if{html}{\out{</div>}}\preformatted{## [1] 0.001490161 0.999741096
+}
+
+However, in some cases, the \code{tune} package overrides the default ranges
+for specific models. If the grid function uses a \code{parameters} object
+created from a model or recipe, the ranges my have different defaults
+(specific to those models). Using the example above, the \code{mixture}
+argument above is different for \code{glmnet} models:\if{html}{\out{<div class="r">}}\preformatted{library(parsnip)
+library(tune)
+
+# When used with glmnet, the range is [0.05, 1.00]
+glmn_mod <-
+  linear_reg(mixture = tune()) \%>\%
+  set_engine("glmnet")
+
+set.seed(283)
+mix_grid_2 <- grid_random(parameters(glmn_mod), size = 1000)
+range(mix_grid_2$mixture)
+}\if{html}{\out{</div>}}\preformatted{## [1] 0.05141565 0.99975404
+}
 }
 \examples{
 # filter arg will allow you to filter subsequent grid data frame based on some condition.
@@ -75,7 +106,8 @@ grid_regular(p, filter = penalty <= .01)
 # grid_regular(mtry(), min_n())
 
 grid_regular(penalty(), mixture())
-grid_regular(penalty(), mixture(), levels = c(3, 4))
+grid_regular(penalty(), mixture(), levels = 3:4)
+grid_regular(penalty(), mixture(), levels = c(mixture = 4, penalty = 3))
 grid_random(penalty(), mixture())
 
 }

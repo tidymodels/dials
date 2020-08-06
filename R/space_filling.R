@@ -9,6 +9,8 @@
 #'  between coordinates. Both designs use random sampling of points in the
 #'  parameter space.
 #'
+#' @includeRmd man/rmd/sfd_notes.md details
+#'
 #' @inheritParams grid_random
 #' @param size A single integer for the total number of parameter value
 #' combinations returned.
@@ -58,7 +60,7 @@ grid_max_entropy.parameters <- function(x, ..., size = 3, original = TRUE,
   grd <- make_max_entropy_grid(!!!params, size = size, original = original,
                                variogram_range = variogram_range, iter = iter)
   names(grd) <- x$id
-  new_grid(grd, labels = x$id, cls = c("grid_max_entropy", "param_grid"))
+  new_param_grid(grd)
 }
 
 #' @export
@@ -71,7 +73,7 @@ grid_max_entropy.list <- function(x, ..., size = 3, original = TRUE,
   grd <- make_max_entropy_grid(!!!params, size = size, original = original,
                                variogram_range = variogram_range, iter = iter)
   names(grd) <- y$id
-  new_grid(grd, labels = y$id, cls = c("grid_max_entropy", "param_grid"))
+  new_param_grid(grd)
 }
 
 
@@ -85,7 +87,7 @@ grid_max_entropy.param <- function(x, ..., size = 3, original = TRUE,
   grd <- make_max_entropy_grid(!!!params, size = size, original = original,
                                variogram_range = variogram_range, iter = iter)
   names(grd) <- y$id
-  new_grid(grd, labels = y$id, cls = c("grid_max_entropy", "param_grid"))
+  new_param_grid(grd)
 }
 
 #' @export
@@ -150,7 +152,7 @@ grid_latin_hypercube.parameters <- function(x, ..., size = 3, original = TRUE) {
   grd <- make_latin_hypercube_grid(!!!params, size = size, original = original)
 
   names(grd) <- x$id
-  new_grid(grd, labels = x$id, cls = c("grid_latin_hypercube", "param_grid"))
+  new_param_grid(grd)
 }
 
 #' @export
@@ -161,7 +163,7 @@ grid_latin_hypercube.list <- function(x, ..., size = 3, original = TRUE) {
   names(params) <- y$id
   grd <- make_latin_hypercube_grid(!!!params, size = size, original = original)
   names(grd) <- y$id
-  new_grid(grd, labels = y$id, cls = c("grid_latin_hypercube", "param_grid"))
+  new_param_grid(grd)
 }
 
 
@@ -173,7 +175,7 @@ grid_latin_hypercube.param <- function(x, ..., size = 3, original = TRUE) {
   names(params) <- y$id
   grd <- make_latin_hypercube_grid(!!!params, size = size, original = original)
   names(grd) <- y$id
-  new_grid(grd, labels = y$id, cls = c("grid_latin_hypercube", "param_grid"))
+  new_param_grid(grd)
 }
 
 

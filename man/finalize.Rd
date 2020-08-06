@@ -5,6 +5,8 @@
 \alias{finalize.list}
 \alias{finalize.param}
 \alias{finalize.parameters}
+\alias{finalize.logical}
+\alias{finalize.default}
 \alias{get_p}
 \alias{get_log_p}
 \alias{get_n_frac}
@@ -21,6 +23,10 @@ finalize(object, ...)
 \method{finalize}{param}(object, x, force = TRUE, ...)
 
 \method{finalize}{parameters}(object, x, force = TRUE, ...)
+
+\method{finalize}{logical}(object, x, force = TRUE, ...)
+
+\method{finalize}{default}(object, x, force = TRUE, ...)
 
 get_p(object, x, log_vals = FALSE, ...)
 
@@ -49,7 +55,7 @@ include numeric data.}
 \item{force}{A single logical that indicates that, even if the parameter
 object is complete, should it update the ranges anyway?}
 
-\item{log_vals}{A logical: should the ranges be set on the log-10 scale?}
+\item{log_vals}{A logical: should the ranges be set on the log10 scale?}
 
 \item{frac}{A double for the fraction of the data to be used for the upper
 bound. For \code{get_n_frac_range()} and \code{get_batch_sizes()}, a vector of two

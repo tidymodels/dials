@@ -4,7 +4,7 @@
 \alias{dist_power}
 \title{Minkowski distance parameter}
 \usage{
-dist_power(range = c(-1, 2), trans = NULL)
+dist_power(range = c(1, 2), trans = NULL)
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and

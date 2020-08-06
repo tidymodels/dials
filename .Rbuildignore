@@ -12,3 +12,6 @@
 ^\.github/workflows/R-CMD-check\.yaml$
 ^\.github/workflows/pr-commands\.yaml$
 ^data-raw$
+^\.github$
+^CODE_OF_CONDUCT\.md$
+

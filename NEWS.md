@@ -1,3 +1,24 @@
+# dials (development version)
+
+# dials 0.0.8
+
+* A number of new parameter objects associated with engine-specific functions were added for engines "ranger", "randomForest", "earth" and "C5.0". 
+
+# dials 0.0.7
+
+* The `grid_*()` functions no longer generate subclassed tibbles.
+
+* `predictor_prop()` was added. 
+
+* The `levels` argument for `tune_grid()` can now handle a named vector, to account for differences in ordering.
+
+## Breaking changes
+
+* The range of `dist_power()` was changed so that the lower limit is 1. 
+
+* The deprecation period for `margin()` is over; please use `svm_margin()` instead. 
+
+
 # dials 0.0.6
 
 * Quick bug fix release related to range checks in 0.0.5. The check is more forgiving when the required type is integer and a double is provided. 
