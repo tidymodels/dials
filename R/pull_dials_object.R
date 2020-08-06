@@ -24,8 +24,11 @@ pull_dials_object.parameters <- function(x, id, ...) {
   dots <- rlang::quos(...)
   if (!rlang::is_empty(dots))
     rlang::abort("The `...` are not used with `pull_dials_object()`.")
-  if (rlang::is_missing(id) || !is.character(id) || length(id) != 1 |
-      is.na(id) | nchar(id) == 0) {
+  if (any(rlang::is_missing(id)) ||
+      any(!is.character(id)) ||
+      length(id) != 1 ||
+      is.na(id) ||
+      nchar(id) == 0) {
     rlang::abort("Please supply a single 'id' string.")
   }
   which_id <- which(x$id == id)
