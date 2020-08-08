@@ -166,22 +166,47 @@ new_qual_param <- function(type = c("character", "logical"), values,
 
 #' @export
 print.quant_param <- function(x, digits = 3, ...) {
-  if (!is.null(x$label)) {
-    cat(x$label, " (quantitative)\n")
-  } else
-    cat("Quantitative Parameter\n")
-  if (!is.null(x$trans)) {
-    print(eval(x$trans))
-    cat("Range (transformed scale): ")
-  } else
-    cat("Range: ")
+  cat_header <- function(x) {
+    if (!is.null(x$label)) {
+      cat(x$label, " (quantitative)\n")
+    } else {
+      cat("Quantitative Parameter\n")
+    }
+  }
 
-  vals <- map_chr(x$range, format_range_val)
-  bnds <- format_bounds(x$inclusive)
-  cat(glue('{bnds[1]}{vals[1]}, {vals[2]}{bnds[2]}\n'))
-  cat("\n")
+  print_transformer <- function(x) {
+    if (!is.null(x$trans)) {
+      print(eval(x$trans))
+    }
+  }
+
+  cat_range <- function(x) {
+    cat(x %>% format_range_label("Range"))
+    vals <- map_chr(x$range, format_range_val)
+    cat(x %>% format_range(vals))
+    cat("\n")
+  }
+
+  cat_set_values <- function(x) {
+    if (!is.null(x$values)) {
+      vals <- map_chr(x$values, format_range_val)
+      cat(glue("Values: {length(x$values)}"))
+      cat("\n")
+      values_range_label <- x %>% format_range_label("Values Range")
+      formatted_range <- x %>% format_range(vals)
+      cat(glue("{values_range_label}{formatted_range}"))
+    }
+  }
+
+  cat_header(x)
+  print_transformer(x)
+  cat_range(x)
+  cat_set_values(x)
+
   invisible(x)
 }
+
+
 
 #' @export
 print.qual_param <- function(x, ...) {
@@ -204,7 +229,3 @@ print.qual_param <- function(x, ...) {
     "\n")
   invisible(x)
 }
-
-
-
-

@@ -69,6 +69,9 @@ context("printing parameter objects")
 test_that('printing', {
   expect_output(print(mtry()))
   expect_output(print(surv_dist()))
+  verify_output("print_quant.txt", {
+    value_set(cost_complexity(), log10(c(.09, .0001)))
+  })
 })
 
 
