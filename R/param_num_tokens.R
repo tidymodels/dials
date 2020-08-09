@@ -12,7 +12,7 @@ num_tokens <- function(range = c(1, 3), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(n_tokens = "Number of tokens"),
+    label = c(num_tokens = "Number of tokens"),
     finalize = NULL
   )
 }
