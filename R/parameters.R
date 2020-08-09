@@ -143,8 +143,8 @@ print.parameters <- function(x, ...) {
   x <- tibble::as_tibble(x)
   cat("Collection of", nrow(x), "parameters for tuning\n\n")
 
-  print_x <- x %>% dplyr::select(id, `parameter type` = name, `object class` = object)
-  print_x$`object class` <- purrr::map_chr(print_x$`object class`, dplyr::type_sum)
+  print_x <- x %>% dplyr::select(identifier = id, type = name, object)
+  print_x$object <- purrr::map_chr(print_x$object, dplyr::type_sum)
   print.data.frame(print_x, row.names = FALSE)
   cat("\n")
 
@@ -152,10 +152,10 @@ print.parameters <- function(x, ...) {
   num_missing <- sum(null_obj)
   if (num_missing > 0) {
     if (num_missing == 1) {
-      cat("One needs a `param` object: '", x$id[null_obj], "'\n\n", sep = "")
+      cat("One needs a `param` object: '", x$identifier[null_obj], "'\n\n", sep = "")
     } else {
       cat("Several need `param` objects: ",
-          paste0("'", x$id[null_obj], "'", collapse = ", "),
+          paste0("'", x$identifier[null_obj], "'", collapse = ", "),
           "\n\n")
     }
   }

@@ -1,5 +1,9 @@
 # dials (development version)
 
+ * The `print()` method for `parameters()` has changed to be more clear. 
+ 
+ * A new function, `pull_dials_object()` was also added. 
+
 # dials 0.0.8
 
 * A number of new parameter objects associated with engine-specific functions were added for engines "ranger", "randomForest", "earth" and "C5.0". 
