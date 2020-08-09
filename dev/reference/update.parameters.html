@@ -161,8 +161,8 @@ be parameter objects or <code>NA</code> values.</p></td>
     <p>The modified parameter set.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>params</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(lambda = <span class='fu'>penalty</span>(), alpha = <span class='fu'>mixture</span>(), `rand forest` = <span class='fu'>mtry</span>())
-<span class='kw'>pset</span> <span class='op'>&lt;-</span> <span class='fu'>parameters</span>(<span class='kw'>params</span>)
+    <pre class="examples"><div class='input'><span class='kw'>params</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(lambda = <span class='fu'><a href='penalty.html'>penalty</a></span>(), alpha = <span class='fu'><a href='mixture.html'>mixture</a></span>(), `rand forest` = <span class='fu'><a href='mtry.html'>mtry</a></span>())
+<span class='kw'>pset</span> <span class='op'>&lt;-</span> <span class='fu'><a href='parameters.html'>parameters</a></span>(<span class='kw'>params</span>)
 <span class='kw'>pset</span></div><div class='output co'>#&gt; Collection of 3 parameters for tuning
 #&gt; 
 #&gt;           id parameter type object class
@@ -175,7 +175,7 @@ be parameter objects or <code>NA</code> values.</p></td>
 #&gt; 
 #&gt; See `?dials::finalize` or `?dials::update.parameters` for more information.
 #&gt; </div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span>(<span class='kw'>pset</span>, `rand forest` = <span class='fu'>finalize</span>(<span class='fu'>mtry</span>(), <span class='kw'>mtcars</span>), alpha = <span class='fu'>mixture</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>.1</span>, <span class='fl'>.2</span>)))</div><div class='output co'>#&gt; Collection of 3 parameters for tuning
+<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span>(<span class='kw'>pset</span>, `rand forest` = <span class='fu'><a href='finalize.html'>finalize</a></span>(<span class='fu'><a href='mtry.html'>mtry</a></span>(), <span class='kw'>mtcars</span>), alpha = <span class='fu'><a href='mixture.html'>mixture</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>.1</span>, <span class='fl'>.2</span>)))</div><div class='output co'>#&gt; Collection of 3 parameters for tuning
 #&gt; 
 #&gt;           id parameter type object class
 #&gt;       lambda        penalty    nparam[+]

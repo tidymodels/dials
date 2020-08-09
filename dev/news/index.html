@@ -151,15 +151,15 @@
 </h1>
 <ul>
 <li><p>The <code>grid_*()</code> functions no longer generate subclassed tibbles.</p></li>
-<li><p><code><a href="https://dials.tidymodels.org/reference/predictor_prop.html">predictor_prop()</a></code> was added.</p></li>
+<li><p><code><a href="../reference/predictor_prop.html">predictor_prop()</a></code> was added.</p></li>
 <li><p>The <code>levels</code> argument for <code>tune_grid()</code> can now handle a named vector, to account for differences in ordering.</p></li>
 </ul>
 <div id="breaking-changes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
 <ul>
-<li><p>The range of <code><a href="https://dials.tidymodels.org/reference/dist_power.html">dist_power()</a></code> was changed so that the lower limit is 1.</p></li>
-<li><p>The deprecation period for <code>margin()</code> is over; please use <code><a href="https://dials.tidymodels.org/reference/cost.html">svm_margin()</a></code> instead.</p></li>
+<li><p>The range of <code><a href="../reference/dist_power.html">dist_power()</a></code> was changed so that the lower limit is 1.</p></li>
+<li><p>The deprecation period for <code>margin()</code> is over; please use <code><a href="../reference/cost.html">svm_margin()</a></code> instead.</p></li>
 </ul>
 </div>
 </div>
@@ -177,7 +177,7 @@
 </h1>
 <ul>
 <li><p>When kept in the original units, a parameter’s range must now be the same data type as the parameter.</p></li>
-<li><p>Renamed <code>margin()</code> to <code><a href="https://dials.tidymodels.org/reference/cost.html">svm_margin()</a></code> (<a href='https://github.com/gabrielodom'>@gabrielodom</a> and <a href='https://github.com/gralgomez'>@gralgomez</a>, <a href='https://github.com/tidymodels/dials/issues/85'>#85</a>)</p></li>
+<li><p>Renamed <code>margin()</code> to <code><a href="../reference/cost.html">svm_margin()</a></code> (<a href='https://github.com/gabrielodom'>@gabrielodom</a> and <a href='https://github.com/gralgomez'>@gralgomez</a>, <a href='https://github.com/tidymodels/dials/issues/85'>#85</a>)</p></li>
 <li><p>A bug in space filling designs with qualitative parameters was fixed (<a href='https://github.com/tidymodels/dials/issues/94'>#94</a>)</p></li>
 <li><p>A better error message was created when grids are used with parameters sets that contain parameters that require finalization (<a href='https://github.com/tidymodels/dials/issues/99'>#99</a>)</p></li>
 <li><p>Space-filling desings now share the same attributes as other grid objects (<a href='https://github.com/tidymodels/dials/issues/100'>#100</a>)</p></li>
@@ -192,16 +192,16 @@
 <h2 class="hasAnchor">
 <a href="#new-parameter-functions" class="anchor"></a>New parameter functions:</h2>
 <ul>
-<li>Parameters <code><a href="https://dials.tidymodels.org/reference/smoothness.html">smoothness()</a></code> was added.</li>
+<li>Parameters <code><a href="../reference/smoothness.html">smoothness()</a></code> was added.</li>
 </ul>
 </div>
 <div id="other-changes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#other-changes" class="anchor"></a>Other changes</h2>
 <ul>
-<li><p><code><a href="https://dials.tidymodels.org/reference/parameters.html">param_set()</a></code> is being renamed <code><a href="https://dials.tidymodels.org/reference/parameters.html">parameters()</a></code>. The old name implied that you <em>only</em> use it to set parameters (say from a recipe or model rather than <em>de novo</em>). <code><a href="https://dials.tidymodels.org/reference/parameters.html">param_set()</a></code> will be available until version 0.0.5.</p></li>
-<li><p>The range for <code><a href="https://dials.tidymodels.org/reference/texthash.html">num_hash()</a></code> was increase to be <code>2^8</code> to <code>2^12</code>.</p></li>
-<li><p>The range for <code><a href="https://dials.tidymodels.org/reference/max_tokens.html">max_tokens()</a></code> was changed to be 0 to 1000.</p></li>
+<li><p><code><a href="../reference/parameters.html">param_set()</a></code> is being renamed <code><a href="../reference/parameters.html">parameters()</a></code>. The old name implied that you <em>only</em> use it to set parameters (say from a recipe or model rather than <em>de novo</em>). <code><a href="../reference/parameters.html">param_set()</a></code> will be available until version 0.0.5.</p></li>
+<li><p>The range for <code><a href="../reference/num_hash.html">num_hash()</a></code> was increase to be <code>2^8</code> to <code>2^12</code>.</p></li>
+<li><p>The range for <code><a href="../reference/max_tokens.html">max_tokens()</a></code> was changed to be 0 to 1000.</p></li>
 </ul>
 </div>
 <div id="breaking-changes-1" class="section level2">
@@ -209,7 +209,7 @@
 <a href="#breaking-changes-1" class="anchor"></a>Breaking changes</h2>
 <ul>
 <li>
-<code><a href="https://rdrr.io/r/stats/offset.html">offset()</a></code> has been renamed <code><a href="https://dials.tidymodels.org/reference/rbf_sigma.html">kernel_offset()</a></code> to avoid name conflicts.</li>
+<code><a href="https://rdrr.io/r/stats/offset.html">offset()</a></code> has been renamed <code><a href="../reference/rbf_sigma.html">kernel_offset()</a></code> to avoid name conflicts.</li>
 </ul>
 </div>
 </div>
@@ -221,9 +221,9 @@
 <h2 class="hasAnchor">
 <a href="#breaking-changes-2" class="anchor"></a>Breaking changes</h2>
 <ul>
-<li><p>All parameter <em>objects</em> are now parameter <em>functions</em>. For example, the pre-configured object <code>mtry</code> is now a function, <code><a href="https://dials.tidymodels.org/reference/mtry.html">mtry()</a></code>, with arguments for the <code>range</code> and the <code>trans</code>. This provides greater flexibility in parameter creation, and should feel more natural.</p></li>
-<li><p><code><a href="https://dials.tidymodels.org/reference/deg_free.html">deg_free()</a></code> erroneously produced real values; integers are now returned.</p></li>
-<li><p>Default ranges were changed for <code><a href="https://dials.tidymodels.org/reference/learn_rate.html">learn_rate()</a></code> and <code><a href="https://dials.tidymodels.org/reference/neighbors.html">neighbors()</a></code> were changed.</p></li>
+<li><p>All parameter <em>objects</em> are now parameter <em>functions</em>. For example, the pre-configured object <code>mtry</code> is now a function, <code><a href="../reference/mtry.html">mtry()</a></code>, with arguments for the <code>range</code> and the <code>trans</code>. This provides greater flexibility in parameter creation, and should feel more natural.</p></li>
+<li><p><code><a href="../reference/deg_free.html">deg_free()</a></code> erroneously produced real values; integers are now returned.</p></li>
+<li><p>Default ranges were changed for <code><a href="../reference/learn_rate.html">learn_rate()</a></code> and <code><a href="../reference/neighbors.html">neighbors()</a></code> were changed.</p></li>
 <li><p><code>update.param_set()</code> now takes multiple named arguments.</p></li>
 </ul>
 </div>
@@ -231,7 +231,7 @@
 <h2 class="hasAnchor">
 <a href="#other-changes-1" class="anchor"></a>Other changes</h2>
 <ul>
-<li><p>Two functions for space-filling designs were added: <code><a href="https://dials.tidymodels.org/reference/grid_max_entropy.html">grid_max_entropy()</a></code> and <code><a href="https://dials.tidymodels.org/reference/grid_max_entropy.html">grid_latin_hypercube()</a></code>.</p></li>
+<li><p>Two functions for space-filling designs were added: <code><a href="../reference/grid_max_entropy.html">grid_max_entropy()</a></code> and <code><a href="../reference/grid_max_entropy.html">grid_latin_hypercube()</a></code>.</p></li>
 <li><p>A data set was added for modeling ridership on the Chicago L trains.</p></li>
 </ul>
 </div>
@@ -239,7 +239,7 @@
 <h2 class="hasAnchor">
 <a href="#new-parameter-functions-1" class="anchor"></a>New parameter functions:</h2>
 <ul>
-<li>Parameters <code><a href="https://dials.tidymodels.org/reference/degree.html">spline_degree()</a></code>, <code><a href="https://dials.tidymodels.org/reference/over_ratio.html">over_ratio()</a></code>, <code><a href="https://dials.tidymodels.org/reference/over_ratio.html">under_ratio()</a></code>, <code><a href="https://dials.tidymodels.org/reference/freq_cut.html">freq_cut()</a></code>, <code><a href="https://dials.tidymodels.org/reference/freq_cut.html">unique_cut()</a></code>, <code><a href="https://dials.tidymodels.org/reference/num_breaks.html">num_breaks()</a></code>, <code><a href="https://dials.tidymodels.org/reference/min_unique.html">min_unique()</a></code>, <code><a href="https://dials.tidymodels.org/reference/texthash.html">num_hash()</a></code>, <code><a href="https://dials.tidymodels.org/reference/texthash.html">signed_hash()</a></code>, <code><a href="https://dials.tidymodels.org/reference/trees.html">sample_prop()</a></code>, <code><a href="https://dials.tidymodels.org/reference/window_size.html">window_size()</a></code>, <code><a href="https://dials.tidymodels.org/reference/min_dist.html">min_dist()</a></code>, and <code><a href="https://dials.tidymodels.org/reference/degree.html">degree_int()</a></code> were added.</li>
+<li>Parameters <code><a href="../reference/degree.html">spline_degree()</a></code>, <code><a href="../reference/over_ratio.html">over_ratio()</a></code>, <code><a href="../reference/over_ratio.html">under_ratio()</a></code>, <code><a href="../reference/freq_cut.html">freq_cut()</a></code>, <code><a href="../reference/freq_cut.html">unique_cut()</a></code>, <code><a href="../reference/num_breaks.html">num_breaks()</a></code>, <code><a href="../reference/min_unique.html">min_unique()</a></code>, <code><a href="../reference/num_hash.html">num_hash()</a></code>, <code><a href="../reference/num_hash.html">signed_hash()</a></code>, <code><a href="../reference/trees.html">sample_prop()</a></code>, <code><a href="../reference/window_size.html">window_size()</a></code>, <code><a href="../reference/min_dist.html">min_dist()</a></code>, and <code><a href="../reference/degree.html">degree_int()</a></code> were added.</li>
 </ul>
 </div>
 </div>

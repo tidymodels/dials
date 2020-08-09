@@ -140,11 +140,11 @@ especially in conjunction with the parsnip package." />
 especially in conjunction with the <span class="pkg">parsnip</span> package.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/r/datasets/trees.html'>trees</a></span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fl'>2000L</span>), trans = <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>trees</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fl'>2000L</span>), trans = <span class='kw'>NULL</span>)
 
 <span class='fu'>min_n</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>2L</span>, <span class='fl'>40L</span>), trans = <span class='kw'>NULL</span>)
 
-<span class='fu'>sample_size</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'>unknown</span>(), <span class='fu'>unknown</span>()), trans = <span class='kw'>NULL</span>)
+<span class='fu'>sample_size</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fu'><a href='unknown.html'>unknown</a></span>(), <span class='fu'><a href='unknown.html'>unknown</a></span>()), trans = <span class='kw'>NULL</span>)
 
 <span class='fu'>sample_prop</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span><span class='op'>/</span><span class='fl'>10</span>, <span class='fl'>1</span>), trans = <span class='kw'>NULL</span>)
 
@@ -181,7 +181,7 @@ transformation, <code>NULL</code>.</p></td>
 
     <p>These functions generate parameters that are useful when the model is
 based on trees or rules.</p><ul>
-<li><p><code><a href='https://rdrr.io/r/datasets/trees.html'>trees()</a></code>: The number of trees contained in a random forest or boosted
+<li><p><code>trees()</code>: The number of trees contained in a random forest or boosted
 ensemble. In the latter case, this is equal to the number of boosting
 iterations. (See <code>parsnip::rand_forest()</code> and <code>parsnip::boost_tree()</code>).</p></li>
 <li><p><code>min_n()</code>: The minimum number of data points in a node that are required
@@ -203,7 +203,7 @@ further. (See <code>parsnip::boost_tree()</code>). This corresponds to <code>gam
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/datasets/trees.html'>trees</a></span>()</div><div class='output co'>#&gt; # Trees  (quantitative)
+    <pre class="examples"><div class='input'><span class='fu'>trees</span>()</div><div class='output co'>#&gt; # Trees  (quantitative)
 #&gt; Range: [1, 2000]</div><div class='input'><span class='fu'>min_n</span>()</div><div class='output co'>#&gt; Minimal Node Size  (quantitative)
 #&gt; Range: [2, 40]</div><div class='input'><span class='fu'>sample_size</span>()</div><div class='output co'>#&gt; # Observations Sampled  (quantitative)
 #&gt; Range: [?, ?]</div><div class='input'><span class='fu'>loss_reduction</span>()</div><div class='output co'>#&gt; Minimum Loss Reduction  (quantitative)

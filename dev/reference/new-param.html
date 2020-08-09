@@ -139,14 +139,14 @@ like mtry()." />
     <div class="ref-description">
     <p>These functions are used to construct new parameter objects. Generally,
 these functions are called from higher level parameter generating functions
-like <code>mtry()</code>.</p>
+like <code><a href='mtry.html'>mtry()</a></code>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>new_quant_param</span>(
   type = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"double"</span>, <span class='st'>"integer"</span>),
   <span class='kw'>range</span>,
   <span class='kw'>inclusive</span>,
-  default = <span class='fu'>unknown</span>(),
+  default = <span class='fu'><a href='unknown.html'>unknown</a></span>(),
   trans = <span class='kw'>NULL</span>,
   values = <span class='kw'>NULL</span>,
   label = <span class='kw'>NULL</span>,
@@ -156,7 +156,7 @@ like <code>mtry()</code>.</p>
 <span class='fu'>new_qual_param</span>(
   type = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"character"</span>, <span class='st'>"logical"</span>),
   <span class='kw'>values</span>,
-  default = <span class='fu'>unknown</span>(),
+  default = <span class='fu'><a href='unknown.html'>unknown</a></span>(),
   label = <span class='kw'>NULL</span>,
   finalize = <span class='kw'>NULL</span>
 )</pre>
@@ -174,7 +174,7 @@ choices are <code>"double"</code> and <code>"integer"</code> while for qualitati
       <th>range</th>
       <td><p>A two-element vector with the smallest or largest possible
 values, respectively. If these cannot be set when the parameter is defined,
-the <code>unknown()</code> function can be used. If a transformation is specified,
+the <code><a href='unknown.html'>unknown()</a></code> function can be used. If a transformation is specified,
 these values should be in the <em>transformed units</em>.</p></td>
     </tr>
     <tr>
@@ -185,7 +185,7 @@ values should be inclusive or exclusive.</p></td>
     <tr>
       <th>default</th>
       <td><p>A single value the same class as <code>type</code> for the default
-parameter value. <code>unknown()</code> can also be used here.</p></td>
+parameter value. <code><a href='unknown.html'>unknown()</a></code> can also be used here.</p></td>
     </tr>
     <tr>
       <th>trans</th>
@@ -238,7 +238,7 @@ is always converted to a list with elements <code>"lower"</code> and <code>"uppe
 #&gt; Range: [3, 5]</div><div class='input'>
 <span class='co'># Custom parameters instantly have access</span>
 <span class='co'># to sequence generating functions</span>
-<span class='fu'>value_seq</span>(<span class='fu'>num_subgroups</span>(), <span class='fl'>5</span>)</div><div class='output co'>#&gt; [1]  1  5 10 15 20</div><div class='input'></div></pre>
+<span class='fu'><a href='value_validate.html'>value_seq</a></span>(<span class='fu'>num_subgroups</span>(), <span class='fl'>5</span>)</div><div class='output co'>#&gt; [1]  1  5 10 15 20</div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
