@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Update a single parameter in a parameter set — update.parameters • dials</title>
+<title>Return a dials parameter object associated with parameters — pull_dials_object • dials</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -49,8 +49,9 @@
 
 
 
-<meta property="og:title" content="Update a single parameter in a parameter set — update.parameters" />
-<meta property="og:description" content="Update a single parameter in a parameter set" />
+<meta property="og:title" content="Return a dials parameter object associated with parameters — pull_dials_object" />
+<meta property="og:description" content="pull_dials_object() can extract a single dials parameter object from
+different types of objects (e.g. parameter sets, recipes, etc.)." />
 <meta property="og:image" content="https://dials.tidymodels.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -129,59 +130,59 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Update a single parameter in a parameter set</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/parameters.R'><code>R/parameters.R</code></a></small>
-    <div class="hidden name"><code>update.parameters.Rd</code></div>
+    <h1>Return a dials parameter object associated with parameters</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/pull_dials_object.R'><code>R/pull_dials_object.R</code></a></small>
+    <div class="hidden name"><code>pull_dials_object.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Update a single parameter in a parameter set</p>
+    <p><code>pull_dials_object()</code> can extract a single <code>dials</code> parameter object from
+different types of objects (e.g. parameter sets, recipes, etc.).</p>
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for parameters</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>pull_dials_object</span>(<span class='kw'>x</span>, <span class='kw'>id</span>, <span class='kw'>...</span>)
+
+<span class='co'># S3 method for parameters</span>
+<span class='fu'>pull_dials_object</span>(<span class='kw'>x</span>, <span class='kw'>id</span>, <span class='kw'>...</span>)
+
+<span class='co'># S3 method for recipe</span>
+<span class='fu'>pull_dials_object</span>(<span class='kw'>x</span>, <span class='kw'>id</span>, <span class='kw'>...</span>)
+
+<span class='co'># S3 method for model_spec</span>
+<span class='fu'>pull_dials_object</span>(<span class='kw'>x</span>, <span class='kw'>id</span>, <span class='kw'>...</span>)
+
+<span class='co'># S3 method for workflow</span>
+<span class='fu'>pull_dials_object</span>(<span class='kw'>x</span>, <span class='kw'>id</span>, <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>object</th>
-      <td><p>A parameter set.</p></td>
+      <th>x</th>
+      <td><p>The results of a call to <code><a href='parameters.html'>parameters()</a></code>, a recipe, model
+specification, or workflow.</p></td>
+    </tr>
+    <tr>
+      <th>id</th>
+      <td><p>A single string for the <code>id</code> of the parameter.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>One or more unquoted named values separated by commas. The names
-should correspond to the <code>id</code> values in the parameter set. The values should
-be parameter objects or <code>NA</code> values.</p></td>
+      <td><p>Not currently used.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>The modified parameter set.</p>
+    <p>A <code>dials</code> parameter object.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>params</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(lambda = <span class='fu'><a href='penalty.html'>penalty</a></span>(), alpha = <span class='fu'><a href='mixture.html'>mixture</a></span>(), `rand forest` = <span class='fu'><a href='mtry.html'>mtry</a></span>())
-<span class='kw'>pset</span> <span class='op'>&lt;-</span> <span class='fu'><a href='parameters.html'>parameters</a></span>(<span class='kw'>params</span>)
-<span class='kw'>pset</span></div><div class='output co'>#&gt; Collection of 3 parameters for tuning
-#&gt; 
-#&gt;   identifier    type    object
-#&gt;       lambda penalty nparam[+]
-#&gt;        alpha mixture nparam[+]
-#&gt;  rand forest    mtry nparam[?]
-#&gt; 
-#&gt; Parameters needing finalization:
-#&gt;    # Randomly Selected Predictors ('rand forest')
-#&gt; 
-#&gt; See `?dials::finalize` or `?dials::update.parameters` for more information.
-#&gt; </div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span>(<span class='kw'>pset</span>, `rand forest` = <span class='fu'><a href='finalize.html'>finalize</a></span>(<span class='fu'><a href='mtry.html'>mtry</a></span>(), <span class='kw'>mtcars</span>), alpha = <span class='fu'><a href='mixture.html'>mixture</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>.1</span>, <span class='fl'>.2</span>)))</div><div class='output co'>#&gt; Collection of 3 parameters for tuning
-#&gt; 
-#&gt;   identifier    type    object
-#&gt;       lambda penalty nparam[+]
-#&gt;        alpha mixture nparam[+]
-#&gt;  rand forest    mtry nparam[+]
-#&gt; </div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>glmn_param</span> <span class='op'>&lt;-</span> <span class='fu'><a href='parameters.html'>parameters</a></span>(lambda = <span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>())
+<span class='fu'>pull_dials_object</span>(<span class='kw'>glmn_param</span>, <span class='st'>"lambda"</span>)</div><div class='output co'>#&gt; Amount of Regularization  (quantitative)
+#&gt; Transformer:  log-10 
+#&gt; Range (transformed scale): [-10, 0]</div><div class='input'>
+<span class='co'># fails:</span>
+<span class='co'># pull_dials_object(glmn_param, "penalty")</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
