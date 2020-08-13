@@ -3,5 +3,4 @@ Cost-Complexity Parameter  (quantitative)
 Transformer:  log-10 
 Range (transformed scale): [-10, -1]
 Values: 2
-Values Range (transformed scale): [-1.05, -4]
 

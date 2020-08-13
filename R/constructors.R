@@ -192,9 +192,6 @@ print.quant_param <- function(x, digits = 3, ...) {
       vals <- map_chr(x$values, format_range_val)
       cat(glue("Values: {length(x$values)}"))
       cat("\n")
-      values_range_label <- x %>% format_range_label("Values Range")
-      formatted_range <- x %>% format_range(vals)
-      cat(glue("{values_range_label}{formatted_range}"))
     }
   }
 
