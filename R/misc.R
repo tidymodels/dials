@@ -8,6 +8,18 @@ format_range_val <- function(val, ukn = "?", digits = 3) {
   txt
 }
 
+format_range_label <- function(param, header) {
+  if (!is.null(param$trans)) {
+    glue('{header} (transformed scale): ')
+  } else
+    glue('{header}: ')
+}
+
+format_range <- function(param, vals) {
+  bnds <- format_bounds(param$inclusive)
+  glue('{bnds[1]}{vals[1]}, {vals[2]}{bnds[2]}')
+}
+
 format_bounds <- function(bnds) {
   res <- c("(", ")")
   if (bnds[1])

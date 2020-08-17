@@ -1,0 +1,6 @@
+> value_set(cost_complexity(), log10(c(0.09, 1e-04)))
+Cost-Complexity Parameter (quantitative)
+Transformer:  log-10 
+Range (transformed scale): [-10, -1]
+Values: 2
+

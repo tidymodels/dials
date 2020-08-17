@@ -1,8 +1,11 @@
 # dials (development version)
 
- * The `print()` method for `parameters()` has changed to be more clear. 
+* Quantitative parameters now print the number of possible values if they
+  have been set with `value_set()` (@kmdupr33, #138).
+
+* The `print()` method for `parameters()` has changed to be more clear.
  
- * A new function, `pull_dials_object()` was also added. 
+* A new function, `pull_dials_object()` was also added.
 
 # dials 0.0.8
 
