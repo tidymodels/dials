@@ -124,7 +124,7 @@
 <div class="sourceCode" id="cb1"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://tidymodels.github.io/dials">dials</a></span>)
 <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>()
-<span class="co">#&gt; Cost-Complexity Parameter  (quantitative)</span>
+<span class="co">#&gt; Cost-Complexity Parameter (quantitative)</span>
 <span class="co">#&gt; Transformer:  log-10 </span>
 <span class="co">#&gt; Range (transformed scale): [-10, -1]</span>
 </pre></div>
@@ -138,14 +138,14 @@
 <span class="co">#&gt; $upper</span>
 <span class="co">#&gt; [1] 0.1</span>
 <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>() <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/range_validate.html">range_set</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="fl">5</span>, <span class="fl">1</span>))
-<span class="co">#&gt; Cost-Complexity Parameter  (quantitative)</span>
+<span class="co">#&gt; Cost-Complexity Parameter (quantitative)</span>
 <span class="co">#&gt; Transformer:  log-10 </span>
 <span class="co">#&gt; Range (transformed scale): [-5, 1]</span>
 
 <span class="co"># Or using the `range` argument</span>
 <span class="co"># during creation</span>
 <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>(range = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="fl">5</span>, <span class="fl">1</span>))
-<span class="co">#&gt; Cost-Complexity Parameter  (quantitative)</span>
+<span class="co">#&gt; Cost-Complexity Parameter (quantitative)</span>
 <span class="co">#&gt; Transformer:  log-10 </span>
 <span class="co">#&gt; Range (transformed scale): [-5, 1]</span>
 </pre></div>
@@ -187,9 +187,10 @@
 <div class="sourceCode" id="cb6"><pre class="downlit">
 <span class="kw">mtcars_cp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>() <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_set</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span>(<span class="kw">cp_vals</span>))
 <span class="kw">mtcars_cp</span>
-<span class="co">#&gt; Cost-Complexity Parameter  (quantitative)</span>
+<span class="co">#&gt; Cost-Complexity Parameter (quantitative)</span>
 <span class="co">#&gt; Transformer:  log-10 </span>
 <span class="co">#&gt; Range (transformed scale): [-10, -1]</span>
+<span class="co">#&gt; Values: 2</span>
 </pre></div>
 <p>Now, if a sequence or random sample is requested, it uses the set values:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit">
@@ -241,23 +242,23 @@
 <p>There are some cases where the range of parameter values are data dependent. For example, the upper bound on the number of neighbors cannot be known if the number of data points in the training set is not known. For that reason, some parameters have an <em>unknown</em> placeholder:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit">
 <span class="fu"><a href="../reference/mtry.html">mtry</a></span>()
-<span class="co">#&gt; # Randomly Selected Predictors  (quantitative)</span>
+<span class="co">#&gt; # Randomly Selected Predictors (quantitative)</span>
 <span class="co">#&gt; Range: [1, ?]</span>
 <span class="fu"><a href="../reference/trees.html">sample_size</a></span>()
-<span class="co">#&gt; # Observations Sampled  (quantitative)</span>
+<span class="co">#&gt; # Observations Sampled (quantitative)</span>
 <span class="co">#&gt; Range: [?, ?]</span>
 <span class="fu"><a href="../reference/num_comp.html">num_terms</a></span>()
-<span class="co">#&gt; # Model Terms  (quantitative)</span>
+<span class="co">#&gt; # Model Terms (quantitative)</span>
 <span class="co">#&gt; Range: [1, ?]</span>
 <span class="fu"><a href="../reference/num_comp.html">num_comp</a></span>()
-<span class="co">#&gt; # Components  (quantitative)</span>
+<span class="co">#&gt; # Components (quantitative)</span>
 <span class="co">#&gt; Range: [1, ?]</span>
 <span class="co"># and so on</span>
 </pre></div>
 <p>These values must be initialized prior to generating parameter values. The <code><a href="../reference/finalize.html">finalize()</a></code> methods can be used to help remove the unknowns:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit">
 <span class="fu"><a href="../reference/finalize.html">finalize</a></span>(<span class="fu"><a href="../reference/mtry.html">mtry</a></span>(), x = <span class="kw">mtcars</span>[, <span class="op">-</span><span class="fl">1</span>])
-<span class="co">#&gt; # Randomly Selected Predictors  (quantitative)</span>
+<span class="co">#&gt; # Randomly Selected Predictors (quantitative)</span>
 <span class="co">#&gt; Range: [1, 10]</span>
 </pre></div>
 </div>

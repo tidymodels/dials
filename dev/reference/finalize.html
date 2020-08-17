@@ -238,13 +238,13 @@ rows in the data, or a fraction of the total number of rows.</p>
 #&gt; <span class='message'>    intersect, setdiff, setequal, union</span></div><div class='input'><span class='kw'>car_pred</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span>(<span class='kw'>mtcars</span>, <span class='op'>-</span><span class='kw'>mpg</span>)
 
 <span class='co'># Needs an upper bound</span>
-<span class='fu'><a href='mtry.html'>mtry</a></span>()</div><div class='output co'>#&gt; # Randomly Selected Predictors  (quantitative)
-#&gt; Range: [1, ?]</div><div class='input'><span class='fu'>finalize</span>(<span class='fu'><a href='mtry.html'>mtry</a></span>(), <span class='kw'>car_pred</span>)</div><div class='output co'>#&gt; # Randomly Selected Predictors  (quantitative)
+<span class='fu'><a href='mtry.html'>mtry</a></span>()</div><div class='output co'>#&gt; # Randomly Selected Predictors (quantitative)
+#&gt; Range: [1, ?]</div><div class='input'><span class='fu'>finalize</span>(<span class='fu'><a href='mtry.html'>mtry</a></span>(), <span class='kw'>car_pred</span>)</div><div class='output co'>#&gt; # Randomly Selected Predictors (quantitative)
 #&gt; Range: [1, 10]</div><div class='input'>
 <span class='co'># Nothing to do here since no unknowns</span>
-<span class='fu'><a href='penalty.html'>penalty</a></span>()</div><div class='output co'>#&gt; Amount of Regularization  (quantitative)
+<span class='fu'><a href='penalty.html'>penalty</a></span>()</div><div class='output co'>#&gt; Amount of Regularization (quantitative)
 #&gt; Transformer:  log-10 
-#&gt; Range (transformed scale): [-10, 0]</div><div class='input'><span class='fu'>finalize</span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='kw'>car_pred</span>)</div><div class='output co'>#&gt; Amount of Regularization  (quantitative)
+#&gt; Range (transformed scale): [-10, 0]</div><div class='input'><span class='fu'>finalize</span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='kw'>car_pred</span>)</div><div class='output co'>#&gt; Amount of Regularization (quantitative)
 #&gt; Transformer:  log-10 
 #&gt; Range (transformed scale): [-10, 0]</div><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'>kernlab</span>)</div><div class='output co'>#&gt; <span class='message'></span>
@@ -282,11 +282,11 @@ rows in the data, or a fraction of the total number of rows.</p>
 #&gt; </span><span style='color: #555555;'>2</span><span> num_terms </span><span style='color: #555555;'>&lt;nparam[+]&gt;</span><span>
 #&gt; </span><span style='color: #555555;'>3</span><span> rbf_sigma </span><span style='color: #555555;'>&lt;nparam[+]&gt;</span><span></div><div class='input'>
 <span class='kw'>params</span> <span class='op'>%&gt;%</span> <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>parameter</span> <span class='op'>==</span> <span class='st'>"rbf_sigma"</span>) <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span>(<span class='kw'>object</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt; Radial Basis Function sigma  (quantitative)
+#&gt; Radial Basis Function sigma (quantitative)
 #&gt; Transformer:  log-10 
 #&gt; Range (transformed scale): [-10, 0]
 #&gt; </div><div class='input'><span class='kw'>complete_params</span> <span class='op'>%&gt;%</span> <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>parameter</span> <span class='op'>==</span> <span class='st'>"rbf_sigma"</span>) <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span>(<span class='kw'>object</span>)</div><div class='output co'>#&gt; [[1]]
-#&gt; Radial Basis Function sigma  (quantitative)
+#&gt; Radial Basis Function sigma (quantitative)
 #&gt; Transformer:  log-10 
 #&gt; Range (transformed scale): [-1.6, -0.933]
 #&gt; </div><div class='input'></div></span></pre>
