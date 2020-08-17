@@ -175,31 +175,41 @@ print.quant_param <- function(x, digits = 3, ...) {
 
 cat_quant_param_header <- function(x) {
   if (!is.null(x$label)) {
-    cat(x$label, " (quantitative)\n")
+    cat_line(x$label, " (quantitative)")
   } else {
-    cat("Quantitative Parameter\n")
+    cat_line("Quantitative Parameter")
   }
 }
 
 cat_quant_param_range <- function(x) {
-  cat(x %>% format_range_label("Range"))
-  vals <- map_chr(x$range, format_range_val)
-  cat(x %>% format_range(vals))
-  cat("\n")
+  label <- format_range_label(x, "Range")
+
+  range <- map_chr(x$range, format_range_val)
+  range <- format_range(x, range)
+
+  cat_line(label, range)
 }
 
 cat_quant_param_values <- function(x) {
-  if (!is.null(x$values)) {
-    vals <- map_chr(x$values, format_range_val)
-    cat(glue("Values: {length(x$values)}"))
-    cat("\n")
+  values <- x$values
+
+  if (is.null(values)) {
+    return()
   }
+
+  n_values <- length(values)
+
+  cat_line(glue("Values: {n_values}"))
 }
 
 print_transformer <- function(x) {
   if (!is.null(x$trans)) {
     print(eval(x$trans))
   }
+}
+
+cat_line <- function (...) {
+  cat(paste0(..., "\n", collapse = ""))
 }
 
 #' @export
