@@ -166,14 +166,14 @@ new_qual_param <- function(type = c("character", "logical"), values,
 
 #' @export
 print.quant_param <- function(x, digits = 3, ...) {
-  cat_header(x)
+  cat_quant_param_header(x)
   print_transformer(x)
-  cat_range(x)
-  cat_set_values(x)
+  cat_quant_param_range(x)
+  cat_quant_param_values(x)
   invisible(x)
 }
 
-cat_header <- function(x) {
+cat_quant_param_header <- function(x) {
   if (!is.null(x$label)) {
     cat(x$label, " (quantitative)\n")
   } else {
@@ -181,24 +181,24 @@ cat_header <- function(x) {
   }
 }
 
-print_transformer <- function(x) {
-  if (!is.null(x$trans)) {
-    print(eval(x$trans))
-  }
-}
-
-cat_range <- function(x) {
+cat_quant_param_range <- function(x) {
   cat(x %>% format_range_label("Range"))
   vals <- map_chr(x$range, format_range_val)
   cat(x %>% format_range(vals))
   cat("\n")
 }
 
-cat_set_values <- function(x) {
+cat_quant_param_values <- function(x) {
   if (!is.null(x$values)) {
     vals <- map_chr(x$values, format_range_val)
     cat(glue("Values: {length(x$values)}"))
     cat("\n")
+  }
+}
+
+print_transformer <- function(x) {
+  if (!is.null(x$trans)) {
+    print(eval(x$trans))
   }
 }
 
