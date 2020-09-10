@@ -38,7 +38,7 @@ these values should be in the \emph{transformed units}.}
 \item{inclusive}{A two-element logical vector for whether the range
 values should be inclusive or exclusive.}
 
-\item{default}{A single value the same class as \code{type} for the default
+\item{default}{A single value with the same class as \code{type} for the default
 parameter value. \code{unknown()} can also be used here.}
 
 \item{trans}{A \code{trans} object from the \pkg{scales} package, such as

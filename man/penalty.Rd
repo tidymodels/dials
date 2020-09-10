@@ -17,7 +17,7 @@ transformation, \code{NULL}.}
 }
 \description{
 A numeric parameter function representing the amount of penalties (e.g. L1,
-L2 etc) in regularized models.
+L2, etc) in regularized models.
 }
 \details{
 This parameter is used for regularized or penalized models such as

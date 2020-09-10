@@ -7,7 +7,7 @@
 #' @param value The original values should be either numeric or character. When
 #'  converting back, these should be on \code{[0, 1]}.
 #' @param direction Either "forward" (to \code{[0, 1]}) or "backward".
-#' @param original A logical; should the values be transformed to their natural
+#' @param original A logical; should the values be transformed into their natural
 #'  units (not currently working).
 #' @details For integer parameters, the encoding can be lossy.
 #' @return A vector of values.

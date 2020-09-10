@@ -49,13 +49,13 @@ based on trees or rules.
 \item \code{trees()}: The number of trees contained in a random forest or boosted
 ensemble. In the latter case, this is equal to the number of boosting
 iterations. (See \code{parsnip::rand_forest()} and \code{parsnip::boost_tree()}).
-\item \code{min_n()}: The minimum number of data points in a node that are required
+\item \code{min_n()}: The minimum number of data points in a node that is required
 for the node to be split further. (See \code{parsnip::rand_forest()} and
 \code{parsnip::boost_tree()}).
 \item \code{sample_size()}: The size of the data set used for modeling within an
 iteration of the modeling algorithm, such as stochastic gradient boosting.
 (See \code{parsnip::boost_tree()}).
-\item \code{sample_prop()}: The same as \code{sample_size()} but as a proporiton of the
+\item \code{sample_prop()}: The same as \code{sample_size()} but as a proportion of the
 total sample.
 \item \code{loss_reduction()}: The reduction in the loss function required to split
 further. (See \code{parsnip::boost_tree()}). This corresponds to \code{gamma} in

@@ -8,7 +8,7 @@
 #' @param x The predictor data. In some cases (see below) this should only
 #' include numeric data.
 #'
-#' @param force A single logical that indicates that, even if the parameter
+#' @param force A single logical that indicates that even if the parameter
 #' object is complete, should it update the ranges anyway?
 #'
 #' @param log_vals A logical: should the ranges be set on the log10 scale?
@@ -41,8 +41,8 @@
 #' the number of columns in the data (on the natural and
 #' log10 scale, respectively).
 #'
-#' `get_n()` and `get_n_frac()` set the upper value to be to be the number of
-#' rows in the data, or a fraction of the total number of rows.
+#' `get_n()` and `get_n_frac()` set the upper value to be the number of
+#' rows in the data or a fraction of the total number of rows.
 #'
 #' `get_rbf_range()` sets both bounds based on the heuristic defined in
 #' [kernlab::sigest()]. It requires that all columns in `x` be numeric.
