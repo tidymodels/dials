@@ -14,7 +14,8 @@
 #' of parameters.
 #'
 #' @param size A single integer for the total number of parameter value
-#' combinations returned for the random grid.
+#' combinations returned for the random grid. If duplicate combinations are
+#' generated from this size, the smaller, unique set is returned.
 #'
 #' @param original A logical: should the parameters be in the original units or
 #' in the transformed space (if any)?

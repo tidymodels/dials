@@ -57,7 +57,8 @@ generating the grid. Must be a single expression referencing parameter
 names that evaluates to a logical vector.}
 
 \item{size}{A single integer for the total number of parameter value
-combinations returned for the random grid.}
+combinations returned for the random grid. If duplicate combinations are
+generated from this size, the smaller, unique set is returned.}
 }
 \value{
 A tibble. There are columns for each parameter and a row for every
