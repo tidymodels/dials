@@ -23,7 +23,7 @@
 #'  rejoinder by the authors. Statistical Science. 4. 10.1214/ss/1177012413.
 #'
 #' Santner, Thomas, Williams, Brian, and Notz, William. (2003). The Design and
-#'  Analysis Computer Experiments. Springer.
+#'  Analysis of Computer Experiments. Springer.
 #'
 #' Dupuy, D., Helbert, C., and Franco, J. (2015). DiceDesign and DiceEval: Two R
 #'  packages for design and analysis of computer experiments. Journal of

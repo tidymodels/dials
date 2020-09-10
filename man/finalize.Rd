@@ -52,7 +52,7 @@ along to \code{\link[kernlab:sigest]{kernlab::sigest()}}.}
 \item{x}{The predictor data. In some cases (see below) this should only
 include numeric data.}
 
-\item{force}{A single logical that indicates that, even if the parameter
+\item{force}{A single logical that indicates that even if the parameter
 object is complete, should it update the ranges anyway?}
 
 \item{log_vals}{A logical: should the ranges be set on the log10 scale?}
@@ -83,8 +83,8 @@ and update the parameter object in-place.
 the number of columns in the data (on the natural and
 log10 scale, respectively).
 
-\code{get_n()} and \code{get_n_frac()} set the upper value to be to be the number of
-rows in the data, or a fraction of the total number of rows.
+\code{get_n()} and \code{get_n_frac()} set the upper value to be the number of
+rows in the data or a fraction of the total number of rows.
 
 \code{get_rbf_range()} sets both bounds based on the heuristic defined in
 \code{\link[kernlab:sigest]{kernlab::sigest()}}. It requires that all columns in \code{x} be numeric.

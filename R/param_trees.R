@@ -12,7 +12,7 @@
 #'   ensemble. In the latter case, this is equal to the number of boosting
 #'   iterations. (See `parsnip::rand_forest()` and `parsnip::boost_tree()`).
 #'
-#' * `min_n()`: The minimum number of data points in a node that are required
+#' * `min_n()`: The minimum number of data points in a node that is required
 #'   for the node to be split further. (See `parsnip::rand_forest()` and
 #'   `parsnip::boost_tree()`).
 #'
@@ -20,7 +20,7 @@
 #'   iteration of the modeling algorithm, such as stochastic gradient boosting.
 #'   (See `parsnip::boost_tree()`).
 #'
-#' * `sample_prop()`: The same as `sample_size()` but as a proporiton of the
+#' * `sample_prop()`: The same as `sample_size()` but as a proportion of the
 #'    total sample.
 #'
 #' * `loss_reduction()`: The reduction in the loss function required to split

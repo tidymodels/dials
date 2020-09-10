@@ -1,7 +1,7 @@
 #' Mixture of penalization terms
 #'
 #' A numeric parameter function representing the relative amount of penalties
-#' (e.g. L1, L2 etc) in regularized models.
+#' (e.g. L1, L2, etc) in regularized models.
 #'
 #' @inheritParams Laplace
 #' @details

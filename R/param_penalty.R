@@ -1,7 +1,7 @@
 #' Amount of regularization/penalization
 #'
 #' A numeric parameter function representing the amount of penalties (e.g. L1,
-#' L2 etc) in regularized models.
+#' L2, etc) in regularized models.
 #'
 #' @inheritParams Laplace
 #' @param range A two-element vector holding the _defaults_ for the smallest and

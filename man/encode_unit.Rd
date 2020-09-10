@@ -14,7 +14,7 @@ converting back, these should be on \code{[0, 1]}.}
 
 \item{direction}{Either "forward" (to \code{[0, 1]}) or "backward".}
 
-\item{original}{A logical; should the values be transformed to their natural
+\item{original}{A logical; should the values be transformed into their natural
 units (not currently working).}
 }
 \value{

@@ -16,7 +16,7 @@
 #' @param inclusive A two-element logical vector for whether the range
 #'  values should be inclusive or exclusive.
 #'
-#' @param default A single value the same class as `type` for the default
+#' @param default A single value with the same class as `type` for the default
 #' parameter value. `unknown()` can also be used here.
 #'
 #' @param trans A `trans` object from the \pkg{scales} package, such as
