@@ -184,13 +184,13 @@ based on trees or rules.</p><ul>
 <li><p><code>trees()</code>: The number of trees contained in a random forest or boosted
 ensemble. In the latter case, this is equal to the number of boosting
 iterations. (See <code>parsnip::rand_forest()</code> and <code>parsnip::boost_tree()</code>).</p></li>
-<li><p><code>min_n()</code>: The minimum number of data points in a node that are required
+<li><p><code>min_n()</code>: The minimum number of data points in a node that is required
 for the node to be split further. (See <code>parsnip::rand_forest()</code> and
 <code>parsnip::boost_tree()</code>).</p></li>
 <li><p><code>sample_size()</code>: The size of the data set used for modeling within an
 iteration of the modeling algorithm, such as stochastic gradient boosting.
 (See <code>parsnip::boost_tree()</code>).</p></li>
-<li><p><code>sample_prop()</code>: The same as <code>sample_size()</code> but as a proporiton of the
+<li><p><code>sample_prop()</code>: The same as <code>sample_size()</code> but as a proportion of the
 total sample.</p></li>
 <li><p><code>loss_reduction()</code>: The reduction in the loss function required to split
 further. (See <code>parsnip::boost_tree()</code>). This corresponds to <code>gamma</code> in
@@ -203,15 +203,22 @@ further. (See <code>parsnip::boost_tree()</code>). This corresponds to <code>gam
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>trees</span>()</div><div class='output co'>#&gt; # Trees (quantitative)
-#&gt; Range: [1, 2000]</div><div class='input'><span class='fu'>min_n</span>()</div><div class='output co'>#&gt; Minimal Node Size (quantitative)
-#&gt; Range: [2, 40]</div><div class='input'><span class='fu'>sample_size</span>()</div><div class='output co'>#&gt; # Observations Sampled (quantitative)
-#&gt; Range: [?, ?]</div><div class='input'><span class='fu'>loss_reduction</span>()</div><div class='output co'>#&gt; Minimum Loss Reduction (quantitative)
+    <pre class="examples"><div class='input'><span class='fu'>trees</span>()
+</div><div class='output co'>#&gt; # Trees (quantitative)
+#&gt; Range: [1, 2000]</div><div class='input'><span class='fu'>min_n</span>()
+</div><div class='output co'>#&gt; Minimal Node Size (quantitative)
+#&gt; Range: [2, 40]</div><div class='input'><span class='fu'>sample_size</span>()
+</div><div class='output co'>#&gt; # Observations Sampled (quantitative)
+#&gt; Range: [?, ?]</div><div class='input'><span class='fu'>loss_reduction</span>()
+</div><div class='output co'>#&gt; Minimum Loss Reduction (quantitative)
 #&gt; Transformer:  log-10 
-#&gt; Range (transformed scale): [-10, 1.5]</div><div class='input'><span class='fu'>tree_depth</span>()</div><div class='output co'>#&gt; Tree Depth (quantitative)
-#&gt; Range: [1, 15]</div><div class='input'><span class='fu'>prune</span>()</div><div class='output co'>#&gt; Pruning  (qualitative)
+#&gt; Range (transformed scale): [-10, 1.5]</div><div class='input'><span class='fu'>tree_depth</span>()
+</div><div class='output co'>#&gt; Tree Depth (quantitative)
+#&gt; Range: [1, 15]</div><div class='input'><span class='fu'>prune</span>()
+</div><div class='output co'>#&gt; Pruning  (qualitative)
 #&gt; 2 possible value include:
-#&gt; TRUE and FALSE </div><div class='input'><span class='fu'>cost_complexity</span>()</div><div class='output co'>#&gt; Cost-Complexity Parameter (quantitative)
+#&gt; TRUE and FALSE </div><div class='input'><span class='fu'>cost_complexity</span>()
+</div><div class='output co'>#&gt; Cost-Complexity Parameter (quantitative)
 #&gt; Transformer:  log-10 
 #&gt; Range (transformed scale): [-10, -1]</div></pre>
   </div>

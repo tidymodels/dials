@@ -184,7 +184,7 @@ values should be inclusive or exclusive.</p></td>
     </tr>
     <tr>
       <th>default</th>
-      <td><p>A single value the same class as <code>type</code> for the default
+      <td><p>A single value with the same class as <code>type</code> for the default
 parameter value. <code><a href='unknown.html'>unknown()</a></code> can also be used here.</p></td>
     </tr>
     <tr>
@@ -232,13 +232,17 @@ is always converted to a list with elements <code>"lower"</code> and <code>"uppe
   )
 }
 
-<span class='fu'>num_subgroups</span>()</div><div class='output co'>#&gt; # Subgroups (quantitative)
+<span class='fu'>num_subgroups</span>()
+</div><div class='output co'>#&gt; # Subgroups (quantitative)
 #&gt; Range: [1, 20]</div><div class='input'>
-<span class='fu'>num_subgroups</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3L</span>, <span class='fl'>5L</span>))</div><div class='output co'>#&gt; # Subgroups (quantitative)
+<span class='fu'>num_subgroups</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3L</span>, <span class='fl'>5L</span>))
+</div><div class='output co'>#&gt; # Subgroups (quantitative)
 #&gt; Range: [3, 5]</div><div class='input'>
 <span class='co'># Custom parameters instantly have access</span>
 <span class='co'># to sequence generating functions</span>
-<span class='fu'><a href='value_validate.html'>value_seq</a></span>(<span class='fu'>num_subgroups</span>(), <span class='fl'>5</span>)</div><div class='output co'>#&gt; [1]  1  5 10 15 20</div><div class='input'></div></pre>
+<span class='fu'><a href='value_validate.html'>value_seq</a></span>(<span class='fu'>num_subgroups</span>(), <span class='fl'>5</span>)
+</div><div class='output co'>#&gt; [1]  1  5 10 15 20</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

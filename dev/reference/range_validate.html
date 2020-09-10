@@ -185,7 +185,8 @@ a new range.</p>
 <span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(
   <span class='fu'>range_validate</span>(<span class='kw'>my_lambda</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>NA</span>)), silent = <span class='fl'>TRUE</span>
 ) <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>()</div><div class='output co'>#&gt; [1] "Error : Value ranges must be non-missing.\n"
+  <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>()
+</div><div class='output co'>#&gt; [1] "Error : Value ranges must be non-missing.\n"
 #&gt; attr(,"class")
 #&gt; [1] "try-error"
 #&gt; attr(,"condition")
@@ -201,11 +202,13 @@ a new range.</p>
 #&gt; </span><span style='color: #555555;'>  8. </span><span>pkgdown:::data_reference_topic(...)
 #&gt; </span><span style='color: #555555;'>  9. </span><span>pkgdown:::run_examples(...)
 #&gt; </span><span style='color: #555555;'> 10. </span><span>pkgdown:::highlight_examples(code, topic, env = env)
-#&gt; </span><span style='color: #555555;'> 11. </span><span>evaluate::evaluate(x, child_env(env), new_device = TRUE)
-#&gt; </span><span style='color: #555555;'> 12. </span><span>evaluate:::evaluate_call(...)
-#&gt; </span><span style='color: #555555;'> 22. </span><span>[ base::eval(...) ]</span><span style='color: #555555;'> with 1 more call</span><span>
-#&gt; </span><span style='color: #555555;'> 32. </span><span>dials::range_validate(my_lambda, c(-10, NA))</div><div class='input'>
-<span class='fu'>range_get</span>(<span class='kw'>my_lambda</span>)</div><div class='output co'>#&gt; $lower
+#&gt; </span><span style='color: #555555;'> 11. </span><span>downlit::evaluate_and_highlight(...)
+#&gt; </span><span style='color: #555555;'> 12. </span><span>evaluate::evaluate(code, child_env(env), new_device = TRUE)
+#&gt; </span><span style='color: #555555;'> 13. </span><span>evaluate:::evaluate_call(...)
+#&gt; </span><span style='color: #555555;'> 23. </span><span>[ base::eval(...) ]</span><span style='color: #555555;'> with 1 more call</span><span>
+#&gt; </span><span style='color: #555555;'> 33. </span><span>dials::range_validate(my_lambda, c(-10, NA))</div><div class='input'>
+<span class='fu'>range_get</span>(<span class='kw'>my_lambda</span>)
+</div><div class='output co'>#&gt; $lower
 #&gt; [1] 1e-10
 #&gt; 
 #&gt; $upper
@@ -213,12 +216,14 @@ a new range.</p>
 #&gt; </div><div class='input'>
 <span class='kw'>my_lambda</span> <span class='op'>%&gt;%</span>
   <span class='fu'>range_set</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>2</span>)) <span class='op'>%&gt;%</span>
-  <span class='fu'>range_get</span>()</div><div class='output co'>#&gt; $lower
+  <span class='fu'>range_get</span>()
+</div><div class='output co'>#&gt; $lower
 #&gt; [1] 1e-10
 #&gt; 
 #&gt; $upper
 #&gt; [1] 100
-#&gt; </div><div class='input'></div></span></pre>
+#&gt; </div><div class='input'>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

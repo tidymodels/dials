@@ -51,7 +51,7 @@
 
 <meta property="og:title" content="Mixture of penalization terms — mixture" />
 <meta property="og:description" content="A numeric parameter function representing the relative amount of penalties
-(e.g. L1, L2 etc) in regularized models." />
+(e.g. L1, L2, etc) in regularized models." />
 <meta property="og:image" content="https://dials.tidymodels.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -137,7 +137,7 @@
 
     <div class="ref-description">
     <p>A numeric parameter function representing the relative amount of penalties
-(e.g. L1, L2 etc) in regularized models.</p>
+(e.g. L1, L2, etc) in regularized models.</p>
     </div>
 
     <pre class="usage"><span class='fu'>mixture</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), trans = <span class='kw'>NULL</span>)</pre>
@@ -168,7 +168,8 @@ In the <code>glmnet</code> model, <code>mixture = 1</code> is a pure lasso model
 indicates that ridge regression is being used.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>mixture</span>()</div><div class='output co'>#&gt; Proportion of lasso Penalty (quantitative)
+    <pre class="examples"><div class='input'><span class='fu'>mixture</span>()
+</div><div class='output co'>#&gt; Proportion of lasso Penalty (quantitative)
 #&gt; Range: [0, 1]</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
