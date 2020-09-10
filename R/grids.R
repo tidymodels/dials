@@ -209,6 +209,7 @@ new_param_grid <- function(x = new_data_frame()) {
     rlang::abort("`x` must be a data frame to construct a new grid from.")
   }
 
+  x <- x[vec_unique_loc(x),]
   size <- vec_size(x)
 
   # Strip down to a named list with no extra attributes. This serves

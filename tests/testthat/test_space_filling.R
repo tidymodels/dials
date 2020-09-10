@@ -75,6 +75,11 @@ test_that('latin square designs', {
   )
   expect_equal(ncol(grid_3), 1L)
 
+  expect_lt(
+    nrow(grid_latin_hypercube(prod_degree(), prune_method(), size = 20)),
+    20
+  )
+
   expect_error(
     grid_latin_hypercube(
       cost,

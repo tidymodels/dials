@@ -50,6 +50,10 @@ test_that('random grid', {
     nrow(grid_random(mixture(), trees(), size = 2)),
     2
   )
+  expect_lt(
+    nrow(grid_random(prod_degree(), prune_method(), size = 10)),
+    10
+  )
 })
 
 
