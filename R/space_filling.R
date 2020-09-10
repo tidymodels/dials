@@ -13,7 +13,8 @@
 #'
 #' @inheritParams grid_random
 #' @param size A single integer for the total number of parameter value
-#' combinations returned.
+#' combinations returned. If duplicate combinations are
+#' generated from this size, the smaller, unique set is returned.
 #' @param variogram_range A numeric value greater than zero. Larger values
 #'  reduce the likelihood of empty regions in the parameter space.
 #' @param iter An integer for the maximum number of iterations used to find

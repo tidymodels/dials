@@ -76,7 +76,8 @@ grid_latin_hypercube(x, ..., size = 3, original = TRUE)
 the parameter ranges or values.}
 
 \item{size}{A single integer for the total number of parameter value
-combinations returned.}
+combinations returned. If duplicate combinations are
+generated from this size, the smaller, unique set is returned.}
 
 \item{original}{A logical: should the parameters be in the original units or
 in the transformed space (if any)?}
