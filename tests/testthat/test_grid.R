@@ -92,3 +92,12 @@ test_that('filter arg yields same results', {
     with_seed(36L, grid_random(p, filter = mixture == .01))
   )
 })
+
+
+test_that('new param grid from conventional data frame', {
+ x <- data.frame(num_comp = 1:3)
+
+ expect_error(y <- dials:::new_param_grid(x), regexp = NA)
+ expect_true(tibble::is_tibble(y))
+})
+
