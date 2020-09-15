@@ -132,14 +132,18 @@
       <small>Source: <a href='https://github.com/tidymodels/dials/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="dials-development-version" class="section level1">
-<h1 class="page-header" data-toc-text="development version">
-<a href="#dials-development-version" class="anchor"></a>dials (development version)<small> Unreleased </small>
+    <div id="dials-009" class="section level1">
+<h1 class="page-header" data-toc-text="0.0.9">
+<a href="#dials-009" class="anchor"></a>dials 0.0.9<small> Unreleased </small>
 </h1>
 <ul>
 <li><p>Quantitative parameters now print the number of possible values if they have been set with <code><a href="../reference/value_validate.html">value_set()</a></code> (<a href='https://github.com/kmdupr33'>@kmdupr33</a>, <a href='https://github.com/tidymodels/dials/issues/138'>#138</a>).</p></li>
 <li><p>The <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> method for <code><a href="../reference/parameters.html">parameters()</a></code> has changed to be more clear.</p></li>
 <li><p>A new function, <code><a href="../reference/pull_dials_object.html">pull_dials_object()</a></code> was also added.</p></li>
+<li><p>Duplicate parameter combinations are now automatically removed from grid results.</p></li>
+<li><p>The range for <code><a href="../reference/dropout.html">epochs()</a></code> was change to start at 10 iterations instead of 1.</p></li>
+<li><p>The lower range for <code><a href="../reference/degree.html">spline_degree()</a></code> now starts at 1 instead of 3.</p></li>
+<li><p>The upper range for <code><a href="../reference/cost.html">cost()</a></code> now goes to <code>2^5</code> instead of <code>2^-1</code>.</p></li>
 </ul>
 </div>
     <div id="dials-008" class="section level1">

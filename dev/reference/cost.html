@@ -138,7 +138,7 @@
     <p>Parameters related to the SVM objective function(s).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>cost</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>10</span>, <span class='op'>-</span><span class='fl'>1</span>), trans = <span class='fu'>log2_trans</span>())
+    <pre class="usage"><span class='fu'>cost</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>5</span>), trans = <span class='fu'>log2_trans</span>())
 
 <span class='fu'>svm_margin</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0.2</span>), trans = <span class='kw'>NULL</span>)</pre>
 
@@ -164,7 +164,7 @@ transformation, <code>NULL</code>.</p></td>
     <pre class="examples"><div class='input'><span class='fu'>cost</span>()
 </div><div class='output co'>#&gt; Cost (quantitative)
 #&gt; Transformer:  log-2 
-#&gt; Range (transformed scale): [-10, -1]</div><div class='input'><span class='fu'>svm_margin</span>()
+#&gt; Range (transformed scale): [-10, 5]</div><div class='input'><span class='fu'>svm_margin</span>()
 </div><div class='output co'>#&gt; Insensitivity Margin (quantitative)
 #&gt; Range: [0, 0.2]</div></pre>
   </div>
