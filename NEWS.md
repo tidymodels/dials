@@ -1,11 +1,19 @@
-# dials (development version)
+# dials 0.0.9
 
-* Quantitative parameters now print the number of possible values if they
-  have been set with `value_set()` (@kmdupr33, #138).
+* Quantitative parameters now print the number of possible values if they have been set with `value_set()` (@kmdupr33, #138).
 
 * The `print()` method for `parameters()` has changed to be more clear.
  
 * A new function, `pull_dials_object()` was also added.
+
+* Duplicate parameter combinations are now automatically removed from grid results. 
+
+* The range for `epochs()` was change to start at 10 iterations instead of 1. 
+
+* The lower range for `spline_degree()` now starts at 1 instead of 3. 
+
+* The upper range for `cost()` now goes to `2^5` instead of `2^-1`.
+
 
 # dials 0.0.8
 

@@ -9,7 +9,7 @@
 \usage{
 dropout(range = c(0, 1), trans = NULL)
 
-epochs(range = c(1L, 1000L), trans = NULL)
+epochs(range = c(10L, 1000L), trans = NULL)
 
 hidden_units(range = c(1L, 10L), trans = NULL)
 

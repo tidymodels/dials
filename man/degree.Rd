@@ -11,7 +11,7 @@ degree(range = c(1, 3), trans = NULL)
 
 degree_int(range = c(1L, 3L), trans = NULL)
 
-spline_degree(range = c(3L, 10L), trans = NULL)
+spline_degree(range = c(1L, 10L), trans = NULL)
 
 prod_degree(range = c(1L, 2L), trans = NULL)
 }

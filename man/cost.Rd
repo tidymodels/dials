@@ -5,7 +5,7 @@
 \alias{svm_margin}
 \title{Support vector machine parameters}
 \usage{
-cost(range = c(-10, -1), trans = log2_trans())
+cost(range = c(-10, 5), trans = log2_trans())
 
 svm_margin(range = c(0, 0.2), trans = NULL)
 }

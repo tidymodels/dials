@@ -27,7 +27,7 @@ dropout <- function(range = c(0, 1), trans = NULL) {
 
 #' @rdname dropout
 #' @export
-epochs <- function(range = c(1L, 1000L), trans = NULL) {
+epochs <- function(range = c(10L, 1000L), trans = NULL) {
   new_quant_param(
     type = "integer",
     range = range,

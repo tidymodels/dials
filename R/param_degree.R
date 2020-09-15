@@ -45,7 +45,7 @@ degree_int <- function(range = c(1L, 3L), trans = NULL) {
 }
 #' @rdname degree
 #' @export
-spline_degree <- function(range = c(3L, 10L), trans = NULL) {
+spline_degree <- function(range = c(1L, 10L), trans = NULL) {
   new_quant_param(
     type = "integer",
     range = range,
