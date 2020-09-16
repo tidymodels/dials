@@ -24,8 +24,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-          - {os: macOS-latest,   r: 'release', dev_dplyr: false}
-          - {os: macOS-latest,   r: 'release', dev_dplyr: true}
+          - {os: macOS-latest,   r: 'release'}
           - {os: windows-latest, r: 'release'}
           - {os: windows-latest, r: '3.6'}
           - {os: ubuntu-16.04,   r: 'devel', rspm: "https://packagemanager.rstudio.com/cran/__linux__/xenial/latest", http-user-agent: "R/4.0.0 (ubuntu-16.04) R (4.0.0 x86_64-pc-linux-gnu x86_64 linux-gnu) on GitHub Actions" }
@@ -77,12 +76,6 @@ jobs:
         run: |
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
-        shell: Rscript {0}
-
-      - name: Install dev dependencies
-        if: runner.os == 'macOS' && matrix.config.dev_dplyr
-        run: |
-          remotes::install_github("tidyverse/dplyr")
         shell: Rscript {0}
 
       - name: Session info
