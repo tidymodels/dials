@@ -3,7 +3,7 @@ pkgdown: 1.6.1.9000
 pkgdown_sha: cc9c7b1be8573f8af3453f6e5d0422d86c916701
 articles:
   Basics: Basics.html
-last_built: 2020-09-15T22:40Z
+last_built: 2020-09-16T17:36Z
 urls:
   reference: https://dials.tidymodels.org/reference
   article: https://dials.tidymodels.org/articles

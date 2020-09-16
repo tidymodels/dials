@@ -51,7 +51,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.8.9001</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.9.9000</span>
         </div>
       </div>
     </div>
@@ -103,7 +103,7 @@
 <ul>
 <li>Create an easy to use framework for describing and querying tuning parameters. this can include getting sequences or random tuning values, validating current values, transforming parameters, and other tasks.</li>
 <li>Standardize the names of different parameters. Different packages in R use different argument names for the same quantities. <code>dials</code> proposes some standardized names so that the user doesn’t need to memorize the syntactical minutiae of every package.</li>
-<li>Work with the <a href="https://topepo.github.io/parsnip/"><code>parsnip</code></a> package which is a modern attempt to standardize the interfaces for specific models across R packages and computational engines.</li>
+<li>Work with the <a href="https://parsnip.tidymodels.org"><code>parsnip</code></a> package which is a modern attempt to standardize the interfaces for specific models across R packages and computational engines.</li>
 <li>Adhere to <a href="https://cran.r-project.org/package=tidyverse/vignettes/manifesto.html">tidy principals</a>.</li>
 </ul>
 <p>The main type of objects in <code>dials</code> have class <code>param</code>.</p>
@@ -122,7 +122,7 @@
 <a href="#numeric-parameters" class="anchor"></a>Numeric Parameters</h3>
 <p>An example of a numeric tuning parameter is the cost-complexity parameter of CART trees, otherwise known as <span class="math inline">\(C_p\)</span>. A parameter object for <span class="math inline">\(C_p\)</span> can be created in <code>dials</code> using:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://tidymodels.github.io/dials">dials</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://dials.tidymodels.org">dials</a></span>)
 <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>()
 <span class="co">#&gt; Cost-Complexity Parameter (quantitative)</span>
 <span class="co">#&gt; Transformer:  log-10 </span>
