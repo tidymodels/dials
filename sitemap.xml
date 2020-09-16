@@ -13,6 +13,9 @@
     <loc>https://dials.tidymodels.org/reference/activation.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/reference/all_neighbors.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/reference/c5_parameters.html</loc>
   </url>
   <url>
@@ -107,6 +110,9 @@
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/prune_method.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/reference/pull_dials_object.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/randomForest_parameters.html</loc>

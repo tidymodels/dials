@@ -50,7 +50,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.8</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9</span>
         </div>
       </div>
     </div>
@@ -102,7 +102,7 @@
 <ul>
 <li>Create an easy to use framework for describing and querying tuning parameters. this can include getting sequences or random tuning values, validating current values, transforming parameters, and other tasks.</li>
 <li>Standardize the names of different parameters. Different packages in R use different argument names for the same quantities. <code>dials</code> proposes some standardized names so that the user doesn’t need to memorize the syntactical minutiae of every package.</li>
-<li>Work with the <a href="https://topepo.github.io/parsnip/"><code>parsnip</code></a> package which is a modern attempt to standardize the interfaces for specific models across R packages and computational engines.</li>
+<li>Work with the <a href="https://parsnip.tidymodels.org"><code>parsnip</code></a> package which is a modern attempt to standardize the interfaces for specific models across R packages and computational engines.</li>
 <li>Adhere to <a href="https://cran.r-project.org/package=tidyverse/vignettes/manifesto.html">tidy principals</a>.</li>
 </ul>
 <p>The main type of objects in <code>dials</code> have class <code>param</code>.</p>
@@ -121,9 +121,9 @@
 <a href="#numeric-parameters" class="anchor"></a>Numeric Parameters</h3>
 <p>An example of a numeric tuning parameter is the cost-complexity parameter of CART trees, otherwise known as <span class="math inline">\(C_p\)</span>. A parameter object for <span class="math inline">\(C_p\)</span> can be created in <code>dials</code> using:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://tidymodels.github.io/dials">dials</a></span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://dials.tidymodels.org">dials</a></span>)
 <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>()
-<span class="co">#&gt; Cost-Complexity Parameter  (quantitative)</span>
+<span class="co">#&gt; Cost-Complexity Parameter (quantitative)</span>
 <span class="co">#&gt; Transformer:  log-10 </span>
 <span class="co">#&gt; Range (transformed scale): [-10, -1]</span>
 </pre></div>
@@ -137,14 +137,14 @@
 <span class="co">#&gt; $upper</span>
 <span class="co">#&gt; [1] 0.1</span>
 <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>() <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/range_validate.html">range_set</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="fl">5</span>, <span class="fl">1</span>))
-<span class="co">#&gt; Cost-Complexity Parameter  (quantitative)</span>
+<span class="co">#&gt; Cost-Complexity Parameter (quantitative)</span>
 <span class="co">#&gt; Transformer:  log-10 </span>
 <span class="co">#&gt; Range (transformed scale): [-5, 1]</span>
 
 <span class="co"># Or using the `range` argument</span>
 <span class="co"># during creation</span>
 <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>(range = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="fl">5</span>, <span class="fl">1</span>))
-<span class="co">#&gt; Cost-Complexity Parameter  (quantitative)</span>
+<span class="co">#&gt; Cost-Complexity Parameter (quantitative)</span>
 <span class="co">#&gt; Transformer:  log-10 </span>
 <span class="co">#&gt; Range (transformed scale): [-5, 1]</span>
 </pre></div>
@@ -186,9 +186,10 @@
 <div class="sourceCode" id="cb6"><pre class="downlit">
 <span class="kw">mtcars_cp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>() <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_set</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span>(<span class="kw">cp_vals</span>))
 <span class="kw">mtcars_cp</span>
-<span class="co">#&gt; Cost-Complexity Parameter  (quantitative)</span>
+<span class="co">#&gt; Cost-Complexity Parameter (quantitative)</span>
 <span class="co">#&gt; Transformer:  log-10 </span>
 <span class="co">#&gt; Range (transformed scale): [-10, -1]</span>
+<span class="co">#&gt; Values: 2</span>
 </pre></div>
 <p>Now, if a sequence or random sample is requested, it uses the set values:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit">
@@ -240,23 +241,23 @@
 <p>There are some cases where the range of parameter values are data dependent. For example, the upper bound on the number of neighbors cannot be known if the number of data points in the training set is not known. For that reason, some parameters have an <em>unknown</em> placeholder:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit">
 <span class="fu"><a href="../reference/mtry.html">mtry</a></span>()
-<span class="co">#&gt; # Randomly Selected Predictors  (quantitative)</span>
+<span class="co">#&gt; # Randomly Selected Predictors (quantitative)</span>
 <span class="co">#&gt; Range: [1, ?]</span>
 <span class="fu"><a href="../reference/trees.html">sample_size</a></span>()
-<span class="co">#&gt; # Observations Sampled  (quantitative)</span>
+<span class="co">#&gt; # Observations Sampled (quantitative)</span>
 <span class="co">#&gt; Range: [?, ?]</span>
 <span class="fu"><a href="../reference/num_comp.html">num_terms</a></span>()
-<span class="co">#&gt; # Model Terms  (quantitative)</span>
+<span class="co">#&gt; # Model Terms (quantitative)</span>
 <span class="co">#&gt; Range: [1, ?]</span>
 <span class="fu"><a href="../reference/num_comp.html">num_comp</a></span>()
-<span class="co">#&gt; # Components  (quantitative)</span>
+<span class="co">#&gt; # Components (quantitative)</span>
 <span class="co">#&gt; Range: [1, ?]</span>
 <span class="co"># and so on</span>
 </pre></div>
 <p>These values must be initialized prior to generating parameter values. The <code><a href="../reference/finalize.html">finalize()</a></code> methods can be used to help remove the unknowns:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit">
 <span class="fu"><a href="../reference/finalize.html">finalize</a></span>(<span class="fu"><a href="../reference/mtry.html">mtry</a></span>(), x = <span class="kw">mtcars</span>[, <span class="op">-</span><span class="fl">1</span>])
-<span class="co">#&gt; # Randomly Selected Predictors  (quantitative)</span>
+<span class="co">#&gt; # Randomly Selected Predictors (quantitative)</span>
 <span class="co">#&gt; Range: [1, 10]</span>
 </pre></div>
 </div>
@@ -269,17 +270,17 @@
 <span class="kw">glmnet_set</span>
 <span class="co">#&gt; Collection of 2 parameters for tuning</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt;      id parameter type object class</span>
-<span class="co">#&gt;  lambda        penalty    nparam[+]</span>
-<span class="co">#&gt;   alpha        mixture    nparam[+]</span>
+<span class="co">#&gt;  identifier    type    object</span>
+<span class="co">#&gt;      lambda penalty nparam[+]</span>
+<span class="co">#&gt;       alpha mixture nparam[+]</span>
 
 <span class="co"># can be updated too</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span>(<span class="kw">glmnet_set</span>, alpha = <span class="fu"><a href="../reference/mixture.html">mixture</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">.3</span>, <span class="fl">.6</span>)))
 <span class="co">#&gt; Collection of 2 parameters for tuning</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt;      id parameter type object class</span>
-<span class="co">#&gt;  lambda        penalty    nparam[+]</span>
-<span class="co">#&gt;   alpha        mixture    nparam[+]</span>
+<span class="co">#&gt;  identifier    type    object</span>
+<span class="co">#&gt;      lambda penalty nparam[+]</span>
+<span class="co">#&gt;       alpha mixture nparam[+]</span>
 </pre></div>
 <p>These objects can be very helpful when creating tuning grids.</p>
 </div>

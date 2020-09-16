@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Parameters for possible engine parameters for ranger — regularization_factor • dials</title>
+<title>Return a dials parameter object associated with parameters — pull_dials_object • dials</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -49,10 +49,9 @@
 
 
 
-<meta property="og:title" content="Parameters for possible engine parameters for ranger — regularization_factor" />
-<meta property="og:description" content="These parameters are auxiliary to random forest models that use the &quot;ranger&quot;
-engine. They correspond to tuning parameters that would be specified using
-set_engine(&quot;ranger&quot;, ...)." />
+<meta property="og:title" content="Return a dials parameter object associated with parameters — pull_dials_object" />
+<meta property="og:description" content="pull_dials_object() can extract a single dials parameter object from
+different types of objects (e.g. parameter sets, recipes, etc.)." />
 <meta property="og:image" content="https://dials.tidymodels.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -131,77 +130,61 @@ set_engine(&quot;ranger&quot;, ...)." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Parameters for possible engine parameters for ranger</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/param_engine_ranger.R'><code>R/param_engine_ranger.R</code></a></small>
-    <div class="hidden name"><code>ranger_parameters.Rd</code></div>
+    <h1>Return a dials parameter object associated with parameters</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/pull_dials_object.R'><code>R/pull_dials_object.R</code></a></small>
+    <div class="hidden name"><code>pull_dials_object.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>These parameters are auxiliary to random forest models that use the "ranger"
-engine. They correspond to tuning parameters that would be specified using
-<code>set_engine("ranger", ...)</code>.</p>
+    <p><code>pull_dials_object()</code> can extract a single <code>dials</code> parameter object from
+different types of objects (e.g. parameter sets, recipes, etc.).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>regularization_factor</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), trans = <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>pull_dials_object</span>(<span class='kw'>x</span>, <span class='kw'>id</span>, <span class='kw'>...</span>)
 
-<span class='fu'>regularize_depth</span>(values = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>))
+<span class='co'># S3 method for parameters</span>
+<span class='fu'>pull_dials_object</span>(<span class='kw'>x</span>, <span class='kw'>id</span>, <span class='kw'>...</span>)
 
-<span class='fu'>significance_threshold</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>0</span>), trans = <span class='fu'>log10_trans</span>())
+<span class='co'># S3 method for recipe</span>
+<span class='fu'>pull_dials_object</span>(<span class='kw'>x</span>, <span class='kw'>id</span>, <span class='kw'>...</span>)
 
-<span class='fu'>lower_quantile</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), trans = <span class='kw'>NULL</span>)
+<span class='co'># S3 method for model_spec</span>
+<span class='fu'>pull_dials_object</span>(<span class='kw'>x</span>, <span class='kw'>id</span>, <span class='kw'>...</span>)
 
-<span class='fu'>splitting_rule</span>(values = <span class='kw'>ranger_split_rules</span>)
-
-<span class='kw'>ranger_class_rules</span>
-
-<span class='kw'>ranger_reg_rules</span>
-
-<span class='kw'>ranger_split_rules</span>
-
-<span class='fu'>num_random_splits</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fl'>15L</span>), trans = <span class='kw'>NULL</span>)</pre>
+<span class='co'># S3 method for workflow</span>
+<span class='fu'>pull_dials_object</span>(<span class='kw'>x</span>, <span class='kw'>id</span>, <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>range</th>
-      <td><p>A two-element vector holding the <em>defaults</em> for the smallest and
-largest possible values, respectively.</p></td>
+      <th>x</th>
+      <td><p>The results of a call to <code><a href='parameters.html'>parameters()</a></code>, a recipe, model
+specification, or workflow.</p></td>
     </tr>
     <tr>
-      <th>trans</th>
-      <td><p>A <code>trans</code> object from the <code>scales</code> package, such as
-<code><a href='https://scales.r-lib.org//reference/log_trans.html'>scales::log10_trans()</a></code> or <code><a href='https://scales.r-lib.org//reference/reciprocal_trans.html'>scales::reciprocal_trans()</a></code>. If not provided,
-the default is used which matches the units used in <code>range</code>. If no
-transformation, <code>NULL</code>.</p></td>
+      <th>id</th>
+      <td><p>A single string for the <code>id</code> of the parameter.</p></td>
     </tr>
     <tr>
-      <th>values</th>
-      <td><p>For <code>splitting_rule()</code>, a character string of possible values.
-See <code>ranger_split_rules</code>, <code>ranger_class_rules</code>, and <code>ranger_reg_rules</code> for
-appropriate values. For <code>regularize_depth()</code>, either <code>TRUE</code> or <code>FALSE</code>.</p></td>
+      <th>...</th>
+      <td><p>Not currently used.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>An object of class <code>character</code> of length 4.</p>
-<p>An object of class <code>character</code> of length 3.</p>
-<p>An object of class <code>character</code> of length 7.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
-
-    <p>To use these, check <code>?ranger::ranger</code> to see how they are used. Some are
-conditional on others. For example, <code>significance_threshold()</code>,
-<code>num_random_splits()</code>, and others are only used when
-<code>splitting_rule = "extratrees"</code>.</p>
+    <p>A <code>dials</code> parameter object.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>regularization_factor</span>()
-</div><div class='output co'>#&gt; Gain Penalization (quantitative)
-#&gt; Range: [0, 1]</div><div class='input'><span class='fu'>regularize_depth</span>()
-</div><div class='output co'>#&gt; Regularize Tree Depth?  (qualitative)
-#&gt; 2 possible value include:
-#&gt; TRUE and FALSE </div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>glmn_param</span> <span class='op'>&lt;-</span> <span class='fu'><a href='parameters.html'>parameters</a></span>(lambda = <span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>())
+<span class='fu'>pull_dials_object</span>(<span class='kw'>glmn_param</span>, <span class='st'>"lambda"</span>)
+</div><div class='output co'>#&gt; Amount of Regularization (quantitative)
+#&gt; Transformer:  log-10 
+#&gt; Range (transformed scale): [-10, 0]</div><div class='input'>
+<span class='co'># fails:</span>
+<span class='co'># pull_dials_object(glmn_param, "penalty")</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
