@@ -209,11 +209,8 @@ new_param_grid <- function(x = new_data_frame()) {
   if (!is.data.frame(x)) {
     rlang::abort("`x` must be a data frame to construct a new grid from.")
   }
-  if (!tibble::is_tibble(x)) {
-    x <- tibble::as_tibble(x)
-  }
 
-  x <- x[vec_unique_loc(x),]
+  x <- vec_slice(x, vec_unique_loc(x))
   size <- vec_size(x)
 
   # Strip down to a named list with no extra attributes. This serves
