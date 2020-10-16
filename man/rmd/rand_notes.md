@@ -8,7 +8,7 @@ mixture()
 ```
 
 ```
-## Proportion of lasso Penalty  (quantitative)
+## Proportion of Lasso Penalty (quantitative)
 ## Range: [0, 1]
 ```
 
