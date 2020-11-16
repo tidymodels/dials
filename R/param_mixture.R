@@ -19,7 +19,7 @@ mixture <- function(range = c(0, 1), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(mixture = "Proportion of lasso Penalty"),
+    label = c(mixture = "Proportion of Lasso Penalty"),
     finalize = NULL
   )
 }
