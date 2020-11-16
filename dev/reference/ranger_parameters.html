@@ -142,23 +142,23 @@ engine. They correspond to tuning parameters that would be specified using
 <code>set_engine("ranger", ...)</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>regularization_factor</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), trans = <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>regularization_factor</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>regularize_depth</span>(values = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>))
+<span class='fu'>regularize_depth</span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'>significance_threshold</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>0</span>), trans = <span class='fu'>log10_trans</span>())
+<span class='fu'>significance_threshold</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>0</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'>lower_quantile</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), trans = <span class='kw'>NULL</span>)
+<span class='fu'>lower_quantile</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>splitting_rule</span>(values = <span class='kw'>ranger_split_rules</span>)
+<span class='fu'>splitting_rule</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>ranger_split_rules</span><span class='op'>)</span>
 
-<span class='kw'>ranger_class_rules</span>
+<span class='va'>ranger_class_rules</span>
 
-<span class='kw'>ranger_reg_rules</span>
+<span class='va'>ranger_reg_rules</span>
 
-<span class='kw'>ranger_split_rules</span>
+<span class='va'>ranger_split_rules</span>
 
-<span class='fu'>num_random_splits</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fl'>15L</span>), trans = <span class='kw'>NULL</span>)</pre>
+<span class='fu'>num_random_splits</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1L</span>, <span class='fl'>15L</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -196,9 +196,9 @@ conditional on others. For example, <code>significance_threshold()</code>,
 <code>splitting_rule = "extratrees"</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>regularization_factor</span>()
+    <pre class="examples"><div class='input'><span class='fu'>regularization_factor</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Gain Penalization (quantitative)
-#&gt; Range: [0, 1]</div><div class='input'><span class='fu'>regularize_depth</span>()
+#&gt; Range: [0, 1]</div><div class='input'><span class='fu'>regularize_depth</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Regularize Tree Depth?  (qualitative)
 #&gt; 2 possible value include:
 #&gt; TRUE and FALSE </div></pre>

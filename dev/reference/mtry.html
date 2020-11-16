@@ -140,9 +140,9 @@ creating tree models." />
 creating tree models.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mtry</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fu'><a href='unknown.html'>unknown</a></span>()), trans = <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>mtry</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1L</span>, <span class='fu'><a href='unknown.html'>unknown</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>mtry_long</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0L</span>, <span class='fu'><a href='unknown.html'>unknown</a></span>()), trans = <span class='fu'>log10_trans</span>())</pre>
+<span class='fu'>mtry_long</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0L</span>, <span class='fu'><a href='unknown.html'>unknown</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -171,9 +171,9 @@ data set, the upper bound is set to <code>unknown</code> but can be filled in vi
 <code><a href='finalize.html'>finalize()</a></code> method.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>mtry</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fl'>10L</span>))   <span class='co'># in original units</span>
+    <pre class="examples"><div class='input'><span class='fu'>mtry</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1L</span>, <span class='fl'>10L</span><span class='op'>)</span><span class='op'>)</span>   <span class='co'># in original units</span>
 </div><div class='output co'>#&gt; # Randomly Selected Predictors (quantitative)
-#&gt; Range: [1, 10]</div><div class='input'><span class='fu'>mtry_long</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>5</span>)) <span class='co'># in log10 units</span>
+#&gt; Range: [1, 10]</div><div class='input'><span class='fu'>mtry_long</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># in log10 units</span>
 </div><div class='output co'>#&gt; # Randomly Selected Predictors (quantitative)
 #&gt; Transformer:  log-10 
 #&gt; Range (transformed scale): [0, 5]</div></pre>

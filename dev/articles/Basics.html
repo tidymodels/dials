@@ -121,114 +121,105 @@
 <h3 class="hasAnchor">
 <a href="#numeric-parameters" class="anchor"></a>Numeric Parameters</h3>
 <p>An example of a numeric tuning parameter is the cost-complexity parameter of CART trees, otherwise known as <span class="math inline">\(C_p\)</span>. A parameter object for <span class="math inline">\(C_p\)</span> can be created in <code>dials</code> using:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://dials.tidymodels.org">dials</a></span>)
-<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>()
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dials.tidymodels.org">dials</a></span><span class="op">)</span>
+<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; Cost-Complexity Parameter (quantitative)</span>
 <span class="co">#&gt; Transformer:  log-10 </span>
-<span class="co">#&gt; Range (transformed scale): [-10, -1]</span>
-</pre></div>
+<span class="co">#&gt; Range (transformed scale): [-10, -1]</span></code></pre></div>
 <p>Note that this parameter is handled in log units and the default range of values is between <code>10^-10</code> and <code>0.1</code>. The range of possible values can be returned and changed based on some utility functions. We’ll use the pipe operator here:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org">dplyr</a></span>)
-<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>() <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/range_validate.html">range_get</a></span>()
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/range_validate.html">range_get</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; $lower</span>
 <span class="co">#&gt; [1] 1e-10</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $upper</span>
 <span class="co">#&gt; [1] 0.1</span>
-<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>() <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/range_validate.html">range_set</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="fl">5</span>, <span class="fl">1</span>))
+<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/range_validate.html">range_set</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; Cost-Complexity Parameter (quantitative)</span>
 <span class="co">#&gt; Transformer:  log-10 </span>
 <span class="co">#&gt; Range (transformed scale): [-5, 1]</span>
 
 <span class="co"># Or using the `range` argument</span>
 <span class="co"># during creation</span>
-<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>(range = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="op">-</span><span class="fl">5</span>, <span class="fl">1</span>))
+<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; Cost-Complexity Parameter (quantitative)</span>
 <span class="co">#&gt; Transformer:  log-10 </span>
-<span class="co">#&gt; Range (transformed scale): [-5, 1]</span>
-</pre></div>
+<span class="co">#&gt; Range (transformed scale): [-5, 1]</span></code></pre></div>
 <p>Values for this parameter can be obtained in a few different ways. To get a sequence of values that span the range:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="co"># Natural units:</span>
-<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>() <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span>(n = <span class="fl">4</span>)
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># Natural units:</span>
+<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1e-10 1e-07 1e-04 1e-01</span>
 
 <span class="co"># Stay in the transformed space:</span>
-<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>() <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span>(n = <span class="fl">4</span>, original = <span class="fl">FALSE</span>)
-<span class="co">#&gt; [1] -10  -7  -4  -1</span>
-</pre></div>
+<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">4</span>, original <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="co">#&gt; [1] -10  -7  -4  -1</span></code></pre></div>
 <p>Random values can be sampled too. A random uniform distribution is used (between the range values). Since this parameter has a transformation associated with it, the values are simulated in the transformed scale and then returned in the natural units (although the <code>original</code> argument can be used here):</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">5473</span>)
-<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>() <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_sample</a></span>(n = <span class="fl">4</span>)
-<span class="co">#&gt; [1] 6.91e-09 8.46e-04 3.45e-06 5.90e-10</span>
-</pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">5473</span><span class="op">)</span>
+<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_sample</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
+<span class="co">#&gt; [1] 6.91e-09 8.46e-04 3.45e-06 5.90e-10</span></code></pre></div>
 <p>For CART trees, there is a discrete set of values that exist for a given data set. It may be a good idea to assign these possible values to the object. We can get them by fitting an initial <code>rpart</code> model and then adding the values to the object. For <code>mtcars</code>, there are only three values:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://github.com/bethatkinson/rpart">rpart</a></span>)
-<span class="kw">cart_mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rpart/man/rpart.html">rpart</a></span>(<span class="kw">mpg</span> <span class="op">~</span> <span class="kw">.</span>, data = <span class="kw">mtcars</span>, control = <span class="fu"><a href="https://rdrr.io/pkg/rpart/man/rpart.control.html">rpart.control</a></span>(cp = <span class="fl">0.000001</span>))
-<span class="kw">cart_mod</span><span class="op">$</span><span class="kw">cptable</span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/bethatkinson/rpart">rpart</a></span><span class="op">)</span>
+<span class="va">cart_mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/rpart/man/rpart.html">rpart</a></span><span class="op">(</span><span class="va">mpg</span> <span class="op">~</span> <span class="va">.</span>, data <span class="op">=</span> <span class="va">mtcars</span>, control <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/rpart/man/rpart.control.html">rpart.control</a></span><span class="op">(</span>cp <span class="op">=</span> <span class="fl">0.000001</span><span class="op">)</span><span class="op">)</span>
+<span class="va">cart_mod</span><span class="op">$</span><span class="va">cptable</span>
 <span class="co">#&gt;         CP nsplit rel error xerror  xstd</span>
 <span class="co">#&gt; 1 0.643125      0     1.000  1.064 0.258</span>
 <span class="co">#&gt; 2 0.097484      1     0.357  0.687 0.180</span>
 <span class="co">#&gt; 3 0.000001      2     0.259  0.576 0.126</span>
-<span class="kw">cp_vals</span> <span class="op">&lt;-</span> <span class="kw">cart_mod</span><span class="op">$</span><span class="kw">cptable</span>[, <span class="st">"CP"</span>]
+<span class="va">cp_vals</span> <span class="op">&lt;-</span> <span class="va">cart_mod</span><span class="op">$</span><span class="va">cptable</span><span class="op">[</span>, <span class="st">"CP"</span><span class="op">]</span>
 
 <span class="co"># We should only keep values associated with at least one split:</span>
-<span class="kw">cp_vals</span> <span class="op">&lt;-</span> <span class="kw">cp_vals</span>[ <span class="kw">cart_mod</span><span class="op">$</span><span class="kw">cptable</span>[, <span class="st">"nsplit"</span>] <span class="op">&gt;</span> <span class="fl">0</span> ]
+<span class="va">cp_vals</span> <span class="op">&lt;-</span> <span class="va">cp_vals</span><span class="op">[</span> <span class="va">cart_mod</span><span class="op">$</span><span class="va">cptable</span><span class="op">[</span>, <span class="st">"nsplit"</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">0</span> <span class="op">]</span>
 
 <span class="co"># Here the specific Cp values, on their natural scale, are added:</span>
-<span class="kw">mtcars_cp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>() <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_set</a></span>(<span class="kw">cp_vals</span>)
-<span class="co">#&gt; Error: Some values are not valid: 0.09748...</span>
-</pre></div>
+<span class="va">mtcars_cp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_set</a></span><span class="op">(</span><span class="va">cp_vals</span><span class="op">)</span>
+<span class="co">#&gt; Error: Some values are not valid: 0.09748...</span></code></pre></div>
 <p>The error occurs because the values are not in the transformed scale:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit">
-<span class="kw">mtcars_cp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span>() <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_set</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span>(<span class="kw">cp_vals</span>))
-<span class="kw">mtcars_cp</span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mtcars_cp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_set</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span><span class="op">(</span><span class="va">cp_vals</span><span class="op">)</span><span class="op">)</span>
+<span class="va">mtcars_cp</span>
 <span class="co">#&gt; Cost-Complexity Parameter (quantitative)</span>
 <span class="co">#&gt; Transformer:  log-10 </span>
 <span class="co">#&gt; Range (transformed scale): [-10, -1]</span>
-<span class="co">#&gt; Values: 2</span>
-</pre></div>
+<span class="co">#&gt; Values: 2</span></code></pre></div>
 <p>Now, if a sequence or random sample is requested, it uses the set values:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit">
-<span class="kw">mtcars_cp</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span>(<span class="fl">2</span>)
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">mtcars_cp</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.097484 0.000001</span>
 <span class="co"># Sampling specific values is done with replacement</span>
-<span class="kw">mtcars_cp</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/value_validate.html">value_sample</a></span>(<span class="fl">20</span>) <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span>()
+<span class="va">mtcars_cp</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="../reference/value_validate.html">value_sample</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/r/base/table.html">table</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; .</span>
 <span class="co">#&gt;              1e-06 0.0974840733898344 </span>
-<span class="co">#&gt;                  9                 11</span>
-</pre></div>
+<span class="co">#&gt;                  9                 11</span></code></pre></div>
 </div>
 <div id="discrete-parameters" class="section level3">
 <h3 class="hasAnchor">
 <a href="#discrete-parameters" class="anchor"></a>Discrete Parameters</h3>
 <p>In the discrete case there is no notion of a range. The parameter objects are defined by their discrete values. For example, consider a parameter for the types of kernel functions that is used with distance functions:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit">
-<span class="fu"><a href="../reference/weight_func.html">weight_func</a></span>()
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/weight_func.html">weight_func</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; Distance Weighting Function  (qualitative)</span>
 <span class="co">#&gt; 10 possible value include:</span>
-<span class="co">#&gt; 'rectangular', 'triangular', 'epanechnikov', 'biweight', 'triweight', 'cos', ...</span>
-</pre></div>
+<span class="co">#&gt; 'rectangular', 'triangular', 'epanechnikov', 'biweight', 'triweight', 'cos', ...</span></code></pre></div>
 <p>The helper functions are analogues to the quantitative parameters:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit">
-<span class="co"># redefine values</span>
-<span class="fu"><a href="../reference/weight_func.html">weight_func</a></span>() <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_set</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"rectangular"</span>, <span class="st">"triangular"</span>))
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># redefine values</span>
+<span class="fu"><a href="../reference/weight_func.html">weight_func</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_set</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"rectangular"</span>, <span class="st">"triangular"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; Distance Weighting Function  (qualitative)</span>
 <span class="co">#&gt; 2 possible value include:</span>
 <span class="co">#&gt; 'rectangular' and 'triangular'</span>
-<span class="fu"><a href="../reference/weight_func.html">weight_func</a></span>() <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_sample</a></span>(<span class="fl">3</span>)
+<span class="fu"><a href="../reference/weight_func.html">weight_func</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_sample</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt; [1] "cos"         "rectangular" "triweight"</span>
 
 <span class="co"># the sequence is returned in the order of the levels</span>
-<span class="fu"><a href="../reference/weight_func.html">weight_func</a></span>() <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span>(<span class="fl">3</span>)
-<span class="co">#&gt; [1] "rectangular"  "triangular"   "epanechnikov"</span>
-</pre></div>
+<span class="fu"><a href="../reference/weight_func.html">weight_func</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
+<span class="co">#&gt; [1] "rectangular"  "triangular"   "epanechnikov"</span></code></pre></div>
 </div>
 </div>
 <div id="creating-novel-parameters" class="section level2">
@@ -240,35 +231,33 @@
 <h2 class="hasAnchor">
 <a href="#unknown-values" class="anchor"></a>Unknown Values</h2>
 <p>There are some cases where the range of parameter values are data dependent. For example, the upper bound on the number of neighbors cannot be known if the number of data points in the training set is not known. For that reason, some parameters have an <em>unknown</em> placeholder:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit">
-<span class="fu"><a href="../reference/mtry.html">mtry</a></span>()
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/mtry.html">mtry</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # Randomly Selected Predictors (quantitative)</span>
 <span class="co">#&gt; Range: [1, ?]</span>
-<span class="fu"><a href="../reference/trees.html">sample_size</a></span>()
+<span class="fu"><a href="../reference/trees.html">sample_size</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # Observations Sampled (quantitative)</span>
 <span class="co">#&gt; Range: [?, ?]</span>
-<span class="fu"><a href="../reference/num_comp.html">num_terms</a></span>()
+<span class="fu"><a href="../reference/num_comp.html">num_terms</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # Model Terms (quantitative)</span>
 <span class="co">#&gt; Range: [1, ?]</span>
-<span class="fu"><a href="../reference/num_comp.html">num_comp</a></span>()
+<span class="fu"><a href="../reference/num_comp.html">num_comp</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # Components (quantitative)</span>
 <span class="co">#&gt; Range: [1, ?]</span>
-<span class="co"># and so on</span>
-</pre></div>
+<span class="co"># and so on</span></code></pre></div>
 <p>These values must be initialized prior to generating parameter values. The <code><a href="../reference/finalize.html">finalize()</a></code> methods can be used to help remove the unknowns:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit">
-<span class="fu"><a href="../reference/finalize.html">finalize</a></span>(<span class="fu"><a href="../reference/mtry.html">mtry</a></span>(), x = <span class="kw">mtcars</span>[, <span class="op">-</span><span class="fl">1</span>])
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/finalize.html">finalize</a></span><span class="op">(</span><span class="fu"><a href="../reference/mtry.html">mtry</a></span><span class="op">(</span><span class="op">)</span>, x <span class="op">=</span> <span class="va">mtcars</span><span class="op">[</span>, <span class="op">-</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span>
 <span class="co">#&gt; # Randomly Selected Predictors (quantitative)</span>
-<span class="co">#&gt; Range: [1, 10]</span>
-</pre></div>
+<span class="co">#&gt; Range: [1, 10]</span></code></pre></div>
 </div>
 <div id="parameter-sets" class="section level2">
 <h2 class="hasAnchor">
 <a href="#parameter-sets" class="anchor"></a>Parameter Sets</h2>
 <p>These are collection of parameters used in a model, recipe, or other object. They can also be created manually and can have alternate identification fields:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit">
-<span class="kw">glmnet_set</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/parameters.html">parameters</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span>(lambda = <span class="fu"><a href="../reference/penalty.html">penalty</a></span>(), alpha = <span class="fu"><a href="../reference/mixture.html">mixture</a></span>()))
-<span class="kw">glmnet_set</span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">glmnet_set</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/parameters.html">parameters</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>lambda <span class="op">=</span> <span class="fu"><a href="../reference/penalty.html">penalty</a></span><span class="op">(</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fu"><a href="../reference/mixture.html">mixture</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="va">glmnet_set</span>
 <span class="co">#&gt; Collection of 2 parameters for tuning</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;  identifier    type    object</span>
@@ -276,13 +265,12 @@
 <span class="co">#&gt;       alpha mixture nparam[+]</span>
 
 <span class="co"># can be updated too</span>
-<span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span>(<span class="kw">glmnet_set</span>, alpha = <span class="fu"><a href="../reference/mixture.html">mixture</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">.3</span>, <span class="fl">.6</span>)))
+<span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span><span class="op">(</span><span class="va">glmnet_set</span>, alpha <span class="op">=</span> <span class="fu"><a href="../reference/mixture.html">mixture</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.3</span>, <span class="fl">.6</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; Collection of 2 parameters for tuning</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt;  identifier    type    object</span>
 <span class="co">#&gt;      lambda penalty nparam[+]</span>
-<span class="co">#&gt;       alpha mixture nparam[+]</span>
-</pre></div>
+<span class="co">#&gt;       alpha mixture nparam[+]</span></code></pre></div>
 <p>These objects can be very helpful when creating tuning grids.</p>
 </div>
 <div id="parameter-grids" class="section level2">
@@ -290,12 +278,12 @@
 <a href="#parameter-grids" class="anchor"></a>Parameter Grids</h2>
 <p>Sets or combinations of parameters can be created for use in grid search. <code><a href="../reference/grid_regular.html">grid_regular()</a></code>, <code><a href="../reference/grid_regular.html">grid_random()</a></code>, <code><a href="../reference/grid_max_entropy.html">grid_max_entropy()</a></code>, and <code><a href="../reference/grid_max_entropy.html">grid_latin_hypercube()</a></code> take any number of <code>param</code> objects or a parameter set.</p>
 <p>For example, for a glmnet model, a regular grid might be:</p>
-<div class="sourceCode" id="cb13"><pre class="downlit">
-<span class="fu"><a href="../reference/grid_regular.html">grid_regular</a></span>(
-  <span class="fu"><a href="../reference/mixture.html">mixture</a></span>(),
-  <span class="fu"><a href="../reference/penalty.html">penalty</a></span>(),
-  levels = <span class="fl">3</span> <span class="co"># or c(3, 4), etc</span>
-)
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/grid_regular.html">grid_regular</a></span><span class="op">(</span>
+  <span class="fu"><a href="../reference/mixture.html">mixture</a></span><span class="op">(</span><span class="op">)</span>,
+  <span class="fu"><a href="../reference/penalty.html">penalty</a></span><span class="op">(</span><span class="op">)</span>,
+  levels <span class="op">=</span> <span class="fl">3</span> <span class="co"># or c(3, 4), etc</span>
+<span class="op">)</span>
 <span class="co">#&gt; # A tibble: 9 x 2</span>
 <span class="co">#&gt;   mixture      penalty</span>
 <span class="co">#&gt;     &lt;dbl&gt;        &lt;dbl&gt;</span>
@@ -307,16 +295,15 @@
 <span class="co">#&gt; 6     1   0.00001     </span>
 <span class="co">#&gt; 7     0   1           </span>
 <span class="co">#&gt; 8     0.5 1           </span>
-<span class="co">#&gt; 9     1   1</span>
-</pre></div>
+<span class="co">#&gt; 9     1   1</span></code></pre></div>
 <p>and, similarly, a random grid is created using</p>
-<div class="sourceCode" id="cb14"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span>(<span class="fl">1041</span>)
-<span class="fu"><a href="../reference/grid_regular.html">grid_random</a></span>(
-  <span class="fu"><a href="../reference/mixture.html">mixture</a></span>(),
-  <span class="fu"><a href="../reference/penalty.html">penalty</a></span>(),
-  size = <span class="fl">6</span> 
-)
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">1041</span><span class="op">)</span>
+<span class="fu"><a href="../reference/grid_regular.html">grid_random</a></span><span class="op">(</span>
+  <span class="fu"><a href="../reference/mixture.html">mixture</a></span><span class="op">(</span><span class="op">)</span>,
+  <span class="fu"><a href="../reference/penalty.html">penalty</a></span><span class="op">(</span><span class="op">)</span>,
+  size <span class="op">=</span> <span class="fl">6</span> 
+<span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 x 2</span>
 <span class="co">#&gt;   mixture     penalty</span>
 <span class="co">#&gt;     &lt;dbl&gt;       &lt;dbl&gt;</span>
@@ -325,8 +312,7 @@
 <span class="co">#&gt; 3   0.191 0.000000159</span>
 <span class="co">#&gt; 4   0.929 0.00000176 </span>
 <span class="co">#&gt; 5   0.143 0.0442     </span>
-<span class="co">#&gt; 6   0.973 0.0110</span>
-</pre></div>
+<span class="co">#&gt; 6   0.973 0.0110</span></code></pre></div>
 </div>
   </div>
 

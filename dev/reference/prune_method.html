@@ -138,9 +138,9 @@
     <p>MARS pruning methods</p>
     </div>
 
-    <pre class="usage"><span class='fu'>prune_method</span>(values = <span class='kw'>values_prune_method</span>)
+    <pre class="usage"><span class='fu'>prune_method</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>values_prune_method</span><span class='op'>)</span>
 
-<span class='kw'>values_prune_method</span></pre>
+<span class='va'>values_prune_method</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -160,9 +160,9 @@ in examples below.</p></td>
     <p>This parameter is used in <code>parsnip:::mars()</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>values_prune_method</span>
+    <pre class="examples"><div class='input'><span class='va'>values_prune_method</span>
 </div><div class='output co'>#&gt; [1] "backward"   "none"       "exhaustive" "forward"    "seqrep"    
-#&gt; [6] "cv"        </div><div class='input'><span class='fu'>prune_method</span>()
+#&gt; [6] "cv"        </div><div class='input'><span class='fu'>prune_method</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Pruning Method  (qualitative)
 #&gt; 6 possible value include:
 #&gt; 'backward', 'none', 'exhaustive', 'forward', 'seqrep' and 'cv' </div></pre>
