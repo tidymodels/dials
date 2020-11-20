@@ -54,6 +54,8 @@ test_that('param ranges', {
   expect_equal(rule_bands(c(5L, 10L))$range, list(lower = 5L, upper = 10L))
   expect_equal(max_rules(c(5L, 10L))$range, list(lower = 5L, upper = 10L))
   expect_equal(extrapolation(c(1, 10))$range, list(lower = 1, upper = 10))
+  expect_equal(momentum(c(.1, .5))$range, list(lower = .1, upper = .5))
+
 })
 
 
