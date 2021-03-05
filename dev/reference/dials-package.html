@@ -81,9 +81,15 @@ random values or specifying a transformation of the parameters." />
   gtag('config', 'UA-115082821-1');
 </script>
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -117,7 +123,7 @@ random values or specifying a transformation of the parameters." />
 </li>
         <li>
   <a href="https://github.com/tidymodels/dials/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -179,43 +185,43 @@ random values or specifying a transformation of the parameters.</p>
 <span class='co'># the log scale:</span>
 <span class='va'>simple_set</span> <span class='op'>&lt;-</span> <span class='fu'><a href='grid_regular.html'>grid_regular</a></span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='deg_free.html'>deg_free</a></span><span class='op'>(</span><span class='op'>)</span>, levels <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
 <span class='va'>simple_set</span>
-</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 27 x 3</span><span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 27 x 3</span><span>
 #&gt;         penalty mixture deg_free
-#&gt;           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0          1
-#&gt; </span><span style='color: #555555;'> 2</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          0          1
-#&gt; </span><span style='color: #555555;'> 3</span><span> 1                0          1
-#&gt; </span><span style='color: #555555;'> 4</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0.5        1
-#&gt; </span><span style='color: #555555;'> 5</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          0.5        1
-#&gt; </span><span style='color: #555555;'> 6</span><span> 1                0.5        1
-#&gt; </span><span style='color: #555555;'> 7</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     1          1
-#&gt; </span><span style='color: #555555;'> 8</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          1          1
-#&gt; </span><span style='color: #555555;'> 9</span><span> 1                1          1
-#&gt; </span><span style='color: #555555;'>10</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0          3
-#&gt; </span><span style='color: #555555;'># … with 17 more rows</span><span></div><div class='input'>
+#&gt;           </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'> 1</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0          1
+#&gt; </span><span style='color: #BCBCBC;'> 2</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          0          1
+#&gt; </span><span style='color: #BCBCBC;'> 3</span><span> 1                0          1
+#&gt; </span><span style='color: #BCBCBC;'> 4</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0.5        1
+#&gt; </span><span style='color: #BCBCBC;'> 5</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          0.5        1
+#&gt; </span><span style='color: #BCBCBC;'> 6</span><span> 1                0.5        1
+#&gt; </span><span style='color: #BCBCBC;'> 7</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     1          1
+#&gt; </span><span style='color: #BCBCBC;'> 8</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          1          1
+#&gt; </span><span style='color: #BCBCBC;'> 9</span><span> 1                1          1
+#&gt; </span><span style='color: #BCBCBC;'>10</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0          3
+#&gt; </span><span style='color: #949494;'># … with 17 more rows</span><span></div><div class='input'>
 <span class='co'># A random grid of 5 combinations</span>
 <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>362</span><span class='op'>)</span>
 <span class='va'>random_set</span> <span class='op'>&lt;-</span> <span class='fu'><a href='grid_regular.html'>grid_random</a></span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='deg_free.html'>deg_free</a></span><span class='op'>(</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
 <span class='va'>random_set</span>
-</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 5 x 3</span><span>
+</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 5 x 3</span><span>
 #&gt;        penalty mixture deg_free
-#&gt;          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 0.001</span><span style='text-decoration: underline;'>37</span><span>        0.186        1
-#&gt; </span><span style='color: #555555;'>2</span><span> 0.097</span><span style='text-decoration: underline;'>9</span><span>         0.199        1
-#&gt; </span><span style='color: #555555;'>3</span><span> 0.000</span><span style='text-decoration: underline;'>002</span><span>51     0.494        1
-#&gt; </span><span style='color: #555555;'>4</span><span> 0.000</span><span style='text-decoration: underline;'>007</span><span>66     0.790        2
-#&gt; </span><span style='color: #555555;'>5</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>032</span><span style='text-decoration: underline;'>4</span><span>   0.251        3</div><div class='input'>
+#&gt;          </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> 0.001</span><span style='text-decoration: underline;'>37</span><span>        0.186        1
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> 0.097</span><span style='text-decoration: underline;'>9</span><span>         0.199        1
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span> 0.000</span><span style='text-decoration: underline;'>002</span><span>51     0.494        1
+#&gt; </span><span style='color: #BCBCBC;'>4</span><span> 0.000</span><span style='text-decoration: underline;'>007</span><span>66     0.790        2
+#&gt; </span><span style='color: #BCBCBC;'>5</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>032</span><span style='text-decoration: underline;'>4</span><span>   0.251        3</div><div class='input'>
 <span class='co'># A small space-filling design based on experimental design methods:</span>
 <span class='va'>design_set</span> <span class='op'>&lt;-</span> <span class='fu'><a href='grid_max_entropy.html'>grid_max_entropy</a></span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='deg_free.html'>deg_free</a></span><span class='op'>(</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
 <span class='va'>design_set</span>
-</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 5 x 3</span><span>
+</div><div class='output co'>#&gt; </span><span style='color: #949494;'># A tibble: 5 x 3</span><span>
 #&gt;         penalty mixture deg_free
-#&gt;           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 0.071</span><span style='text-decoration: underline;'>2</span><span>         0.339         5
-#&gt; </span><span style='color: #555555;'>2</span><span> 0.000</span><span style='text-decoration: underline;'>155</span><span>       0.499         3
-#&gt; </span><span style='color: #555555;'>3</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>002</span><span style='text-decoration: underline;'>39</span><span>  0.854         1
-#&gt; </span><span style='color: #555555;'>4</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>001</span><span style='text-decoration: underline;'>05</span><span>  0.151         4
-#&gt; </span><span style='color: #555555;'>5</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>939    0.093</span><span style='text-decoration: underline;'>0</span><span>        1</div></span></pre>
+#&gt;           </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #949494;font-style: italic;'>&lt;dbl&gt;</span><span>    </span><span style='color: #949494;font-style: italic;'>&lt;int&gt;</span><span>
+#&gt; </span><span style='color: #BCBCBC;'>1</span><span> 0.071</span><span style='text-decoration: underline;'>2</span><span>         0.339         5
+#&gt; </span><span style='color: #BCBCBC;'>2</span><span> 0.000</span><span style='text-decoration: underline;'>155</span><span>       0.499         3
+#&gt; </span><span style='color: #BCBCBC;'>3</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>002</span><span style='text-decoration: underline;'>39</span><span>  0.854         1
+#&gt; </span><span style='color: #BCBCBC;'>4</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>001</span><span style='text-decoration: underline;'>05</span><span>  0.151         4
+#&gt; </span><span style='color: #BCBCBC;'>5</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>939    0.093</span><span style='text-decoration: underline;'>0</span><span>        1</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -242,6 +248,8 @@ random values or specifying a transformation of the parameters.</p>
 
   
 
+
+  
 
   </body>
 </html>
