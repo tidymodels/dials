@@ -5,7 +5,7 @@ Description: Many models contain tuning parameters (i.e. parameters that cannot 
 Authors@R: c(
     person(given = "Max", family = "Kuhn", email = "max@rstudio.com", role = c("aut", "cre")),
     person("RStudio", role = "cph"))
-License: GPL-2
+License: MIT + file LICENSE
 URL: https://dials.tidymodels.org, https://github.com/tidymodels/dials
 BugReports: https://github.com/tidymodels/dials/issues
 Encoding: UTF-8

@@ -1,5 +1,8 @@
 # dials (development version)
 
+* Re-licensed package from GPL-2 to MIT. See [consent from copyright holders here](https://github.com/tidymodels/dials/issues/156).
+
+
 # dials 0.0.9
 
 * Quantitative parameters now print the number of possible values if they have been set with `value_set()` (@kmdupr33, #138).
