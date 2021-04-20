@@ -2,6 +2,7 @@
 
 * Re-licensed package from GPL-2 to MIT. See [consent from copyright holders here](https://github.com/tidymodels/dials/issues/156).
 
+* An early stopping parameter (`stop_iter()`) was added. 
 
 # dials 0.0.9
 
