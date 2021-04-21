@@ -50,9 +50,11 @@ test_that('random grid', {
     nrow(grid_random(mixture(), trees(), size = 2)),
     2
   )
-  expect_lt(
-    nrow(grid_random(prod_degree(), prune_method(), size = 10)),
-    10
+  set.seed(1)
+  expect_lte(
+    # There are 6x2 possible combinations
+    nrow(grid_random(prod_degree(), prune_method(), size = 50)),
+    12
   )
 })
 
