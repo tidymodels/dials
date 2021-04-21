@@ -143,7 +143,8 @@
 <a href="#dials-development-version" class="anchor"></a>dials (development version)<small> Unreleased </small>
 </h1>
 <ul>
-<li>Re-licensed package from GPL-2 to MIT. See <a href="https://github.com/tidymodels/dials/issues/156" class="external-link">consent from copyright holders here</a>.</li>
+<li><p>Re-licensed package from GPL-2 to MIT. See <a href="https://github.com/tidymodels/dials/issues/156" class="external-link">consent from copyright holders here</a>.</p></li>
+<li><p>An early stopping parameter (<code><a href="../reference/stop_iter.html">stop_iter()</a></code>) was added.</p></li>
 </ul>
 </div>
     <div id="dials-009" class="section level1">
@@ -223,7 +224,7 @@
 <a href="#other-changes" class="anchor"></a>Other changes</h2>
 <ul>
 <li><p><code><a href="../reference/parameters.html">param_set()</a></code> is being renamed <code><a href="../reference/parameters.html">parameters()</a></code>. The old name implied that you <em>only</em> use it to set parameters (say from a recipe or model rather than <em>de novo</em>). <code><a href="../reference/parameters.html">param_set()</a></code> will be available until version 0.0.5.</p></li>
-<li><p>The range for <code><a href="../reference/num_hash.html">num_hash()</a></code> was increase to be <code>2^8</code> to <code>2^12</code>.</p></li>
+<li><p>The range for <code><a href="../reference/texthash.html">num_hash()</a></code> was increase to be <code>2^8</code> to <code>2^12</code>.</p></li>
 <li><p>The range for <code><a href="../reference/max_tokens.html">max_tokens()</a></code> was changed to be 0 to 1000.</p></li>
 </ul>
 </div>
@@ -262,7 +263,7 @@
 <h2 class="hasAnchor">
 <a href="#new-parameter-functions-1" class="anchor"></a>New parameter functions:</h2>
 <ul>
-<li>Parameters <code><a href="../reference/degree.html">spline_degree()</a></code>, <code><a href="../reference/over_ratio.html">over_ratio()</a></code>, <code><a href="../reference/over_ratio.html">under_ratio()</a></code>, <code><a href="../reference/freq_cut.html">freq_cut()</a></code>, <code><a href="../reference/freq_cut.html">unique_cut()</a></code>, <code><a href="../reference/num_breaks.html">num_breaks()</a></code>, <code><a href="../reference/min_unique.html">min_unique()</a></code>, <code><a href="../reference/num_hash.html">num_hash()</a></code>, <code><a href="../reference/num_hash.html">signed_hash()</a></code>, <code><a href="../reference/trees.html">sample_prop()</a></code>, <code><a href="../reference/window_size.html">window_size()</a></code>, <code><a href="../reference/min_dist.html">min_dist()</a></code>, and <code><a href="../reference/degree.html">degree_int()</a></code> were added.</li>
+<li>Parameters <code><a href="../reference/degree.html">spline_degree()</a></code>, <code><a href="../reference/over_ratio.html">over_ratio()</a></code>, <code><a href="../reference/over_ratio.html">under_ratio()</a></code>, <code><a href="../reference/freq_cut.html">freq_cut()</a></code>, <code><a href="../reference/freq_cut.html">unique_cut()</a></code>, <code><a href="../reference/num_breaks.html">num_breaks()</a></code>, <code><a href="../reference/min_unique.html">min_unique()</a></code>, <code><a href="../reference/texthash.html">num_hash()</a></code>, <code><a href="../reference/texthash.html">signed_hash()</a></code>, <code><a href="../reference/trees.html">sample_prop()</a></code>, <code><a href="../reference/window_size.html">window_size()</a></code>, <code><a href="../reference/min_dist.html">min_dist()</a></code>, and <code><a href="../reference/degree.html">degree_int()</a></code> were added.</li>
 </ul>
 </div>
 </div>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Number of unique values for pre-processing — min_unique • dials</title>
+<title>Early stopping parameter — stop_iter • dials</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -49,9 +49,11 @@
 
 
 
-<meta property="og:title" content="Number of unique values for pre-processing — min_unique" />
-<meta property="og:description" content="Some pre-processing parameters require a minimum number of unique data points
-to proceed." />
+<meta property="og:title" content="Early stopping parameter — stop_iter" />
+<meta property="og:description" content="For some models, the effectiveness of the model can decrease as training
+iterations continue. stop_iter() can be used to tune how many iterations
+without an improvement in the objective function occur before training should
+be halted." />
 <meta property="og:image" content="https://dials.tidymodels.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -136,17 +138,19 @@ to proceed." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Number of unique values for pre-processing</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/param_min_unique.R'><code>R/param_min_unique.R</code></a></small>
-    <div class="hidden name"><code>min_unique.Rd</code></div>
+    <h1>Early stopping parameter</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/param_stop_iter.R'><code>R/param_stop_iter.R</code></a></small>
+    <div class="hidden name"><code>stop_iter.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Some pre-processing parameters require a minimum number of unique data points
-to proceed.</p>
+    <p>For some models, the effectiveness of the model can decrease as training
+iterations continue. <code>stop_iter()</code> can be used to tune how many iterations
+without an improvement in the objective function occur before training should
+be halted.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>min_unique</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5L</span>, <span class='fl'>15L</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>stop_iter</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3L</span>, <span class='fl'>20</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -167,9 +171,9 @@ transformation, <code>NULL</code>.</p></td>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>min_unique</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Unique Value Threshold (quantitative)
-#&gt; Range: [5, 15]</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>stop_iter</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; # Iterations Before Stopping (quantitative)
+#&gt; Range: [3, 20]</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

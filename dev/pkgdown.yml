@@ -1,9 +1,9 @@
 pandoc: 2.7.3
-pkgdown: 1.6.1.9000
-pkgdown_sha: dd94073575aaee2fd480892d24dfe0be85f81a03
+pkgdown: 1.6.1.9001
+pkgdown_sha: 46764c0dba9c847957120d0bd687862346db9e98
 articles:
   Basics: Basics.html
-last_built: 2021-03-09T18:32Z
+last_built: 2021-04-21T14:21Z
 urls:
   reference: https://dials.tidymodels.org/reference
   article: https://dials.tidymodels.org/articles
