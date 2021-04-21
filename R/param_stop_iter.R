@@ -9,7 +9,7 @@
 #' @examples
 #' stop_iter()
 #' @export
-stop_iter <- function(range = c(3L, 20), trans = NULL) {
+stop_iter <- function(range = c(3L, 20L), trans = NULL) {
   new_quant_param(
     type = "integer",
     range = range,
