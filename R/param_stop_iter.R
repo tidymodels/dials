@@ -15,7 +15,7 @@ stop_iter <- function(range = c(3L, 20L), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(trees = "# Iterations Before Stopping"),
+    label = c(stop_iter = "# Iterations Before Stopping"),
     finalize = NULL
   )
 }
