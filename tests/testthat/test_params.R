@@ -56,6 +56,7 @@ test_that('param ranges', {
   expect_equal(extrapolation(c(1, 10))$range, list(lower = 1, upper = 10))
   expect_equal(momentum(c(.1, .5))$range, list(lower = .1, upper = .5))
   expect_equal(stop_iter(c(7L, 15L))$range, list(lower = 7L, upper = 15L))
+  expect_equal(conditional_min_criterion(c(1, 2))$range, list(lower = 1, upper = 2))
 })
 
 
@@ -72,5 +73,7 @@ test_that('param values', {
   expect_equal(fuzzy_thresholding(TRUE)$values, TRUE)
   expect_equal(splitting_rule("gini")$values, "gini")
   expect_equal(unbiased_rules(TRUE)$values, TRUE)
+  expect_equal(conditional_test_type()$values, dials:::values_test_type)
+  expect_equal(conditional_test_statistic()$values, dials:::values_test_statistic)
 })
 

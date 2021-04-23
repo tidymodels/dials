@@ -4,7 +4,7 @@
 \alias{stop_iter}
 \title{Early stopping parameter}
 \usage{
-stop_iter(range = c(3L, 20), trans = NULL)
+stop_iter(range = c(3L, 20L), trans = NULL)
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and

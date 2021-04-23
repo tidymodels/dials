@@ -4,6 +4,8 @@
 
 * An early stopping parameter (`stop_iter()`) was added. 
 
+* Added parameters for `party` objects. 
+
 # dials 0.0.9
 
 * Quantitative parameters now print the number of possible values if they have been set with `value_set()` (@kmdupr33, #138).
