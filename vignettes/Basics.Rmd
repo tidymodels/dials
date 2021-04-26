@@ -26,7 +26,7 @@ Some statistical and machine learning models contain _tuning parameters_ (also k
 
 In any case, some information is needed to create a grid or to validate whether a candidate value is appropriate (i.e. neighbors should be a positive integer). `dials` is designed to:
 
- * Create an easy to use framework for describing and querying tuning parameters. this can include getting sequences or random tuning values, validating current values, transforming parameters, and other tasks.
+ * Create an easy to use framework for describing and querying tuning parameters. This can include getting sequences or random tuning values, validating current values, transforming parameters, and other tasks.
  * Standardize the names of different parameters. Different packages in R use different argument names for the same quantities. `dials` proposes some standardized names so that the user doesn't need to memorize the syntactical minutiae of every package. 
  * Work with the [`parsnip`](https://parsnip.tidymodels.org)  package which is a modern attempt to standardize the interfaces for specific models across R packages and computational engines. 
  * Adhere to [tidy principals](https://cran.r-project.org/package=tidyverse/vignettes/manifesto.html). 

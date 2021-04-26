@@ -3,7 +3,7 @@
 #' @param x An object, such as a list of `param` objects or an actual `param`
 #' object.
 #' @param ... Only used for the `param` method so that multiple `param` objects
-#'can be passed to the function.
+#' can be passed to the function.
 #' @export
 parameters <- function(x, ...) {
   UseMethod("parameters")
