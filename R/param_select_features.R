@@ -7,7 +7,7 @@
 #' select_features()
 #' @export
 select_features <- function(values = c(TRUE, FALSE)) {
-  dials::new_qual_param(
+  new_qual_param(
     type = "logical",
     values = values,
     label = c(select_features = "Select Features?"),
