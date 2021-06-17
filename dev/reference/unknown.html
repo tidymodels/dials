@@ -146,11 +146,11 @@ specified at a later time." />
 specified at a later time.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>unknown</span><span class='op'>(</span><span class='op'>)</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>unknown</span><span class='op'>(</span><span class='op'>)</span>
 
 <span class='fu'>is_unknown</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 
-<span class='fu'>has_unknowns</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></pre>
+<span class='fu'>has_unknowns</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -174,33 +174,38 @@ is the element of <code>x</code> is unknown, and <code>FALSE</code> otherwise.</
 object has any unknown values.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='co'># Just returns an expression</span>
-<span class='fu'>unknown</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; unknown()</div><div class='input'>
-<span class='co'># Of course, true!</span>
-<span class='fu'>is_unknown</span><span class='op'>(</span><span class='fu'>unknown</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
-<span class='co'># Create a range with a minimum of 1</span>
-<span class='co'># and an unknown maximum</span>
-<span class='va'>range</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fu'>unknown</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='va'>range</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt; [1] 1
-#&gt; 
-#&gt; [[2]]
-#&gt; unknown()
-#&gt; </div><div class='input'>
-<span class='co'># The first value is known, the</span>
-<span class='co'># second is not</span>
-<span class='fu'>is_unknown</span><span class='op'>(</span><span class='va'>range</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] FALSE  TRUE</div><div class='input'>
-<span class='co'># mtry()'s maximum value is not known at</span>
-<span class='co'># creation time</span>
-<span class='fu'>has_unknowns</span><span class='op'>(</span><span class='fu'><a href='mtry.html'>mtry</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
-</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'></span>
+<span class='r-in'><span class='co'># Just returns an expression</span></span>
+<span class='r-in'><span class='fu'>unknown</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> unknown()</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Of course, true!</span></span>
+<span class='r-in'><span class='fu'>is_unknown</span><span class='op'>(</span><span class='fu'>unknown</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] TRUE</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># Create a range with a minimum of 1</span></span>
+<span class='r-in'><span class='co'># and an unknown maximum</span></span>
+<span class='r-in'><span class='va'>range</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fu'>unknown</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>range</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[1]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] 1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [[2]]</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> unknown()</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># The first value is known, the</span></span>
+<span class='r-in'><span class='co'># second is not</span></span>
+<span class='r-in'><span class='fu'>is_unknown</span><span class='op'>(</span><span class='va'>range</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] FALSE  TRUE</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># mtry()'s maximum value is not known at</span></span>
+<span class='r-in'><span class='co'># creation time</span></span>
+<span class='r-in'><span class='fu'>has_unknowns</span><span class='op'>(</span><span class='fu'><a href='mtry.html'>mtry</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] TRUE</span>
+<span class='r-in'></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -148,15 +148,15 @@ engine. They correspond to tuning parameters that would be specified using
 <code>set_engine("ranger", ...)</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='ranger_parameters.html'>regularization_factor</a></span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>regularization_factor</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'><a href='ranger_parameters.html'>regularize_depth</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>regularize_depth</span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'><a href='ranger_parameters.html'>significance_threshold</a></span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>0</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>significance_threshold</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>0</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'><a href='ranger_parameters.html'>lower_quantile</a></span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+<span class='fu'>lower_quantile</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'><a href='ranger_parameters.html'>splitting_rule</a></span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>ranger_split_rules</span><span class='op'>)</span>
+<span class='fu'>splitting_rule</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>ranger_split_rules</span><span class='op'>)</span>
 
 <span class='va'>ranger_class_rules</span>
 
@@ -164,7 +164,7 @@ engine. They correspond to tuning parameters that would be specified using
 
 <span class='va'>ranger_split_rules</span>
 
-<span class='fu'><a href='ranger_parameters.html'>num_random_splits</a></span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1L</span>, <span class='fl'>15L</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+<span class='fu'>num_random_splits</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1L</span>, <span class='fl'>15L</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -183,9 +183,9 @@ transformation, <code>NULL</code>.</p></td>
     </tr>
     <tr>
       <th>values</th>
-      <td><p>For <code><a href='ranger_parameters.html'>splitting_rule()</a></code>, a character string of possible values.
+      <td><p>For <code>splitting_rule()</code>, a character string of possible values.
 See <code>ranger_split_rules</code>, <code>ranger_class_rules</code>, and <code>ranger_reg_rules</code> for
-appropriate values. For <code><a href='ranger_parameters.html'>regularize_depth()</a></code>, either <code>TRUE</code> or <code>FALSE</code>.</p></td>
+appropriate values. For <code>regularize_depth()</code>, either <code>TRUE</code> or <code>FALSE</code>.</p></td>
     </tr>
     </table>
 
@@ -197,17 +197,19 @@ appropriate values. For <code><a href='ranger_parameters.html'>regularize_depth(
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>To use these, check <code>?ranger::ranger</code> to see how they are used. Some are
-conditional on others. For example, <code><a href='ranger_parameters.html'>significance_threshold()</a></code>,
-<code><a href='ranger_parameters.html'>num_random_splits()</a></code>, and others are only used when
+conditional on others. For example, <code>significance_threshold()</code>,
+<code>num_random_splits()</code>, and others are only used when
 <code>splitting_rule = "extratrees"</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='ranger_parameters.html'>regularization_factor</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Gain Penalization (quantitative)
-#&gt; Range: [0, 1]</div><div class='input'><span class='fu'><a href='ranger_parameters.html'>regularize_depth</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Regularize Tree Depth?  (qualitative)
-#&gt; 2 possible value include:
-#&gt; TRUE and FALSE </div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>regularization_factor</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Gain Penalization (quantitative)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Range: [0, 1]</span>
+<span class='r-in'><span class='fu'>regularize_depth</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Regularize Tree Depth?  (qualitative)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 possible value include:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> TRUE and FALSE </span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -132,13 +132,13 @@
 <p>Note that this parameter is handled in log units and the default range of values is between <code>10^-10</code> and <code>0.1</code>. The range of possible values can be returned and changed based on some utility functions. We’ll use the pipe operator here:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span>
-<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/range_validate.html">range_get</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="../reference/range_validate.html">range_get</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; $lower</span>
 <span class="co">#&gt; [1] 1e-10</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; $upper</span>
 <span class="co">#&gt; [1] 0.1</span>
-<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/range_validate.html">range_set</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="../reference/range_validate.html">range_set</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; Cost-Complexity Parameter (quantitative)</span>
 <span class="co">#&gt; Transformer:  log-10 </span>
 <span class="co">#&gt; Range (transformed scale): [-5, 1]</span>
@@ -152,16 +152,16 @@
 <p>Values for this parameter can be obtained in a few different ways. To get a sequence of values that span the range:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Natural units:</span>
-<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
+<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1e-10 1e-07 1e-04 1e-01</span>
 
 <span class="co"># Stay in the transformed space:</span>
-<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">4</span>, original <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
+<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">4</span>, original <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; [1] -10  -7  -4  -1</span></code></pre></div>
 <p>Random values can be sampled too. A random uniform distribution is used (between the range values). Since this parameter has a transformation associated with it, the values are simulated in the transformed scale and then returned in the natural units (although the <code>original</code> argument can be used here):</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">5473</span><span class="op">)</span>
-<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_sample</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
+<span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="../reference/value_validate.html">value_sample</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
 <span class="co">#&gt; [1] 6.91e-09 8.46e-04 3.45e-06 5.90e-10</span></code></pre></div>
 <p>For CART trees, there is a discrete set of values that exist for a given data set. It may be a good idea to assign these possible values to the object. We can get them by fitting an initial <code>rpart</code> model and then adding the values to the object. For <code>mtcars</code>, there are only three values:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
@@ -178,11 +178,11 @@
 <span class="va">cp_vals</span> <span class="op">&lt;-</span> <span class="va">cp_vals</span><span class="op">[</span> <span class="va">cart_mod</span><span class="op">$</span><span class="va">cptable</span><span class="op">[</span>, <span class="st">"nsplit"</span><span class="op">]</span> <span class="op">&gt;</span> <span class="fl">0</span> <span class="op">]</span>
 
 <span class="co"># Here the specific Cp values, on their natural scale, are added:</span>
-<span class="va">mtcars_cp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_set</a></span><span class="op">(</span><span class="va">cp_vals</span><span class="op">)</span>
+<span class="va">mtcars_cp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="../reference/value_validate.html">value_set</a></span><span class="op">(</span><span class="va">cp_vals</span><span class="op">)</span>
 <span class="co">#&gt; Error: Some values are not valid: 0.09748...</span></code></pre></div>
 <p>The error occurs because the values are not in the transformed scale:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mtcars_cp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_set</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log10</a></span><span class="op">(</span><span class="va">cp_vals</span><span class="op">)</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">mtcars_cp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="../reference/value_validate.html">value_set</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log10</a></span><span class="op">(</span><span class="va">cp_vals</span><span class="op">)</span><span class="op">)</span>
 <span class="va">mtcars_cp</span>
 <span class="co">#&gt; Cost-Complexity Parameter (quantitative)</span>
 <span class="co">#&gt; Transformer:  log-10 </span>
@@ -190,11 +190,11 @@
 <span class="co">#&gt; Values: 2</span></code></pre></div>
 <p>Now, if a sequence or random sample is requested, it uses the set values:</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mtcars_cp</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">mtcars_cp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>
 <span class="co">#&gt; [1] 0.097484 0.000001</span>
 <span class="co"># Sampling specific values is done with replacement</span>
-<span class="va">mtcars_cp</span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="../reference/value_validate.html">value_sample</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+<span class="va">mtcars_cp</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
+  <span class="fu"><a href="../reference/value_validate.html">value_sample</a></span><span class="op">(</span><span class="fl">20</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> 
   <span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; .</span>
 <span class="co">#&gt;              1e-06 0.0974840733898344 </span>
@@ -212,15 +212,15 @@
 <p>The helper functions are analogues to the quantitative parameters:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># redefine values</span>
-<span class="fu"><a href="../reference/weight_func.html">weight_func</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_set</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"rectangular"</span>, <span class="st">"triangular"</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="../reference/weight_func.html">weight_func</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="../reference/value_validate.html">value_set</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"rectangular"</span>, <span class="st">"triangular"</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; Distance Weighting Function  (qualitative)</span>
 <span class="co">#&gt; 2 possible value include:</span>
 <span class="co">#&gt; 'rectangular' and 'triangular'</span>
-<span class="fu"><a href="../reference/weight_func.html">weight_func</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_sample</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
+<span class="fu"><a href="../reference/weight_func.html">weight_func</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="../reference/value_validate.html">value_sample</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt; [1] "cos"         "rectangular" "triweight"</span>
 
 <span class="co"># the sequence is returned in the order of the levels</span>
-<span class="fu"><a href="../reference/weight_func.html">weight_func</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
+<span class="fu"><a href="../reference/weight_func.html">weight_func</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt; [1] "rectangular"  "triangular"   "epanechnikov"</span></code></pre></div>
 </div>
 </div>

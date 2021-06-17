@@ -146,9 +146,9 @@ variance parameters in recipes::step_nzv()." />
 variance parameters in <code>recipes::step_nzv()</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>freq_cut</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>25</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>freq_cut</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='fl'>25</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>unique_cut</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>100</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+<span class='fu'>unique_cut</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>100</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -173,11 +173,13 @@ transformation, <code>NULL</code>.</p></td>
 sensitive.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>freq_cut</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Frequency Distribution Ratio (quantitative)
-#&gt; Range: [5, 25]</div><div class='input'><span class='fu'>unique_cut</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; % Unique Values (quantitative)
-#&gt; Range: [0, 100]</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>freq_cut</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Frequency Distribution Ratio (quantitative)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Range: [5, 25]</span>
+<span class='r-in'><span class='fu'>unique_cut</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> % Unique Values (quantitative)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Range: [0, 100]</span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

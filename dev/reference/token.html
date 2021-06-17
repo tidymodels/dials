@@ -144,9 +144,9 @@
     <p>Token types</p>
     </div>
 
-    <pre class="usage"><span class='fu'>token</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>values_token</span><span class='op'>)</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>token</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>values_token</span><span class='op'>)</span>
 
-<span class='va'>values_token</span></pre>
+<span class='va'>values_token</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -166,14 +166,16 @@ in examples below.</p></td>
     <p>This parameter is used in <code>textrecipes::step_tokenize()</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>values_token</span>
-</div><div class='output co'>#&gt;  [1] "words"             "characters"        "character_shingle"
-#&gt;  [4] "lines"             "ngrams"            "paragraphs"       
-#&gt;  [7] "ptb"               "regex"             "sentences"        
-#&gt; [10] "skip_ngrams"       "tweets"            "word_stems"       </div><div class='input'><span class='fu'>token</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Token Unit  (qualitative)
-#&gt; 12 possible value include:
-#&gt; 'words', 'characters', 'character_shingle', 'lines', 'ngrams', 'paragraphs', ... </div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='va'>values_token</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "words"             "characters"        "character_shingle"</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [4] "lines"             "ngrams"            "paragraphs"       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "ptb"               "regex"             "sentences"        </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> [10] "skip_ngrams"       "tweets"            "word_stems"       </span>
+<span class='r-in'><span class='fu'>token</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Token Unit  (qualitative)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 12 possible value include:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 'words', 'characters', 'character_shingle', 'lines', 'ngrams', 'paragraphs', ... </span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

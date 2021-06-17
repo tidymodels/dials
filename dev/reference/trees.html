@@ -146,7 +146,7 @@ especially in conjunction with the parsnip package." />
 especially in conjunction with the <span class="pkg">parsnip</span> package.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>trees</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1L</span>, <span class='fl'>2000L</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>trees</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1L</span>, <span class='fl'>2000L</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
 <span class='fu'>min_n</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2L</span>, <span class='fl'>40L</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
@@ -160,7 +160,7 @@ especially in conjunction with the <span class="pkg">parsnip</span> package.</p>
 
 <span class='fu'>prune</span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'>cost_complexity</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>10</span>, <span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
+<span class='fu'>cost_complexity</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>10</span>, <span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -209,24 +209,31 @@ further. (See <code>parsnip::boost_tree()</code>). This corresponds to <code>gam
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>trees</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; # Trees (quantitative)
-#&gt; Range: [1, 2000]</div><div class='input'><span class='fu'>min_n</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Minimal Node Size (quantitative)
-#&gt; Range: [2, 40]</div><div class='input'><span class='fu'>sample_size</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; # Observations Sampled (quantitative)
-#&gt; Range: [?, ?]</div><div class='input'><span class='fu'>loss_reduction</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Minimum Loss Reduction (quantitative)
-#&gt; Transformer:  log-10 
-#&gt; Range (transformed scale): [-10, 1.5]</div><div class='input'><span class='fu'>tree_depth</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Tree Depth (quantitative)
-#&gt; Range: [1, 15]</div><div class='input'><span class='fu'>prune</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Pruning  (qualitative)
-#&gt; 2 possible value include:
-#&gt; TRUE and FALSE </div><div class='input'><span class='fu'>cost_complexity</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Cost-Complexity Parameter (quantitative)
-#&gt; Transformer:  log-10 
-#&gt; Range (transformed scale): [-10, -1]</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>trees</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> # Trees (quantitative)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Range: [1, 2000]</span>
+<span class='r-in'><span class='fu'>min_n</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Minimal Node Size (quantitative)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Range: [2, 40]</span>
+<span class='r-in'><span class='fu'>sample_size</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> # Observations Sampled (quantitative)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Range: [?, ?]</span>
+<span class='r-in'><span class='fu'>loss_reduction</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Minimum Loss Reduction (quantitative)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Transformer:  log-10 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Range (transformed scale): [-10, 1.5]</span>
+<span class='r-in'><span class='fu'>tree_depth</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Tree Depth (quantitative)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Range: [1, 15]</span>
+<span class='r-in'><span class='fu'>prune</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Pruning  (qualitative)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 possible value include:</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> TRUE and FALSE </span>
+<span class='r-in'><span class='fu'>cost_complexity</span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Cost-Complexity Parameter (quantitative)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Transformer:  log-10 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Range (transformed scale): [-10, -1]</span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
