@@ -6,6 +6,9 @@
 
 * Added parameters for `party` objects. 
 
+* Two parameters for generalized additive models were added: `select_features()` and `adjust_deg_free()`. 
+
+
 # dials 0.0.9
 
 * Quantitative parameters now print the number of possible values if they have been set with `value_set()` (@kmdupr33, #138).

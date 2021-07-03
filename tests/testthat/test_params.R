@@ -57,6 +57,7 @@ test_that('param ranges', {
   expect_equal(momentum(c(.1, .5))$range, list(lower = .1, upper = .5))
   expect_equal(stop_iter(c(7L, 15L))$range, list(lower = 7L, upper = 15L))
   expect_equal(conditional_min_criterion(c(1, 2))$range, list(lower = 1, upper = 2))
+  expect_equal(adjust_deg_free(c(1/2, 3.0))$range, list(lower = 1/2, upper = 3.0))
 })
 
 
@@ -75,5 +76,7 @@ test_that('param values', {
   expect_equal(unbiased_rules(TRUE)$values, TRUE)
   expect_equal(conditional_test_type()$values, dials:::values_test_type)
   expect_equal(conditional_test_statistic()$values, dials:::values_test_statistic)
+  expect_equal(select_features(TRUE)$values, TRUE)
+
 })
 
