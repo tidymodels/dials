@@ -7,7 +7,7 @@
 \alias{conditional_test_type}
 \alias{values_test_statistic}
 \alias{conditional_test_statistic}
-\title{Tuning parameter objects for conditional tree models}
+\title{Parameters for possible engine parameters for party models}
 \format{
 An object of class \code{character} of length 5.
 
@@ -43,7 +43,7 @@ For the functions, they return a function with classes "param" and
 either "quant_param" or "qual_param".
 }
 \description{
-Tuning parameter objects for conditional tree models
+Parameters for possible engine parameters for party models
 }
 \details{
 The range of \code{conditional_min_criterion()} corresponds to roughly 0.80 to

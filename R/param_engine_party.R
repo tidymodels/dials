@@ -1,4 +1,5 @@
-#' Tuning parameter objects for conditional tree models
+#' Parameters for possible engine parameters for party models
+#'
 #' @param range A two-element vector holding the _defaults_ for the smallest and
 #' largest possible values, respectively.
 #'
