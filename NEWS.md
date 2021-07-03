@@ -4,7 +4,10 @@
 
 * An early stopping parameter (`stop_iter()`) was added. 
 
+* Added parameters for `party` objects. 
+
 * Two parameters for generalized additive models were added: `select_features()` and `adjust_deg_free()`. 
+
 
 # dials 0.0.9
 
