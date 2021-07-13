@@ -2,6 +2,10 @@
 
 * Re-licensed package from GPL-2 to MIT. See [consent from copyright holders here](https://github.com/tidymodels/dials/issues/156).
 
+* The Chicago data was deleted. It can be found in the `modeldata` package. 
+
+## New parameters
+
 * An early stopping parameter (`stop_iter()`) was added. 
 
 * Added parameters for `party` objects. 
