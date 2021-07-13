@@ -58,6 +58,7 @@ test_that('param ranges', {
   expect_equal(stop_iter(c(7L, 15L))$range, list(lower = 7L, upper = 15L))
   expect_equal(conditional_min_criterion(c(1, 2))$range, list(lower = 1, upper = 2))
   expect_equal(adjust_deg_free(c(1/2, 3.0))$range, list(lower = 1/2, upper = 3.0))
+  expect_equal(scale_pos_weight(c(1/2, 3.0))$range, list(lower = 1/2, upper = 3.0))
 })
 
 
