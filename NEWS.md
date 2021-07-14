@@ -2,11 +2,17 @@
 
 * Re-licensed package from GPL-2 to MIT. See [consent from copyright holders here](https://github.com/tidymodels/dials/issues/156).
 
+## New parameters
+
 * An early stopping parameter (`stop_iter()`) was added. 
 
 * Added parameters for `party` objects. 
 
 * Two parameters for generalized additive models were added: `select_features()` and `adjust_deg_free()`. 
+
+* Added two parameters for sparse PCA (`prior_slab_dispersion()` and `prior_mixture_threshold()`).
+
+* An xgboost engine parameter, `scale_pos_weight()`, was also added. 
 
 
 # dials 0.0.9
