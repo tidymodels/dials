@@ -17,7 +17,7 @@ knitr::opts_chunk$set(
 
 # dials
 
-[![R build status](https://github.com/tidymodels/dials/workflows/R-CMD-check/badge.svg)](https://github.com/tidymodels/dials/actions)
+[![R-CMD-check](https://github.com/tidymodels/dials/workflows/R-CMD-check/badge.svg)](https://github.com/tidymodels/dials/actions)
 [![Codecov test coverage](https://codecov.io/gh/tidymodels/dials/branch/master/graph/badge.svg)](https://codecov.io/gh/tidymodels/dials?branch=master)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/dials)](https://CRAN.R-project.org/package=dials)
 [![Downloads](http://cranlogs.r-pkg.org/badges/dials)](https://CRAN.R-project.org/package=dials)
