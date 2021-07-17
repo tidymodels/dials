@@ -14,6 +14,8 @@
 
 * An xgboost engine parameter, `scale_pos_weight()`, was also added. 
 
+* New parameters for [discrim::discrim_linear()] and [discrim::discrim_quad()] were added: `regularization_method()`, `shrinkage_correlation()`, `shrinkage_variance()`, `shrinkage_frequencies()`, and `diagonal_covariance()`. 
+
 
 # dials 0.0.9
 
