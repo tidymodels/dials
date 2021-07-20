@@ -145,6 +145,9 @@
     <loc>https://dials.tidymodels.org/reference/predictor_prop.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/reference/prior_slab_dispersion.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/reference/prune_method.html</loc>
   </url>
   <url>
@@ -163,7 +166,13 @@
     <loc>https://dials.tidymodels.org/reference/rbf_sigma.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/reference/regularization_method.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/reference/select_features.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/reference/shrinkage_correlation.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/smoothness.html</loc>
@@ -209,5 +218,8 @@
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/window_size.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/reference/xgboost_parameters.html</loc>
   </url>
 </urlset>
