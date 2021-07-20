@@ -24,7 +24,7 @@ largest possible values, respectively.}
 the default is used which matches the units used in \code{range}. If no
 transformation, \code{NULL}.}
 
-\item{values}{A character string of possible values.}
+\item{values}{A vector of possible values (TRUE or FALSE).}
 }
 \value{
 For the functions, they return a function with classes "param" and

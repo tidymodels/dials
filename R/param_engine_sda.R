@@ -10,7 +10,6 @@
 #' `scales::log10_trans()` or `scales::reciprocal_trans()`. If not provided,
 #' the default is used which matches the units used in `range`. If no
 #' transformation, `NULL`.
-#' @param values A character string of possible values.
 #' @return  For the functions, they return a function with classes "param" and
 #' either "quant_param" or "qual_param".
 #' @details
@@ -64,7 +63,7 @@ diagonal_covariance <- function(values = c(TRUE, FALSE)) {
   new_qual_param(
     type = "logical",
     values = values,
-    label = c(diagonal_covariance = "Diagonal Covariance ?"),
+    label = c(diagonal_covariance = "Diagonal Covariance?"),
     finalize = NULL
   )
 }
