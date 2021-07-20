@@ -5,7 +5,6 @@
 \alias{parameters.default}
 \alias{parameters.param}
 \alias{parameters.list}
-\alias{param_set}
 \title{Information on tuning parameters within an object}
 \usage{
 parameters(x, ...)
@@ -15,8 +14,6 @@ parameters(x, ...)
 \method{parameters}{param}(x, ...)
 
 \method{parameters}{list}(x, ...)
-
-param_set(x, ...)
 }
 \arguments{
 \item{x}{An object, such as a list of \code{param} objects or an actual \code{param}
