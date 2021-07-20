@@ -2,6 +2,8 @@
 
 * Re-licensed package from GPL-2 to MIT. See [consent from copyright holders here](https://github.com/tidymodels/dials/issues/156).
 
+* `param_set()`, scheduled for removal in version 0.0.5, was removed. 
+
 ## New parameters
 
 * An early stopping parameter (`stop_iter()`) was added. 
