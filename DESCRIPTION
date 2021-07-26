@@ -1,37 +1,45 @@
 Package: dials
-Version: 0.0.9.9000
 Title: Tools for Creating Tuning Parameter Values
-Description: Many models contain tuning parameters (i.e. parameters that cannot be directly estimated from the data). These tools can be used to define objects for creating, simulating, or validating values for such parameters. 
-Authors@R: c(
-    person(given = "Max", family = "Kuhn", email = "max@rstudio.com", role = c("aut", "cre")),
-    person("RStudio", role = "cph"))
+Version: 0.0.9.9000
+Authors@R: 
+    c(person(given = "Max",
+             family = "Kuhn",
+             role = c("aut", "cre"),
+             email = "max@rstudio.com"),
+      person(given = "RStudio",
+             role = "cph"))
+Description: Many models contain tuning parameters (i.e. parameters that
+    cannot be directly estimated from the data). These tools can be used
+    to define objects for creating, simulating, or validating values for
+    such parameters.
 License: MIT + file LICENSE
 URL: https://dials.tidymodels.org, https://github.com/tidymodels/dials
 BugReports: https://github.com/tidymodels/dials/issues
-Encoding: UTF-8
-LazyData: true
-ByteCompile: true
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1.9001
-VignetteBuilder: knitr
 Depends:
-    scales,
-    R (>= 2.10)
+    R (>= 2.10),
+    scales
 Imports:
-    glue,
-    purrr,
-    tibble,
-    rlang,
-    utils,
-    withr,
     DiceDesign,
     dplyr (>= 0.8.5),
-    vctrs (>= 0.3.0.9000)
+    glue,
+    purrr,
+    rlang,
+    tibble,
+    utils,
+    vctrs (>= 0.3.1),
+    withr
 Suggests: 
-    testthat,
-    knitr,
-    rpart,
     covr,
     kernlab,
-    xml2,
-    rmarkdown
+    knitr,
+    rmarkdown,
+    rpart,
+    testthat,
+    xml2
+VignetteBuilder: 
+    knitr
+ByteCompile: true
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1.9001

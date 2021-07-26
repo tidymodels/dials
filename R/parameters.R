@@ -274,17 +274,3 @@ identical_names <- function(x, y) {
 
   identical(x_names, y_names)
 }
-
-# ------------------------------------------------------------------------------
-
-#' @export
-#' @rdname parameters
-param_set <- function(x, ...) {
-  rlang::warn(
-    paste0(
-      "`param_set()` is deprecated in favor of `parameters()`. ",
-      "`param_set()` will be available until version 0.0.5."
-    )
-  )
-  parameters(x, ...)
-}
