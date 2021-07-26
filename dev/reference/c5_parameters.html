@@ -78,15 +78,9 @@ set_engine(&quot;C5.0&quot;, ...)." />
   gtag('config', 'UA-115082821-1');
 </script>
 
-  
-
-  
-
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -148,7 +142,7 @@ engine. They correspond to tuning parameters that would be specified using
 <code>set_engine("C5.0", ...)</code>.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>confidence_factor</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>confidence_factor</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='fu'>no_global_pruning</span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span>
 
@@ -156,7 +150,7 @@ engine. They correspond to tuning parameters that would be specified using
 
 <span class='fu'>fuzzy_thresholding</span><span class='op'>(</span>values <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'>rule_bands</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2L</span>, <span class='fl'>500L</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></code></pre></div>
+<span class='fu'>rule_bands</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>2L</span>, <span class='fl'>500L</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -185,26 +179,21 @@ transformation, <code>NULL</code>.</p></td>
     <p>To use these, check <code>?C50::C5.0Control</code> to see how they are used.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>confidence_factor</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Confidence Factor for Splitting (quantitative)</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Transformer:  log-10 </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Range (transformed scale): [-1, 0]</span>
-<span class='r-in'><span class='fu'>no_global_pruning</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Skip Global Pruning?  (qualitative)</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 possible value include:</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> TRUE and FALSE </span>
-<span class='r-in'><span class='fu'>predictor_winnowing</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Use Initial Feature Selection?  (qualitative)</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 possible value include:</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> TRUE and FALSE </span>
-<span class='r-in'><span class='fu'>fuzzy_thresholding</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Use Fuzzy Thresholding?  (qualitative)</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 2 possible value include:</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> TRUE and FALSE </span>
-<span class='r-in'><span class='fu'>rule_bands</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Number of Rule Bands (quantitative)</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Range: [2, 500]</span>
-</code></pre></div>
+    <pre class="examples"><div class='input'><span class='fu'>confidence_factor</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Confidence Factor for Splitting (quantitative)
+#&gt; Transformer:  log-10 
+#&gt; Range (transformed scale): [-1, 0]</div><div class='input'><span class='fu'>no_global_pruning</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Skip Global Pruning?  (qualitative)
+#&gt; 2 possible value include:
+#&gt; TRUE and FALSE </div><div class='input'><span class='fu'>predictor_winnowing</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Use Initial Feature Selection?  (qualitative)
+#&gt; 2 possible value include:
+#&gt; TRUE and FALSE </div><div class='input'><span class='fu'>fuzzy_thresholding</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Use Fuzzy Thresholding?  (qualitative)
+#&gt; 2 possible value include:
+#&gt; TRUE and FALSE </div><div class='input'><span class='fu'>rule_bands</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Number of Rule Bands (quantitative)
+#&gt; Range: [2, 500]</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -231,8 +220,6 @@ transformation, <code>NULL</code>.</p></td>
 
   
 
-
-  
 
   </body>
 </html>

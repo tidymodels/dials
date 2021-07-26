@@ -76,15 +76,9 @@
   gtag('config', 'UA-115082821-1');
 </script>
 
-  
-
-  
-
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -144,9 +138,9 @@
     <p>Kernel functions for distance weighting</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>weight_func</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>values_weight_func</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>weight_func</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>values_weight_func</span><span class='op'>)</span>
 
-<span class='va'>values_weight_func</span></code></pre></div>
+<span class='va'>values_weight_func</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -166,14 +160,12 @@ in examples below.</p></td>
     <p>This parameter is used in <code>parsnip:::nearest_neighbors()</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='va'>values_weight_func</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "rectangular"  "triangular"   "epanechnikov" "biweight"     "triweight"   </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [6] "cos"          "inv"          "gaussian"     "rank"         "optimal"     </span>
-<span class='r-in'><span class='fu'>weight_func</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Distance Weighting Function  (qualitative)</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 10 possible value include:</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 'rectangular', 'triangular', 'epanechnikov', 'biweight', 'triweight', 'cos', ... </span>
-</code></pre></div>
+    <pre class="examples"><div class='input'><span class='va'>values_weight_func</span>
+</div><div class='output co'>#&gt;  [1] "rectangular"  "triangular"   "epanechnikov" "biweight"     "triweight"   
+#&gt;  [6] "cos"          "inv"          "gaussian"     "rank"         "optimal"     </div><div class='input'><span class='fu'>weight_func</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Distance Weighting Function  (qualitative)
+#&gt; 10 possible value include:
+#&gt; 'rectangular', 'triangular', 'epanechnikov', 'biweight', 'triweight', 'cos', ... </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -200,8 +192,6 @@ in examples below.</p></td>
 
   
 
-
-  
 
   </body>
 </html>

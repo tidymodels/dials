@@ -81,15 +81,9 @@ random values or specifying a transformation of the parameters." />
   gtag('config', 'UA-115082821-1');
 </script>
 
-  
-
-  
-
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -175,56 +169,53 @@ random values or specifying a transformation of the parameters.</p>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'></span>
-<span class='r-in'><span class='co'># Suppose we were tuning a linear regression model that was fit with glmnet</span></span>
-<span class='r-in'><span class='co'># and there was a predictor that used a spline basis function to enable a</span></span>
-<span class='r-in'><span class='co'># nonlinear fit. We can use `penalty()` and `mixture()` for the glmnet parts</span></span>
-<span class='r-in'><span class='co'># and `deg_free()` for the spline.</span></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='co'># A full 3^3 factorial design where the regularization parameter is on</span></span>
-<span class='r-in'><span class='co'># the log scale:</span></span>
-<span class='r-in'><span class='va'>simple_set</span> <span class='op'>&lt;-</span> <span class='fu'><a href='grid_regular.html'>grid_regular</a></span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='deg_free.html'>deg_free</a></span><span class='op'>(</span><span class='op'>)</span>, levels <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span></span>
-<span class='r-in'><span class='va'>simple_set</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 27 × 3</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>         penalty mixture deg_free</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     0          1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> 0.000<span style='text-decoration: underline;'>01</span>          0          1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> 1                0          1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     0.5        1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> 0.000<span style='text-decoration: underline;'>01</span>          0.5        1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> 1                0.5        1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     1          1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> 0.000<span style='text-decoration: underline;'>01</span>          1          1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> 1                1          1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     0          3</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 17 more rows</span></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='co'># A random grid of 5 combinations</span></span>
-<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>362</span><span class='op'>)</span></span>
-<span class='r-in'><span class='va'>random_set</span> <span class='op'>&lt;-</span> <span class='fu'><a href='grid_regular.html'>grid_random</a></span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='deg_free.html'>deg_free</a></span><span class='op'>(</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span>
-<span class='r-in'><span class='va'>random_set</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 5 × 3</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>        penalty mixture deg_free</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 0.001<span style='text-decoration: underline;'>37</span>        0.186        1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> 0.097<span style='text-decoration: underline;'>9</span>         0.199        1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> 0.000<span style='text-decoration: underline;'>002</span>51     0.494        1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> 0.000<span style='text-decoration: underline;'>007</span>66     0.790        2</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> 0.000<span style='text-decoration: underline;'>000</span>032<span style='text-decoration: underline;'>4</span>   0.251        3</span>
-<span class='r-in'></span>
-<span class='r-in'><span class='co'># A small space-filling design based on experimental design methods:</span></span>
-<span class='r-in'><span class='va'>design_set</span> <span class='op'>&lt;-</span> <span class='fu'><a href='grid_max_entropy.html'>grid_max_entropy</a></span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='deg_free.html'>deg_free</a></span><span class='op'>(</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span>
-<span class='r-in'><span class='va'>design_set</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 5 × 3</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>         penalty mixture deg_free</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 0.071<span style='text-decoration: underline;'>2</span>         0.339         5</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>2</span> 0.000<span style='text-decoration: underline;'>155</span>       0.499         3</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>3</span> 0.000<span style='text-decoration: underline;'>000</span>002<span style='text-decoration: underline;'>39</span>  0.854         1</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>4</span> 0.000<span style='text-decoration: underline;'>000</span>001<span style='text-decoration: underline;'>05</span>  0.151         4</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>5</span> 0.000<span style='text-decoration: underline;'>000</span>939    0.093<span style='text-decoration: underline;'>0</span>        1</span>
-</code></pre></div>
+    <pre class="examples"><div class='input'>
+<span class='co'># Suppose we were tuning a linear regression model that was fit with glmnet</span>
+<span class='co'># and there was a predictor that used a spline basis function to enable a</span>
+<span class='co'># nonlinear fit. We can use `penalty()` and `mixture()` for the glmnet parts</span>
+<span class='co'># and `deg_free()` for the spline.</span>
+
+<span class='co'># A full 3^3 factorial design where the regularization parameter is on</span>
+<span class='co'># the log scale:</span>
+<span class='va'>simple_set</span> <span class='op'>&lt;-</span> <span class='fu'><a href='grid_regular.html'>grid_regular</a></span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='deg_free.html'>deg_free</a></span><span class='op'>(</span><span class='op'>)</span>, levels <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span>
+<span class='va'>simple_set</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 27 × 3</span>
+#&gt;         penalty mixture deg_free
+#&gt;           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     0          1
+#&gt; <span style='color: #BCBCBC;'> 2</span> 0.000<span style='text-decoration: underline;'>01</span>          0          1
+#&gt; <span style='color: #BCBCBC;'> 3</span> 1                0          1
+#&gt; <span style='color: #BCBCBC;'> 4</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     0.5        1
+#&gt; <span style='color: #BCBCBC;'> 5</span> 0.000<span style='text-decoration: underline;'>01</span>          0.5        1
+#&gt; <span style='color: #BCBCBC;'> 6</span> 1                0.5        1
+#&gt; <span style='color: #BCBCBC;'> 7</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     1          1
+#&gt; <span style='color: #BCBCBC;'> 8</span> 0.000<span style='text-decoration: underline;'>01</span>          1          1
+#&gt; <span style='color: #BCBCBC;'> 9</span> 1                1          1
+#&gt; <span style='color: #BCBCBC;'>10</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     0          3
+#&gt; <span style='color: #949494;'># … with 17 more rows</span></div><div class='input'>
+<span class='co'># A random grid of 5 combinations</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>362</span><span class='op'>)</span>
+<span class='va'>random_set</span> <span class='op'>&lt;-</span> <span class='fu'><a href='grid_regular.html'>grid_random</a></span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='deg_free.html'>deg_free</a></span><span class='op'>(</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
+<span class='va'>random_set</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 5 × 3</span>
+#&gt;        penalty mixture deg_free
+#&gt;          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> 0.001<span style='text-decoration: underline;'>37</span>        0.186        1
+#&gt; <span style='color: #BCBCBC;'>2</span> 0.097<span style='text-decoration: underline;'>9</span>         0.199        1
+#&gt; <span style='color: #BCBCBC;'>3</span> 0.000<span style='text-decoration: underline;'>002</span>51     0.494        1
+#&gt; <span style='color: #BCBCBC;'>4</span> 0.000<span style='text-decoration: underline;'>007</span>66     0.790        2
+#&gt; <span style='color: #BCBCBC;'>5</span> 0.000<span style='text-decoration: underline;'>000</span>032<span style='text-decoration: underline;'>4</span>   0.251        3</div><div class='input'>
+<span class='co'># A small space-filling design based on experimental design methods:</span>
+<span class='va'>design_set</span> <span class='op'>&lt;-</span> <span class='fu'><a href='grid_max_entropy.html'>grid_max_entropy</a></span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='deg_free.html'>deg_free</a></span><span class='op'>(</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span>
+<span class='va'>design_set</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 5 × 3</span>
+#&gt;         penalty mixture deg_free
+#&gt;           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> 0.071<span style='text-decoration: underline;'>2</span>         0.339         5
+#&gt; <span style='color: #BCBCBC;'>2</span> 0.000<span style='text-decoration: underline;'>155</span>       0.499         3
+#&gt; <span style='color: #BCBCBC;'>3</span> 0.000<span style='text-decoration: underline;'>000</span>002<span style='text-decoration: underline;'>39</span>  0.854         1
+#&gt; <span style='color: #BCBCBC;'>4</span> 0.000<span style='text-decoration: underline;'>000</span>001<span style='text-decoration: underline;'>05</span>  0.151         4
+#&gt; <span style='color: #BCBCBC;'>5</span> 0.000<span style='text-decoration: underline;'>000</span>939    0.093<span style='text-decoration: underline;'>0</span>        1</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -251,8 +242,6 @@ random values or specifying a transformation of the parameters.</p>
 
   
 
-
-  
 
   </body>
 </html>

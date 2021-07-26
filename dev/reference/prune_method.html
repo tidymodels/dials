@@ -76,15 +76,9 @@
   gtag('config', 'UA-115082821-1');
 </script>
 
-  
-
-  
-
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -144,9 +138,9 @@
     <p>MARS pruning methods</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>prune_method</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>values_prune_method</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>prune_method</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>values_prune_method</span><span class='op'>)</span>
 
-<span class='va'>values_prune_method</span></code></pre></div>
+<span class='va'>values_prune_method</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -166,14 +160,12 @@ in examples below.</p></td>
     <p>This parameter is used in <code>parsnip:::mars()</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='va'>values_prune_method</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "backward"   "none"       "exhaustive" "forward"    "seqrep"    </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [6] "cv"        </span>
-<span class='r-in'><span class='fu'>prune_method</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Pruning Method  (qualitative)</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 6 possible value include:</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 'backward', 'none', 'exhaustive', 'forward', 'seqrep' and 'cv' </span>
-</code></pre></div>
+    <pre class="examples"><div class='input'><span class='va'>values_prune_method</span>
+</div><div class='output co'>#&gt; [1] "backward"   "none"       "exhaustive" "forward"    "seqrep"    
+#&gt; [6] "cv"        </div><div class='input'><span class='fu'>prune_method</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Pruning Method  (qualitative)
+#&gt; 6 possible value include:
+#&gt; 'backward', 'none', 'exhaustive', 'forward', 'seqrep' and 'cv' </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -200,8 +192,6 @@ in examples below.</p></td>
 
   
 
-
-  
 
   </body>
 </html>

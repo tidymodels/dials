@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dials.tidymodels.org/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://dials.tidymodels.org/CONTRIBUTING.html</loc>
-  </url>
-  <url>
-    <loc>https://dials.tidymodels.org/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://dials.tidymodels.org/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://dials.tidymodels.org/articles/Basics.html</loc>
-  </url>
-  <url>
-    <loc>https://dials.tidymodels.org/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://dials.tidymodels.org/authors.html</loc>
-  </url>
-  <url>
     <loc>https://dials.tidymodels.org/index.html</loc>
-  </url>
-  <url>
-    <loc>https://dials.tidymodels.org/news/index.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/Chicago.html</loc>
@@ -86,9 +62,6 @@
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/grid_regular.html</loc>
-  </url>
-  <url>
-    <loc>https://dials.tidymodels.org/reference/index.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/learn_rate.html</loc>
@@ -221,5 +194,8 @@
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/xgboost_parameters.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/articles/Basics.html</loc>
   </url>
 </urlset>

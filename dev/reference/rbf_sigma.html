@@ -76,15 +76,9 @@
   gtag('config', 'UA-115082821-1');
 </script>
 
-  
-
-  
-
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -144,11 +138,11 @@
     <p>Parameters related to the radial basis or other kernel functions.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>rbf_sigma</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>0</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>rbf_sigma</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>0</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='fu'>scale_factor</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>10</span>, <span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'>kernel_offset</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>2</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></code></pre></div>
+<span class='fu'>kernel_offset</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>2</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -172,18 +166,15 @@ transformation, <code>NULL</code>.</p></td>
     <p><code><a href='degree.html'>degree()</a></code> can also be used in kernel functions.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='fu'>rbf_sigma</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Radial Basis Function sigma (quantitative)</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Transformer:  log-10 </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Range (transformed scale): [-10, 0]</span>
-<span class='r-in'><span class='fu'>scale_factor</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Scale Factor (quantitative)</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Transformer:  log-10 </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Range (transformed scale): [-10, -1]</span>
-<span class='r-in'><span class='fu'>kernel_offset</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Offset (quantitative)</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Range: [0, 2]</span>
-</code></pre></div>
+    <pre class="examples"><div class='input'><span class='fu'>rbf_sigma</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Radial Basis Function sigma (quantitative)
+#&gt; Transformer:  log-10 
+#&gt; Range (transformed scale): [-10, 0]</div><div class='input'><span class='fu'>scale_factor</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Scale Factor (quantitative)
+#&gt; Transformer:  log-10 
+#&gt; Range (transformed scale): [-10, -1]</div><div class='input'><span class='fu'>kernel_offset</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Offset (quantitative)
+#&gt; Range: [0, 2]</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -210,8 +201,6 @@ transformation, <code>NULL</code>.</p></td>
 
   
 
-
-  
 
   </body>
 </html>

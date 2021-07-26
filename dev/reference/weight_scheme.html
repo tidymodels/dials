@@ -76,15 +76,9 @@
   gtag('config', 'UA-115082821-1');
 </script>
 
-  
-
-  
-
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    
-
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -144,9 +138,9 @@
     <p>Term frequency weighting methods</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>weight_scheme</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>values_weight_scheme</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>weight_scheme</span><span class='op'>(</span>values <span class='op'>=</span> <span class='va'>values_weight_scheme</span><span class='op'>)</span>
 
-<span class='va'>values_weight_scheme</span></code></pre></div>
+<span class='va'>values_weight_scheme</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -166,14 +160,12 @@ in examples below.</p></td>
     <p>This parameter is used in <code>textrecipes::step_tf()</code>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='va'>values_weight_scheme</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "raw count"            "binary"               "term frequency"      </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [4] "log normalization"    "double normalization"</span>
-<span class='r-in'><span class='fu'>weight_scheme</span><span class='op'>(</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> Term Frequency Weight Method  (qualitative)</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 5 possible value include:</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> 'raw count', 'binary', 'term frequency', 'log normalization' and 'double norm... </span>
-</code></pre></div>
+    <pre class="examples"><div class='input'><span class='va'>values_weight_scheme</span>
+</div><div class='output co'>#&gt; [1] "raw count"            "binary"               "term frequency"      
+#&gt; [4] "log normalization"    "double normalization"</div><div class='input'><span class='fu'>weight_scheme</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Term Frequency Weight Method  (qualitative)
+#&gt; 5 possible value include:
+#&gt; 'raw count', 'binary', 'term frequency', 'log normalization' and 'double norm... </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -200,8 +192,6 @@ in examples below.</p></td>
 
   
 
-
-  
 
   </body>
 </html>
