@@ -185,7 +185,7 @@ random values or specifying a transformation of the parameters.</p>
 <span class='r-in'><span class='co'># the log scale:</span></span>
 <span class='r-in'><span class='va'>simple_set</span> <span class='op'>&lt;-</span> <span class='fu'><a href='grid_regular.html'>grid_regular</a></span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='deg_free.html'>deg_free</a></span><span class='op'>(</span><span class='op'>)</span>, levels <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span></span>
 <span class='r-in'><span class='va'>simple_set</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 27 x 3</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 27 × 3</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>         penalty mixture deg_free</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     0          1</span>
@@ -204,7 +204,7 @@ random values or specifying a transformation of the parameters.</p>
 <span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>362</span><span class='op'>)</span></span>
 <span class='r-in'><span class='va'>random_set</span> <span class='op'>&lt;-</span> <span class='fu'><a href='grid_regular.html'>grid_random</a></span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='deg_free.html'>deg_free</a></span><span class='op'>(</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span>
 <span class='r-in'><span class='va'>random_set</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 5 x 3</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 5 × 3</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>        penalty mixture deg_free</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 0.001<span style='text-decoration: underline;'>37</span>        0.186        1</span>
@@ -216,7 +216,7 @@ random values or specifying a transformation of the parameters.</p>
 <span class='r-in'><span class='co'># A small space-filling design based on experimental design methods:</span></span>
 <span class='r-in'><span class='va'>design_set</span> <span class='op'>&lt;-</span> <span class='fu'><a href='grid_max_entropy.html'>grid_max_entropy</a></span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='deg_free.html'>deg_free</a></span><span class='op'>(</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>5</span><span class='op'>)</span></span>
 <span class='r-in'><span class='va'>design_set</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 5 x 3</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 5 × 3</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>         penalty mixture deg_free</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;int&gt;</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 0.071<span style='text-decoration: underline;'>2</span>         0.339         5</span>

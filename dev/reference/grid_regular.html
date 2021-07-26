@@ -254,7 +254,7 @@ argument above is different for <code>glmnet</code> models:<div class="r"></p><p
     <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'># filter arg will allow you to filter subsequent grid data frame based on some condition.</span></span>
 <span class='r-in'><span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='parameters.html'>parameters</a></span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
 <span class='r-in'><span class='fu'>grid_regular</span><span class='op'>(</span><span class='va'>p</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 9 x 2</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 9 × 2</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>        penalty mixture</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     0  </span>
@@ -267,7 +267,7 @@ argument above is different for <code>glmnet</code> models:<div class="r"></p><p
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>8</span> 0.000<span style='text-decoration: underline;'>01</span>          1  </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>9</span> 1                1  </span>
 <span class='r-in'><span class='fu'>grid_regular</span><span class='op'>(</span><span class='va'>p</span>, filter <span class='op'>=</span> <span class='va'>penalty</span> <span class='op'>&lt;=</span> <span class='fl'>.01</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 6 x 2</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 6 × 2</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>        penalty mixture</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     0  </span>
@@ -281,7 +281,7 @@ argument above is different for <code>glmnet</code> models:<div class="r"></p><p
 <span class='r-in'><span class='co'># grid_regular(mtry(), min_n())</span></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='fu'>grid_regular</span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 9 x 2</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 9 × 2</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>        penalty mixture</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     0  </span>
@@ -294,7 +294,7 @@ argument above is different for <code>glmnet</code> models:<div class="r"></p><p
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>8</span> 0.000<span style='text-decoration: underline;'>01</span>          1  </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>9</span> 1                1  </span>
 <span class='r-in'><span class='fu'>grid_regular</span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, levels <span class='op'>=</span> <span class='fl'>3</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 12 x 2</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 12 × 2</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>         penalty mixture</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>   0    </span>
@@ -310,7 +310,7 @@ argument above is different for <code>glmnet</code> models:<div class="r"></p><p
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>11</span> 0.000<span style='text-decoration: underline;'>01</span>        1    </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>12</span> 1              1    </span>
 <span class='r-in'><span class='fu'>grid_regular</span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>mixture <span class='op'>=</span> <span class='fl'>4</span>, penalty <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 12 x 2</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 12 × 2</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>         penalty mixture</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>   0    </span>
@@ -326,7 +326,7 @@ argument above is different for <code>glmnet</code> models:<div class="r"></p><p
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>11</span> 0.000<span style='text-decoration: underline;'>01</span>        1    </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>12</span> 1              1    </span>
 <span class='r-in'><span class='fu'>grid_random</span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 5 x 2</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 5 × 2</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>         penalty mixture</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>1</span> 0.000<span style='text-decoration: underline;'>000</span>004<span style='text-decoration: underline;'>33</span>   0.312</span>
