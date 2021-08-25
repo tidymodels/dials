@@ -22,3 +22,19 @@ scale_pos_weight <- function(range = c(0.8, 1.2), trans = NULL) {
     finalize = NULL
   )
 }
+
+#' @rdname xgboost_parameters
+#' @export
+lambda <- function(range = c(-10, 0), trans = log10_trans()) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(penalty = "Amount of L2 Regularization"),
+    finalize = NULL
+  )
+}
+
+
+
