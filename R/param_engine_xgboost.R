@@ -36,5 +36,18 @@ lambda <- function(range = c(-10, 0), trans = log10_trans()) {
   )
 }
 
+#' @rdname xgboost_parameters
+#' @export
+alpha <- function(range = c(-10, 0), trans = log10_trans()) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(penalty = "Amount of L1 Regularization"),
+    finalize = NULL
+  )
+}
+
 
 
