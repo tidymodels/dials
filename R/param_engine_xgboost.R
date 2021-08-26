@@ -9,6 +9,8 @@
 #' For more information, see the [xgboost webpage](https://xgboost.readthedocs.io/en/latest/parameter.html).
 #' @examples
 #' scale_pos_weight()
+#' lambda()
+#' alpha()
 #' @rdname xgboost_parameters
 #' @export
 scale_pos_weight <- function(range = c(0.8, 1.2), trans = NULL) {
