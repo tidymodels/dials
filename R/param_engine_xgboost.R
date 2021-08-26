@@ -8,11 +8,9 @@
 #' @details
 #' For more information, see the [xgboost webpage](https://xgboost.readthedocs.io/en/latest/parameter.html).
 #' @examples
-#' scale_pos_weight()
-#' lambda()
-#' alpha()
 #'
 #' library(tidymodels)
+#'
 #' boost_tree(mode = 'classification') %>%
 #' set_engine('xgboost',
 #'             scale_pos_weight = tune(),
