@@ -31,4 +31,14 @@ For more information, see the \href{https://xgboost.readthedocs.io/en/latest/par
 }
 \examples{
 scale_pos_weight()
+lambda()
+alpha()
+
+library(tidymodels)
+boost_tree(mode = 'classification') \%>\%
+set_engine('xgboost',
+            scale_pos_weight = tune(),
+            lambda = tune(),
+            alpha = tune())
+
 }
