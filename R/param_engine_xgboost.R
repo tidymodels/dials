@@ -11,6 +11,14 @@
 #' scale_pos_weight()
 #' lambda()
 #' alpha()
+#'
+#' library(tidymodels)
+#' boost_tree(mode = 'classification') %>%
+#' set_engine('xgboost',
+#'             scale_pos_weight = tune(),
+#'             lambda = tune(),
+#'             alpha = tune())
+#'
 #' @rdname xgboost_parameters
 #' @export
 scale_pos_weight <- function(range = c(0.8, 1.2), trans = NULL) {
