@@ -50,4 +50,3 @@ alpha <- function(range = c(-10, 0), trans = log10_trans()) {
 }
 
 
-

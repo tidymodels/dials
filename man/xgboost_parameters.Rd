@@ -2,9 +2,15 @@
 % Please edit documentation in R/param_engine_xgboost.R
 \name{scale_pos_weight}
 \alias{scale_pos_weight}
+\alias{lambda}
+\alias{alpha}
 \title{Parameters for possible engine parameters for xgboost}
 \usage{
 scale_pos_weight(range = c(0.8, 1.2), trans = NULL)
+
+lambda(range = c(-10, 0), trans = log10_trans())
+
+alpha(range = c(-10, 0), trans = log10_trans())
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and
