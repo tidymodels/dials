@@ -30,11 +30,9 @@ engine. They correspond to tuning parameters that would be specified using
 For more information, see the \href{https://xgboost.readthedocs.io/en/latest/parameter.html}{xgboost webpage}.
 }
 \examples{
-scale_pos_weight()
-lambda()
-alpha()
 
 library(tidymodels)
+
 boost_tree(mode = 'classification') \%>\%
 set_engine('xgboost',
             scale_pos_weight = tune(),
