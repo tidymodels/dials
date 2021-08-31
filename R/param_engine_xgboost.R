@@ -14,8 +14,8 @@
 #' boost_tree(mode = 'classification') %>%
 #' set_engine('xgboost',
 #'             scale_pos_weight = tune(),
-#'             lambda = tune(),
-#'             alpha = tune())
+#'             penalty_L1 = tune(),
+#'             penalty_L2 = tune())
 #'
 #' @rdname xgboost_parameters
 #' @export
@@ -33,26 +33,26 @@ scale_pos_weight <- function(range = c(0.8, 1.2), trans = NULL) {
 
 #' @rdname xgboost_parameters
 #' @export
-lambda <- function(range = c(-10, 0), trans = log10_trans()) {
+penalty_L2 <- function(range = c(-10, 1), trans = log10_trans()) {
   new_quant_param(
     type = "double",
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(penalty = "Amount of L2 Regularization"),
+    label = c(penalty_L2 = "Amount of L2 Regularization"),
     finalize = NULL
   )
 }
 
 #' @rdname xgboost_parameters
 #' @export
-alpha <- function(range = c(-10, 0), trans = log10_trans()) {
+penalty_L1 <- function(range = c(-10, 1), trans = log10_trans()) {
   new_quant_param(
     type = "double",
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(penalty = "Amount of L1 Regularization"),
+    label = c(penalty_L1 = "Amount of L1 Regularization"),
     finalize = NULL
   )
 }
