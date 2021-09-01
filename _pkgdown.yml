@@ -25,3 +25,125 @@ navbar:
     href: reference/index.html
   - text: News
     href: news/index.html
+
+reference:
+  - title: Parameter Sets
+    contents:
+    - parameters
+    - update.parameters
+    - pull_dials_object
+    - starts_with("range_")
+    - starts_with("value_")
+
+  - title: Grid Creation
+    contents:
+    - starts_with("grid_")
+
+  - title: Parameter Objects
+    contents:
+    - activation
+    - adjust_deg_free
+    - all_neighbors
+    - batch_size
+    - conditional_min_criterion
+    - conditional_test_statistic
+    - conditional_test_type
+    - confidence_factor
+    - cost
+    - cost_complexity
+    - deg_free
+    - degree
+    - degree_int
+    - diagonal_covariance
+    - dist_power
+    - dropout
+    - epochs
+    - extrapolation
+    - freq_cut
+    - fuzzy_thresholding
+    - hidden_units
+    - kernel_offset
+    - Laplace
+    - learn_rate
+    - loss_reduction
+    - lower_quantile
+    - max_nodes
+    - max_num_terms
+    - max_rules
+    - max_times
+    - max_tokens
+    - min_dist
+    - min_n
+    - min_times
+    - min_unique
+    - mixture
+    - momentum
+    - mtry
+    - mtry_long
+    - neighbors
+    - no_global_pruning
+    - num_breaks
+    - num_comp
+    - num_hash
+    - num_random_splits
+    - num_terms
+    - num_tokens
+    - over_ratio
+    - penalty
+    - predictor_prop
+    - predictor_winnowing
+    - prior_mixture_threshold
+    - prior_slab_dispersion
+    - prod_degree
+    - prune
+    - prune_method
+    - rbf_sigma
+    - regularization_factor
+    - regularization_method
+    - regularize_depth
+    - rule_bands
+    - sample_prop
+    - sample_size
+    - scale_factor
+    - scale_pos_weight
+    - select_features
+    - shrinkage_correlation
+    - shrinkage_frequencies
+    - shrinkage_variance
+    - signed_hash
+    - significance_threshold
+    - smoothness
+    - spline_degree
+    - splitting_rule
+    - stop_iter
+    - surv_dist
+    - svm_margin
+    - threshold
+    - token
+    - tree_depth
+    - trees
+    - unbiased_rules
+    - under_ratio
+    - unique_cut
+    - weight
+    - weight_func
+    - weight_scheme
+    - window_size
+
+  - title: Finalizing Parameters
+    contents:
+    - finalize
+    - starts_with("get_")
+
+  - title: Developer Tools
+    contents:
+    - encode_unit
+    - has_unknowns
+    - is_unknown
+    - new_qual_param
+    - new_quant_param
+    - parameters_constr
+
+  - title: Others
+    contents:
+    - Chicago
