@@ -95,7 +95,6 @@ grid_regular.workflow <- function(x, ..., levels = 3, original = TRUE, filter = 
   grid_regular.parameters(parameters(x), ..., levels = levels, original = original, filter = {{filter}})
 }
 
-#' @rdname grid_regular
 make_regular_grid <- function(..., levels = 3, original = TRUE, filter = NULL) {
   validate_params(...)
   filter_quo <- enquo(filter)
