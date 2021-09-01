@@ -152,8 +152,6 @@
 <span class='co'># S3 method for workflow</span>
 <span class='fu'>grid_regular</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, levels <span class='op'>=</span> <span class='fl'>3</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span>, filter <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>make_regular_grid</span><span class='op'>(</span><span class='va'>...</span>, levels <span class='op'>=</span> <span class='fl'>3</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span>, filter <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
-
 <span class='fu'>grid_random</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, size <span class='op'>=</span> <span class='fl'>5</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span>, filter <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
 <span class='co'># S3 method for parameters</span>
@@ -216,10 +214,10 @@ parameter combination.</p>
 
     <p>Note that there may a difference in grids depending on how the function
 is called. If the call uses the parameter objects directly the possible
-ranges come from the objects in <code>dials</code>. For example:<div class="r"></p><pre><span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>
+ranges come from the objects in <code>dials</code>. For example:<div class="sourceCode r"></p><pre><span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>
 </pre><p></div></p><pre><span class='co'>## Proportion of Lasso Penalty (quantitative)</span>
 <span class='co'>## Range: [0, 1]</span>
-</pre><p><div class="r"></p><pre><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>283</span><span class='op'>)</span>
+</pre><p><div class="sourceCode r"></p><pre><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>283</span><span class='op'>)</span>
 <span class='va'>mix_grid_1</span> <span class='op'>&lt;-</span> <span class='fu'>grid_random</span><span class='op'>(</span><span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='va'>mix_grid_1</span><span class='op'>$</span><span class='va'>mixture</span><span class='op'>)</span>
 </pre><p></div></p><pre><span class='co'>## [1] 0.001490161 0.999741096</span>
@@ -229,7 +227,7 @@ ranges come from the objects in <code>dials</code>. For example:<div class="r"><
 for specific models. If the grid function uses a <code>parameters</code> object
 created from a model or recipe, the ranges my have different defaults
 (specific to those models). Using the example above, the <code>mixture</code>
-argument above is different for <code>glmnet</code> models:<div class="r"></p><pre><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>parsnip</span><span class='op'>)</span>
+argument above is different for <code>glmnet</code> models:<div class="sourceCode r"></p><pre><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>parsnip</span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>tune</span><span class='op'>)</span>
 
 <span class='co'># When used with glmnet, the range is [0.05, 1.00]</span>
