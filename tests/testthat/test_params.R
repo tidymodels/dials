@@ -64,6 +64,8 @@ test_that('param ranges', {
   expect_equal(shrinkage_correlation(c(.1, .5))$range, list(lower = .1, upper = .5))
   expect_equal(shrinkage_variance(c(.1, .5))$range, list(lower = .1, upper = .5))
   expect_equal(shrinkage_frequencies(c(.1, .5))$range, list(lower = .1, upper = .5))
+  expect_equal(penalty_L1(c(-5,3))$range, list(lower = -5, upper = 3))
+  expect_equal(penalty_L2(c(-5,3))$range, list(lower = -5, upper = 3))
 })
 
 

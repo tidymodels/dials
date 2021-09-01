@@ -9,13 +9,9 @@
 #' For more information, see the [xgboost webpage](https://xgboost.readthedocs.io/en/latest/parameter.html).
 #' @examples
 #'
-#' library(tidymodels)
-#'
-#' boost_tree(mode = 'classification') %>%
-#' set_engine('xgboost',
-#'             scale_pos_weight = tune(),
-#'             penalty_L1 = tune(),
-#'             penalty_L2 = tune())
+#' scale_pos_weight()
+#' penalty_L2()
+#' penalty_L1()
 #'
 #' @rdname xgboost_parameters
 #' @export
@@ -56,5 +52,7 @@ penalty_L1 <- function(range = c(-10, 1), trans = log10_trans()) {
     finalize = NULL
   )
 }
+
+
 
 
