@@ -99,24 +99,22 @@
 <h2 class="hasAnchor">
 <a href="#tuning-parameters" class="anchor"></a>Tuning Parameters</h2>
 <p>Some statistical and machine learning models contain <em>tuning parameters</em> (also known as <em>hyperparameters</em>), which are parameters that cannot be directly estimated by the model. An example would be the number of neighbors in a <em>K</em>-nearest neighbors model. To determine reasonable values of these elements, some indirect method is used such as resampling or profile likelihood. Search methods, such as genetic algorithms or Bayesian search can also be used to <a href="https://github.com/topepo/Optimization-Methods-for-Tuning-Predictive-Models">determine good values</a>.</p>
-<p>In any case, some information is needed to create a grid or to validate whether a candidate value is appropriate (i.e. neighbors should be a positive integer). <code>dials</code> is designed to:</p>
+<p>In any case, some information is needed to create a grid or to validate whether a candidate value is appropriate (e.g. the number of neighbors should be a positive integer). <code>dials</code> is designed to:</p>
 <ul>
 <li>Create an easy to use framework for describing and querying tuning parameters. This can include getting sequences or random tuning values, validating current values, transforming parameters, and other tasks.</li>
 <li>Standardize the names of different parameters. Different packages in R use different argument names for the same quantities. <code>dials</code> proposes some standardized names so that the user doesn’t need to memorize the syntactical minutiae of every package.</li>
-<li>Work with the <a href="https://parsnip.tidymodels.org"><code>parsnip</code></a> package which is a modern attempt to standardize the interfaces for specific models across R packages and computational engines.</li>
-<li>Adhere to <a href="https://cran.r-project.org/package=tidyverse/vignettes/manifesto.html">tidy principals</a>.</li>
+<li>Work with the other <a href="https://www.tidymodels.org">tidymodels</a> packages for modeling and machine learning using <a href="https://www.tidyverse.org/">tidyverse</a> principles.</li>
 </ul>
-<p>The main type of objects in <code>dials</code> have class <code>param</code>.</p>
 </div>
-<div id="parameters-objects" class="section level2">
+<div id="parameter-objects" class="section level2">
 <h2 class="hasAnchor">
-<a href="#parameters-objects" class="anchor"></a><code>parameters</code> Objects</h2>
-<p><code>parameters</code> objects contain information about possible values, ranges, types, and other aspects. There are two main subclasses related to the type of variable. Double and integer valued data have the subclass “quant_param” while character and logicals have “qual_param.” There are some common elements for each:</p>
+<a href="#parameter-objects" class="anchor"></a>Parameter Objects</h2>
+<p>Parameter objects contain information about possible values, ranges, types, and other aspects. They have two classes: the general <code>param</code> class and a more specific subclass related to the type of variable. Double and integer valued data have the subclass <code>quant_param</code> while character and logicals have <code>qual_param</code>. There are some common elements for each:</p>
 <ul>
-<li>Labels are strings that describe the parameter (e.g. “Number of Components”)</li>
+<li>Labels are strings that describe the parameter (e.g. “Number of Components”).</li>
 <li>Defaults are optional single values that can be set when one non-random value is requested.</li>
 </ul>
-<p>Otherwise, the information contained in <code>parameters</code> objects are different for different data types.</p>
+<p>Otherwise, the information contained in parameter objects are different for different data types.</p>
 <div id="numeric-parameters" class="section level3">
 <h3 class="hasAnchor">
 <a href="#numeric-parameters" class="anchor"></a>Numeric Parameters</h3>
@@ -225,7 +223,7 @@
 <div id="creating-novel-parameters" class="section level2">
 <h2 class="hasAnchor">
 <a href="#creating-novel-parameters" class="anchor"></a>Creating Novel Parameters</h2>
-<p>The package contains two constructors that can be used to create new quantitative and qualitative parameters. The examples for <code><a href="../reference/mtry.html">mtry()</a></code> and <code><a href="../reference/activation.html">activation()</a></code> contain examples of the code to create the parameters contained in the package.</p>
+<p>The package contains two constructors that can be used to create new quantitative and qualitative parameters, <code><a href="../reference/new-param.html">new_quant_param()</a></code> and <code><a href="../reference/new-param.html">new_qual_param()</a></code>.</p>
 </div>
 <div id="unknown-values" class="section level2">
 <h2 class="hasAnchor">
