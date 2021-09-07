@@ -22,6 +22,7 @@ Imports:
     DiceDesign,
     dplyr (>= 0.8.5),
     glue,
+    lifecycle,
     purrr,
     rlang,
     tibble,
