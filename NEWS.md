@@ -4,6 +4,8 @@
 
 * `param_set()`, scheduled for removal in version 0.0.5, was removed. 
 
+* `extract_dials_parameter()` replaces `pull_dials_object()` which has been soft-deprecated.
+
 ## New parameters
 
 * An early stopping parameter (`stop_iter()`) was added. 
