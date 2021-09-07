@@ -24,24 +24,21 @@ library(rpart)
 
 Some statistical and machine learning models contain _tuning parameters_ (also known as _hyperparameters_), which are parameters that cannot be directly estimated by the model. An example would be the number of neighbors in a _K_-nearest neighbors model. To determine reasonable values of these elements, some indirect method is used such as resampling or profile likelihood. Search methods, such as genetic algorithms or Bayesian search can also be used to [determine good values](https://github.com/topepo/Optimization-Methods-for-Tuning-Predictive-Models). 
 
-In any case, some information is needed to create a grid or to validate whether a candidate value is appropriate (i.e. neighbors should be a positive integer). `dials` is designed to:
+In any case, some information is needed to create a grid or to validate whether a candidate value is appropriate (e.g. the number of neighbors should be a positive integer). `dials` is designed to:
 
  * Create an easy to use framework for describing and querying tuning parameters. This can include getting sequences or random tuning values, validating current values, transforming parameters, and other tasks.
  * Standardize the names of different parameters. Different packages in R use different argument names for the same quantities. `dials` proposes some standardized names so that the user doesn't need to memorize the syntactical minutiae of every package. 
- * Work with the [`parsnip`](https://parsnip.tidymodels.org)  package which is a modern attempt to standardize the interfaces for specific models across R packages and computational engines. 
- * Adhere to [tidy principals](https://cran.r-project.org/package=tidyverse/vignettes/manifesto.html). 
-
-The main type of objects in `dials` have class `param`.
+ * Work with the other [tidymodels](https://www.tidymodels.org) packages for modeling and machine learning using [tidyverse](https://www.tidyverse.org/) principles.
 
 
-## `parameters` Objects
+## Parameter Objects
 
-`parameters` objects contain information about possible values, ranges, types, and other aspects. There are two main subclasses related to the type of variable. Double and integer valued data have the subclass "quant_param" while character and logicals have "qual_param." There are some common elements for each:
+Parameter objects contain information about possible values, ranges, types, and other aspects. They have two classes: the general `param` class and a more specific subclass related to the type of variable. Double and integer valued data have the subclass `quant_param` while character and logicals have `qual_param`. There are some common elements for each:
 
- * Labels are strings that describe the parameter (e.g. "Number of Components")
+ * Labels are strings that describe the parameter (e.g. "Number of Components").
  * Defaults are optional single values that can be set when one non-random value is requested. 
 
-Otherwise, the information contained in `parameters` objects are different for different data types. 
+Otherwise, the information contained in parameter objects are different for different data types. 
 
 
 ### Numeric Parameters
@@ -135,7 +132,7 @@ weight_func() %>% value_seq(3)
 
 ## Creating Novel Parameters
 
-The package contains two constructors that can be used to create new quantitative and qualitative parameters. The examples for `mtry()` and `activation()` contain examples of the code to create the parameters contained in the package. 
+The package contains two constructors that can be used to create new quantitative and qualitative parameters, `new_quant_param()` and `new_qual_param()`.
 
 ## Unknown Values
 

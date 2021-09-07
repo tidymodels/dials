@@ -12,9 +12,11 @@ coverage](https://codecov.io/gh/tidymodels/dials/branch/master/graph/badge.svg)]
 
 ## Overview
 
-This package contains tools to create and manage values of tuning
-parameters and is designed to integrate well with the
-[`parsnip`](https://github.com/tidymodels/parsnip) package.
+This package contains *infrastructure* to create and manage values of
+tuning parameters for the tidymodels packages. If you are looking for
+*how to* tune parameters in tidymodels, please look at the
+[tune](https://tune.tidymodels.org/) package and
+[tidymodels.org](https://www.tidymodels.org/).
 
 The name reflects the idea that tuning predictive models can be like
 turning a set of dials on a complex machine under duress.
