@@ -142,7 +142,11 @@ engine. They correspond to tuning parameters that would be specified using
 <code>set_engine("xgboost", ...)</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>scale_pos_weight</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.8</span>, <span class='fl'>1.2</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>scale_pos_weight</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.8</span>, <span class='fl'>1.2</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
+
+<span class='fu'>penalty_L2</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>1</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'>penalty_L1</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>1</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -166,9 +170,17 @@ transformation, <code>NULL</code>.</p></td>
     <p>For more information, see the <a href='https://xgboost.readthedocs.io/en/latest/parameter.html'>xgboost webpage</a>.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>scale_pos_weight</span><span class='op'>(</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'>
+<span class='fu'>scale_pos_weight</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Balance of Events and Non-Events (quantitative)
-#&gt; Range: [0.8, 1.2]</div></pre>
+#&gt; Range: [0.8, 1.2]</div><div class='input'><span class='fu'>penalty_L2</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Amount of L2 Regularization (quantitative)
+#&gt; Transformer:  log-10 
+#&gt; Range (transformed scale): [-10, 1]</div><div class='input'><span class='fu'>penalty_L1</span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Amount of L1 Regularization (quantitative)
+#&gt; Transformer:  log-10 
+#&gt; Range (transformed scale): [-10, 1]</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
