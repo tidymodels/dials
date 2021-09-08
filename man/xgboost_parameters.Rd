@@ -2,9 +2,15 @@
 % Please edit documentation in R/param_engine_xgboost.R
 \name{scale_pos_weight}
 \alias{scale_pos_weight}
+\alias{penalty_L2}
+\alias{penalty_L1}
 \title{Parameters for possible engine parameters for xgboost}
 \usage{
 scale_pos_weight(range = c(0.8, 1.2), trans = NULL)
+
+penalty_L2(range = c(-10, 1), trans = log10_trans())
+
+penalty_L1(range = c(-10, 1), trans = log10_trans())
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and
@@ -24,5 +30,9 @@ engine. They correspond to tuning parameters that would be specified using
 For more information, see the \href{https://xgboost.readthedocs.io/en/latest/parameter.html}{xgboost webpage}.
 }
 \examples{
+
 scale_pos_weight()
+penalty_L2()
+penalty_L1()
+
 }

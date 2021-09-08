@@ -4,6 +4,8 @@
 
 * `param_set()`, scheduled for removal in version 0.0.5, was removed. 
 
+* two new engine specific tuning parameters for xgboost: `penalty_L1()` and `penalty_L2()` (@joeycouse, #176).
+
 ## New parameters
 
 * An early stopping parameter (`stop_iter()`) was added. 
