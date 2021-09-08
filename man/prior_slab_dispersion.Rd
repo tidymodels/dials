@@ -20,7 +20,7 @@ transformation, \code{NULL}.}
 }
 \description{
 A numeric parameter function representing parameters for the spike-and-slab
-prior used by \code{\link[embed:step_pca_sparse_bayes]{embed::step_pca_sparse_bayes()}}.
+prior used by \code{embed::step_pca_sparse_bayes()}.
 }
 \details{
 \code{prior_slab_dispersion()} is related to the prior for the case where a PCA

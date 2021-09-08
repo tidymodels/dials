@@ -1,7 +1,7 @@
 #' Bayesian PCA parameters
 #'
 #' A numeric parameter function representing parameters for the spike-and-slab
-#' prior used by [embed::step_pca_sparse_bayes()].
+#' prior used by `embed::step_pca_sparse_bayes()`.
 #'
 #'
 #' @inheritParams Laplace
