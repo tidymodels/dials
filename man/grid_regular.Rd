@@ -70,10 +70,10 @@ Random and regular grids can be created for any number of parameter objects.
 \details{
 Note that there may a difference in grids depending on how the function
 is called. If the call uses the parameter objects directly the possible
-ranges come from the objects in \code{dials}. For example:\if{html}{\out{<div class="r">}}\preformatted{mixture()
+ranges come from the objects in \code{dials}. For example:\if{html}{\out{<div class="sourceCode r">}}\preformatted{mixture()
 }\if{html}{\out{</div>}}\preformatted{## Proportion of Lasso Penalty (quantitative)
 ## Range: [0, 1]
-}\if{html}{\out{<div class="r">}}\preformatted{set.seed(283)
+}\if{html}{\out{<div class="sourceCode r">}}\preformatted{set.seed(283)
 mix_grid_1 <- grid_random(mixture(), size = 1000)
 range(mix_grid_1$mixture)
 }\if{html}{\out{</div>}}\preformatted{## [1] 0.001490161 0.999741096
@@ -83,7 +83,7 @@ However, in some cases, the \code{tune} package overrides the default ranges
 for specific models. If the grid function uses a \code{parameters} object
 created from a model or recipe, the ranges my have different defaults
 (specific to those models). Using the example above, the \code{mixture}
-argument above is different for \code{glmnet} models:\if{html}{\out{<div class="r">}}\preformatted{library(parsnip)
+argument above is different for \code{glmnet} models:\if{html}{\out{<div class="sourceCode r">}}\preformatted{library(parsnip)
 library(tune)
 
 # When used with glmnet, the range is [0.05, 1.00]

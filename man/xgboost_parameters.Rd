@@ -31,12 +31,8 @@ For more information, see the \href{https://xgboost.readthedocs.io/en/latest/par
 }
 \examples{
 
-library(tidymodels)
-
-boost_tree(mode = 'classification') \%>\%
-set_engine('xgboost',
-            scale_pos_weight = tune(),
-            penalty_L1 = tune(),
-            penalty_L2 = tune())
+scale_pos_weight()
+penalty_L2()
+penalty_L1()
 
 }
