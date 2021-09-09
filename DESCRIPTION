@@ -1,6 +1,6 @@
 Package: dials
 Title: Tools for Creating Tuning Parameter Values
-Version: 0.0.9.9000
+Version: 0.0.10
 Authors@R: 
     c(person(given = "Max",
              family = "Kuhn",
