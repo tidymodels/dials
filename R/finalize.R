@@ -47,7 +47,7 @@
 #' `get_rbf_range()` sets both bounds based on the heuristic defined in
 #' [kernlab::sigest()]. It requires that all columns in `x` be numeric.
 #'
-#' @examples
+#' @examplesIf interactive()
 #' library(dplyr)
 #' car_pred <- select(mtcars, -mpg)
 #'

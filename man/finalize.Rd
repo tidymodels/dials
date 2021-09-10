@@ -90,6 +90,7 @@ rows in the data or a fraction of the total number of rows.
 \code{\link[kernlab:sigest]{kernlab::sigest()}}. It requires that all columns in \code{x} be numeric.
 }
 \examples{
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 library(dplyr)
 car_pred <- select(mtcars, -mpg)
 
@@ -123,5 +124,5 @@ complete_params
 
 params \%>\% dplyr::filter(parameter == "rbf_sigma") \%>\% pull(object)
 complete_params \%>\% dplyr::filter(parameter == "rbf_sigma") \%>\% pull(object)
-
+\dontshow{\}) # examplesIf}
 }
