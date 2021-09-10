@@ -95,7 +95,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.10</span>
         </div>
       </div>
     </div>
@@ -112,7 +112,7 @@
 </li>
         <li>
   <a href="https://github.com/tidymodels/dials/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -139,7 +139,7 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for parameters</span>
-<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span>(<span class='kw'>object</span>, <span class='kw'>...</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -161,9 +161,9 @@ be parameter objects or <code>NA</code> values.</p></td>
     <p>The modified parameter set.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>params</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(lambda = <span class='fu'><a href='penalty.html'>penalty</a></span>(), alpha = <span class='fu'><a href='mixture.html'>mixture</a></span>(), `rand forest` = <span class='fu'><a href='mtry.html'>mtry</a></span>())
-<span class='kw'>pset</span> <span class='op'>&lt;-</span> <span class='fu'><a href='parameters.html'>parameters</a></span>(<span class='kw'>params</span>)
-<span class='kw'>pset</span>
+    <pre class="examples"><div class='input'><span class='va'>params</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>lambda <span class='op'>=</span> <span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, `rand forest` <span class='op'>=</span> <span class='fu'><a href='mtry.html'>mtry</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>pset</span> <span class='op'>&lt;-</span> <span class='fu'><a href='parameters.html'>parameters</a></span><span class='op'>(</span><span class='va'>params</span><span class='op'>)</span>
+<span class='va'>pset</span>
 </div><div class='output co'>#&gt; Collection of 3 parameters for tuning
 #&gt; 
 #&gt;   identifier    type    object
@@ -176,7 +176,7 @@ be parameter objects or <code>NA</code> values.</p></td>
 #&gt; 
 #&gt; See `?dials::finalize` or `?dials::update.parameters` for more information.
 #&gt; </div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span>(<span class='kw'>pset</span>, `rand forest` = <span class='fu'><a href='finalize.html'>finalize</a></span>(<span class='fu'><a href='mtry.html'>mtry</a></span>(), <span class='kw'>mtcars</span>), alpha = <span class='fu'><a href='mixture.html'>mixture</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>.1</span>, <span class='fl'>.2</span>)))
+<span class='fu'><a href='https://rdrr.io/r/stats/update.html'>update</a></span><span class='op'>(</span><span class='va'>pset</span>, `rand forest` <span class='op'>=</span> <span class='fu'><a href='finalize.html'>finalize</a></span><span class='op'>(</span><span class='fu'><a href='mtry.html'>mtry</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>mtcars</span><span class='op'>)</span>, alpha <span class='op'>=</span> <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>.1</span>, <span class='fl'>.2</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Collection of 3 parameters for tuning
 #&gt; 
 #&gt;   identifier    type    object
@@ -200,7 +200,7 @@ be parameter objects or <code>NA</code> values.</p></td>
 
 <div class="author">
   <p>
-    Developed by Max Kuhn.
+    Developed by Max Kuhn, Hannah Frick.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>

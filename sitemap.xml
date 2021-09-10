@@ -13,10 +13,16 @@
     <loc>https://dials.tidymodels.org/reference/activation.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/reference/adjust_deg_free.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/reference/all_neighbors.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/c5_parameters.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/reference/conditional_min_criterion.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/cost.html</loc>
@@ -76,6 +82,9 @@
     <loc>https://dials.tidymodels.org/reference/mixture.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/reference/momentum.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/reference/mtry.html</loc>
   </url>
   <url>
@@ -109,6 +118,9 @@
     <loc>https://dials.tidymodels.org/reference/predictor_prop.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/reference/prior_slab_dispersion.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/reference/prune_method.html</loc>
   </url>
   <url>
@@ -127,7 +139,19 @@
     <loc>https://dials.tidymodels.org/reference/rbf_sigma.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/reference/regularization_method.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/reference/select_features.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/reference/shrinkage_correlation.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/reference/smoothness.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/reference/stop_iter.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/surv_dist.html</loc>
@@ -167,6 +191,9 @@
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/window_size.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/reference/xgboost_parameters.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/articles/Basics.html</loc>

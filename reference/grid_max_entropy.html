@@ -97,7 +97,7 @@ space has an observed combination that is not too far from it." />
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.10</span>
         </div>
       </div>
     </div>
@@ -114,7 +114,7 @@ space has an observed combination that is not too far from it." />
 </li>
         <li>
   <a href="https://github.com/tidymodels/dials/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -142,68 +142,68 @@ grids that try to cover the parameter space such that any portion of the
 space has an observed combination that is not too far from it.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>grid_max_entropy</span>(
-  <span class='kw'>x</span>,
-  <span class='kw'>...</span>,
-  size = <span class='fl'>3</span>,
-  original = <span class='fl'>TRUE</span>,
-  variogram_range = <span class='fl'>0.5</span>,
-  iter = <span class='fl'>1000</span>
-)
+    <pre class="usage"><span class='fu'>grid_max_entropy</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>...</span>,
+  size <span class='op'>=</span> <span class='fl'>3</span>,
+  original <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  variogram_range <span class='op'>=</span> <span class='fl'>0.5</span>,
+  iter <span class='op'>=</span> <span class='fl'>1000</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for parameters</span>
-<span class='fu'>grid_max_entropy</span>(
-  <span class='kw'>x</span>,
-  <span class='kw'>...</span>,
-  size = <span class='fl'>3</span>,
-  original = <span class='fl'>TRUE</span>,
-  variogram_range = <span class='fl'>0.5</span>,
-  iter = <span class='fl'>1000</span>
-)
+<span class='fu'>grid_max_entropy</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>...</span>,
+  size <span class='op'>=</span> <span class='fl'>3</span>,
+  original <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  variogram_range <span class='op'>=</span> <span class='fl'>0.5</span>,
+  iter <span class='op'>=</span> <span class='fl'>1000</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for list</span>
-<span class='fu'>grid_max_entropy</span>(
-  <span class='kw'>x</span>,
-  <span class='kw'>...</span>,
-  size = <span class='fl'>3</span>,
-  original = <span class='fl'>TRUE</span>,
-  variogram_range = <span class='fl'>0.5</span>,
-  iter = <span class='fl'>1000</span>
-)
+<span class='fu'>grid_max_entropy</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>...</span>,
+  size <span class='op'>=</span> <span class='fl'>3</span>,
+  original <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  variogram_range <span class='op'>=</span> <span class='fl'>0.5</span>,
+  iter <span class='op'>=</span> <span class='fl'>1000</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for param</span>
-<span class='fu'>grid_max_entropy</span>(
-  <span class='kw'>x</span>,
-  <span class='kw'>...</span>,
-  size = <span class='fl'>3</span>,
-  original = <span class='fl'>TRUE</span>,
-  variogram_range = <span class='fl'>0.5</span>,
-  iter = <span class='fl'>1000</span>
-)
+<span class='fu'>grid_max_entropy</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>...</span>,
+  size <span class='op'>=</span> <span class='fl'>3</span>,
+  original <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  variogram_range <span class='op'>=</span> <span class='fl'>0.5</span>,
+  iter <span class='op'>=</span> <span class='fl'>1000</span>
+<span class='op'>)</span>
 
 <span class='co'># S3 method for workflow</span>
-<span class='fu'>grid_max_entropy</span>(
-  <span class='kw'>x</span>,
-  <span class='kw'>...</span>,
-  size = <span class='fl'>3</span>,
-  original = <span class='fl'>TRUE</span>,
-  variogram_range = <span class='fl'>0.5</span>,
-  iter = <span class='fl'>1000</span>
-)
+<span class='fu'>grid_max_entropy</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  <span class='va'>...</span>,
+  size <span class='op'>=</span> <span class='fl'>3</span>,
+  original <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  variogram_range <span class='op'>=</span> <span class='fl'>0.5</span>,
+  iter <span class='op'>=</span> <span class='fl'>1000</span>
+<span class='op'>)</span>
 
-<span class='fu'>grid_latin_hypercube</span>(<span class='kw'>x</span>, <span class='kw'>...</span>, size = <span class='fl'>3</span>, original = <span class='fl'>TRUE</span>)
+<span class='fu'>grid_latin_hypercube</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, size <span class='op'>=</span> <span class='fl'>3</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
 <span class='co'># S3 method for parameters</span>
-<span class='fu'>grid_latin_hypercube</span>(<span class='kw'>x</span>, <span class='kw'>...</span>, size = <span class='fl'>3</span>, original = <span class='fl'>TRUE</span>)
+<span class='fu'>grid_latin_hypercube</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, size <span class='op'>=</span> <span class='fl'>3</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
 <span class='co'># S3 method for list</span>
-<span class='fu'>grid_latin_hypercube</span>(<span class='kw'>x</span>, <span class='kw'>...</span>, size = <span class='fl'>3</span>, original = <span class='fl'>TRUE</span>)
+<span class='fu'>grid_latin_hypercube</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, size <span class='op'>=</span> <span class='fl'>3</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
 <span class='co'># S3 method for param</span>
-<span class='fu'>grid_latin_hypercube</span>(<span class='kw'>x</span>, <span class='kw'>...</span>, size = <span class='fl'>3</span>, original = <span class='fl'>TRUE</span>)
+<span class='fu'>grid_latin_hypercube</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, size <span class='op'>=</span> <span class='fl'>3</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
 <span class='co'># S3 method for workflow</span>
-<span class='fu'>grid_latin_hypercube</span>(<span class='kw'>x</span>, <span class='kw'>...</span>, size = <span class='fl'>3</span>, original = <span class='fl'>TRUE</span>)</pre>
+<span class='fu'>grid_latin_hypercube</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, size <span class='op'>=</span> <span class='fl'>3</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -249,13 +249,13 @@ between coordinates. Both designs use random sampling of points in the
 parameter space.</p>
 <p>Note that there may a difference in grids depending on how the function
 is called. If the call uses the parameter objects directly the possible
-ranges come from the objects in <code>dials</code>. For example:<div class="r"></p><pre><span class='fu'><a href='cost.html'>cost</a></span>()
+ranges come from the objects in <code>dials</code>. For example:<div class="sourceCode r"></p><pre><span class='fu'><a href='cost.html'>cost</a></span><span class='op'>(</span><span class='op'>)</span>
 </pre><p></div></p><pre><span class='co'>## Cost  (quantitative)</span>
 <span class='co'>## Transformer:  log-2 </span>
 <span class='co'>## Range (transformed scale): [-10, -1]</span>
-</pre><p><div class="r"></p><pre><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>283</span>)
-<span class='kw'>cost_grid_1</span> <span class='op'>&lt;-</span> <span class='fu'>grid_latin_hypercube</span>(<span class='fu'><a href='cost.html'>cost</a></span>(), size = <span class='fl'>1000</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log2</a></span>(<span class='kw'>cost_grid_1</span><span class='op'>$</span><span class='kw'>cost</span>))
+</pre><p><div class="sourceCode r"></p><pre><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>283</span><span class='op'>)</span>
+<span class='va'>cost_grid_1</span> <span class='op'>&lt;-</span> <span class='fu'>grid_latin_hypercube</span><span class='op'>(</span><span class='fu'><a href='cost.html'>cost</a></span><span class='op'>(</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log2</a></span><span class='op'>(</span><span class='va'>cost_grid_1</span><span class='op'>$</span><span class='va'>cost</span><span class='op'>)</span><span class='op'>)</span>
 </pre><p></div></p><pre><span class='co'>## [1] -9.998623 -1.000423</span>
 </pre>
 
@@ -263,17 +263,17 @@ ranges come from the objects in <code>dials</code>. For example:<div class="r"><
 for specific models. If the grid function uses a <code>parameters</code> object
 created from a model or recipe, the ranges my have different defaults
 (specific to those models). Using the example above, the <code>cost</code> argument
-above is different for SVM models:<div class="r"></p><pre><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'>parsnip</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'>tune</span>)
+above is different for SVM models:<div class="sourceCode r"></p><pre><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>parsnip</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>tune</span><span class='op'>)</span>
 
 <span class='co'># When used in tune, the log2 range is [-10, 5]</span>
-<span class='kw'>svm_mod</span> <span class='op'>&lt;-</span>
-  <span class='fu'>svm_rbf</span>(cost = <span class='fu'>tune</span>()) <span class='op'>%&gt;%</span>
-  <span class='fu'>set_engine</span>(<span class='st'>"kernlab"</span>)
+<span class='va'>svm_mod</span> <span class='op'>&lt;-</span>
+  <span class='fu'>svm_rbf</span><span class='op'>(</span>cost <span class='op'>=</span> <span class='fu'>tune</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>set_engine</span><span class='op'>(</span><span class='st'>"kernlab"</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>283</span>)
-<span class='kw'>cost_grid_2</span> <span class='op'>&lt;-</span> <span class='fu'>grid_latin_hypercube</span>(<span class='fu'><a href='parameters.html'>parameters</a></span>(<span class='kw'>svm_mod</span>), size = <span class='fl'>1000</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log2</a></span>(<span class='kw'>cost_grid_2</span><span class='op'>$</span><span class='kw'>cost</span>))
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>283</span><span class='op'>)</span>
+<span class='va'>cost_grid_2</span> <span class='op'>&lt;-</span> <span class='fu'>grid_latin_hypercube</span><span class='op'>(</span><span class='fu'><a href='parameters.html'>parameters</a></span><span class='op'>(</span><span class='va'>svm_mod</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log2</a></span><span class='op'>(</span><span class='va'>cost_grid_2</span><span class='op'>$</span><span class='va'>cost</span><span class='op'>)</span><span class='op'>)</span>
 </pre><p></div></p><pre><span class='co'>## [1] -9.997704  4.999296</span>
 </pre>
 
@@ -289,34 +289,34 @@ packages for design and analysis of computer experiments. Journal of
 Statistical Software, 65(11)</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>grid_max_entropy</span>(
-  <span class='fu'><a href='dropout.html'>hidden_units</a></span>(),
-  <span class='fu'><a href='penalty.html'>penalty</a></span>(),
-  <span class='fu'><a href='dropout.html'>epochs</a></span>(),
-  <span class='fu'><a href='activation.html'>activation</a></span>(),
-  <span class='fu'><a href='learn_rate.html'>learn_rate</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>), trans = <span class='kw'>scales</span>::<span class='fu'><a href='https://scales.r-lib.org//reference/log_trans.html'>log_trans</a></span>()),
-  size = <span class='fl'>10</span>,
-  original = <span class='fl'>FALSE</span>)
-</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 10 x 5</span><span>
+    <pre class="examples"><div class='input'><span class='fu'>grid_max_entropy</span><span class='op'>(</span>
+  <span class='fu'><a href='dropout.html'>hidden_units</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='fu'><a href='dropout.html'>epochs</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='fu'><a href='activation.html'>activation</a></span><span class='op'>(</span><span class='op'>)</span>,
+  <span class='fu'><a href='learn_rate.html'>learn_rate</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>scales</span><span class='fu'>::</span><span class='fu'><a href='https://scales.r-lib.org/reference/log_trans.html'>log_trans</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>,
+  size <span class='op'>=</span> <span class='fl'>10</span>,
+  original <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 10 × 5</span>
 #&gt;    hidden_units penalty epochs activation learn_rate
-#&gt;           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>  </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span> </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span>         4.83   -</span><span style='color: #BB0000;'>8.55</span><span>   988. softmax        0.678 
-#&gt; </span><span style='color: #555555;'> 2</span><span>         9.12   -</span><span style='color: #BB0000;'>8.11</span><span>   786. softmax        0.887 
-#&gt; </span><span style='color: #555555;'> 3</span><span>         4.46   -</span><span style='color: #BB0000;'>2.86</span><span>   122. relu           0.271 
-#&gt; </span><span style='color: #555555;'> 4</span><span>         8.10   -</span><span style='color: #BB0000;'>9.52</span><span>   250. softmax        0.219 
-#&gt; </span><span style='color: #555555;'> 5</span><span>         8.81   -</span><span style='color: #BB0000;'>1.65</span><span>   903. elu            0.151 
-#&gt; </span><span style='color: #555555;'> 6</span><span>         2.76   -</span><span style='color: #BB0000;'>2.67</span><span>   526. elu            0.930 
-#&gt; </span><span style='color: #555555;'> 7</span><span>         6.13   -</span><span style='color: #BB0000;'>2.31</span><span>   207. softmax        0.902 
-#&gt; </span><span style='color: #555555;'> 8</span><span>         3.70   -</span><span style='color: #BB0000;'>8.10</span><span>   441. elu            0.332 
-#&gt; </span><span style='color: #555555;'> 9</span><span>         9.21   -</span><span style='color: #BB0000;'>6.37</span><span>   853. linear         0.038</span><span style='text-decoration: underline;'>8</span><span>
-#&gt; </span><span style='color: #555555;'>10</span><span>         2.19   -</span><span style='color: #BB0000;'>5.66</span><span>   542. linear         0.130 </div><div class='input'>
-<span class='fu'>grid_latin_hypercube</span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>(), original = <span class='fl'>TRUE</span>)
-</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 3 x 2</span><span>
+#&gt;           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span>         4.87  -<span style='color: #BB0000;'>8.97</span>    27.0 linear         0.861 
+#&gt; <span style='color: #BCBCBC;'> 2</span>         9.07  -<span style='color: #BB0000;'>4.34</span>   400.  elu            0.920 
+#&gt; <span style='color: #BCBCBC;'> 3</span>         2.33  -<span style='color: #BB0000;'>9.60</span>   460.  linear         0.072<span style='text-decoration: underline;'>6</span>
+#&gt; <span style='color: #BCBCBC;'> 4</span>         8.91  -<span style='color: #BB0000;'>3.60</span>   983.  softmax        0.398 
+#&gt; <span style='color: #BCBCBC;'> 5</span>         9.49  -<span style='color: #BB0000;'>2.99</span>   565.  relu           0.033<span style='text-decoration: underline;'>4</span>
+#&gt; <span style='color: #BCBCBC;'> 6</span>         1.62  -<span style='color: #BB0000;'>5.67</span>   318.  relu           0.522 
+#&gt; <span style='color: #BCBCBC;'> 7</span>         2.40  -<span style='color: #BB0000;'>3.13</span>    75.1 softmax        0.145 
+#&gt; <span style='color: #BCBCBC;'> 8</span>         3.75  -<span style='color: #BB0000;'>0.234</span>  524.  linear         0.865 
+#&gt; <span style='color: #BCBCBC;'> 9</span>         7.25  -<span style='color: #BB0000;'>6.79</span>   691.  relu           0.521 
+#&gt; <span style='color: #BCBCBC;'>10</span>         4.05  -<span style='color: #BB0000;'>8.82</span>   650.  elu            0.893 </div><div class='input'>
+<span class='fu'>grid_latin_hypercube</span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3 × 2</span>
 #&gt;        penalty mixture
-#&gt;          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 0.513          0.343
-#&gt; </span><span style='color: #555555;'>2</span><span> 0.000</span><span style='text-decoration: underline;'>423</span><span>       0.215
-#&gt; </span><span style='color: #555555;'>3</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>023</span><span style='text-decoration: underline;'>0</span><span>   0.690</div></span></pre>
+#&gt;          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> 0.301          0.412
+#&gt; <span style='color: #BCBCBC;'>2</span> 0.000<span style='text-decoration: underline;'>000</span>033<span style='text-decoration: underline;'>5</span>   0.126
+#&gt; <span style='color: #BCBCBC;'>3</span> 0.000<span style='text-decoration: underline;'>001</span>66     0.713</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -333,7 +333,7 @@ Statistical Software, 65(11)</p>
 
 <div class="author">
   <p>
-    Developed by Max Kuhn.
+    Developed by Max Kuhn, Hannah Frick.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>

@@ -95,7 +95,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.10</span>
         </div>
       </div>
     </div>
@@ -112,7 +112,7 @@
 </li>
         <li>
   <a href="https://github.com/tidymodels/dials/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -138,11 +138,11 @@
     <p>Parameters related to the radial basis or other kernel functions.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>rbf_sigma</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>0</span>), trans = <span class='fu'>log10_trans</span>())
+    <pre class="usage"><span class='fu'>rbf_sigma</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>0</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'>scale_factor</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>10</span>, <span class='op'>-</span><span class='fl'>1</span>), trans = <span class='fu'>log10_trans</span>())
+<span class='fu'>scale_factor</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>10</span>, <span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='fu'>kernel_offset</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>2</span>), trans = <span class='kw'>NULL</span>)</pre>
+<span class='fu'>kernel_offset</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>2</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,7 +155,7 @@ largest possible values, respectively.</p></td>
     <tr>
       <th>trans</th>
       <td><p>A <code>trans</code> object from the <code>scales</code> package, such as
-<code><a href='https://scales.r-lib.org//reference/log_trans.html'>scales::log10_trans()</a></code> or <code><a href='https://scales.r-lib.org//reference/reciprocal_trans.html'>scales::reciprocal_trans()</a></code>. If not provided,
+<code><a href='https://scales.r-lib.org/reference/log_trans.html'>scales::log10_trans()</a></code> or <code><a href='https://scales.r-lib.org/reference/reciprocal_trans.html'>scales::reciprocal_trans()</a></code>. If not provided,
 the default is used which matches the units used in <code>range</code>. If no
 transformation, <code>NULL</code>.</p></td>
     </tr>
@@ -166,13 +166,13 @@ transformation, <code>NULL</code>.</p></td>
     <p><code><a href='degree.html'>degree()</a></code> can also be used in kernel functions.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>rbf_sigma</span>()
+    <pre class="examples"><div class='input'><span class='fu'>rbf_sigma</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Radial Basis Function sigma (quantitative)
 #&gt; Transformer:  log-10 
-#&gt; Range (transformed scale): [-10, 0]</div><div class='input'><span class='fu'>scale_factor</span>()
+#&gt; Range (transformed scale): [-10, 0]</div><div class='input'><span class='fu'>scale_factor</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Scale Factor (quantitative)
 #&gt; Transformer:  log-10 
-#&gt; Range (transformed scale): [-10, -1]</div><div class='input'><span class='fu'>kernel_offset</span>()
+#&gt; Range (transformed scale): [-10, -1]</div><div class='input'><span class='fu'>kernel_offset</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Offset (quantitative)
 #&gt; Range: [0, 2]</div></pre>
   </div>
@@ -191,7 +191,7 @@ transformation, <code>NULL</code>.</p></td>
 
 <div class="author">
   <p>
-    Developed by Max Kuhn.
+    Developed by Max Kuhn, Hannah Frick.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>

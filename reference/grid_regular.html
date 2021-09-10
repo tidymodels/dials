@@ -95,7 +95,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.10</span>
         </div>
       </div>
     </div>
@@ -112,7 +112,7 @@
 </li>
         <li>
   <a href="https://github.com/tidymodels/dials/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -138,35 +138,33 @@
     <p>Random and regular grids can be created for any number of parameter objects.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>grid_regular</span>(<span class='kw'>x</span>, <span class='kw'>...</span>, levels = <span class='fl'>3</span>, original = <span class='fl'>TRUE</span>, filter = <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>grid_regular</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, levels <span class='op'>=</span> <span class='fl'>3</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span>, filter <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
 <span class='co'># S3 method for parameters</span>
-<span class='fu'>grid_regular</span>(<span class='kw'>x</span>, <span class='kw'>...</span>, levels = <span class='fl'>3</span>, original = <span class='fl'>TRUE</span>, filter = <span class='kw'>NULL</span>)
+<span class='fu'>grid_regular</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, levels <span class='op'>=</span> <span class='fl'>3</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span>, filter <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
 <span class='co'># S3 method for list</span>
-<span class='fu'>grid_regular</span>(<span class='kw'>x</span>, <span class='kw'>...</span>, levels = <span class='fl'>3</span>, original = <span class='fl'>TRUE</span>, filter = <span class='kw'>NULL</span>)
+<span class='fu'>grid_regular</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, levels <span class='op'>=</span> <span class='fl'>3</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span>, filter <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
 <span class='co'># S3 method for param</span>
-<span class='fu'>grid_regular</span>(<span class='kw'>x</span>, <span class='kw'>...</span>, levels = <span class='fl'>3</span>, original = <span class='fl'>TRUE</span>, filter = <span class='kw'>NULL</span>)
+<span class='fu'>grid_regular</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, levels <span class='op'>=</span> <span class='fl'>3</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span>, filter <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
 <span class='co'># S3 method for workflow</span>
-<span class='fu'>grid_regular</span>(<span class='kw'>x</span>, <span class='kw'>...</span>, levels = <span class='fl'>3</span>, original = <span class='fl'>TRUE</span>, filter = <span class='kw'>NULL</span>)
+<span class='fu'>grid_regular</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, levels <span class='op'>=</span> <span class='fl'>3</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span>, filter <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>make_regular_grid</span>(<span class='kw'>...</span>, levels = <span class='fl'>3</span>, original = <span class='fl'>TRUE</span>, filter = <span class='kw'>NULL</span>)
-
-<span class='fu'>grid_random</span>(<span class='kw'>x</span>, <span class='kw'>...</span>, size = <span class='fl'>5</span>, original = <span class='fl'>TRUE</span>, filter = <span class='kw'>NULL</span>)
+<span class='fu'>grid_random</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, size <span class='op'>=</span> <span class='fl'>5</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span>, filter <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
 <span class='co'># S3 method for parameters</span>
-<span class='fu'>grid_random</span>(<span class='kw'>x</span>, <span class='kw'>...</span>, size = <span class='fl'>5</span>, original = <span class='fl'>TRUE</span>, filter = <span class='kw'>NULL</span>)
+<span class='fu'>grid_random</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, size <span class='op'>=</span> <span class='fl'>5</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span>, filter <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
 <span class='co'># S3 method for list</span>
-<span class='fu'>grid_random</span>(<span class='kw'>x</span>, <span class='kw'>...</span>, size = <span class='fl'>5</span>, original = <span class='fl'>TRUE</span>, filter = <span class='kw'>NULL</span>)
+<span class='fu'>grid_random</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, size <span class='op'>=</span> <span class='fl'>5</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span>, filter <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
 <span class='co'># S3 method for param</span>
-<span class='fu'>grid_random</span>(<span class='kw'>x</span>, <span class='kw'>...</span>, size = <span class='fl'>5</span>, original = <span class='fl'>TRUE</span>, filter = <span class='kw'>NULL</span>)
+<span class='fu'>grid_random</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, size <span class='op'>=</span> <span class='fl'>5</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span>, filter <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
 <span class='co'># S3 method for workflow</span>
-<span class='fu'>grid_random</span>(<span class='kw'>x</span>, <span class='kw'>...</span>, size = <span class='fl'>5</span>, original = <span class='fl'>TRUE</span>, filter = <span class='kw'>NULL</span>)</pre>
+<span class='fu'>grid_random</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span>, size <span class='op'>=</span> <span class='fl'>5</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span>, filter <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -216,12 +214,12 @@ parameter combination.</p>
 
     <p>Note that there may a difference in grids depending on how the function
 is called. If the call uses the parameter objects directly the possible
-ranges come from the objects in <code>dials</code>. For example:<div class="r"></p><pre><span class='fu'><a href='mixture.html'>mixture</a></span>()
-</pre><p></div></p><pre><span class='co'>## Proportion of lasso Penalty  (quantitative)</span>
+ranges come from the objects in <code>dials</code>. For example:<div class="sourceCode r"></p><pre><span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>
+</pre><p></div></p><pre><span class='co'>## Proportion of Lasso Penalty (quantitative)</span>
 <span class='co'>## Range: [0, 1]</span>
-</pre><p><div class="r"></p><pre><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>283</span>)
-<span class='kw'>mix_grid_1</span> <span class='op'>&lt;-</span> <span class='fu'>grid_random</span>(<span class='fu'><a href='mixture.html'>mixture</a></span>(), size = <span class='fl'>1000</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span>(<span class='kw'>mix_grid_1</span><span class='op'>$</span><span class='kw'>mixture</span>)
+</pre><p><div class="sourceCode r"></p><pre><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>283</span><span class='op'>)</span>
+<span class='va'>mix_grid_1</span> <span class='op'>&lt;-</span> <span class='fu'>grid_random</span><span class='op'>(</span><span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='va'>mix_grid_1</span><span class='op'>$</span><span class='va'>mixture</span><span class='op'>)</span>
 </pre><p></div></p><pre><span class='co'>## [1] 0.001490161 0.999741096</span>
 </pre>
 
@@ -229,101 +227,101 @@ ranges come from the objects in <code>dials</code>. For example:<div class="r"><
 for specific models. If the grid function uses a <code>parameters</code> object
 created from a model or recipe, the ranges my have different defaults
 (specific to those models). Using the example above, the <code>mixture</code>
-argument above is different for <code>glmnet</code> models:<div class="r"></p><pre><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'>parsnip</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'>tune</span>)
+argument above is different for <code>glmnet</code> models:<div class="sourceCode r"></p><pre><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>parsnip</span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>tune</span><span class='op'>)</span>
 
 <span class='co'># When used with glmnet, the range is [0.05, 1.00]</span>
-<span class='kw'>glmn_mod</span> <span class='op'>&lt;-</span>
-  <span class='fu'>linear_reg</span>(mixture = <span class='fu'>tune</span>()) <span class='op'>%&gt;%</span>
-  <span class='fu'>set_engine</span>(<span class='st'>"glmnet"</span>)
+<span class='va'>glmn_mod</span> <span class='op'>&lt;-</span>
+  <span class='fu'>linear_reg</span><span class='op'>(</span>mixture <span class='op'>=</span> <span class='fu'>tune</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>set_engine</span><span class='op'>(</span><span class='st'>"glmnet"</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span>(<span class='fl'>283</span>)
-<span class='kw'>mix_grid_2</span> <span class='op'>&lt;-</span> <span class='fu'>grid_random</span>(<span class='fu'><a href='parameters.html'>parameters</a></span>(<span class='kw'>glmn_mod</span>), size = <span class='fl'>1000</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span>(<span class='kw'>mix_grid_2</span><span class='op'>$</span><span class='kw'>mixture</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>283</span><span class='op'>)</span>
+<span class='va'>mix_grid_2</span> <span class='op'>&lt;-</span> <span class='fu'>grid_random</span><span class='op'>(</span><span class='fu'><a href='parameters.html'>parameters</a></span><span class='op'>(</span><span class='va'>glmn_mod</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>1000</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/range.html'>range</a></span><span class='op'>(</span><span class='va'>mix_grid_2</span><span class='op'>$</span><span class='va'>mixture</span><span class='op'>)</span>
 </pre><p></div></p><pre><span class='co'>## [1] 0.05141565 0.99975404</span>
 </pre>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># filter arg will allow you to filter subsequent grid data frame based on some condition.</span>
-<span class='kw'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='parameters.html'>parameters</a></span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>())
-<span class='fu'>grid_regular</span>(<span class='kw'>p</span>)
-</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 9 x 2</span><span>
+<span class='va'>p</span> <span class='op'>&lt;-</span> <span class='fu'><a href='parameters.html'>parameters</a></span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>grid_regular</span><span class='op'>(</span><span class='va'>p</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 9 × 2</span>
 #&gt;        penalty mixture
-#&gt;          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0  
-#&gt; </span><span style='color: #555555;'>2</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          0  
-#&gt; </span><span style='color: #555555;'>3</span><span> 1                0  
-#&gt; </span><span style='color: #555555;'>4</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0.5
-#&gt; </span><span style='color: #555555;'>5</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          0.5
-#&gt; </span><span style='color: #555555;'>6</span><span> 1                0.5
-#&gt; </span><span style='color: #555555;'>7</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     1  
-#&gt; </span><span style='color: #555555;'>8</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          1  
-#&gt; </span><span style='color: #555555;'>9</span><span> 1                1  </div><div class='input'><span class='fu'>grid_regular</span>(<span class='kw'>p</span>, filter = <span class='kw'>penalty</span> <span class='op'>&lt;=</span> <span class='fl'>.01</span>)
-</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 6 x 2</span><span>
+#&gt;          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     0  
+#&gt; <span style='color: #BCBCBC;'>2</span> 0.000<span style='text-decoration: underline;'>01</span>          0  
+#&gt; <span style='color: #BCBCBC;'>3</span> 1                0  
+#&gt; <span style='color: #BCBCBC;'>4</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     0.5
+#&gt; <span style='color: #BCBCBC;'>5</span> 0.000<span style='text-decoration: underline;'>01</span>          0.5
+#&gt; <span style='color: #BCBCBC;'>6</span> 1                0.5
+#&gt; <span style='color: #BCBCBC;'>7</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     1  
+#&gt; <span style='color: #BCBCBC;'>8</span> 0.000<span style='text-decoration: underline;'>01</span>          1  
+#&gt; <span style='color: #BCBCBC;'>9</span> 1                1  </div><div class='input'><span class='fu'>grid_regular</span><span class='op'>(</span><span class='va'>p</span>, filter <span class='op'>=</span> <span class='va'>penalty</span> <span class='op'>&lt;=</span> <span class='fl'>.01</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 6 × 2</span>
 #&gt;        penalty mixture
-#&gt;          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0  
-#&gt; </span><span style='color: #555555;'>2</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          0  
-#&gt; </span><span style='color: #555555;'>3</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0.5
-#&gt; </span><span style='color: #555555;'>4</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          0.5
-#&gt; </span><span style='color: #555555;'>5</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     1  
-#&gt; </span><span style='color: #555555;'>6</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          1  </div><div class='input'>
+#&gt;          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     0  
+#&gt; <span style='color: #BCBCBC;'>2</span> 0.000<span style='text-decoration: underline;'>01</span>          0  
+#&gt; <span style='color: #BCBCBC;'>3</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     0.5
+#&gt; <span style='color: #BCBCBC;'>4</span> 0.000<span style='text-decoration: underline;'>01</span>          0.5
+#&gt; <span style='color: #BCBCBC;'>5</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     1  
+#&gt; <span style='color: #BCBCBC;'>6</span> 0.000<span style='text-decoration: underline;'>01</span>          1  </div><div class='input'>
 <span class='co'># Will fail due to unknowns:</span>
 <span class='co'># grid_regular(mtry(), min_n())</span>
 
-<span class='fu'>grid_regular</span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>())
-</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 9 x 2</span><span>
+<span class='fu'>grid_regular</span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 9 × 2</span>
 #&gt;        penalty mixture
-#&gt;          </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0  
-#&gt; </span><span style='color: #555555;'>2</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          0  
-#&gt; </span><span style='color: #555555;'>3</span><span> 1                0  
-#&gt; </span><span style='color: #555555;'>4</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     0.5
-#&gt; </span><span style='color: #555555;'>5</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          0.5
-#&gt; </span><span style='color: #555555;'>6</span><span> 1                0.5
-#&gt; </span><span style='color: #555555;'>7</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>     1  
-#&gt; </span><span style='color: #555555;'>8</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>          1  
-#&gt; </span><span style='color: #555555;'>9</span><span> 1                1  </div><div class='input'><span class='fu'>grid_regular</span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>(), levels = <span class='fl'>3</span><span class='op'>:</span><span class='fl'>4</span>)
-</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 12 x 2</span><span>
+#&gt;          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     0  
+#&gt; <span style='color: #BCBCBC;'>2</span> 0.000<span style='text-decoration: underline;'>01</span>          0  
+#&gt; <span style='color: #BCBCBC;'>3</span> 1                0  
+#&gt; <span style='color: #BCBCBC;'>4</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     0.5
+#&gt; <span style='color: #BCBCBC;'>5</span> 0.000<span style='text-decoration: underline;'>01</span>          0.5
+#&gt; <span style='color: #BCBCBC;'>6</span> 1                0.5
+#&gt; <span style='color: #BCBCBC;'>7</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>     1  
+#&gt; <span style='color: #BCBCBC;'>8</span> 0.000<span style='text-decoration: underline;'>01</span>          1  
+#&gt; <span style='color: #BCBCBC;'>9</span> 1                1  </div><div class='input'><span class='fu'>grid_regular</span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, levels <span class='op'>=</span> <span class='fl'>3</span><span class='op'>:</span><span class='fl'>4</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 12 × 2</span>
 #&gt;         penalty mixture
-#&gt;           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>   0    
-#&gt; </span><span style='color: #555555;'> 2</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>        0    
-#&gt; </span><span style='color: #555555;'> 3</span><span> 1              0    
-#&gt; </span><span style='color: #555555;'> 4</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>   0.333
-#&gt; </span><span style='color: #555555;'> 5</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>        0.333
-#&gt; </span><span style='color: #555555;'> 6</span><span> 1              0.333
-#&gt; </span><span style='color: #555555;'> 7</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>   0.667
-#&gt; </span><span style='color: #555555;'> 8</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>        0.667
-#&gt; </span><span style='color: #555555;'> 9</span><span> 1              0.667
-#&gt; </span><span style='color: #555555;'>10</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>   1    
-#&gt; </span><span style='color: #555555;'>11</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>        1    
-#&gt; </span><span style='color: #555555;'>12</span><span> 1              1    </div><div class='input'><span class='fu'>grid_regular</span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>(), levels = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(mixture = <span class='fl'>4</span>, penalty = <span class='fl'>3</span>))
-</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 12 x 2</span><span>
+#&gt;           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>   0    
+#&gt; <span style='color: #BCBCBC;'> 2</span> 0.000<span style='text-decoration: underline;'>01</span>        0    
+#&gt; <span style='color: #BCBCBC;'> 3</span> 1              0    
+#&gt; <span style='color: #BCBCBC;'> 4</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>   0.333
+#&gt; <span style='color: #BCBCBC;'> 5</span> 0.000<span style='text-decoration: underline;'>01</span>        0.333
+#&gt; <span style='color: #BCBCBC;'> 6</span> 1              0.333
+#&gt; <span style='color: #BCBCBC;'> 7</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>   0.667
+#&gt; <span style='color: #BCBCBC;'> 8</span> 0.000<span style='text-decoration: underline;'>01</span>        0.667
+#&gt; <span style='color: #BCBCBC;'> 9</span> 1              0.667
+#&gt; <span style='color: #BCBCBC;'>10</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>   1    
+#&gt; <span style='color: #BCBCBC;'>11</span> 0.000<span style='text-decoration: underline;'>01</span>        1    
+#&gt; <span style='color: #BCBCBC;'>12</span> 1              1    </div><div class='input'><span class='fu'>grid_regular</span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>mixture <span class='op'>=</span> <span class='fl'>4</span>, penalty <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 12 × 2</span>
 #&gt;         penalty mixture
-#&gt;           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>   0    
-#&gt; </span><span style='color: #555555;'> 2</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>        0    
-#&gt; </span><span style='color: #555555;'> 3</span><span> 1              0    
-#&gt; </span><span style='color: #555555;'> 4</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>   0.333
-#&gt; </span><span style='color: #555555;'> 5</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>        0.333
-#&gt; </span><span style='color: #555555;'> 6</span><span> 1              0.333
-#&gt; </span><span style='color: #555555;'> 7</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>   0.667
-#&gt; </span><span style='color: #555555;'> 8</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>        0.667
-#&gt; </span><span style='color: #555555;'> 9</span><span> 1              0.667
-#&gt; </span><span style='color: #555555;'>10</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>000</span><span style='text-decoration: underline;'>1</span><span>   1    
-#&gt; </span><span style='color: #555555;'>11</span><span> 0.000</span><span style='text-decoration: underline;'>01</span><span>        1    
-#&gt; </span><span style='color: #555555;'>12</span><span> 1              1    </div><div class='input'><span class='fu'>grid_random</span>(<span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>())
-</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 5 x 2</span><span>
-#&gt;         penalty mixture
-#&gt;           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'>1</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>004</span><span style='text-decoration: underline;'>33</span><span>   0.312
-#&gt; </span><span style='color: #555555;'>2</span><span> 0.000</span><span style='text-decoration: underline;'>000</span><span>043</span><span style='text-decoration: underline;'>5</span><span>    0.174
-#&gt; </span><span style='color: #555555;'>3</span><span> 0.003</span><span style='text-decoration: underline;'>59</span><span>         0.423
-#&gt; </span><span style='color: #555555;'>4</span><span> 0.000</span><span style='text-decoration: underline;'>002</span><span>99      0.192
-#&gt; </span><span style='color: #555555;'>5</span><span> 0.000</span><span style='text-decoration: underline;'>001</span><span>46      0.633</div><div class='input'>
-</div></span></pre>
+#&gt;           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'> 1</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>   0    
+#&gt; <span style='color: #BCBCBC;'> 2</span> 0.000<span style='text-decoration: underline;'>01</span>        0    
+#&gt; <span style='color: #BCBCBC;'> 3</span> 1              0    
+#&gt; <span style='color: #BCBCBC;'> 4</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>   0.333
+#&gt; <span style='color: #BCBCBC;'> 5</span> 0.000<span style='text-decoration: underline;'>01</span>        0.333
+#&gt; <span style='color: #BCBCBC;'> 6</span> 1              0.333
+#&gt; <span style='color: #BCBCBC;'> 7</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>   0.667
+#&gt; <span style='color: #BCBCBC;'> 8</span> 0.000<span style='text-decoration: underline;'>01</span>        0.667
+#&gt; <span style='color: #BCBCBC;'> 9</span> 1              0.667
+#&gt; <span style='color: #BCBCBC;'>10</span> 0.000<span style='text-decoration: underline;'>000</span>000<span style='text-decoration: underline;'>1</span>   1    
+#&gt; <span style='color: #BCBCBC;'>11</span> 0.000<span style='text-decoration: underline;'>01</span>        1    
+#&gt; <span style='color: #BCBCBC;'>12</span> 1              1    </div><div class='input'><span class='fu'>grid_random</span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 5 × 2</span>
+#&gt;    penalty mixture
+#&gt;      <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
+#&gt; <span style='color: #BCBCBC;'>1</span> 1.92<span style='color: #949494;'>e</span><span style='color: #BB0000;'>- 9</span>  0.054<span style='text-decoration: underline;'>3</span>
+#&gt; <span style='color: #BCBCBC;'>2</span> 1.66<span style='color: #949494;'>e</span><span style='color: #BB0000;'>-10</span>  0.374 
+#&gt; <span style='color: #BCBCBC;'>3</span> 2.63<span style='color: #949494;'>e</span><span style='color: #BB0000;'>-10</span>  0.762 
+#&gt; <span style='color: #BCBCBC;'>4</span> 8.39<span style='color: #949494;'>e</span><span style='color: #BB0000;'>- 9</span>  0.673 
+#&gt; <span style='color: #BCBCBC;'>5</span> 1.36<span style='color: #949494;'>e</span><span style='color: #BB0000;'>- 1</span>  0.423 </div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -340,7 +338,7 @@ argument above is different for <code>glmnet</code> models:<div class="r"></p><p
 
 <div class="author">
   <p>
-    Developed by Max Kuhn.
+    Developed by Max Kuhn, Hannah Frick.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>

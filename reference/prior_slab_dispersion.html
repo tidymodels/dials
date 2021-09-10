@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Kernel Smoothness — smoothness • dials</title>
+<title>Bayesian PCA parameters — prior_slab_dispersion • dials</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -49,8 +49,9 @@
 
 
 
-<meta property="og:title" content="Kernel Smoothness — smoothness" />
-<meta property="og:description" content="Used in discrim::naive_Bayes()." />
+<meta property="og:title" content="Bayesian PCA parameters — prior_slab_dispersion" />
+<meta property="og:description" content="A numeric parameter function representing parameters for the spike-and-slab
+prior used by embed::step_pca_sparse_bayes()." />
 <meta property="og:image" content="https://dials.tidymodels.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -129,16 +130,19 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Kernel Smoothness</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/param_smoothness.R'><code>R/param_smoothness.R</code></a></small>
-    <div class="hidden name"><code>smoothness.Rd</code></div>
+    <h1>Bayesian PCA parameters</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymodels/dials/blob/master/R/param_sparse_bayes_pca.R'><code>R/param_sparse_bayes_pca.R</code></a></small>
+    <div class="hidden name"><code>prior_slab_dispersion.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Used in <code>discrim::naive_Bayes()</code>.</p>
+    <p>A numeric parameter function representing parameters for the spike-and-slab
+prior used by <code>embed::step_pca_sparse_bayes()</code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>smoothness</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0.5</span>, <span class='fl'>1.5</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>prior_slab_dispersion</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>1</span><span class='op'>/</span><span class='fl'>2</span>, <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log10</a></span><span class='op'>(</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'>prior_mixture_threshold</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>1</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -157,11 +161,19 @@ transformation, <code>NULL</code>.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p><code>prior_slab_dispersion()</code> is related to the prior for the case where a PCA
+loading is selected (i.e. non-zero). Smaller values result in an increase in
+zero coefficients.</p>
+<p><code>prior_mixture_threshold()</code> is used to threshold the prior to determine which
+parameters are non-zero or zero. Increasing this parameter increases the
+number of zero coefficients.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>smoothness</span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Kernel Smoothness (quantitative)
-#&gt; Range: [0.5, 1.5]</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Proportion of Lasso Penalty (quantitative)
+#&gt; Range: [0, 1]</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

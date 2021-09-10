@@ -96,7 +96,7 @@ specified at a later time." />
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.10</span>
         </div>
       </div>
     </div>
@@ -113,7 +113,7 @@ specified at a later time." />
 </li>
         <li>
   <a href="https://github.com/tidymodels/dials/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -140,11 +140,11 @@ specified at a later time." />
 specified at a later time.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>unknown</span>()
+    <pre class="usage"><span class='fu'>unknown</span><span class='op'>(</span><span class='op'>)</span>
 
-<span class='fu'>is_unknown</span>(<span class='kw'>x</span>)
+<span class='fu'>is_unknown</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
 
-<span class='fu'>has_unknowns</span>(<span class='kw'>object</span>)</pre>
+<span class='fu'>has_unknowns</span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -170,16 +170,16 @@ object has any unknown values.</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'># Just returns an expression</span>
-<span class='fu'>unknown</span>()
+<span class='fu'>unknown</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; unknown()</div><div class='input'>
 <span class='co'># Of course, true!</span>
-<span class='fu'>is_unknown</span>(<span class='fu'>unknown</span>())
+<span class='fu'>is_unknown</span><span class='op'>(</span><span class='fu'>unknown</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
 <span class='co'># Create a range with a minimum of 1</span>
 <span class='co'># and an unknown maximum</span>
-<span class='kw'>range</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fu'>unknown</span>())
+<span class='va'>range</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>, <span class='fu'>unknown</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='kw'>range</span>
+<span class='va'>range</span>
 </div><div class='output co'>#&gt; [[1]]
 #&gt; [1] 1
 #&gt; 
@@ -188,11 +188,11 @@ object has any unknown values.</p>
 #&gt; </div><div class='input'>
 <span class='co'># The first value is known, the</span>
 <span class='co'># second is not</span>
-<span class='fu'>is_unknown</span>(<span class='kw'>range</span>)
+<span class='fu'>is_unknown</span><span class='op'>(</span><span class='va'>range</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] FALSE  TRUE</div><div class='input'>
 <span class='co'># mtry()'s maximum value is not known at</span>
 <span class='co'># creation time</span>
-<span class='fu'>has_unknowns</span>(<span class='fu'><a href='mtry.html'>mtry</a></span>())
+<span class='fu'>has_unknowns</span><span class='op'>(</span><span class='fu'><a href='mtry.html'>mtry</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
 </div></pre>
   </div>
@@ -211,7 +211,7 @@ object has any unknown values.</p>
 
 <div class="author">
   <p>
-    Developed by Max Kuhn.
+    Developed by Max Kuhn, Hannah Frick.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>

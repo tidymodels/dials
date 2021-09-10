@@ -96,7 +96,7 @@ different types of objects (e.g. parameter sets, recipes, etc.)." />
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.10</span>
         </div>
       </div>
     </div>
@@ -113,7 +113,7 @@ different types of objects (e.g. parameter sets, recipes, etc.)." />
 </li>
         <li>
   <a href="https://github.com/tidymodels/dials/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -140,19 +140,19 @@ different types of objects (e.g. parameter sets, recipes, etc.)." />
 different types of objects (e.g. parameter sets, recipes, etc.).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>pull_dials_object</span>(<span class='kw'>x</span>, <span class='kw'>id</span>, <span class='kw'>...</span>)
+    <pre class="usage"><span class='fu'>pull_dials_object</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>id</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for parameters</span>
-<span class='fu'>pull_dials_object</span>(<span class='kw'>x</span>, <span class='kw'>id</span>, <span class='kw'>...</span>)
+<span class='fu'>pull_dials_object</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>id</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for recipe</span>
-<span class='fu'>pull_dials_object</span>(<span class='kw'>x</span>, <span class='kw'>id</span>, <span class='kw'>...</span>)
+<span class='fu'>pull_dials_object</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>id</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for model_spec</span>
-<span class='fu'>pull_dials_object</span>(<span class='kw'>x</span>, <span class='kw'>id</span>, <span class='kw'>...</span>)
+<span class='fu'>pull_dials_object</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>id</span>, <span class='va'>...</span><span class='op'>)</span>
 
 <span class='co'># S3 method for workflow</span>
-<span class='fu'>pull_dials_object</span>(<span class='kw'>x</span>, <span class='kw'>id</span>, <span class='kw'>...</span>)</pre>
+<span class='fu'>pull_dials_object</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>id</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -177,8 +177,8 @@ specification, or workflow.</p></td>
     <p>A <code>dials</code> parameter object.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>glmn_param</span> <span class='op'>&lt;-</span> <span class='fu'><a href='parameters.html'>parameters</a></span>(lambda = <span class='fu'><a href='penalty.html'>penalty</a></span>(), <span class='fu'><a href='mixture.html'>mixture</a></span>())
-<span class='fu'>pull_dials_object</span>(<span class='kw'>glmn_param</span>, <span class='st'>"lambda"</span>)
+    <pre class="examples"><div class='input'><span class='va'>glmn_param</span> <span class='op'>&lt;-</span> <span class='fu'><a href='parameters.html'>parameters</a></span><span class='op'>(</span>lambda <span class='op'>=</span> <span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='fu'>pull_dials_object</span><span class='op'>(</span><span class='va'>glmn_param</span>, <span class='st'>"lambda"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; Amount of Regularization (quantitative)
 #&gt; Transformer:  log-10 
 #&gt; Range (transformed scale): [-10, 0]</div><div class='input'>
@@ -201,7 +201,7 @@ specification, or workflow.</p></td>
 
 <div class="author">
   <p>
-    Developed by Max Kuhn.
+    Developed by Max Kuhn, Hannah Frick.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>

@@ -94,7 +94,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.10</span>
         </div>
       </div>
     </div>
@@ -111,7 +111,7 @@
 </li>
         <li>
   <a href="https://github.com/tidymodels/dials/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -142,7 +142,7 @@
     <tbody>
       <tr>
         <th colspan="2">
-          <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
+          <h2 id="section-parameter-sets" class="hasAnchor"><a href="#section-parameter-sets" class="anchor"></a>Parameter Sets</h2>
           <p class="section-desc"></p>
         </th>
       </tr>
@@ -154,16 +154,72 @@
       <tr>
         
         <td>
-          <p><code><a href="Chicago.html">Chicago</a></code> </p>
+          <p><code><a href="parameters.html">parameters()</a></code> </p>
         </td>
-        <td><p>Chicago Ridership Data</p></td>
+        <td><p>Information on tuning parameters within an object</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="Laplace.html">Laplace()</a></code> </p>
+          <p><code><a href="update.parameters.html">update(<i>&lt;parameters&gt;</i>)</a></code> </p>
         </td>
-        <td><p>Laplace correction parameter</p></td>
+        <td><p>Update a single parameter in a parameter set</p></td>
       </tr><tr>
+        
+        <td>
+          <p><code><a href="pull_dials_object.html">pull_dials_object()</a></code> </p>
+        </td>
+        <td><p>Return a dials parameter object associated with parameters</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="range_validate.html">range_validate()</a></code> <code><a href="range_validate.html">range_get()</a></code> <code><a href="range_validate.html">range_set()</a></code> </p>
+        </td>
+        <td><p>Tools for working with parameter ranges</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="value_validate.html">value_validate()</a></code> <code><a href="value_validate.html">value_seq()</a></code> <code><a href="value_validate.html">value_sample()</a></code> <code><a href="value_validate.html">value_transform()</a></code> <code><a href="value_validate.html">value_inverse()</a></code> <code><a href="value_validate.html">value_set()</a></code> </p>
+        </td>
+        <td><p>Tools for working with parameter values</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-grid-creation" class="hasAnchor"><a href="#section-grid-creation" class="anchor"></a>Grid Creation</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="grid_max_entropy.html">grid_max_entropy()</a></code> <code><a href="grid_max_entropy.html">grid_latin_hypercube()</a></code> </p>
+        </td>
+        <td><p>Space-filling parameter grids</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="grid_regular.html">grid_regular()</a></code> <code><a href="grid_regular.html">grid_random()</a></code> </p>
+        </td>
+        <td><p>Create grids of tuning parameters</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-parameter-objects" class="hasAnchor"><a href="#section-parameter-objects" class="anchor"></a>Parameter Objects</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
         
         <td>
           <p><code><a href="activation.html">activation()</a></code> <code><a href="activation.html">values_activation</a></code> </p>
@@ -172,9 +228,27 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="adjust_deg_free.html">adjust_deg_free()</a></code> </p>
+        </td>
+        <td><p>Parameters to adjust effective degrees of freedom</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="all_neighbors.html">all_neighbors()</a></code> </p>
         </td>
         <td><p>Parameter to determine which neighbors to use</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="dropout.html">dropout()</a></code> <code><a href="dropout.html">epochs()</a></code> <code><a href="dropout.html">hidden_units()</a></code> <code><a href="dropout.html">batch_size()</a></code> </p>
+        </td>
+        <td><p>Neural network parameters</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="conditional_min_criterion.html">conditional_min_criterion()</a></code> <code><a href="conditional_min_criterion.html">values_test_type</a></code> <code><a href="conditional_min_criterion.html">conditional_test_type()</a></code> <code><a href="conditional_min_criterion.html">values_test_statistic</a></code> <code><a href="conditional_min_criterion.html">conditional_test_statistic()</a></code> </p>
+        </td>
+        <td><p>Parameters for possible engine parameters for party models</p></td>
       </tr><tr>
         
         <td>
@@ -190,9 +264,9 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="cubist_parameters.html">extrapolation()</a></code> <code><a href="cubist_parameters.html">unbiased_rules()</a></code> <code><a href="cubist_parameters.html">max_rules()</a></code> </p>
+          <p><code><a href="trees.html">trees()</a></code> <code><a href="trees.html">min_n()</a></code> <code><a href="trees.html">sample_size()</a></code> <code><a href="trees.html">sample_prop()</a></code> <code><a href="trees.html">loss_reduction()</a></code> <code><a href="trees.html">tree_depth()</a></code> <code><a href="trees.html">prune()</a></code> <code><a href="trees.html">cost_complexity()</a></code> </p>
         </td>
-        <td><p>Parameters for possible engine parameters for Cubist</p></td>
+        <td><p>Parameter functions related to tree- and rule-based models.</p></td>
       </tr><tr>
         
         <td>
@@ -208,27 +282,21 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="shrinkage_correlation.html">shrinkage_correlation()</a></code> <code><a href="shrinkage_correlation.html">shrinkage_variance()</a></code> <code><a href="shrinkage_correlation.html">shrinkage_frequencies()</a></code> <code><a href="shrinkage_correlation.html">diagonal_covariance()</a></code> </p>
+        </td>
+        <td><p>Parameters for possible engine parameters for sda models</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="dist_power.html">dist_power()</a></code> </p>
         </td>
         <td><p>Minkowski distance parameter</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="dropout.html">dropout()</a></code> <code><a href="dropout.html">epochs()</a></code> <code><a href="dropout.html">hidden_units()</a></code> <code><a href="dropout.html">batch_size()</a></code> </p>
+          <p><code><a href="cubist_parameters.html">extrapolation()</a></code> <code><a href="cubist_parameters.html">unbiased_rules()</a></code> <code><a href="cubist_parameters.html">max_rules()</a></code> </p>
         </td>
-        <td><p>Neural network parameters</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="earth_parameters.html">max_num_terms()</a></code> </p>
-        </td>
-        <td><p>Parameters for possible engine parameters for earth models</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="finalize.html">finalize()</a></code> <code><a href="finalize.html">get_p()</a></code> <code><a href="finalize.html">get_log_p()</a></code> <code><a href="finalize.html">get_n_frac()</a></code> <code><a href="finalize.html">get_n_frac_range()</a></code> <code><a href="finalize.html">get_n()</a></code> <code><a href="finalize.html">get_rbf_range()</a></code> <code><a href="finalize.html">get_batch_sizes()</a></code> </p>
-        </td>
-        <td><p>Functions to finalize data-specific parameter ranges</p></td>
+        <td><p>Parameters for possible engine parameters for Cubist</p></td>
       </tr><tr>
         
         <td>
@@ -238,21 +306,39 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="grid_max_entropy.html">grid_max_entropy()</a></code> <code><a href="grid_max_entropy.html">grid_latin_hypercube()</a></code> </p>
+          <p><code><a href="rbf_sigma.html">rbf_sigma()</a></code> <code><a href="rbf_sigma.html">scale_factor()</a></code> <code><a href="rbf_sigma.html">kernel_offset()</a></code> </p>
         </td>
-        <td><p>Space-filling parameter grids</p></td>
+        <td><p>Kernel parameters</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="grid_regular.html">grid_regular()</a></code> <code><a href="grid_regular.html">make_regular_grid()</a></code> <code><a href="grid_regular.html">grid_random()</a></code> </p>
+          <p><code><a href="Laplace.html">Laplace()</a></code> </p>
         </td>
-        <td><p>Create grids of tuning parameters</p></td>
+        <td><p>Laplace correction parameter</p></td>
       </tr><tr>
         
         <td>
           <p><code><a href="learn_rate.html">learn_rate()</a></code> </p>
         </td>
         <td><p>Learning rate</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ranger_parameters.html">regularization_factor()</a></code> <code><a href="ranger_parameters.html">regularize_depth()</a></code> <code><a href="ranger_parameters.html">significance_threshold()</a></code> <code><a href="ranger_parameters.html">lower_quantile()</a></code> <code><a href="ranger_parameters.html">splitting_rule()</a></code> <code><a href="ranger_parameters.html">ranger_class_rules</a></code> <code><a href="ranger_parameters.html">ranger_reg_rules</a></code> <code><a href="ranger_parameters.html">ranger_split_rules</a></code> <code><a href="ranger_parameters.html">num_random_splits()</a></code> </p>
+        </td>
+        <td><p>Parameters for possible engine parameters for ranger</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="randomForest_parameters.html">max_nodes()</a></code> </p>
+        </td>
+        <td><p>Parameters for possible engine parameters for randomForest</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="earth_parameters.html">max_num_terms()</a></code> </p>
+        </td>
+        <td><p>Parameters for possible engine parameters for earth models</p></td>
       </tr><tr>
         
         <td>
@@ -286,6 +372,12 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="momentum.html">momentum()</a></code> </p>
+        </td>
+        <td><p>Gradient descent momentum parameter</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="mtry.html">mtry()</a></code> <code><a href="mtry.html">mtry_long()</a></code> </p>
         </td>
         <td><p>Number of randomly sampled predictors</p></td>
@@ -295,12 +387,6 @@
           <p><code><a href="neighbors.html">neighbors()</a></code> </p>
         </td>
         <td><p>Number of neighbors</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="new-param.html">new_quant_param()</a></code> <code><a href="new-param.html">new_qual_param()</a></code> </p>
-        </td>
-        <td><p>Tools for creating new parameter objects</p></td>
       </tr><tr>
         
         <td>
@@ -316,6 +402,12 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="texthash.html">num_hash()</a></code> <code><a href="texthash.html">signed_hash()</a></code> </p>
+        </td>
+        <td><p>Text hashing parameters</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="num_tokens.html">num_tokens()</a></code> </p>
         </td>
         <td><p>Parameter to determine number of tokens in ngram</p></td>
@@ -325,12 +417,6 @@
           <p><code><a href="over_ratio.html">over_ratio()</a></code> <code><a href="over_ratio.html">under_ratio()</a></code> </p>
         </td>
         <td><p>Parameters for class-imbalance sampling</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parameters.html">parameters()</a></code> <code><a href="parameters.html">param_set()</a></code> </p>
-        </td>
-        <td><p>Information on tuning parameters within an object</p></td>
       </tr><tr>
         
         <td>
@@ -346,39 +432,33 @@
       </tr><tr>
         
         <td>
+          <p><code><a href="prior_slab_dispersion.html">prior_slab_dispersion()</a></code> <code><a href="prior_slab_dispersion.html">prior_mixture_threshold()</a></code> </p>
+        </td>
+        <td><p>Bayesian PCA parameters</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="prune_method.html">prune_method()</a></code> <code><a href="prune_method.html">values_prune_method</a></code> </p>
         </td>
         <td><p>MARS pruning methods</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="pull_dials_object.html">pull_dials_object()</a></code> </p>
+          <p><code><a href="regularization_method.html">regularization_method()</a></code> <code><a href="regularization_method.html">values_regularization_method</a></code> </p>
         </td>
-        <td><p>Return a dials parameter object associated with parameters</p></td>
+        <td><p>Estimation methods for regularized models</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="randomForest_parameters.html">max_nodes()</a></code> </p>
+          <p><code><a href="xgboost_parameters.html">scale_pos_weight()</a></code> <code><a href="xgboost_parameters.html">penalty_L2()</a></code> <code><a href="xgboost_parameters.html">penalty_L1()</a></code> </p>
         </td>
-        <td><p>Parameters for possible engine parameters for randomForest</p></td>
+        <td><p>Parameters for possible engine parameters for xgboost</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="range_validate.html">range_validate()</a></code> <code><a href="range_validate.html">range_get()</a></code> <code><a href="range_validate.html">range_set()</a></code> </p>
+          <p><code><a href="select_features.html">select_features()</a></code> </p>
         </td>
-        <td><p>Tools for working with parameter ranges</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="ranger_parameters.html">regularization_factor()</a></code> <code><a href="ranger_parameters.html">regularize_depth()</a></code> <code><a href="ranger_parameters.html">significance_threshold()</a></code> <code><a href="ranger_parameters.html">lower_quantile()</a></code> <code><a href="ranger_parameters.html">splitting_rule()</a></code> <code><a href="ranger_parameters.html">ranger_class_rules</a></code> <code><a href="ranger_parameters.html">ranger_reg_rules</a></code> <code><a href="ranger_parameters.html">ranger_split_rules</a></code> <code><a href="ranger_parameters.html">num_random_splits()</a></code> </p>
-        </td>
-        <td><p>Parameters for possible engine parameters for ranger</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="rbf_sigma.html">rbf_sigma()</a></code> <code><a href="rbf_sigma.html">scale_factor()</a></code> <code><a href="rbf_sigma.html">kernel_offset()</a></code> </p>
-        </td>
-        <td><p>Kernel parameters</p></td>
+        <td><p>Parameter to enable feature selection</p></td>
       </tr><tr>
         
         <td>
@@ -388,15 +468,15 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="surv_dist.html">surv_dist()</a></code> <code><a href="surv_dist.html">values_surv_dist</a></code> </p>
+          <p><code><a href="stop_iter.html">stop_iter()</a></code> </p>
         </td>
-        <td><p>Parametric distributions for censored data</p></td>
+        <td><p>Early stopping parameter</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="texthash.html">num_hash()</a></code> <code><a href="texthash.html">signed_hash()</a></code> </p>
+          <p><code><a href="surv_dist.html">surv_dist()</a></code> <code><a href="surv_dist.html">values_surv_dist</a></code> </p>
         </td>
-        <td><p>Text hashing parameters</p></td>
+        <td><p>Parametric distributions for censored data</p></td>
       </tr><tr>
         
         <td>
@@ -409,30 +489,6 @@
           <p><code><a href="token.html">token()</a></code> <code><a href="token.html">values_token</a></code> </p>
         </td>
         <td><p>Token types</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="trees.html">trees()</a></code> <code><a href="trees.html">min_n()</a></code> <code><a href="trees.html">sample_size()</a></code> <code><a href="trees.html">sample_prop()</a></code> <code><a href="trees.html">loss_reduction()</a></code> <code><a href="trees.html">tree_depth()</a></code> <code><a href="trees.html">prune()</a></code> <code><a href="trees.html">cost_complexity()</a></code> </p>
-        </td>
-        <td><p>Parameter functions related to tree- and rule-based models.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="unknown.html">unknown()</a></code> <code><a href="unknown.html">is_unknown()</a></code> <code><a href="unknown.html">has_unknowns()</a></code> </p>
-        </td>
-        <td><p>Placeholder for unknown parameter values</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="update.parameters.html">update(<i>&lt;parameters&gt;</i>)</a></code> </p>
-        </td>
-        <td><p>Update a single parameter in a parameter set</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="value_validate.html">value_validate()</a></code> <code><a href="value_validate.html">value_seq()</a></code> <code><a href="value_validate.html">value_sample()</a></code> <code><a href="value_validate.html">value_transform()</a></code> <code><a href="value_validate.html">value_inverse()</a></code> <code><a href="value_validate.html">value_set()</a></code> </p>
-        </td>
-        <td><p>Tools for working with parameter values</p></td>
       </tr><tr>
         
         <td>
@@ -458,6 +514,81 @@
         </td>
         <td><p>Parameter for the moving window size</p></td>
       </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-finalizing-parameters" class="hasAnchor"><a href="#section-finalizing-parameters" class="anchor"></a>Finalizing Parameters</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="finalize.html">finalize()</a></code> <code><a href="finalize.html">get_p()</a></code> <code><a href="finalize.html">get_log_p()</a></code> <code><a href="finalize.html">get_n_frac()</a></code> <code><a href="finalize.html">get_n_frac_range()</a></code> <code><a href="finalize.html">get_n()</a></code> <code><a href="finalize.html">get_rbf_range()</a></code> <code><a href="finalize.html">get_batch_sizes()</a></code> </p>
+        </td>
+        <td><p>Functions to finalize data-specific parameter ranges</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-developer-tools" class="hasAnchor"><a href="#section-developer-tools" class="anchor"></a>Developer Tools</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="encode_unit.html">encode_unit()</a></code> </p>
+        </td>
+        <td><p>Class for converting parameter values back and forth to the unit range</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="unknown.html">unknown()</a></code> <code><a href="unknown.html">is_unknown()</a></code> <code><a href="unknown.html">has_unknowns()</a></code> </p>
+        </td>
+        <td><p>Placeholder for unknown parameter values</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="new-param.html">new_quant_param()</a></code> <code><a href="new-param.html">new_qual_param()</a></code> </p>
+        </td>
+        <td><p>Tools for creating new parameter objects</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parameters_constr.html">parameters_constr()</a></code> </p>
+        </td>
+        <td><p>Construct a new parameter set object</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-others" class="hasAnchor"><a href="#section-others" class="anchor"></a>Others</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      
+      
+    </tbody><tbody>
+      
+      
+      <tr>
+        
+        <td>
+          <p><code><a href="Chicago.html">Chicago</a></code> </p>
+        </td>
+        <td><p>Chicago Ridership Data</p></td>
+      </tr>
     </tbody>
     </table>
   </div>
@@ -477,7 +608,7 @@
 
 <div class="author">
   <p>
-    Developed by Max Kuhn.
+    Developed by Max Kuhn, Hannah Frick.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>

@@ -96,7 +96,7 @@ creating tree models." />
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.10</span>
         </div>
       </div>
     </div>
@@ -113,7 +113,7 @@ creating tree models." />
 </li>
         <li>
   <a href="https://github.com/tidymodels/dials/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -140,9 +140,9 @@ creating tree models." />
 creating tree models.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>mtry</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fu'><a href='unknown.html'>unknown</a></span>()), trans = <span class='kw'>NULL</span>)
+    <pre class="usage"><span class='fu'>mtry</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1L</span>, <span class='fu'><a href='unknown.html'>unknown</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span>
 
-<span class='fu'>mtry_long</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0L</span>, <span class='fu'><a href='unknown.html'>unknown</a></span>()), trans = <span class='fu'>log10_trans</span>())</pre>
+<span class='fu'>mtry_long</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0L</span>, <span class='fu'><a href='unknown.html'>unknown</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>, trans <span class='op'>=</span> <span class='fu'>log10_trans</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -155,7 +155,7 @@ largest possible values, respectively.</p></td>
     <tr>
       <th>trans</th>
       <td><p>A <code>trans</code> object from the <code>scales</code> package, such as
-<code><a href='https://scales.r-lib.org//reference/log_trans.html'>scales::log10_trans()</a></code> or <code><a href='https://scales.r-lib.org//reference/reciprocal_trans.html'>scales::reciprocal_trans()</a></code>. If not provided,
+<code><a href='https://scales.r-lib.org/reference/log_trans.html'>scales::log10_trans()</a></code> or <code><a href='https://scales.r-lib.org/reference/reciprocal_trans.html'>scales::reciprocal_trans()</a></code>. If not provided,
 the default is used which matches the units used in <code>range</code>. If no
 transformation, <code>NULL</code>.</p></td>
     </tr>
@@ -171,9 +171,9 @@ data set, the upper bound is set to <code>unknown</code> but can be filled in vi
 <code><a href='finalize.html'>finalize()</a></code> method.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>mtry</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fl'>10L</span>))   <span class='co'># in original units</span>
+    <pre class="examples"><div class='input'><span class='fu'>mtry</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1L</span>, <span class='fl'>10L</span><span class='op'>)</span><span class='op'>)</span>   <span class='co'># in original units</span>
 </div><div class='output co'>#&gt; # Randomly Selected Predictors (quantitative)
-#&gt; Range: [1, 10]</div><div class='input'><span class='fu'>mtry_long</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>5</span>)) <span class='co'># in log10 units</span>
+#&gt; Range: [1, 10]</div><div class='input'><span class='fu'>mtry_long</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>5</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># in log10 units</span>
 </div><div class='output co'>#&gt; # Randomly Selected Predictors (quantitative)
 #&gt; Transformer:  log-10 
 #&gt; Range (transformed scale): [0, 5]</div></pre>
@@ -193,7 +193,7 @@ data set, the upper bound is set to <code>unknown</code> but can be filled in vi
 
 <div class="author">
   <p>
-    Developed by Max Kuhn.
+    Developed by Max Kuhn, Hannah Frick.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>

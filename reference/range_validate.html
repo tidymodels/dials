@@ -95,7 +95,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.10</span>
         </div>
       </div>
     </div>
@@ -112,7 +112,7 @@
 </li>
         <li>
   <a href="https://github.com/tidymodels/dials/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -138,11 +138,11 @@
     <p>Setters, getters, and validators for parameter ranges.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>range_validate</span>(<span class='kw'>object</span>, <span class='kw'>range</span>, ukn_ok = <span class='fl'>TRUE</span>)
+    <pre class="usage"><span class='fu'>range_validate</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>range</span>, ukn_ok <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
-<span class='fu'>range_get</span>(<span class='kw'>object</span>, original = <span class='fl'>TRUE</span>)
+<span class='fu'>range_get</span><span class='op'>(</span><span class='va'>object</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 
-<span class='fu'>range_set</span>(<span class='kw'>object</span>, <span class='kw'>range</span>)</pre>
+<span class='fu'>range_set</span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>range</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -177,53 +177,58 @@ process (and throws an error otherwise).</p>
 a new range.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://dplyr.tidyverse.org'>dplyr</a></span>)
+    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'></span>
+#&gt; <span class='message'>Attaching package: ‘dplyr’</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:stats’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    filter, lag</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:base’:</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>    intersect, setdiff, setequal, union</span></div><div class='input'>
+<span class='va'>my_lambda</span> <span class='op'>&lt;-</span> <span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='value_validate.html'>value_set</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>4</span><span class='op'>:</span><span class='op'>-</span><span class='fl'>1</span><span class='op'>)</span>
 
-<span class='kw'>my_lambda</span> <span class='op'>&lt;-</span> <span class='fu'><a href='penalty.html'>penalty</a></span>() <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='value_validate.html'>value_set</a></span>(<span class='op'>-</span><span class='fl'>4</span><span class='op'>:</span><span class='op'>-</span><span class='fl'>1</span>)
-
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(
-  <span class='fu'>range_validate</span>(<span class='kw'>my_lambda</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>NA</span>)), silent = <span class='fl'>TRUE</span>
-) <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>()
+<span class='kw'><a href='https://rdrr.io/r/base/try.html'>try</a></span><span class='op'>(</span>
+  <span class='fu'>range_validate</span><span class='op'>(</span><span class='va'>my_lambda</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>10</span>, <span class='cn'>NA</span><span class='op'>)</span><span class='op'>)</span>, silent <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] "Error : Value ranges must be non-missing.\n"
 #&gt; attr(,"class")
 #&gt; [1] "try-error"
 #&gt; attr(,"condition")
-#&gt; <span style='font-weight: bold;'>&lt;error/`Inf` and `unknown()` are acceptable values.&gt;</span><span>
+#&gt; <span style='font-weight: bold;'>&lt;error/`Inf` and `unknown()` are acceptable values.&gt;</span>
 #&gt; Value ranges must be non-missing.
-#&gt; </span><span style='font-weight: bold;'>Backtrace:</span><span>
-#&gt; </span><span style='color: #555555;'>  1. </span><span>pkgdown::deploy_to_branch(new_process = FALSE)
-#&gt; </span><span style='color: #555555;'>  2. </span><span>pkgdown::build_site(...)
-#&gt; </span><span style='color: #555555;'>  3. </span><span>pkgdown:::build_site_local(...)
-#&gt; </span><span style='color: #555555;'>  4. </span><span>pkgdown::build_reference(...)
-#&gt; </span><span style='color: #555555;'>  5. </span><span>purrr::map(...)
-#&gt; </span><span style='color: #555555;'>  6. </span><span>pkgdown:::.f(.x[[i]], ...)
-#&gt; </span><span style='color: #555555;'>  8. </span><span>pkgdown:::data_reference_topic(...)
-#&gt; </span><span style='color: #555555;'>  9. </span><span>pkgdown:::run_examples(...)
-#&gt; </span><span style='color: #555555;'> 10. </span><span>pkgdown:::highlight_examples(code, topic, env = env)
-#&gt; </span><span style='color: #555555;'> 11. </span><span>downlit::evaluate_and_highlight(...)
-#&gt; </span><span style='color: #555555;'> 12. </span><span>evaluate::evaluate(code, child_env(env), new_device = TRUE)
-#&gt; </span><span style='color: #555555;'> 13. </span><span>evaluate:::evaluate_call(...)
-#&gt; </span><span style='color: #555555;'> 23. </span><span>[ base::eval(...) ]</span><span style='color: #555555;'> with 1 more call</span><span>
-#&gt; </span><span style='color: #555555;'> 33. </span><span>dials::range_validate(my_lambda, c(-10, NA))</div><div class='input'>
-<span class='fu'>range_get</span>(<span class='kw'>my_lambda</span>)
+#&gt; <span style='font-weight: bold;'>Backtrace:</span>
+#&gt; <span style='color: #555555;'>  1. </span>pkgdown::deploy_to_branch(new_process = FALSE)
+#&gt; <span style='color: #555555;'>  2. </span>pkgdown::build_site(...)
+#&gt; <span style='color: #555555;'>  3. </span>pkgdown:::build_site_local(...)
+#&gt; <span style='color: #555555;'>  4. </span>pkgdown::build_reference(...)
+#&gt; <span style='color: #555555;'>  5. </span>purrr::map(...)
+#&gt; <span style='color: #555555;'>  6. </span>pkgdown:::.f(.x[[i]], ...)
+#&gt; <span style='color: #555555;'>  8. </span>pkgdown:::data_reference_topic(...)
+#&gt; <span style='color: #555555;'>  9. </span>pkgdown:::run_examples(...)
+#&gt; <span style='color: #555555;'> 10. </span>pkgdown:::highlight_examples(code, topic, env = env)
+#&gt; <span style='color: #555555;'> 11. </span>downlit::evaluate_and_highlight(...)
+#&gt; <span style='color: #555555;'> 12. </span>evaluate::evaluate(code, child_env(env), new_device = TRUE)
+#&gt; <span style='color: #555555;'> 13. </span>evaluate:::evaluate_call(...)
+#&gt; <span style='color: #555555;'> 23. </span>[ base::eval(...) ]<span style='color: #555555;'> with 1 more call</span>
+#&gt; <span style='color: #555555;'> 32. </span>dials::range_validate(my_lambda, c(-10, NA))</div><div class='input'>
+<span class='fu'>range_get</span><span class='op'>(</span><span class='va'>my_lambda</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $lower
 #&gt; [1] 1e-10
 #&gt; 
 #&gt; $upper
 #&gt; [1] 1
 #&gt; </div><div class='input'>
-<span class='kw'>my_lambda</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>range_set</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>2</span>)) <span class='op'>%&gt;%</span>
-  <span class='fu'>range_get</span>()
+<span class='va'>my_lambda</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>range_set</span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>10</span>, <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>range_get</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; $lower
 #&gt; [1] 1e-10
 #&gt; 
 #&gt; $upper
 #&gt; [1] 100
 #&gt; </div><div class='input'>
-</div></span></pre>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -240,7 +245,7 @@ a new range.</p>
 
 <div class="author">
   <p>
-    Developed by Max Kuhn.
+    Developed by Max Kuhn, Hannah Frick.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>

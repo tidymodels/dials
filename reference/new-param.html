@@ -97,7 +97,7 @@ like mtry()." />
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.9</span>
+          <span class="version version-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.10</span>
         </div>
       </div>
     </div>
@@ -114,7 +114,7 @@ like mtry()." />
 </li>
         <li>
   <a href="https://github.com/tidymodels/dials/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -142,24 +142,24 @@ these functions are called from higher level parameter generating functions
 like <code><a href='mtry.html'>mtry()</a></code>.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>new_quant_param</span>(
-  type = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"double"</span>, <span class='st'>"integer"</span>),
-  <span class='kw'>range</span>,
-  <span class='kw'>inclusive</span>,
-  default = <span class='fu'><a href='unknown.html'>unknown</a></span>(),
-  trans = <span class='kw'>NULL</span>,
-  values = <span class='kw'>NULL</span>,
-  label = <span class='kw'>NULL</span>,
-  finalize = <span class='kw'>NULL</span>
-)
+    <pre class="usage"><span class='fu'>new_quant_param</span><span class='op'>(</span>
+  type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"double"</span>, <span class='st'>"integer"</span><span class='op'>)</span>,
+  <span class='va'>range</span>,
+  <span class='va'>inclusive</span>,
+  default <span class='op'>=</span> <span class='fu'><a href='unknown.html'>unknown</a></span><span class='op'>(</span><span class='op'>)</span>,
+  trans <span class='op'>=</span> <span class='cn'>NULL</span>,
+  values <span class='op'>=</span> <span class='cn'>NULL</span>,
+  label <span class='op'>=</span> <span class='cn'>NULL</span>,
+  finalize <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span>
 
-<span class='fu'>new_qual_param</span>(
-  type = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"character"</span>, <span class='st'>"logical"</span>),
-  <span class='kw'>values</span>,
-  default = <span class='fu'><a href='unknown.html'>unknown</a></span>(),
-  label = <span class='kw'>NULL</span>,
-  finalize = <span class='kw'>NULL</span>
-)</pre>
+<span class='fu'>new_qual_param</span><span class='op'>(</span>
+  type <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"character"</span>, <span class='st'>"logical"</span><span class='op'>)</span>,
+  <span class='va'>values</span>,
+  default <span class='op'>=</span> <span class='fu'><a href='unknown.html'>unknown</a></span><span class='op'>(</span><span class='op'>)</span>,
+  label <span class='op'>=</span> <span class='cn'>NULL</span>,
+  finalize <span class='op'>=</span> <span class='cn'>NULL</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -190,8 +190,8 @@ parameter value. <code><a href='unknown.html'>unknown()</a></code> can also be u
     <tr>
       <th>trans</th>
       <td><p>A <code>trans</code> object from the <span class="pkg">scales</span> package, such as
-<code><a href='https://scales.r-lib.org//reference/log_trans.html'>scales::log10_trans()</a></code> or <code><a href='https://scales.r-lib.org//reference/reciprocal_trans.html'>scales::reciprocal_trans()</a></code>. Create custom
-transforms with <code><a href='https://scales.r-lib.org//reference/trans_new.html'>scales::trans_new()</a></code>.</p></td>
+<code><a href='https://scales.r-lib.org/reference/log_trans.html'>scales::log10_trans()</a></code> or <code><a href='https://scales.r-lib.org/reference/reciprocal_trans.html'>scales::reciprocal_trans()</a></code>. Create custom
+transforms with <code><a href='https://scales.r-lib.org/reference/trans_new.html'>scales::trans_new()</a></code>.</p></td>
     </tr>
     <tr>
       <th>values</th>
@@ -221,26 +221,26 @@ is always converted to a list with elements <code>"lower"</code> and <code>"uppe
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Create a function that generates a quantitative parameter</span>
 <span class='co'># corresponding to the number of subgroups.</span>
-<span class='kw'>num_subgroups</span> <span class='op'>&lt;-</span> <span class='fu'>function</span>(<span class='kw'>range</span> = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1L</span>, <span class='fl'>20L</span>), <span class='kw'>trans</span> = <span class='kw'>NULL</span>) {
-  <span class='fu'>new_quant_param</span>(
-    type = <span class='st'>"integer"</span>,
-    range = <span class='kw'>range</span>,
-    inclusive = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>TRUE</span>),
-    trans = <span class='kw'>trans</span>,
-    label = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(num_subgroups = <span class='st'>"# Subgroups"</span>),
-    finalize = <span class='kw'>NULL</span>
-  )
-}
+<span class='va'>num_subgroups</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>range</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1L</span>, <span class='fl'>20L</span><span class='op'>)</span>, <span class='va'>trans</span> <span class='op'>=</span> <span class='cn'>NULL</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='fu'>new_quant_param</span><span class='op'>(</span>
+    type <span class='op'>=</span> <span class='st'>"integer"</span>,
+    range <span class='op'>=</span> <span class='va'>range</span>,
+    inclusive <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='cn'>TRUE</span>, <span class='cn'>TRUE</span><span class='op'>)</span>,
+    trans <span class='op'>=</span> <span class='va'>trans</span>,
+    label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span>num_subgroups <span class='op'>=</span> <span class='st'>"# Subgroups"</span><span class='op'>)</span>,
+    finalize <span class='op'>=</span> <span class='cn'>NULL</span>
+  <span class='op'>)</span>
+<span class='op'>}</span>
 
-<span class='fu'>num_subgroups</span>()
+<span class='fu'>num_subgroups</span><span class='op'>(</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; # Subgroups (quantitative)
 #&gt; Range: [1, 20]</div><div class='input'>
-<span class='fu'>num_subgroups</span>(range = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>3L</span>, <span class='fl'>5L</span>))
+<span class='fu'>num_subgroups</span><span class='op'>(</span>range <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>3L</span>, <span class='fl'>5L</span><span class='op'>)</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; # Subgroups (quantitative)
 #&gt; Range: [3, 5]</div><div class='input'>
 <span class='co'># Custom parameters instantly have access</span>
 <span class='co'># to sequence generating functions</span>
-<span class='fu'><a href='value_validate.html'>value_seq</a></span>(<span class='fu'>num_subgroups</span>(), <span class='fl'>5</span>)
+<span class='fu'><a href='value_validate.html'>value_seq</a></span><span class='op'>(</span><span class='fu'>num_subgroups</span><span class='op'>(</span><span class='op'>)</span>, <span class='fl'>5</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1]  1  5 10 15 20</div><div class='input'>
 </div></pre>
   </div>
@@ -259,7 +259,7 @@ is always converted to a list with elements <code>"lower"</code> and <code>"uppe
 
 <div class="author">
   <p>
-    Developed by Max Kuhn.
+    Developed by Max Kuhn, Hannah Frick.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>
