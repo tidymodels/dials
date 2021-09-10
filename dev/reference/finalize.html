@@ -96,7 +96,7 @@ ranges based on a data set and simple heuristics." />
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.9.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.10.9000</span>
         </div>
       </div>
     </div>
@@ -230,40 +230,22 @@ rows in the data or a fraction of the total number of rows.</p>
 <code><a href='https://rdrr.io/pkg/kernlab/man/sigest.html'>kernlab::sigest()</a></code>. It requires that all columns in <code>x</code> be numeric.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘dplyr’</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:stats’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    filter, lag</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:base’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    intersect, setdiff, setequal, union</span></div><div class='input'><span class='va'>car_pred</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>mtcars</span>, <span class='op'>-</span><span class='va'>mpg</span><span class='op'>)</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span> <span class='co'># interactive()</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+<span class='va'>car_pred</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>mtcars</span>, <span class='op'>-</span><span class='va'>mpg</span><span class='op'>)</span>
 
 <span class='co'># Needs an upper bound</span>
 <span class='fu'><a href='mtry.html'>mtry</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; # Randomly Selected Predictors (quantitative)
-#&gt; Range: [1, ?]</div><div class='input'><span class='fu'>finalize</span><span class='op'>(</span><span class='fu'><a href='mtry.html'>mtry</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>car_pred</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; # Randomly Selected Predictors (quantitative)
-#&gt; Range: [1, 10]</div><div class='input'>
+<span class='fu'>finalize</span><span class='op'>(</span><span class='fu'><a href='mtry.html'>mtry</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>car_pred</span><span class='op'>)</span>
+
 <span class='co'># Nothing to do here since no unknowns</span>
 <span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Amount of Regularization (quantitative)
-#&gt; Transformer:  log-10 
-#&gt; Range (transformed scale): [-10, 0]</div><div class='input'><span class='fu'>finalize</span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>car_pred</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; Amount of Regularization (quantitative)
-#&gt; Transformer:  log-10 
-#&gt; Range (transformed scale): [-10, 0]</div><div class='input'>
+<span class='fu'>finalize</span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='va'>car_pred</span><span class='op'>)</span>
+
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>kernlab</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘kernlab’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:scales’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    alpha</span></div><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tibble.tidyverse.org/'>tibble</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tibble.tidyverse.org/'>tibble</a></span><span class='op'>)</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://purrr.tidyverse.org'>purrr</a></span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘purrr’</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:kernlab’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    cross</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from ‘package:scales’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    discard</span></div><div class='input'>
+
 <span class='va'>params</span> <span class='op'>&lt;-</span>
   <span class='fu'><a href='https://tibble.tidyverse.org/reference/tribble.html'>tribble</a></span><span class='op'>(</span>
      <span class='op'>~</span><span class='va'>parameter</span>,   <span class='op'>~</span><span class='va'>object</span>,
@@ -272,35 +254,17 @@ rows in the data or a fraction of the total number of rows.</p>
     <span class='st'>"rbf_sigma"</span>, <span class='fu'><a href='rbf_sigma.html'>rbf_sigma</a></span><span class='op'>(</span><span class='op'>)</span>
   <span class='op'>)</span>
 <span class='va'>params</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3 × 2</span>
-#&gt;   parameter object     
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>     
-#&gt; <span style='color: #BCBCBC;'>1</span> mtry      <span style='color: #949494;'>&lt;nparam[?]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>2</span> num_terms <span style='color: #949494;'>&lt;nparam[?]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>3</span> rbf_sigma <span style='color: #949494;'>&lt;nparam[+]&gt;</span></div><div class='input'>
+
 <span class='co'># Note that `rbf_sigma()` has a default range that does not need to be</span>
 <span class='co'># finalized but will be changed if used in the function:</span>
 <span class='va'>complete_params</span> <span class='op'>&lt;-</span>
   <span class='va'>params</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>object <span class='op'>=</span> <span class='fu'><a href='https://purrr.tidyverse.org/reference/map.html'>map</a></span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>finalize</span>, <span class='va'>car_pred</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>complete_params</span>
-</div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3 × 2</span>
-#&gt;   parameter object     
-#&gt;   <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>     <span style='color: #949494; font-style: italic;'>&lt;list&gt;</span>     
-#&gt; <span style='color: #BCBCBC;'>1</span> mtry      <span style='color: #949494;'>&lt;nparam[+]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>2</span> num_terms <span style='color: #949494;'>&lt;nparam[+]&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>3</span> rbf_sigma <span style='color: #949494;'>&lt;nparam[+]&gt;</span></div><div class='input'>
+
 <span class='va'>params</span> <span class='op'>%&gt;%</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>parameter</span> <span class='op'>==</span> <span class='st'>"rbf_sigma"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt; Radial Basis Function sigma (quantitative)
-#&gt; Transformer:  log-10 
-#&gt; Range (transformed scale): [-10, 0]
-#&gt; </div><div class='input'><span class='va'>complete_params</span> <span class='op'>%&gt;%</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>parameter</span> <span class='op'>==</span> <span class='st'>"rbf_sigma"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [[1]]
-#&gt; Radial Basis Function sigma (quantitative)
-#&gt; Transformer:  log-10 
-#&gt; Range (transformed scale): [-1.6, -0.933]
-#&gt; </div><div class='input'>
+<span class='va'>complete_params</span> <span class='op'>%&gt;%</span> <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>parameter</span> <span class='op'>==</span> <span class='st'>"rbf_sigma"</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/pull.html'>pull</a></span><span class='op'>(</span><span class='va'>object</span><span class='op'>)</span>
+<span class='op'>}</span>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -318,7 +282,7 @@ rows in the data or a fraction of the total number of rows.</p>
 
 <div class="author">
   <p>
-    Developed by Max Kuhn.
+    Developed by Max Kuhn, Hannah Frick.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>

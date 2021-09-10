@@ -97,7 +97,7 @@ space has an observed combination that is not too far from it." />
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.9.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.10.9000</span>
         </div>
       </div>
     </div>
@@ -300,23 +300,23 @@ Statistical Software, 65(11)</p>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 10 × 5</span>
 #&gt;    hidden_units penalty epochs activation learn_rate
 #&gt;           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>  <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span> <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'> 1</span>         4.83   -<span style='color: #BB0000;'>8.55</span>   988. softmax        0.678 
-#&gt; <span style='color: #BCBCBC;'> 2</span>         9.12   -<span style='color: #BB0000;'>8.11</span>   786. softmax        0.887 
-#&gt; <span style='color: #BCBCBC;'> 3</span>         4.46   -<span style='color: #BB0000;'>2.86</span>   122. relu           0.271 
-#&gt; <span style='color: #BCBCBC;'> 4</span>         8.10   -<span style='color: #BB0000;'>9.52</span>   250. softmax        0.219 
-#&gt; <span style='color: #BCBCBC;'> 5</span>         8.81   -<span style='color: #BB0000;'>1.65</span>   903. elu            0.151 
-#&gt; <span style='color: #BCBCBC;'> 6</span>         2.76   -<span style='color: #BB0000;'>2.67</span>   526. elu            0.930 
-#&gt; <span style='color: #BCBCBC;'> 7</span>         6.13   -<span style='color: #BB0000;'>2.31</span>   207. softmax        0.902 
-#&gt; <span style='color: #BCBCBC;'> 8</span>         3.70   -<span style='color: #BB0000;'>8.10</span>   441. elu            0.332 
-#&gt; <span style='color: #BCBCBC;'> 9</span>         9.21   -<span style='color: #BB0000;'>6.37</span>   853. linear         0.038<span style='text-decoration: underline;'>8</span>
-#&gt; <span style='color: #BCBCBC;'>10</span>         2.19   -<span style='color: #BB0000;'>5.66</span>   542. linear         0.130 </div><div class='input'>
+#&gt; <span style='color: #BCBCBC;'> 1</span>         4.87  -<span style='color: #BB0000;'>8.97</span>    27.0 linear         0.861 
+#&gt; <span style='color: #BCBCBC;'> 2</span>         9.07  -<span style='color: #BB0000;'>4.34</span>   400.  elu            0.920 
+#&gt; <span style='color: #BCBCBC;'> 3</span>         2.33  -<span style='color: #BB0000;'>9.60</span>   460.  linear         0.072<span style='text-decoration: underline;'>6</span>
+#&gt; <span style='color: #BCBCBC;'> 4</span>         8.91  -<span style='color: #BB0000;'>3.60</span>   983.  softmax        0.398 
+#&gt; <span style='color: #BCBCBC;'> 5</span>         9.49  -<span style='color: #BB0000;'>2.99</span>   565.  relu           0.033<span style='text-decoration: underline;'>4</span>
+#&gt; <span style='color: #BCBCBC;'> 6</span>         1.62  -<span style='color: #BB0000;'>5.67</span>   318.  relu           0.522 
+#&gt; <span style='color: #BCBCBC;'> 7</span>         2.40  -<span style='color: #BB0000;'>3.13</span>    75.1 softmax        0.145 
+#&gt; <span style='color: #BCBCBC;'> 8</span>         3.75  -<span style='color: #BB0000;'>0.234</span>  524.  linear         0.865 
+#&gt; <span style='color: #BCBCBC;'> 9</span>         7.25  -<span style='color: #BB0000;'>6.79</span>   691.  relu           0.521 
+#&gt; <span style='color: #BCBCBC;'>10</span>         4.05  -<span style='color: #BB0000;'>8.82</span>   650.  elu            0.893 </div><div class='input'>
 <span class='fu'>grid_latin_hypercube</span><span class='op'>(</span><span class='fu'><a href='penalty.html'>penalty</a></span><span class='op'>(</span><span class='op'>)</span>, <span class='fu'><a href='mixture.html'>mixture</a></span><span class='op'>(</span><span class='op'>)</span>, original <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span style='color: #949494;'># A tibble: 3 × 2</span>
 #&gt;        penalty mixture
 #&gt;          <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>   <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span>
-#&gt; <span style='color: #BCBCBC;'>1</span> 0.513          0.343
-#&gt; <span style='color: #BCBCBC;'>2</span> 0.000<span style='text-decoration: underline;'>423</span>       0.215
-#&gt; <span style='color: #BCBCBC;'>3</span> 0.000<span style='text-decoration: underline;'>000</span>023<span style='text-decoration: underline;'>0</span>   0.690</div></pre>
+#&gt; <span style='color: #BCBCBC;'>1</span> 0.301          0.412
+#&gt; <span style='color: #BCBCBC;'>2</span> 0.000<span style='text-decoration: underline;'>000</span>033<span style='text-decoration: underline;'>5</span>   0.126
+#&gt; <span style='color: #BCBCBC;'>3</span> 0.000<span style='text-decoration: underline;'>001</span>66     0.713</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -333,7 +333,7 @@ Statistical Software, 65(11)</p>
 
 <div class="author">
   <p>
-    Developed by Max Kuhn.
+    Developed by Max Kuhn, Hannah Frick.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>

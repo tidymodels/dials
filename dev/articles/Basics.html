@@ -51,7 +51,7 @@
         <a class="navbar-brand" href="../index.html">dials</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://github.com/tidymodels">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.9.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.10.9000</span>
         </div>
       </div>
     </div>
@@ -138,7 +138,6 @@
 <span class="co">#&gt; Cost-Complexity Parameter (quantitative)</span>
 <span class="co">#&gt; Transformer:  log-10 </span>
 <span class="co">#&gt; Range (transformed scale): [-5, 1]</span>
-
 <span class="co"># Or using the `range` argument</span>
 <span class="co"># during creation</span>
 <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span>
@@ -150,7 +149,6 @@
 <code class="sourceCode R"><span class="co"># Natural units:</span>
 <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">4</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1e-10 1e-07 1e-04 1e-01</span>
-
 <span class="co"># Stay in the transformed space:</span>
 <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">4</span>, original <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
 <span class="co">#&gt; [1] -10  -7  -4  -1</span></code></pre></div>
@@ -214,7 +212,6 @@
 <span class="co">#&gt; 'rectangular' and 'triangular'</span>
 <span class="fu"><a href="../reference/weight_func.html">weight_func</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_sample</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt; [1] "cos"         "rectangular" "triweight"</span>
-
 <span class="co"># the sequence is returned in the order of the levels</span>
 <span class="fu"><a href="../reference/weight_func.html">weight_func</a></span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> <span class="fu"><a href="../reference/value_validate.html">value_seq</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span>
 <span class="co">#&gt; [1] "rectangular"  "triangular"   "epanechnikov"</span></code></pre></div>
@@ -261,7 +258,6 @@
 <span class="co">#&gt;  identifier    type    object</span>
 <span class="co">#&gt;      lambda penalty nparam[+]</span>
 <span class="co">#&gt;       alpha mixture nparam[+]</span>
-
 <span class="co"># can be updated too</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/update.html">update</a></span><span class="op">(</span><span class="va">glmnet_set</span>, alpha <span class="op">=</span> <span class="fu"><a href="../reference/mixture.html">mixture</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.3</span>, <span class="fl">.6</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; Collection of 2 parameters for tuning</span>
@@ -330,7 +326,7 @@
 
 <div class="author">
   <p>
-    Developed by Max Kuhn.
+    Developed by Max Kuhn, Hannah Frick.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>
