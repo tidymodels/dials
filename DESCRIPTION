@@ -1,11 +1,15 @@
 Package: dials
 Title: Tools for Creating Tuning Parameter Values
-Version: 0.0.9.9000
+Version: 0.0.10
 Authors@R: 
     c(person(given = "Max",
              family = "Kuhn",
-             role = c("aut", "cre"),
+             role = "aut",
              email = "max@rstudio.com"),
+      person(given = "Hannah",
+             family = "Frick",
+             role = c("aut", "cre"),
+             email = "hannah@rstudio.com"),
       person(given = "RStudio",
              role = "cph"))
 Description: Many models contain tuning parameters (i.e. parameters that
@@ -42,4 +46,4 @@ ByteCompile: true
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1.9001
+RoxygenNote: 7.1.2
