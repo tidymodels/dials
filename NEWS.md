@@ -1,5 +1,8 @@
 # dials (development version)
 
+* `summary_stat()` is a new parameter for use in `recipes::step_window()`.
+
+
 # dials 0.0.10
 
 ## New parameters

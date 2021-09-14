@@ -87,6 +87,7 @@ test_that('param values', {
   expect_equal(select_features(TRUE)$values, TRUE)
   expect_equal(regularization_method()$values, dials:::values_regularization_method)
   expect_equal(diagonal_covariance(TRUE)$values, TRUE)
+  expect_equal(summary_stat()$values, values_summary_stat)
 
 })
 
