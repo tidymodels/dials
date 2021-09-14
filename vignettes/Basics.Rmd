@@ -132,7 +132,7 @@ weight_func() %>% value_seq(3)
 
 ## Creating Novel Parameters
 
-The package contains two constructors that can be used to create new quantitative and qualitative parameters, `new_quant_param()` and `new_qual_param()`.
+The package contains two constructors that can be used to create new quantitative and qualitative parameters, `new_quant_param()` and `new_qual_param()`. The [How to create a tuning parameter function](https://www.tidymodels.org/learn/develop/parameters/) article walks you through a detailed example.
 
 ## Unknown Values
 
