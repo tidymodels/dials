@@ -21,6 +21,10 @@ navbar:
   left:
   - text: Basic Usage
     href: articles/Basics.html
+  - text: "Articles"
+    menu:
+    - text: How to create a tuning parameter function
+      href: https://www.tidymodels.org/learn/develop/parameters/
   - text: Reference
     href: reference/index.html
   - text: News
