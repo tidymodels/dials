@@ -3,7 +3,7 @@ pkgdown: 1.6.1
 pkgdown_sha: ~
 articles:
   Basics: Basics.html
-last_built: 2021-09-14T13:36Z
+last_built: 2021-09-17T15:50Z
 urls:
   reference: https://dials.tidymodels.org/reference
   article: https://dials.tidymodels.org/articles
