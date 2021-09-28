@@ -148,18 +148,29 @@
 <h1 class="page-header" data-toc-text="development version">
 <a href="#dials-development-version" class="anchor"></a>dials (development version)<small> Unreleased </small>
 </h1>
+<div id="new-parameters" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-parameters" class="anchor"></a>New parameters</h2>
 <ul>
 <li><p><code><a href="../reference/summary_stat.html">summary_stat()</a></code> is a new parameter for use in <code>recipes::step_window()</code>.</p></li>
-<li><p>New link to article explaining how to make custom parameter objects.</p></li>
+<li><p>A general <code><a href="../reference/class_weights.html">class_weights()</a></code> parameter was added for imbalanced models.</p></li>
 </ul>
+</div>
+<div id="other-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#other-changes" class="anchor"></a>Other changes</h2>
+<ul>
+<li>New link to article explaining how to make custom parameter objects.</li>
+</ul>
+</div>
 </div>
     <div id="dials-0010" class="section level1">
 <h1 class="page-header" data-toc-text="0.0.10">
 <a href="#dials-0010" class="anchor"></a>dials 0.0.10<small> 2021-09-10 </small>
 </h1>
-<div id="new-parameters" class="section level2">
+<div id="new-parameters-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-parameters" class="anchor"></a>New parameters</h2>
+<a href="#new-parameters-1" class="anchor"></a>New parameters</h2>
 <ul>
 <li><p><code><a href="../reference/adjust_deg_free.html">adjust_deg_free()</a></code> and <code><a href="../reference/select_features.html">select_features()</a></code> for generalized additive models.</p></li>
 <li><p><code>conditional_min_criterion</code>, <code>conditional_test_statistic</code>, <code>conditional_test_type</code> for models with the <code>party</code> engine.</p></li>
@@ -169,9 +180,9 @@
 <li><p><code><a href="../reference/stop_iter.html">stop_iter()</a></code> for early stopping.</p></li>
 </ul>
 </div>
-<div id="other-changes" class="section level2">
+<div id="other-changes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#other-changes" class="anchor"></a>Other changes</h2>
+<a href="#other-changes-1" class="anchor"></a>Other changes</h2>
 <ul>
 <li><p>Re-licensed package from GPL-2 to MIT. See <a href="https://github.com/tidymodels/dials/issues/156">consent from copyright holders here</a>.</p></li>
 <li><p><code>param_set()</code>, scheduled for removal in version 0.0.5, is now removed.</p></li>
@@ -250,9 +261,9 @@
 <li>Parameters <code><a href="../reference/smoothness.html">smoothness()</a></code> was added.</li>
 </ul>
 </div>
-<div id="other-changes-1" class="section level2">
+<div id="other-changes-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#other-changes-1" class="anchor"></a>Other changes</h2>
+<a href="#other-changes-2" class="anchor"></a>Other changes</h2>
 <ul>
 <li><p><code>param_set()</code> is being renamed <code><a href="../reference/parameters.html">parameters()</a></code>. The old name implied that you <em>only</em> use it to set parameters (say from a recipe or model rather than <em>de novo</em>). <code>param_set()</code> will be available until version 0.0.5.</p></li>
 <li><p>The range for <code><a href="../reference/num_hash.html">num_hash()</a></code> was increase to be <code>2^8</code> to <code>2^12</code>.</p></li>
@@ -282,9 +293,9 @@
 <li><p><code>update.param_set()</code> now takes multiple named arguments.</p></li>
 </ul>
 </div>
-<div id="other-changes-2" class="section level2">
+<div id="other-changes-3" class="section level2">
 <h2 class="hasAnchor">
-<a href="#other-changes-2" class="anchor"></a>Other changes</h2>
+<a href="#other-changes-3" class="anchor"></a>Other changes</h2>
 <ul>
 <li><p>Two functions for space-filling designs were added: <code><a href="../reference/grid_max_entropy.html">grid_max_entropy()</a></code> and <code><a href="../reference/grid_max_entropy.html">grid_latin_hypercube()</a></code>.</p></li>
 <li><p>A data set was added for modeling ridership on the Chicago L trains.</p></li>
