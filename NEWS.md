@@ -7,7 +7,7 @@
 * A general `class_weights()` parameter was added for imbalanced models. 
 
 * Three new parameters for prior distribution specification related to 
-  1`parsnip::bart()`.
+  `parsnip::bart()`.
 
 ## Other changes
 

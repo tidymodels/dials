@@ -1,4 +1,4 @@
-#' Parameters for bart models
+#' Parameters for BART models
 #
 #' These parameters are used for constructing Bayesian adaptive regression tree
 #' (BART) models.
@@ -6,7 +6,7 @@
 #' @inheritParams Laplace
 #'
 #' @details
-#' These parameters is often used with Bayesian adaptive regression trees (BART)
+#' These parameters are often used with Bayesian adaptive regression trees (BART)
 #' via [parsnip::bart()].
 #' @name bart-param
 #' @export
