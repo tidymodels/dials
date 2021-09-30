@@ -67,6 +67,9 @@ test_that('param ranges', {
   expect_equal(penalty_L1(c(-5,3))$range, list(lower = -5, upper = 3))
   expect_equal(penalty_L2(c(-5,3))$range, list(lower = -5, upper = 3))
   expect_equal(class_weights(c(1, 5))$range, list(lower = 1, upper = 5))
+  expect_equal(prior_terminal_node_coef(c(.1, .5))$range, list(lower = .1, upper = .5))
+  expect_equal(prior_terminal_node_expo(c(1, 2))$range, list(lower = 1, upper = 2))
+  expect_equal(prior_outcome_range(c(1, 5))$range, list(lower = 1, upper = 5))
 })
 
 
