@@ -5,7 +5,7 @@
 \alias{prior_terminal_node_coef}
 \alias{prior_terminal_node_expo}
 \alias{prior_outcome_range}
-\title{Parameters for bart models
+\title{Parameters for BART models
 These parameters are used for constructing Bayesian adaptive regression tree
 (BART) models.}
 \usage{
@@ -25,11 +25,11 @@ the default is used which matches the units used in \code{range}. If no
 transformation, \code{NULL}.}
 }
 \description{
-Parameters for bart models
+Parameters for BART models
 These parameters are used for constructing Bayesian adaptive regression tree
 (BART) models.
 }
 \details{
-These parameters is often used with Bayesian adaptive regression trees (BART)
+These parameters are often used with Bayesian adaptive regression trees (BART)
 via \code{\link[parsnip:bart]{parsnip::bart()}}.
 }
