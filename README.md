@@ -5,7 +5,7 @@
 
 [![R-CMD-check](https://github.com/tidymodels/dials/workflows/R-CMD-check/badge.svg)](https://github.com/tidymodels/dials/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/tidymodels/dials/branch/master/graph/badge.svg)](https://codecov.io/gh/tidymodels/dials?branch=master)
+coverage](https://codecov.io/gh/tidymodels/dials/branch/main/graph/badge.svg)](https://codecov.io/gh/tidymodels/dials?branch=main)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dials)](https://CRAN.R-project.org/package=dials)
 [![Downloads](http://cranlogs.r-pkg.org/badges/dials)](https://CRAN.R-project.org/package=dials)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
