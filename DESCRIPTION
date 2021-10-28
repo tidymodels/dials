@@ -1,17 +1,11 @@
 Package: dials
 Title: Tools for Creating Tuning Parameter Values
 Version: 0.0.10.9000
-Authors@R: 
-    c(person(given = "Max",
-             family = "Kuhn",
-             role = "aut",
-             email = "max@rstudio.com"),
-      person(given = "Hannah",
-             family = "Frick",
-             role = c("aut", "cre"),
-             email = "hannah@rstudio.com"),
-      person(given = "RStudio",
-             role = "cph"))
+Authors@R: c(
+    person("Max", "Kuhn", , "max@rstudio.com", role = "aut"),
+    person("Hannah", "Frick", , "hannah@rstudio.com", role = c("aut", "cre")),
+    person("RStudio", role = "cph")
+  )
 Description: Many models contain tuning parameters (i.e. parameters that
     cannot be directly estimated from the data). These tools can be used
     to define objects for creating, simulating, or validating values for
@@ -43,6 +37,8 @@ Suggests:
 VignetteBuilder: 
     knitr
 ByteCompile: true
+Config/Needs/website: 
+    tidyverse/tidytemplate
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
