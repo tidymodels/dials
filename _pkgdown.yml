@@ -41,6 +41,8 @@ reference:
     - adjust_deg_free
     - all_neighbors
     - batch_size
+    - bart-param
+    - class_weights
     - conditional_min_criterion
     - conditional_test_statistic
     - conditional_test_type
@@ -112,6 +114,7 @@ reference:
     - spline_degree
     - splitting_rule
     - stop_iter
+    - summary_stat
     - surv_dist
     - svm_margin
     - threshold
