@@ -1,210 +1,234 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dials.tidymodels.org/index.html</loc>
+    <loc>https://dials.tidymodels.org/dev/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/Chicago.html</loc>
+    <loc>https://dials.tidymodels.org/dev/CONTRIBUTING.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/Laplace.html</loc>
+    <loc>https://dials.tidymodels.org/dev/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/activation.html</loc>
+    <loc>https://dials.tidymodels.org/dev/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/adjust_deg_free.html</loc>
+    <loc>https://dials.tidymodels.org/dev/articles/dials.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/all_neighbors.html</loc>
+    <loc>https://dials.tidymodels.org/dev/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/bart-param.html</loc>
+    <loc>https://dials.tidymodels.org/dev/authors.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/c5_parameters.html</loc>
+    <loc>https://dials.tidymodels.org/dev/index.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/class_weights.html</loc>
+    <loc>https://dials.tidymodels.org/dev/news/index.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/conditional_min_criterion.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/Chicago.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/cost.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/Laplace.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/cubist_parameters.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/activation.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/deg_free.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/adjust_deg_free.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/degree.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/all_neighbors.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/dials-package.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/bart-param.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/dist_power.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/c5_parameters.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/dropout.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/class_weights.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/earth_parameters.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/conditional_min_criterion.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/encode_unit.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/cost.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/finalize.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/cubist_parameters.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/freq_cut.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/deg_free.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/grid_max_entropy.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/degree.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/grid_regular.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/dials-package.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/learn_rate.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/dist_power.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/max_times.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/dropout.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/max_tokens.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/earth_parameters.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/min_dist.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/encode_unit.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/min_unique.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/finalize.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/mixture.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/freq_cut.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/momentum.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/grid_max_entropy.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/mtry.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/grid_regular.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/neighbors.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/new-param.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/learn_rate.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/num_breaks.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/max_times.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/num_comp.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/max_tokens.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/num_tokens.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/min_dist.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/over_ratio.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/min_unique.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/parameters.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/mixture.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/parameters_constr.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/momentum.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/penalty.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/mtry.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/predictor_prop.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/neighbors.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/prior_slab_dispersion.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/new-param.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/prune_method.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/num_breaks.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/pull_dials_object.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/num_comp.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/randomForest_parameters.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/num_tokens.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/range_validate.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/over_ratio.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/ranger_parameters.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/parameters.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/rbf_sigma.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/parameters_constr.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/regularization_method.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/penalty.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/select_features.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/predictor_prop.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/shrinkage_correlation.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/prior_slab_dispersion.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/smoothness.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/prune_method.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/stop_iter.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/pull_dials_object.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/summary_stat.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/randomForest_parameters.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/surv_dist.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/range_validate.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/texthash.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/ranger_parameters.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/threshold.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/rbf_sigma.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/token.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/regularization_method.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/trees.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/select_features.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/type_sum.param.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/shrinkage_correlation.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/unknown.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/smoothness.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/update.parameters.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/stop_iter.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/value_validate.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/summary_stat.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/weight.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/surv_dist.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/weight_func.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/texthash.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/weight_scheme.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/threshold.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/window_size.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/token.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/reference/xgboost_parameters.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/trees.html</loc>
   </url>
   <url>
-    <loc>https://dials.tidymodels.org/articles/Basics.html</loc>
+    <loc>https://dials.tidymodels.org/dev/reference/type_sum.param.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/dev/reference/unknown.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/dev/reference/update.parameters.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/dev/reference/value_validate.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/dev/reference/weight.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/dev/reference/weight_func.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/dev/reference/weight_scheme.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/dev/reference/window_size.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/dev/reference/xgboost_parameters.html</loc>
   </url>
 </urlset>
