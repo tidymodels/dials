@@ -1,34 +1,26 @@
 url: https://dials.tidymodels.org
 
 template:
+  bootstrap: 5
+  bslib:
+    danger: "#CA225E"
+    primary: "#CA225E"
   package: tidytemplate
-  params:
-    theme: tidymodels
-    part_of: <a href="https://github.com/tidymodels">tidymodels</a>
-    footer: dials is a part of the <strong>tidymodels</strong> ecosystem, a collection of modeling packages designed with common APIs and a shared philosophy.
 
 development:
   mode: auto
-
-home:
-  strip_header: true
 
 figures:
   fig.width: 8
   fig.height: 5.75
 
 navbar:
-  left:
-  - text: Basic Usage
-    href: articles/Basics.html
-  - text: "Articles"
+ components:
+   articles:
+    text: Articles
     menu:
     - text: How to create a tuning parameter function
       href: https://www.tidymodels.org/learn/develop/parameters/
-  - text: Reference
-    href: reference/index.html
-  - text: News
-    href: news/index.html
 
 reference:
   - title: Parameter Sets
@@ -48,6 +40,8 @@ reference:
     - activation
     - adjust_deg_free
     - all_neighbors
+    - bart-param
+    - class_weights
     - conditional_min_criterion
     - confidence_factor
     - cost
@@ -88,6 +82,7 @@ reference:
     - shrinkage_correlation
     - smoothness
     - stop_iter
+    - summary_stat
     - surv_dist
     - threshold
     - token
