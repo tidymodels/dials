@@ -51,6 +51,7 @@ reference:
     - dropout
     - extrapolation
     - freq_cut
+    - knots
     - Laplace
     - learn_rate
     - max_nodes
