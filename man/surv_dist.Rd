@@ -4,19 +4,14 @@
 \name{surv_dist}
 \alias{surv_dist}
 \alias{values_surv_dist}
-\alias{values_flexsurv_dist}
 \title{Parametric distributions for censored data}
 \format{
 An object of class \code{character} of length 6.
-
-An object of class \code{character} of length 8.
 }
 \usage{
 surv_dist(values = values_surv_dist)
 
 values_surv_dist
-
-values_flexsurv_dist
 }
 \arguments{
 \item{values}{A character string of possible values. See \code{values_surv_dist}
