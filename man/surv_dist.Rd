@@ -20,17 +20,16 @@ values_flexsurv_dist
 }
 \arguments{
 \item{values}{A character string of possible values. See \code{values_surv_dist}
-or \code{values_flexsurv_dist} in examples below.}
+in examples below.}
 }
 \description{
 Parametric distributions for censored data
 }
 \details{
-This parameter is used in \code{parsnip:::surv_reg()}.
+This parameter is used in \code{parsnip::surv_reg()}.
 }
 \examples{
 values_surv_dist
 surv_dist()
-surv_dist(values_flexsurv_dist)
 }
 \keyword{datasets}

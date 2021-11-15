@@ -51,7 +51,6 @@ reference:
     - dropout
     - extrapolation
     - freq_cut
-    - knots
     - Laplace
     - learn_rate
     - max_nodes
@@ -68,6 +67,7 @@ reference:
     - num_breaks
     - num_comp
     - num_hash
+    - num_knots
     - num_tokens
     - over_ratio
     - penalty
