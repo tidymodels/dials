@@ -4,7 +4,7 @@
 #'   in examples below.
 #'
 #' @details
-#' This parameter is used in `parsnip::surv_reg()`.
+#' This parameter is used in `parsnip::survival_reg()`.
 #' @examples
 #' values_surv_dist
 #' surv_dist()
