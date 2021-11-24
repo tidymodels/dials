@@ -133,6 +133,9 @@
     <loc>https://dials.tidymodels.org/dev/reference/num_comp.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/dev/reference/num_knots.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/dev/reference/num_tokens.html</loc>
   </url>
   <url>
@@ -191,6 +194,9 @@
   </url>
   <url>
     <loc>https://dials.tidymodels.org/dev/reference/surv_dist.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/dev/reference/survival_link.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/dev/reference/texthash.html</loc>
