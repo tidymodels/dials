@@ -70,6 +70,7 @@ test_that('param ranges', {
   expect_equal(prior_terminal_node_coef(c(.1, .5))$range, list(lower = .1, upper = .5))
   expect_equal(prior_terminal_node_expo(c(1, 2))$range, list(lower = 1, upper = 2))
   expect_equal(prior_outcome_range(c(1, 5))$range, list(lower = 1, upper = 5))
+  expect_equal(num_knots(c(1, 5))$range, list(lower = 1, upper = 5))
 })
 
 
