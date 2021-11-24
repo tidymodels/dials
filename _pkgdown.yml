@@ -85,7 +85,7 @@ reference:
     - stop_iter
     - summary_stat
     - surv_dist
-    - surv_link
+    - survival_link
     - threshold
     - token
     - trees
