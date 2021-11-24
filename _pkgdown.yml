@@ -67,6 +67,7 @@ reference:
     - num_breaks
     - num_comp
     - num_hash
+    - num_knots
     - num_tokens
     - over_ratio
     - penalty
@@ -84,6 +85,7 @@ reference:
     - stop_iter
     - summary_stat
     - surv_dist
+    - survival_link
     - threshold
     - token
     - trees

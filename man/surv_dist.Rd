@@ -21,7 +21,7 @@ in examples below.}
 Parametric distributions for censored data
 }
 \details{
-This parameter is used in \code{parsnip:::surv_reg()}.
+This parameter is used in \code{parsnip::survival_reg()}.
 }
 \examples{
 values_surv_dist

@@ -9,6 +9,9 @@
 * Three new parameters for prior distribution specification related to 
   `parsnip::bart()`.
 
+* `num_knots()` and `survival_link()` are new parameters for spline survival 
+  models (@mattwarkentin, #195).
+
 ## Other changes
 
 * New link to article explaining how to make custom parameter objects.
