@@ -16,6 +16,8 @@
 
 * New link to article explaining how to make custom parameter objects.
 
+* `activation()` now supports values of `"tanh"`. 
+
 
 # dials 0.0.10
 

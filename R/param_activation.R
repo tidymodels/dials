@@ -20,4 +20,4 @@ activation <- function(values = values_activation) {
 
 #' @rdname activation
 #' @export
-values_activation <- c("linear", "softmax", "relu", "elu")
+values_activation <- c("linear", "softmax", "relu", "elu", "tanh")

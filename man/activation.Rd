@@ -6,7 +6,7 @@
 \alias{values_activation}
 \title{Activation functions between network layers}
 \format{
-An object of class \code{character} of length 4.
+An object of class \code{character} of length 5.
 }
 \usage{
 activation(values = values_activation)
