@@ -94,5 +94,6 @@ test_that('param values', {
   expect_equal(diagonal_covariance(TRUE)$values, TRUE)
   expect_equal(summary_stat()$values, values_summary_stat)
   expect_equal(survival_link()$values, values_survival_link)
+  expect_equal(activation()$values, values_activation)
 })
 
