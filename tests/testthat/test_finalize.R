@@ -1,5 +1,5 @@
 
-library(kernlab)
+suppressMessages(library(kernlab))
 
 test_that('estimate columns', {
   expect_error(get_p(1:10))
