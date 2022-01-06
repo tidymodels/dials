@@ -61,59 +61,38 @@ test_that('bad args to range_validate', {
 
 
 test_that('printing', {
-  expect_output(print(mtry()))
-  expect_output(print(surv_dist()))
+  expect_snapshot(print(mtry()))
+  expect_snapshot(print(surv_dist()))
 
-  verify_output("print_quant.txt", {
+  expect_snapshot(
     value_set(cost_complexity(), log10(c(.09, .0001)))
-  })
+  )
 })
 
 
 
 test_that('converting doubles to integers', {
-  expect_equal(
-    typeof(mtry(c(1, unknown()))$range$lower), "integer"
+  expect_type(
+    mtry(c(1, unknown()))$range$lower, "integer"
   )
-  expect_equal(
-    typeof(mtry(c(unknown(), 1))$range$upper), "integer"
+  expect_type(
+    mtry(c(unknown(), 1))$range$upper, "integer"
   )
-  expect_equal(
-    typeof(mtry(c(1, 10))$range$lower), "integer"
+  expect_type(
+    mtry(c(1, 10))$range$lower, "integer"
   )
-  expect_equal(
-    typeof(mtry(c(1, 10))$range$upper), "integer"
+  expect_type(
+    mtry(c(1, 10))$range$upper, "integer"
   )
 })
 
 
 test_that('bad ranges', {
-  expect_error(
-    mixture(c(1L, 3L)),
-    "Since `type = 'double'`, "
-  )
-  expect_error(
-    mixture(c(1L, unknown())),
-    "Since `type = 'double'`, "
-  )
-  expect_error(
-    mixture(c(unknown(), 1L)),
-    "Since `type = 'double'`, "
-  )
-  expect_error(
-    mixture(letters[1:2]),
-    "Since `type = 'double'`, "
-  )
-  expect_error(
-    mtry(c(.1, .5)),
-    "these do not appear to be whole numbers"
-  )
-  expect_error(
-    mtry(c(.1, unknown())),
-    "these do not appear to be whole numbers"
-  )
-  expect_error(
-    mtry(c(unknown(), .5)),
-    "these do not appear to be whole numbers"
-  )
+  expect_snapshot(error = TRUE, mixture(c(1L, 3L)))
+  expect_snapshot(error = TRUE, mixture(c(1L, unknown())))
+  expect_snapshot(error = TRUE, mixture(c(unknown(), 1L)))
+  expect_snapshot(error = TRUE, mixture(letters[1:2]))
+  expect_snapshot(error = TRUE, mtry(c(.1, .5)))
+  expect_snapshot(error = TRUE, mtry(c(.1, unknown())))
+  expect_snapshot(error = TRUE, mtry(c(unknown(), .5)))
 })
