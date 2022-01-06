@@ -27,32 +27,11 @@ test_that('regular usage', {
 # ------------------------------------------------------------------------------
 
 test_that('bad arguments', {
-  expect_error(
-    pull_dials_object(mod_param, "lambdas"),
-    "No parameter exists with id 'lambdas'"
-  )
-  expect_error(
-    pull_dials_object(mod_param),
-    "Please supply a single 'id' string"
-  )
-  expect_error(
-    pull_dials_object(mod_param, 1),
-    "Please supply a single 'id' string"
-  )
-  expect_error(
-    pull_dials_object(mod_param, 1:2),
-    "Please supply a single 'id' string"
-  )
-  expect_error(
-    pull_dials_object(mod_param, letters[1:2]),
-    "Please supply a single 'id' string"
-  )
-  expect_error(
-    pull_dials_object(mod_param, NA_character_),
-    "Please supply a single 'id' string"
-  )
-  expect_error(
-    pull_dials_object(mod_param, ""),
-    "Please supply a single 'id' string"
-  )
+  expect_snapshot(error = TRUE, pull_dials_object(mod_param, "lambdas"))
+  expect_snapshot(error = TRUE, pull_dials_object(mod_param))
+  expect_snapshot(error = TRUE, pull_dials_object(mod_param, 1))
+  expect_snapshot(error = TRUE, pull_dials_object(mod_param, 1:2))
+  expect_snapshot(error = TRUE, pull_dials_object(mod_param, letters[1:2]))
+  expect_snapshot(error = TRUE, pull_dials_object(mod_param, NA_character_))
+  expect_snapshot(error = TRUE, pull_dials_object(mod_param, ""))
 })
