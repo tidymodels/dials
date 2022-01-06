@@ -1,6 +1,4 @@
 
-context("qualitative parameter ranges")
-
 test_that('no transforms', {
   expect_equal(
     range_get(trees()), list(lower = 1L, upper = 2000L)

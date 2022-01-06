@@ -1,6 +1,4 @@
 
-context("qualitative parameter values")
-
 test_that('transforms with unknowns', {
   expect_error(
     value_transform(penalty(), unknown())
@@ -222,7 +220,8 @@ test_that('sampling - integers', {
   )
 })
 
-context("qualitative parameter values")
+
+# -------------------------------------------------------------------------
 
 test_param_5 <-
   new_qual_param(
@@ -279,7 +278,3 @@ test_that('sampling - character and logical', {
     sort(unique(value_sample(prune(), 500))), sort(prune()$values)
   )
 })
-
-
-
-

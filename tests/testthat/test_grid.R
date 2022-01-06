@@ -1,8 +1,4 @@
 
-context("parameter grids")
-
-# ------------------------------------------------------------------------------
-
 test_that('regular grid', {
   expect_error(
     grid_regular(mtcars)

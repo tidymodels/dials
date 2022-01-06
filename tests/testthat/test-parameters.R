@@ -7,8 +7,6 @@ set_test <- function(x) {
 
 # ------------------------------------------------------------------------------
 
-context("basic parameter set operations")
-
 test_that('create from param objects', {
 
   expect_error(p_1 <- parameters(mtry(), penalty()), NA)

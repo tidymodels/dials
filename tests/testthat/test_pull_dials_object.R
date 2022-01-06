@@ -1,5 +1,4 @@
 
-context("pulling dials objects")
 load(test_path("test_object.RData"))
 
 # ------------------------------------------------------------------------------

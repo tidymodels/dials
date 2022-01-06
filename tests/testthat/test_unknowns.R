@@ -1,6 +1,4 @@
 
-context("finding unknown values")
-
 test_that('is_unknown', {
   expect_true(
     is_unknown(unknown())
@@ -97,4 +95,3 @@ test_that("unknowns in grid functions", {
     "These arguments contains unknowns: `mtry`"
   )
 })
-

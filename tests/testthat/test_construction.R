@@ -1,7 +1,5 @@
 
-context("qualitative parameter object creation")
-
-test_that('bad args', {
+test_that('qualitative parameter object creation - bad args', {
   expect_error(
     new_qual_param("character", 1:2)
   )
@@ -11,9 +9,7 @@ test_that('bad args', {
 })
 
 
-context("quantitative parameter object creation")
-
-test_that('bad args', {
+test_that('quantitative parameter object creation - bad args', {
   expect_error(
     new_quant_param("mucus", range = 1:2, inclusive = c(TRUE, TRUE))
   )
@@ -63,8 +59,6 @@ test_that('bad args to range_validate', {
 
 })
 
-
-context("printing parameter objects")
 
 test_that('printing', {
   expect_output(print(mtry()))
@@ -123,8 +117,3 @@ test_that('bad ranges', {
     "these do not appear to be whole numbers"
   )
 })
-
-
-
-
-
