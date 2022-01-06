@@ -1,13 +1,7 @@
 
-# ------------------------------------------------------------------------------
-
-x <- mtry(c(2L, 7L))
-y <- mtry_long(c(1L, 3L))
-z <- prune_method()
-
-# ------------------------------------------------------------------------------
-
 test_that('to [0, 1] for qualitative values', {
+  z <- prune_method()
+
   z_0 <- encode_unit(z, prune_method()$values, direction = "forward")
   expect_equal(z_0, (0:5)/5)
 
@@ -17,6 +11,9 @@ test_that('to [0, 1] for qualitative values', {
 
 
 test_that('to [0, 1] for quantitative values', {
+  x <- mtry(c(2L, 7L))
+  y <- mtry_long(c(1L, 3L))
+
   x_0 <- encode_unit(x, 2:7, direction = "forward")
   expect_equal(x_0, seq(0, 1, length = 6))
 
@@ -29,11 +26,13 @@ test_that('to [0, 1] for quantitative values', {
   y_trans <- encode_unit(y, y_0, direction = "backward", original = FALSE)
   expect_equal(y_orig, 214, tolerance = 0.01)
   expect_equal(y_trans, log10(214), tolerance = 0.01)
-
 })
 
 
 test_that('missing data', {
+  x <- mtry(c(2L, 7L))
+  z <- prune_method()
+
   x_0 <- encode_unit(x, c(2L, NA_integer_), direction = "forward")
   expect_equal(x_0, c(0, NA_real_))
 
@@ -43,6 +42,9 @@ test_that('missing data', {
 
 
 test_that('bad args', {
+  x <- mtry(c(2L, 7L))
+  z <- prune_method()
+
   z_0 <- encode_unit(z, prune_method()$values, direction = "forward")
   x_0 <- encode_unit(x, 2:7, direction = "forward")
 
@@ -87,5 +89,4 @@ test_that('bad args', {
   expect_error(
     encode_unit(z, 1:2, direction = "backward")
   )
-
 })
