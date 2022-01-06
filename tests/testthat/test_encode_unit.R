@@ -24,11 +24,11 @@ test_that('to [0, 1] for quantitative values', {
   expect_equal(x_back, c(2L, 4L, 7L, 7L))
 
   y_0 <- encode_unit(y, log10(214), direction = "forward")
-  expect_equal(y_0, 0.66, tol = 0.01)
+  expect_equal(y_0, 0.66, tolerance = 0.01)
   y_orig <- encode_unit(y, y_0, direction = "backward", original = TRUE)
   y_trans <- encode_unit(y, y_0, direction = "backward", original = FALSE)
-  expect_equal(y_orig, 214, tol = 0.01)
-  expect_equal(y_trans, log10(214), tol = 0.01)
+  expect_equal(y_orig, 214, tolerance = 0.01)
+  expect_equal(y_trans, log10(214), tolerance = 0.01)
 
 })
 
