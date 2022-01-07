@@ -18,26 +18,26 @@ test_that('bad arguments', {
   )
   expect_error(
     extract_parameter_dials(mod_param),
-    "Please supply a single 'id' string"
+    "Please supply a single 'parameter' string"
   )
   expect_error(
     extract_parameter_dials(mod_param, 1),
-    "Please supply a single 'id' string"
+    "Please supply a single 'parameter' string"
   )
   expect_error(
     extract_parameter_dials(mod_param, 1:2),
-    "Please supply a single 'id' string"
+    "Please supply a single 'parameter' string"
   )
   expect_error(
     extract_parameter_dials(mod_param, letters[1:2]),
-    "Please supply a single 'id' string"
+    "Please supply a single 'parameter' string"
   )
   expect_error(
     extract_parameter_dials(mod_param, NA_character_),
-    "Please supply a single 'id' string"
+    "Please supply a single 'parameter' string"
   )
   expect_error(
     extract_parameter_dials(mod_param, ""),
-    "Please supply a single 'id' string"
+    "Please supply a single 'parameter' string"
   )
 })
