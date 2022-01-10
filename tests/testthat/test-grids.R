@@ -1,8 +1,4 @@
 
-context("parameter grids")
-
-# ------------------------------------------------------------------------------
-
 test_that('regular grid', {
   expect_error(
     grid_regular(mtcars)
@@ -60,23 +56,12 @@ test_that('random grid', {
 
 
 test_that('wrong argument name', {
+  skip_if_below_r_version("3.6")
   p <- parameters(penalty(), mixture())
-  expect_warning(
-    grid_latin_hypercube(p, levels = 5),
-    "Did you mean `size`"
-  )
-  expect_warning(
-    grid_max_entropy(p, levels = 5),
-    "Did you mean `size`"
-  )
-  expect_warning(
-    grid_random(p, levels = 5),
-    "Did you mean `size`"
-  )
-  expect_warning(
-    grid_regular(p, size = 5),
-    "Did you mean `levels`"
-  )
+  expect_snapshot(grid_latin_hypercube(p, levels = 5))
+  expect_snapshot(grid_max_entropy(p, levels = 5))
+  expect_snapshot(grid_random(p, levels = 5))
+  expect_snapshot(grid_regular(p, size = 5))
 })
 
 test_that('filter arg yields same results', {
@@ -102,4 +87,3 @@ test_that('new param grid from conventional data frame', {
  expect_error(y <- dials:::new_param_grid(x), regexp = NA)
  expect_true(tibble::is_tibble(y))
 })
-

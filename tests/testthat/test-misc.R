@@ -1,8 +1,4 @@
 
-# ------------------------------------------------------------------------------
-
-context("misc functions")
-
 test_that('package install checks', {
 
   expect_error(dials:::check_installs("pistachio"))

@@ -33,11 +33,12 @@ Suggests:
     knitr,
     rmarkdown,
     rpart,
-    testthat,
+    testthat (>= 3.0.0),
     xml2
 VignetteBuilder: 
     knitr
 ByteCompile: true
+Config/testthat/edition: 3
 Config/Needs/website: 
     tidyverse/tidytemplate
 Encoding: UTF-8

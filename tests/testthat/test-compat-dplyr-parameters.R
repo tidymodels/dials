@@ -1,7 +1,7 @@
 # Skip entire file if dplyr < 1.0.0
 skip_if(dplyr_pre_1.0.0())
 
-library(dplyr)
+suppressMessages(library(dplyr))
 
 # ------------------------------------------------------------------------------
 # dplyr_reconstruct()

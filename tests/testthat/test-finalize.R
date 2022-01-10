@@ -1,7 +1,5 @@
 
-library(kernlab)
-
-context("finalizing ranges")
+suppressMessages(library(kernlab))
 
 test_that('estimate columns', {
   expect_error(get_p(1:10))
@@ -68,5 +66,3 @@ test_that('force', {
   expect_true(rbf_sigma_same$range$lower == rbf_sigma()$range$lower)
   expect_true(rbf_sigma_same$range$upper == rbf_sigma()$range$upper)
 })
-
-

@@ -1,6 +1,4 @@
 
-context("qualitative parameter objects")
-
 test_that('param ranges', {
   expect_equal(min_n(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(sample_size(1:2)$range, list(lower = 1L, upper = 2L))
