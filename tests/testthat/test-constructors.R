@@ -61,8 +61,8 @@ test_that('bad args to range_validate', {
 
 
 test_that('printing', {
-  expect_snapshot(print(mtry()))
-  expect_snapshot(print(surv_dist()))
+  expect_snapshot(mtry())
+  expect_snapshot(surv_dist())
 
   expect_snapshot(
     value_set(cost_complexity(), log10(c(.09, .0001)))

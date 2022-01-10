@@ -1,7 +1,7 @@
 # printing
 
     Code
-      print(mtry())
+      mtry()
     Output
       # Randomly Selected Predictors (quantitative)
       Range: [1, ?]
@@ -9,7 +9,7 @@
 ---
 
     Code
-      print(surv_dist())
+      surv_dist()
     Output
       Distribution  (qualitative)
       6 possible value include:

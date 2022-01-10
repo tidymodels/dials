@@ -294,11 +294,9 @@ test_that('sequences - logical', {
 
 
 test_that('sampling - character and logical', {
-  #set.seed(9950)
   expect_equal(
     sort(unique(value_sample(surv_dist(), 500))), sort(surv_dist()$values)
   )
-  #set.seed(9950)
   expect_equal(
     sort(unique(value_sample(prune(), 500))), sort(prune()$values)
   )
