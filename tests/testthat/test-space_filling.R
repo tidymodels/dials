@@ -1,8 +1,4 @@
 
-context("space filling designs")
-
-# ------------------------------------------------------------------------------
-
 test_that('max entropy designs', {
 
   grid_1 <- grid_max_entropy(

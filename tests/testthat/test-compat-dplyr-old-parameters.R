@@ -5,7 +5,7 @@
 # Do not just delete them, as they are important tests and are not repeated in
 # `test-compat-dplyr-parameters.R`.
 
-library(dplyr)
+suppressMessages(library(dplyr))
 
 # ------------------------------------------------------------------------------
 # mutate()

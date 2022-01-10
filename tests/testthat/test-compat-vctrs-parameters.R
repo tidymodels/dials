@@ -142,7 +142,16 @@ test_that("vec_cbind() returns a bare tibble", {
   tbl <- tib_upcast(x)
 
   expect_identical(vec_cbind(x), vec_cbind(tbl))
-  expect_identical(vec_cbind(x, x), vec_cbind(tbl, tbl))
-  expect_identical(vec_cbind(x, tbl), vec_cbind(tbl, tbl))
-  expect_identical(vec_cbind(tbl, x), vec_cbind(tbl, tbl))
+  expect_identical(
+    suppressMessages(vec_cbind(x, x)),
+    suppressMessages(vec_cbind(tbl, tbl))
+  )
+  expect_identical(
+    suppressMessages(vec_cbind(x, tbl)),
+    suppressMessages(vec_cbind(tbl, tbl))
+  )
+  expect_identical(
+    suppressMessages(vec_cbind(tbl, x)),
+    suppressMessages(vec_cbind(tbl, tbl))
+  )
 })
