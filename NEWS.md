@@ -18,6 +18,8 @@
 
 * `activation()` now supports values of `"tanh"`. 
 
+* New `extract_parameter_dials()` method for parameter sets of class `parameters`.
+
 
 # dials 0.0.10
 
