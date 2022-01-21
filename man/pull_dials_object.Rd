@@ -30,6 +30,11 @@ specification, or workflow.}
 A \code{dials} parameter object.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+
+This function has been deprecated, please use
+\code{hardhat::extract_parameter_dials()} instead.
+
 \code{pull_dials_object()} can extract a single \code{dials} parameter object from
 different types of objects (e.g. parameter sets, recipes, etc.).
 }
@@ -39,4 +44,7 @@ pull_dials_object(glmn_param, "lambda")
 
 # fails:
 # pull_dials_object(glmn_param, "penalty")
+# ->
+extract_parameter_dials(glmn_param, "lambda")
 }
+\keyword{internal}

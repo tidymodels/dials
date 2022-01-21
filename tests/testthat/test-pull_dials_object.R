@@ -1,9 +1,13 @@
 
 load(test_path("data", "test_object.RData"))
 
-# ------------------------------------------------------------------------------
+test_that("pull_dials_object is deprecated", {
+  expect_snapshot(pull_dials_object(mod_param, "mixture"))
+})
 
 test_that('regular usage', {
+  withr::local_options(lifecycle_verbosity = "quiet")
+
   # perhaps move these to extratests
   # expect_equal(pull_dials_object(mod, "lambda"), penalty())
   # expect_equal(pull_dials_object(mod, "mixture"), mixture(c(0.05, 1)))
@@ -24,9 +28,9 @@ test_that('regular usage', {
   expect_equal(pull_dials_object(wflow_param, "disp"), spline_degree(c(1, 15)))
 })
 
-# ------------------------------------------------------------------------------
-
 test_that('bad arguments', {
+  withr::local_options(lifecycle_verbosity = "quiet")
+
   expect_snapshot(error = TRUE, pull_dials_object(mod_param, "lambdas"))
   expect_snapshot(error = TRUE, pull_dials_object(mod_param))
   expect_snapshot(error = TRUE, pull_dials_object(mod_param, 1))
