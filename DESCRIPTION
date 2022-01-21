@@ -21,6 +21,7 @@ Imports:
     dplyr (>= 0.8.5),
     glue,
     hardhat (>= 0.1.6.9000),
+    lifecycle,
     purrr,
     rlang,
     tibble,
