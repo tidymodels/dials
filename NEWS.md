@@ -20,6 +20,8 @@
 
 * New `extract_parameter_dials()` method for parameter sets of class `parameters`.
 
+* `pull_dials_object()` has been deprecated.
+
 
 # dials 0.0.10
 
