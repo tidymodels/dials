@@ -3,7 +3,7 @@
 #' @description
 #' `r lifecycle::badge("deprecated")`
 #'
-#' This function has been deprecated, please use
+#' This function has been deprecated; please use
 #' `hardhat::extract_parameter_dials()` instead.
 #'
 #' `pull_dials_object()` can extract a single `dials` parameter object from
