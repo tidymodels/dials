@@ -21,7 +21,7 @@ in examples below.}
 Estimation methods for regularized models
 }
 \details{
-This parameter is used in \code{\link[discrim:discrim_linear]{discrim::discrim_linear()}}.
+This parameter is used in \code{parsnip::discrim_linear()}.
 }
 \examples{
 values_regularization_method
