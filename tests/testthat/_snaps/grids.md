@@ -2,7 +2,7 @@
 
     Code
       grid_latin_hypercube(p, levels = 5)
-    Warning <warning>
+    Warning <rlang_warning>
       `levels` is not an argument to `grid_latin_hypercube()`. Did you mean `size`?
     Output
       # A tibble: 3 x 2
@@ -16,7 +16,7 @@
 
     Code
       grid_max_entropy(p, levels = 5)
-    Warning <warning>
+    Warning <rlang_warning>
       `levels` is not an argument to `grid_max_entropy()`. Did you mean `size`?
     Output
       # A tibble: 3 x 2
@@ -30,7 +30,7 @@
 
     Code
       grid_random(p, levels = 5)
-    Warning <warning>
+    Warning <rlang_warning>
       `levels` is not an argument to `grid_random()`. Did you mean `size`?
     Output
       # A tibble: 5 x 2
@@ -46,7 +46,7 @@
 
     Code
       grid_regular(p, size = 5)
-    Warning <warning>
+    Warning <rlang_warning>
       `size` is not an argument to `grid_regular()`. Did you mean `levels`?
     Output
       # A tibble: 9 x 2
