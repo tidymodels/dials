@@ -109,28 +109,29 @@ a new range.</p>
 <span class="r-in">  <span class="fu">range_validate</span><span class="op">(</span><span class="va">my_lambda</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">10</span>, <span class="cn">NA</span><span class="op">)</span><span class="op">)</span>, silent <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span class="r-in"><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
 <span class="r-in">  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Error : Value ranges must be non-missing.\n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Error in range_validate(my_lambda, c(-10, NA)) : \n  Value ranges must be non-missing.\n"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "try-error"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"condition")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">&lt;error/`Inf` and `unknown()` are acceptable values.&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Value ranges must be non-missing.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">&lt;error/`Inf` and `unknown()` are acceptable values.&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in </span><span style="color: #262626; background-color: #DADADA; font-weight: bold;">`range_validate()`</span><span style="font-weight: bold;">:</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Value ranges must be non-missing.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Backtrace:</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  1. </span>pkgdown::deploy_to_branch(new_process = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  1. </span><span style="font-weight: bold;">pkgdown</span>::deploy_to_branch(new_process = FALSE)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  2. </span>pkgdown::build_site_github_pages(pkg, ..., clean = clean)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  3. </span>pkgdown::build_site(...)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  4. </span>pkgdown:::build_site_local(...)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  5. </span>pkgdown::build_reference(...)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  6. </span>purrr::map(...)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  7. </span>pkgdown:::.f(.x[[i]], ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  6. </span><span style="font-weight: bold;">purrr</span>::map(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  7. </span><span style="font-weight: bold;">pkgdown</span> .f(.x[[i]], ...)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  9. </span>pkgdown:::data_reference_topic(...)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 10. </span>pkgdown:::run_examples(...)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 11. </span>pkgdown:::highlight_examples(code, topic, env = env)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 12. </span>downlit::evaluate_and_highlight(...)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 13. </span>evaluate::evaluate(code, child_env(env), new_device = TRUE, output_handler = output_handler)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 12. </span><span style="font-weight: bold;">downlit</span>::evaluate_and_highlight(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 13. </span><span style="font-weight: bold;">evaluate</span>::evaluate(code, child_env(env), new_device = TRUE, output_handler = output_handler)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 14. </span>evaluate:::evaluate_call(...)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 24. </span>[ base::eval(...) ]<span style="color: #555555;"> with 1 more call</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 33. </span>dials::range_validate(my_lambda, c(-10, NA))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 33. </span><span style="font-weight: bold;">dials</span>::range_validate(my_lambda, c(-10, NA))</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">range_get</span><span class="op">(</span><span class="va">my_lambda</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $lower</span>
