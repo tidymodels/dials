@@ -2,8 +2,7 @@
 
     Code
       pull_dials_object(mod_param, "mixture")
-    Condition
-      Warning:
+    Warning <lifecycle_warning_deprecated>
       `pull_dials_object()` was deprecated in dials 0.0.11.
       Please use `hardhat::extract_parameter_dials()` instead.
     Output
@@ -14,55 +13,48 @@
 
     Code
       pull_dials_object(mod_param, "lambdas")
-    Condition
-      Error in `pull_dials_object()`:
-      ! No parameter exists with id 'lambdas'.
+    Error <rlang_error>
+      No parameter exists with id 'lambdas'.
 
 ---
 
     Code
       pull_dials_object(mod_param)
-    Condition
-      Error in `pull_dials_object()`:
-      ! Please supply a single 'id' string.
+    Error <rlang_error>
+      Please supply a single 'id' string.
 
 ---
 
     Code
       pull_dials_object(mod_param, 1)
-    Condition
-      Error in `pull_dials_object()`:
-      ! Please supply a single 'id' string.
+    Error <rlang_error>
+      Please supply a single 'id' string.
 
 ---
 
     Code
       pull_dials_object(mod_param, 1:2)
-    Condition
-      Error in `pull_dials_object()`:
-      ! Please supply a single 'id' string.
+    Error <rlang_error>
+      Please supply a single 'id' string.
 
 ---
 
     Code
       pull_dials_object(mod_param, letters[1:2])
-    Condition
-      Error in `pull_dials_object()`:
-      ! Please supply a single 'id' string.
+    Error <rlang_error>
+      Please supply a single 'id' string.
 
 ---
 
     Code
       pull_dials_object(mod_param, NA_character_)
-    Condition
-      Error in `pull_dials_object()`:
-      ! Please supply a single 'id' string.
+    Error <rlang_error>
+      Please supply a single 'id' string.
 
 ---
 
     Code
       pull_dials_object(mod_param, "")
-    Condition
-      Error in `pull_dials_object()`:
-      ! Please supply a single 'id' string.
+    Error <rlang_error>
+      Please supply a single 'id' string.
 
