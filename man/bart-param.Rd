@@ -31,5 +31,5 @@ These parameters are used for constructing Bayesian adaptive regression tree
 }
 \details{
 These parameters are often used with Bayesian adaptive regression trees (BART)
-via \code{\link[parsnip:bart]{parsnip::bart()}}.
+via \code{parsnip::bart()}.
 }

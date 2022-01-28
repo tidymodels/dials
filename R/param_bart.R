@@ -7,7 +7,7 @@
 #'
 #' @details
 #' These parameters are often used with Bayesian adaptive regression trees (BART)
-#' via [parsnip::bart()].
+#' via `parsnip::bart()`.
 #' @name bart-param
 #' @export
 prior_terminal_node_coef <- function(range = c(0, 1), trans = NULL) {

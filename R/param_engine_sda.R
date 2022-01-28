@@ -1,7 +1,7 @@
 #' Parameters for possible engine parameters for sda models
 #'
 #' These functions can be used to optimize engine-specific parameters of
-#' [sda::sda()] via [discrim::discrim_linear()].
+#' `sda::sda()` via `parsnip::discrim_linear()`.
 #'
 #' @param range A two-element vector holding the _defaults_ for the smallest and
 #' largest possible values, respectively.
@@ -13,7 +13,7 @@
 #' @return  For the functions, they return a function with classes "param" and
 #' either "quant_param" or "qual_param".
 #' @details
-#' These functions map to [sda::sda()] arguments via:
+#' These functions map to `sda::sda()` arguments via:
 #'
 #' \itemize{
 #' \item \code{shrinkage_correlation()} to `lambda`

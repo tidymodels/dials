@@ -32,10 +32,10 @@ either "quant_param" or "qual_param".
 }
 \description{
 These functions can be used to optimize engine-specific parameters of
-\code{\link[sda:sda]{sda::sda()}} via \code{\link[discrim:discrim_linear]{discrim::discrim_linear()}}.
+\code{sda::sda()} via \code{parsnip::discrim_linear()}.
 }
 \details{
-These functions map to \code{\link[sda:sda]{sda::sda()}} arguments via:
+These functions map to \code{sda::sda()} arguments via:
 
 \itemize{
 \item \code{shrinkage_correlation()} to \code{lambda}

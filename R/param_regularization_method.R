@@ -4,7 +4,7 @@
 #'  in examples below.
 #'
 #' @details
-#' This parameter is used in [discrim::discrim_linear()].
+#' This parameter is used in `parsnip::discrim_linear()`.
 #' @examples
 #' values_regularization_method
 #' regularization_method()
