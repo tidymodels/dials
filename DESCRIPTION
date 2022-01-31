@@ -1,6 +1,6 @@
 Package: dials
 Title: Tools for Creating Tuning Parameter Values
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: c(
     person("Max", "Kuhn", , "max@rstudio.com", role = "aut"),
     person("Hannah", "Frick", , "hannah@rstudio.com", role = c("aut", "cre")),
