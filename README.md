@@ -5,8 +5,8 @@
 
 [![R-CMD-check](https://github.com/tidymodels/dials/workflows/R-CMD-check/badge.svg)](https://github.com/tidymodels/dials/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/tidymodels/dials/branch/main/graph/badge.svg)](https://codecov.io/gh/tidymodels/dials?branch=main)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dials)](https://CRAN.R-project.org/package=dials)
+coverage](https://codecov.io/gh/tidymodels/dials/branch/main/graph/badge.svg)](https://app.codecov.io/gh/tidymodels/dials?branch=main)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/dials)](https://CRAN.R-project.org/package=dials)
 [![Downloads](http://cranlogs.r-pkg.org/badges/dials)](https://CRAN.R-project.org/package=dials)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 
@@ -52,8 +52,9 @@ By contributing to this project, you agree to abide by its terms.
     issue](https://github.com/tidymodels/dials/issues).
 
 -   Either way, learn how to create and share a
-    [reprex](https://reprex.tidyverse.org/articles/articles/learn-reprex.html) (a minimal, reproducible example),
-    to clearly communicate about your code.
+    [reprex](https://reprex.tidyverse.org/articles/articles/learn-reprex.html)
+    (a minimal, reproducible example), to clearly communicate about your
+    code.
 
 -   Check out further details on [contributing guidelines for tidymodels
     packages](https://www.tidymodels.org/contribute/) and [how to get
