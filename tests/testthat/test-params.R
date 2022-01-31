@@ -69,6 +69,7 @@ test_that('param ranges', {
   expect_equal(prior_terminal_node_expo(c(1, 2))$range, list(lower = 1, upper = 2))
   expect_equal(prior_outcome_range(c(1, 5))$range, list(lower = 1, upper = 5))
   expect_equal(num_knots(c(1, 5))$range, list(lower = 1, upper = 5))
+  expect_equal(vocabulary_size(c(1000, 10000))$range, list(lower = 1000, upper = 10000))
 })
 
 

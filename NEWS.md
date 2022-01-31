@@ -12,6 +12,8 @@
 * `num_knots()` and `survival_link()` are new parameters for spline survival 
   models (@mattwarkentin, #195).
 
+* `vocabulary_size()` is a new parameter used in `textrecipes::step_tokenize_sentencepiece()` and `textrecipes::step_tokenize_bpe()`.
+
 ## Other changes
 
 * New link to article explaining how to make custom parameter objects.
