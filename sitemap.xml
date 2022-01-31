@@ -1,7 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://dials.tidymodels.org/404.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/CONTRIBUTING.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/articles/dials.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/authors.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/index.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/news/index.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/Chicago.html</loc>
@@ -19,7 +46,13 @@
     <loc>https://dials.tidymodels.org/reference/all_neighbors.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/reference/bart-param.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/reference/c5_parameters.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/reference/class_weights.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/conditional_min_criterion.html</loc>
@@ -64,6 +97,9 @@
     <loc>https://dials.tidymodels.org/reference/grid_regular.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/reference/index.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/reference/learn_rate.html</loc>
   </url>
   <url>
@@ -98,6 +134,9 @@
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/num_comp.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/reference/num_knots.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/num_tokens.html</loc>
@@ -139,6 +178,9 @@
     <loc>https://dials.tidymodels.org/reference/rbf_sigma.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/reference/reexports.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/reference/regularization_method.html</loc>
   </url>
   <url>
@@ -154,7 +196,13 @@
     <loc>https://dials.tidymodels.org/reference/stop_iter.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/reference/summary_stat.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/reference/surv_dist.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/reference/survival_link.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/texthash.html</loc>
@@ -181,6 +229,9 @@
     <loc>https://dials.tidymodels.org/reference/value_validate.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/reference/vocabulary_size.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/reference/weight.html</loc>
   </url>
   <url>
@@ -194,8 +245,5 @@
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/xgboost_parameters.html</loc>
-  </url>
-  <url>
-    <loc>https://dials.tidymodels.org/articles/Basics.html</loc>
   </url>
 </urlset>
