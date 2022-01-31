@@ -1,4 +1,4 @@
-# dials (development version)
+# dials 0.1.0
 
 ## New parameters
 
@@ -6,23 +6,25 @@
 
 * A general `class_weights()` parameter was added for imbalanced models. 
 
-* Three new parameters for prior distribution specification related to 
-  `parsnip::bart()`.
+* `prior_outcome_range()`, `prior_terminal_node_coef()`, and 
+  `prior_terminal_node_expo()` are new parameters for prior distribution 
+  specification related to `parsnip::bart()`.
 
 * `num_knots()` and `survival_link()` are new parameters for spline survival 
   models (@mattwarkentin, #195).
 
-* `vocabulary_size()` is a new parameter used in `textrecipes::step_tokenize_sentencepiece()` and `textrecipes::step_tokenize_bpe()`.
+* `vocabulary_size()` is a new parameter used in 
+  `textrecipes::step_tokenize_sentencepiece()` and `textrecipes::step_tokenize_bpe()`.
 
 ## Other changes
 
-* New link to article explaining how to make custom parameter objects.
+* The new `extract_parameter_dials()` method supersedes `pull_dials_object()` 
+  which has been deprecated.
 
 * `activation()` now supports values of `"tanh"`. 
 
-* New `extract_parameter_dials()` method for parameter sets of class `parameters`.
-
-* `pull_dials_object()` has been deprecated.
+* New link to article explaining how to make custom parameter objects was added 
+  to the pkgdown site.
 
 
 # dials 0.0.10
