@@ -25,7 +25,7 @@
 #' @export
 pull_dials_object <- function(x, id, ...) {
   lifecycle::deprecate_warn(
-    "0.0.11",
+    "0.1.0",
     "pull_dials_object()",
     "hardhat::extract_parameter_dials()"
   )

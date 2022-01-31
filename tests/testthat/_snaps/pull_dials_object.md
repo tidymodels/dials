@@ -3,7 +3,7 @@
     Code
       pull_dials_object(mod_param, "mixture")
     Warning <lifecycle_warning_deprecated>
-      `pull_dials_object()` was deprecated in dials 0.0.11.
+      `pull_dials_object()` was deprecated in dials 0.1.0.
       Please use `hardhat::extract_parameter_dials()` instead.
     Output
       Proportion of Lasso Penalty (quantitative)
