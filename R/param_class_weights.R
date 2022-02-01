@@ -5,7 +5,7 @@
 #'
 #' @inheritParams Laplace
 #' @details
-#' Used in `lantern::lanter_logistic_reg()` and `lantern::lanter_mlp()`
+#' Used in `brulee::brulee_logistic_reg()` and `brulee::brulee_mlp()`
 #' @examples
 #' class_weights()
 #' @export

@@ -20,7 +20,7 @@ This parameter can be used to moderate how much influence certain classes
 receive during training.
 }
 \details{
-Used in \code{lantern::lanter_logistic_reg()} and \code{lantern::lanter_mlp()}
+Used in \code{brulee::brulee_logistic_reg()} and \code{brulee::brulee_mlp()}
 }
 \examples{
 class_weights()
