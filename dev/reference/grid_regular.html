@@ -138,7 +138,7 @@ argument above is different for <code>glmnet</code> models:</p><div class="sourc
 
 <span class="co"># When used with glmnet, the range is [0.05, 1.00]</span>
 <span class="va">glmn_mod</span> <span class="op">&lt;-</span>
-  <span class="fu">linear_reg</span><span class="op">(</span>mixture <span class="op">=</span> <span class="fu">tune</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
+  <span class="fu">linear_reg</span><span class="op">(</span>mixture <span class="op">=</span> <span class="fu">tune</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://purrr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span>
   <span class="fu">set_engine</span><span class="op">(</span><span class="st">"glmnet"</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">283</span><span class="op">)</span>
@@ -225,13 +225,13 @@ argument above is different for <code>glmnet</code> models:</p><div class="sourc
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">12</span> 1              1    </span>
 <span class="r-in"><span class="fu">grid_random</span><span class="op">(</span><span class="fu"><a href="penalty.html">penalty</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="mixture.html">mixture</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 5 × 2</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    penalty mixture</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 1.92<span style="color: #949494;">e</span><span style="color: #BB0000;">- 9</span>  0.054<span style="text-decoration: underline;">3</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 1.66<span style="color: #949494;">e</span><span style="color: #BB0000;">-10</span>  0.374 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 2.63<span style="color: #949494;">e</span><span style="color: #BB0000;">-10</span>  0.762 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 8.39<span style="color: #949494;">e</span><span style="color: #BB0000;">- 9</span>  0.673 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 1.36<span style="color: #949494;">e</span><span style="color: #BB0000;">- 1</span>  0.423 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>         penalty mixture</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 0.000<span style="text-decoration: underline;">000</span>004<span style="text-decoration: underline;">33</span>   0.312</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 0.000<span style="text-decoration: underline;">000</span>043<span style="text-decoration: underline;">5</span>    0.174</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 0.003<span style="text-decoration: underline;">59</span>         0.423</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> 0.000<span style="text-decoration: underline;">002</span>99      0.192</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> 0.000<span style="text-decoration: underline;">001</span>46      0.633</span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>

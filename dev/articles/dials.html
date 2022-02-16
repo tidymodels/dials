@@ -173,7 +173,7 @@
 
 <span class="co"># Here the specific Cp values, on their natural scale, are added:</span>
 <span class="va">mtcars_cp</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/trees.html">cost_complexity</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="../reference/value_validate.html">value_set</a></span><span class="op">(</span><span class="va">cp_vals</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in </span><span style="color: #262626; background-color: #DADADA; font-weight: bold;">`new_quant_param()`</span><span style="font-weight: bold;">:</span></span>
+<span class="co">#&gt; <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in `new_quant_param()`:</span></span>
 <span class="co">#&gt; <span style="color: #BBBB00;">!</span> Some values are not valid: 0.09748...</span></code></pre></div>
 <p>The error occurs because the values are not in the transformed scale:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
