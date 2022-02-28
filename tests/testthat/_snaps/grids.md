@@ -3,7 +3,7 @@
     Code
       grid_regular(mixture(), trees(), levels = 1:4)
     Condition
-      Error in `make_regular_grid()`:
+      Error in `grid_regular()`:
       ! `levels` should have length 1 or 2
 
 # wrong argument name
