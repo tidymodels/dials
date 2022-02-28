@@ -27,7 +27,7 @@
     Code
       new_quant_param("double", range = 1, inclusive = c(TRUE, TRUE))
     Condition
-      Error in `check_label()`:
+      Error in `new_quant_param()`:
       ! `label` should be a single named character string or NULL.
 
 ---
@@ -35,7 +35,7 @@
     Code
       new_quant_param("double", range = c(1, NA), inclusive = c(TRUE, TRUE))
     Condition
-      Error in `check_label()`:
+      Error in `new_quant_param()`:
       ! `label` should be a single named character string or NULL.
 
 ---
@@ -59,7 +59,7 @@
     Code
       new_quant_param("double", range = c(1, NA), inclusive = c(TRUE, TRUE))
     Condition
-      Error in `check_label()`:
+      Error in `new_quant_param()`:
       ! `label` should be a single named character string or NULL.
 
 ---
