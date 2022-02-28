@@ -65,9 +65,10 @@ check_label <- function(txt, ..., call = caller_env()) {
   invisible(txt)
 }
 
-check_finalize <- function(x) {
+check_finalize <- function(x, ..., call = caller_env()) {
+  check_dots_empty()
   if (!is.null(x) & !is.function(x))
-    rlang::abort("`finalize` should be NULL or a function.")
+    rlang::abort("`finalize` should be NULL or a function.", call = call)
   invisible(x)
 }
 
