@@ -301,3 +301,9 @@ test_that('sampling - character and logical', {
     sort(unique(value_sample(prune(), 500))), sort(prune()$values)
   )
 })
+
+test_that("validate unknowns", {
+  expect_snapshot(error = TRUE,
+    value_validate(mtry(), 17)
+  )
+})
