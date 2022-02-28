@@ -121,8 +121,9 @@ a new range.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 11. </span><span style="font-weight: bold;">downlit</span>::evaluate_and_highlight(...)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 12. </span><span style="font-weight: bold;">evaluate</span>::evaluate(code, child_env(env), new_device = TRUE, output_handler = output_handler)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 13. </span>evaluate:::evaluate_call(...)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 23. </span>[ base::eval(...) ]<span style="color: #555555;"> with 1 more call</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 32. </span><span style="font-weight: bold;">dials</span>::range_validate(my_lambda, c(-10, NA))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 23. </span>evaluate:::eval_with_user_handlers(expr, envir, enclos, user_handlers)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 24. </span>[ base::eval(...) ]<span style="color: #555555;"> with 1 more call</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 33. </span><span style="font-weight: bold;">dials</span>::range_validate(my_lambda, c(-10, NA))</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu">range_get</span><span class="op">(</span><span class="va">my_lambda</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $lower</span>
