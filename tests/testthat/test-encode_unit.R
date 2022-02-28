@@ -48,45 +48,45 @@ test_that('bad args', {
   z_0 <- encode_unit(z, prune_method()$values, direction = "forward")
   x_0 <- encode_unit(x, 2:7, direction = "forward")
 
-  expect_error(
+  expect_snapshot(error = TRUE,
     encode_unit(2, prune_method()$values, direction = "forward")
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     encode_unit(z, prune_method()$values, direction = "forwards")
   )
 
-  expect_error(
+  expect_snapshot(error = TRUE,
     encode_unit(x, prune_method()$values, direction = "forward")
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     encode_unit(z, 1, direction = "forward")
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     encode_unit(x, matrix(letters[1:4], ncol = 2), direction = "forward")
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     encode_unit(x, matrix(1:4, ncol = 2), direction = "forward")
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     encode_unit(z, 1, direction = "forward")
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     encode_unit(z, matrix(1:4, ncol = 2), direction = "forward")
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     encode_unit(z, matrix(letters[1:4], ncol = 2), direction = "forward")
   )
 
-  expect_error(
+  expect_snapshot(error = TRUE,
     encode_unit(x, prune_method()$values, direction = "backward")
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     encode_unit(z, prune_method()$values, direction = "backward")
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     encode_unit(x, 1:2, direction = "backward")
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     encode_unit(z, 1:2, direction = "backward")
   )
 })

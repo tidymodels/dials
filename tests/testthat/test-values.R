@@ -1,15 +1,15 @@
 
 test_that('transforms with unknowns', {
-  expect_error(
+  expect_snapshot(error = TRUE,
     value_transform(penalty(), unknown())
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     value_transform(penalty(), c(unknown(), 1, unknown()))
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     value_inverse(penalty(), unknown())
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     value_inverse(penalty(), c(unknown(), 1, unknown()))
   )
 })

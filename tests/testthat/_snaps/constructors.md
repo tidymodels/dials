@@ -1,3 +1,131 @@
+# qualitative parameter object creation - bad args
+
+    Code
+      new_qual_param("character", 1:2)
+    Condition
+      Error in `new_qual_param()`:
+      ! `values` must be character
+
+---
+
+    Code
+      new_qual_param("logical", letters[1:2])
+    Condition
+      Error in `new_qual_param()`:
+      ! `values` must be logical
+
+# quantitative parameter object creation - bad args
+
+    Code
+      new_quant_param("mucus", range = 1:2, inclusive = c(TRUE, TRUE))
+    Condition
+      Error in `match.arg()`:
+      ! 'arg' should be one of "double", "integer"
+
+---
+
+    Code
+      new_quant_param("double", range = 1, inclusive = c(TRUE, TRUE))
+    Condition
+      Error in `check_label()`:
+      ! `label` should be a single named character string or NULL.
+
+---
+
+    Code
+      new_quant_param("double", range = c(1, NA), inclusive = c(TRUE, TRUE))
+    Condition
+      Error in `check_label()`:
+      ! `label` should be a single named character string or NULL.
+
+---
+
+    Code
+      new_quant_param("double", range = c(1, NA), inclusive = TRUE)
+    Condition
+      Error in `new_quant_param()`:
+      ! `inclusive` must have upper and lower values.
+
+---
+
+    Code
+      new_quant_param("double", range = c(1, NA), inclusive = c("(", "]"))
+    Condition
+      Error in `new_quant_param()`:
+      ! `inclusive` should be logical
+
+---
+
+    Code
+      new_quant_param("double", range = c(1, NA), inclusive = c(TRUE, TRUE))
+    Condition
+      Error in `check_label()`:
+      ! `label` should be a single named character string or NULL.
+
+---
+
+    Code
+      new_quant_param("double", range = 1:2, inclusive = c(TRUE, NA))
+    Condition
+      Error in `check_range()`:
+      ! Since `type = 'double'`, please use that data type for the range.
+
+---
+
+    Code
+      new_quant_param("double", range = 1:2, inclusive = c(TRUE, unknown()))
+    Condition
+      Error in `check_range()`:
+      ! Since `type = 'double'`, please use that data type for the range.
+
+---
+
+    Code
+      new_quant_param("double", range = 1:2, inclusive = c(TRUE, TRUE), trans = log)
+    Condition
+      Error in `new_quant_param()`:
+      ! `trans` must be a 'trans' class object (or NULL). See `?scales::trans_new`.
+
+---
+
+    Code
+      new_quant_param("double", range = 1:2, inclusive = c(TRUE, TRUE), values = 1:4)
+    Condition
+      Error in `check_range()`:
+      ! Since `type = 'double'`, please use that data type for the range.
+
+# bad args to range_validate
+
+    Code
+      range_validate(mtry(), range = 1)
+    Condition
+      Error in `range_validate()`:
+      ! `range` must have an upper and lower bound. `Inf` and `unknown()` are acceptable values.
+
+---
+
+    Code
+      range_validate(mtry(), range = c(1, NA))
+    Condition
+      Error in `range_validate()`:
+      ! Value ranges must be non-missing.
+
+---
+
+    Code
+      range_validate(mtry(), range = c(1, unknown()), FALSE)
+    Condition
+      Error in `range_validate()`:
+      ! Cannot validate ranges when they contains 1+ unknown values.
+
+---
+
+    Code
+      range_validate(mtry(), range = letters[1:2])
+    Condition
+      Error in `range_validate()`:
+      ! Value ranges must be numeric.
+
 # printing
 
     Code
