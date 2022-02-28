@@ -17,7 +17,7 @@ transformation, \code{NULL}.}
 }
 \description{
 The number of neighbors is used for models (\code{parsnip::nearest_neighbor()}),
-imputation (\code{recipes::step_knnimpute()}), and dimension reduction
+imputation (\code{recipes::step_impute_knn()}), and dimension reduction
 (\code{recipes::step_isomap()}).
 }
 \details{

@@ -1,7 +1,7 @@
 #' Number of neighbors
 #'
 #' The number of neighbors is used for models (`parsnip::nearest_neighbor()`),
-#' imputation (`recipes::step_knnimpute()`), and dimension reduction
+#' imputation (`recipes::step_impute_knn()`), and dimension reduction
 #' (`recipes::step_isomap()`).
 #'
 #' @inheritParams Laplace

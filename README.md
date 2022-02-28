@@ -3,12 +3,15 @@
 
 # dials
 
-[![R-CMD-check](https://github.com/tidymodels/dials/workflows/R-CMD-check/badge.svg)](https://github.com/tidymodels/dials/actions)
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/tidymodels/dials/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tidymodels/dials/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/tidymodels/dials/branch/main/graph/badge.svg)](https://app.codecov.io/gh/tidymodels/dials?branch=main)
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/dials)](https://CRAN.R-project.org/package=dials)
 [![Downloads](http://cranlogs.r-pkg.org/badges/dials)](https://CRAN.R-project.org/package=dials)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+<!-- badges: end -->
 
 ## Overview
 
