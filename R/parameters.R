@@ -49,16 +49,19 @@ parameters.list <- function(x, ...) {
   )
 }
 
-chr_check <- function(x) {
+chr_check <- function(x, ..., call = caller_env()) {
+  check_dots_empty()
   cl <- match.call()
   if (is.null(x)) {
     rlang::abort(
-      glue::glue("Element `{cl$x}` should not be NULL.")
+      glue::glue("Element `{cl$x}` should not be NULL."),
+      call = call
     )
   }
   if (!is.character(x)) {
     rlang::abort(
-      glue::glue("Element `{cl$x}` should be a character string.")
+      glue::glue("Element `{cl$x}` should be a character string."),
+      call = call
     )
   }
   invisible(TRUE)
