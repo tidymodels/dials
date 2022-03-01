@@ -1,5 +1,5 @@
 
-test_that('create from param objects', {
+test_that("create from param objects", {
   expect_error(p_1 <- parameters(mtry(), penalty()), NA)
   expect_s3_class_parameters(p_1)
   expect_equal(p_1 %>% nrow(), 2)
@@ -10,8 +10,7 @@ test_that('create from param objects', {
 })
 
 
-test_that('create from lists of param objects', {
-
+test_that("create from lists of param objects", {
   expect_error(p_1 <- parameters(list(mtry(), penalty())), NA)
   expect_s3_class_parameters(p_1)
   expect_equal(p_1 %>% nrow(), 2)
@@ -28,7 +27,7 @@ test_that('create from lists of param objects', {
   expect_snapshot(error = TRUE, parameters(list(a = mtry(), a = penalty())))
 })
 
-test_that('updating', {
+test_that("updating", {
   p_1 <- parameters(list(mtry(), penalty()))
   p_2 <- update(p_1, penalty = NA)
   expect_s3_class_parameters(p_2)
@@ -45,7 +44,7 @@ test_that('updating', {
   expect_error(update(p_1, penalty = NA), NA)
 })
 
-test_that('printing', {
+test_that("printing", {
   expect_snapshot(parameters(list(mtry(), penalty())))
 })
 
@@ -88,19 +87,19 @@ test_that("can reorder columns and keep parameters class", {
 
 test_that("row subsetting generally keeps parameters subclass", {
   x <- parameters(penalty(), mixture())
-  expect_s3_class_parameters(x[0,])
-  expect_s3_class_parameters(x[seq_len(nrow(x)),])
+  expect_s3_class_parameters(x[0, ])
+  expect_s3_class_parameters(x[seq_len(nrow(x)), ])
 })
 
 test_that("duplicating rows removes parameters subclass because `id` is duplicated", {
   x <- parameters(penalty(), mixture())
-  expect_s3_class_bare_tibble(x[c(1, 2, 1),])
+  expect_s3_class_bare_tibble(x[c(1, 2, 1), ])
 })
 
 test_that("row slicing with `NA_integer_` drops the subclass", {
   x <- parameters(penalty(), mixture())
-  expect_s3_class_bare_tibble(x[NA_integer_,])
-  expect_s3_class_bare_tibble(x[c(1, NA_integer_),])
+  expect_s3_class_bare_tibble(x[NA_integer_, ])
+  expect_s3_class_bare_tibble(x[c(1, NA_integer_), ])
 })
 
 # ------------------------------------------------------------------------------
@@ -111,12 +110,12 @@ test_that("row slicing with `NA_integer_` drops the subclass", {
 test_that("can subset with just `j` and keep parameters class", {
   x <- parameters(penalty())
   loc <- seq_len(ncol(x))
-  expect_s3_class_parameters(x[,loc])
+  expect_s3_class_parameters(x[, loc])
 })
 
 test_that("removing a parameters specific class drops the parameters class", {
   x <- parameters(penalty())
-  expect_s3_class_bare_tibble(x[,1])
+  expect_s3_class_bare_tibble(x[, 1])
 })
 
 # ------------------------------------------------------------------------------

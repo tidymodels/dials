@@ -2,10 +2,10 @@
 extract_parameter_dials.parameters <- function(x, parameter, ...) {
   check_dots_empty()
   if (any(rlang::is_missing(parameter)) ||
-      any(!is.character(parameter)) ||
-      length(parameter) != 1 ||
-      is.na(parameter) ||
-      nchar(parameter) == 0) {
+    any(!is.character(parameter)) ||
+    length(parameter) != 1 ||
+    is.na(parameter) ||
+    nchar(parameter) == 0) {
     rlang::abort("Please supply a single 'parameter' string.")
   }
   which_id <- which(x$id == parameter)

@@ -50,4 +50,3 @@ max_rules <- function(range = c(1L, 100L), trans = NULL) {
     finalize = NULL
   )
 }
-

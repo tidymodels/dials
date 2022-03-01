@@ -1,12 +1,13 @@
 
-test_that('regular grid', {
+test_that("regular grid", {
   expect_error(
     grid_regular(mtcars)
   )
   expect_error(
     grid_regular()
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     grid_regular(mixture(), trees(), levels = 1:4)
   )
   expect_equal(
@@ -19,23 +20,25 @@ test_that('regular grid', {
   )
   expect_equal(
     dplyr::n_distinct(
-      select(grid_regular(mixture(), trees(),
-                          levels = c(trees = 2, mixture = 3)),
-             trees)
+      select(
+        grid_regular(mixture(), trees(), levels = c(trees = 2, mixture = 3)),
+        trees
+      )
     ),
     2
   )
   expect_equal(
     dplyr::n_distinct(
-      select(grid_regular(mixture(), trees(),
-                          levels = c(mixture = 3, trees = 2)),
-             trees)
+      select(
+        grid_regular(mixture(), trees(), levels = c(mixture = 3, trees = 2)),
+        trees
+      )
     ),
     2
   )
 })
 
-test_that('random grid', {
+test_that("random grid", {
   expect_error(
     grid_random(mtcars)
   )
@@ -55,7 +58,7 @@ test_that('random grid', {
 })
 
 
-test_that('wrong argument name', {
+test_that("wrong argument name", {
   skip_if_below_r_version("3.6")
   p <- parameters(penalty(), mixture())
   expect_snapshot(grid_latin_hypercube(p, levels = 5))
@@ -64,7 +67,7 @@ test_that('wrong argument name', {
   expect_snapshot(grid_regular(p, size = 5))
 })
 
-test_that('filter arg yields same results', {
+test_that("filter arg yields same results", {
   p <- parameters(penalty(), mixture())
   expect_equal(
     filter(with_seed(36L, grid_random(p)), penalty < .01),
@@ -81,9 +84,9 @@ test_that('filter arg yields same results', {
 })
 
 
-test_that('new param grid from conventional data frame', {
- x <- data.frame(num_comp = 1:3)
+test_that("new param grid from conventional data frame", {
+  x <- data.frame(num_comp = 1:3)
 
- expect_error(y <- dials:::new_param_grid(x), regexp = NA)
- expect_true(tibble::is_tibble(y))
+  expect_error(y <- dials:::new_param_grid(x), regexp = NA)
+  expect_true(tibble::is_tibble(y))
 })

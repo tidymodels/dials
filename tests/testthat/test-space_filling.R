@@ -1,6 +1,5 @@
 
-test_that('max entropy designs', {
-
+test_that("max entropy designs", {
   grid_1 <- grid_max_entropy(
     cost(), mixture(),
     size = 11,
@@ -31,7 +30,8 @@ test_that('max entropy designs', {
       original = FALSE
     )
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     grid_max_entropy(
       mtry(),
       size = 11,
@@ -46,8 +46,7 @@ test_that('max entropy designs', {
   )
 })
 
-test_that('latin square designs', {
-
+test_that("latin square designs", {
   grid_1 <- grid_latin_hypercube(
     cost(), mixture(),
     size = 11,
@@ -83,7 +82,8 @@ test_that('latin square designs', {
       original = FALSE
     )
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     grid_latin_hypercube(
       mtry(),
       size = 11,

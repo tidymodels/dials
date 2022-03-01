@@ -15,7 +15,7 @@
 #' 0.99997 in the natural units. For several test types, this parameter
 #' corresponds to `1 - {p-value}`.
 #' @export
-conditional_min_criterion <- function (range = c(1.386294, 15), trans = scales::logit_trans())  {
+conditional_min_criterion <- function(range = c(1.386294, 15), trans = scales::logit_trans()) {
   dials::new_quant_param(
     type = "double",
     range = range,
@@ -27,11 +27,11 @@ conditional_min_criterion <- function (range = c(1.386294, 15), trans = scales::
 
 #' @export
 #' @rdname conditional_min_criterion
-values_test_type <- c('Bonferroni', 'MonteCarlo', 'Aggregated', 'Univariate', 'Teststatistic')
+values_test_type <- c("Bonferroni", "MonteCarlo", "Aggregated", "Univariate", "Teststatistic")
 
 #' @export
 #' @rdname conditional_min_criterion
-conditional_test_type <- function (values = values_test_type) {
+conditional_test_type <- function(values = values_test_type) {
   dials::new_qual_param(
     type = "character",
     values = values,
@@ -42,11 +42,11 @@ conditional_test_type <- function (values = values_test_type) {
 
 #' @export
 #' @rdname conditional_min_criterion
-values_test_statistic <- c('max', 'quad')
+values_test_statistic <- c("max", "quad")
 
 #' @export
 #' @rdname conditional_min_criterion
-conditional_test_statistic <- function (values = values_test_statistic) {
+conditional_test_statistic <- function(values = values_test_statistic) {
   dials::new_qual_param(
     type = "character",
     values = values,

@@ -17,4 +17,3 @@ vocabulary_size <- function(range = c(1000L, 32000L), trans = NULL) {
     finalize = NULL
   )
 }
-

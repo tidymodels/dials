@@ -6,7 +6,7 @@
 #' @examples
 #' momentum()
 #' @export
-momentum <- function (range = c(0, 1), trans = NULL)  {
+momentum <- function(range = c(0, 1), trans = NULL) {
   new_quant_param(
     type = "double",
     range = range,

@@ -48,5 +48,13 @@
 ## usethis namespace: end
 NULL
 
-utils::globalVariables(c("component_id", "call_info", "object", "label",
-                         "id", "not_final", "component", "name"))
+utils::globalVariables(c(
+  "component_id",
+  "call_info",
+  "object",
+  "label",
+  "id",
+  "not_final",
+  "component",
+  "name"
+))

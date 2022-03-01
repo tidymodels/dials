@@ -3,29 +3,33 @@
 format_range_val <- function(val, ukn = "?", digits = 3) {
   if (!is_unknown(val)) {
     txt <- format(val, digits = digits)
-  } else
+  } else {
     txt <- ukn
+  }
   txt
 }
 
 format_range_label <- function(param, header) {
   if (!is.null(param$trans)) {
-    glue('{header} (transformed scale): ')
-  } else
-    glue('{header}: ')
+    glue("{header} (transformed scale): ")
+  } else {
+    glue("{header}: ")
+  }
 }
 
 format_range <- function(param, vals) {
   bnds <- format_bounds(param$inclusive)
-  glue('{bnds[1]}{vals[1]}, {vals[2]}{bnds[2]}')
+  glue("{bnds[1]}{vals[1]}, {vals[2]}{bnds[2]}")
 }
 
 format_bounds <- function(bnds) {
   res <- c("(", ")")
-  if (bnds[1])
+  if (bnds[1]) {
     res[1] <- "["
-  if (bnds[2])
+  }
+  if (bnds[2]) {
     res[2] <- "]"
+  }
   res
 }
 
@@ -47,28 +51,32 @@ check_installs <- function(x) {
 
 check_label <- function(txt, ..., call = caller_env()) {
   check_dots_empty()
-  if (is.null(txt))
+  if (is.null(txt)) {
     rlang::abort(
       "`label` should be a single named character string or NULL.",
       call = call
     )
-  if (!is.character(txt) || length(txt) > 1)
+  }
+  if (!is.character(txt) || length(txt) > 1) {
     rlang::abort(
       "`label` should be a single named character string or NULL.",
       call = call
     )
-  if (length(names(txt)) != 1)
+  }
+  if (length(names(txt)) != 1) {
     rlang::abort(
       "`label` should be a single named character string or NULL.",
       call = call
     )
+  }
   invisible(txt)
 }
 
 check_finalize <- function(x, ..., call = caller_env()) {
   check_dots_empty()
-  if (!is.null(x) & !is.function(x))
+  if (!is.null(x) & !is.function(x)) {
     rlang::abort("`finalize` should be NULL or a function.", call = call)
+  }
   invisible(x)
 }
 

@@ -20,6 +20,15 @@ weight_func <- function(values = values_weight_func) {
 
 #' @rdname weight_func
 #' @export
-values_weight_func <- c("rectangular", "triangular", "epanechnikov",
-                        "biweight", "triweight", "cos", "inv",
-                        "gaussian", "rank", "optimal")
+values_weight_func <- c(
+  "rectangular",
+  "triangular",
+  "epanechnikov",
+  "biweight",
+  "triweight",
+  "cos",
+  "inv",
+  "gaussian",
+  "rank",
+  "optimal"
+)

@@ -15,8 +15,10 @@
 #' @export
 encode_unit <- function(x, value, direction, ...) {
   if (!any(direction %in% c("forward", "backward"))) {
-    rlang::abort("`direction` should be either 'forward' or 'backward'",
-                 .internal = TRUE)
+    rlang::abort(
+      "`direction` should be either 'forward' or 'backward'",
+      .internal = TRUE
+    )
   }
   UseMethod("encode_unit")
 }
@@ -28,7 +30,6 @@ encode_unit.default <- function(x, value, direction, ...) {
 
 #' @export
 encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
-
   if (has_unknowns(x)) {
     rlang::abort("The parameter object contains unknowns.", .internal = TRUE)
   }
@@ -40,7 +41,7 @@ encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
   param_rng <- x$range$upper - x$range$lower
   if (direction == "forward") {
     # convert to [0, 1]
-    value = (value - x$range$lower) / param_rng
+    value <- (value - x$range$lower) / param_rng
   } else {
     # convert [0, 1] to original range
 
@@ -67,7 +68,6 @@ encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
 
 #' @export
 encode_unit.qual_param <- function(x, value, direction, ...) {
-
   if (has_unknowns(x)) {
     rlang::abort("The parameter object contains unknowns.", .internal = TRUE)
   }
@@ -85,13 +85,14 @@ encode_unit.qual_param <- function(x, value, direction, ...) {
     compl <- value[!is.na(value)]
     if (!all(compl %in% ref_vals)) {
       bad_vals <- compl[!(compl %in% ref_vals)]
-      rlang::abort("Some values are not in the reference set of possible values: ",
-           paste0("'", unique(bad_vals), "'", collapse = ", "),
-           call. = FALSE
+      rlang::abort(
+        "Some values are not in the reference set of possible values: ",
+        paste0("'", unique(bad_vals), "'", collapse = ", "),
+        call. = FALSE
       )
     }
     fac <- factor(value, levels = ref_vals)
-    value <- (as.numeric(fac) - 1)/(num_lvl - 1)
+    value <- (as.numeric(fac) - 1) / (num_lvl - 1)
   } else {
     # convert [0, 1] to original values
 

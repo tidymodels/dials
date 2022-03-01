@@ -108,8 +108,8 @@ library(purrr)
 
 params <-
   tribble(
-     ~parameter,   ~object,
-         "mtry",      mtry(),
+    ~parameter, ~object,
+    "mtry", mtry(),
     "num_terms", num_terms(),
     "rbf_sigma", rbf_sigma()
   )
@@ -122,7 +122,11 @@ complete_params <-
   mutate(object = map(object, finalize, car_pred))
 complete_params
 
-params \%>\% dplyr::filter(parameter == "rbf_sigma") \%>\% pull(object)
-complete_params \%>\% dplyr::filter(parameter == "rbf_sigma") \%>\% pull(object)
+params \%>\%
+  dplyr::filter(parameter == "rbf_sigma") \%>\%
+  pull(object)
+complete_params \%>\%
+  dplyr::filter(parameter == "rbf_sigma") \%>\%
+  pull(object)
 \dontshow{\}) # examplesIf}
 }

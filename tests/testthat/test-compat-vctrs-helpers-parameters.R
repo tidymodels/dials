@@ -90,7 +90,7 @@ test_that("`$object` must be a list of `params`", {
 test_that("`$id` can't be duplicated", {
   to <- parameters(list(penalty(), mixture()))
   x <- as_tibble(to)
-  x <- x[c(1,1),]
+  x <- x[c(1, 1), ]
 
   expect_false(parameters_reconstructable(x, to))
 })
@@ -100,8 +100,8 @@ test_that("number of rows and row order doesn't matter", {
   x <- as_tibble(to)
 
   idx <- 1
-  expect_true(parameters_reconstructable(x[idx,], to))
+  expect_true(parameters_reconstructable(x[idx, ], to))
 
   idx <- rev(seq_len(nrow(x)))
-  expect_true(parameters_reconstructable(x[idx,], to))
+  expect_true(parameters_reconstructable(x[idx, ], to))
 })

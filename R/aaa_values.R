@@ -72,18 +72,15 @@
 #' set.seed(3666)
 #' cost_complexity() %>% value_sample(2)
 #'
-#'
 #' @export
 value_validate <- function(object, values) {
-  res <- switch(
-    object$type,
-    double    = ,
-    integer   = value_validate_quant(object, values),
+  res <- switch(object$type,
+    double = ,
+    integer = value_validate_quant(object, values),
     character = ,
-    logical   = value_validate_qual(object, values)
+    logical = value_validate_qual(object, values)
   )
   unlist(res)
-
 }
 
 value_validate_quant <- function(object, values, ..., call = caller_env()) {
@@ -94,14 +91,16 @@ value_validate_quant <- function(object, values, ..., call = caller_env()) {
   is_valid <- rep(TRUE, length(values))
 
   # Are they in a valid range (no matter the scale)?
-  if (object$inclusive[1])
+  if (object$inclusive[1]) {
     is_valid <- ifelse(values >= object$range[[1]], is_valid, FALSE)
-  else
+  } else {
     is_valid <- ifelse(values > object$range[[1]], is_valid, FALSE)
-  if (object$inclusive[2])
+  }
+  if (object$inclusive[2]) {
     is_valid <- ifelse(values <= object$range[[2]], is_valid, FALSE)
-  else
+  } else {
     is_valid <- ifelse(values < object$range[[2]], is_valid, FALSE)
+  }
 
 
   if (!is.null(object$trans)) {
@@ -127,23 +126,23 @@ value_validate_qual <- function(object, values, ..., call = caller_env()) {
 #' @export
 #' @rdname value_validate
 value_seq <- function(object, n, original = TRUE) {
-  if (inherits(object, "quant_param"))
+  if (inherits(object, "quant_param")) {
     range_validate(object, object$range, ukn_ok = FALSE)
+  }
 
-  res <- switch(
-    object$type,
-    double    = value_seq_dbl(object, n, original),
-    integer   = value_seq_int(object, n, original),
+  res <- switch(object$type,
+    double = value_seq_dbl(object, n, original),
+    integer = value_seq_int(object, n, original),
     character = ,
-    logical   = value_seq_qual(object, n)
+    logical = value_seq_qual(object, n)
   )
   unlist(res)
 }
 
 value_seq_dbl <- function(object, n, original = TRUE) {
-  if (n == 1 && (!is.null(object$default) & !is_unknown(object$default)))
+  if (n == 1 && (!is.null(object$default) & !is_unknown(object$default))) {
     res <- object$default
-  else {
+  } else {
     if (!is.null(object$values)) {
       res <- object$values[1:min(length(object$values), n)]
     } else {
@@ -154,15 +153,16 @@ value_seq_dbl <- function(object, n, original = TRUE) {
       )
     }
   }
-  if (original)
+  if (original) {
     res <- value_inverse(object, res)
+  }
   res
 }
 
 value_seq_int <- function(object, n, original = TRUE) {
-  if (n == 1 && (!is.null(object$default) & !is_unknown(object$default)))
+  if (n == 1 && (!is.null(object$default) & !is_unknown(object$default))) {
     res <- object$default
-  else {
+  } else {
     if (!is.null(object$values)) {
       res <- object$values[1:min(length(object$values), n)]
     } else {
@@ -177,30 +177,33 @@ value_seq_int <- function(object, n, original = TRUE) {
     res <- value_inverse(object, res)
     res <- unique(floor(res))
     res <- as.integer(res)
-  } else res <- unique(res)
+  } else {
+    res <- unique(res)
+  }
   res
 }
 
 value_seq_qual <- function(object, n) {
-  if (n == 1 && (!is.null(object$default) & !is_unknown(object$default)))
+  if (n == 1 && (!is.null(object$default) & !is_unknown(object$default))) {
     res <- object$default
-  else
+  } else {
     res <- object$values[1:min(n, length(object$values))]
+  }
   res
 }
 
 #' @export
 #' @rdname value_validate
 value_sample <- function(object, n, original = TRUE) {
-  if (inherits(object, "quant_param"))
+  if (inherits(object, "quant_param")) {
     range_validate(object, object$range, ukn_ok = FALSE)
+  }
 
-  res <- switch(
-    object$type,
-    double    = value_samp_dbl(object, n, original),
-    integer   = value_samp_int(object, n, original),
+  res <- switch(object$type,
+    double = value_samp_dbl(object, n, original),
+    integer = value_samp_int(object, n, original),
     character = ,
-    logical   = value_samp_qual(object, n)
+    logical = value_samp_qual(object, n)
   )
   unlist(res)
 }
@@ -219,8 +222,9 @@ value_samp_dbl <- function(object, n, original = TRUE) {
       replace = TRUE
     )
   }
-  if (original)
+  if (original) {
     res <- value_inverse(object, res)
+  }
   res
 }
 
@@ -275,16 +279,18 @@ value_samp_qual <- function(object, n) {
 value_transform <- function(object, values) {
   check_for_unknowns(values)
 
-  if (is.null(object$trans))
+  if (is.null(object$trans)) {
     return(values)
+  }
   map_dbl(values, trans_wrap, object)
 }
 
 trans_wrap <- function(x, object) {
-  if (!is_unknown(x))
+  if (!is_unknown(x)) {
     object$trans$transform(x)
-  else
+  } else {
     unknown()
+  }
 }
 
 #' @export
@@ -292,16 +298,18 @@ trans_wrap <- function(x, object) {
 value_inverse <- function(object, values) {
   check_for_unknowns(values)
 
-  if (is.null(object$trans))
+  if (is.null(object$trans)) {
     return(values)
+  }
   map_dbl(values, inv_wrap, object)
 }
 
 inv_wrap <- function(x, object) {
-  if (!is_unknown(x))
+  if (!is_unknown(x)) {
     object$trans$inverse(x)
-  else
+  } else {
     unknown()
+  }
 }
 
 
@@ -309,10 +317,12 @@ inv_wrap <- function(x, object) {
 #' @rdname value_validate
 value_set <- function(object, values) {
   check_for_unknowns(values)
-  if (length(values) == 0)
+  if (length(values) == 0) {
     rlang::abort("`values` should at least one element.")
-  if (!inherits(object, "param"))
+  }
+  if (!inherits(object, "param")) {
     rlang::abort("`object` should be a 'param' object")
+  }
 
   if (inherits(object, "quant_param")) {
     object <-
@@ -336,5 +346,3 @@ value_set <- function(object, values) {
   }
   object
 }
-
-

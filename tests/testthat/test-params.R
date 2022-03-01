@@ -1,5 +1,5 @@
 
-test_that('param ranges', {
+test_that("param ranges", {
   expect_equal(min_n(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(sample_size(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(learn_rate(c(.1, .9))$range, list(lower = 0.1, upper = 0.9))
@@ -55,15 +55,15 @@ test_that('param ranges', {
   expect_equal(momentum(c(.1, .5))$range, list(lower = .1, upper = .5))
   expect_equal(stop_iter(c(7L, 15L))$range, list(lower = 7L, upper = 15L))
   expect_equal(conditional_min_criterion(c(1, 2))$range, list(lower = 1, upper = 2))
-  expect_equal(adjust_deg_free(c(1/2, 3.0))$range, list(lower = 1/2, upper = 3.0))
-  expect_equal(scale_pos_weight(c(1/2, 3.0))$range, list(lower = 1/2, upper = 3.0))
+  expect_equal(adjust_deg_free(c(1 / 2, 3.0))$range, list(lower = 1 / 2, upper = 3.0))
+  expect_equal(scale_pos_weight(c(1 / 2, 3.0))$range, list(lower = 1 / 2, upper = 3.0))
   expect_equal(prior_slab_dispersion(c(1, 2))$range, list(lower = 1, upper = 2))
   expect_equal(prior_mixture_threshold(c(.1, .5))$range, list(lower = .1, upper = .5))
   expect_equal(shrinkage_correlation(c(.1, .5))$range, list(lower = .1, upper = .5))
   expect_equal(shrinkage_variance(c(.1, .5))$range, list(lower = .1, upper = .5))
   expect_equal(shrinkage_frequencies(c(.1, .5))$range, list(lower = .1, upper = .5))
-  expect_equal(penalty_L1(c(-5,3))$range, list(lower = -5, upper = 3))
-  expect_equal(penalty_L2(c(-5,3))$range, list(lower = -5, upper = 3))
+  expect_equal(penalty_L1(c(-5, 3))$range, list(lower = -5, upper = 3))
+  expect_equal(penalty_L2(c(-5, 3))$range, list(lower = -5, upper = 3))
   expect_equal(class_weights(c(1, 5))$range, list(lower = 1, upper = 5))
   expect_equal(prior_terminal_node_coef(c(.1, .5))$range, list(lower = .1, upper = .5))
   expect_equal(prior_terminal_node_expo(c(1, 2))$range, list(lower = 1, upper = 2))
@@ -73,7 +73,7 @@ test_that('param ranges', {
 })
 
 
-test_that('param values', {
+test_that("param values", {
   expect_equal(token(letters[1:3])$values, letters[1:3])
   expect_equal(weight_scheme(letters[1:3])$values, letters[1:3])
   expect_equal(prune_method(letters[1:3])$values, letters[1:3])
@@ -95,4 +95,3 @@ test_that('param values', {
   expect_equal(survival_link()$values, values_survival_link)
   expect_equal(activation()$values, values_activation)
 })
-

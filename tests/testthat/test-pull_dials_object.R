@@ -5,7 +5,7 @@ test_that("pull_dials_object is deprecated", {
   expect_snapshot(pull_dials_object(mod_param, "mixture"))
 })
 
-test_that('regular usage', {
+test_that("regular usage", {
   withr::local_options(lifecycle_verbosity = "quiet")
 
   # perhaps move these to extratests
@@ -28,7 +28,7 @@ test_that('regular usage', {
   expect_equal(pull_dials_object(wflow_param, "disp"), spline_degree(c(1, 15)))
 })
 
-test_that('bad arguments', {
+test_that("bad arguments", {
   withr::local_options(lifecycle_verbosity = "quiet")
 
   expect_snapshot(error = TRUE, pull_dials_object(mod_param, "lambdas"))

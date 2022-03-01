@@ -22,4 +22,3 @@ regularization_method <- function(values = values_regularization_method) {
 #' @export
 values_regularization_method <-
   c("diagonal", "min_distance", "shrink_cov", "shrink_mean")
-
