@@ -11,6 +11,6 @@
     Code
       grid_latin_hypercube(mtry(), size = 11, original = FALSE)
     Condition
-      Error in `make_latin_hypercube_grid()`:
+      Error in `grid_latin_hypercube()`:
       ! These arguments contains unknowns: `mtry`. See the `finalize()` function.
 

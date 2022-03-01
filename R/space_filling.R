@@ -188,8 +188,8 @@ grid_latin_hypercube.workflow <- function(x, ..., size = 3, original = TRUE) {
 
 
 
-make_latin_hypercube_grid <- function(..., size = 3, original = TRUE) {
-  validate_params(...)
+make_latin_hypercube_grid <- function(..., size = 3, original = TRUE, call = caller_env()) {
+  validate_params(..., call = call)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
   param_labs <- map_chr(params, function(x) x$label)

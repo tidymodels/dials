@@ -35,7 +35,7 @@
     Code
       grid_latin_hypercube(p1)
     Condition
-      Error in `make_latin_hypercube_grid()`:
+      Error in `grid_latin_hypercube()`:
       ! These arguments contains unknowns: `q`. See the `finalize()` function.
 
 ---
@@ -43,7 +43,7 @@
     Code
       grid_latin_hypercube(p2)
     Condition
-      Error in `make_latin_hypercube_grid()`:
+      Error in `grid_latin_hypercube()`:
       ! These arguments contains unknowns: `mtry`. See the `finalize()` function.
 
 ---
@@ -107,7 +107,7 @@
     Code
       grid_latin_hypercube(mtry())
     Condition
-      Error in `make_latin_hypercube_grid()`:
+      Error in `grid_latin_hypercube()`:
       ! These arguments contains unknowns: `mtry`. See the `finalize()` function.
 
 ---
