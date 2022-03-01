@@ -67,7 +67,7 @@
     Code
       new_quant_param("double", range = 1:2, inclusive = c(TRUE, NA))
     Condition
-      Error in `check_range()`:
+      Error in `new_quant_param()`:
       ! Since `type = 'double'`, please use that data type for the range.
 
 ---
@@ -75,7 +75,7 @@
     Code
       new_quant_param("double", range = 1:2, inclusive = c(TRUE, unknown()))
     Condition
-      Error in `check_range()`:
+      Error in `new_quant_param()`:
       ! Since `type = 'double'`, please use that data type for the range.
 
 ---
@@ -91,7 +91,7 @@
     Code
       new_quant_param("double", range = 1:2, inclusive = c(TRUE, TRUE), values = 1:4)
     Condition
-      Error in `check_range()`:
+      Error in `new_quant_param()`:
       ! Since `type = 'double'`, please use that data type for the range.
 
 # bad args to range_validate
@@ -158,7 +158,7 @@
     Code
       mixture(c(1L, 3L))
     Condition
-      Error in `check_range()`:
+      Error in `new_quant_param()`:
       ! Since `type = 'double'`, please use that data type for the range.
 
 ---
@@ -166,7 +166,7 @@
     Code
       mixture(c(1L, unknown()))
     Condition
-      Error in `check_range()`:
+      Error in `new_quant_param()`:
       ! Since `type = 'double'`, please use that data type for the range.
 
 ---
@@ -174,7 +174,7 @@
     Code
       mixture(c(unknown(), 1L))
     Condition
-      Error in `check_range()`:
+      Error in `new_quant_param()`:
       ! Since `type = 'double'`, please use that data type for the range.
 
 ---
@@ -182,7 +182,7 @@
     Code
       mixture(letters[1:2])
     Condition
-      Error in `check_range()`:
+      Error in `new_quant_param()`:
       ! Since `type = 'double'`, please use that data type for the range.
 
 ---
@@ -190,7 +190,7 @@
     Code
       mtry(c(0.1, 0.5))
     Condition
-      Error in `check_range()`:
+      Error in `new_quant_param()`:
       ! An integer is required for the range and these do not appear to be whole numbers: 0.1, 0.5
 
 ---
@@ -198,7 +198,7 @@
     Code
       mtry(c(0.1, unknown()))
     Condition
-      Error in `check_range()`:
+      Error in `new_quant_param()`:
       ! An integer is required for the range and these do not appear to be whole numbers: 0.1
 
 ---
@@ -206,6 +206,6 @@
     Code
       mtry(c(unknown(), 0.5))
     Condition
-      Error in `check_range()`:
+      Error in `new_quant_param()`:
       ! An integer is required for the range and these do not appear to be whole numbers: 0.5
 
