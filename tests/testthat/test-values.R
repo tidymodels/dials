@@ -16,6 +16,7 @@ test_that('transforms with unknowns', {
 
 
 test_that('transforms', {
+  skip_if_below_r_version("3.5")
   expect_equal(
     value_transform(penalty(), 1:3), log10(1:3)
   )
