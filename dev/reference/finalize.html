@@ -189,8 +189,8 @@ rows in the data or a fraction of the total number of rows.</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="va">params</span> <span class="op">&lt;-</span></span>
 <span class="r-in">  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tribble.html" class="external-link">tribble</a></span><span class="op">(</span></span>
-<span class="r-in">     <span class="op">~</span><span class="va">parameter</span>,   <span class="op">~</span><span class="va">object</span>,</span>
-<span class="r-in">         <span class="st">"mtry"</span>,      <span class="fu"><a href="mtry.html">mtry</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span class="r-in">    <span class="op">~</span><span class="va">parameter</span>, <span class="op">~</span><span class="va">object</span>,</span>
+<span class="r-in">    <span class="st">"mtry"</span>, <span class="fu"><a href="mtry.html">mtry</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span class="r-in">    <span class="st">"num_terms"</span>, <span class="fu"><a href="num_comp.html">num_terms</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span class="r-in">    <span class="st">"rbf_sigma"</span>, <span class="fu"><a href="rbf_sigma.html">rbf_sigma</a></span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-in">  <span class="op">)</span></span>
@@ -215,13 +215,17 @@ rows in the data or a fraction of the total number of rows.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> num_terms <span style="color: #949494;">&lt;nparam[+]&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> rbf_sigma <span style="color: #949494;">&lt;nparam[+]&gt;</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="va">params</span> <span class="op"><a href="https://purrr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">parameter</span> <span class="op">==</span> <span class="st">"rbf_sigma"</span><span class="op">)</span> <span class="op"><a href="https://purrr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">params</span> <span class="op"><a href="https://purrr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">parameter</span> <span class="op">==</span> <span class="st">"rbf_sigma"</span><span class="op">)</span> <span class="op"><a href="https://purrr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Radial Basis Function sigma (quantitative)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Transformer:  log-10 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Range (transformed scale): [-10, 0]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="va">complete_params</span> <span class="op"><a href="https://purrr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">parameter</span> <span class="op">==</span> <span class="st">"rbf_sigma"</span><span class="op">)</span> <span class="op"><a href="https://purrr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
+<span class="r-in"><span class="va">complete_params</span> <span class="op"><a href="https://purrr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">parameter</span> <span class="op">==</span> <span class="st">"rbf_sigma"</span><span class="op">)</span> <span class="op"><a href="https://purrr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Radial Basis Function sigma (quantitative)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Transformer:  log-10 </span>
