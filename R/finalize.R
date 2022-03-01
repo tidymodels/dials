@@ -178,7 +178,9 @@ get_log_p <- function(object, x, ...) {
 
 #' @export
 #' @rdname finalize
-get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ...) {
+get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ..., call = caller_env()) {
+  if (!inherits(object, "param"))
+    rlang::abort("`object` should be a 'param' object.", call = call)
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$upper))
     return(object)
@@ -267,4 +269,3 @@ get_batch_sizes  <- function(object, x, frac = c(1/10, 1/3), ...) {
 
   range_set(object, n_frac)
 }
-

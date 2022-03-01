@@ -27,16 +27,16 @@
     Code
       get_n(1:10)
     Condition
-      Error in `object$trans`:
-      ! $ operator is invalid for atomic vectors
+      Error in `get_n()`:
+      ! `object` should be a 'param' object.
 
 ---
 
     Code
       get_n(1:10, 1:10)
     Condition
-      Error in `object$trans`:
-      ! $ operator is invalid for atomic vectors
+      Error in `get_n()`:
+      ! `object` should be a 'param' object.
 
 ---
 
