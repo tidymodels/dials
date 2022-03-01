@@ -20,13 +20,13 @@ Imports:
     DiceDesign,
     dplyr (>= 0.8.5),
     glue,
-    hardhat (>= 0.1.6.9000),
+    hardhat (>= 0.2.0),
     lifecycle,
     purrr,
-    rlang,
+    rlang (>= 1.0.1),
     tibble,
     utils,
-    vctrs (>= 0.3.1),
+    vctrs (>= 0.3.8),
     withr
 Suggests: 
     covr,

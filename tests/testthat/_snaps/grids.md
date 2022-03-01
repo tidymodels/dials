@@ -1,8 +1,17 @@
+# regular grid
+
+    Code
+      grid_regular(mixture(), trees(), levels = 1:4)
+    Condition
+      Error in `grid_regular()`:
+      ! `levels` should have length 1 or 2
+
 # wrong argument name
 
     Code
       grid_latin_hypercube(p, levels = 5)
-    Warning <rlang_warning>
+    Condition
+      Warning:
       `levels` is not an argument to `grid_latin_hypercube()`. Did you mean `size`?
     Output
       # A tibble: 3 x 2
@@ -16,7 +25,8 @@
 
     Code
       grid_max_entropy(p, levels = 5)
-    Warning <rlang_warning>
+    Condition
+      Warning:
       `levels` is not an argument to `grid_max_entropy()`. Did you mean `size`?
     Output
       # A tibble: 3 x 2
@@ -30,7 +40,8 @@
 
     Code
       grid_random(p, levels = 5)
-    Warning <rlang_warning>
+    Condition
+      Warning:
       `levels` is not an argument to `grid_random()`. Did you mean `size`?
     Output
       # A tibble: 5 x 2
@@ -46,7 +57,8 @@
 
     Code
       grid_regular(p, size = 5)
-    Warning <rlang_warning>
+    Condition
+      Warning:
       `size` is not an argument to `grid_regular()`. Did you mean `levels`?
     Output
       # A tibble: 9 x 2

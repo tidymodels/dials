@@ -2,29 +2,33 @@
 
     Code
       parameters(list(a = mtry(), a = penalty()))
-    Error <rlang_error>
-      Element `id` should have unique values. Duplicates exist for item(s): 'a'
+    Condition
+      Error in `parameters_constr()`:
+      ! Element `id` should have unique values. Duplicates exist for item(s): 'a'
 
 # updating
 
     Code
       update(p_1, new_pen)
-    Error <rlang_error>
-      All arguments should be named.
+    Condition
+      Error in `update()`:
+      ! All arguments should be named.
 
 ---
 
     Code
       update(p_1, penalty = 1:2)
-    Error <rlang_error>
-      At least one parameter is not a dials parameter object or NA: 'penalty'
+    Condition
+      Error in `update()`:
+      ! At least one parameter is not a dials parameter object or NA: 'penalty'
 
 ---
 
     Code
       update(p_1, penalty(), mtry = mtry(3:4))
-    Error <rlang_error>
-      All arguments should be named.
+    Condition
+      Error in `update()`:
+      ! All arguments should be named.
 
 # printing
 

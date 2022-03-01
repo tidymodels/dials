@@ -1,59 +1,59 @@
 
 test_that('qualitative parameter object creation - bad args', {
-  expect_error(
+  expect_snapshot(error = TRUE,
     new_qual_param("character", 1:2)
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     new_qual_param("logical", letters[1:2])
   )
 })
 
 
 test_that('quantitative parameter object creation - bad args', {
-  expect_error(
+  expect_snapshot(error = TRUE,
     new_quant_param("mucus", range = 1:2, inclusive = c(TRUE, TRUE))
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     new_quant_param("double", range = 1, inclusive = c(TRUE, TRUE))
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     new_quant_param("double", range = c(1, NA), inclusive = c(TRUE, TRUE))
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     new_quant_param("double", range = c(1, NA), inclusive = TRUE)
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     new_quant_param("double", range = c(1, NA), inclusive = c("(", "]"))
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     new_quant_param("double", range = c(1, NA), inclusive = c(TRUE, TRUE))
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     new_quant_param("double", range = 1:2, inclusive = c(TRUE, NA))
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     new_quant_param("double", range = 1:2, inclusive = c(TRUE, unknown()))
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     new_quant_param("double", range = 1:2, inclusive = c(TRUE, TRUE), trans = log)
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     new_quant_param("double", range = 1:2, inclusive = c(TRUE, TRUE), values = 1:4)
   )
 })
 
 
 test_that('bad args to range_validate', {
-  expect_error(
+  expect_snapshot(error = TRUE,
     range_validate(mtry(), range = 1)
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     range_validate(mtry(), range = c(1, NA))
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     range_validate(mtry(), range = c(1, unknown()), FALSE)
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     range_validate(mtry(), range = letters[1:2])
   )
 

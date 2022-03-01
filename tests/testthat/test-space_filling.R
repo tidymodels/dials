@@ -31,7 +31,7 @@ test_that('max entropy designs', {
       original = FALSE
     )
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     grid_max_entropy(
       mtry(),
       size = 11,
@@ -83,7 +83,7 @@ test_that('latin square designs', {
       original = FALSE
     )
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     grid_latin_hypercube(
       mtry(),
       size = 11,

@@ -1,21 +1,22 @@
 
 test_that('transforms with unknowns', {
-  expect_error(
+  expect_snapshot(error = TRUE,
     value_transform(penalty(), unknown())
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     value_transform(penalty(), c(unknown(), 1, unknown()))
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     value_inverse(penalty(), unknown())
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     value_inverse(penalty(), c(unknown(), 1, unknown()))
   )
 })
 
 
 test_that('transforms', {
+  skip_if_below_r_version("3.5")
   expect_equal(
     value_transform(penalty(), 1:3), log10(1:3)
   )
@@ -299,5 +300,11 @@ test_that('sampling - character and logical', {
   )
   expect_equal(
     sort(unique(value_sample(prune(), 500))), sort(prune()$values)
+  )
+})
+
+test_that("validate unknowns", {
+  expect_snapshot(error = TRUE,
+    value_validate(mtry(), 17)
   )
 })

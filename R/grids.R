@@ -95,8 +95,8 @@ grid_regular.workflow <- function(x, ..., levels = 3, original = TRUE, filter = 
   grid_regular.parameters(parameters(x), ..., levels = levels, original = original, filter = {{filter}})
 }
 
-make_regular_grid <- function(..., levels = 3, original = TRUE, filter = NULL) {
-  validate_params(...)
+make_regular_grid <- function(..., levels = 3, original = TRUE, filter = NULL, call = caller_env()) {
+  validate_params(..., call = call)
   filter_quo <- enquo(filter)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
@@ -107,7 +107,8 @@ make_regular_grid <- function(..., levels = 3, original = TRUE, filter = NULL) {
   p <- length(levels)
   if (p > 1 && p != length(param_quos))
     rlang::abort(
-      paste0("`levels` should have length 1 or ", length(param_quos))
+      paste0("`levels` should have length 1 or ", length(param_quos)),
+      call = call
     )
 
   if (p == 1) {
@@ -116,7 +117,10 @@ make_regular_grid <- function(..., levels = 3, original = TRUE, filter = NULL) {
     if (all(rlang::has_name(levels, names(params)))) {
       levels <- levels[names(params)]
     } else if (any(rlang::has_name(levels, names(params)))) {
-      rlang::abort("Elements of `levels` should either be all named or unnamed, not mixed.")
+      rlang::abort(
+        "Elements of `levels` should either be all named or unnamed, not mixed.",
+        call = call
+      )
     }
     param_seq <- map2(params, as.list(levels), value_seq, original = original)
   }
@@ -185,8 +189,8 @@ grid_random.workflow <- function(x, ..., size = 5, original = TRUE, filter = NUL
 }
 
 
-make_random_grid <- function(..., size = 5, original = TRUE, filter = NULL) {
-  validate_params(...)
+make_random_grid <- function(..., size = 5, original = TRUE, filter = NULL, call = caller_env()) {
+  validate_params(..., call = call)
   filter_quo <- enquo(filter)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)

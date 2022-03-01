@@ -49,22 +49,26 @@ parameters.list <- function(x, ...) {
   )
 }
 
-chr_check <- function(x) {
+chr_check <- function(x, ..., call = caller_env()) {
+  check_dots_empty()
   cl <- match.call()
   if (is.null(x)) {
     rlang::abort(
-      glue::glue("Element `{cl$x}` should not be NULL.")
+      glue::glue("Element `{cl$x}` should not be NULL."),
+      call = call
     )
   }
   if (!is.character(x)) {
     rlang::abort(
-      glue::glue("Element `{cl$x}` should be a character string.")
+      glue::glue("Element `{cl$x}` should be a character string."),
+      call = call
     )
   }
   invisible(TRUE)
 }
 
-unique_check <- function(x) {
+unique_check <- function(x, ..., call = caller_env()) {
+  check_dots_empty()
   x2 <- x[!is.na(x)]
   is_dup <- duplicated(x2)
   if (any(is_dup)) {
@@ -73,7 +77,7 @@ unique_check <- function(x) {
     msg <- paste0("Element `", deparse(cl$x), "` should have unique values. Duplicates exist ",
                   "for item(s): ",
                   paste0("'", dup_list, "'", collapse = ", "))
-    rlang::abort(msg)
+    rlang::abort(msg, call = call)
   }
   invisible(TRUE)
 }

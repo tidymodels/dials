@@ -45,23 +45,35 @@ check_installs <- function(x) {
 
 # checking functions -----------------------------------------------------------
 
-check_label <- function(txt) {
+check_label <- function(txt, ..., call = caller_env()) {
+  check_dots_empty()
   if (is.null(txt))
-    rlang::abort("`label` should be a single named character string or NULL.")
+    rlang::abort(
+      "`label` should be a single named character string or NULL.",
+      call = call
+    )
   if (!is.character(txt) || length(txt) > 1)
-    rlang::abort("`label` should be a single named character string or NULL.")
+    rlang::abort(
+      "`label` should be a single named character string or NULL.",
+      call = call
+    )
   if (length(names(txt)) != 1)
-    rlang::abort("`label` should be a single named character string or NULL.")
+    rlang::abort(
+      "`label` should be a single named character string or NULL.",
+      call = call
+    )
   invisible(txt)
 }
 
-check_finalize <- function(x) {
+check_finalize <- function(x, ..., call = caller_env()) {
+  check_dots_empty()
   if (!is.null(x) & !is.function(x))
-    rlang::abort("`finalize` should be NULL or a function.")
+    rlang::abort("`finalize` should be NULL or a function.", call = call)
   invisible(x)
 }
 
-check_range <- function(x, type, trans) {
+check_range <- function(x, type, trans, ..., call = caller_env()) {
+  check_dots_empty()
   if (!is.null(trans)) {
     return(invisible(x))
   }
@@ -85,7 +97,7 @@ check_range <- function(x, type, trans) {
           "An integer is required for the range and these do not appear to be ",
           "whole numbers: ", msg
         )
-        rlang::abort(msg)
+        rlang::abort(msg, call = call)
       }
 
       x0[known] <- as.integer(x0[known])
@@ -93,7 +105,7 @@ check_range <- function(x, type, trans) {
       msg <- paste0(
         "Since `type = '", type, "'`, please use that data type for the range."
       )
-      rlang::abort(msg)
+      rlang::abort(msg, call = call)
     }
   }
   invisible(x0)

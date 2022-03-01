@@ -86,9 +86,10 @@ value_validate <- function(object, values) {
 
 }
 
-value_validate_quant <- function(object, values) {
-  check_for_unknowns(object$range, "value_validate")
-  check_for_unknowns(values, "value_validate")
+value_validate_quant <- function(object, values, ..., call = caller_env()) {
+  check_dots_empty()
+  check_for_unknowns(object$range, call = call)
+  check_for_unknowns(values, call = call)
 
   is_valid <- rep(TRUE, length(values))
 
@@ -112,9 +113,10 @@ value_validate_quant <- function(object, values) {
   is_valid
 }
 
-value_validate_qual <- function(object, values) {
-  check_for_unknowns(object$range, "value_validate")
-  check_for_unknowns(values, "value_validate")
+value_validate_qual <- function(object, values, ..., call = caller_env()) {
+  check_dots_empty()
+  check_for_unknowns(object$range)
+  check_for_unknowns(values)
 
   res <- values %in% object$values
   res[is.na(res)] <- FALSE
@@ -271,7 +273,7 @@ value_samp_qual <- function(object, n) {
 #' @export
 #' @rdname value_validate
 value_transform <- function(object, values) {
-  check_for_unknowns(values, "value_transform")
+  check_for_unknowns(values)
 
   if (is.null(object$trans))
     return(values)
@@ -288,7 +290,7 @@ trans_wrap <- function(x, object) {
 #' @export
 #' @rdname value_validate
 value_inverse <- function(object, values) {
-  check_for_unknowns(values, "value_inverse")
+  check_for_unknowns(values)
 
   if (is.null(object$trans))
     return(values)
@@ -306,7 +308,7 @@ inv_wrap <- function(x, object) {
 #' @export
 #' @rdname value_validate
 value_set <- function(object, values) {
-  check_for_unknowns(values, "value_set")
+  check_for_unknowns(values)
   if (length(values) == 0)
     rlang::abort("`values` should at least one element.")
   if (!inherits(object, "param"))

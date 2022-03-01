@@ -1,7 +1,7 @@
 
 test_that('package install checks', {
 
-  expect_error(dials:::check_installs("pistachio"))
+  expect_snapshot(error = TRUE, dials:::check_installs("pistachio"))
   expect_error(
     dials:::check_installs("dials"),
     NA

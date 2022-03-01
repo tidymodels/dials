@@ -2,9 +2,9 @@
 suppressMessages(library(kernlab))
 
 test_that('estimate columns', {
-  expect_error(get_p(1:10))
-  expect_error(get_p(1:10, 1:10))
-  expect_error(get_p(mtry(), 1:10))
+  expect_snapshot(error = TRUE, get_p(1:10))
+  expect_snapshot(error = TRUE, get_p(1:10, 1:10))
+  expect_snapshot(error = TRUE, get_p(mtry(), 1:10))
 
   expect_equal(
     range_get(get_p(mtry(), mtcars)),
@@ -18,9 +18,9 @@ test_that('estimate columns', {
 
 
 test_that('estimate rows', {
-  expect_error(get_n(1:10))
-  expect_error(get_n(1:10, 1:10))
-  expect_error(get_n(mtry(), 1:10))
+  expect_snapshot(error = TRUE, get_n(1:10))
+  expect_snapshot(error = TRUE, get_n(1:10, 1:10))
+  expect_snapshot(error = TRUE, get_n(mtry(), 1:10))
 
   expect_equal(
     range_get(get_n_frac(mtry_long(), mtcars, log_vals = TRUE), original = FALSE),
@@ -48,7 +48,7 @@ test_that('estimate rows', {
 
 
 test_that('estimate sigma', {
-  expect_error(get_rbf_range(rbf_sigma(), iris))
+  expect_snapshot(error = TRUE, get_rbf_range(rbf_sigma(), iris))
 
   run_1 <- range_get(get_rbf_range(rbf_sigma(), mtcars, seed = 5624))
   run_2 <- range_get(get_rbf_range(rbf_sigma(), mtcars, seed = 5624))

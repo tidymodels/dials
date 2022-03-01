@@ -6,7 +6,7 @@ test_that('regular grid', {
   expect_error(
     grid_regular()
   )
-  expect_error(
+  expect_snapshot(error = TRUE,
     grid_regular(mixture(), trees(), levels = 1:4)
   )
   expect_equal(
