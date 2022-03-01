@@ -3,7 +3,7 @@
     Code
       parameters(list(a = mtry(), a = penalty()))
     Condition
-      Error in `unique_check()`:
+      Error in `parameters_constr()`:
       ! Element `id` should have unique values. Duplicates exist for item(s): 'a'
 
 # updating
