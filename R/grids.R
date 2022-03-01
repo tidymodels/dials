@@ -96,7 +96,7 @@ grid_regular.workflow <- function(x, ..., levels = 3, original = TRUE, filter = 
 }
 
 make_regular_grid <- function(..., levels = 3, original = TRUE, filter = NULL, call = caller_env()) {
-  validate_params(...)
+  validate_params(..., call = call)
   filter_quo <- enquo(filter)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)

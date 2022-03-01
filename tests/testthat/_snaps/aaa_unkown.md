@@ -3,7 +3,7 @@
     Code
       grid_regular(p1)
     Condition
-      Error in `make_regular_grid()`:
+      Error in `grid_regular()`:
       ! These arguments contains unknowns: `q`. See the `finalize()` function.
 
 ---
@@ -11,7 +11,7 @@
     Code
       grid_regular(p2)
     Condition
-      Error in `make_regular_grid()`:
+      Error in `grid_regular()`:
       ! These arguments contains unknowns: `mtry`. See the `finalize()` function.
 
 ---
@@ -67,7 +67,7 @@
     Code
       grid_regular(min_n(), q = mtry())
     Condition
-      Error in `make_regular_grid()`:
+      Error in `grid_regular()`:
       ! These arguments contains unknowns: `q`. See the `finalize()` function.
 
 ---
@@ -75,7 +75,7 @@
     Code
       grid_regular(mtry())
     Condition
-      Error in `make_regular_grid()`:
+      Error in `grid_regular()`:
       ! These arguments contains unknowns: `mtry`. See the `finalize()` function.
 
 ---
@@ -99,7 +99,7 @@
     Code
       grid_regular(min_n(), q = mtry())
     Condition
-      Error in `make_regular_grid()`:
+      Error in `grid_regular()`:
       ! These arguments contains unknowns: `q`. See the `finalize()` function.
 
 ---
