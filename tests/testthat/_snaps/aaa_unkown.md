@@ -19,7 +19,7 @@
     Code
       grid_random(p1)
     Condition
-      Error in `make_random_grid()`:
+      Error in `grid_random()`:
       ! These arguments contains unknowns: `q`. See the `finalize()` function.
 
 ---
@@ -27,7 +27,7 @@
     Code
       grid_random(p2)
     Condition
-      Error in `make_random_grid()`:
+      Error in `grid_random()`:
       ! These arguments contains unknowns: `mtry`. See the `finalize()` function.
 
 ---
@@ -83,7 +83,7 @@
     Code
       grid_random(min_n(), q = mtry())
     Condition
-      Error in `make_random_grid()`:
+      Error in `grid_random()`:
       ! These arguments contains unknowns: `q`. See the `finalize()` function.
 
 ---
@@ -91,7 +91,7 @@
     Code
       grid_random(mtry())
     Condition
-      Error in `make_random_grid()`:
+      Error in `grid_random()`:
       ! These arguments contains unknowns: `mtry`. See the `finalize()` function.
 
 ---

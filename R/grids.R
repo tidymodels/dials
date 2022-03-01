@@ -189,8 +189,8 @@ grid_random.workflow <- function(x, ..., size = 5, original = TRUE, filter = NUL
 }
 
 
-make_random_grid <- function(..., size = 5, original = TRUE, filter = NULL) {
-  validate_params(...)
+make_random_grid <- function(..., size = 5, original = TRUE, filter = NULL, call = caller_env()) {
+  validate_params(..., call = call)
   filter_quo <- enquo(filter)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
