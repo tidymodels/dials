@@ -3,7 +3,7 @@
     Code
       grid_max_entropy(mtry(), size = 11, original = FALSE)
     Condition
-      Error in `make_max_entropy_grid()`:
+      Error in `grid_max_entropy()`:
       ! These arguments contains unknowns: `mtry`. See the `finalize()` function.
 
 # latin square designs

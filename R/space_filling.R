@@ -102,8 +102,8 @@ grid_max_entropy.workflow <- function(x, ..., size = 3, original = TRUE,
 
 
 make_max_entropy_grid <- function(..., size = 3, original = TRUE,
-                             variogram_range = 0.5, iter = 1000) {
-  validate_params(...)
+                             variogram_range = 0.5, iter = 1000, call = caller_env()) {
+  validate_params(..., call = call)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
   param_names <- names(param_quos)

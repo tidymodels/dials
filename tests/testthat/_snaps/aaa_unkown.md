@@ -51,7 +51,7 @@
     Code
       grid_max_entropy(p1)
     Condition
-      Error in `make_max_entropy_grid()`:
+      Error in `grid_max_entropy()`:
       ! These arguments contains unknowns: `q`. See the `finalize()` function.
 
 ---
@@ -59,7 +59,7 @@
     Code
       grid_max_entropy(p2)
     Condition
-      Error in `make_max_entropy_grid()`:
+      Error in `grid_max_entropy()`:
       ! These arguments contains unknowns: `mtry`. See the `finalize()` function.
 
 ---
@@ -115,7 +115,7 @@
     Code
       grid_max_entropy(min_n(), q = mtry())
     Condition
-      Error in `make_max_entropy_grid()`:
+      Error in `grid_max_entropy()`:
       ! These arguments contains unknowns: `q`. See the `finalize()` function.
 
 ---
@@ -123,6 +123,6 @@
     Code
       grid_max_entropy(mtry())
     Condition
-      Error in `make_max_entropy_grid()`:
+      Error in `grid_max_entropy()`:
       ! These arguments contains unknowns: `mtry`. See the `finalize()` function.
 
