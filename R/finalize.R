@@ -178,9 +178,9 @@ get_log_p <- function(object, x, ...) {
 
 #' @export
 #' @rdname finalize
-get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ..., call = caller_env()) {
+get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ...) {
   if (!inherits(object, "param"))
-    rlang::abort("`object` should be a 'param' object.", call = call)
+    rlang::abort("`object` should be a 'param' object.")
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$upper))
     return(object)
