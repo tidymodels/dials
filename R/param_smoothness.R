@@ -16,4 +16,3 @@ smoothness <- function(range = c(0.5, 1.5), trans = NULL) {
     finalize = NULL
   )
 }
-

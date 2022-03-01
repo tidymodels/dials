@@ -1,66 +1,81 @@
 
-test_that('qualitative parameter object creation - bad args', {
-  expect_snapshot(error = TRUE,
+test_that("qualitative parameter object creation - bad args", {
+  expect_snapshot(
+    error = TRUE,
     new_qual_param("character", 1:2)
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     new_qual_param("logical", letters[1:2])
   )
 })
 
 
-test_that('quantitative parameter object creation - bad args', {
-  expect_snapshot(error = TRUE,
+test_that("quantitative parameter object creation - bad args", {
+  expect_snapshot(
+    error = TRUE,
     new_quant_param("mucus", range = 1:2, inclusive = c(TRUE, TRUE))
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     new_quant_param("double", range = 1, inclusive = c(TRUE, TRUE))
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     new_quant_param("double", range = c(1, NA), inclusive = c(TRUE, TRUE))
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     new_quant_param("double", range = c(1, NA), inclusive = TRUE)
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     new_quant_param("double", range = c(1, NA), inclusive = c("(", "]"))
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     new_quant_param("double", range = c(1, NA), inclusive = c(TRUE, TRUE))
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     new_quant_param("double", range = 1:2, inclusive = c(TRUE, NA))
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     new_quant_param("double", range = 1:2, inclusive = c(TRUE, unknown()))
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     new_quant_param("double", range = 1:2, inclusive = c(TRUE, TRUE), trans = log)
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     new_quant_param("double", range = 1:2, inclusive = c(TRUE, TRUE), values = 1:4)
   )
 })
 
 
-test_that('bad args to range_validate', {
-  expect_snapshot(error = TRUE,
+test_that("bad args to range_validate", {
+  expect_snapshot(
+    error = TRUE,
     range_validate(mtry(), range = 1)
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     range_validate(mtry(), range = c(1, NA))
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     range_validate(mtry(), range = c(1, unknown()), FALSE)
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     range_validate(mtry(), range = letters[1:2])
   )
-
 })
 
 
-test_that('printing', {
+test_that("printing", {
   expect_snapshot(mtry())
   expect_snapshot(surv_dist())
 
@@ -71,7 +86,7 @@ test_that('printing', {
 
 
 
-test_that('converting doubles to integers', {
+test_that("converting doubles to integers", {
   expect_type(
     mtry(c(1, unknown()))$range$lower, "integer"
   )
@@ -87,7 +102,7 @@ test_that('converting doubles to integers', {
 })
 
 
-test_that('bad ranges', {
+test_that("bad ranges", {
   expect_snapshot(error = TRUE, mixture(c(1L, 3L)))
   expect_snapshot(error = TRUE, mixture(c(1L, unknown())))
   expect_snapshot(error = TRUE, mixture(c(unknown(), 1L)))

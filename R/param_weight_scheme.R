@@ -20,6 +20,10 @@ weight_scheme <- function(values = values_weight_scheme) {
 
 #' @rdname weight_scheme
 #' @export
-values_weight_scheme <- c("raw count", "binary",
-                          "term frequency", "log normalization",
-                          "double normalization")
+values_weight_scheme <- c(
+  "raw count",
+  "binary",
+  "term frequency",
+  "log normalization",
+  "double normalization"
+)

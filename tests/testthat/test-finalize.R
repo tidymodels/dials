@@ -1,7 +1,7 @@
 
 suppressMessages(library(kernlab))
 
-test_that('estimate columns', {
+test_that("estimate columns", {
   expect_snapshot(error = TRUE, get_p(1:10))
   expect_snapshot(error = TRUE, get_p(1:10, 1:10))
   expect_snapshot(error = TRUE, get_p(mtry(), 1:10))
@@ -17,7 +17,7 @@ test_that('estimate columns', {
 })
 
 
-test_that('estimate rows', {
+test_that("estimate rows", {
   expect_snapshot(error = TRUE, get_n(1:10))
   expect_snapshot(error = TRUE, get_n(1:10, 1:10))
   expect_snapshot(error = TRUE, get_n(mtry(), 1:10))
@@ -47,7 +47,7 @@ test_that('estimate rows', {
 })
 
 
-test_that('estimate sigma', {
+test_that("estimate sigma", {
   expect_snapshot(error = TRUE, get_rbf_range(rbf_sigma(), iris))
 
   run_1 <- range_get(get_rbf_range(rbf_sigma(), mtcars, seed = 5624))
@@ -57,9 +57,9 @@ test_that('estimate sigma', {
 })
 
 
-test_that('force', {
+test_that("force", {
   rbf_sigma_final <- finalize(rbf_sigma(), mtcars)
-  rbf_sigma_same  <- finalize(rbf_sigma(), mtcars, force = FALSE)
+  rbf_sigma_same <- finalize(rbf_sigma(), mtcars, force = FALSE)
 
   expect_false(rbf_sigma_final$range$lower == rbf_sigma()$range$lower)
   expect_false(rbf_sigma_final$range$upper == rbf_sigma()$range$upper)

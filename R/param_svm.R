@@ -30,4 +30,3 @@ svm_margin <- function(range = c(0, .2), trans = NULL) {
     finalize = NULL
   )
 }
-

@@ -1,5 +1,5 @@
 
-test_that('no transforms', {
+test_that("no transforms", {
   expect_equal(
     range_get(trees()), list(lower = 1L, upper = 2000L)
   )
@@ -12,7 +12,7 @@ test_that('no transforms', {
 })
 
 
-test_that('transforms', {
+test_that("transforms", {
   expect_equal(
     range_get(penalty(), FALSE), list(lower = -10, upper = 0)
   )
@@ -21,7 +21,7 @@ test_that('transforms', {
   )
 })
 
-test_that('setting ranges', {
+test_that("setting ranges", {
   expect_equal(
     range_set(mtry(), c(5L, 10L))$range, list(lower = 5L, upper = 10L)
   )

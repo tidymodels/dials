@@ -1,21 +1,25 @@
 
-test_that('transforms with unknowns', {
-  expect_snapshot(error = TRUE,
+test_that("transforms with unknowns", {
+  expect_snapshot(
+    error = TRUE,
     value_transform(penalty(), unknown())
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     value_transform(penalty(), c(unknown(), 1, unknown()))
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     value_inverse(penalty(), unknown())
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     value_inverse(penalty(), c(unknown(), 1, unknown()))
   )
 })
 
 
-test_that('transforms', {
+test_that("transforms", {
   skip_if_below_r_version("3.5")
   expect_equal(
     value_transform(penalty(), 1:3), log10(1:3)
@@ -31,12 +35,12 @@ test_that('transforms', {
 })
 
 
-test_that('inverses', {
+test_that("inverses", {
   expect_equal(
     value_inverse(penalty(), 1:3), 10^(1:3)
   )
   expect_equal(
-    value_inverse(penalty(),  c(NA, 1:3)), c(NA, 10^(1:3))
+    value_inverse(penalty(), c(NA, 1:3)), c(NA, 10^(1:3))
   )
   expect_equal(
     value_inverse(mtry(), 1:3), 1:3
@@ -44,7 +48,7 @@ test_that('inverses', {
 })
 
 
-test_that('sequences - doubles', {
+test_that("sequences - doubles", {
   test_param_3 <-
     new_quant_param(
       type = "double",
@@ -69,7 +73,7 @@ test_that('sequences - doubles', {
       range = c(0.0, 1.0),
       inclusive = c(TRUE, TRUE),
       trans = NULL,
-      values = (0:5)/5,
+      values = (0:5) / 5,
       default = .6,
       label = c(param = "param")
     )
@@ -96,7 +100,7 @@ test_that('sequences - doubles', {
     value_seq(test_param_4, 1, FALSE), sqrt(.6)
   )
   expect_equal(
-    value_seq(value_seq, 2, FALSE), (0:1)/5
+    value_seq(value_seq, 2, FALSE), (0:1) / 5
   )
   expect_equal(
     value_seq(value_seq, 1, FALSE), .6
@@ -104,7 +108,7 @@ test_that('sequences - doubles', {
 })
 
 
-test_that('sequences - integers', {
+test_that("sequences - integers", {
   test_param_1 <-
     new_quant_param(
       type = "integer",
@@ -173,14 +177,14 @@ test_that('sequences - integers', {
 })
 
 
-test_that('sampling - doubles', {
+test_that("sampling - doubles", {
   value_seq <-
     new_quant_param(
       type = "double",
       range = c(0.0, 1.0),
       inclusive = c(TRUE, TRUE),
       trans = NULL,
-      values = (0:5)/5,
+      values = (0:5) / 5,
       default = .6,
       label = c(param = "param")
     )
@@ -203,7 +207,7 @@ test_that('sampling - doubles', {
   )
 })
 
-test_that('sampling - integers', {
+test_that("sampling - integers", {
   test_param_2 <-
     new_quant_param(
       type = "integer",
@@ -248,7 +252,7 @@ test_that('sampling - integers', {
 
 # -------------------------------------------------------------------------
 
-test_that('sequences - character', {
+test_that("sequences - character", {
   test_param_5 <-
     new_qual_param(
       type = "character",
@@ -271,7 +275,7 @@ test_that('sequences - character', {
   )
 })
 
-test_that('sequences - logical', {
+test_that("sequences - logical", {
   test_param_6 <-
     new_qual_param(
       type = "logical",
@@ -294,7 +298,7 @@ test_that('sequences - logical', {
 })
 
 
-test_that('sampling - character and logical', {
+test_that("sampling - character and logical", {
   expect_equal(
     sort(unique(value_sample(surv_dist(), 500))), sort(surv_dist()$values)
   )
@@ -304,7 +308,8 @@ test_that('sampling - character and logical', {
 })
 
 test_that("validate unknowns", {
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     value_validate(mtry(), 17)
   )
 })

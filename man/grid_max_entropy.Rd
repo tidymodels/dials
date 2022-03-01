@@ -137,7 +137,8 @@ grid_max_entropy(
   activation(),
   learn_rate(c(0, 1), trans = scales::log_trans()),
   size = 10,
-  original = FALSE)
+  original = FALSE
+)
 
 grid_latin_hypercube(penalty(), mixture(), original = TRUE)
 }

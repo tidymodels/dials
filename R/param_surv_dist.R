@@ -20,5 +20,11 @@ surv_dist <- function(values = values_surv_dist) {
 
 #' @rdname surv_dist
 #' @export
-values_surv_dist <- c("weibull", "exponential", "gaussian",
-                      "logistic", "lognormal", "loglogistic")
+values_surv_dist <- c(
+  "weibull",
+  "exponential",
+  "gaussian",
+  "logistic",
+  "lognormal",
+  "loglogistic"
+)

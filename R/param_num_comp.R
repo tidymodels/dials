@@ -36,4 +36,3 @@ num_terms <- function(range = c(1L, unknown()), trans = NULL) {
     finalize = get_p
   )
 }
-

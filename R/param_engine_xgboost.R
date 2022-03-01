@@ -52,7 +52,3 @@ penalty_L1 <- function(range = c(-10, 1), trans = log10_trans()) {
     finalize = NULL
   )
 }
-
-
-
-

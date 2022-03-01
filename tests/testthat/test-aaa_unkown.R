@@ -1,5 +1,5 @@
 
-test_that('is_unknown', {
+test_that("is_unknown", {
   expect_true(
     is_unknown(unknown())
   )
@@ -15,7 +15,7 @@ test_that('is_unknown', {
   )
 })
 
-test_that('has_unknown', {
+test_that("has_unknown", {
   expect_true(
     has_unknowns(mtry())
   )

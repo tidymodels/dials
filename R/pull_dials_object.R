@@ -36,13 +36,14 @@ pull_dials_object <- function(x, id, ...) {
 #' @rdname pull_dials_object
 pull_dials_object.parameters <- function(x, id, ...) {
   dots <- rlang::quos(...)
-  if (!rlang::is_empty(dots))
+  if (!rlang::is_empty(dots)) {
     rlang::abort("The `...` are not used with `pull_dials_object()`.")
+  }
   if (any(rlang::is_missing(id)) ||
-      any(!is.character(id)) ||
-      length(id) != 1 ||
-      is.na(id) ||
-      nchar(id) == 0) {
+    any(!is.character(id)) ||
+    length(id) != 1 ||
+    is.na(id) ||
+    nchar(id) == 0) {
     rlang::abort("Please supply a single 'id' string.")
   }
   which_id <- which(x$id == id)
@@ -70,4 +71,3 @@ pull_dials_object.model_spec <- function(x, id, ...) {
 pull_dials_object.workflow <- function(x, id, ...) {
   pull_dials_object(parameters(x), id)
 }
-

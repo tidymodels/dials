@@ -30,4 +30,3 @@ signed_hash <- function(values = c(TRUE, FALSE)) {
     finalize = NULL
   )
 }
-

@@ -16,4 +16,3 @@ max_tokens <- function(range = c(0L, as.integer(10^3)), trans = NULL) {
     finalize = NULL
   )
 }
-

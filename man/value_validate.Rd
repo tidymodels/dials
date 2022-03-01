@@ -93,5 +93,4 @@ value_transform(cost_complexity(), nat_units)
 set.seed(3666)
 cost_complexity() \%>\% value_sample(2)
 
-
 }

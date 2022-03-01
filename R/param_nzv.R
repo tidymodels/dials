@@ -37,4 +37,3 @@ unique_cut <- function(range = c(0, 100), trans = NULL) {
     finalize = NULL
   )
 }
-

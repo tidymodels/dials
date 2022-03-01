@@ -22,7 +22,8 @@ validate_params <- function(..., call = caller_env()) {
       paste0(
         "These arguments contains unknowns: ",
         paste0("`", bad_param, "`", collapse = ","),
-        '. See the `finalize()` function.'),
+        ". See the `finalize()` function."
+      ),
       call = call
     )
   }

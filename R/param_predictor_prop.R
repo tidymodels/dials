@@ -20,4 +20,3 @@ predictor_prop <- function(range = c(0, 1), trans = NULL) {
     finalize = NULL
   )
 }
-
