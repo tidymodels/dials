@@ -1,5 +1,7 @@
 # dials (development version)
 
+* The `Chicago` data was removed. It can be found in the `modeldata` package. 
+
 # dials 0.1.0
 
 ## New parameters

@@ -107,7 +107,3 @@ reference:
     - new_quant_param
     - parameters_constr
     - unknown
-
-  - title: Others
-    contents:
-    - Chicago
