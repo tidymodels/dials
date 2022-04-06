@@ -76,11 +76,12 @@ range(mix_grid_1$mixture)
 }\if{html}{\out{</div>}}\preformatted{## [1] 0.001490161 0.999741096
 }
 
-However, in some cases, the \code{tune} package overrides the default ranges
-for specific models. If the grid function uses a \code{parameters} object
-created from a model or recipe, the ranges my have different defaults
-(specific to those models). Using the example above, the \code{mixture}
-argument above is different for \code{glmnet} models:\if{html}{\out{<div class="sourceCode r">}}\preformatted{library(parsnip)
+However, in some cases, the \code{parsnip} and \code{recipe} packages overrides
+the default ranges for specific models and preprocessing steps. If the
+grid function uses a \code{parameters} object created from a model or recipe,
+the ranges may have different defaults (specific to those models). Using
+the example above, the \code{mixture} argument above is different for
+\code{glmnet} models:\if{html}{\out{<div class="sourceCode r">}}\preformatted{library(parsnip)
 library(tune)
 
 # When used with glmnet, the range is [0.05, 1.00]
@@ -89,7 +90,7 @@ glmn_mod <-
   set_engine("glmnet")
 
 set.seed(283)
-mix_grid_2 <- grid_random(parameters(glmn_mod), size = 1000)
+mix_grid_2 <- grid_random(extract_parameter_set_dials(glmn_mod), size = 1000)
 range(mix_grid_2$mixture)
 }\if{html}{\out{</div>}}\preformatted{## [1] 0.05141565 0.99975404
 }

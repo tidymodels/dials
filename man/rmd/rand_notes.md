@@ -22,7 +22,7 @@ range(mix_grid_1$mixture)
 ## [1] 0.001490161 0.999741096
 ```
 
-However, in some cases, the `tune` package overrides the default ranges for specific models. If the grid function uses a `parameters` object created from a model or recipe, the ranges my have different defaults (specific to those models). Using the example above, the `mixture` argument above is different for `glmnet` models: 
+However, in some cases, the `parsnip` and `recipe` packages overrides the default ranges for specific models and preprocessing steps. If the grid function uses a `parameters` object created from a model or recipe, the ranges may have different defaults (specific to those models). Using the example above, the `mixture` argument above is different for `glmnet` models: 
  
 
 ```r
@@ -35,7 +35,7 @@ glmn_mod <-
   set_engine("glmnet")
 
 set.seed(283)
-mix_grid_2 <- grid_random(parameters(glmn_mod), size = 1000)
+mix_grid_2 <- grid_random(extract_parameter_set_dials(glmn_mod), size = 1000)
 range(mix_grid_2$mixture)
 ```
 
