@@ -107,7 +107,7 @@ tib_upcast <- function(x) {
 
 df_size <- function(x) {
   if (!is.list(x)) {
-    rlang::abort("Cannot get the df size of a non-list.")
+    rlang::abort("Cannot get the df size of a non-list.", .internal = TRUE)
   }
 
   if (length(x) == 0L) {

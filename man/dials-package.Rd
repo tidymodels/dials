@@ -44,11 +44,16 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Max Kuhn \email{max@rstudio.com}
+\strong{Maintainer}: Hannah Frick \email{hannah@rstudio.com}
+
+Authors:
+\itemize{
+  \item Max Kuhn \email{max@rstudio.com}
+}
 
 Other contributors:
 \itemize{
-  \item RStudio [copyright holder]
+  \item RStudio [copyright holder, funder]
 }
 
 }

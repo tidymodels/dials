@@ -1,7 +1,7 @@
 # Skip entire file if dplyr < 1.0.0
 skip_if(dplyr_pre_1.0.0())
 
-library(dplyr)
+suppressMessages(library(dplyr))
 
 # ------------------------------------------------------------------------------
 # dplyr_reconstruct()
@@ -16,7 +16,7 @@ test_that("dplyr_reconstruct() returns bare tibble if `x` loses parameters struc
   x <- parameters(penalty())
 
   col <- x[1]
-  row <- x[c(1, 1),]
+  row <- x[c(1, 1), ]
 
   expect_s3_class_bare_tibble(dplyr_reconstruct(col, x))
   expect_s3_class_bare_tibble(dplyr_reconstruct(row, x))

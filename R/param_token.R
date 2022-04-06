@@ -20,7 +20,17 @@ token <- function(values = values_token) {
 
 #' @rdname token
 #' @export
-values_token <- c("words", "characters", "character_shingle",
-                  "lines", "ngrams", "paragraphs", "ptb", "regex",
-                  "sentences", "skip_ngrams", "tweets",
-                  "word_stems")
+values_token <- c(
+  "words",
+  "characters",
+  "character_shingle",
+  "lines",
+  "ngrams",
+  "paragraphs",
+  "ptb",
+  "regex",
+  "sentences",
+  "skip_ngrams",
+  "tweets",
+  "word_stems"
+)

@@ -3,20 +3,23 @@
 
 # dials
 
-[![R build
-status](https://github.com/tidymodels/dials/workflows/R-CMD-check/badge.svg)](https://github.com/tidymodels/dials/actions)
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/tidymodels/dials/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tidymodels/dials/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
-coverage](https://codecov.io/gh/tidymodels/dials/branch/master/graph/badge.svg)](https://codecov.io/gh/tidymodels/dials?branch=master)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dials)](https://CRAN.R-project.org/package=dials)
+coverage](https://codecov.io/gh/tidymodels/dials/branch/main/graph/badge.svg)](https://app.codecov.io/gh/tidymodels/dials?branch=main)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/dials)](https://CRAN.R-project.org/package=dials)
 [![Downloads](http://cranlogs.r-pkg.org/badges/dials)](https://CRAN.R-project.org/package=dials)
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
+<!-- badges: end -->
 
 ## Overview
 
-This package contains tools to create and manage values of tuning
-parameters and is designed to integrate well with the
-[`parsnip`](https://github.com/tidymodels/parsnip) package.
+This package contains *infrastructure* to create and manage values of
+tuning parameters for the tidymodels packages. If you are looking for
+*how to* tune parameters in tidymodels, please look at the
+[tune](https://tune.tidymodels.org/) package and
+[tidymodels.org](https://www.tidymodels.org/).
 
 The name reflects the idea that tuning predictive models can be like
 turning a set of dials on a complex machine under duress.
@@ -40,21 +43,22 @@ devtools::install_github("tidymodels/dials")
 
 ## Contributing
 
-This project is released with a [Contributor Code of
-Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
-By contributing to this project, you agree to abide by its terms.
+Please note that the dials project is released with a [Contributor Code
+of Conduct](https://dials.tidymodels.org/CODE_OF_CONDUCT.html). By
+contributing to this project, you agree to abide by its terms.
 
-  - For questions and discussions about tidymodels packages, modeling,
+-   For questions and discussions about tidymodels packages, modeling,
     and machine learning, please [post on RStudio
-    Community](https://rstd.io/tidymodels-community).
+    Community](https://community.rstudio.com/new-topic?category_id=15&tags=tidymodels,question).
 
-  - If you think you have encountered a bug, please [submit an
+-   If you think you have encountered a bug, please [submit an
     issue](https://github.com/tidymodels/dials/issues).
 
-  - Either way, learn how to create and share a
-    [reprex](https://rstd.io/reprex) (a minimal, reproducible example),
-    to clearly communicate about your code.
+-   Either way, learn how to create and share a
+    [reprex](https://reprex.tidyverse.org/articles/articles/learn-reprex.html)
+    (a minimal, reproducible example), to clearly communicate about your
+    code.
 
-  - Check out further details on [contributing guidelines for tidymodels
+-   Check out further details on [contributing guidelines for tidymodels
     packages](https://www.tidymodels.org/contribute/) and [how to get
     help](https://www.tidymodels.org/help/).

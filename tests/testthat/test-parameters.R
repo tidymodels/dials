@@ -1,89 +1,51 @@
 
-# ------------------------------------------------------------------------------
-
-set_test <- function(x) {
-  inherits(x, "parameters")
-}
-
-# ------------------------------------------------------------------------------
-
-context("basic parameter set operations")
-
-test_that('create from param objects', {
-
+test_that("create from param objects", {
   expect_error(p_1 <- parameters(mtry(), penalty()), NA)
-  expect_true(set_test(p_1))
+  expect_s3_class_parameters(p_1)
   expect_equal(p_1 %>% nrow(), 2)
 
   expect_error(p_2 <- parameters(penalty()), NA)
-  expect_true(set_test(p_2))
+  expect_s3_class_parameters(p_2)
   expect_equal(p_2 %>% nrow(), 1)
-
 })
 
 
-test_that('create from lists of param objects', {
-
+test_that("create from lists of param objects", {
   expect_error(p_1 <- parameters(list(mtry(), penalty())), NA)
-  expect_true(set_test(p_1))
+  expect_s3_class_parameters(p_1)
   expect_equal(p_1 %>% nrow(), 2)
 
   expect_error(p_2 <- parameters(list(penalty())), NA)
-  expect_true(set_test(p_2))
+  expect_s3_class_parameters(p_2)
   expect_equal(p_2 %>% nrow(), 1)
 
   expect_error(p_3 <- parameters(list(a = mtry(), "some name" = penalty())), NA)
-  expect_true(set_test(p_3))
+  expect_s3_class_parameters(p_3)
   expect_equal(p_3 %>% nrow(), 2)
   expect_equal(p_3$id, c("a", "some name"))
 
-  expect_error(
-    parameters(list(a = mtry(), a = penalty())),
-    "Element `id` should have unique values"
-  )
+  expect_snapshot(error = TRUE, parameters(list(a = mtry(), a = penalty())))
 })
 
-test_that('updating', {
+test_that("updating", {
   p_1 <- parameters(list(mtry(), penalty()))
   p_2 <- update(p_1, penalty = NA)
-  expect_true(set_test(p_2))
+  expect_s3_class_parameters(p_2)
   expect_true(is.na(p_2$object[2]))
 
   new_pen <- penalty(c(-5, -3))
   p_3 <- update(p_1, penalty = new_pen)
-  expect_true(set_test(p_3))
+  expect_s3_class_parameters(p_3)
   expect_equal(p_3$object[[2]], new_pen)
 
-  expect_error(
-    update(p_1, new_pen),
-    "All arguments should be named."
-  )
-  expect_error(
-    update(p_1, penalty = 1:2),
-    "At least one parameter is not a dials parameter"
-  )
-  expect_error(
-    update(p_1, penalty(), mtry = mtry(3:4)),
-    "All arguments should be named."
-  )
-  expect_error(
-    update(p_1, penalty = NA),
-    NA
-  )
+  expect_snapshot(error = TRUE, update(p_1, new_pen))
+  expect_snapshot(error = TRUE, update(p_1, penalty = 1:2))
+  expect_snapshot(error = TRUE, update(p_1, penalty(), mtry = mtry(3:4)))
+  expect_error(update(p_1, penalty = NA), NA)
 })
 
-test_that('printing', {
-
-  expect_output(print(parameters(list(mtry(), penalty()))))
-  expect_output(
-    print(parameters(list(mtry(), penalty()))),
-    "Collection of 2 parameters for tuning"
-    )
-  expect_output(
-    print(parameters(list(mtry(), penalty()))),
-    "Parameters needing finalization"
-  )
-
+test_that("printing", {
+  expect_snapshot(parameters(list(mtry(), penalty())))
 })
 
 # ------------------------------------------------------------------------------
@@ -125,19 +87,19 @@ test_that("can reorder columns and keep parameters class", {
 
 test_that("row subsetting generally keeps parameters subclass", {
   x <- parameters(penalty(), mixture())
-  expect_s3_class_parameters(x[0,])
-  expect_s3_class_parameters(x[seq_len(nrow(x)),])
+  expect_s3_class_parameters(x[0, ])
+  expect_s3_class_parameters(x[seq_len(nrow(x)), ])
 })
 
 test_that("duplicating rows removes parameters subclass because `id` is duplicated", {
   x <- parameters(penalty(), mixture())
-  expect_s3_class_bare_tibble(x[c(1, 2, 1),])
+  expect_s3_class_bare_tibble(x[c(1, 2, 1), ])
 })
 
 test_that("row slicing with `NA_integer_` drops the subclass", {
   x <- parameters(penalty(), mixture())
-  expect_s3_class_bare_tibble(x[NA_integer_,])
-  expect_s3_class_bare_tibble(x[c(1, NA_integer_),])
+  expect_s3_class_bare_tibble(x[NA_integer_, ])
+  expect_s3_class_bare_tibble(x[c(1, NA_integer_), ])
 })
 
 # ------------------------------------------------------------------------------
@@ -148,12 +110,12 @@ test_that("row slicing with `NA_integer_` drops the subclass", {
 test_that("can subset with just `j` and keep parameters class", {
   x <- parameters(penalty())
   loc <- seq_len(ncol(x))
-  expect_s3_class_parameters(x[,loc])
+  expect_s3_class_parameters(x[, loc])
 })
 
 test_that("removing a parameters specific class drops the parameters class", {
   x <- parameters(penalty())
-  expect_s3_class_bare_tibble(x[,1])
+  expect_s3_class_bare_tibble(x[, 1])
 })
 
 # ------------------------------------------------------------------------------

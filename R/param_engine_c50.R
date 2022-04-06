@@ -75,4 +75,3 @@ rule_bands <- function(range = c(2L, 500L), trans = NULL) {
     finalize = NULL
   )
 }
-

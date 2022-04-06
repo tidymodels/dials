@@ -47,7 +47,7 @@
 #' `get_rbf_range()` sets both bounds based on the heuristic defined in
 #' [kernlab::sigest()]. It requires that all columns in `x` be numeric.
 #'
-#' @examples
+#' @examplesIf interactive() || identical(Sys.getenv("IN_PKGDOWN"), "true")
 #' library(dplyr)
 #' car_pred <- select(mtcars, -mpg)
 #'
@@ -65,8 +65,8 @@
 #'
 #' params <-
 #'   tribble(
-#'      ~parameter,   ~object,
-#'          "mtry",      mtry(),
+#'     ~parameter, ~object,
+#'     "mtry", mtry(),
 #'     "num_terms", num_terms(),
 #'     "rbf_sigma", rbf_sigma()
 #'   )
@@ -79,8 +79,12 @@
 #'   mutate(object = map(object, finalize, car_pred))
 #' complete_params
 #'
-#' params %>% dplyr::filter(parameter == "rbf_sigma") %>% pull(object)
-#' complete_params %>% dplyr::filter(parameter == "rbf_sigma") %>% pull(object)
+#' params %>%
+#'   dplyr::filter(parameter == "rbf_sigma") %>%
+#'   pull(object)
+#' complete_params %>%
+#'   dplyr::filter(parameter == "rbf_sigma") %>%
+#'   pull(object)
 #'
 #' @export
 finalize <- function(object, ...) {
@@ -96,10 +100,12 @@ finalize.list <- function(object, x, force = TRUE, ...) {
 #' @export
 #' @rdname finalize
 finalize.param <- function(object, x, force = TRUE, ...) {
-  if (is.null(object$finalize))
+  if (is.null(object$finalize)) {
     return(object)
-  if (!has_unknowns(object) & !force)
+  }
+  if (!has_unknowns(object) & !force) {
     return(object)
+  }
   object$finalize(object, x = x, ...)
 }
 
@@ -146,16 +152,19 @@ finalize.default <- function(object, x, force = TRUE, ...) {
 #' @export
 #' @rdname finalize
 get_p <- function(object, x, log_vals = FALSE, ...) {
-  if (!inherits(object, "param"))
+  if (!inherits(object, "param")) {
     rlang::abort("`object` should be a 'param' object.")
+  }
 
   rngs <- range_get(object, original = FALSE)
-  if (!is_unknown(rngs$upper))
+  if (!is_unknown(rngs$upper)) {
     return(object)
+  }
 
   x_dims <- dim(x)
-  if (is.null(x_dims))
+  if (is.null(x_dims)) {
     rlang::abort("Cannot determine number of columns. Is `x` a 2D data object?")
+  }
 
   if (log_vals) {
     rngs[2] <- log10(x_dims[2])
@@ -179,15 +188,20 @@ get_log_p <- function(object, x, ...) {
 #' @export
 #' @rdname finalize
 get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ...) {
+  if (!inherits(object, "param")) {
+    rlang::abort("`object` should be a 'param' object.")
+  }
   rngs <- range_get(object, original = FALSE)
-  if (!is_unknown(rngs$upper))
+  if (!is_unknown(rngs$upper)) {
     return(object)
+  }
 
   x_dims <- dim(x)
-  if (is.null(x_dims))
+  if (is.null(x_dims)) {
     rlang::abort("Cannot determine number of columns. Is `x` a 2D data object?")
+  }
 
-  n_frac <- floor(x_dims[1]*frac)
+  n_frac <- floor(x_dims[1] * frac)
 
   if (log_vals) {
     rngs[2] <- log10(n_frac)
@@ -204,14 +218,16 @@ get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ...) {
 #' @rdname finalize
 get_n_frac_range <- function(object, x, log_vals = FALSE, frac = c(1/10, 5/10), ...) {
   rngs <- range_get(object, original = FALSE)
-  if (!is_unknown(rngs$upper))
+  if (!is_unknown(rngs$upper)) {
     return(object)
+  }
 
   x_dims <- dim(x)
-  if (is.null(x_dims))
+  if (is.null(x_dims)) {
     rlang::abort("Cannot determine number of columns. Is `x` a 2D data object?")
+  }
 
-  n_frac <- sort(floor(x_dims[1]*frac))
+  n_frac <- sort(floor(x_dims[1] * frac))
 
   if (log_vals) {
     rngs <- log10(n_frac)
@@ -230,12 +246,11 @@ get_n_frac_range <- function(object, x, log_vals = FALSE, frac = c(1/10, 5/10), 
 #' @rdname finalize
 get_n <- function(object, x, log_vals = FALSE, ...) {
   get_n_frac(object, x, log_vals, frac = 1, ...)
-
 }
 
 #' @export
 #' @rdname finalize
-get_rbf_range <- function(object, x, seed = sample.int(10 ^ 5, 1), ...) {
+get_rbf_range <- function(object, x, seed = sample.int(10^5, 1), ...) {
   check_installs("kernlab")
   suppressPackageStartupMessages(requireNamespace("kernlab", quietly = TRUE))
   x_mat <- as.matrix(x)
@@ -249,16 +264,18 @@ get_rbf_range <- function(object, x, seed = sample.int(10 ^ 5, 1), ...) {
 
 #' @export
 #' @rdname finalize
-get_batch_sizes  <- function(object, x, frac = c(1/10, 1/3), ...) {
+get_batch_sizes <- function(object, x, frac = c(1/10, 1/3), ...) {
   rngs <- range_get(object, original = FALSE)
-  if (!is_unknown(rngs$lower) & !is_unknown(rngs$upper))
+  if (!is_unknown(rngs$lower) & !is_unknown(rngs$upper)) {
     return(object)
+  }
 
   x_dims <- dim(x)
-  if (is.null(x_dims))
+  if (is.null(x_dims)) {
     rlang::abort("Cannot determine number of columns. Is `x` a 2D data object?")
+  }
 
-  n_frac <- sort(floor(x_dims[1]*frac))
+  n_frac <- sort(floor(x_dims[1] * frac))
   n_frac <- log2(n_frac)
 
   if (object$type == "integer" & is.null(object$trans)) {
@@ -267,4 +284,3 @@ get_batch_sizes  <- function(object, x, frac = c(1/10, 1/3), ...) {
 
   range_set(object, n_frac)
 }
-

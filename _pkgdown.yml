@@ -1,27 +1,113 @@
-url: https://dials.tidymodels.org
+url: https://dials.tidymodels.org/
 
 template:
   package: tidytemplate
-  params:
-    theme: tidymodels
-    part_of: <a href="https://github.com/tidymodels">tidymodels</a>
-    footer: dials is a part of the <strong>tidymodels</strong> ecosystem, a collection of modeling packages designed with common APIs and a shared philosophy.
+  bootstrap: 5
+  bslib:
+    primary: "#CA225E"
+  includes:
+      in_header: |
+        <script defer data-domain="dials.tidymodels.org,all.tidymodels.org" src="https://plausible.io/js/plausible.js"></script>
 
 development:
   mode: auto
-
-home:
-  strip_header: true
 
 figures:
   fig.width: 8
   fig.height: 5.75
 
 navbar:
-  left:
-  - text: Basic Usage
-    href: articles/Basics.html
-  - text: Reference
-    href: reference/index.html
-  - text: News
-    href: news/index.html
+ components:
+   articles:
+    text: Articles
+    menu:
+    - text: How to create a tuning parameter function
+      href: https://www.tidymodels.org/learn/develop/parameters/
+
+reference:
+  - title: Parameter Sets
+    contents:
+    - parameters
+    - update.parameters
+    - pull_dials_object
+    - starts_with("range_")
+    - starts_with("value_")
+
+  - title: Grid Creation
+    contents:
+    - starts_with("grid_")
+
+  - title: Parameter Objects
+    contents:
+    - activation
+    - adjust_deg_free
+    - all_neighbors
+    - bart-param
+    - class_weights
+    - conditional_min_criterion
+    - confidence_factor
+    - cost
+    - deg_free
+    - degree
+    - dist_power
+    - dropout
+    - extrapolation
+    - freq_cut
+    - Laplace
+    - learn_rate
+    - max_nodes
+    - max_num_terms
+    - max_times
+    - max_tokens
+    - min_dist
+    - min_times
+    - min_unique
+    - mixture
+    - momentum
+    - mtry
+    - neighbors
+    - num_breaks
+    - num_comp
+    - num_hash
+    - num_knots
+    - num_tokens
+    - over_ratio
+    - penalty
+    - predictor_prop
+    - prior_slab_dispersion
+    - prune_method
+    - rbf_sigma
+    - regularization_factor
+    - regularization_method
+    - rule_bands
+    - scale_pos_weight
+    - select_features
+    - shrinkage_correlation
+    - smoothness
+    - stop_iter
+    - summary_stat
+    - surv_dist
+    - survival_link
+    - threshold
+    - token
+    - trees
+    - vocabulary_size
+    - weight
+    - weight_func
+    - weight_scheme
+    - window_size
+
+  - title: Finalizing Parameters
+    contents:
+    - finalize
+
+  - title: Developer Tools
+    contents:
+    - encode_unit
+    - new_quant_param
+    - parameters_constr
+    - unknown
+
+  - title: Others
+    contents:
+    - Chicago

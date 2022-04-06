@@ -49,31 +49,37 @@ parameters.list <- function(x, ...) {
   )
 }
 
-chr_check <- function(x) {
+chr_check <- function(x, ..., call = caller_env()) {
+  check_dots_empty()
   cl <- match.call()
   if (is.null(x)) {
     rlang::abort(
-      glue::glue("Element `{cl$x}` should not be NULL.")
+      glue::glue("Element `{cl$x}` should not be NULL."),
+      call = call
     )
   }
   if (!is.character(x)) {
     rlang::abort(
-      glue::glue("Element `{cl$x}` should be a character string.")
+      glue::glue("Element `{cl$x}` should be a character string."),
+      call = call
     )
   }
   invisible(TRUE)
 }
 
-unique_check <- function(x) {
+unique_check <- function(x, ..., call = caller_env()) {
+  check_dots_empty()
   x2 <- x[!is.na(x)]
   is_dup <- duplicated(x2)
   if (any(is_dup)) {
     dup_list <- x2[is_dup]
     cl <- match.call()
-    msg <- paste0("Element `", deparse(cl$x), "` should have unique values. Duplicates exist ",
-                  "for item(s): ",
-                  paste0("'", dup_list, "'", collapse = ", "))
-    rlang::abort(msg)
+    msg <- paste0(
+      "Element `", deparse(cl$x), "` should have unique values. Duplicates exist ",
+      "for item(s): ",
+      paste0("'", dup_list, "'", collapse = ", ")
+    )
+    rlang::abort(msg, call = call)
   }
   invisible(TRUE)
 }
@@ -154,9 +160,11 @@ print.parameters <- function(x, ...) {
     if (num_missing == 1) {
       cat("One needs a `param` object: '", x$identifier[null_obj], "'\n\n", sep = "")
     } else {
-      cat("Several need `param` objects: ",
-          paste0("'", x$identifier[null_obj], "'", collapse = ", "),
-          "\n\n")
+      cat(
+        "Several need `param` objects: ",
+        paste0("'", x$identifier[null_obj], "'", collapse = ", "),
+        "\n\n"
+      )
     }
   }
 
@@ -167,7 +175,7 @@ print.parameters <- function(x, ...) {
       not_final = map_lgl(object, unk_check),
       label = map_chr(object, ~ .x$label),
       note = paste0("   ", label, " ('", id, "')\n")
-      )
+    )
   if (any(other_obj$not_final)) {
     # There's a more elegant way to do this, I'm sure:
     mod_obj <- as_tibble(other_obj) %>% dplyr::filter(source == "model_spec" & not_final)
@@ -223,8 +231,10 @@ update.parameters <- function(object, ...) {
   in_set <- nms %in% object$id
   if (!all(in_set)) {
     msg <- paste0("'", nms[!in_set], "'", collapse = ", ")
-    msg <- paste("At least one parameter does not match any id's in the set:",
-                 msg)
+    msg <- paste(
+      "At least one parameter does not match any id's in the set:",
+      msg
+    )
     rlang::abort(msg)
   }
   not_param <- !purrr::map_lgl(args, inherits, "param")
@@ -232,8 +242,10 @@ update.parameters <- function(object, ...) {
   bad_input <- not_param & not_null
   if (any(bad_input)) {
     msg <- paste0("'", nms[bad_input], "'", collapse = ", ")
-    msg <- paste("At least one parameter is not a dials parameter object",
-                 "or NA:", msg)
+    msg <- paste(
+      "At least one parameter is not a dials parameter object",
+      "or NA:", msg
+    )
     rlang::abort(msg)
   }
 
@@ -273,18 +285,4 @@ identical_names <- function(x, y) {
   y_names <- names(y)
 
   identical(x_names, y_names)
-}
-
-# ------------------------------------------------------------------------------
-
-#' @export
-#' @rdname parameters
-param_set <- function(x, ...) {
-  rlang::warn(
-    paste0(
-      "`param_set()` is deprecated in favor of `parameters()`. ",
-      "`param_set()` will be available until version 0.0.5."
-    )
-  )
-  parameters(x, ...)
 }

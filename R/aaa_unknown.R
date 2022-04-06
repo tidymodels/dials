@@ -39,28 +39,31 @@
 #' # creation time
 #' has_unknowns(mtry())
 #'
-#'@export
+#' @export
 unknown <- function() {
   quote(unknown())
 }
 
-#'@export
-#'@rdname unknown
+#' @export
+#' @rdname unknown
 is_unknown <- function(x) {
   # in case `x` is not a vector (language)
-  if(length(x) == 1)
+  if (length(x) == 1) {
     return(is_unknown_val(x))
+  }
   map_lgl(x, is_unknown_val)
 }
 
-is_unknown_val <- function(x)
+is_unknown_val <- function(x) {
   isTRUE(all.equal(x, quote(unknown())))
+}
 
-#'@export
-#'@rdname unknown
+#' @export
+#' @rdname unknown
 has_unknowns <- function(object) {
-  if (inherits(object, "param"))
+  if (inherits(object, "param")) {
     return(has_unknowns_val(object))
+  }
   map_lgl(object, has_unknowns_val)
 }
 
@@ -77,13 +80,14 @@ has_unknowns_val <- function(object) {
   any(rng_check) | any(val_check)
 }
 
-check_for_unknowns <- function(x, label = "") {
-  err_txt <- paste0("Unknowns not allowed in `", label, "`.")
-  if (length(x) == 1 && is_unknown(x))
-    rlang::abort(err_txt)
+check_for_unknowns <- function(x, ..., call = caller_env()) {
+  check_dots_empty()
+  if (length(x) == 1 && is_unknown(x)) {
+    rlang::abort("Unknowns not allowed.", call = call)
+  }
   is_ukn <- map_lgl(x, is_unknown)
-  if (any(is_ukn))
-    rlang::abort(err_txt)
+  if (any(is_ukn)) {
+    rlang::abort("Unknowns not allowed.", call = call)
+  }
   invisible(TRUE)
 }
-

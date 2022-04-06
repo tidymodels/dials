@@ -30,7 +30,8 @@
 #'   value_set(-4:-1)
 #'
 #' try(
-#'   range_validate(my_lambda, c(-10, NA)), silent = TRUE
+#'   range_validate(my_lambda, c(-10, NA)),
+#'   silent = TRUE
 #' ) %>%
 #'   print()
 #'
@@ -42,31 +43,37 @@
 #'
 #' @export
 range_validate <- function(object, range, ukn_ok = TRUE) {
-  ukn_txt <- if (ukn_ok)
+  ukn_txt <- if (ukn_ok) {
     "`Inf` and `unknown()` are acceptable values."
-  else
+  } else {
     ""
-  if (length(range) != 2)
+  }
+  if (length(range) != 2) {
     rlang::abort(
       paste0("`range` must have an upper and lower bound. ", ukn_txt)
     )
+  }
 
   is_unk <- is_unknown(range)
   is_na <- is.na(range)
   is_num <- map_lgl(range, is.numeric)
 
   if (!ukn_ok) {
-    if (any(is_unk))
+    if (any(is_unk)) {
       rlang::abort("Cannot validate ranges when they contains 1+ unknown values.")
-    if (!any(is_num))
+    }
+    if (!any(is_num)) {
       rlang::abort("`range` should be numeric.")
+    }
 
     # TODO check with transform
   } else {
-    if (any(is_na[!is_unk]))
+    if (any(is_na[!is_unk])) {
       rlang::abort("Value ranges must be non-missing.", ukn_txt)
-    if (any(!is_num[!is_unk]))
+    }
+    if (any(!is_num[!is_unk])) {
       rlang::abort("Value ranges must be numeric.", ukn_txt)
+    }
   }
   range
 }
@@ -74,18 +81,20 @@ range_validate <- function(object, range, ukn_ok = TRUE) {
 #' @export
 #' @rdname range_validate
 range_get <- function(object, original = TRUE) {
-  if (original & !is.null(object$trans))
+  if (original & !is.null(object$trans)) {
     res <- map(object$range, inv_wrap, object)
-  else
+  } else {
     res <- object$range
+  }
   res
 }
 
 #' @export
 #' @rdname range_validate
 range_set <- function(object, range) {
-  if (length(range) != 2)
+  if (length(range) != 2) {
     rlang::abort("`range` should have two elements.")
+  }
   if (inherits(object, "quant_param")) {
     object <-
       new_quant_param(

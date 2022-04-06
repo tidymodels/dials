@@ -1,16 +1,61 @@
 # dials (development version)
 
-* Re-licensed package from GPL-2 to MIT. See [consent from copyright holders here](https://github.com/tidymodels/dials/issues/156).
+* The `Chicago` data was removed. It can be found in the `modeldata` package. 
 
-* The Chicago data was deleted. It can be found in the `modeldata` package. 
+# dials 0.1.0
 
 ## New parameters
 
-* An early stopping parameter (`stop_iter()`) was added. 
+* `summary_stat()` is a new parameter for use in `recipes::step_window()`.
 
-* Added parameters for `party` objects. 
+* A general `class_weights()` parameter was added for imbalanced models. 
 
-* Two parameters for generalized additive models were added: `select_features()` and `adjust_deg_free()`. 
+* `prior_outcome_range()`, `prior_terminal_node_coef()`, and 
+  `prior_terminal_node_expo()` are new parameters for prior distribution 
+  specification related to `parsnip::bart()`.
+
+* `num_knots()` and `survival_link()` are new parameters for spline survival 
+  models (@mattwarkentin, #195).
+
+* `vocabulary_size()` is a new parameter used in 
+  `textrecipes::step_tokenize_sentencepiece()` and `textrecipes::step_tokenize_bpe()`.
+
+## Other changes
+
+* The new `extract_parameter_dials()` method supersedes `pull_dials_object()` 
+  which has been deprecated.
+
+* `activation()` now supports values of `"tanh"`. 
+
+* New link to article explaining how to make custom parameter objects was added 
+  to the pkgdown site.
+
+
+# dials 0.0.10
+
+## New parameters
+
+* `adjust_deg_free()` and `select_features()` for generalized additive models.
+
+* `conditional_min_criterion`, `conditional_test_statistic`, 
+  `conditional_test_type` for models with the `party` engine.
+
+* `diagonal_covariance()`, `regularization_method()`, `shrinkage_correlation()`,
+  `shrinkage_frequencies()`, and `shrinkage_variance()` for linear and 
+  quadratic discriminant analysis.
+
+* `penalty_L1()`, `penalty_L2()`, and `scale_pos_weight()` for boosted trees 
+  with the `xgboost` engine (@joeycouse, #176).
+
+* `prior_mixture_threshold()` and `prior_slab_dispersion()` for sparse PCA.
+
+* `stop_iter()` for early stopping.
+
+## Other changes
+
+* Re-licensed package from GPL-2 to MIT. See [consent from copyright holders here](https://github.com/tidymodels/dials/issues/156).
+
+* `param_set()`, scheduled for removal in version 0.0.5, is now removed. 
 
 
 # dials 0.0.9
@@ -34,6 +79,7 @@
 
 * A number of new parameter objects associated with engine-specific functions were added for engines "ranger", "randomForest", "earth" and "C5.0". 
 
+
 # dials 0.0.7
 
 * The `grid_*()` functions no longer generate subclassed tibbles.
@@ -53,6 +99,7 @@
 
 * Quick bug fix release related to range checks in 0.0.5. The check is more forgiving when the required type is integer and a double is provided. 
 
+
 # dials 0.0.5
 
 * When kept in the original units, a parameter's range must now be the same data type as the parameter. 
@@ -66,6 +113,7 @@
 * Space-filling desings now share the same attributes as other grid objects (#100)
 
 * The range for `sample_frac()` was fixed (#96)
+
 
 # dials 0.0.4
 
@@ -98,7 +146,6 @@
 
 * `update.param_set()` now takes multiple named arguments. 
 
-
 ## Other changes
 
 * Two functions for space-filling designs were added: `grid_max_entropy()` and `grid_latin_hypercube()`. 
@@ -121,6 +168,7 @@
 * `batch_size` and `threshold` were added.
 
 * Added a set of parameters for the `textrecipes` package [issue 16](https://github.com/tidymodels/dials/issues/16). 
+
 
 # dials 0.0.1
 

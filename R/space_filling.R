@@ -37,7 +37,8 @@
 #'   activation(),
 #'   learn_rate(c(0, 1), trans = scales::log_trans()),
 #'   size = 10,
-#'   original = FALSE)
+#'   original = FALSE
+#' )
 #'
 #' grid_latin_hypercube(penalty(), mixture(), original = TRUE)
 #' @export
@@ -53,13 +54,18 @@ grid_max_entropy <- function(x, ..., size = 3, original = TRUE,
 #' @export
 #' @rdname grid_max_entropy
 grid_max_entropy.parameters <- function(x, ..., size = 3, original = TRUE,
-                                       variogram_range = 0.5, iter = 1000) {
+                                        variogram_range = 0.5, iter = 1000) {
   # test for NA and finalized
   # test for empty ...
   params <- x$object
   names(params) <- x$id
-  grd <- make_max_entropy_grid(!!!params, size = size, original = original,
-                               variogram_range = variogram_range, iter = iter)
+  grd <- make_max_entropy_grid(
+    !!!params,
+    size = size,
+    original = original,
+    variogram_range = variogram_range,
+    iter = iter
+  )
   names(grd) <- x$id
   new_param_grid(grd)
 }
@@ -71,8 +77,13 @@ grid_max_entropy.list <- function(x, ..., size = 3, original = TRUE,
   y <- parameters(x)
   params <- y$object
   names(params) <- y$id
-  grd <- make_max_entropy_grid(!!!params, size = size, original = original,
-                               variogram_range = variogram_range, iter = iter)
+  grd <- make_max_entropy_grid(
+    !!!params,
+    size = size,
+    original = original,
+    variogram_range = variogram_range,
+    iter = iter
+  )
   names(grd) <- y$id
   new_param_grid(grd)
 }
@@ -85,8 +96,13 @@ grid_max_entropy.param <- function(x, ..., size = 3, original = TRUE,
   y <- parameters(list(x, ...))
   params <- y$object
   names(params) <- y$id
-  grd <- make_max_entropy_grid(!!!params, size = size, original = original,
-                               variogram_range = variogram_range, iter = iter)
+  grd <- make_max_entropy_grid(
+    !!!params,
+    size = size,
+    original = original,
+    variogram_range = variogram_range,
+    iter = iter
+  )
   names(grd) <- y$id
   new_param_grid(grd)
 }
@@ -94,16 +110,22 @@ grid_max_entropy.param <- function(x, ..., size = 3, original = TRUE,
 #' @export
 #' @rdname grid_max_entropy
 grid_max_entropy.workflow <- function(x, ..., size = 3, original = TRUE,
-                                       variogram_range = 0.5, iter = 1000) {
-  grid_max_entropy.parameters(parameters(x), ..., size = size, original = original,
-                             variogram_range = variogram_range, iter = iter)
+                                      variogram_range = 0.5, iter = 1000) {
+  grid_max_entropy.parameters(
+    parameters(x),
+    ...,
+    size = size,
+    original = original,
+    variogram_range = variogram_range,
+    iter = iter
+  )
 }
 
 
 
 make_max_entropy_grid <- function(..., size = 3, original = TRUE,
-                             variogram_range = 0.5, iter = 1000) {
-  validate_params(...)
+                                  variogram_range = 0.5, iter = 1000, call = caller_env()) {
+  validate_params(..., call = call)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
   param_names <- names(param_quos)
@@ -126,8 +148,13 @@ make_max_entropy_grid <- function(..., size = 3, original = TRUE,
   sf_grid <- as_tibble(sfd$design)
 
   # Get back to parameter units
-  sf_grid <- map2_dfc(params, sf_grid, encode_unit, direction = "backward",
-                      original = original)
+  sf_grid <- map2_dfc(
+    params,
+    sf_grid,
+    encode_unit,
+    direction = "backward",
+    original = original
+  )
   colnames(sf_grid) <- param_names
 
   sf_grid
@@ -188,8 +215,8 @@ grid_latin_hypercube.workflow <- function(x, ..., size = 3, original = TRUE) {
 
 
 
-make_latin_hypercube_grid <- function(..., size = 3, original = TRUE) {
-  validate_params(...)
+make_latin_hypercube_grid <- function(..., size = 3, original = TRUE, call = caller_env()) {
+  validate_params(..., call = call)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
   param_labs <- map_chr(params, function(x) x$label)
@@ -208,11 +235,14 @@ make_latin_hypercube_grid <- function(..., size = 3, original = TRUE) {
   sf_grid <- as_tibble(sfd$design)
 
   # Get back to parameter units
-  sf_grid <- map2_dfc(params, sf_grid, encode_unit, direction = "backward",
-                      original = original)
+  sf_grid <- map2_dfc(
+    params,
+    sf_grid,
+    encode_unit,
+    direction = "backward",
+    original = original
+  )
   colnames(sf_grid) <- param_names
 
   sf_grid
 }
-
-

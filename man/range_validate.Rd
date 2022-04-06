@@ -43,7 +43,8 @@ my_lambda <- penalty() \%>\%
   value_set(-4:-1)
 
 try(
-  range_validate(my_lambda, c(-10, NA)), silent = TRUE
+  range_validate(my_lambda, c(-10, NA)),
+  silent = TRUE
 ) \%>\%
   print()
 
