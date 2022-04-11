@@ -1,5 +1,8 @@
 # dials (development version)
 
+* `conditional_test_statistic()` and `conditional_test_type()` functions were
+  updated to work with the partykit engine (instead of the party package).
+
 # dials 0.1.1
 
 * The `Chicago` data set was removed. It can be found in the `modeldata` package.

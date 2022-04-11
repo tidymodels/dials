@@ -1,4 +1,4 @@
-#' Parameters for possible engine parameters for party models
+#' Parameters for possible engine parameters for partykit models
 #'
 #' @param range A two-element vector holding the _defaults_ for the smallest and
 #' largest possible values, respectively.
@@ -27,7 +27,7 @@ conditional_min_criterion <- function(range = c(1.386294, 15), trans = scales::l
 
 #' @export
 #' @rdname conditional_min_criterion
-values_test_type <- c("Bonferroni", "MonteCarlo", "Aggregated", "Univariate", "Teststatistic")
+values_test_type <- c("Bonferroni", "MonteCarlo", "Univariate", "Teststatistic")
 
 #' @export
 #' @rdname conditional_min_criterion
@@ -42,7 +42,7 @@ conditional_test_type <- function(values = values_test_type) {
 
 #' @export
 #' @rdname conditional_min_criterion
-values_test_statistic <- c("max", "quad")
+values_test_statistic <- c("quadratic", "maximum")
 
 #' @export
 #' @rdname conditional_min_criterion
