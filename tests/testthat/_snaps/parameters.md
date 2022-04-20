@@ -47,3 +47,11 @@
       See `?dials::finalize` or `?dials::update.parameters` for more information.
       
 
+# parameters.default
+
+    Code
+      parameters(tibble::as_tibble(mtcars))
+    Condition
+      Error in `parameters()`:
+      ! `parameters` objects cannot be created from objects of class `tbl_df`.
+
