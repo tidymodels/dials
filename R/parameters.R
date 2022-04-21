@@ -12,7 +12,10 @@ parameters <- function(x, ...) {
 #' @export
 #' @rdname parameters
 parameters.default <- function(x, ...) {
-  rlang::abort("`parameters` objects cannot be created from this type of object.")
+  rlang::abort(
+    glue("`parameters` objects cannot be created from objects ",
+         "of class `{class(x)[1]}`.")
+  )
 }
 
 #' @export

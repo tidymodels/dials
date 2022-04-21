@@ -48,6 +48,10 @@ test_that("printing", {
   expect_snapshot(parameters(list(mtry(), penalty())))
 })
 
+test_that("parameters.default", {
+  expect_snapshot(error = TRUE, parameters(tibble::as_tibble(mtcars)))
+})
+
 # ------------------------------------------------------------------------------
 # `[]`
 
