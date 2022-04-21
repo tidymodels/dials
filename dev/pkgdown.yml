@@ -3,7 +3,7 @@ pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
   dials: dials.html
-last_built: 2022-04-21T14:56Z
+last_built: 2022-04-21T18:24Z
 urls:
   reference: https://dials.tidymodels.org/reference
   article: https://dials.tidymodels.org/articles
