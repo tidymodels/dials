@@ -1,5 +1,9 @@
 # dials (development version)
 
+* `new_quant_param()` no longer requires `range` and `inclusive` if `values` is
+  supplied (#87).
+
+
 # dials 0.1.1
 
 * The `Chicago` data set was removed. It can be found in the `modeldata` package.

@@ -209,3 +209,63 @@
       Error in `new_quant_param()`:
       ! An integer is required for the range and these do not appear to be whole numbers: 0.5
 
+# `values` must be compatible with `range` and `inclusive`
+
+    Code
+      new_quant_param(type = "integer", values = c(1L, 5L, 10L), range = c(1L, 5L),
+      label = c(foo = "Foo"))
+    Condition
+      Error in `new_quant_param()`:
+      ! Some values are not valid: 10
+
+---
+
+    Code
+      new_quant_param(type = "integer", values = c(1L, 5L, 10L), inclusive = c(TRUE,
+        FALSE), label = c(foo = "Foo"))
+    Condition
+      Error in `new_quant_param()`:
+      ! Some values are not valid: 10
+
+---
+
+    Code
+      new_quant_param(type = "integer", values = NULL, range = NULL, inclusive = c(
+        TRUE, FALSE), label = c(foo = "Foo"))
+    Condition
+      Error in `new_quant_param()`:
+      ! `range` must be supplied if `values` is `NULL`.
+
+---
+
+    Code
+      new_quant_param(type = "integer", values = NULL, range = c(1L, 10L), inclusive = NULL,
+      label = c(foo = "Foo"))
+    Condition
+      Error in `new_quant_param()`:
+      ! `inclusive` must be supplied if `values` is `NULL`.
+
+# `values` is validated
+
+    Code
+      new_quant_param(type = "integer", values = "not_numeric", label = c(foo = "Foo"))
+    Condition
+      Error in `new_quant_param()`:
+      ! `values` must be numeric.
+
+---
+
+    Code
+      new_quant_param(type = "integer", values = NA_integer_, label = c(foo = "Foo"))
+    Condition
+      Error in `new_quant_param()`:
+      ! `values` can't be `NA`.
+
+---
+
+    Code
+      new_quant_param(type = "integer", values = integer(), label = c(foo = "Foo"))
+    Condition
+      Error in `new_quant_param()`:
+      ! `values` can't be empty.
+

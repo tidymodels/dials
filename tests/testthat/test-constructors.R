@@ -111,3 +111,78 @@ test_that("bad ranges", {
   expect_snapshot(error = TRUE, mtry(c(.1, unknown())))
   expect_snapshot(error = TRUE, mtry(c(unknown(), .5)))
 })
+
+test_that("can supply `values` without `range` and `inclusive` (#87)", {
+  x <- new_quant_param(
+    type = "integer",
+    values = c(1L, 5L, 10L),
+    label = c(foo = "Foo")
+  )
+
+  expect_identical(x$range, list(lower = 1L, upper = 10L))
+  expect_identical(x$inclusive, c("lower" = TRUE, "upper" = TRUE))
+  expect_identical(x$values, c(1L, 5L, 10L))
+})
+
+test_that("`values` must be compatible with `range` and `inclusive`", {
+
+  expect_snapshot(error = TRUE, {
+    new_quant_param(
+      type = "integer",
+      values = c(1L, 5L, 10L),
+      range = c(1L, 5L),
+      label = c(foo = "Foo")
+    )
+  })
+  expect_snapshot(error = TRUE, {
+    new_quant_param(
+      type = "integer",
+      values = c(1L, 5L, 10L),
+      inclusive = c(TRUE, FALSE),
+      label = c(foo = "Foo")
+    )
+  })
+  expect_snapshot(error = TRUE, {
+    new_quant_param(
+      type = "integer",
+      values = NULL,
+      range = NULL,
+      inclusive = c(TRUE, FALSE),
+      label = c(foo = "Foo")
+    )
+  })
+  expect_snapshot(error = TRUE, {
+    new_quant_param(
+      type = "integer",
+      values = NULL,
+      range = c(1L, 10L),
+      inclusive = NULL,
+      label = c(foo = "Foo")
+    )
+  })
+
+})
+
+test_that("`values` is validated", {
+  expect_snapshot(error = TRUE, {
+    new_quant_param(
+      type = "integer",
+      values = "not_numeric",
+      label = c(foo = "Foo")
+    )
+  })
+  expect_snapshot(error = TRUE, {
+    new_quant_param(
+      type = "integer",
+      values = NA_integer_,
+      label = c(foo = "Foo")
+    )
+  })
+  expect_snapshot(error = TRUE, {
+    new_quant_param(
+      type = "integer",
+      values = integer(),
+      label = c(foo = "Foo")
+    )
+  })
+})
