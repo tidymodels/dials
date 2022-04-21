@@ -11,10 +11,12 @@
 #' @param range A two-element vector with the smallest or largest possible
 #'  values, respectively. If these cannot be set when the parameter is defined,
 #'  the `unknown()` function can be used. If a transformation is specified,
-#'  these values should be in the _transformed units_.
+#'  these values should be in the _transformed units_. If `values` is supplied,
+#'  and `range` is `NULL`, `range` will be set to `range(values)`.
 #'
 #' @param inclusive A two-element logical vector for whether the range
-#'  values should be inclusive or exclusive.
+#'  values should be inclusive or exclusive. If `values` is supplied,
+#'  and `inclusive` is `NULL`, `inclusive` will be set to `c(TRUE, TRUE)`.
 #'
 #' @param default A single value with the same class as `type` for the default
 #' parameter value. `unknown()` can also be used here.
@@ -25,7 +27,8 @@
 #'
 #' @param values A vector of possible values that is required when `type` is
 #' `"character"` or `"logical"` but optional otherwise. For quantitative
-#' parameters, these override the `range` when generating sequences if set.
+#' parameters, this can be used as an alternative to `range` and `inclusive`.
+#' If set, these will be used by [value_seq()] and [value_sample()].
 #'
 #' @param label An optional named character string that can be used for
 #' printing and plotting. The name should match the object name (e.g.
@@ -69,8 +72,8 @@ NULL
 #' @export
 #' @rdname new-param
 new_quant_param <- function(type = c("double", "integer"),
-                            range,
-                            inclusive,
+                            range = NULL,
+                            inclusive = NULL,
                             default = unknown(),
                             trans = NULL,
                             values = NULL,
@@ -80,9 +83,38 @@ new_quant_param <- function(type = c("double", "integer"),
 
   if (!(type %in% c("double", "integer"))) {
     rlang::abort("`type` should be either 'double' or 'integer'.")
-  } else {
-    range <- check_range(range, type, trans)
   }
+
+  if (!is.null(values)) {
+    if (!is.numeric(values)) {
+      rlang::abort("`values` must be numeric.")
+    }
+    if (anyNA(values)) {
+      rlang::abort("`values` can't be `NA`.")
+    }
+    if (length(values) == 0) {
+      rlang::abort("`values` can't be empty.")
+    }
+
+    # fill in range if user didn't supply one
+    if (is.null(range)) {
+      range <- range(values)
+    }
+
+    # fill in inclusive if user didn't supply one
+    if (is.null(inclusive)) {
+      inclusive <- c(TRUE, TRUE)
+    }
+  }
+
+  if (is.null(range)) {
+    rlang::abort("`range` must be supplied if `values` is `NULL`.")
+  }
+  if (is.null(inclusive)) {
+    rlang::abort("`inclusive` must be supplied if `values` is `NULL`.")
+  }
+
+  range <- check_range(range, type, trans)
 
   if (!is.list(range)) {
     range <- as.list(range)
