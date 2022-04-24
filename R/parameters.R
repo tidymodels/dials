@@ -168,7 +168,13 @@ print.parameters <- function(x, ...) {
   if (any(null_obj)) {
     needs_param <- print_x$identifier[null_obj]
 
-    param_descs <- combine_words(print_x$identifier[null_obj], before = "`")
+    last_sep <- if (length(needs_param) == 2) {"` and `"} else {"`, and `"}
+
+    param_descs <- paste0(
+      "`",
+      glue::glue_collapse(print_x$identifier[null_obj], sep = "`, `", last = last_sep),
+      "`"
+    )
 
     plural <- length(needs_param) != 1
 
@@ -296,52 +302,4 @@ identical_names <- function(x, y) {
   y_names <- names(y)
 
   identical(x_names, y_names)
-}
-
-# adapted from knitr::combine_words
-combine_words <- function(words, sep = ", ", and = " and ", before = "", after = before,
-          oxford_comma = TRUE)  {
-  n <- length(words)
-
-  rs <- function(x) {
-    if (is.null(x)) {
-      as.character(x)
-    } else {
-      x
-    }
-  }
-
-  if (n == 0) {
-    return(words)
-  }
-
-  words <- paste0(before, words, after)
-
-  if (n == 1) {
-    return(rs(words))
-  }
-
-  if (n == 2) {
-    return(rs(paste(words, collapse = if (is_blank(and)) sep else and)))
-  }
-
-  if (oxford_comma && grepl("^ ", and) && grepl(" $", sep))
-    and = gsub("^ ", "", and)
-
-  words[n] <- paste0(and, words[n])
-
-  if (!oxford_comma) {
-    words[n - 1] <- paste0(words[n - 1:0], collapse = "")
-    words <- words[-n]
-  }
-
-  rs(paste(words, collapse = sep))
-}
-
-is_blank <- function (x) {
-  if (length(x)) {
-    all(grepl("^\\s*$", x))
-  } else {
-    TRUE
-  }
 }
