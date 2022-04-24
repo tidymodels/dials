@@ -46,6 +46,24 @@ test_that("updating", {
 
 test_that("printing", {
   expect_snapshot(parameters(list(mtry(), penalty())))
+
+  expect_snapshot(
+    boost_tree() %>%
+      set_engine("C5.0", trials = tune()) %>%
+      extract_parameter_set_dials()
+  )
+
+  expect_snapshot(
+    boost_tree() %>%
+      set_engine("C5.0", trials = tune(), rules = tune()) %>%
+      extract_parameter_set_dials()
+  )
+
+  expect_snapshot(
+    boost_tree() %>%
+      set_engine("C5.0", trials = tune(), rules = tune(), costs = tune()) %>%
+      extract_parameter_set_dials()
+  )
 })
 
 test_that("parameters.default", {

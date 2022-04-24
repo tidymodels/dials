@@ -47,6 +47,54 @@
       See `?dials::finalize` or `?dials::update.parameters` for more information.
       
 
+---
+
+    Code
+      boost_tree() %>% set_engine("C5.0", trials = tune()) %>%
+        extract_parameter_set_dials()
+    Output
+      Collection of 1 parameters for tuning
+      
+       identifier   type  object
+           trials trials missing
+      
+    Message
+      The parameter `trials` needs a `param` object. 
+      See `vignette('dials')` to learn more.
+
+---
+
+    Code
+      boost_tree() %>% set_engine("C5.0", trials = tune(), rules = tune()) %>%
+        extract_parameter_set_dials()
+    Output
+      Collection of 2 parameters for tuning
+      
+       identifier   type  object
+           trials trials missing
+            rules  rules missing
+      
+    Message
+      The parameters `trials` and `rules` need `param` objects. 
+      See `vignette('dials')` to learn more.
+
+---
+
+    Code
+      boost_tree() %>% set_engine("C5.0", trials = tune(), rules = tune(), costs = tune()) %>%
+        extract_parameter_set_dials()
+    Output
+      Collection of 3 parameters for tuning
+      
+       identifier   type  object
+           trials trials missing
+            rules  rules missing
+            costs  costs missing
+      
+    Message
+      The parameters `trials`, `rules`, and `costs` need `param` objects. 
+      See `vignette('dials')` to learn more.
+
 # parameters.default
 
     Code
