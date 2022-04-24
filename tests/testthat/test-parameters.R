@@ -47,22 +47,23 @@ test_that("updating", {
 test_that("printing", {
   expect_snapshot(parameters(list(mtry(), penalty())))
 
-  expect_snapshot(
-    boost_tree() %>%
-      set_engine("C5.0", trials = tune()) %>%
-      extract_parameter_set_dials()
+  ex_params <- tibble::tribble(
+    ~name,    ~id,       ~source,      ~component,   ~call_info, ~component_id, ~object,
+    "trials", "trials",  "model_spec", "boost_tree", NULL,       "engine",      NA,
+    "rules",   "rules",  "model_spec", "boost_tree", NULL,       "engine",      NA,
+    "costs",   "costs",  "model_spec", "boost_tree", NULL,       "engine",      NA,
   )
 
   expect_snapshot(
-    boost_tree() %>%
-      set_engine("C5.0", trials = tune(), rules = tune()) %>%
-      extract_parameter_set_dials()
+    ex_params[1,] %>% structure(class = c("parameters", class(.)))
   )
 
   expect_snapshot(
-    boost_tree() %>%
-      set_engine("C5.0", trials = tune(), rules = tune(), costs = tune()) %>%
-      extract_parameter_set_dials()
+    ex_params[1:2,] %>% structure(class = c("parameters", class(.)))
+  )
+
+  expect_snapshot(
+    ex_params[1:3,] %>% structure(class = c("parameters", class(.)))
   )
 })
 

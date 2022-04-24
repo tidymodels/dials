@@ -50,8 +50,7 @@
 ---
 
     Code
-      boost_tree() %>% set_engine("C5.0", trials = tune()) %>%
-        extract_parameter_set_dials()
+      ex_params[1, ] %>% structure(class = c("parameters", class(.)))
     Output
       Collection of 1 parameters for tuning
       
@@ -65,8 +64,7 @@
 ---
 
     Code
-      boost_tree() %>% set_engine("C5.0", trials = tune(), rules = tune()) %>%
-        extract_parameter_set_dials()
+      ex_params[1:2, ] %>% structure(class = c("parameters", class(.)))
     Output
       Collection of 2 parameters for tuning
       
@@ -81,8 +79,7 @@
 ---
 
     Code
-      boost_tree() %>% set_engine("C5.0", trials = tune(), rules = tune(), costs = tune()) %>%
-        extract_parameter_set_dials()
+      ex_params[1:3, ] %>% structure(class = c("parameters", class(.)))
     Output
       Collection of 3 parameters for tuning
       
