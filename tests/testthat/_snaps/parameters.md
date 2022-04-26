@@ -47,6 +47,51 @@
       See `?dials::finalize` or `?dials::update.parameters` for more information.
       
 
+---
+
+    Code
+      ex_params[1, ] %>% structure(class = c("parameters", class(.)))
+    Output
+      Collection of 1 parameters for tuning
+      
+       identifier   type  object
+           trials trials missing
+      
+    Message
+      The parameter `trials` needs a `param` object. 
+      See `vignette('dials')` to learn more.
+
+---
+
+    Code
+      ex_params[1:2, ] %>% structure(class = c("parameters", class(.)))
+    Output
+      Collection of 2 parameters for tuning
+      
+       identifier   type  object
+           trials trials missing
+            rules  rules missing
+      
+    Message
+      The parameters `trials` and `rules` need `param` objects. 
+      See `vignette('dials')` to learn more.
+
+---
+
+    Code
+      ex_params[1:3, ] %>% structure(class = c("parameters", class(.)))
+    Output
+      Collection of 3 parameters for tuning
+      
+       identifier   type  object
+           trials trials missing
+            rules  rules missing
+            costs  costs missing
+      
+    Message
+      The parameters `trials`, `rules`, and `costs` need `param` objects. 
+      See `vignette('dials')` to learn more.
+
 # parameters.default
 
     Code
