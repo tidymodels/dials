@@ -35,3 +35,6 @@ data set, the upper bound is set to \code{unknown} but can be filled in via the
 mtry(c(1L, 10L)) # in original units
 mtry_long(c(0, 5)) # in log10 units
 }
+\seealso{
+mtry_prop
+}

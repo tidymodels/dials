@@ -2,6 +2,9 @@
 
 * `new_quant_param()` no longer requires `range` and `inclusive` if `values` is
   supplied (#87).
+  
+* `mtry_prop()` is a new parameter for use with engines that interpret `mtry()`
+  as a proportion rather than a count in tree-based models (@simonpcouch, #233).
 
 
 # dials 0.1.1
