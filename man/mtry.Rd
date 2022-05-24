@@ -31,6 +31,28 @@ Since the scale of the parameter depends on the number of columns in the
 data set, the upper bound is set to \code{unknown} but can be filled in via the
 \code{finalize()} method.
 }
+\section{Interpretation}{
+
+
+\code{\link[=mtry_prop]{mtry_prop()}} is a variation on \code{\link[=mtry]{mtry()}} where the value is
+interpreted as the \emph{proportion} of predictors that will be randomly sampled
+at each split rather than the \emph{count}.
+
+This parameter is not intended for use in accommodating engines that take in
+this argument as a proportion; \code{mtry} is often a main model argument
+rather than an engine-specific argument, and thus should not have an
+engine-specific interface.
+
+When wrapping modeling engines that interpret \code{mtry} in its sense as a
+proportion, use the \code{\link[=mtry]{mtry()}} parameter in \code{\link[parsnip:set_new_model]{parsnip::set_model_arg()}} and
+process the passed argument in an internal wrapping function as
+\code{mtry / number_of_predictors}. In addition, introduce a logical argument
+\code{counts} to the wrapping function, defaulting to \code{TRUE}, that indicates
+whether to interpret the supplied argument as a count rather than a proportion.
+
+For an example implementation, see \code{\link[parsnip:xgb_train]{parsnip::xgb_train()}}.
+}
+
 \examples{
 mtry(c(1L, 10L)) # in original units
 mtry_long(c(0, 5)) # in log10 units

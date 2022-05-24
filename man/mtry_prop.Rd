@@ -24,14 +24,28 @@ A \code{dials} object with classes "quant_param" and "param". The
 The proportion of predictors that will be randomly sampled at each split when
 creating tree models.
 }
-\details{
-This argument is a variation on \code{\link[=mtry]{mtry()}} where the value is
+\section{Interpretation}{
+
+
+\code{\link[=mtry_prop]{mtry_prop()}} is a variation on \code{\link[=mtry]{mtry()}} where the value is
 interpreted as the \emph{proportion} of predictors that will be randomly sampled
-at each split rather than the \emph{count}. It is typically only used to
-accommodate engines that take in this argument as a proportion,
-such as \code{lightgbm} (as \code{feature_fraction}) and
-\code{\link[parsnip:xgb_train]{xgboost}} (as \verb{colsample_by*}).
+at each split rather than the \emph{count}.
+
+This parameter is not intended for use in accommodating engines that take in
+this argument as a proportion; \code{mtry} is often a main model argument
+rather than an engine-specific argument, and thus should not have an
+engine-specific interface.
+
+When wrapping modeling engines that interpret \code{mtry} in its sense as a
+proportion, use the \code{\link[=mtry]{mtry()}} parameter in \code{\link[parsnip:set_new_model]{parsnip::set_model_arg()}} and
+process the passed argument in an internal wrapping function as
+\code{mtry / number_of_predictors}. In addition, introduce a logical argument
+\code{counts} to the wrapping function, defaulting to \code{TRUE}, that indicates
+whether to interpret the supplied argument as a count rather than a proportion.
+
+For an example implementation, see \code{\link[parsnip:xgb_train]{parsnip::xgb_train()}}.
 }
+
 \examples{
 mtry_prop()
 
