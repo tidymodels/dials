@@ -65,6 +65,7 @@ reference:
     - mixture
     - momentum
     - mtry
+    - mtry_prop
     - neighbors
     - num_breaks
     - num_comp

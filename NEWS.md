@@ -2,7 +2,10 @@
 
 * `new_quant_param()` no longer requires `range` and `inclusive` if `values` is
   supplied (#87).
-
+  
+* Introduce `mtry_prop()`, a variation on `mtry()` where the value is
+interpreted as the proportion of predictors that will be randomly sampled
+at each split rather than the count. (#233).
 
 # dials 0.1.1
 

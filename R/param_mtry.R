@@ -12,9 +12,11 @@
 #' Since the scale of the parameter depends on the number of columns in the
 #' data set, the upper bound is set to `unknown` but can be filled in via the
 #' `finalize()` method.
+#' @inheritSection mtry_prop Interpretation
 #' @examples
 #' mtry(c(1L, 10L)) # in original units
 #' mtry_long(c(0, 5)) # in log10 units
+#' @seealso mtry_prop
 #' @export
 mtry <- function(range = c(1L, unknown()), trans = NULL) {
   new_quant_param(
