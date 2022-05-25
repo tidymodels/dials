@@ -12,7 +12,7 @@ creating tree models."><meta property="og:image" content="https://dials.tidymode
     
     <a class="navbar-brand me-2" href="../index.html">dials</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.1.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.1.9001</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -87,6 +87,30 @@ log10 scale and is helpful when the data contain a large number of predictors.</
 <p>Since the scale of the parameter depends on the number of columns in the
 data set, the upper bound is set to <code>unknown</code> but can be filled in via the
 <code><a href="finalize.html">finalize()</a></code> method.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="interpretation">Interpretation<a class="anchor" aria-label="anchor" href="#interpretation"></a></h2>
+    
+
+
+<p><code><a href="mtry_prop.html">mtry_prop()</a></code> is a variation on <code>mtry()</code> where the value is
+interpreted as the <em>proportion</em> of predictors that will be randomly sampled
+at each split rather than the <em>count</em>.</p>
+<p>This parameter is not intended for use in accommodating engines that take in
+this argument as a proportion; <code>mtry</code> is often a main model argument
+rather than an engine-specific argument, and thus should not have an
+engine-specific interface.</p>
+<p>When wrapping modeling engines that interpret <code>mtry</code> in its sense as a
+proportion, use the <code>mtry()</code> parameter in <code>parsnip::set_model_arg()</code> and
+process the passed argument in an internal wrapping function as
+<code>mtry / number_of_predictors</code>. In addition, introduce a logical argument
+<code>counts</code> to the wrapping function, defaulting to <code>TRUE</code>, that indicates
+whether to interpret the supplied argument as a count rather than a proportion.</p>
+<p>For an example implementation, see <code>parsnip::xgb_train()</code>.</p>
+    </div>
+    <div class="section level2">
+    <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
+    <div class="dont-index"><p>mtry_prop</p></div>
     </div>
 
     <div class="section level2">
