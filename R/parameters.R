@@ -157,7 +157,7 @@ print.parameters <- function(x, ...) {
   print_x$object <-
     purrr::map_chr(
       print_x$object,
-      ~if (all(is.na(.x))) {"missing"} else {dplyr::type_sum(.x)}
+      ~if (all(is.na(.x))) {"missing"} else {pillar::type_sum(.x)}
     )
 
   print.data.frame(print_x, row.names = FALSE)
