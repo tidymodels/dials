@@ -20,7 +20,7 @@ Imports:
     DiceDesign,
     dplyr (>= 0.8.5),
     glue,
-    hardhat (>= 0.2.0),
+    hardhat (>= 1.1.0),
     lifecycle,
     pillar,
     purrr,
