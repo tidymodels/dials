@@ -18,7 +18,8 @@
 #'  values should be inclusive or exclusive. If `values` is supplied,
 #'  and `inclusive` is `NULL`, `inclusive` will be set to `c(TRUE, TRUE)`.
 #'
-#' @param default A single value with the same class as `type` for the default
+#' @param default `r lifecycle::badge("deprecated")`
+#' A single value with the same class as `type` for the default
 #' parameter value. `unknown()` can also be used here.
 #'
 #' @param trans A `trans` object from the \pkg{scales} package, such as
@@ -141,6 +142,13 @@ new_quant_param <- function(type = c("double", "integer"),
     }
   }
 
+  # if (!is_unknown(default)) {
+  #   lifecycle::deprecate_warn(
+  #     when = "1.0.0",
+  #     what = "new_quant_param(default)",
+  #     details = "It will be removed in a future release."
+  #   )
+  # }
   check_label(label)
   check_finalize(finalize)
 
@@ -201,7 +209,13 @@ new_qual_param <- function(type = c("character", "logical"),
   if (is_unknown(default)) {
     default <- values[1]
   }
-
+  # else {
+  #   lifecycle::deprecate_warn(
+  #     when = "1.0.0",
+  #     what = "new_qual_param(default)",
+  #     details = "It will be removed in a future release."
+  #   )
+  # }
   check_label(label)
   check_finalize(finalize)
 
