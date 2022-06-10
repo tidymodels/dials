@@ -84,9 +84,12 @@ test_that("sequences - doubles", {
   expect_equal(
     value_seq(mixture(), 1), 0
   )
-  expect_equal(
-    value_seq(test_param_3, 1), .40
+  expect_snapshot(
+    value_seq(test_param_3, 1)
   )
+
+  withr::local_options(lifecycle_verbosity = "quiet")
+
   expect_equal(
     value_seq(test_param_4, 1), .60
   )
@@ -144,9 +147,12 @@ test_that("sequences - integers", {
   expect_equal(
     value_seq(tree_depth(), 1), 1L
   )
-  expect_equal(
-    value_seq(test_param_1, 1), 3L
+  expect_snapshot(
+    value_seq(test_param_1, 1)
   )
+
+  withr::local_options(lifecycle_verbosity = "quiet")
+
   expect_equal(
     value_seq(test_param_2, 1), 2L
   )
@@ -270,8 +276,8 @@ test_that("sequences - character", {
   expect_equal(
     value_seq(surv_dist(), Inf), surv_dist()$values
   )
-  expect_equal(
-    value_seq(test_param_5, 1), "c"
+  expect_snapshot(
+    value_seq(test_param_5, 1)
   )
 })
 
@@ -283,8 +289,8 @@ test_that("sequences - logical", {
       label = c(param = "param")
     )
 
-  expect_equal(
-    value_seq(prune(), 1), TRUE
+  expect_snapshot(
+    value_seq(prune(), 1)
   )
   expect_equal(
     value_seq(prune(), 2), c(TRUE, FALSE)
