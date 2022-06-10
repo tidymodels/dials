@@ -36,8 +36,11 @@
 #' than the range of the integers, a smaller set will be generated. For
 #' qualitative parameters, the first `n` values are returned.
 #'
+#' `r lifecycle::badge("deprecated")`
 #' If a single value sequence is requested, the default value is returned (if
 #' any). If no default is specified, the regular algorithm is used.
+#' The default value is deprecated and once it's removed, the regular algorithm
+#' will always be used.
 #'
 #' For quantitative parameters, any `values` contained in the object
 #' are sampled with replacement. Otherwise, a sequence of values
@@ -141,6 +144,14 @@ value_seq <- function(object, n, original = TRUE) {
 
 value_seq_dbl <- function(object, n, original = TRUE) {
   if (n == 1 && (!is.null(object$default) & !is_unknown(object$default))) {
+    lifecycle::deprecate_warn(
+      when = "1.0.0",
+      what = "new_quant_param(default)",
+      details = c(
+        i = "This uses the `default` value of the parameter.",
+        i = "See the Details section of `?value_seq`."
+      )
+    )
     res <- object$default
   } else {
     if (!is.null(object$values)) {
@@ -161,6 +172,14 @@ value_seq_dbl <- function(object, n, original = TRUE) {
 
 value_seq_int <- function(object, n, original = TRUE) {
   if (n == 1 && (!is.null(object$default) & !is_unknown(object$default))) {
+    lifecycle::deprecate_warn(
+      when = "1.0.0",
+      what = "new_quant_param(default)",
+      details = c(
+        i = "This uses the `default` value of the parameter.",
+        i = "See the Details section of `?value_seq`."
+      )
+    )
     res <- object$default
   } else {
     if (!is.null(object$values)) {
@@ -185,6 +204,14 @@ value_seq_int <- function(object, n, original = TRUE) {
 
 value_seq_qual <- function(object, n) {
   if (n == 1 && (!is.null(object$default) & !is_unknown(object$default))) {
+    lifecycle::deprecate_warn(
+      when = "1.0.0",
+      what = "new_qual_param(default)",
+      details = c(
+        i = "This uses the `default` value of the parameter.",
+        i = "See the Details section of `?value_seq`."
+      )
+    )
     res <- object$default
   } else {
     res <- object$values[1:min(n, length(object$values))]
