@@ -1,16 +1,19 @@
-#' Parameters for possible engine parameters for party models
+#' Parameters for possible engine parameters for partykit models
 #'
-#' @inheritParams Laplace
+#' @param range A two-element vector holding the _defaults_ for the smallest and
+#' largest possible values, respectively.
+#'
+#' @param trans A `trans` object from the `scales` package, such as
+#' `scales::log10_trans()` or `scales::reciprocal_trans()`. If not provided,
+#' the default is used which matches the units used in `range`. If no
+#' transformation, `NULL`.
 #' @param values A character string of possible values.
-#'
+#' @return  For the functions, they return a function with classes "param" and
+#' either "quant_param" or "qual_param".
 #' @details
 #' The range of `conditional_min_criterion()` corresponds to roughly 0.80 to
 #' 0.99997 in the natural units. For several test types, this parameter
 #' corresponds to `1 - {p-value}`.
-#'
-#' @return  For the functions, they return a function with classes `"param"` and
-#' either `"quant_param"` or `"qual_param"`.
-#'
 #' @export
 conditional_min_criterion <- function(range = c(1.386294, 15), trans = scales::logit_trans()) {
   dials::new_quant_param(
@@ -24,7 +27,7 @@ conditional_min_criterion <- function(range = c(1.386294, 15), trans = scales::l
 
 #' @export
 #' @rdname conditional_min_criterion
-values_test_type <- c("Bonferroni", "MonteCarlo", "Aggregated", "Univariate", "Teststatistic")
+values_test_type <- c("Bonferroni", "MonteCarlo", "Univariate", "Teststatistic")
 
 #' @export
 #' @rdname conditional_min_criterion
@@ -39,7 +42,7 @@ conditional_test_type <- function(values = values_test_type) {
 
 #' @export
 #' @rdname conditional_min_criterion
-values_test_statistic <- c("max", "quad")
+values_test_statistic <- c("quadratic", "maximum")
 
 #' @export
 #' @rdname conditional_min_criterion
