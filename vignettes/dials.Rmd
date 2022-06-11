@@ -123,8 +123,7 @@ custom_cost <- cost(range = c(1, 10), trans = trans_raise)
 custom_cost
 ```
 
-For this version of `cost()`, parameter values are sampled between 1 and 10  on the transformed scale, as specified by `range`.
-On the original scale, values are between `-log2(10)` and `-log2(1)`.
+For this version of `cost()`, parameter values are sampled between 1 and 10 on the transformed scale, as specified by `range`. On the original scale, values are between `-log2(10)` and `-log2(1)`.
 
 ```{r custom-cost}
 -log2(c(10, 1))
