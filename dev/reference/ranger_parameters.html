@@ -95,7 +95,8 @@ engine. They correspond to tuning parameters that would be specified using
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>range</dt>
 <dd><p>A two-element vector holding the <em>defaults</em> for the smallest and
-largest possible values, respectively.</p></dd>
+largest possible values, respectively. If a transformation is specified,
+these values should be in the <em>transformed units</em>.</p></dd>
 <dt>trans</dt>
 <dd><p>A <code>trans</code> object from the <code>scales</code> package, such as
 <code><a href="https://scales.r-lib.org/reference/log_trans.html" class="external-link">scales::log10_trans()</a></code> or <code><a href="https://scales.r-lib.org/reference/reciprocal_trans.html" class="external-link">scales::reciprocal_trans()</a></code>. If not provided,
