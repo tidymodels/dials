@@ -29,7 +29,8 @@ conditional_test_statistic(values = values_test_statistic)
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and
-largest possible values, respectively.}
+largest possible values, respectively. If a transformation is specified,
+these values should be in the \emph{transformed units}.}
 
 \item{trans}{A \code{trans} object from the \code{scales} package, such as
 \code{scales::log10_trans()} or \code{scales::reciprocal_trans()}. If not provided,
@@ -39,8 +40,8 @@ transformation, \code{NULL}.}
 \item{values}{A character string of possible values.}
 }
 \value{
-For the functions, they return a function with classes "param" and
-either "quant_param" or "qual_param".
+For the functions, they return a function with classes \code{"param"} and
+either \code{"quant_param"} or \code{"qual_param"}.
 }
 \description{
 Parameters for possible engine parameters for partykit models

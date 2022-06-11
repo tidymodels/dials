@@ -8,7 +8,8 @@ Laplace(range = c(0, 3), trans = NULL)
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and
-largest possible values, respectively.}
+largest possible values, respectively. If a transformation is specified,
+these values should be in the \emph{transformed units}.}
 
 \item{trans}{A \code{trans} object from the \code{scales} package, such as
 \code{scales::log10_trans()} or \code{scales::reciprocal_trans()}. If not provided,
@@ -16,7 +17,7 @@ the default is used which matches the units used in \code{range}. If no
 transformation, \code{NULL}.}
 }
 \value{
-A function with classes "quant_param" and "param"
+A function with classes \code{"quant_param"} and \code{"param"}.
 }
 \description{
 Laplace correction for smoothing low-frequency counts.

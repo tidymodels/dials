@@ -3,6 +3,14 @@
 * `conditional_test_statistic()` and `conditional_test_type()` functions were
   updated to work with the partykit engine (instead of the party package).
 
+* `new_quant_param()` no longer requires `range` and `inclusive` if `values` is
+  supplied (#87).
+  
+* Introduce `mtry_prop()`, a variation on `mtry()` where the value is
+interpreted as the proportion of predictors that will be randomly sampled
+at each split rather than the count. (#233).
+
+
 # dials 0.1.1
 
 * The `Chicago` data set was removed. It can be found in the `modeldata` package.

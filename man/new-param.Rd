@@ -8,8 +8,8 @@
 \usage{
 new_quant_param(
   type = c("double", "integer"),
-  range,
-  inclusive,
+  range = NULL,
+  inclusive = NULL,
   default = unknown(),
   trans = NULL,
   values = NULL,
@@ -33,10 +33,12 @@ choices are \code{"double"} and \code{"integer"} while for qualitative factors t
 \item{range}{A two-element vector with the smallest or largest possible
 values, respectively. If these cannot be set when the parameter is defined,
 the \code{unknown()} function can be used. If a transformation is specified,
-these values should be in the \emph{transformed units}.}
+these values should be in the \emph{transformed units}. If \code{values} is supplied,
+and \code{range} is \code{NULL}, \code{range} will be set to \code{range(values)}.}
 
 \item{inclusive}{A two-element logical vector for whether the range
-values should be inclusive or exclusive.}
+values should be inclusive or exclusive. If \code{values} is supplied,
+and \code{inclusive} is \code{NULL}, \code{inclusive} will be set to \code{c(TRUE, TRUE)}.}
 
 \item{default}{A single value with the same class as \code{type} for the default
 parameter value. \code{unknown()} can also be used here.}
@@ -47,7 +49,8 @@ transforms with \code{\link[scales:trans_new]{scales::trans_new()}}.}
 
 \item{values}{A vector of possible values that is required when \code{type} is
 \code{"character"} or \code{"logical"} but optional otherwise. For quantitative
-parameters, these override the \code{range} when generating sequences if set.}
+parameters, this can be used as an alternative to \code{range} and \code{inclusive}.
+If set, these will be used by \code{\link[=value_seq]{value_seq()}} and \code{\link[=value_sample]{value_sample()}}.}
 
 \item{label}{An optional named character string that can be used for
 printing and plotting. The name should match the object name (e.g.

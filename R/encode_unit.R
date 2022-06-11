@@ -54,7 +54,7 @@ encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
 
     # convert to natural units if req
     if (original && !is.null(x$trans)) {
-      value <- x$trans$inv(value)
+      value <- x$trans$inverse(value)
     }
 
     if (x$type == "integer" && original) {

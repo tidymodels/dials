@@ -12,7 +12,10 @@ parameters <- function(x, ...) {
 #' @export
 #' @rdname parameters
 parameters.default <- function(x, ...) {
-  rlang::abort("`parameters` objects cannot be created from this type of object.")
+  rlang::abort(
+    glue("`parameters` objects cannot be created from objects ",
+         "of class `{class(x)[1]}`.")
+  )
 }
 
 #' @export
@@ -147,25 +150,39 @@ unk_check <- function(x) {
 #' @export
 print.parameters <- function(x, ...) {
   x <- tibble::as_tibble(x)
+
   cat("Collection of", nrow(x), "parameters for tuning\n\n")
 
   print_x <- x %>% dplyr::select(identifier = id, type = name, object)
-  print_x$object <- purrr::map_chr(print_x$object, dplyr::type_sum)
+  print_x$object <-
+    purrr::map_chr(
+      print_x$object,
+      ~if (all(is.na(.x))) {"missing"} else {pillar::type_sum(.x)}
+    )
+
   print.data.frame(print_x, row.names = FALSE)
   cat("\n")
 
   null_obj <- map_lgl(x$object, ~ all(is.na(.x)))
-  num_missing <- sum(null_obj)
-  if (num_missing > 0) {
-    if (num_missing == 1) {
-      cat("One needs a `param` object: '", x$identifier[null_obj], "'\n\n", sep = "")
-    } else {
-      cat(
-        "Several need `param` objects: ",
-        paste0("'", x$identifier[null_obj], "'", collapse = ", "),
-        "\n\n"
-      )
-    }
+
+  if (any(null_obj)) {
+    needs_param <- print_x$identifier[null_obj]
+
+    last_sep <- if (length(needs_param) == 2) {"` and `"} else {"`, and `"}
+
+    param_descs <- paste0(
+      "`",
+      glue::glue_collapse(print_x$identifier[null_obj], sep = "`, `", last = last_sep),
+      "`"
+    )
+
+    plural <- length(needs_param) != 1
+
+    rlang::inform(
+      glue::glue("The parameter{if (plural) 's' else ''} {param_descs} ",
+                 "{if (plural) {'need `param` objects'} else {'needs a `param` object'}}. ",
+                 "\nSee `vignette('dials')` to learn more.")
+    )
   }
 
   other_obj <-
