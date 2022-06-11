@@ -4,8 +4,6 @@
 #' L2, etc) in regularized models.
 #'
 #' @inheritParams Laplace
-#' @param range A two-element vector holding the _defaults_ for the smallest and
-#' largest possible values, respectively. Note that these are in transformed units.
 #'
 #' @details
 #' This parameter is used for regularized or penalized models such as
