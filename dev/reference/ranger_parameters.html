@@ -97,15 +97,20 @@ engine. They correspond to tuning parameters that would be specified using
 <dd><p>A two-element vector holding the <em>defaults</em> for the smallest and
 largest possible values, respectively. If a transformation is specified,
 these values should be in the <em>transformed units</em>.</p></dd>
+
+
 <dt>trans</dt>
 <dd><p>A <code>trans</code> object from the <code>scales</code> package, such as
 <code><a href="https://scales.r-lib.org/reference/log_trans.html" class="external-link">scales::log10_trans()</a></code> or <code><a href="https://scales.r-lib.org/reference/reciprocal_trans.html" class="external-link">scales::reciprocal_trans()</a></code>. If not provided,
 the default is used which matches the units used in <code>range</code>. If no
 transformation, <code>NULL</code>.</p></dd>
+
+
 <dt>values</dt>
 <dd><p>For <code>splitting_rule()</code>, a character string of possible values.
 See <code>ranger_split_rules</code>, <code>ranger_class_rules</code>, and <code>ranger_reg_rules</code> for
 appropriate values. For <code>regularize_depth()</code>, either <code>TRUE</code> or <code>FALSE</code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -137,7 +142,7 @@ conditional on others. For example, <code>significance_threshold()</code>,
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
   </div></footer></body></html>
