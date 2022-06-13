@@ -111,6 +111,27 @@ mtcars_cp %>%
   table()
 ```
 
+Any transformations from the `scales` package can be used with the numeric parameters, or a custom transformation generated with `scales::trans_new()`.
+
+```{r custom-transform}
+trans_raise <- scales::trans_new(
+  "raise", 
+  transform = function(x) 2^x , 
+  inverse = function(x) -log2(x)
+)
+custom_cost <- cost(range = c(1, 10), trans = trans_raise)
+custom_cost
+```
+
+Note that if a transformation is used, the `range` argument specifies the parameter range _on the transformed scale_. 
+For this version of `cost()`, parameter values are sampled between 1 and 10 and then transformed back to the original scale by the inverse `-log2()`. So on the original scale, the sampled values are between `-log2(10)` and `-log2(1)`.
+
+```{r custom-cost}
+-log2(c(10, 1))
+value_sample(custom_cost, 100) %>% range()
+```
+
+
 ### Discrete Parameters
 
 In the discrete case there is no notion of a range. The parameter objects are defined by their discrete values. For example, consider a parameter for the types of kernel functions that is used with distance functions:
