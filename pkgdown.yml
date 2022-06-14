@@ -1,9 +1,9 @@
 pandoc: 2.14.2
-pkgdown: 2.0.2
+pkgdown: 2.0.4
 pkgdown_sha: ~
 articles:
   dials: dials.html
-last_built: 2022-04-06T16:43Z
+last_built: 2022-06-14T12:13Z
 urls:
   reference: https://dials.tidymodels.org/reference
   article: https://dials.tidymodels.org/articles

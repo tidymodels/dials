@@ -12,7 +12,7 @@ ranges based on a data set and simple heuristics."><meta property="og:image" con
     
     <a class="navbar-brand me-2" href="../index.html">dials</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,28 +99,43 @@ ranges based on a data set and simple heuristics."><meta property="og:image" con
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>object</dt>
 <dd><p>A <code>param</code> object or a list of <code>param</code> objects.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Other arguments to pass to the underlying parameter
 finalizer functions. For example, for <code>get_rbf_range()</code>, the dots are passed
 along to <code><a href="https://rdrr.io/pkg/kernlab/man/sigest.html" class="external-link">kernlab::sigest()</a></code>.</p></dd>
+
+
 <dt>x</dt>
 <dd><p>The predictor data. In some cases (see below) this should only
 include numeric data.</p></dd>
+
+
 <dt>force</dt>
 <dd><p>A single logical that indicates that even if the parameter
 object is complete, should it update the ranges anyway?</p></dd>
+
+
 <dt>log_vals</dt>
 <dd><p>A logical: should the ranges be set on the log10 scale?</p></dd>
+
+
 <dt>frac</dt>
 <dd><p>A double for the fraction of the data to be used for the upper
 bound. For <code>get_n_frac_range()</code> and <code>get_batch_sizes()</code>, a vector of two
 fractional values are required.</p></dd>
+
+
 <dt>seed</dt>
 <dd><p>An integer to control the randomness of the calculations.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>An updated <code>param</code> object or a list of updated <code>param</code> objects depending
+    
+
+<p>An updated <code>param</code> object or a list of updated <code>param</code> objects depending
 on what is provided in <code>object</code>.</p>
     </div>
     <div class="section level2">
@@ -163,11 +178,11 @@ rows in the data or a fraction of the total number of rows.</p>
 <span class="r-in"><span class="co"># Nothing to do here since no unknowns</span></span>
 <span class="r-in"><span class="fu"><a href="penalty.html">penalty</a></span><span class="op">(</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Amount of Regularization (quantitative)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Transformer:  log-10 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Transformer: log-10 [1e-100, Inf]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Range (transformed scale): [-10, 0]</span>
 <span class="r-in"><span class="fu">finalize</span><span class="op">(</span><span class="fu"><a href="penalty.html">penalty</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">car_pred</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Amount of Regularization (quantitative)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Transformer:  log-10 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Transformer: log-10 [1e-100, Inf]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Range (transformed scale): [-10, 0]</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">kernlab</span><span class="op">)</span></span>
@@ -220,7 +235,7 @@ rows in the data or a fraction of the total number of rows.</p>
 <span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Radial Basis Function sigma (quantitative)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Transformer:  log-10 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Transformer: log-10 [1e-100, Inf]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Range (transformed scale): [-10, 0]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span class="va">complete_params</span> <span class="op"><a href="https://purrr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -228,7 +243,7 @@ rows in the data or a fraction of the total number of rows.</p>
 <span class="r-in">  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html" class="external-link">pull</a></span><span class="op">(</span><span class="va">object</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [[1]]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Radial Basis Function sigma (quantitative)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Transformer:  log-10 </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Transformer: log-10 [1e-100, Inf]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Range (transformed scale): [-1.6, -0.933]</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
@@ -244,7 +259,7 @@ rows in the data or a fraction of the total number of rows.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
 </div>
 
   </div></footer></body></html>
