@@ -1,14 +1,14 @@
-# dials (development version)
+# dials 1.0.0
 
-* `conditional_test_statistic()` and `conditional_test_type()` functions were
-  updated to work with the partykit engine (instead of the party package).
+* The new parameter `mtry_prop()` is a variation on `mtry()` where the value is
+  interpreted as the proportion (rather than the count) of predictors that will 
+  be randomly sampled at each split (#233).
+
+* `conditional_test_statistic()` and `conditional_test_type()` now work with the
+  partykit engine rather than the party engine (#224).
 
 * `new_quant_param()` no longer requires `range` and `inclusive` if `values` is
   supplied (#87).
-  
-* Introduce `mtry_prop()`, a variation on `mtry()` where the value is
-interpreted as the proportion of predictors that will be randomly sampled
-at each split rather than the count. (#233).
 
 
 # dials 0.1.1
