@@ -45,13 +45,13 @@ rather than an engine-specific argument, and thus should not have an
 engine-specific interface.
 
 When wrapping modeling engines that interpret \code{mtry} in its sense as a
-proportion, use the \code{\link[=mtry]{mtry()}} parameter in \code{\link[parsnip:set_new_model]{parsnip::set_model_arg()}} and
+proportion, use the \code{\link[=mtry]{mtry()}} parameter in \code{parsnip::set_model_arg()} and
 process the passed argument in an internal wrapping function as
 \code{mtry / number_of_predictors}. In addition, introduce a logical argument
 \code{counts} to the wrapping function, defaulting to \code{TRUE}, that indicates
 whether to interpret the supplied argument as a count rather than a proportion.
 
-For an example implementation, see \code{\link[parsnip:xgb_train]{parsnip::xgb_train()}}.
+For an example implementation, see \code{parsnip::xgb_train()}.
 }
 
 \examples{
