@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">dials</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">0.1.1.9001</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,11 +53,12 @@
       <small>Source: <a href="https://github.com/tidymodels/dials/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2"><h2 class="pkg-version" data-toc-text="development version" id="dials-development-version">dials (development version)<a class="anchor" aria-label="anchor" href="#dials-development-version"></a></h2></div>
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="dials-development-version">dials (development version)<a class="anchor" aria-label="anchor" href="#dials-development-version"></a></h2>
-<ul><li><p><code><a href="../reference/conditional_min_criterion.html">conditional_test_statistic()</a></code> and <code><a href="../reference/conditional_min_criterion.html">conditional_test_type()</a></code> functions were updated to work with the partykit engine (instead of the party package).</p></li>
+<h2 class="pkg-version" data-toc-text="1.0.0" id="dials-100">dials 1.0.0<a class="anchor" aria-label="anchor" href="#dials-100"></a></h2>
+<ul><li><p>The new parameter <code><a href="../reference/mtry_prop.html">mtry_prop()</a></code> is a variation on <code><a href="../reference/mtry.html">mtry()</a></code> where the value is interpreted as the proportion (rather than the count) of predictors that will be randomly sampled at each split (<a href="https://github.com/tidymodels/dials/issues/233" class="external-link">#233</a>).</p></li>
+<li><p><code><a href="../reference/conditional_min_criterion.html">conditional_test_statistic()</a></code> and <code><a href="../reference/conditional_min_criterion.html">conditional_test_type()</a></code> now work with the partykit engine rather than the party engine (<a href="https://github.com/tidymodels/dials/issues/224" class="external-link">#224</a>).</p></li>
 <li><p><code><a href="../reference/new-param.html">new_quant_param()</a></code> no longer requires <code>range</code> and <code>inclusive</code> if <code>values</code> is supplied (<a href="https://github.com/tidymodels/dials/issues/87" class="external-link">#87</a>).</p></li>
-<li><p>Introduce <code><a href="../reference/mtry_prop.html">mtry_prop()</a></code>, a variation on <code><a href="../reference/mtry.html">mtry()</a></code> where the value is interpreted as the proportion of predictors that will be randomly sampled at each split rather than the count. (<a href="https://github.com/tidymodels/dials/issues/233" class="external-link">#233</a>).</p></li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.1" id="dials-011">dials 0.1.1<a class="anchor" aria-label="anchor" href="#dials-011"></a></h2><p class="text-muted">CRAN release: 2022-04-06</p>
