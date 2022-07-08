@@ -75,7 +75,7 @@ NULL
 new_quant_param <- function(type = c("double", "integer"),
                             range = NULL,
                             inclusive = NULL,
-                            default = unknown(),
+                            default = deprecated(),
                             trans = NULL,
                             values = NULL,
                             label = NULL,
@@ -142,13 +142,12 @@ new_quant_param <- function(type = c("double", "integer"),
     }
   }
 
-  # if (!is_unknown(default)) {
-  #   lifecycle::deprecate_warn(
-  #     when = "1.0.0",
-  #     what = "new_quant_param(default)",
-  #     details = "It will be removed in a future release."
-  #   )
-  # }
+  if (lifecycle::is_present(default)) {
+    lifecycle::deprecate_warn(
+      when = "1.0.1",
+      what = "new_quant_param(default)"
+    )
+  }
   check_label(label)
   check_finalize(finalize)
 
@@ -158,7 +157,6 @@ new_quant_param <- function(type = c("double", "integer"),
     range = range,
     inclusive = inclusive,
     trans = trans,
-    default = default,
     label = label,
     finalize = finalize
   )
@@ -191,7 +189,7 @@ new_quant_param <- function(type = c("double", "integer"),
 #' @rdname new-param
 new_qual_param <- function(type = c("character", "logical"),
                            values,
-                           default = unknown(),
+                           default = deprecated(),
                            label = NULL,
                            finalize = NULL) {
   type <- match.arg(type)
@@ -206,22 +204,18 @@ new_qual_param <- function(type = c("character", "logical"),
       rlang::abort("`values` must be character")
     }
   }
-  if (is_unknown(default)) {
-    default <- values[1]
+
+  if (lifecycle::is_present(default)) {
+    lifecycle::deprecate_warn(
+      when = "1.0.1",
+      what = "new_qual_param(default)"
+    )
   }
-  # else {
-  #   lifecycle::deprecate_warn(
-  #     when = "1.0.0",
-  #     what = "new_qual_param(default)",
-  #     details = "It will be removed in a future release."
-  #   )
-  # }
   check_label(label)
   check_finalize(finalize)
 
   res <- list(
     type = type,
-    default = default,
     label = label,
     values = values,
     finalize = finalize

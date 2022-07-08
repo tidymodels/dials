@@ -10,7 +10,7 @@ new_quant_param(
   type = c("double", "integer"),
   range = NULL,
   inclusive = NULL,
-  default = unknown(),
+  default = deprecated(),
   trans = NULL,
   values = NULL,
   label = NULL,
@@ -20,7 +20,7 @@ new_quant_param(
 new_qual_param(
   type = c("character", "logical"),
   values,
-  default = unknown(),
+  default = deprecated(),
   label = NULL,
   finalize = NULL
 )
