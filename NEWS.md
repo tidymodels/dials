@@ -1,5 +1,11 @@
 # dials (development version)
 
+* The `default` argument to the constructors `new_quant_param()` and 
+  `new_qual_param()` is deprecated. `value_seq()` now uses the same logic to 
+  generate a sequence of parameter values regardless of how long that sequence 
+  is.
+
+
 # dials 1.0.0
 
 * The new parameter `mtry_prop()` is a variation on `mtry()` where the value is
