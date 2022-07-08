@@ -14,7 +14,6 @@ threshold <- function(range = c(0, 1), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 0.5,
     label = c(threshold = "Threshold"),
     finalize = NULL
   )

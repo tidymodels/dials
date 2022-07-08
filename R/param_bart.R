@@ -16,7 +16,6 @@ prior_terminal_node_coef <- function(range = c(0, 1), trans = NULL) {
     range = range,
     inclusive = c(FALSE, TRUE),
     trans = trans,
-    default = 0.95,
     label = c(prior_terminal_node_coef = "Terminal Node Prior Coefficient"),
     finalize = NULL
   )
@@ -30,7 +29,6 @@ prior_terminal_node_expo <- function(range = c(0, 3), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 2.0,
     label = c(prior_terminal_node_expo = "Terminal Node Prior Exponent"),
     finalize = NULL
   )
@@ -44,7 +42,6 @@ prior_outcome_range <- function(range = c(0, 5), trans = NULL) {
     range = range,
     inclusive = c(FALSE, TRUE),
     trans = trans,
-    default = 2.0,
     label = c(prior_outcome_range = "Prior for Outcome Range"),
     finalize = NULL
   )

@@ -25,7 +25,6 @@ regularization_factor <- function(range = c(0, 1), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 1,
     label = c(regularization_factor = "Gain Penalization"),
     finalize = NULL
   )
@@ -50,7 +49,6 @@ significance_threshold <- function(range = c(-10, 0), trans = log10_trans()) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 1,
     label = c(significance_threshold = "Threshold for Significance"),
     finalize = NULL
   )
@@ -65,7 +63,6 @@ lower_quantile <- function(range = c(0, 1), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 1,
     label = c(lower_quantile = "Lower Distribution Quantile"),
     finalize = NULL
   )

@@ -21,7 +21,6 @@ scale_pos_weight <- function(range = c(0.8, 1.2), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 1,
     label = c(scale_pos_weight = "Balance of Events and Non-Events"),
     finalize = NULL
   )

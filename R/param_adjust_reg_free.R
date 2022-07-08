@@ -15,7 +15,6 @@ adjust_deg_free <- function(range = c(0.25, 4), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 1,
     label = c(adjust_deg_free = "Smoothness Adjustment"),
     finalize = NULL
   )

@@ -26,7 +26,6 @@ Laplace <- function(range = c(0, 3), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 0,
     label = c(Laplace = "Laplace Correction"),
     finalize = NULL
   )
