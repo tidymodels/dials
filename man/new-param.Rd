@@ -40,7 +40,8 @@ and \code{range} is \code{NULL}, \code{range} will be set to \code{range(values)
 values should be inclusive or exclusive. If \code{values} is supplied,
 and \code{inclusive} is \code{NULL}, \code{inclusive} will be set to \code{c(TRUE, TRUE)}.}
 
-\item{default}{A single value with the same class as \code{type} for the default
+\item{default}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
+A single value with the same class as \code{type} for the default
 parameter value. \code{unknown()} can also be used here.}
 
 \item{trans}{A \code{trans} object from the \pkg{scales} package, such as

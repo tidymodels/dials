@@ -57,9 +57,6 @@ uneven set of values shorter than \code{n}. This also means that if \code{n} is 
 than the range of the integers, a smaller set will be generated. For
 qualitative parameters, the first \code{n} values are returned.
 
-If a single value sequence is requested, the default value is returned (if
-any). If no default is specified, the regular algorithm is used.
-
 For quantitative parameters, any \code{values} contained in the object
 are sampled with replacement. Otherwise, a sequence of values
 between the \code{range} values is returned. It is possible that less
