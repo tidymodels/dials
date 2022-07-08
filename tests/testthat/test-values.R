@@ -49,32 +49,21 @@ test_that("inverses", {
 
 
 test_that("sequences - doubles", {
-  test_param_3 <-
+  param_with_transformation <-
     new_quant_param(
       type = "double",
-      range = c(0.0, 1.0),
-      inclusive = c(TRUE, TRUE),
-      trans = NULL,
-      default = .40,
-      label = c(param = "param")
-    )
-  test_param_4 <-
-    new_quant_param(
-      type = "double",
-      range = c(0.0, 1.0),
+      range = c(0.5, 1.5),
       inclusive = c(TRUE, TRUE),
       trans = sqrt_trans(),
-      default = sqrt(.6),
       label = c(param = "param")
     )
-  value_seq <-
+  param_with_values <-
     new_quant_param(
       type = "double",
       range = c(0.0, 1.0),
       inclusive = c(TRUE, TRUE),
       trans = NULL,
       values = (0:5) / 5,
-      default = .6,
       label = c(param = "param")
     )
 
@@ -84,15 +73,6 @@ test_that("sequences - doubles", {
   expect_equal(
     value_seq(mixture(), 1), 0
   )
-  expect_snapshot(
-    value_seq(test_param_3, 1)
-  )
-
-  withr::local_options(lifecycle_verbosity = "quiet")
-
-  expect_equal(
-    value_seq(test_param_4, 1), .60
-  )
   expect_equal(
     value_seq(penalty(), 5, FALSE), seq(-10, 0, length = 5)
   )
@@ -100,44 +80,36 @@ test_that("sequences - doubles", {
     value_seq(penalty(), 1, FALSE), -10
   )
   expect_equal(
-    value_seq(test_param_4, 1, FALSE), sqrt(.6)
+    value_seq(param_with_transformation, 1), 0.5^2
   )
   expect_equal(
-    value_seq(value_seq, 2, FALSE), (0:1) / 5
+    value_seq(param_with_transformation, 1, FALSE), 0.5
   )
   expect_equal(
-    value_seq(value_seq, 1, FALSE), .6
+    value_seq(param_with_values, 2), (0:1) / 5
+  )
+  expect_equal(
+    value_seq(param_with_values, 2, FALSE), (0:1) / 5
   )
 })
 
 
 test_that("sequences - integers", {
-  test_param_1 <-
-    new_quant_param(
-      type = "integer",
-      range = c(1L, 10L),
-      inclusive = c(TRUE, TRUE),
-      trans = NULL,
-      default = 3,
-      label = c(param = "param")
-    )
-  test_param_2 <-
+  param_with_transformation <-
     new_quant_param(
       type = "integer",
       range = c(2.1, 5.3),
       inclusive = c(TRUE, TRUE),
       trans = sqrt_trans(),
-      default = sqrt(2),
       label = c(param = "param")
     )
-  int_seq <-
+  param_with_values <-
     new_quant_param(
       type = "integer",
       range = c(0L, 100L),
       inclusive = c(TRUE, TRUE),
       trans = NULL,
       values = 1:10,
-      default = 60,
       label = c(param = "param")
     )
 
@@ -146,15 +118,6 @@ test_that("sequences - integers", {
   )
   expect_equal(
     value_seq(tree_depth(), 1), 1L
-  )
-  expect_snapshot(
-    value_seq(test_param_1, 1)
-  )
-
-  withr::local_options(lifecycle_verbosity = "quiet")
-
-  expect_equal(
-    value_seq(test_param_2, 1), 2L
   )
   expect_equal(
     value_seq(tree_depth(), 15), 1L:15L
@@ -166,19 +129,21 @@ test_that("sequences - integers", {
     value_seq(tree_depth(), 1, FALSE), 1L
   )
   expect_equal(
-    value_seq(test_param_1, 1, FALSE), 3L
-  )
-  expect_equal(
-    value_seq(test_param_2, 1, FALSE), sqrt(2)
-  )
-  expect_equal(
     value_seq(tree_depth(), 15, FALSE), 1L:15L
   )
+
   expect_equal(
-    value_seq(int_seq, 2, FALSE), 1:2
+    value_seq(param_with_transformation, 1), 2L^2
   )
   expect_equal(
-    value_seq(int_seq, 1, FALSE), 60
+    value_seq(param_with_transformation, 1, FALSE), 2.1
+  )
+
+  expect_equal(
+    value_seq(param_with_values, 2, FALSE), 1:2
+  )
+  expect_equal(
+    value_seq(param_with_values, 1, FALSE), 1
   )
 })
 
@@ -191,7 +156,6 @@ test_that("sampling - doubles", {
       inclusive = c(TRUE, TRUE),
       trans = NULL,
       values = (0:5) / 5,
-      default = .6,
       label = c(param = "param")
     )
 
@@ -220,7 +184,6 @@ test_that("sampling - integers", {
       range = c(2.1, 5.3),
       inclusive = c(TRUE, TRUE),
       trans = sqrt_trans(),
-      default = sqrt(2),
       label = c(param = "param")
     )
   int_seq <-
@@ -230,7 +193,6 @@ test_that("sampling - integers", {
       inclusive = c(TRUE, TRUE),
       trans = NULL,
       values = 1:10,
-      default = 60,
       label = c(param = "param")
     )
 
@@ -263,7 +225,6 @@ test_that("sequences - character", {
     new_qual_param(
       type = "character",
       values = letters[1:10],
-      default = "c",
       label = c(param = "param")
     )
 
@@ -276,9 +237,7 @@ test_that("sequences - character", {
   expect_equal(
     value_seq(surv_dist(), Inf), surv_dist()$values
   )
-  expect_snapshot(
-    value_seq(test_param_5, 1)
-  )
+  expect_equal(value_seq(test_param_5, 1), "a")
 })
 
 test_that("sequences - logical", {
