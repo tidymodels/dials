@@ -3,7 +3,8 @@
 #' Laplace correction for smoothing low-frequency counts.
 #'
 #' @param range A two-element vector holding the _defaults_ for the smallest and
-#' largest possible values, respectively.
+#' largest possible values, respectively. If a transformation is specified,
+#' these values should be in the _transformed units_.
 #'
 #' @param trans A `trans` object from the `scales` package, such as
 #' `scales::log10_trans()` or `scales::reciprocal_trans()`. If not provided,
@@ -13,7 +14,9 @@
 #' @details
 #' This parameter is often used to correct for zero-count data in tables or
 #' proportions.
-#' @return A function with classes "quant_param" and "param"
+#'
+#' @return A function with classes `"quant_param"` and `"param"`.
+#'
 #' @examples
 #' Laplace()
 #' @export

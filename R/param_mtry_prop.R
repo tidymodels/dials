@@ -21,13 +21,13 @@
 #' engine-specific interface.
 #'
 #' When wrapping modeling engines that interpret `mtry` in its sense as a
-#' proportion, use the [mtry()] parameter in [parsnip::set_model_arg()] and
+#' proportion, use the [mtry()] parameter in `parsnip::set_model_arg()` and
 #' process the passed argument in an internal wrapping function as
 #' `mtry / number_of_predictors`. In addition, introduce a logical argument
 #' `counts` to the wrapping function, defaulting to `TRUE`, that indicates
 #' whether to interpret the supplied argument as a count rather than a proportion.
 #'
-#' For an example implementation, see [parsnip::xgb_train()].
+#' For an example implementation, see `parsnip::xgb_train()`.
 #'
 #' @seealso mtry, mtry_long
 #'

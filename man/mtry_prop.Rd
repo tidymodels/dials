@@ -8,7 +8,8 @@ mtry_prop(range = c(0.1, 1), trans = NULL)
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and
-largest possible values, respectively.}
+largest possible values, respectively. If a transformation is specified,
+these values should be in the \emph{transformed units}.}
 
 \item{trans}{A \code{trans} object from the \code{scales} package, such as
 \code{scales::log10_trans()} or \code{scales::reciprocal_trans()}. If not provided,
@@ -37,13 +38,13 @@ rather than an engine-specific argument, and thus should not have an
 engine-specific interface.
 
 When wrapping modeling engines that interpret \code{mtry} in its sense as a
-proportion, use the \code{\link[=mtry]{mtry()}} parameter in \code{\link[parsnip:set_new_model]{parsnip::set_model_arg()}} and
+proportion, use the \code{\link[=mtry]{mtry()}} parameter in \code{parsnip::set_model_arg()} and
 process the passed argument in an internal wrapping function as
 \code{mtry / number_of_predictors}. In addition, introduce a logical argument
 \code{counts} to the wrapping function, defaulting to \code{TRUE}, that indicates
 whether to interpret the supplied argument as a count rather than a proportion.
 
-For an example implementation, see \code{\link[parsnip:xgb_train]{parsnip::xgb_train()}}.
+For an example implementation, see \code{parsnip::xgb_train()}.
 }
 
 \examples{
