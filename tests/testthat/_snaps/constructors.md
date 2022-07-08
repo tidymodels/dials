@@ -272,25 +272,18 @@
 # `default` arg is deprecated
 
     Code
-      new_quant_param(type = "integer", default = 5L, values = 1:10, label = c(foo = "Foo"))
+      quant_param <- new_quant_param(type = "integer", default = 5L, values = 1:10,
+      label = c(foo = "Foo"))
     Condition
       Warning:
       The `default` argument of `new_quant_param()` is deprecated as of dials 1.0.1.
-    Output
-      Foo (quantitative)
-      Range: [1, 10]
-      Values: 10
 
 ---
 
     Code
-      new_qual_param(type = "logical", values = c(FALSE, TRUE), default = TRUE,
-      label = c(foo = "Foo"))
+      qual_param <- new_qual_param(type = "logical", values = c(FALSE, TRUE),
+      default = TRUE, label = c(foo = "Foo"))
     Condition
       Warning:
       The `default` argument of `new_qual_param()` is deprecated as of dials 1.0.1.
-    Output
-      Foo  (qualitative)
-      2 possible value include:
-      FALSE and TRUE 
 

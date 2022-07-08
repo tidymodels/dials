@@ -189,22 +189,23 @@ test_that("`values` is validated", {
 
 
 test_that("`default` arg is deprecated", {
-  withr::local_options(lifecycle_verbosity = "warning")
-
-  expect_snapshot(
-    new_quant_param(
+  expect_snapshot({
+    quant_param <- new_quant_param(
       type = "integer",
       default = 5L,
       values = 1:10,
       label = c(foo = "Foo")
     )
-  )
-  expect_snapshot(
-    new_qual_param(
+  })
+  expect_null(quant_param$default)
+
+  expect_snapshot({
+    qual_param <- new_qual_param(
       type = "logical",
       values = c(FALSE, TRUE),
       default = TRUE,
       label = c(foo = "Foo")
     )
-  )
+  })
+  expect_null(qual_param$default)
 })
