@@ -317,7 +317,6 @@ value_set <- function(object, values) {
         type = object$type,
         range = object$range,
         inclusive = object$inclusive,
-        default = object$default,
         trans = object$trans,
         values = unname(values),
         label = object$label
@@ -326,7 +325,6 @@ value_set <- function(object, values) {
     object <-
       new_qual_param(
         type = object$type,
-        default = object$default,
         values = unname(values),
         label = object$label
       )
