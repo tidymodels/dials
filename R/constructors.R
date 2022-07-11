@@ -80,6 +80,13 @@ new_quant_param <- function(type = c("double", "integer"),
                             values = NULL,
                             label = NULL,
                             finalize = NULL) {
+  if (lifecycle::is_present(default)) {
+    lifecycle::deprecate_warn(
+      when = "1.0.1",
+      what = "new_quant_param(default)"
+    )
+  }
+
   type <- match.arg(type)
 
   if (!(type %in% c("double", "integer"))) {
@@ -142,12 +149,6 @@ new_quant_param <- function(type = c("double", "integer"),
     }
   }
 
-  if (lifecycle::is_present(default)) {
-    lifecycle::deprecate_warn(
-      when = "1.0.1",
-      what = "new_quant_param(default)"
-    )
-  }
   check_label(label)
   check_finalize(finalize)
 
@@ -192,6 +193,10 @@ new_qual_param <- function(type = c("character", "logical"),
                            default = deprecated(),
                            label = NULL,
                            finalize = NULL) {
+  if (lifecycle::is_present(default)) {
+    lifecycle::deprecate_warn(when = "1.0.1", what = "new_qual_param(default)")
+  }
+
   type <- match.arg(type)
 
   if (type == "logical") {
@@ -205,12 +210,6 @@ new_qual_param <- function(type = c("character", "logical"),
     }
   }
 
-  if (lifecycle::is_present(default)) {
-    lifecycle::deprecate_warn(
-      when = "1.0.1",
-      what = "new_qual_param(default)"
-    )
-  }
   check_label(label)
   check_finalize(finalize)
 
