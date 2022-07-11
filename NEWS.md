@@ -3,7 +3,7 @@
 * The `default` argument to the constructors `new_quant_param()` and 
   `new_qual_param()` is deprecated. `value_seq()` now uses the same logic to 
   generate a sequence of parameter values regardless of how long that sequence 
-  is.
+  is (#153, #229).
 
 
 # dials 1.0.0
