@@ -41,8 +41,8 @@ values should be inclusive or exclusive. If \code{values} is supplied,
 and \code{inclusive} is \code{NULL}, \code{inclusive} will be set to \code{c(TRUE, TRUE)}.}
 
 \item{default}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}
-A single value with the same class as \code{type} for the default
-parameter value. \code{unknown()} can also be used here.}
+No longer used. If a value is supplied, it will be ignored and
+a warning will be thrown.}
 
 \item{trans}{A \code{trans} object from the \pkg{scales} package, such as
 \code{\link[scales:log_trans]{scales::log10_trans()}} or \code{\link[scales:reciprocal_trans]{scales::reciprocal_trans()}}. Create custom
