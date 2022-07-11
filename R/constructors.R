@@ -19,8 +19,8 @@
 #'  and `inclusive` is `NULL`, `inclusive` will be set to `c(TRUE, TRUE)`.
 #'
 #' @param default `r lifecycle::badge("deprecated")`
-#' A single value with the same class as `type` for the default
-#' parameter value. `unknown()` can also be used here.
+#' No longer used. If a value is supplied, it will be ignored and
+#' a warning will be thrown.
 #'
 #' @param trans A `trans` object from the \pkg{scales} package, such as
 #' [scales::log10_trans()] or [scales::reciprocal_trans()]. Create custom
