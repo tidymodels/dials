@@ -60,8 +60,8 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="co"># S3 method for parameters</span>
-<span class="fu"><a href="https://rdrr.io/r/stats/update.html" class="external-link">update</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="co"># S3 method for parameters</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/stats/update.html" class="external-link">update</a></span><span class="op">(</span><span class="va">object</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -85,9 +85,9 @@ be parameter objects or <code>NA</code> values.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">params</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>lambda <span class="op">=</span> <span class="fu"><a href="penalty.html">penalty</a></span><span class="op">(</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fu"><a href="mixture.html">mixture</a></span><span class="op">(</span><span class="op">)</span>, `rand forest` <span class="op">=</span> <span class="fu"><a href="mtry.html">mtry</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">pset</span> <span class="op">&lt;-</span> <span class="fu"><a href="parameters.html">parameters</a></span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">pset</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">params</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>lambda <span class="op">=</span> <span class="fu"><a href="penalty.html">penalty</a></span><span class="op">(</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fu"><a href="mixture.html">mixture</a></span><span class="op">(</span><span class="op">)</span>, `rand forest` <span class="op">=</span> <span class="fu"><a href="mtry.html">mtry</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pset</span> <span class="op">&lt;-</span> <span class="fu"><a href="parameters.html">parameters</a></span><span class="op">(</span><span class="va">params</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pset</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Collection of 3 parameters for tuning</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   identifier    type    object</span>
@@ -100,8 +100,8 @@ be parameter objects or <code>NA</code> values.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> See `?dials::finalize` or `?dials::update.parameters` for more information.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/stats/update.html" class="external-link">update</a></span><span class="op">(</span><span class="va">pset</span>, `rand forest` <span class="op">=</span> <span class="fu"><a href="finalize.html">finalize</a></span><span class="op">(</span><span class="fu"><a href="mtry.html">mtry</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">mtcars</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fu"><a href="mixture.html">mixture</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.1</span>, <span class="fl">.2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/stats/update.html" class="external-link">update</a></span><span class="op">(</span><span class="va">pset</span>, `rand forest` <span class="op">=</span> <span class="fu"><a href="finalize.html">finalize</a></span><span class="op">(</span><span class="fu"><a href="mtry.html">mtry</a></span><span class="op">(</span><span class="op">)</span>, <span class="va">mtcars</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fu"><a href="mixture.html">mixture</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.1</span>, <span class="fl">.2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Collection of 3 parameters for tuning</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   identifier    type    object</span>
@@ -122,7 +122,7 @@ be parameter objects or <code>NA</code> values.</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.4.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.</p>
 </div>
 
   </div></footer></body></html>
