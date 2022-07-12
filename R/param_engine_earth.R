@@ -17,7 +17,6 @@ max_num_terms <- function(range = c(20L, 200L), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 1,
     label = c(max_num_terms = "Maximum Number of Terms"),
     finalize = NULL
   )

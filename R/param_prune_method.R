@@ -13,7 +13,6 @@ prune_method <- function(values = values_prune_method) {
   new_qual_param(
     type     = c("character"),
     values   = values,
-    default  = "backward",
     label    = c(prune_method = "Pruning Method"),
     finalize = NULL
   )

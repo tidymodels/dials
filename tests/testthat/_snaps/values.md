@@ -40,6 +40,13 @@
     Code
       value_expected <- c(NaN, -Inf, log10(1:3))
 
+# sequences - logical
+
+    Code
+      value_seq(prune(), 1)
+    Output
+      [1] TRUE
+
 # validate unknowns
 
     Code

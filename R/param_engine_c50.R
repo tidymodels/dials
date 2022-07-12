@@ -23,7 +23,6 @@ confidence_factor <- function(range = c(-1, 0), trans = log10_trans()) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 1,
     label = c(confidence_factor = "Confidence Factor for Splitting"),
     finalize = NULL
   )
@@ -70,7 +69,6 @@ rule_bands <- function(range = c(2L, 500L), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 1,
     label = c(rule_bands = "Number of Rule Bands"),
     finalize = NULL
   )

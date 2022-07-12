@@ -36,9 +36,6 @@
 #' than the range of the integers, a smaller set will be generated. For
 #' qualitative parameters, the first `n` values are returned.
 #'
-#' If a single value sequence is requested, the default value is returned (if
-#' any). If no default is specified, the regular algorithm is used.
-#'
 #' For quantitative parameters, any `values` contained in the object
 #' are sampled with replacement. Otherwise, a sequence of values
 #' between the `range` values is returned. It is possible that less
@@ -140,19 +137,16 @@ value_seq <- function(object, n, original = TRUE) {
 }
 
 value_seq_dbl <- function(object, n, original = TRUE) {
-  if (n == 1 && (!is.null(object$default) & !is_unknown(object$default))) {
-    res <- object$default
+  if (!is.null(object$values)) {
+    res <- object$values[1:min(length(object$values), n)]
   } else {
-    if (!is.null(object$values)) {
-      res <- object$values[1:min(length(object$values), n)]
-    } else {
-      res <- seq(
-        from = min(unlist(object$range)),
-        to = max(unlist(object$range)),
-        length.out = n
-      )
-    }
+    res <- seq(
+      from = min(unlist(object$range)),
+      to = max(unlist(object$range)),
+      length.out = n
+    )
   }
+
   if (original) {
     res <- value_inverse(object, res)
   }
@@ -160,19 +154,16 @@ value_seq_dbl <- function(object, n, original = TRUE) {
 }
 
 value_seq_int <- function(object, n, original = TRUE) {
-  if (n == 1 && (!is.null(object$default) & !is_unknown(object$default))) {
-    res <- object$default
+  if (!is.null(object$values)) {
+    res <- object$values[1:min(length(object$values), n)]
   } else {
-    if (!is.null(object$values)) {
-      res <- object$values[1:min(length(object$values), n)]
-    } else {
-      res <- seq(
-        from = min(unlist(object$range)),
-        to = max(unlist(object$range)),
-        length.out = n
-      )
-    }
+    res <- seq(
+      from = min(unlist(object$range)),
+      to = max(unlist(object$range)),
+      length.out = n
+    )
   }
+
   if (original) {
     res <- value_inverse(object, res)
     res <- unique(floor(res))
@@ -184,11 +175,7 @@ value_seq_int <- function(object, n, original = TRUE) {
 }
 
 value_seq_qual <- function(object, n) {
-  if (n == 1 && (!is.null(object$default) & !is_unknown(object$default))) {
-    res <- object$default
-  } else {
-    res <- object$values[1:min(n, length(object$values))]
-  }
+  res <- object$values[1:min(n, length(object$values))]
   res
 }
 
@@ -330,7 +317,6 @@ value_set <- function(object, values) {
         type = object$type,
         range = object$range,
         inclusive = object$inclusive,
-        default = object$default,
         trans = object$trans,
         values = unname(values),
         label = object$label
@@ -339,7 +325,6 @@ value_set <- function(object, values) {
     object <-
       new_qual_param(
         type = object$type,
-        default = object$default,
         values = unname(values),
         label = object$label
       )

@@ -22,7 +22,6 @@ prior_slab_dispersion <- function(range = c(-1/2, log10(3)), trans = log10_trans
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 1,
     label = c(prior_slab_dispersion = "Dispersion of Slab Prior"),
     finalize = NULL
   )
@@ -36,7 +35,6 @@ prior_mixture_threshold <- function(range = c(0, 1), trans = NULL) {
     range = range,
     inclusive = c(TRUE, FALSE),
     trans = trans,
-    default = 2/3,
     label = c(prior_mixture_threshold = "Threshold for Mixture Prior"),
     finalize = NULL
   )

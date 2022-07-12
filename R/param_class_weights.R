@@ -15,7 +15,6 @@ class_weights <- function(range = c(1, 10), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 1,
     label = c(class_weights = "Minority Class Weight"),
     finalize = NULL
   )

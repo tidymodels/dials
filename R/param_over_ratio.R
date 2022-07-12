@@ -17,7 +17,6 @@ over_ratio <- function(range = c(0.8, 1.2), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 1,
     label = c(over_ratio = "Over-Sampling Ratio"),
     finalize = NULL
   )
@@ -31,7 +30,6 @@ under_ratio <- function(range = c(0.8, 1.2), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 1,
     label = c(under_ratio = "Under-Sampling Ratio"),
     finalize = NULL
   )

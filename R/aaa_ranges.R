@@ -101,7 +101,6 @@ range_set <- function(object, range) {
         type = object$type,
         range = range,
         inclusive = object$inclusive,
-        default = object$default,
         trans = object$trans,
         values = object$values,
         label = object$label

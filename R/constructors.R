@@ -18,8 +18,9 @@
 #'  values should be inclusive or exclusive. If `values` is supplied,
 #'  and `inclusive` is `NULL`, `inclusive` will be set to `c(TRUE, TRUE)`.
 #'
-#' @param default A single value with the same class as `type` for the default
-#' parameter value. `unknown()` can also be used here.
+#' @param default `r lifecycle::badge("deprecated")`
+#' No longer used. If a value is supplied, it will be ignored and
+#' a warning will be thrown.
 #'
 #' @param trans A `trans` object from the \pkg{scales} package, such as
 #' [scales::log10_trans()] or [scales::reciprocal_trans()]. Create custom
@@ -74,11 +75,18 @@ NULL
 new_quant_param <- function(type = c("double", "integer"),
                             range = NULL,
                             inclusive = NULL,
-                            default = unknown(),
+                            default = deprecated(),
                             trans = NULL,
                             values = NULL,
                             label = NULL,
                             finalize = NULL) {
+  if (lifecycle::is_present(default)) {
+    lifecycle::deprecate_warn(
+      when = "1.0.1",
+      what = "new_quant_param(default)"
+    )
+  }
+
   type <- match.arg(type)
 
   if (!(type %in% c("double", "integer"))) {
@@ -150,7 +158,6 @@ new_quant_param <- function(type = c("double", "integer"),
     range = range,
     inclusive = inclusive,
     trans = trans,
-    default = default,
     label = label,
     finalize = finalize
   )
@@ -183,9 +190,13 @@ new_quant_param <- function(type = c("double", "integer"),
 #' @rdname new-param
 new_qual_param <- function(type = c("character", "logical"),
                            values,
-                           default = unknown(),
+                           default = deprecated(),
                            label = NULL,
                            finalize = NULL) {
+  if (lifecycle::is_present(default)) {
+    lifecycle::deprecate_warn(when = "1.0.1", what = "new_qual_param(default)")
+  }
+
   type <- match.arg(type)
 
   if (type == "logical") {
@@ -198,16 +209,12 @@ new_qual_param <- function(type = c("character", "logical"),
       rlang::abort("`values` must be character")
     }
   }
-  if (is_unknown(default)) {
-    default <- values[1]
-  }
 
   check_label(label)
   check_finalize(finalize)
 
   res <- list(
     type = type,
-    default = default,
     label = label,
     values = values,
     finalize = finalize

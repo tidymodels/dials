@@ -17,7 +17,6 @@ freq_cut <- function(range = c(5, 25), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 95/5,
     label = c(freq_cut = "Frequency Distribution Ratio"),
     finalize = NULL
   )
@@ -32,7 +31,6 @@ unique_cut <- function(range = c(0, 100), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 10,
     label = c(unique_cut = "% Unique Values"),
     finalize = NULL
   )

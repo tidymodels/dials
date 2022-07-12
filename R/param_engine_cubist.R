@@ -20,7 +20,6 @@ extrapolation <- function(range = c(1, 110), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 1,
     label = c(extrapolation = "Percent Allowable Extrapolation"),
     finalize = NULL
   )
@@ -45,7 +44,6 @@ max_rules <- function(range = c(1L, 100L), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    default = 1,
     label = c(max_rules = "Maximum Number of Rules"),
     finalize = NULL
   )
