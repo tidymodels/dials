@@ -5,6 +5,9 @@
   generate a sequence of parameter values regardless of how long that sequence 
   is (#153, #229).
 
+* `prior_terminal_node_expo()` for Bayesian adaptive regression trees (BART) now
+  defaults to a range greater than 1 to limit explosive tree growth (#251).
+
 
 # dials 1.0.0
 
