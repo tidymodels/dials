@@ -1,0 +1,98 @@
+#' Parameters for neural network learning rate schedulers
+#
+#' These parameters are used for constructing neural network models.
+#'
+#' @inheritParams Laplace
+#'
+#' @details
+#' These parameters are often used with neural networks via
+#' `parsnip::mlp(engine = "brulee")`.
+#'
+#' The details for how the \pkg{brulee} schedulers change the rates:
+#'
+#' * `schedule_decay_time()`: \eqn{rate(epoch) = initial/(1 + decay \times epoch)}
+#' * `schedule_decay_expo()`: \eqn{rate(epoch) = initial\exp(-decay \times epoch)}
+#' * `schedule_step()`: \eqn{rate(epoch) = initial \times reduction^{floor(epoch / steps)}}
+#' * `schedule_cyclic()`: \eqn{cycle = floor( 1 + (epoch / 2 / step size) )},
+#'  \eqn{x = abs( ( epoch / step size ) - ( 2 * cycle) + 1 )}, and
+#'  \eqn{rate(epoch) = initial + ( largest - initial ) * \max( 0, 1 - x)}
+#'
+#' @name scheduler-param
+#' @export
+rate_initial <- function (range = c(-3,-1), trans = log10_trans()) {
+    new_quant_param(
+      type = "double",
+      range = range,
+      inclusive = c(TRUE, TRUE),
+      trans = trans,
+      label = c(learn_rate = "Initial Learning Rate"),
+      finalize = NULL
+    )
+  }
+
+#' @rdname scheduler-param
+#' @export
+rate_largest <- function (range = c(-1, -1 / 2), trans = log10_trans()) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(learn_rate = "Maximum Learning Rate"),
+    finalize = NULL
+  )
+}
+
+
+#' @rdname scheduler-param
+#' @export
+rate_reduction <- function (range = c(1 / 5, 1), trans = NULL) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(learn_rate = "Learning Rate Reduction"),
+    finalize = NULL
+  )
+}
+
+
+#' @rdname scheduler-param
+#' @export
+rate_steps <- function (range = c(2, 10), trans = NULL) {
+  new_quant_param(
+    type = "integer",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(learn_rate = "Epochs Until Reduction"),
+    finalize = NULL
+  )
+}
+
+#' @rdname scheduler-param
+#' @export
+rate_step_size <- function (range = c(2, 20), trans = NULL) {
+  new_quant_param(
+    type = "integer",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(learn_rate = "Half-Size of Cycle"),
+    finalize = NULL
+  )
+}
+
+#' @rdname scheduler-param
+#' @export
+rate_decay <- function (range = c(0, 2), trans = NULL) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(learn_rate = "Learning Rate Decay"),
+    finalize = NULL
+  )
+}
