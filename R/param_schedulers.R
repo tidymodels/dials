@@ -3,7 +3,8 @@
 #' These parameters are used for constructing neural network models.
 #'
 #' @inheritParams Laplace
-#'
+#' @param values A character string of possible values. See `values_scheduler`
+#'  in examples below.
 #' @details
 #' These parameters are often used with neural networks via
 #' `parsnip::mlp(engine = "brulee")`.
@@ -96,3 +97,20 @@ rate_decay <- function (range = c(0, 2), trans = NULL) {
     finalize = NULL
   )
 }
+
+#' @rdname scheduler-param
+#' @export
+rate_schedule <- function(values = values_scheduler) {
+  new_qual_param(
+    type = "character",
+    values = values,
+    label = c(activation = "Learning Rate Scheduler"),
+    finalize = NULL
+  )
+}
+
+#' @rdname scheduler-param
+#' @export
+values_scheduler <- c("none", "decay_time", "decay_time", "decay_expo", "step")
+
+
