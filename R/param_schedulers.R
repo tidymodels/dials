@@ -111,6 +111,6 @@ rate_schedule <- function(values = values_scheduler) {
 
 #' @rdname scheduler-param
 #' @export
-values_scheduler <- c("none", "decay_time", "decay_time", "decay_expo", "step")
+values_scheduler <- c("none", "decay_time", "decay_expo", "cyclic", "step")
 
 
