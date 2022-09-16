@@ -26,7 +26,7 @@ rate_initial <- function (range = c(-3,-1), trans = log10_trans()) {
       range = range,
       inclusive = c(TRUE, TRUE),
       trans = trans,
-      label = c(learn_rate = "Initial Learning Rate"),
+      label = c(rate_initial = "Initial Learning Rate"),
       finalize = NULL
     )
   }
@@ -39,7 +39,7 @@ rate_largest <- function (range = c(-1, -1 / 2), trans = log10_trans()) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(learn_rate = "Maximum Learning Rate"),
+    label = c(rate_largest = "Maximum Learning Rate"),
     finalize = NULL
   )
 }
@@ -53,7 +53,7 @@ rate_reduction <- function (range = c(1 / 5, 1), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(learn_rate = "Learning Rate Reduction"),
+    label = c(rate_reduction = "Learning Rate Reduction"),
     finalize = NULL
   )
 }
@@ -67,7 +67,7 @@ rate_steps <- function (range = c(2, 10), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(learn_rate = "Epochs Until Reduction"),
+    label = c(rate_steps = "Epochs Until Reduction"),
     finalize = NULL
   )
 }
@@ -80,7 +80,7 @@ rate_step_size <- function (range = c(2, 20), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(learn_rate = "Half-Size of Cycle"),
+    label = c(rate_step_size = "Half-Size of Cycle"),
     finalize = NULL
   )
 }
@@ -93,7 +93,7 @@ rate_decay <- function (range = c(0, 2), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(learn_rate = "Learning Rate Decay"),
+    label = c(rate_decay = "Learning Rate Decay"),
     finalize = NULL
   )
 }
@@ -104,7 +104,7 @@ rate_schedule <- function(values = values_scheduler) {
   new_qual_param(
     type = "character",
     values = values,
-    label = c(activation = "Learning Rate Scheduler"),
+    label = c(rate_schedule = "Learning Rate Scheduler"),
     finalize = NULL
   )
 }
