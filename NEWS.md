@@ -5,6 +5,8 @@
   generate a sequence of parameter values regardless of how long that sequence 
   is (#153, #229).
 
+* Learning rate scheduler parameters were added for the new 
+  [brulee functions](https://github.com/tidymodels/brulee/pull/56). 
 
 # dials 1.0.0
 
