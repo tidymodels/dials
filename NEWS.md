@@ -8,6 +8,8 @@
 * `prior_terminal_node_expo()` for Bayesian adaptive regression trees (BART) now
   defaults to a range greater than 1 to limit explosive tree growth (#251).
 
+* Learning rate scheduler parameters were added for the new 
+  [brulee functions](https://github.com/tidymodels/brulee/pull/56). 
 
 # dials 1.0.0
 

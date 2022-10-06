@@ -70,6 +70,12 @@ test_that("param ranges", {
   expect_equal(prior_outcome_range(c(1, 5))$range, list(lower = 1, upper = 5))
   expect_equal(num_knots(c(1, 5))$range, list(lower = 1, upper = 5))
   expect_equal(vocabulary_size(c(1000, 10000))$range, list(lower = 1000, upper = 10000))
+  expect_equal(rate_initial(c(-2, -1))$range, list(lower = -2, upper = -1))
+  expect_equal(rate_largest(c(-2, -1))$range, list(lower = -2, upper = -1))
+  expect_equal(rate_reduction(c(1 / 3, 2 / 3))$range, list(lower = 1 / 3, upper = 2 / 3))
+  expect_equal(rate_steps(c(7L, 15L))$range, list(lower = 7L, upper = 15L))
+  expect_equal(rate_step_size(c(7L, 15L))$range, list(lower = 7L, upper = 15L))
+  expect_equal(rate_decay(c(1, 2))$range, list(lower = 1, upper = 2))
 })
 
 
@@ -94,4 +100,5 @@ test_that("param values", {
   expect_equal(summary_stat()$values, values_summary_stat)
   expect_equal(survival_link()$values, values_survival_link)
   expect_equal(activation()$values, values_activation)
+  expect_equal(rate_schedule()$values, values_scheduler)
 })
