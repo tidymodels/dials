@@ -5,7 +5,7 @@
     Condition
       Warning:
       `pull_dials_object()` was deprecated in dials 0.1.0.
-      Please use `hardhat::extract_parameter_dials()` instead.
+      i Please use `hardhat::extract_parameter_dials()` instead.
     Output
       Proportion of Lasso Penalty (quantitative)
       Range: [0.05, 1]
