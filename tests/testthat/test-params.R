@@ -76,6 +76,7 @@ test_that("param ranges", {
   expect_equal(rate_steps(c(7L, 15L))$range, list(lower = 7L, upper = 15L))
   expect_equal(rate_step_size(c(7L, 15L))$range, list(lower = 7L, upper = 15L))
   expect_equal(rate_decay(c(1, 2))$range, list(lower = 1, upper = 2))
+  expect_equal(num_leaves(c(31,100))$range, list(lower = 31, upper = 100))
 })
 
 
