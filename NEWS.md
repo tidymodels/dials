@@ -11,6 +11,8 @@
 * Learning rate scheduler parameters were added for the new 
   [brulee functions](https://github.com/tidymodels/brulee/pull/56). 
 
+* The label for `spline_degree()` was improved. 
+
 # dials 1.0.0
 
 * The new parameter `mtry_prop()` is a variation on `mtry()` where the value is

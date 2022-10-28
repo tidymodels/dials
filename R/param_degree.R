@@ -51,7 +51,7 @@ spline_degree <- function(range = c(1L, 10L), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(spline_degree = "Piecewise Polynomial Degree"),
+    label = c(spline_degree = "Spline Degrees of Freedom"),
     finalize = NULL
   )
 }
