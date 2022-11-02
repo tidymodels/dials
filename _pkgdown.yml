@@ -72,6 +72,7 @@ reference:
     - num_comp
     - num_hash
     - num_knots
+    - num_leaves
     - num_tokens
     - over_ratio
     - penalty
