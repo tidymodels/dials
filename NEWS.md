@@ -13,6 +13,8 @@
 
 * The label for `spline_degree()` was improved. 
 
+* Added `num_clusters()` for tidyclust models.
+
 # dials 1.0.0
 
 * The new parameter `mtry_prop()` is a variation on `mtry()` where the value is
