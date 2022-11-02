@@ -10,6 +10,8 @@
 
 * Learning rate scheduler parameters were added for the new 
   [brulee functions](https://github.com/tidymodels/brulee/pull/56). 
+  
+* New parameter `num_leaves()` for lightbgm models (@joeycouse, #256).
 
 * The label for `spline_degree()` was improved. 
 
