@@ -68,6 +68,7 @@ reference:
     - mtry_prop
     - neighbors
     - num_breaks
+    - num_clusters
     - num_comp
     - num_hash
     - num_knots
