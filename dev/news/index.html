@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">dials</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9001</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,6 +58,7 @@
 <ul><li><p>The <code>default</code> argument to the constructors <code><a href="../reference/new-param.html">new_quant_param()</a></code> and <code><a href="../reference/new-param.html">new_qual_param()</a></code> is deprecated. <code><a href="../reference/value_validate.html">value_seq()</a></code> now uses the same logic to generate a sequence of parameter values regardless of how long that sequence is (<a href="https://github.com/tidymodels/dials/issues/153" class="external-link">#153</a>, <a href="https://github.com/tidymodels/dials/issues/229" class="external-link">#229</a>).</p></li>
 <li><p><code><a href="../reference/bart-param.html">prior_terminal_node_expo()</a></code> for Bayesian adaptive regression trees (BART) now defaults to a range greater than 1 to limit explosive tree growth (<a href="https://github.com/tidymodels/dials/issues/251" class="external-link">#251</a>).</p></li>
 <li><p>Learning rate scheduler parameters were added for the new <a href="https://github.com/tidymodels/brulee/pull/56" class="external-link">brulee functions</a>.</p></li>
+<li><p>New parameter <code><a href="../reference/lightgbm_parameters.html">num_leaves()</a></code> for lightbgm models (<a href="https://github.com/joeycouse" class="external-link">@joeycouse</a>, <a href="https://github.com/tidymodels/dials/issues/256" class="external-link">#256</a>).</p></li>
 <li><p>The label for <code><a href="../reference/degree.html">spline_degree()</a></code> was improved.</p></li>
 <li><p>Added <code><a href="../reference/num_clusters.html">num_clusters()</a></code> for tidyclust models.</p></li>
 </ul></div>
