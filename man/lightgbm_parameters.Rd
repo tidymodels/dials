@@ -4,7 +4,7 @@
 \alias{num_leaves}
 \title{Possible engine parameters for lightbgm}
 \usage{
-num_leaves(range = c(31, 100), trans = NULL)
+num_leaves(range = c(5, 100), trans = NULL)
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and

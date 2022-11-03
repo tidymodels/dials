@@ -15,7 +15,7 @@
 #'
 #' @rdname lightgbm_parameters
 #' @export
-num_leaves <- function(range = c(31, 100), trans = NULL) {
+num_leaves <- function(range = c(5, 100), trans = NULL) {
   new_quant_param(
     type = "integer",
     range = range,
