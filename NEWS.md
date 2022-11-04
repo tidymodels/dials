@@ -1,4 +1,16 @@
-# dials (development version)
+# dials 1.1.0
+
+## New parameters
+
+* Added learning rate scheduler parameters `rate_decay()`, `rate_initial()`, 
+  `rate_largest()`, `rate_reduction()`, `rate_schedule()`, `rate_step_size()`, 
+  and `rate_steps()` for the new [brulee functions](https://github.com/tidymodels/brulee/pull/56) (#253).
+
+* Added `num_clusters()` parameter for tidyclust models (#259).
+
+* Added `num_leaves()` parameter for lightbgm models (@joeycouse, #256).
+
+### Other changes
 
 * The `default` argument to the constructors `new_quant_param()` and 
   `new_qual_param()` is deprecated. `value_seq()` now uses the same logic to 
@@ -8,14 +20,8 @@
 * `prior_terminal_node_expo()` for Bayesian adaptive regression trees (BART) now
   defaults to a range greater than 1 to limit explosive tree growth (#251).
 
-* Learning rate scheduler parameters were added for the new 
-  [brulee functions](https://github.com/tidymodels/brulee/pull/56). 
-  
-* New parameter `num_leaves()` for lightbgm models (@joeycouse, #256).
-
 * The label for `spline_degree()` was improved. 
 
-* Added `num_clusters()` for tidyclust models.
 
 # dials 1.0.0
 
