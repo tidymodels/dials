@@ -50,7 +50,7 @@ range_validate <- function(object, range, ukn_ok = TRUE) {
   }
   if (length(range) != 2) {
     rlang::abort(
-      paste0("`range` must have an upper and lower bound. ", ukn_txt)
+      paste("`range` must have two values: an upper and lower bound.", ukn_txt)
     )
   }
 
