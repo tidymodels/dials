@@ -282,7 +282,8 @@ print.qual_param <- function(x, ...) {
   } else {
     cat("Qualitative Parameter\n")
   }
-  cat(length(x$values), "possible value include:\n")
+  n_values <- length(x$values)
+  cli::cli_text("{n_values} possible value{?s} include:")
   if (x$type == "character") {
     lvls <- paste0("'", x$values, "'")
   } else {

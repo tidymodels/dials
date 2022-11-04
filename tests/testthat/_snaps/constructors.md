@@ -140,7 +140,9 @@
       surv_dist()
     Output
       Distribution  (qualitative)
-      6 possible value include:
+    Message
+      6 possible values include:
+    Output
       'weibull', 'exponential', 'gaussian', 'logistic', 'lognormal' and 'loglogistic' 
 
 ---
