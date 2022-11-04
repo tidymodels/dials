@@ -17,6 +17,7 @@ Depends:
     R (>= 3.4),
     scales
 Imports:
+    cli,
     DiceDesign,
     dplyr (>= 0.8.5),
     glue,
