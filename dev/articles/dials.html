@@ -272,7 +272,6 @@ functions:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/weight_func.html">weight_func</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Distance Weighting Function  (qualitative)</span></span>
-<span><span class="co">#&gt; 10 possible value include:</span></span>
 <span><span class="co">#&gt; 'rectangular', 'triangular', 'epanechnikov', 'biweight', 'triweight', '...</span></span></code></pre></div>
 <p>The helper functions are analogues to the quantitative
 parameters:</p>
@@ -280,7 +279,6 @@ parameters:</p>
 <code class="sourceCode R"><span><span class="co"># redefine values</span></span>
 <span><span class="fu"><a href="../reference/weight_func.html">weight_func</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="../reference/value_validate.html">value_set</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"rectangular"</span>, <span class="st">"triangular"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Distance Weighting Function  (qualitative)</span></span>
-<span><span class="co">#&gt; 2 possible value include:</span></span>
 <span><span class="co">#&gt; 'rectangular' and 'triangular'</span></span>
 <span><span class="fu"><a href="../reference/weight_func.html">weight_func</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> <span class="fu"><a href="../reference/value_validate.html">value_sample</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "triangular" "inv"        "triweight"</span></span>
