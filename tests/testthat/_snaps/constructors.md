@@ -100,7 +100,7 @@
       range_validate(mtry(), range = 1)
     Condition
       Error in `range_validate()`:
-      ! `range` must have an upper and lower bound. `Inf` and `unknown()` are acceptable values.
+      ! `range` must have two values: an upper and lower bound. `Inf` and `unknown()` are acceptable values.
 
 ---
 
