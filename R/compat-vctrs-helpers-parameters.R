@@ -61,7 +61,7 @@ parameters_reconstructable <- function(x, to) {
 
   # `$id` must not be duplicated
   x_col_id <- x_df[["id"]]
-  any_duplicates <- vec_duplicate_any(x_col_id)
+  any_duplicates <- vctrs::vec_duplicate_any(x_col_id)
 
   if (any_duplicates) {
     return(FALSE)
@@ -116,7 +116,7 @@ df_size <- function(x) {
 
   col <- x[[1L]]
 
-  vec_size(col)
+  vctrs::vec_size(col)
 }
 
 # ------------------------------------------------------------------------------

@@ -42,7 +42,7 @@ test_that("dplyr_reconstruct() retains extra attributes of `to` when not falling
 test_that("adding columns drops the parameters class", {
   x <- parameters(list(penalty(), mixture()))
 
-  cols <- list(x = rep(1, vec_size(x)))
+  cols <- list(x = rep(1, vctrs::vec_size(x)))
 
   result <- dplyr_col_modify(x, cols)
 
@@ -53,7 +53,7 @@ test_that("adding columns drops the parameters class", {
 test_that("modifying parameters columns removes parameters class", {
   x <- parameters(list(penalty(), mixture()))
 
-  cols <- list(name = rep(1, vec_size(x)))
+  cols <- list(name = rep(1, vctrs::vec_size(x)))
 
   result <- dplyr_col_modify(x, cols)
 
