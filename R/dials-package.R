@@ -45,7 +45,10 @@
 #' @importFrom withr with_seed
 #' @importFrom stats runif
 #' @importFrom dplyr %>% filter mutate pull select
-#' @import vctrs
+#' @importFrom vctrs vec_c vec_cast vec_cbind vec_init vec_proxy
+#' @importFrom vctrs vec_ptype vec_ptype2 vec_rbind vec_restore vec_slice
+#' @importFrom vctrs df_cast new_data_frame stop_incompatible_cast
+#' @importFrom vctrs tib_cast tib_ptype2
 ## usethis namespace: end
 NULL
 

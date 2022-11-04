@@ -214,8 +214,8 @@ new_param_grid <- function(x = new_data_frame()) {
     rlang::abort("`x` must be a data frame to construct a new grid from.")
   }
 
-  x <- vec_unique(x)
-  size <- vec_size(x)
+  x <- vctrs::vec_unique(x)
+  size <- vctrs::vec_size(x)
 
   # Strip down to a named list with no extra attributes. This serves
   # as the core object to build the tibble from.
