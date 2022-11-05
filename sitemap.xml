@@ -100,6 +100,9 @@
     <loc>https://dials.tidymodels.org/reference/learn_rate.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/reference/lightgbm_parameters.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/reference/max_times.html</loc>
   </url>
   <url>
@@ -131,6 +134,9 @@
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/num_breaks.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/reference/num_clusters.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/num_comp.html</loc>
@@ -182,6 +188,9 @@
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/regularization_method.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/reference/scheduler-param.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/reference/select_features.html</loc>
