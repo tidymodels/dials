@@ -1,5 +1,8 @@
 # dials (development version)
 
+* Deprecation of `pull_dials_object()` has been escalated to an error. Please
+  use `extract_parameter_dials()` instead (#265).
+
 # dials 1.1.0
 
 ## New parameters
