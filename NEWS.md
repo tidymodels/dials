@@ -1,3 +1,5 @@
+# dials (development version)
+
 # dials 1.1.0
 
 ## New parameters
@@ -10,7 +12,7 @@
 
 * Added `num_leaves()` parameter for lightbgm models (@joeycouse, #256).
 
-### Other changes
+## Other changes
 
 * The `default` argument to the constructors `new_quant_param()` and 
   `new_qual_param()` is deprecated. `value_seq()` now uses the same logic to 
