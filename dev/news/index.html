@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">dials</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.0.0.9001</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.1.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,13 +55,22 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="dials-development-version">dials (development version)<a class="anchor" aria-label="anchor" href="#dials-development-version"></a></h2>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.1.0" id="dials-110">dials 1.1.0<a class="anchor" aria-label="anchor" href="#dials-110"></a></h2><p class="text-muted">CRAN release: 2022-11-04</p>
+<div class="section level3">
+<h3 id="new-parameters-1-1-0">New parameters<a class="anchor" aria-label="anchor" href="#new-parameters-1-1-0"></a></h3>
+<ul><li><p>Added learning rate scheduler parameters <code><a href="../reference/scheduler-param.html">rate_decay()</a></code>, <code><a href="../reference/scheduler-param.html">rate_initial()</a></code>, <code><a href="../reference/scheduler-param.html">rate_largest()</a></code>, <code><a href="../reference/scheduler-param.html">rate_reduction()</a></code>, <code><a href="../reference/scheduler-param.html">rate_schedule()</a></code>, <code><a href="../reference/scheduler-param.html">rate_step_size()</a></code>, and <code><a href="../reference/scheduler-param.html">rate_steps()</a></code> for the new <a href="https://github.com/tidymodels/brulee/pull/56" class="external-link">brulee functions</a> (<a href="https://github.com/tidymodels/dials/issues/253" class="external-link">#253</a>).</p></li>
+<li><p>Added <code><a href="../reference/num_clusters.html">num_clusters()</a></code> parameter for tidyclust models (<a href="https://github.com/tidymodels/dials/issues/259" class="external-link">#259</a>).</p></li>
+<li><p>Added <code><a href="../reference/lightgbm_parameters.html">num_leaves()</a></code> parameter for lightbgm models (<a href="https://github.com/joeycouse" class="external-link">@joeycouse</a>, <a href="https://github.com/tidymodels/dials/issues/256" class="external-link">#256</a>).</p></li>
+</ul></div>
+<div class="section level3">
+<h3 id="other-changes-1-1-0">Other changes<a class="anchor" aria-label="anchor" href="#other-changes-1-1-0"></a></h3>
 <ul><li><p>The <code>default</code> argument to the constructors <code><a href="../reference/new-param.html">new_quant_param()</a></code> and <code><a href="../reference/new-param.html">new_qual_param()</a></code> is deprecated. <code><a href="../reference/value_validate.html">value_seq()</a></code> now uses the same logic to generate a sequence of parameter values regardless of how long that sequence is (<a href="https://github.com/tidymodels/dials/issues/153" class="external-link">#153</a>, <a href="https://github.com/tidymodels/dials/issues/229" class="external-link">#229</a>).</p></li>
 <li><p><code><a href="../reference/bart-param.html">prior_terminal_node_expo()</a></code> for Bayesian adaptive regression trees (BART) now defaults to a range greater than 1 to limit explosive tree growth (<a href="https://github.com/tidymodels/dials/issues/251" class="external-link">#251</a>).</p></li>
-<li><p>Learning rate scheduler parameters were added for the new <a href="https://github.com/tidymodels/brulee/pull/56" class="external-link">brulee functions</a>.</p></li>
-<li><p>New parameter <code><a href="../reference/lightgbm_parameters.html">num_leaves()</a></code> for lightbgm models (<a href="https://github.com/joeycouse" class="external-link">@joeycouse</a>, <a href="https://github.com/tidymodels/dials/issues/256" class="external-link">#256</a>).</p></li>
 <li><p>The label for <code><a href="../reference/degree.html">spline_degree()</a></code> was improved.</p></li>
-<li><p>Added <code><a href="../reference/num_clusters.html">num_clusters()</a></code> for tidyclust models.</p></li>
 </ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.0" id="dials-100">dials 1.0.0<a class="anchor" aria-label="anchor" href="#dials-100"></a></h2><p class="text-muted">CRAN release: 2022-06-14</p>
 <ul><li><p>The new parameter <code><a href="../reference/mtry_prop.html">mtry_prop()</a></code> is a variation on <code><a href="../reference/mtry.html">mtry()</a></code> where the value is interpreted as the proportion (rather than the count) of predictors that will be randomly sampled at each split (<a href="https://github.com/tidymodels/dials/issues/233" class="external-link">#233</a>).</p></li>
