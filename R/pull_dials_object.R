@@ -16,58 +16,15 @@
 #' @keywords internal
 #' @examples
 #' glmn_param <- parameters(lambda = penalty(), mixture())
-#' pull_dials_object(glmn_param, "lambda")
-#'
-#' # fails:
-#' # pull_dials_object(glmn_param, "penalty")
+#' # pull_dials_object(glmn_param, "lambda")
 #' # ->
 #' extract_parameter_dials(glmn_param, "lambda")
 #' @export
 pull_dials_object <- function(x, id, ...) {
-  lifecycle::deprecate_warn(
+  lifecycle::deprecate_stop(
     "0.1.0",
     "pull_dials_object()",
     "hardhat::extract_parameter_dials()"
   )
   UseMethod("pull_dials_object")
-}
-
-#' @export
-#' @rdname pull_dials_object
-pull_dials_object.parameters <- function(x, id, ...) {
-  dots <- rlang::quos(...)
-  if (!rlang::is_empty(dots)) {
-    rlang::abort("The `...` are not used with `pull_dials_object()`.")
-  }
-  if (any(rlang::is_missing(id)) ||
-    any(!is.character(id)) ||
-    length(id) != 1 ||
-    is.na(id) ||
-    nchar(id) == 0) {
-    rlang::abort("Please supply a single 'id' string.")
-  }
-  which_id <- which(x$id == id)
-  if (length(which_id) == 0) {
-    rlang::abort(paste0("No parameter exists with id '", id, "'."))
-  }
-
-  x$object[[which_id]]
-}
-
-#' @export
-#' @rdname pull_dials_object
-pull_dials_object.recipe <- function(x, id, ...) {
-  pull_dials_object(parameters(x), id)
-}
-
-#' @export
-#' @rdname pull_dials_object
-pull_dials_object.model_spec <- function(x, id, ...) {
-  pull_dials_object(parameters(x), id)
-}
-
-#' @export
-#' @rdname pull_dials_object
-pull_dials_object.workflow <- function(x, id, ...) {
-  pull_dials_object(parameters(x), id)
 }
