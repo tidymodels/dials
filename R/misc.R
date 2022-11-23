@@ -52,10 +52,7 @@ check_installs <- function(x) {
 check_label <- function(txt, ..., call = caller_env()) {
   check_dots_empty()
   if (is.null(txt)) {
-    rlang::abort(
-      "`label` should be a single named character string or NULL.",
-      call = call
-    )
+    return(invisible(txt))
   }
   if (!is.character(txt) || length(txt) > 1) {
     rlang::abort(

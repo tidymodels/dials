@@ -38,3 +38,11 @@ test_that("formatting", {
     "?"
   )
 })
+
+test_that("check_label()", {
+  expect_no_error(check_label(NULL))
+  expect_no_error(check_label(c("label_name" = "label")))
+
+  expect_snapshot(error = TRUE, check_label("unnamed label"))
+  expect_snapshot(error = TRUE, check_label(c("more", "than", "one", "label")))
+})
