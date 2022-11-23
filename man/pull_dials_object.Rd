@@ -2,21 +2,9 @@
 % Please edit documentation in R/pull_dials_object.R
 \name{pull_dials_object}
 \alias{pull_dials_object}
-\alias{pull_dials_object.parameters}
-\alias{pull_dials_object.recipe}
-\alias{pull_dials_object.model_spec}
-\alias{pull_dials_object.workflow}
 \title{Return a dials parameter object associated with parameters}
 \usage{
 pull_dials_object(x, id, ...)
-
-\method{pull_dials_object}{parameters}(x, id, ...)
-
-\method{pull_dials_object}{recipe}(x, id, ...)
-
-\method{pull_dials_object}{model_spec}(x, id, ...)
-
-\method{pull_dials_object}{workflow}(x, id, ...)
 }
 \arguments{
 \item{x}{The results of a call to \code{\link[=parameters]{parameters()}}, a recipe, model
@@ -40,10 +28,7 @@ different types of objects (e.g. parameter sets, recipes, etc.).
 }
 \examples{
 glmn_param <- parameters(lambda = penalty(), mixture())
-pull_dials_object(glmn_param, "lambda")
-
-# fails:
-# pull_dials_object(glmn_param, "penalty")
+# pull_dials_object(glmn_param, "lambda")
 # ->
 extract_parameter_dials(glmn_param, "lambda")
 }
