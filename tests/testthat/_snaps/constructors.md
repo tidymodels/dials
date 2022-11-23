@@ -27,16 +27,16 @@
     Code
       new_quant_param("double", range = 1, inclusive = c(TRUE, TRUE))
     Condition
-      Error in `new_quant_param()`:
-      ! `label` should be a single named character string or NULL.
+      Error in `names(range) <- names(inclusive) <- c("lower", "upper")`:
+      ! 'names' attribute [2] must be the same length as the vector [1]
 
 ---
 
     Code
       new_quant_param("double", range = c(1, NA), inclusive = c(TRUE, TRUE))
     Condition
-      Error in `new_quant_param()`:
-      ! `label` should be a single named character string or NULL.
+      Error in `range_validate()`:
+      ! Value ranges must be non-missing.
 
 ---
 
@@ -59,8 +59,8 @@
     Code
       new_quant_param("double", range = c(1, NA), inclusive = c(TRUE, TRUE))
     Condition
-      Error in `new_quant_param()`:
-      ! `label` should be a single named character string or NULL.
+      Error in `range_validate()`:
+      ! Value ranges must be non-missing.
 
 ---
 
