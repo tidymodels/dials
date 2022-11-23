@@ -72,19 +72,7 @@ different types of objects (e.g. parameter sets, recipes, etc.).</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">pull_dials_object</span><span class="op">(</span><span class="va">x</span>, <span class="va">id</span>, <span class="va">...</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for parameters</span></span>
-<span><span class="fu">pull_dials_object</span><span class="op">(</span><span class="va">x</span>, <span class="va">id</span>, <span class="va">...</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for recipe</span></span>
-<span><span class="fu">pull_dials_object</span><span class="op">(</span><span class="va">x</span>, <span class="va">id</span>, <span class="va">...</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for model_spec</span></span>
-<span><span class="fu">pull_dials_object</span><span class="op">(</span><span class="va">x</span>, <span class="va">id</span>, <span class="va">...</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for workflow</span></span>
-<span><span class="fu">pull_dials_object</span><span class="op">(</span><span class="va">x</span>, <span class="va">id</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">pull_dials_object</span><span class="op">(</span><span class="va">x</span>, <span class="va">id</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -112,15 +100,7 @@ specification, or workflow.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">glmn_param</span> <span class="op">&lt;-</span> <span class="fu"><a href="parameters.html">parameters</a></span><span class="op">(</span>lambda <span class="op">=</span> <span class="fu"><a href="penalty.html">penalty</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="mixture.html">mixture</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu">pull_dials_object</span><span class="op">(</span><span class="va">glmn_param</span>, <span class="st">"lambda"</span><span class="op">)</span></span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`pull_dials_object()` was deprecated in dials 0.1.0.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Please use `hardhat::extract_parameter_dials()` instead.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Amount of Regularization (quantitative)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Transformer: log-10 [1e-100, Inf]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Range (transformed scale): [-10, 0]</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># fails:</span></span></span>
-<span class="r-in"><span><span class="co"># pull_dials_object(glmn_param, "penalty")</span></span></span>
+<span class="r-in"><span><span class="co"># pull_dials_object(glmn_param, "lambda")</span></span></span>
 <span class="r-in"><span><span class="co"># -&gt;</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://hardhat.tidymodels.org/reference/hardhat-extract.html" class="external-link">extract_parameter_dials</a></span><span class="op">(</span><span class="va">glmn_param</span>, <span class="st">"lambda"</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Amount of Regularization (quantitative)</span>
