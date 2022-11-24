@@ -53,3 +53,11 @@ test_that("check_values_quant()", {
   expect_snapshot(error = TRUE, check_values_quant(c(1, NA)))
   expect_snapshot(error = TRUE, check_values_quant(numeric()))
 })
+
+test_that("check_inclusive()", {
+  expect_no_error(check_inclusive(c(TRUE, TRUE)))
+  expect_snapshot(error = TRUE, check_inclusive(TRUE))
+  expect_snapshot(error = TRUE, check_inclusive(NULL))
+  expect_snapshot(error = TRUE, check_inclusive(c(TRUE, NA)))
+  expect_snapshot(error = TRUE, check_inclusive(1:2))
+})

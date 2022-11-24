@@ -136,3 +136,17 @@ check_values_quant <- function(x, ..., call = caller_env()) {
   invisible(x)
 }
 
+check_inclusive <- function(x, ..., call = caller_env()) {
+  check_dots_empty()
+  if (length(x) != 2) {
+    rlang::abort("`inclusive` must have upper and lower values.", call = call)
+  }
+  if (any(is.na(x))) {
+    rlang::abort("`inclusive` must be non-missing.", call = call)
+  }
+  if (!is.logical(x)) {
+    rlang::abort("`inclusive` should be logical", call = call)
+  }
+  invisible(x)
+}
+

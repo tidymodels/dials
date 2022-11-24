@@ -46,3 +46,35 @@
       Error:
       ! `values` can't be empty.
 
+# check_inclusive()
+
+    Code
+      check_inclusive(TRUE)
+    Condition
+      Error:
+      ! `inclusive` must have upper and lower values.
+
+---
+
+    Code
+      check_inclusive(NULL)
+    Condition
+      Error:
+      ! `inclusive` must have upper and lower values.
+
+---
+
+    Code
+      check_inclusive(c(TRUE, NA))
+    Condition
+      Error:
+      ! `inclusive` must be non-missing.
+
+---
+
+    Code
+      check_inclusive(1:2)
+    Condition
+      Error:
+      ! `inclusive` should be logical
+

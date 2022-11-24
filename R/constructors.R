@@ -120,15 +120,7 @@ new_quant_param <- function(type = c("double", "integer"),
     range <- as.list(range)
   }
 
-  if (length(inclusive) != 2) {
-    rlang::abort("`inclusive` must have upper and lower values.")
-  }
-  if (any(is.na(inclusive))) {
-    rlang::abort("Boundary descriptors must be non-missing.")
-  }
-  if (!is.logical(inclusive)) {
-    rlang::abort("`inclusive` should be logical")
-  }
+  check_inclusive(inclusive)
 
   if (!is.null(trans)) {
     if (!is.trans(trans)) {
