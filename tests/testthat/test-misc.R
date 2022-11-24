@@ -46,3 +46,10 @@ test_that("check_label()", {
   expect_snapshot(error = TRUE, check_label("unnamed label"))
   expect_snapshot(error = TRUE, check_label(c("more", "than", "one", "label")))
 })
+
+test_that("check_values_quant()", {
+  expect_no_error(check_values_quant(NULL))
+  expect_snapshot(error = TRUE, check_values_quant("should have been a numeric"))
+  expect_snapshot(error = TRUE, check_values_quant(c(1, NA)))
+  expect_snapshot(error = TRUE, check_values_quant(numeric()))
+})

@@ -115,3 +115,24 @@ check_range <- function(x, type, trans, ..., call = caller_env()) {
   }
   invisible(x0)
 }
+
+check_values_quant <- function(x, ..., call = caller_env()) {
+  check_dots_empty()
+
+  if (is.null(x)) {
+    return(invisible(x))
+  }
+
+  if (!is.numeric(x)) {
+    rlang::abort("`values` must be numeric.", call = call)
+  }
+  if (anyNA(x)) {
+    rlang::abort("`values` can't be `NA`.", call = call)
+  }
+  if (length(x) == 0) {
+    rlang::abort("`values` can't be empty.", call = call)
+  }
+
+  invisible(x)
+}
+

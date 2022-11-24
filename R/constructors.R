@@ -93,17 +93,9 @@ new_quant_param <- function(type = c("double", "integer"),
     rlang::abort("`type` should be either 'double' or 'integer'.")
   }
 
-  if (!is.null(values)) {
-    if (!is.numeric(values)) {
-      rlang::abort("`values` must be numeric.")
-    }
-    if (anyNA(values)) {
-      rlang::abort("`values` can't be `NA`.")
-    }
-    if (length(values) == 0) {
-      rlang::abort("`values` can't be empty.")
-    }
+  check_values_quant(values)
 
+  if (!is.null(values)) {
     # fill in range if user didn't supply one
     if (is.null(range)) {
       range <- range(values)
