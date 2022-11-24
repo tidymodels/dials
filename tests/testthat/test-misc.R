@@ -47,6 +47,14 @@ test_that("check_label()", {
   expect_snapshot(error = TRUE, check_label(c("more", "than", "one", "label")))
 })
 
+test_that("check_finalize()", {
+  expect_no_error(check_finalize(NULL))
+  a_function <- mean
+  expect_no_error(check_finalize(a_function))
+
+  expect_snapshot(error = TRUE, check_finalize("not a function or NULL"))
+})
+
 test_that("check_values_quant()", {
   expect_no_error(check_values_quant(NULL))
   expect_snapshot(error = TRUE, check_values_quant("should have been a numeric"))
