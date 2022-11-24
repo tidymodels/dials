@@ -93,17 +93,9 @@ new_quant_param <- function(type = c("double", "integer"),
     rlang::abort("`type` should be either 'double' or 'integer'.")
   }
 
-  if (!is.null(values)) {
-    if (!is.numeric(values)) {
-      rlang::abort("`values` must be numeric.")
-    }
-    if (anyNA(values)) {
-      rlang::abort("`values` can't be `NA`.")
-    }
-    if (length(values) == 0) {
-      rlang::abort("`values` can't be empty.")
-    }
+  check_values_quant(values)
 
+  if (!is.null(values)) {
     # fill in range if user didn't supply one
     if (is.null(range)) {
       range <- range(values)
@@ -128,15 +120,7 @@ new_quant_param <- function(type = c("double", "integer"),
     range <- as.list(range)
   }
 
-  if (length(inclusive) != 2) {
-    rlang::abort("`inclusive` must have upper and lower values.")
-  }
-  if (any(is.na(inclusive))) {
-    rlang::abort("Boundary descriptors must be non-missing.")
-  }
-  if (!is.logical(inclusive)) {
-    rlang::abort("`inclusive` should be logical")
-  }
+  check_inclusive(inclusive)
 
   if (!is.null(trans)) {
     if (!is.trans(trans)) {
