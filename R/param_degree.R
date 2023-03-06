@@ -39,7 +39,7 @@ degree_int <- function(range = c(1L, 3L), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(spline_degree = "Polynomial Degree"),
+    label = c(degree_int = "Polynomial Degree"),
     finalize = NULL
   )
 }
