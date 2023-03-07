@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# dials
+# dials <a href="https://dials.tidymodels.org/"><img src="man/figures/logo.png" align="right" height="138" /></a>
 
 <!-- badges: start -->
 
@@ -47,18 +47,18 @@ Please note that the dials project is released with a [Contributor Code
 of Conduct](https://dials.tidymodels.org/CODE_OF_CONDUCT.html). By
 contributing to this project, you agree to abide by its terms.
 
--   For questions and discussions about tidymodels packages, modeling,
-    and machine learning, please [post on RStudio
-    Community](https://community.rstudio.com/new-topic?category_id=15&tags=tidymodels,question).
+- For questions and discussions about tidymodels packages, modeling, and
+  machine learning, please [post on RStudio
+  Community](https://community.rstudio.com/new-topic?category_id=15&tags=tidymodels,question).
 
--   If you think you have encountered a bug, please [submit an
-    issue](https://github.com/tidymodels/dials/issues).
+- If you think you have encountered a bug, please [submit an
+  issue](https://github.com/tidymodels/dials/issues).
 
--   Either way, learn how to create and share a
-    [reprex](https://reprex.tidyverse.org/articles/articles/learn-reprex.html)
-    (a minimal, reproducible example), to clearly communicate about your
-    code.
+- Either way, learn how to create and share a
+  [reprex](https://reprex.tidyverse.org/articles/articles/learn-reprex.html)
+  (a minimal, reproducible example), to clearly communicate about your
+  code.
 
--   Check out further details on [contributing guidelines for tidymodels
-    packages](https://www.tidymodels.org/contribute/) and [how to get
-    help](https://www.tidymodels.org/help/).
+- Check out further details on [contributing guidelines for tidymodels
+  packages](https://www.tidymodels.org/contribute/) and [how to get
+  help](https://www.tidymodels.org/help/).
