@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# dials <a href="https://dials.tidymodels.org/"><img src="man/figures/logo.png" align="right" height="138" /></a>
+# dials <a href="https://dials.tidymodels.org/">\<img src=“man/figures/logo.png” align=“right” height=“138 alt=”a stylized black dial on a beige background” /\></a>
 
 <!-- badges: start -->
 
@@ -24,7 +24,7 @@ tuning parameters for the tidymodels packages. If you are looking for
 The name reflects the idea that tuning predictive models can be like
 turning a set of dials on a complex machine under duress.
 
-<img src="http://tos.trekcore.com/hd/albums/1x04hd/thenakedtimehd1013.jpg" width="576">
+<img src="http://tos.trekcore.com/hd/albums/1x04hd/thenakedtimehd1013.jpg" width="576" alt="two Star Trek characters in front of a machine with many dials, lights, and buttons">
 
 ## Installation
 
