@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# dials
+# dials <a href="https://dials.tidymodels.org/"><img src="man/figures/logo.png" align="right" height="138 alt="a stylized black dial on a beige background" /></a>
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/tidymodels/dials/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tidymodels/dials/actions/workflows/R-CMD-check.yaml)
@@ -31,7 +31,7 @@ This package contains _infrastructure_ to create and manage values of tuning par
 
 The name reflects the idea that tuning predictive models can be like turning a set of dials on a complex machine under duress. 
 
-<img src="http://tos.trekcore.com/hd/albums/1x04hd/thenakedtimehd1013.jpg" width="576">
+<img src="http://tos.trekcore.com/hd/albums/1x04hd/thenakedtimehd1013.jpg" width="576" alt="two Star Trek characters in front of a machine with many dials, lights, and buttons">
 
 ## Installation
 
@@ -44,7 +44,8 @@ install.packages("dials")
 You can install the development version from Github with:
 
 ```{r, eval=FALSE}
-devtools::install_github("tidymodels/dials")
+# install.packages("pak")
+pak::pak("tidymodels/dials")
 ```
 
 ## Contributing

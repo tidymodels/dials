@@ -44,16 +44,16 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Hannah Frick \email{hannah@rstudio.com}
+\strong{Maintainer}: Hannah Frick \email{hannah@posit.co}
 
 Authors:
 \itemize{
-  \item Max Kuhn \email{max@rstudio.com}
+  \item Max Kuhn \email{max@posit.co}
 }
 
 Other contributors:
 \itemize{
-  \item RStudio [copyright holder, funder]
+  \item Posit Software, PBC [copyright holder, funder]
 }
 
 }
