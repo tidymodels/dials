@@ -38,7 +38,8 @@ install.packages("dials")
 You can install the development version from Github with:
 
 ``` r
-devtools::install_github("tidymodels/dials")
+# install.packages("pak")
+pak::pak("tidymodels/dials")
 ```
 
 ## Contributing
