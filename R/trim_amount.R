@@ -12,7 +12,7 @@ trim_amount <- function(range = c(0, 0.5), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(trim_amount = "Kernel trim_amount"),
+    label = c(trim_amount = "Amount of Trimming"),
     finalize = NULL
   )
 }
