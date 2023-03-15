@@ -125,13 +125,16 @@ parameters_constr <-
       )
     }
     res <-
-      tibble(
-        name = name,
-        id = id,
-        source = source,
-        component = component,
-        component_id = component_id,
-        object = object
+      new_tibble(
+        list(
+          name = name,
+          id = id,
+          source = source,
+          component = component,
+          component_id = component_id,
+          object = object
+        ),
+        nrow = length(name)
       )
     class(res) <- c("parameters", class(res))
     res
