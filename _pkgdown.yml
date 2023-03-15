@@ -95,6 +95,7 @@ reference:
     - threshold
     - token
     - trees
+    - trim_amount
     - vocabulary_size
     - weight
     - weight_func

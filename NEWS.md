@@ -2,6 +2,8 @@
 
 * Deprecation of `pull_dials_object()` has been escalated to an error. Please
   use `extract_parameter_dials()` instead (#265).
+  
+* Added `trim_amount()` for `recipes::step_impute_mean()`.
 
 # dials 1.1.0
 
