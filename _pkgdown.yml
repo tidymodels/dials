@@ -96,6 +96,7 @@ reference:
     - token
     - trees
     - trim_amount
+    - validation_set_prop
     - vocabulary_size
     - weight
     - weight_func
