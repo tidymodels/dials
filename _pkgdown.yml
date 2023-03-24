@@ -73,6 +73,7 @@ reference:
     - num_hash
     - num_knots
     - num_leaves
+    - num_runs
     - num_tokens
     - over_ratio
     - penalty

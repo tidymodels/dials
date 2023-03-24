@@ -5,6 +5,8 @@
   
 * Added `trim_amount()` for `recipes::step_impute_mean()`.
 
+* Added `num_runs()` for `recipes::step_nnmf()`.
+
 # dials 1.1.0
 
 ## New parameters
