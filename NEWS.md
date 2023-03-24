@@ -7,6 +7,8 @@
 
 * Added `num_runs()` for `recipes::step_nnmf()`.
 
+* Added `harmonic_frequency()` for `recipes::step_harmonic()`.
+
 # dials 1.1.0
 
 ## New parameters

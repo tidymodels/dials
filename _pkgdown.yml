@@ -53,6 +53,7 @@ reference:
     - dropout
     - extrapolation
     - freq_cut
+    - harmonic_frequency
     - Laplace
     - learn_rate
     - max_nodes
