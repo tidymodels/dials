@@ -53,6 +53,7 @@ reference:
     - dropout
     - extrapolation
     - freq_cut
+    - harmonic_frequency
     - Laplace
     - learn_rate
     - max_nodes
@@ -73,6 +74,7 @@ reference:
     - num_hash
     - num_knots
     - num_leaves
+    - num_runs
     - num_tokens
     - over_ratio
     - penalty
