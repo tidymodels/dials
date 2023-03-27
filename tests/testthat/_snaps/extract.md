@@ -12,7 +12,7 @@
       extract_parameter_dials(mod_param)
     Condition
       Error in `extract_parameter_dials()`:
-      ! Please supply a single 'parameter' string.
+      ! `parameter` must be a single string, not absent.
 
 ---
 
@@ -20,7 +20,7 @@
       extract_parameter_dials(mod_param, 1)
     Condition
       Error in `extract_parameter_dials()`:
-      ! Please supply a single 'parameter' string.
+      ! `parameter` must be a single string, not the number 1.
 
 ---
 
@@ -28,7 +28,7 @@
       extract_parameter_dials(mod_param, 1:2)
     Condition
       Error in `extract_parameter_dials()`:
-      ! Please supply a single 'parameter' string.
+      ! `parameter` must be a single string, not an integer vector.
 
 ---
 
@@ -36,7 +36,7 @@
       extract_parameter_dials(mod_param, letters[1:2])
     Condition
       Error in `extract_parameter_dials()`:
-      ! Please supply a single 'parameter' string.
+      ! `parameter` must be a single string, not a character vector.
 
 ---
 
@@ -44,7 +44,7 @@
       extract_parameter_dials(mod_param, NA_character_)
     Condition
       Error in `extract_parameter_dials()`:
-      ! Please supply a single 'parameter' string.
+      ! `parameter` must be a single string, not a character `NA`.
 
 ---
 
@@ -52,5 +52,5 @@
       extract_parameter_dials(mod_param, "")
     Condition
       Error in `extract_parameter_dials()`:
-      ! Please supply a single 'parameter' string.
+      ! `parameter` must be a single string, not the empty string "".
 
