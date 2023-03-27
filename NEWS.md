@@ -5,9 +5,12 @@
   
 * Added `trim_amount()` for `recipes::step_impute_mean()`.
 
-* Added `num_runs()` for `recipes::step_nnmf()`.
+* Added `num_runs()` for `recipes::step_nnmf()` (#281).
 
-* Added `harmonic_frequency()` for `recipes::step_harmonic()`.
+* Added `harmonic_frequency()` for `recipes::step_harmonic()` (#281).
+
+* Added `validation_set_prop()` for `embed::step_discretize_xgb()` (#280).
+
 
 # dials 1.1.0
 
