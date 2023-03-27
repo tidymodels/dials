@@ -12,7 +12,7 @@ harmonic_frequency <- function(range = c(0.01, 1), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(num_runs = "harmonic frequency"),
+    label = c(harmonic_frequency = "Harmonic Frequency"),
     finalize = NULL
   )
 }
