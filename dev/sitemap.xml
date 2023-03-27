@@ -91,6 +91,9 @@
     <loc>https://dials.tidymodels.org/dev/reference/grid_regular.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/dev/reference/harmonic_frequency.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/dev/reference/index.html</loc>
   </url>
   <url>
@@ -140,6 +143,9 @@
   </url>
   <url>
     <loc>https://dials.tidymodels.org/dev/reference/num_knots.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/dev/reference/num_runs.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/dev/reference/num_tokens.html</loc>
