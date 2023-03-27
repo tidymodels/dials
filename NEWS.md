@@ -5,7 +5,8 @@
   
 * Added `trim_amount()` for `recipes::step_impute_mean()`.
 
-* Added `validation_set_prop()` for `embed::step_discretize_xgb()`.
+* Added `validation_set_prop()` for `embed::step_discretize_xgb()` (#280).
+
 
 # dials 1.1.0
 
