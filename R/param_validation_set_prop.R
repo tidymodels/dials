@@ -12,7 +12,7 @@ validation_set_prop <- function(range = c(0.05, 0.7), trans = NULL) {
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(validation_set_prop = "Proportion data for validation"),
+    label = c(validation_set_prop = "Proportion of data for validation"),
     finalize = NULL
   )
 }
