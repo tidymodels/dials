@@ -235,6 +235,9 @@
     <loc>https://dials.tidymodels.org/dev/reference/update.parameters.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/dev/reference/validation_set_prop.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/dev/reference/value_validate.html</loc>
   </url>
   <url>
