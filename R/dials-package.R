@@ -32,23 +32,22 @@
 # The following block is used by usethis to automatically manage
 # roxygen namespace tags. Modify with care!
 ## usethis namespace: start
+#' @import rlang
+#' @importFrom DiceDesign dmaxDesign lhsDesign
+#' @importFrom dplyr %>% filter mutate pull select
+#' @importFrom glue glue glue_collapse
 #' @importFrom lifecycle deprecated
 #' @importFrom pillar type_sum
 #' @importFrom purrr map_lgl map2_dfc map_chr map map2 map_dfc map_dbl map_int
-#' @importFrom DiceDesign dmaxDesign lhsDesign
-#' @importFrom rlang quos eval_tidy quo_get_expr is_string enquo quo_is_null
-#' @importFrom rlang caller_env check_dots_empty
-#' @importFrom tibble as_tibble is_tibble tibble new_tibble
 #' @importFrom scales log2_trans is.trans log10_trans
-#' @importFrom utils installed.packages globalVariables
-#' @importFrom glue glue glue_collapse
-#' @importFrom withr with_seed
 #' @importFrom stats runif
-#' @importFrom dplyr %>% filter mutate pull select
-#' @importFrom vctrs vec_c vec_cast vec_cbind vec_init vec_proxy
-#' @importFrom vctrs vec_ptype vec_ptype2 vec_rbind vec_restore vec_slice
+#' @importFrom tibble as_tibble is_tibble tibble new_tibble
+#' @importFrom utils installed.packages globalVariables
 #' @importFrom vctrs df_cast new_data_frame stop_incompatible_cast
 #' @importFrom vctrs tib_cast tib_ptype2
+#' @importFrom vctrs vec_c vec_cast vec_cbind vec_init vec_proxy
+#' @importFrom vctrs vec_ptype vec_ptype2 vec_rbind vec_restore vec_slice
+#' @importFrom withr with_seed
 ## usethis namespace: end
 NULL
 
