@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# dials <a href="https://dials.tidymodels.org/"><img src="man/figures/logo.png" align="right" height="138 alt="a stylized black dial on a beige background" /></a>
+# dials <a href="https://dials.tidymodels.org/"><img src="man/figures/logo.png" align="right" height="138" alt="a stylized black dial on a beige background" /></a>
 
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/tidymodels/dials/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/tidymodels/dials/actions/workflows/R-CMD-check.yaml)
