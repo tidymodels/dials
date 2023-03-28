@@ -29,7 +29,6 @@ reference:
     contents:
     - parameters
     - update.parameters
-    - pull_dials_object
     - starts_with("range_")
     - starts_with("value_")
 
