@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# dials <a href="https://dials.tidymodels.org/">\<img src=“man/figures/logo.png” align=“right” height=“138 alt=”a stylized black dial on a beige background” /\></a>
+# dials <a href="https://dials.tidymodels.org/"><img src="man/figures/logo.png" align="right" height="138" alt="a stylized black dial on a beige background" /></a>
 
 <!-- badges: start -->
 
