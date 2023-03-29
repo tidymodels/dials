@@ -132,10 +132,11 @@ new_quant_param <- function(type = c("double", "integer"),
   if (!is.null(trans)) {
     if (!is.trans(trans)) {
       rlang::abort(
-        paste0(
-          "`trans` must be a 'trans' class object (or NULL). See ",
-          "`?scales::trans_new`."
-        )
+        c(
+          "`trans` must be a 'trans' class object (or `NULL`).",
+          i = "See `?scales::trans_new`."
+        ),
+        call = call
       )
     }
   }

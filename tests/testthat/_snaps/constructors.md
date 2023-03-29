@@ -83,8 +83,9 @@
     Code
       new_quant_param("integer", range = 1:2, inclusive = c(TRUE, TRUE), trans = log)
     Condition
-      Error in `new_quant_param()`:
-      ! `trans` must be a 'trans' class object (or NULL). See `?scales::trans_new`.
+      Error:
+      ! `trans` must be a 'trans' class object (or `NULL`).
+      i See `?scales::trans_new`.
 
 ---
 
