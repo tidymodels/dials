@@ -183,7 +183,9 @@ new_qual_param <- function(type = c("character", "logical"),
                            values,
                            default = deprecated(),
                            label = NULL,
-                           finalize = NULL) {
+                           finalize = NULL,
+                           ...,
+                           call = caller_env()) {
   if (lifecycle::is_present(default)) {
     lifecycle::deprecate_warn(when = "1.0.1", what = "new_qual_param(default)")
   }
@@ -192,17 +194,17 @@ new_qual_param <- function(type = c("character", "logical"),
 
   if (type == "logical") {
     if (!is.logical(values)) {
-      rlang::abort("`values` must be logical")
+      rlang::abort("`values` must be logical", call = call)
     }
   }
   if (type == "character") {
     if (!is.character(values)) {
-      rlang::abort("`values` must be character")
+      rlang::abort("`values` must be character", call = call)
     }
   }
 
-  check_label(label)
-  check_function(finalize, allow_null = TRUE)
+  check_label(label, call = call)
+  check_function(finalize, allow_null = TRUE, call = call)
 
   res <- list(
     type = type,

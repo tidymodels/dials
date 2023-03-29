@@ -3,7 +3,7 @@
     Code
       new_qual_param("character", 1:2)
     Condition
-      Error in `new_qual_param()`:
+      Error:
       ! `values` must be character
 
 ---
@@ -11,7 +11,7 @@
     Code
       new_qual_param("logical", letters[1:2])
     Condition
-      Error in `new_qual_param()`:
+      Error:
       ! `values` must be logical
 
 # quantitative parameter object creation - bad args

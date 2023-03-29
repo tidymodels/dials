@@ -24,7 +24,9 @@ new_qual_param(
   values,
   default = deprecated(),
   label = NULL,
-  finalize = NULL
+  finalize = NULL,
+  ...,
+  call = caller_env()
 )
 }
 \arguments{
