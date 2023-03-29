@@ -157,7 +157,7 @@ new_quant_param <- function(type = c("double", "integer"),
   range_validate(res, range, call = call)
 
   if (!is.null(values)) {
-    ok_vals <- value_validate(res, values)
+    ok_vals <- value_validate(res, values, call = call)
     if (all(ok_vals)) {
       res$values <- values
     } else {

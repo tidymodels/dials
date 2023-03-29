@@ -9,7 +9,7 @@
 \alias{value_set}
 \title{Tools for working with parameter values}
 \usage{
-value_validate(object, values)
+value_validate(object, values, ..., call = caller_env())
 
 value_seq(object, n, original = TRUE)
 
@@ -27,6 +27,10 @@ value_set(object, values)
 \item{values}{A numeric vector or list (including \code{Inf}). Values
 \emph{cannot} include \code{unknown()}. For \code{value_validate()}, the units should be
 consistent with the parameter object's definition.}
+
+\item{...}{These dots are for future extensions and must be empty.}
+
+\item{call}{The call passed on to \code{\link[rlang:abort]{rlang::abort()}}.}
 
 \item{n}{An integer for the (maximum) number of values to return. In some
 cases where a sequence is requested, the result might have less than \code{n}
