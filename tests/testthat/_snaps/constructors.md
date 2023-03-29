@@ -92,7 +92,7 @@
     Code
       new_quant_param("integer", range = 1:2, inclusive = c(TRUE, TRUE), values = 1:4)
     Condition
-      Error in `new_quant_param()`:
+      Error:
       ! Some values are not valid: 3 and 4
 
 ---
@@ -226,7 +226,7 @@
       new_quant_param(type = "integer", values = c(1L, 5L, 10L), range = c(1L, 5L),
       label = c(foo = "Foo"))
     Condition
-      Error in `new_quant_param()`:
+      Error:
       ! Some values are not valid: 10
 
 ---
@@ -235,7 +235,7 @@
       new_quant_param(type = "integer", values = c(1L, 5L, 10L), inclusive = c(TRUE,
         FALSE), label = c(foo = "Foo"))
     Condition
-      Error in `new_quant_param()`:
+      Error:
       ! Some values are not valid: 10
 
 ---

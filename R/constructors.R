@@ -161,17 +161,16 @@ new_quant_param <- function(type = c("double", "integer"),
     if (all(ok_vals)) {
       res$values <- values
     } else {
-      rlang::abort(
-        paste0(
-          "Some values are not valid: ",
-          glue_collapse(
-            values[!ok_vals],
-            sep = ", ",
-            last = " and ",
-            width = min(options()$width - 30, 10)
-          )
+      msg <- paste0(
+        "Some values are not valid: ",
+        glue_collapse(
+          values[!ok_vals],
+          sep = ", ",
+          last = " and ",
+          width = min(options()$width - 30, 10)
         )
       )
+      rlang::abort(msg, call = call)
     }
   }
 
