@@ -35,7 +35,7 @@
     Code
       new_quant_param("double", range = c(1, NA), inclusive = c(TRUE, TRUE))
     Condition
-      Error in `range_validate()`:
+      Error in `new_quant_param()`:
       ! Value ranges must be non-missing.
 
 ---
@@ -59,7 +59,7 @@
     Code
       new_quant_param("double", range = c(1, NA), inclusive = c(TRUE, TRUE))
     Condition
-      Error in `range_validate()`:
+      Error in `new_quant_param()`:
       ! Value ranges must be non-missing.
 
 ---
@@ -108,7 +108,7 @@
     Code
       range_validate(mtry(), range = 1)
     Condition
-      Error in `range_validate()`:
+      Error:
       ! `range` must have two values: an upper and lower bound. `Inf` and `unknown()` are acceptable values.
 
 ---
@@ -116,7 +116,7 @@
     Code
       range_validate(mtry(), range = c(1, NA))
     Condition
-      Error in `range_validate()`:
+      Error:
       ! Value ranges must be non-missing.
 
 ---
@@ -124,7 +124,7 @@
     Code
       range_validate(mtry(), range = c(1, unknown()), FALSE)
     Condition
-      Error in `range_validate()`:
+      Error:
       ! Cannot validate ranges when they contains 1+ unknown values.
 
 ---
@@ -132,7 +132,7 @@
     Code
       range_validate(mtry(), range = letters[1:2])
     Condition
-      Error in `range_validate()`:
+      Error:
       ! Value ranges must be numeric.
 
 # printing

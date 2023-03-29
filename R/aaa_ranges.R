@@ -13,6 +13,8 @@
 #' @param original A single logical. Should the range values be in the natural
 #'  units (`TRUE`) or in the transformed space (`FALSE`, if applicable)?
 #'
+#' @inheritParams new-param
+#'
 #' @return
 #'
 #' `range_validate()` returns the new range if it passes the validation
@@ -42,7 +44,12 @@
 #'   range_get()
 #'
 #' @export
-range_validate <- function(object, range, ukn_ok = TRUE) {
+range_validate <- function(object,
+                           range,
+                           ukn_ok = TRUE,
+                           ...,
+                           call = caller_env()
+                           ) {
   ukn_txt <- if (ukn_ok) {
     "`Inf` and `unknown()` are acceptable values."
   } else {
@@ -50,7 +57,8 @@ range_validate <- function(object, range, ukn_ok = TRUE) {
   }
   if (length(range) != 2) {
     rlang::abort(
-      paste("`range` must have two values: an upper and lower bound.", ukn_txt)
+      paste("`range` must have two values: an upper and lower bound.", ukn_txt),
+      call = call
     )
   }
 
@@ -60,19 +68,22 @@ range_validate <- function(object, range, ukn_ok = TRUE) {
 
   if (!ukn_ok) {
     if (any(is_unk)) {
-      rlang::abort("Cannot validate ranges when they contains 1+ unknown values.")
+      rlang::abort(
+        "Cannot validate ranges when they contains 1+ unknown values.",
+        call = call
+      )
     }
     if (!any(is_num)) {
-      rlang::abort("`range` should be numeric.")
+      rlang::abort("`range` should be numeric.", call = call)
     }
 
     # TODO check with transform
   } else {
     if (any(is_na[!is_unk])) {
-      rlang::abort("Value ranges must be non-missing.", ukn_txt)
+      rlang::abort("Value ranges must be non-missing.", ukn_txt, call = call)
     }
     if (any(!is_num[!is_unk])) {
-      rlang::abort("Value ranges must be numeric.", ukn_txt)
+      rlang::abort("Value ranges must be numeric.", ukn_txt, call = call)
     }
   }
   range

@@ -6,7 +6,7 @@
 \alias{range_set}
 \title{Tools for working with parameter ranges}
 \usage{
-range_validate(object, range, ukn_ok = TRUE)
+range_validate(object, range, ukn_ok = TRUE, ..., call = caller_env())
 
 range_get(object, original = TRUE)
 
@@ -20,6 +20,10 @@ can include \code{unknown()} when \code{ukn_ok = TRUE}.}
 
 \item{ukn_ok}{A single logical for whether \code{unknown()} is
 an acceptable value.}
+
+\item{...}{These dots are for future extensions and must be empty.}
+
+\item{call}{The call passed on to \code{\link[rlang:abort]{rlang::abort()}}.}
 
 \item{original}{A single logical. Should the range values be in the natural
 units (\code{TRUE}) or in the transformed space (\code{FALSE}, if applicable)?}
