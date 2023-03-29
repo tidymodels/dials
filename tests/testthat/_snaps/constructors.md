@@ -4,7 +4,7 @@
       new_qual_param("character", 1:2)
     Condition
       Error:
-      ! `values` must be character
+      ! `values` must be a character vector, not an integer vector.
 
 ---
 
@@ -12,7 +12,7 @@
       new_qual_param("logical", letters[1:2])
     Condition
       Error:
-      ! `values` must be logical
+      ! `values` must be a logical vector, not a character vector.
 
 # quantitative parameter object creation - bad args
 

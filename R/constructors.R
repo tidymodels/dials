@@ -192,17 +192,11 @@ new_qual_param <- function(type = c("character", "logical"),
 
   type <- arg_match0(type, values = c("character", "logical"))
 
-  if (type == "logical") {
-    if (!is.logical(values)) {
-      rlang::abort("`values` must be logical", call = call)
-    }
-  }
-  if (type == "character") {
-    if (!is.character(values)) {
-      rlang::abort("`values` must be character", call = call)
-    }
-  }
-
+  switch(
+    type,
+    "logical" = check_logical(values, call = call),
+    "character" = check_character(values, call = call)
+  )
   check_label(label, call = call)
   check_function(finalize, allow_null = TRUE, call = call)
 
