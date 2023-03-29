@@ -168,7 +168,7 @@
     Code
       mixture(c(1L, 3L))
     Condition
-      Error in `new_quant_param()`:
+      Error in `mixture()`:
       ! Since `type = 'double'`, please use that data type for the range.
 
 ---
@@ -176,7 +176,7 @@
     Code
       mixture(c(1L, unknown()))
     Condition
-      Error in `new_quant_param()`:
+      Error in `mixture()`:
       ! Since `type = 'double'`, please use that data type for the range.
 
 ---
@@ -184,7 +184,7 @@
     Code
       mixture(c(unknown(), 1L))
     Condition
-      Error in `new_quant_param()`:
+      Error in `mixture()`:
       ! Since `type = 'double'`, please use that data type for the range.
 
 ---
@@ -192,7 +192,7 @@
     Code
       mixture(letters[1:2])
     Condition
-      Error in `new_quant_param()`:
+      Error in `mixture()`:
       ! Since `type = 'double'`, please use that data type for the range.
 
 ---
@@ -200,7 +200,7 @@
     Code
       mtry(c(0.1, 0.5))
     Condition
-      Error in `new_quant_param()`:
+      Error in `mtry()`:
       ! An integer is required for the range and these do not appear to be whole numbers: 0.1, 0.5
 
 ---
@@ -208,7 +208,7 @@
     Code
       mtry(c(0.1, unknown()))
     Condition
-      Error in `new_quant_param()`:
+      Error in `mtry()`:
       ! An integer is required for the range and these do not appear to be whole numbers: 0.1
 
 ---
@@ -216,7 +216,7 @@
     Code
       mtry(c(unknown(), 0.5))
     Condition
-      Error in `new_quant_param()`:
+      Error in `mtry()`:
       ! An integer is required for the range and these do not appear to be whole numbers: 0.5
 
 # `values` must be compatible with `range` and `inclusive`

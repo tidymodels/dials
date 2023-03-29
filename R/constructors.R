@@ -121,7 +121,7 @@ new_quant_param <- function(type = c("double", "integer"),
     )
   }
 
-  range <- check_range(range, type, trans)
+  range <- check_range(range, type, trans, call = call)
 
   if (!is.list(range)) {
     range <- as.list(range)
