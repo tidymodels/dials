@@ -35,7 +35,7 @@
     Code
       new_quant_param("double", range = c(1, NA), inclusive = c(TRUE, TRUE))
     Condition
-      Error in `new_quant_param()`:
+      Error:
       ! Value ranges must be non-missing.
 
 ---
@@ -59,7 +59,7 @@
     Code
       new_quant_param("double", range = c(1, NA), inclusive = c(TRUE, TRUE))
     Condition
-      Error in `new_quant_param()`:
+      Error:
       ! Value ranges must be non-missing.
 
 ---
