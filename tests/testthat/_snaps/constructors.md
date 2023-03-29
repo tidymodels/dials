@@ -260,7 +260,7 @@
     Code
       new_quant_param(type = "integer", values = "not_numeric", label = c(foo = "Foo"))
     Condition
-      Error in `new_quant_param()`:
+      Error:
       ! `values` must be numeric.
 
 ---
@@ -268,7 +268,7 @@
     Code
       new_quant_param(type = "integer", values = NA_integer_, label = c(foo = "Foo"))
     Condition
-      Error in `new_quant_param()`:
+      Error:
       ! `values` can't be `NA`.
 
 ---
@@ -276,7 +276,7 @@
     Code
       new_quant_param(type = "integer", values = integer(), label = c(foo = "Foo"))
     Condition
-      Error in `new_quant_param()`:
+      Error:
       ! `values` can't be empty.
 
 # `default` arg is deprecated
