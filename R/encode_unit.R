@@ -14,12 +14,7 @@
 #' @keywords internal
 #' @export
 encode_unit <- function(x, value, direction, ...) {
-  if (!any(direction %in% c("forward", "backward"))) {
-    rlang::abort(
-      "`direction` should be either 'forward' or 'backward'",
-      .internal = TRUE
-    )
-  }
+  arg_match0(direction, values = c("forward", "backward"))
   UseMethod("encode_unit")
 }
 
