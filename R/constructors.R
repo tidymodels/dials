@@ -38,6 +38,10 @@
 #' @param finalize A function that can be used to set the data-specific
 #' values of a parameter (such as the `range`).
 #'
+#' @inheritParams rlang::args_dots_empty
+#'
+#' @param call The call passed on to [rlang::abort()].
+#'
 #' @return
 #'
 #' An object of class `"param"` with the primary class being either
@@ -79,13 +83,17 @@ new_quant_param <- function(type = c("double", "integer"),
                             trans = NULL,
                             values = NULL,
                             label = NULL,
-                            finalize = NULL) {
+                            finalize = NULL,
+                            ...,
+                            call = caller_env()) {
   if (lifecycle::is_present(default)) {
     lifecycle::deprecate_warn(
       when = "1.0.1",
       what = "new_quant_param(default)"
     )
   }
+
+  check_dots_empty()
 
   type <- arg_match0(type, values = c("double", "integer"))
 

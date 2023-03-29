@@ -14,7 +14,9 @@ new_quant_param(
   trans = NULL,
   values = NULL,
   label = NULL,
-  finalize = NULL
+  finalize = NULL,
+  ...,
+  call = caller_env()
 )
 
 new_qual_param(
@@ -59,6 +61,10 @@ printing and plotting. The name should match the object name (e.g.
 
 \item{finalize}{A function that can be used to set the data-specific
 values of a parameter (such as the \code{range}).}
+
+\item{...}{These dots are for future extensions and must be empty.}
+
+\item{call}{The call passed on to \code{\link[rlang:abort]{rlang::abort()}}.}
 }
 \value{
 An object of class \code{"param"} with the primary class being either
