@@ -38,19 +38,19 @@ test_that("quantitative parameter object creation - bad args", {
   )
   expect_snapshot(
     error = TRUE,
-    new_quant_param("double", range = 1:2, inclusive = c(TRUE, NA))
+    new_quant_param("integer", range = 1:2, inclusive = c(TRUE, NA))
   )
   expect_snapshot(
     error = TRUE,
-    new_quant_param("double", range = 1:2, inclusive = c(TRUE, unknown()))
+    new_quant_param("integer", range = 1:2, inclusive = c(TRUE, unknown()))
   )
   expect_snapshot(
     error = TRUE,
-    new_quant_param("double", range = 1:2, inclusive = c(TRUE, TRUE), trans = log)
+    new_quant_param("integer", range = 1:2, inclusive = c(TRUE, TRUE), trans = log)
   )
   expect_snapshot(
     error = TRUE,
-    new_quant_param("double", range = 1:2, inclusive = c(TRUE, TRUE), values = 1:4)
+    new_quant_param("integer", range = 1:2, inclusive = c(TRUE, TRUE), values = 1:4)
   )
 })
 
