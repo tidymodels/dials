@@ -52,6 +52,6 @@
     Code
       value_validate(mtry(), 17)
     Condition
-      Error in `value_validate()`:
+      Error:
       ! Unknowns not allowed.
 
