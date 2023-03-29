@@ -100,7 +100,7 @@
     Code
       new_quant_param("integer", range = 1:2, inclusive = c(TRUE, TRUE), finalize = "not a function or NULL")
     Condition
-      Error in `new_quant_param()`:
+      Error:
       ! `finalize` must be a function or `NULL`, not the string "not a function or NULL".
 
 # bad args to range_validate

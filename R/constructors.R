@@ -141,8 +141,8 @@ new_quant_param <- function(type = c("double", "integer"),
     }
   }
 
-  check_label(label)
-  check_function(finalize, allow_null = TRUE)
+  check_label(label, call = call)
+  check_function(finalize, allow_null = TRUE, call = call)
 
   names(range) <- names(inclusive) <- c("lower", "upper")
   res <- list(
