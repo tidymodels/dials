@@ -87,11 +87,7 @@ new_quant_param <- function(type = c("double", "integer"),
     )
   }
 
-  type <- match.arg(type)
-
-  if (!(type %in% c("double", "integer"))) {
-    rlang::abort("`type` should be either 'double' or 'integer'.")
-  }
+  type <- arg_match0(type, values = c("double", "integer"))
 
   check_values_quant(values)
 
@@ -181,7 +177,7 @@ new_qual_param <- function(type = c("character", "logical"),
     lifecycle::deprecate_warn(when = "1.0.1", what = "new_qual_param(default)")
   }
 
-  type <- match.arg(type)
+  type <- arg_match0(type, values = c("character", "logical"))
 
   if (type == "logical") {
     if (!is.logical(values)) {

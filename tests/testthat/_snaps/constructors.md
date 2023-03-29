@@ -19,8 +19,8 @@
     Code
       new_quant_param("mucus", range = 1:2, inclusive = c(TRUE, TRUE))
     Condition
-      Error in `match.arg()`:
-      ! 'arg' should be one of "double", "integer"
+      Error in `new_quant_param()`:
+      ! `type` must be one of "double" or "integer", not "mucus".
 
 ---
 
