@@ -22,14 +22,6 @@
       Error:
       ! `label` should be a single named character string or NULL.
 
-# check_finalize()
-
-    Code
-      check_finalize("not a function or NULL")
-    Condition
-      Error:
-      ! `finalize` should be NULL or a function.
-
 # check_values_quant()
 
     Code
