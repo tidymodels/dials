@@ -112,10 +112,13 @@ new_quant_param <- function(type = c("double", "integer"),
   }
 
   if (is.null(range)) {
-    rlang::abort("`range` must be supplied if `values` is `NULL`.")
+    rlang::abort("`range` must be supplied if `values` is `NULL`.", call = call)
   }
   if (is.null(inclusive)) {
-    rlang::abort("`inclusive` must be supplied if `values` is `NULL`.")
+    rlang::abort(
+      "`inclusive` must be supplied if `values` is `NULL`.",
+      call = call
+    )
   }
 
   range <- check_range(range, type, trans)

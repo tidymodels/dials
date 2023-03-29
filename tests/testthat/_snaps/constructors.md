@@ -243,7 +243,7 @@
       new_quant_param(type = "integer", values = NULL, range = NULL, inclusive = c(
         TRUE, FALSE), label = c(foo = "Foo"))
     Condition
-      Error in `new_quant_param()`:
+      Error:
       ! `range` must be supplied if `values` is `NULL`.
 
 ---
@@ -252,7 +252,7 @@
       new_quant_param(type = "integer", values = NULL, range = c(1L, 10L), inclusive = NULL,
       label = c(foo = "Foo"))
     Condition
-      Error in `new_quant_param()`:
+      Error:
       ! `inclusive` must be supplied if `values` is `NULL`.
 
 # `values` is validated
