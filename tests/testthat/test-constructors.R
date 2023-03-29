@@ -52,6 +52,11 @@ test_that("quantitative parameter object creation - bad args", {
     error = TRUE,
     new_quant_param("integer", range = 1:2, inclusive = c(TRUE, TRUE), values = 1:4)
   )
+  expect_snapshot(
+    error = TRUE,
+    new_quant_param("integer", range = 1:2, inclusive = c(TRUE, TRUE),
+                    finalize = "not a function or NULL")
+  )
 })
 
 
