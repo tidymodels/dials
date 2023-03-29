@@ -65,23 +65,23 @@
 ---
 
     Code
-      new_quant_param("double", range = 1:2, inclusive = c(TRUE, NA))
+      new_quant_param("integer", range = 1:2, inclusive = c(TRUE, NA))
     Condition
       Error in `new_quant_param()`:
-      ! Since `type = 'double'`, please use that data type for the range.
+      ! `inclusive` must be non-missing.
 
 ---
 
     Code
-      new_quant_param("double", range = 1:2, inclusive = c(TRUE, unknown()))
+      new_quant_param("integer", range = 1:2, inclusive = c(TRUE, unknown()))
     Condition
       Error in `new_quant_param()`:
-      ! Since `type = 'double'`, please use that data type for the range.
+      ! `inclusive` should be logical
 
 ---
 
     Code
-      new_quant_param("double", range = 1:2, inclusive = c(TRUE, TRUE), trans = log)
+      new_quant_param("integer", range = 1:2, inclusive = c(TRUE, TRUE), trans = log)
     Condition
       Error in `new_quant_param()`:
       ! `trans` must be a 'trans' class object (or NULL). See `?scales::trans_new`.
@@ -89,10 +89,18 @@
 ---
 
     Code
-      new_quant_param("double", range = 1:2, inclusive = c(TRUE, TRUE), values = 1:4)
+      new_quant_param("integer", range = 1:2, inclusive = c(TRUE, TRUE), values = 1:4)
     Condition
       Error in `new_quant_param()`:
-      ! Since `type = 'double'`, please use that data type for the range.
+      ! Some values are not valid: 3 and 4
+
+---
+
+    Code
+      new_quant_param("integer", range = 1:2, inclusive = c(TRUE, TRUE), finalize = "not a function or NULL")
+    Condition
+      Error in `new_quant_param()`:
+      ! `finalize` must be a function or `NULL`, not the string "not a function or NULL".
 
 # bad args to range_validate
 

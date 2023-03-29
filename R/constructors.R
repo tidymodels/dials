@@ -134,7 +134,7 @@ new_quant_param <- function(type = c("double", "integer"),
   }
 
   check_label(label)
-  check_finalize(finalize)
+  check_function(finalize, allow_null = TRUE)
 
   names(range) <- names(inclusive) <- c("lower", "upper")
   res <- list(
@@ -195,7 +195,7 @@ new_qual_param <- function(type = c("character", "logical"),
   }
 
   check_label(label)
-  check_finalize(finalize)
+  check_function(finalize, allow_null = TRUE)
 
   res <- list(
     type = type,
