@@ -60,7 +60,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">range_validate</span><span class="op">(</span><span class="va">object</span>, <span class="va">range</span>, ukn_ok <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">range_validate</span><span class="op">(</span><span class="va">object</span>, <span class="va">range</span>, ukn_ok <span class="op">=</span> <span class="cn">TRUE</span>, <span class="va">...</span>, call <span class="op">=</span> <span class="fu">caller_env</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">range_get</span><span class="op">(</span><span class="va">object</span>, original <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -81,6 +81,14 @@ can include <code><a href="unknown.html">unknown()</a></code> when <code>ukn_ok 
 <dt>ukn_ok</dt>
 <dd><p>A single logical for whether <code><a href="unknown.html">unknown()</a></code> is
 an acceptable value.</p></dd>
+
+
+<dt>...</dt>
+<dd><p>These dots are for future extensions and must be empty.</p></dd>
+
+
+<dt>call</dt>
+<dd><p>The call passed on to <code><a href="https://rlang.r-lib.org/reference/abort.html" class="external-link">rlang::abort()</a></code>.</p></dd>
 
 
 <dt>original</dt>
@@ -115,53 +123,45 @@ a new range.</p>
 <span class="r-in"><span>  silent <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Error in range_validate(my_lambda, c(-10, NA)) : \n  Value ranges must be non-missing.\n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Error in eval(expr, envir, enclos) : Value ranges must be non-missing.\n"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "try-error"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"condition")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">&lt;error/`Inf` and `unknown()` are acceptable values.&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;"> in </span><span style="color: #5555FF; font-weight: bold;">`range_validate()`</span><span style="font-weight: bold;">:</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;">:</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Value ranges must be non-missing.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Backtrace:</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">     </span>▆</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  1. </span>├─<span style="font-weight: bold;">pkgdown</span>::build_site_github_pages(new_process = FALSE, install = FALSE)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  2. </span>│ <span style="color: #949494;">└─pkgdown::build_site(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  3. </span>│   <span style="color: #949494;">└─pkgdown:::build_site_local(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  4. </span>│     <span style="color: #949494;">└─pkgdown::build_reference(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  5. </span>│       <span style="color: #949494;">└─</span><span style="color: #949494; font-weight: bold;">purrr</span><span style="color: #949494;">::map(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  6. </span>│         <span style="color: #949494;">└─purrr:::map_("list", .x, .f, ..., .progress = .progress)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  7. </span>│           <span style="color: #949494;">├─purrr:::with_indexed_errors(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  8. </span>│           <span style="color: #949494;">│ └─</span><span style="color: #949494; font-weight: bold;">base</span><span style="color: #949494;">::withCallingHandlers(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  9. </span>│           <span style="color: #949494;">├─</span><span style="color: #949494; font-weight: bold;">purrr</span><span style="color: #949494;">:::call_with_cleanup(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 10. </span>│           <span style="color: #949494;">└─</span><span style="color: #949494; font-weight: bold;">pkgdown</span><span style="color: #949494;"> (local) .f(.x[[i]], ...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 11. </span>│             <span style="color: #949494;">├─</span><span style="color: #949494; font-weight: bold;">base</span><span style="color: #949494;">::withCallingHandlers(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 12. </span>│             <span style="color: #949494;">└─</span><span style="color: #949494; font-weight: bold;">pkgdown</span><span style="color: #949494;">:::data_reference_topic(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 13. </span>│               <span style="color: #949494;">└─pkgdown:::run_examples(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 14. </span>│                 <span style="color: #949494;">└─pkgdown:::highlight_examples(code, topic, env = env)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 15. </span>│                   <span style="color: #949494;">└─</span><span style="color: #949494; font-weight: bold;">downlit</span><span style="color: #949494;">::evaluate_and_highlight(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 16. </span>│                     <span style="color: #949494;">└─</span><span style="color: #949494; font-weight: bold;">evaluate</span><span style="color: #949494;">::evaluate(code, child_env(env), new_device = TRUE, output_handler = output_handler)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 17. </span>│                       <span style="color: #949494;">└─evaluate:::evaluate_call(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 18. </span>│                         <span style="color: #949494;">├─evaluate (local) timing_fn(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 19. </span>│                         <span style="color: #949494;">├─evaluate (local) handle(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 20. </span>│                         <span style="color: #949494;">│ └─</span><span style="color: #949494; font-weight: bold;">base</span><span style="color: #949494;">::try(f, silent = TRUE)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 21. </span>│                         <span style="color: #949494;">│   └─base::tryCatch(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 22. </span>│                         <span style="color: #949494;">│     └─base (local) tryCatchList(expr, classes, parentenv, handlers)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 23. </span>│                         <span style="color: #949494;">│       └─base (local) tryCatchOne(expr, names, parentenv, handlers[[1L]])</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 24. </span>│                         <span style="color: #949494;">│         └─base (local) doTryCatch(return(expr), name, parentenv, handler)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 25. </span>│                         <span style="color: #949494;">├─base::withCallingHandlers(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 26. </span>│                         <span style="color: #949494;">├─base::withVisible(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 27. </span>│                         <span style="color: #949494;">└─</span><span style="color: #949494; font-weight: bold;">evaluate</span><span style="color: #949494;">:::eval_with_user_handlers(expr, envir, enclos, user_handlers)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 28. </span>│                           <span style="color: #949494;">└─</span><span style="color: #949494; font-weight: bold;">base</span><span style="color: #949494;">::eval(expr, envir, enclos)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 29. </span>│                             <span style="color: #949494;">└─base::eval(expr, envir, enclos)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 30. </span>│                               <span style="color: #949494;">├─... %&gt;% print()</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 31. </span>│                               <span style="color: #949494;">├─base::try(range_validate(my_lambda, c(-10, NA)), silent = TRUE)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 32. </span>│                               <span style="color: #949494;">│ └─base::tryCatch(...)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 33. </span>│                               <span style="color: #949494;">│   └─base (local) tryCatchList(expr, classes, parentenv, handlers)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 34. </span>│                               <span style="color: #949494;">│     └─base (local) tryCatchOne(expr, names, parentenv, handlers[[1L]])</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 35. </span>│                               <span style="color: #949494;">│       └─base (local) doTryCatch(return(expr), name, parentenv, handler)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 36. </span>│                               <span style="color: #949494;">└─</span><span style="color: #5555FF; font-weight: bold;">dials::range_validate(</span><span style="color: #949494;">my_lambda, c(-10, NA)</span><span style="color: #5555FF; font-weight: bold;">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 37. </span>└─<span style="font-weight: bold;">base</span>::print(.)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  1. </span>└─<span style="font-weight: bold;">pkgdown</span>::build_site_github_pages(new_process = FALSE, install = FALSE)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  2. </span>  └─pkgdown::build_site(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  3. </span>    └─pkgdown:::build_site_local(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  4. </span>      └─pkgdown::build_reference(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  5. </span>        └─<span style="font-weight: bold;">purrr</span>::map(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  6. </span>          └─purrr:::map_("list", .x, .f, ..., .progress = .progress)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  7. </span>            ├<span style="color: #949494;">─purrr:::with_indexed_errors(...)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  8. </span>            │ <span style="color: #949494;">└─</span><span style="color: #949494; font-weight: bold;">base</span><span style="color: #949494;">::withCallingHandlers(...)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">  9. </span>            ├<span style="color: #949494;">─</span><span style="color: #949494; font-weight: bold;">purrr</span><span style="color: #949494;">:::call_with_cleanup(...)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 10. </span>            └─<span style="font-weight: bold;">pkgdown</span> (local) .f(.x[[i]], ...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 11. </span>              ├<span style="color: #949494;">─</span><span style="color: #949494; font-weight: bold;">base</span><span style="color: #949494;">::withCallingHandlers(...)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 12. </span>              └─<span style="font-weight: bold;">pkgdown</span>:::data_reference_topic(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 13. </span>                └─pkgdown:::run_examples(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 14. </span>                  └─pkgdown:::highlight_examples(code, topic, env = env)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 15. </span>                    └─<span style="font-weight: bold;">downlit</span>::evaluate_and_highlight(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 16. </span>                      └─<span style="font-weight: bold;">evaluate</span>::evaluate(code, child_env(env), new_device = TRUE, output_handler = output_handler)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 17. </span>                        └─evaluate:::evaluate_call(...)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 18. </span>                          ├<span style="color: #949494;">─evaluate (local) timing_fn(...)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 19. </span>                          ├<span style="color: #949494;">─evaluate (local) handle(...)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 20. </span>                          │ <span style="color: #949494;">└─</span><span style="color: #949494; font-weight: bold;">base</span><span style="color: #949494;">::try(f, silent = TRUE)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 21. </span>                          │   <span style="color: #949494;">└─base::tryCatch(...)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 22. </span>                          │     <span style="color: #949494;">└─base (local) tryCatchList(expr, classes, parentenv, handlers)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 23. </span>                          │       <span style="color: #949494;">└─base (local) tryCatchOne(expr, names, parentenv, handlers[[1L]])</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 24. </span>                          │         <span style="color: #949494;">└─base (local) doTryCatch(return(expr), name, parentenv, handler)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 25. </span>                          ├<span style="color: #949494;">─base::withCallingHandlers(...)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 26. </span>                          ├<span style="color: #949494;">─base::withVisible(...)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 27. </span>                          └─<span style="font-weight: bold;">evaluate</span>:::eval_with_user_handlers(expr, envir, enclos, user_handlers)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 28. </span>                            └─<span style="font-weight: bold;">base</span>::eval(expr, envir, enclos)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;"> 29. </span>                              └─<span style="color: #5555FF; font-weight: bold;">base::eval(</span>expr, envir, enclos<span style="color: #5555FF; font-weight: bold;">)</span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">range_get</span><span class="op">(</span><span class="va">my_lambda</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $lower</span>

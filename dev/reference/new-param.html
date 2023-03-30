@@ -74,7 +74,9 @@ like <code><a href="mtry.html">mtry()</a></code>.</p>
 <span>  trans <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  values <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  label <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  finalize <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  finalize <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  call <span class="op">=</span> <span class="fu">caller_env</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">new_qual_param</span><span class="op">(</span></span>
@@ -82,7 +84,9 @@ like <code><a href="mtry.html">mtry()</a></code>.</p>
 <span>  <span class="va">values</span>,</span>
 <span>  default <span class="op">=</span> <span class="fu">deprecated</span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  label <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  finalize <span class="op">=</span> <span class="cn">NULL</span></span>
+<span>  finalize <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  call <span class="op">=</span> <span class="fu">caller_env</span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -136,6 +140,14 @@ printing and plotting. The name should match the object name (e.g.
 <dt>finalize</dt>
 <dd><p>A function that can be used to set the data-specific
 values of a parameter (such as the <code>range</code>).</p></dd>
+
+
+<dt>...</dt>
+<dd><p>These dots are for future extensions and must be empty.</p></dd>
+
+
+<dt>call</dt>
+<dd><p>The call passed on to <code><a href="https://rlang.r-lib.org/reference/abort.html" class="external-link">rlang::abort()</a></code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
