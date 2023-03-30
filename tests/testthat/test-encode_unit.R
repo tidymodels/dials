@@ -75,10 +75,6 @@ test_that("bad args", {
   )
   expect_snapshot(
     error = TRUE,
-    encode_unit(z, 1, direction = "forward")
-  )
-  expect_snapshot(
-    error = TRUE,
     encode_unit(z, matrix(1:4, ncol = 2), direction = "forward")
   )
   expect_snapshot(

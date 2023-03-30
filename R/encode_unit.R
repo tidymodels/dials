@@ -14,28 +14,23 @@
 #' @keywords internal
 #' @export
 encode_unit <- function(x, value, direction, ...) {
-  if (!any(direction %in% c("forward", "backward"))) {
-    rlang::abort(
-      "`direction` should be either 'forward' or 'backward'",
-      .internal = TRUE
-    )
-  }
+  arg_match0(direction, values = c("forward", "backward"))
   UseMethod("encode_unit")
 }
 
 #' @export
 encode_unit.default <- function(x, value, direction, ...) {
-  rlang::abort("`x` should be a dials parameter object.", .internal = TRUE)
+  rlang::abort("`x` should be a dials parameter object.")
 }
 
 #' @export
 encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
   if (has_unknowns(x)) {
-    rlang::abort("The parameter object contains unknowns.", .internal = TRUE)
+    rlang::abort("The parameter object contains unknowns.")
   }
 
   if (!is.numeric(value) || is.matrix(value)) {
-    rlang::abort("`value` should be a numeric vector.", .internal = TRUE)
+    rlang::abort("`value` should be a numeric vector.")
   }
 
   param_rng <- x$range$upper - x$range$lower
@@ -47,7 +42,7 @@ encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
 
     compl <- value[!is.na(value)]
     if (any(compl < 0) | any(compl > 1)) {
-      rlang::abort("Values should be on [0, 1].", .internal = TRUE)
+      rlang::abort("Values should be on [0, 1].")
     }
 
     value <- (value * param_rng) + x$range$lower
@@ -69,7 +64,7 @@ encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
 #' @export
 encode_unit.qual_param <- function(x, value, direction, ...) {
   if (has_unknowns(x)) {
-    rlang::abort("The parameter object contains unknowns.", .internal = TRUE)
+    rlang::abort("The parameter object contains unknowns.")
   }
 
   ref_vals <- x$values
@@ -79,7 +74,7 @@ encode_unit.qual_param <- function(x, value, direction, ...) {
     # convert to [0, 1]
 
     if (!is.character(value) || is.matrix(value)) {
-      rlang::abort("`value` should be a character vector.", .internal = TRUE)
+      rlang::abort("`value` should be a character vector.")
     }
 
     compl <- value[!is.na(value)]
@@ -87,8 +82,7 @@ encode_unit.qual_param <- function(x, value, direction, ...) {
       bad_vals <- compl[!(compl %in% ref_vals)]
       rlang::abort(
         "Some values are not in the reference set of possible values: ",
-        paste0("'", unique(bad_vals), "'", collapse = ", "),
-        call. = FALSE
+        paste0("'", unique(bad_vals), "'", collapse = ", ")
       )
     }
     fac <- factor(value, levels = ref_vals)
@@ -98,11 +92,11 @@ encode_unit.qual_param <- function(x, value, direction, ...) {
 
     compl <- value[!is.na(value)]
     if (any(compl < 0) | any(compl > 1)) {
-      rlang::abort("Values should be on [0, 1].", .internal = TRUE)
+      rlang::abort("Values should be on [0, 1].")
     }
 
     if (!is.numeric(value) || is.matrix(value)) {
-      rlang::abort("`value` should be a numeric vector.", .internal = TRUE)
+      rlang::abort("`value` should be a numeric vector.")
     }
 
     ind <- cut(value, breaks = seq(0, 1, length.out = num_lvl + 1), include.lowest = TRUE)
