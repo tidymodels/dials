@@ -82,8 +82,7 @@ encode_unit.qual_param <- function(x, value, direction, ...) {
       bad_vals <- compl[!(compl %in% ref_vals)]
       rlang::abort(
         "Some values are not in the reference set of possible values: ",
-        paste0("'", unique(bad_vals), "'", collapse = ", "),
-        call. = FALSE
+        paste0("'", unique(bad_vals), "'", collapse = ", ")
       )
     }
     fac <- factor(value, levels = ref_vals)
