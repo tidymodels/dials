@@ -38,6 +38,10 @@
 #' @param finalize A function that can be used to set the data-specific
 #' values of a parameter (such as the `range`).
 #'
+#' @inheritParams rlang::args_dots_empty
+#'
+#' @param call The call passed on to [rlang::abort()].
+#'
 #' @return
 #'
 #' An object of class `"param"` with the primary class being either
@@ -79,7 +83,9 @@ new_quant_param <- function(type = c("double", "integer"),
                             trans = NULL,
                             values = NULL,
                             label = NULL,
-                            finalize = NULL) {
+                            finalize = NULL,
+                            ...,
+                            call = caller_env()) {
   if (lifecycle::is_present(default)) {
     lifecycle::deprecate_warn(
       when = "1.0.1",
@@ -87,13 +93,11 @@ new_quant_param <- function(type = c("double", "integer"),
     )
   }
 
-  type <- match.arg(type)
+  check_dots_empty()
 
-  if (!(type %in% c("double", "integer"))) {
-    rlang::abort("`type` should be either 'double' or 'integer'.")
-  }
+  type <- arg_match0(type, values = c("double", "integer"))
 
-  check_values_quant(values)
+  check_values_quant(values, call = call)
 
   if (!is.null(values)) {
     # fill in range if user didn't supply one
@@ -108,13 +112,16 @@ new_quant_param <- function(type = c("double", "integer"),
   }
 
   if (is.null(range)) {
-    rlang::abort("`range` must be supplied if `values` is `NULL`.")
+    rlang::abort("`range` must be supplied if `values` is `NULL`.", call = call)
   }
   if (is.null(inclusive)) {
-    rlang::abort("`inclusive` must be supplied if `values` is `NULL`.")
+    rlang::abort(
+      "`inclusive` must be supplied if `values` is `NULL`.",
+      call = call
+    )
   }
 
-  range <- check_range(range, type, trans)
+  range <- check_range(range, type, trans, call = call)
 
   if (!is.list(range)) {
     range <- as.list(range)
@@ -125,16 +132,17 @@ new_quant_param <- function(type = c("double", "integer"),
   if (!is.null(trans)) {
     if (!is.trans(trans)) {
       rlang::abort(
-        paste0(
-          "`trans` must be a 'trans' class object (or NULL). See ",
-          "`?scales::trans_new`."
-        )
+        c(
+          "`trans` must be a 'trans' class object (or `NULL`).",
+          i = "See `?scales::trans_new`."
+        ),
+        call = call
       )
     }
   }
 
-  check_label(label)
-  check_function(finalize, allow_null = TRUE)
+  check_label(label, call = call)
+  check_function(finalize, allow_null = TRUE, call = call)
 
   names(range) <- names(inclusive) <- c("lower", "upper")
   res <- list(
@@ -146,24 +154,23 @@ new_quant_param <- function(type = c("double", "integer"),
     finalize = finalize
   )
   class(res) <- c("quant_param", "param")
-  range_validate(res, range)
+  range_validate(res, range, call = call)
 
   if (!is.null(values)) {
-    ok_vals <- value_validate(res, values)
+    ok_vals <- value_validate(res, values, call = call)
     if (all(ok_vals)) {
       res$values <- values
     } else {
-      rlang::abort(
-        paste0(
-          "Some values are not valid: ",
-          glue_collapse(
-            values[!ok_vals],
-            sep = ", ",
-            last = " and ",
-            width = min(options()$width - 30, 10)
-          )
+      msg <- paste0(
+        "Some values are not valid: ",
+        glue_collapse(
+          values[!ok_vals],
+          sep = ", ",
+          last = " and ",
+          width = min(options()$width - 30, 10)
         )
       )
+      rlang::abort(msg, call = call)
     }
   }
 
@@ -176,26 +183,22 @@ new_qual_param <- function(type = c("character", "logical"),
                            values,
                            default = deprecated(),
                            label = NULL,
-                           finalize = NULL) {
+                           finalize = NULL,
+                           ...,
+                           call = caller_env()) {
   if (lifecycle::is_present(default)) {
     lifecycle::deprecate_warn(when = "1.0.1", what = "new_qual_param(default)")
   }
 
-  type <- match.arg(type)
+  type <- arg_match0(type, values = c("character", "logical"))
 
-  if (type == "logical") {
-    if (!is.logical(values)) {
-      rlang::abort("`values` must be logical")
-    }
-  }
-  if (type == "character") {
-    if (!is.character(values)) {
-      rlang::abort("`values` must be character")
-    }
-  }
-
-  check_label(label)
-  check_function(finalize, allow_null = TRUE)
+  switch(
+    type,
+    "logical" = check_logical(values, call = call),
+    "character" = check_character(values, call = call)
+  )
+  check_label(label, call = call)
+  check_function(finalize, allow_null = TRUE, call = call)
 
   res <- list(
     type = type,
