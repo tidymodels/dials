@@ -50,14 +50,6 @@
 ---
 
     Code
-      encode_unit(z, 1, direction = "forward")
-    Condition
-      Error in `encode_unit()`:
-      ! `value` should be a character vector.
-
----
-
-    Code
       encode_unit(z, matrix(1:4, ncol = 2), direction = "forward")
     Condition
       Error in `encode_unit()`:
