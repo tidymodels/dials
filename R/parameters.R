@@ -115,6 +115,15 @@ parameters_constr <- function(name,
   check_character(component_id)
   check_list_of_param(object)
 
+  n_elements <- map_int(
+    list(name, id, source, component, component_id, object),
+    length
+    )
+  n_elements_unique <- unique(n_elements)
+  if (length(n_elements_unique) > 1) {
+    abort("All inputs must contain contain the same number of elements.")
+  }
+
   res <-
     new_tibble(
       list(
