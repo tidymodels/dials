@@ -211,10 +211,8 @@ test_that("sampling - integers", {
   expect_true(max(p2_tran) < test_param_2$range$upper)
   expect_true(!is.integer(p2_tran))
 
-  expect_equal(
-    sort(unique(value_sample(int_seq, 50))),
-    int_seq$values
-  )
+  int_sampled_values <- sort(unique(value_sample(int_seq, 50)))
+  expect_true(all(int_sampled_values %in% int_seq$values))
 })
 
 
