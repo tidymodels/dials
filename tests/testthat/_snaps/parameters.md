@@ -22,7 +22,7 @@
       parameters_constr(ab, ab, ab, ab, ab, "not a params list")
     Condition
       Error in `parameters_constr()`:
-      ! `object` should be a list.
+      ! `object` must be a list of `param` objects.
 
 ---
 

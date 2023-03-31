@@ -75,6 +75,23 @@ param_or_na <- function(x) {
   inherits(x, "param") | all(is.na(x))
 }
 
+check_list_of_param <- function(x, ..., call = caller_env()) {
+  if (!is.list(x)) {
+    abort("`object` must be a list of `param` objects.", call = call)
+  }
+  is_good_boi <- map_lgl(x, param_or_na)
+  if (any(!is_good_boi)) {
+    rlang::abort(
+      paste0(
+        "`object` elements in the following positions must be `NA` or a ",
+        "`param` object:",
+        paste0(which(!is_good_boi), collapse = ", ")
+      ),
+      call = call
+    )
+  }
+}
+
 #' Construct a new parameter set object
 #'
 #' @param name,id,source,component,component_id Character strings with the same
@@ -97,22 +114,8 @@ parameters_constr <- function(name,
   check_character(component_id)
   unique_check(id)
 
-  if (is.null(object)) {
-    rlang::abort("Element `object` should not be NULL.")
-  }
-  if (!is.list(object)) {
-    rlang::abort("`object` should be a list.")
-  }
-  is_good_boi <- map_lgl(object, param_or_na)
-  if (any(!is_good_boi)) {
-    rlang::abort(
-      paste0(
-        "`object` values in the following positions should be NA or a ",
-        "`param` object:",
-        paste0(which(!is_good_boi), collapse = ", ")
-      )
-    )
-  }
+  check_list_of_param(object)
+
   res <-
     new_tibble(
       list(
