@@ -56,23 +56,41 @@ grid_regular <- function(x, ..., levels = 3, original = TRUE, filter = NULL) {
 
 #' @export
 #' @rdname grid_regular
-grid_regular.parameters <- function(x, ..., levels = 3, original = TRUE, filter = NULL) {
+grid_regular.parameters <- function(x,
+                                    ...,
+                                    levels = 3,
+                                    original = TRUE,
+                                    filter = NULL) {
   # test for NA and finalized
   # test for empty ...
   params <- x$object
   names(params) <- x$id
-  grd <- make_regular_grid(!!!params, levels = levels, original = original, filter = {{ filter }})
+  grd <- make_regular_grid(
+    !!!params,
+    levels = levels,
+    original = original,
+    filter = {{ filter }}
+  )
   names(grd) <- x$id
   grd
 }
 
 #' @export
 #' @rdname grid_regular
-grid_regular.list <- function(x, ..., levels = 3, original = TRUE, filter = NULL) {
+grid_regular.list <- function(x,
+                              ...,
+                              levels = 3,
+                              original = TRUE,
+                              filter = NULL) {
   y <- parameters(x)
   params <- y$object
   names(params) <- y$id
-  grd <- make_regular_grid(!!!params, levels = levels, original = original, filter = {{ filter }})
+  grd <- make_regular_grid(
+    !!!params,
+    levels = levels,
+    original = original,
+    filter = {{ filter }}
+  )
   names(grd) <- y$id
   grd
 }
@@ -80,28 +98,50 @@ grid_regular.list <- function(x, ..., levels = 3, original = TRUE, filter = NULL
 
 #' @export
 #' @rdname grid_regular
-grid_regular.param <- function(x, ..., levels = 3, original = TRUE, filter = NULL) {
+grid_regular.param <- function(x,
+                               ...,
+                               levels = 3,
+                               original = TRUE,
+                               filter = NULL) {
   y <- parameters(list(x, ...))
   params <- y$object
   names(params) <- y$id
-  grd <- make_regular_grid(!!!params, levels = levels, original = original, filter = {{ filter }})
+  grd <- make_regular_grid(
+    !!!params,
+    levels = levels,
+    original = original,
+    filter = {{ filter }}
+  )
   names(grd) <- y$id
   grd
 }
 
 #' @export
 #' @rdname grid_regular
-grid_regular.workflow <- function(x, ..., levels = 3, original = TRUE, filter = NULL) {
-  grid_regular.parameters(parameters(x), ..., levels = levels, original = original, filter = {{ filter }})
+grid_regular.workflow <- function(x,
+                                  ...,
+                                  levels = 3,
+                                  original = TRUE,
+                                  filter = NULL) {
+  grid_regular.parameters(
+    parameters(x),
+    ...,
+    levels = levels,
+    original = original,
+    filter = {{ filter }}
+  )
 }
 
-make_regular_grid <- function(..., levels = 3, original = TRUE, filter = NULL, call = caller_env()) {
+make_regular_grid <- function(...,
+                              levels = 3,
+                              original = TRUE,
+                              filter = NULL,
+                              call = caller_env()) {
   validate_params(..., call = call)
   filter_quo <- enquo(filter)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
   param_names <- names(param_quos)
-
 
   # check levels
   p <- length(levels)
@@ -142,19 +182,30 @@ make_regular_grid <- function(..., levels = 3, original = TRUE, filter = NULL, c
 grid_random <- function(x, ..., size = 5, original = TRUE, filter = NULL) {
   dots <- list(...)
   if (any(names(dots) == "levels")) {
-    rlang::warn("`levels` is not an argument to `grid_random()`. Did you mean `size`?")
+    rlang::warn(
+      "`levels` is not an argument to `grid_random()`. Did you mean `size`?"
+    )
   }
   UseMethod("grid_random")
 }
 
 #' @export
 #' @rdname grid_regular
-grid_random.parameters <- function(x, ..., size = 5, original = TRUE, filter = NULL) {
+grid_random.parameters <- function(x,
+                                   ...,
+                                   size = 5,
+                                   original = TRUE,
+                                   filter = NULL) {
   # test for NA and finalized
   # test for empty ...
   params <- x$object
   names(params) <- x$id
-  grd <- make_random_grid(!!!params, size = size, original = original, filter = {{ filter }})
+  grd <- make_random_grid(
+    !!!params,
+    size = size,
+    original = original,
+    filter = {{ filter }}
+  )
   names(grd) <- x$id
   grd
 }
@@ -165,7 +216,12 @@ grid_random.list <- function(x, ..., size = 5, original = TRUE, filter = NULL) {
   y <- parameters(x)
   params <- y$object
   names(params) <- y$id
-  grd <- make_random_grid(!!!params, size = size, original = original, filter = {{ filter }})
+  grd <- make_random_grid(
+    !!!params,
+    size = size,
+    original = original,
+    filter = {{ filter }}
+  )
   names(grd) <- y$id
   grd
 }
@@ -177,7 +233,12 @@ grid_random.param <- function(x, ..., size = 5, original = TRUE, filter = NULL) 
   y <- parameters(list(x, ...))
   params <- y$object
   names(params) <- y$id
-  grd <- make_random_grid(!!!params, size = size, original = original, filter = {{ filter }})
+  grd <- make_random_grid(
+    !!!params,
+    size = size,
+    original = original,
+    filter = {{ filter }}
+  )
   names(grd) <- y$id
   grd
 }
@@ -186,11 +247,21 @@ grid_random.param <- function(x, ..., size = 5, original = TRUE, filter = NULL) 
 #' @export
 #' @rdname grid_regular
 grid_random.workflow <- function(x, ..., size = 5, original = TRUE, filter = NULL) {
-  grid_random.parameters(parameters(x), ..., size = size, original = original, filter = {{ filter }})
+  grid_random.parameters(
+    parameters(x),
+    ...,
+    size = size,
+    original = original,
+    filter = {{ filter }}
+  )
 }
 
 
-make_random_grid <- function(..., size = 5, original = TRUE, filter = NULL, call = caller_env()) {
+make_random_grid <- function(...,
+                             size = 5,
+                             original = TRUE,
+                             filter = NULL,
+                             call = caller_env()) {
   validate_params(..., call = call)
   filter_quo <- enquo(filter)
   param_quos <- quos(...)
