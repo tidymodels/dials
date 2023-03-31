@@ -140,7 +140,8 @@ value_seq <- function(object, n, original = TRUE) {
 
 value_seq_dbl <- function(object, n, original = TRUE) {
   if (!is.null(object$values)) {
-    res <- object$values[1:min(length(object$values), n)]
+    n_safely <- min(length(object$values), n)
+    res <- object$values[seq_len(n_safely)]
   } else {
     res <- seq(
       from = min(unlist(object$range)),
@@ -157,7 +158,8 @@ value_seq_dbl <- function(object, n, original = TRUE) {
 
 value_seq_int <- function(object, n, original = TRUE) {
   if (!is.null(object$values)) {
-    res <- object$values[1:min(length(object$values), n)]
+    n_safely <- min(length(object$values), n)
+    res <- object$values[seq_len(n_safely)]
   } else {
     res <- seq(
       from = min(unlist(object$range)),
@@ -177,7 +179,8 @@ value_seq_int <- function(object, n, original = TRUE) {
 }
 
 value_seq_qual <- function(object, n) {
-  res <- object$values[1:min(n, length(object$values))]
+  n_safely <- min(length(object$values), n)
+  res <- object$values[seq_len(n_safely)]
   res
 }
 
