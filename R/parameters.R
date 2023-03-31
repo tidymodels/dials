@@ -109,11 +109,10 @@ parameters_constr <- function(name,
                               object) {
   check_character(name)
   check_character(id)
+  unique_check(id)
   check_character(source)
   check_character(component)
   check_character(component_id)
-  unique_check(id)
-
   check_list_of_param(object)
 
   res <-
