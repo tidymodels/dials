@@ -17,7 +17,7 @@ validate_params <- function(..., call = caller_env()) {
   }
   bad_param <- has_unknowns(params)
   if (any(bad_param)) {
-    bad_param <- param_expr[bad_param]
+    bad_param <- names(bad_param)[bad_param]
     rlang::abort(
       c(
         paste0(

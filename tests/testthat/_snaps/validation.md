@@ -20,7 +20,7 @@
       validate_params(mtry())
     Condition
       Error:
-      ! These arguments contain unknowns: `mtry()`.
+      ! These arguments contain unknowns: ``.
       i See the `finalize()` function.
 
 ---
@@ -30,6 +30,6 @@
       validate_params(unfinalized_param)
     Condition
       Error:
-      ! These arguments contain unknowns: `unfinalized_param`.
+      ! These arguments contain unknowns: ``.
       i See the `finalize()` function.
 
