@@ -98,6 +98,9 @@ check_list_of_param <- function(x, ..., call = caller_env()) {
 #' @param name,id,source,component,component_id Character strings with the same
 #' length.
 #' @param object A list of `param` objects or NA values.
+#' @inheritParams rlang::args_dots_empty
+#' @param call The call passed on to [rlang::abort()].
+#'
 #' @return A tibble that encapsulates the input vectors into a tibble with an
 #' additional class of "parameters".
 #' @keywords internal
@@ -107,14 +110,18 @@ parameters_constr <- function(name,
                               source,
                               component,
                               component_id,
-                              object) {
-  check_character(name)
-  check_character(id)
-  unique_check(id)
-  check_character(source)
-  check_character(component)
-  check_character(component_id)
-  check_list_of_param(object)
+                              object,
+                              ...,
+                              call = caller_env()) {
+  check_dots_empty()
+
+  check_character(name, call = call)
+  check_character(id, call = call)
+  unique_check(id, call = call)
+  check_character(source, call = call)
+  check_character(component, call = call)
+  check_character(component_id, call = call)
+  check_list_of_param(object, call = call)
 
   n_elements <- map_int(
     list(name, id, source, component, component_id, object),
@@ -122,7 +129,10 @@ parameters_constr <- function(name,
     )
   n_elements_unique <- unique(n_elements)
   if (length(n_elements_unique) > 1) {
-    abort("All inputs must contain contain the same number of elements.")
+    abort(
+      "All inputs must contain contain the same number of elements.",
+      call = call
+    )
   }
 
   res <-
@@ -140,7 +150,6 @@ parameters_constr <- function(name,
   class(res) <- c("parameters", class(res))
   res
 }
-
 
 unk_check <- function(x) {
   if (all(is.na(x))) {

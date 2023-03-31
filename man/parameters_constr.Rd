@@ -4,13 +4,26 @@
 \alias{parameters_constr}
 \title{Construct a new parameter set object}
 \usage{
-parameters_constr(name, id, source, component, component_id, object)
+parameters_constr(
+  name,
+  id,
+  source,
+  component,
+  component_id,
+  object,
+  ...,
+  call = caller_env()
+)
 }
 \arguments{
 \item{name, id, source, component, component_id}{Character strings with the same
 length.}
 
 \item{object}{A list of \code{param} objects or NA values.}
+
+\item{...}{These dots are for future extensions and must be empty.}
+
+\item{call}{The call passed on to \code{\link[rlang:abort]{rlang::abort()}}.}
 }
 \value{
 A tibble that encapsulates the input vectors into a tibble with an

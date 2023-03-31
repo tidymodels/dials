@@ -3,7 +3,7 @@
     Code
       parameters_constr(2)
     Condition
-      Error in `parameters_constr()`:
+      Error:
       ! `name` must be a character vector, not the number 2.
 
 ---
@@ -12,7 +12,7 @@
       ab <- c("a", "b")
       parameters_constr(ab, c("a", "a"), ab, ab, ab)
     Condition
-      Error in `parameters_constr()`:
+      Error:
       ! Element `id` should have unique values. Duplicates exist for item(s): 'a'
 
 ---
@@ -21,7 +21,7 @@
       ab <- c("a", "b")
       parameters_constr(ab, ab, ab, ab, ab, "not a params list")
     Condition
-      Error in `parameters_constr()`:
+      Error:
       ! `object` must be a list of `param` objects.
 
 ---
@@ -30,7 +30,7 @@
       ab <- c("a", "b")
       parameters_constr("a", ab, ab, ab, ab, list(penalty(), mtry()))
     Condition
-      Error in `parameters_constr()`:
+      Error:
       ! All inputs must contain contain the same number of elements.
 
 ---
@@ -39,7 +39,7 @@
       ab <- c("a", "b")
       parameters_constr(ab, ab, ab, ab, ab, list(penalty()))
     Condition
-      Error in `parameters_constr()`:
+      Error:
       ! All inputs must contain contain the same number of elements.
 
 # create from lists of param objects
@@ -47,7 +47,7 @@
     Code
       parameters(list(a = mtry(), a = penalty()))
     Condition
-      Error in `parameters_constr()`:
+      Error in `parameters()`:
       ! Element `id` should have unique values. Duplicates exist for item(s): 'a'
 
 # updating
