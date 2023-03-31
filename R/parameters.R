@@ -76,6 +76,7 @@ param_or_na <- function(x) {
 }
 
 check_list_of_param <- function(x, ..., call = caller_env()) {
+  check_dots_empty()
   if (!is.list(x)) {
     abort("`object` must be a list of `param` objects.", call = call)
   }
