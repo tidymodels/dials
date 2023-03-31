@@ -11,7 +11,10 @@
 
 * Added `validation_set_prop()` for `embed::step_discretize_xgb()` (#280).
 
-* The constructor functions `new_quant_param()` and `new_qual_param()` now have improved handling of the call shown in error messages (#291).
+* The constructor functions for single parameters, `new_quant_param()` and `new_qual_param()`, as well as for parameter sets, `parameters_constr()`, now have improved handling of the call shown in error messages (#291, #295).
+
+* The constructor for parameter sets, `parameters_constr()`, now checks that all inputs have the same length (#295).
+
 
 # dials 1.1.0
 
