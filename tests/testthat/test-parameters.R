@@ -1,3 +1,24 @@
+test_that("parameters_const() input checks", {
+  expect_snapshot(error = TRUE, {
+    parameters_constr(2)
+  })
+  expect_snapshot(error = TRUE, {
+    ab <- c("a", "b")
+    parameters_constr(ab, c("a", "a"), ab, ab, ab)
+  })
+  expect_snapshot(error = TRUE, {
+    ab <- c("a", "b")
+    parameters_constr(ab, ab, ab, ab, ab, "not a params list")
+  })
+  expect_snapshot(error = TRUE, {
+    ab <- c("a", "b")
+    parameters_constr("a", ab, ab, ab, ab, list(penalty(), mtry()))
+  })
+  expect_snapshot(error = TRUE, {
+    ab <- c("a", "b")
+    parameters_constr(ab, ab, ab, ab, ab, list(penalty()))
+  })
+})
 
 test_that("create from param objects", {
   expect_error(p_1 <- parameters(mtry(), penalty()), NA)

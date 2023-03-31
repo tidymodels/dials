@@ -1,3 +1,65 @@
+# parameters_const() input checks
+
+    Code
+      parameters_constr(2)
+    Condition
+      Error in `parameters_constr()`:
+      ! Element `name` should be a character string.
+
+---
+
+    Code
+      ab <- c("a", "b")
+      parameters_constr(ab, c("a", "a"), ab, ab, ab)
+    Condition
+      Error in `parameters_constr()`:
+      ! Element `id` should have unique values. Duplicates exist for item(s): 'a'
+
+---
+
+    Code
+      ab <- c("a", "b")
+      parameters_constr(ab, ab, ab, ab, ab, "not a params list")
+    Condition
+      Error in `parameters_constr()`:
+      ! `object` should be a list.
+
+---
+
+    Code
+      ab <- c("a", "b")
+      parameters_constr("a", ab, ab, ab, ab, list(penalty(), mtry()))
+    Output
+      Collection of 1 parameters for tuning
+      
+    Condition
+      Error in `$<-`:
+      ! Assigned data `purrr::map_chr(...)` must be compatible with existing data.
+      x Existing data has 1 row.
+      x Assigned data has 2 rows.
+      i Row updates require a list value. Do you need `list()` or `as.list()`?
+      Caused by error in `vectbl_recycle_rhs_rows()`:
+      ! Can't recycle input of size 2 to size 1.
+
+---
+
+    Code
+      ab <- c("a", "b")
+      parameters_constr(ab, ab, ab, ab, ab, list(penalty()))
+    Output
+      Collection of 2 parameters for tuning
+      
+       identifier type    object
+                a    a nparam[+]
+                b    b nparam[+]
+      
+    Condition
+      Error in `vec_slice()`:
+      ! Column `object` (size 1) must match the data frame (size 2).
+      i In file 'slice.c' at line 191.
+      i This is an internal error that was detected in the vctrs package.
+        Please report it at <https://github.com/r-lib/vctrs/issues> with a reprex (<https://tidyverse.org/help/>) and the full backtrace.
+
 # create from lists of param objects
 
     Code
