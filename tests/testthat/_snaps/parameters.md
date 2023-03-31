@@ -4,7 +4,7 @@
       parameters_constr(2)
     Condition
       Error in `parameters_constr()`:
-      ! Element `name` should be a character string.
+      ! `name` must be a character vector, not the number 2.
 
 ---
 

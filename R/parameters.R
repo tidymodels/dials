@@ -54,24 +54,6 @@ parameters.list <- function(x, ...) {
   )
 }
 
-chr_check <- function(x, ..., call = caller_env()) {
-  check_dots_empty()
-  cl <- match.call()
-  if (is.null(x)) {
-    rlang::abort(
-      glue::glue("Element `{cl$x}` should not be NULL."),
-      call = call
-    )
-  }
-  if (!is.character(x)) {
-    rlang::abort(
-      glue::glue("Element `{cl$x}` should be a character string."),
-      call = call
-    )
-  }
-  invisible(TRUE)
-}
-
 unique_check <- function(x, ..., call = caller_env()) {
   check_dots_empty()
   x2 <- x[!is.na(x)]
@@ -108,12 +90,13 @@ parameters_constr <- function(name,
                               component,
                               component_id,
                               object) {
-  chr_check(name)
-  chr_check(id)
-  chr_check(source)
-  chr_check(component)
-  chr_check(component_id)
+  check_character(name)
+  check_character(id)
+  check_character(source)
+  check_character(component)
+  check_character(component_id)
   unique_check(id)
+
   if (is.null(object)) {
     rlang::abort("Element `object` should not be NULL.")
   }
