@@ -60,7 +60,16 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">parameters_constr</span><span class="op">(</span><span class="va">name</span>, <span class="va">id</span>, <span class="va">source</span>, <span class="va">component</span>, <span class="va">component_id</span>, <span class="va">object</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">parameters_constr</span><span class="op">(</span></span>
+<span>  <span class="va">name</span>,</span>
+<span>  <span class="va">id</span>,</span>
+<span>  <span class="va">source</span>,</span>
+<span>  <span class="va">component</span>,</span>
+<span>  <span class="va">component_id</span>,</span>
+<span>  <span class="va">object</span>,</span>
+<span>  <span class="va">...</span>,</span>
+<span>  call <span class="op">=</span> <span class="fu">caller_env</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -72,6 +81,14 @@ length.</p></dd>
 
 <dt>object</dt>
 <dd><p>A list of <code>param</code> objects or NA values.</p></dd>
+
+
+<dt>...</dt>
+<dd><p>These dots are for future extensions and must be empty.</p></dd>
+
+
+<dt>call</dt>
+<dd><p>The call passed on to <code><a href="https://rlang.r-lib.org/reference/abort.html" class="external-link">rlang::abort()</a></code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
