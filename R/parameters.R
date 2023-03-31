@@ -13,8 +13,10 @@ parameters <- function(x, ...) {
 #' @rdname parameters
 parameters.default <- function(x, ...) {
   rlang::abort(
-    glue("`parameters` objects cannot be created from objects ",
-         "of class `{class(x)[1]}`.")
+    glue(
+      "`parameters` objects cannot be created from objects ",
+      "of class `{class(x)[1]}`."
+    )
   )
 }
 
@@ -100,45 +102,49 @@ param_or_na <- function(x) {
 #' additional class of "parameters".
 #' @keywords internal
 #' @export
-parameters_constr <-
-  function(name, id, source, component, component_id, object) {
-    chr_check(name)
-    chr_check(id)
-    chr_check(source)
-    chr_check(component)
-    chr_check(component_id)
-    unique_check(id)
-    if (is.null(object)) {
-      rlang::abort("Element `object` should not be NULL.")
-    }
-    if (!is.list(object)) {
-      rlang::abort("`object` should be a list.")
-    }
-    is_good_boi <- map_lgl(object, param_or_na)
-    if (any(!is_good_boi)) {
-      rlang::abort(
-        paste0(
-          "`object` values in the following positions should be NA or a ",
-          "`param` object:",
-          paste0(which(!is_good_boi), collapse = ", ")
-        )
-      )
-    }
-    res <-
-      new_tibble(
-        list(
-          name = name,
-          id = id,
-          source = source,
-          component = component,
-          component_id = component_id,
-          object = object
-        ),
-        nrow = length(name)
-      )
-    class(res) <- c("parameters", class(res))
-    res
+parameters_constr <- function(name,
+                              id,
+                              source,
+                              component,
+                              component_id,
+                              object) {
+  chr_check(name)
+  chr_check(id)
+  chr_check(source)
+  chr_check(component)
+  chr_check(component_id)
+  unique_check(id)
+  if (is.null(object)) {
+    rlang::abort("Element `object` should not be NULL.")
   }
+  if (!is.list(object)) {
+    rlang::abort("`object` should be a list.")
+  }
+  is_good_boi <- map_lgl(object, param_or_na)
+  if (any(!is_good_boi)) {
+    rlang::abort(
+      paste0(
+        "`object` values in the following positions should be NA or a ",
+        "`param` object:",
+        paste0(which(!is_good_boi), collapse = ", ")
+      )
+    )
+  }
+  res <-
+    new_tibble(
+      list(
+        name = name,
+        id = id,
+        source = source,
+        component = component,
+        component_id = component_id,
+        object = object
+      ),
+      nrow = length(name)
+    )
+  class(res) <- c("parameters", class(res))
+  res
+}
 
 
 unk_check <- function(x) {
@@ -160,7 +166,11 @@ print.parameters <- function(x, ...) {
   print_x$object <-
     purrr::map_chr(
       print_x$object,
-      ~if (all(is.na(.x))) {"missing"} else {pillar::type_sum(.x)}
+      ~ if (all(is.na(.x))) {
+        "missing"
+      } else {
+        pillar::type_sum(.x)
+      }
     )
 
   print.data.frame(print_x, row.names = FALSE)
@@ -171,7 +181,11 @@ print.parameters <- function(x, ...) {
   if (any(null_obj)) {
     needs_param <- print_x$identifier[null_obj]
 
-    last_sep <- if (length(needs_param) == 2) {"` and `"} else {"`, and `"}
+    last_sep <- if (length(needs_param) == 2) {
+      "` and `"
+    } else {
+      "`, and `"
+    }
 
     param_descs <- paste0(
       "`",
@@ -182,9 +196,11 @@ print.parameters <- function(x, ...) {
     plural <- length(needs_param) != 1
 
     rlang::inform(
-      glue::glue("The parameter{if (plural) 's' else ''} {param_descs} ",
-                 "{if (plural) {'need `param` objects'} else {'needs a `param` object'}}. ",
-                 "\nSee `vignette('dials')` to learn more.")
+      glue::glue(
+        "The parameter{if (plural) 's' else ''} {param_descs} ",
+        "{if (plural) {'need `param` objects'} else {'needs a `param` object'}}. ",
+        "\nSee `vignette('dials')` to learn more."
+      )
     )
   }
 
