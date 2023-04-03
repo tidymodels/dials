@@ -15,6 +15,8 @@
 
 * The constructor for parameter sets, `parameters_constr()`, now checks that all inputs have the same length (#295).
 
+* The methods `grid_regular.workflow()`, `grid_random.workflow()`, `grid_max_entropy.workflow()`, and `grid_latin_hypercube.workflow()` have been deprecated (#302).
+
 
 # dials 1.1.0
 
