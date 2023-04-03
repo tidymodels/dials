@@ -287,7 +287,7 @@
       label = c(foo = "Foo"))
     Condition
       Warning:
-      The `default` argument of `new_quant_param()` is deprecated as of dials 1.0.1.
+      The `default` argument of `new_quant_param()` is deprecated as of dials 1.1.0.
 
 ---
 
@@ -296,5 +296,5 @@
       default = TRUE, label = c(foo = "Foo"))
     Condition
       Warning:
-      The `default` argument of `new_qual_param()` is deprecated as of dials 1.0.1.
+      The `default` argument of `new_qual_param()` is deprecated as of dials 1.1.0.
 

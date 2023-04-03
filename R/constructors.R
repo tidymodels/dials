@@ -88,7 +88,7 @@ new_quant_param <- function(type = c("double", "integer"),
                             call = caller_env()) {
   if (lifecycle::is_present(default)) {
     lifecycle::deprecate_warn(
-      when = "1.0.1",
+      when = "1.1.0",
       what = "new_quant_param(default)"
     )
   }
@@ -187,7 +187,7 @@ new_qual_param <- function(type = c("character", "logical"),
                            ...,
                            call = caller_env()) {
   if (lifecycle::is_present(default)) {
-    lifecycle::deprecate_warn(when = "1.0.1", what = "new_qual_param(default)")
+    lifecycle::deprecate_warn(when = "1.1.0", what = "new_qual_param(default)")
   }
 
   type <- arg_match0(type, values = c("character", "logical"))
