@@ -1,8 +1,7 @@
-# dials (development version)
+# dials 1.2.0
 
-* Deprecation of `pull_dials_object()` has been escalated to an error. Please
-  use `extract_parameter_dials()` instead (#265).
-  
+## New parameters
+
 * Added `trim_amount()` for `recipes::step_impute_mean()`.
 
 * Added `num_runs()` for `recipes::step_nnmf()` (#281).
@@ -11,11 +10,15 @@
 
 * Added `validation_set_prop()` for `embed::step_discretize_xgb()` (#280).
 
+## Other changes
+
+* Deprecation of `pull_dials_object()` has been escalated to an error. Please use `extract_parameter_dials()` instead (#265).
+  
+* The methods `grid_regular.workflow()`, `grid_random.workflow()`, `grid_max_entropy.workflow()`, and `grid_latin_hypercube.workflow()` have been deprecated (#302).
+
 * The constructor functions for single parameters, `new_quant_param()` and `new_qual_param()`, as well as for parameter sets, `parameters_constr()`, now have improved handling of the call shown in error messages (#291, #295).
 
 * The constructor for parameter sets, `parameters_constr()`, now checks that all inputs have the same length (#295).
-
-* The methods `grid_regular.workflow()`, `grid_random.workflow()`, `grid_max_entropy.workflow()`, and `grid_latin_hypercube.workflow()` have been deprecated (#302).
 
 
 # dials 1.1.0
