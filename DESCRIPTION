@@ -26,6 +26,7 @@ Imports:
     pillar,
     purrr,
     rlang (>= 1.1.0),
+    sfd,
     tibble,
     utils,
     vctrs (>= 0.3.8),
@@ -38,6 +39,8 @@ Suggests:
     rpart,
     testthat (>= 3.0.0),
     xml2
+Remotes: 
+    topepo/sfd   
 VignetteBuilder: 
     knitr
 ByteCompile: true

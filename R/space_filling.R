@@ -247,3 +247,117 @@ make_latin_hypercube_grid <- function(..., size = 3, original = TRUE, call = cal
 
   sf_grid
 }
+
+# ------------------------------------------------------------------------------
+
+#' @export
+#' @rdname grid_regular
+grid_space_filling <- function(x, ..., size = 5, type = "any", original = TRUE, filter = NULL) {
+  dots <- list(...)
+  if (any(names(dots) == "levels")) {
+    rlang::warn(
+      "`levels` is not an argument to `grid_space_filling()`. Did you mean `size`?"
+    )
+  }
+  UseMethod("grid_space_filling")
+}
+
+#' @export
+#' @rdname grid_regular
+grid_space_filling.parameters <- function(x,
+                                          ...,
+                                          size = 5,
+                                          type = "any",
+                                          original = TRUE,
+                                          filter = NULL) {
+  # test for NA and finalized
+  # test for empty ...
+  params <- x$object
+  names(params) <- x$id
+  grd <- make_sfd(
+    !!!params,
+    size = size,
+    type = type,
+    original = original,
+    filter = {{ filter }}
+  )
+  names(grd) <- x$id
+  grd
+}
+
+#' @export
+#' @rdname grid_regular
+grid_space_filling.list <- function(x, ..., size = 5, type = "any", original = TRUE, filter = NULL) {
+  y <- parameters(x)
+  params <- y$object
+  names(params) <- y$id
+  grd <- make_sfd(
+    !!!params,
+    size = size,
+    type = type,
+    original = original,
+    filter = {{ filter }}
+  )
+  names(grd) <- y$id
+  grd
+}
+
+
+#' @export
+#' @rdname grid_regular
+grid_space_filling.param <- function(x, ..., size = 5, type = "any", original = TRUE, filter = NULL) {
+  y <- parameters(list(x, ...))
+  params <- y$object
+  names(params) <- y$id
+  grd <- make_sfd(
+    !!!params,
+    size = size,
+    type = type,
+    original = original,
+    filter = {{ filter }}
+  )
+  names(grd) <- y$id
+  grd
+}
+
+
+#' @export
+#' @rdname grid_regular
+grid_space_filling.workflow <- function(x, ..., size = 5, type = "any", original = TRUE, filter = NULL) {
+  lifecycle::deprecate_stop(
+    when = "1.2.0",
+    what = "grid_space_filling.workflow()",
+    details = "Alternatively, first extract the parameter set with `extract_parameter_set_dials()`, then create the grid from that object."
+  )
+}
+
+
+make_sfd <- function(...,
+                     size = 5,
+                     type = "any",
+                     original = TRUE,
+                     filter = NULL,
+                     call = caller_env()) {
+  validate_params(..., call = call)
+  filter_quo <- enquo(filter)
+  param_quos <- quos(...)
+  params <- map(param_quos, eval_tidy)
+  p <- length(params)
+
+
+  # check available and maybe pass to other function
+  if (!sfd::sfd_available(size, p, type)) {
+    grd <- grid_max_entropy(params, size = size, original = original, ...)
+    return(grd)
+  }
+
+  # get seq of values
+  # recycle if needed
+  # get design
+  # update values
+
+  # filter res
+
+  # new_param_grid(parameters)
+}
+
