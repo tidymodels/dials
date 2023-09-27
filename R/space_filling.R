@@ -349,8 +349,11 @@ make_sfd <- function(...,
   if (!sfd::sfd_available(size, p, type)) {
     grd <- grid_max_entropy(params, size = size, original = original, ...)
     return(grd)
+  } else {
+    grid <- sfd::get_design(size, num_points = p, type = type)
   }
 
+  vals <- purrr::map(params, ~ value_seq(.x, size))
   # get seq of values
   # recycle if needed
   # get design
