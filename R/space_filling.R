@@ -350,17 +350,21 @@ make_sfd <- function(...,
     grd <- grid_max_entropy(params, size = size, original = original, ...)
     return(grd)
   } else {
-    grid <- sfd::get_design(size, num_points = p, type = type)
+    grid <- sfd::get_design(p, num_points = size, type = type)
   }
 
   vals <- purrr::map(params, ~ value_seq(.x, size))
-  # get seq of values
-  # recycle if needed
-  # get design
-  # update values
+  vals <- purrr::map(vals, ~ base_recycle(.x, size))
+  grid <- sfd::update_values(grid, vals)
+  # get/replace parameter ids
 
   # filter res
+  # convert character to factors
 
-  # new_param_grid(parameters)
+  new_param_grid(grid)
 }
 
+base_recycle <- function(x, size) {
+  inds <- rep_len(seq_along(x), size)
+  x[inds]
+}
