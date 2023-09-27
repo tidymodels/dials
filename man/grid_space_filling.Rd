@@ -156,9 +156,30 @@ grids that try to cover the parameter space such that any portion of the
 space has an observed combination that is not too far from it.
 }
 \details{
-Note that there may a difference in grids depending on how the function
-is called. If the call uses the parameter objects directly the possible
-ranges come from the objects in \code{dials}. For example:
+The types of designs supported here are latin hypercube designs of
+different types. The simple designs produced by
+\code{\link[=grid_latin_hypercube]{grid_latin_hypercube()}} are space-filling but
+don’t guarantee or optimize any other properties.
+\code{\link[=grid_space_filling]{grid_space_filling()}} might be able to produce
+designs that discourage grid points from being close to one another.
+There are a lot of methods for doing this, such as maximizing the
+minimum distance between points (see Husslage \emph{et al} 2001).
+\code{\link[=grid_grid_max_entropy]{grid_grid_max_entropy()}} attempts to
+maximize the determinant of the spatial correlation matrix between
+coordinates.
+
+Latin hypercube and maximum entropy designs use random numbers to make
+the designs.
+
+By default, \code{\link[=grid_space_filling]{grid_space_filling()}} will try to
+use a pre-optimized space-filling design from
+\url{https://www.spacefillingdesigns.nl/}
+(see Husslage \emph{et al}, 2011). If no design is available, then a maximum
+entropy design is created.
+
+Also note that there may a difference in grids depending on how the
+function is called. If the call uses the parameter objects directly the
+possible ranges come from the objects in \code{dials}. For example:
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{mixture()
 }\if{html}{\out{</div>}}
