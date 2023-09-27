@@ -4,11 +4,6 @@
 #'  grids that try to cover the parameter space such that any portion of the
 #'  space has an observed combination that is not too far from it.
 #'
-#' The types of designs supported here are latin hypercube designs and designs
-#'  that attempt to maximize the determinant of the spatial correlation matrix
-#'  between coordinates. Both designs use random sampling of points in the
-#'  parameter space.
-#'
 #' @includeRmd man/rmd/sfd_notes.md details
 #'
 #' @inheritParams grid_random
@@ -29,8 +24,12 @@
 #' Dupuy, D., Helbert, C., and Franco, J. (2015). DiceDesign and DiceEval: Two R
 #'  packages for design and analysis of computer experiments. Journal of
 #'  Statistical Software, 65(11)
+#'
+#' Husslage, B. G., Rennen, G., Van Dam, E. R., & Den Hertog, D. (2011).
+#' Space-filling Latin hypercube designs for computer experiments. _Optimization
+#' and Engineering_, 12, 611-630.
 #' @examples
-#' grid_max_entropy(
+#' grid_space_filling(
 #'   hidden_units(),
 #'   penalty(),
 #'   epochs(),
@@ -41,6 +40,181 @@
 #' )
 #'
 #' grid_latin_hypercube(penalty(), mixture(), original = TRUE)
+#'
+#' # ------------------------------------------------------------------------------
+#' # comparing methods
+#'
+#' set.seed(383)
+#' parameters(trees(), mixture()) %>%
+#'   grid_latin_hypercube(size = 25) %>%
+#'   ggplot(aes(trees, mixture)) +
+#'   geom_point() +
+#'   lims(y = 0:1, x = c(1, 2000)) +
+#'   ggtitle("latin hypercube")
+#'
+#' set.seed(383)
+#' parameters(trees(), mixture()) %>%
+#'   grid_max_entropy(size = 25) %>%
+#'   ggplot(aes(trees, mixture)) +
+#'   geom_point() +
+#'   lims(y = 0:1, x = c(1, 2000)) +
+#'   ggtitle("maximum entropy")
+#'
+#' parameters(trees(), mixture()) %>%
+#'   grid_space_filling(size = 25) %>%
+#'   ggplot(aes(trees, mixture)) +
+#'   geom_point() +
+#'   lims(y = 0:1, x = c(1, 2000)) +
+#'   ggtitle("Audze-Eglais")
+
+#' @export
+grid_space_filling <- function(x, ..., size = 5, type = "any", original = TRUE, filter = NULL) {
+  dots <- list(...)
+  if (any(names(dots) == "levels")) {
+    rlang::warn(
+      "`levels` is not an argument to `grid_space_filling()`. Did you mean `size`?"
+    )
+  }
+  UseMethod("grid_space_filling")
+}
+
+#' @export
+#' @rdname grid_space_filling
+grid_space_filling.parameters <- function(x,
+                                          ...,
+                                          size = 5,
+                                          type = "any",
+                                          variogram_range = 0.5,
+                                          iter = 1000,
+                                          original = TRUE,
+                                          filter = NULL) {
+  # test for NA and finalized
+  # test for empty ...
+  params <- x$object
+  names(params) <- x$id
+  grd <- make_sfd(
+    !!!params,
+    size = size,
+    type = type,
+    variogram_range = variogram_range,
+    iter = iter,
+    original = original,
+    filter = {{ filter }}
+  )
+  names(grd) <- x$id
+  grd
+}
+
+#' @export
+#' @rdname grid_space_filling
+grid_space_filling.list <- function(x, ..., size = 5, type = "any",
+                                    variogram_range = 0.5,
+                                    iter = 1000,
+                                    original = TRUE, filter = NULL) {
+  y <- parameters(x)
+  params <- y$object
+  names(params) <- y$id
+  grd <- make_sfd(
+    !!!params,
+    size = size,
+    type = type,
+    variogram_range = variogram_range,
+    iter = iter,
+    original = original,
+    filter = {{ filter }}
+  )
+  names(grd) <- y$id
+  grd
+}
+
+
+#' @export
+#' @rdname grid_space_filling
+grid_space_filling.param <- function(x, ..., size = 5,
+                                     variogram_range = 0.5,
+                                     iter = 1000,
+                                     type = "any", original = TRUE, filter = NULL) {
+  y <- parameters(list(x, ...))
+  params <- y$object
+  names(params) <- y$id
+  grd <- make_sfd(
+    !!!params,
+    size = size,
+    type = type,
+    variogram_range = variogram_range,
+    iter = iter,
+    original = original,
+    filter = {{ filter }}
+  )
+  names(grd) <- y$id
+  grd
+}
+
+
+#' @export
+#' @rdname grid_space_filling
+grid_space_filling.workflow <- function(x, ..., size = 5, type = "any",
+                                        variogram_range = 0.5,
+                                        iter = 1000,
+                                        original = TRUE, filter = NULL) {
+  lifecycle::deprecate_stop(
+    when = "1.2.0",
+    what = "grid_space_filling.workflow()",
+    details = "Alternatively, first extract the parameter set with `extract_parameter_set_dials()`, then create the grid from that object."
+  )
+}
+
+
+make_sfd <- function(...,
+                     size = 5,
+                     type = "any",
+                     variogram_range = 0.5,
+                     iter = 1000,
+                     original = TRUE,
+                     filter = NULL,
+                     call = caller_env()) {
+  validate_params(..., call = call)
+  filter_quo <- enquo(filter)
+  param_quos <- quos(...)
+  params <- map(param_quos, eval_tidy)
+  p <- length(params)
+
+
+  # check available and maybe pass to other function
+  if (!sfd::sfd_available(p, size, type)) {
+    # TODO make args for this
+    grid <-
+      grid_max_entropy(
+        params,
+        size = size,
+        original = original,
+        variogram_range = variogram_range,
+        iter = iter
+      )
+    return(grid)
+  } else {
+    grid <- sfd::get_design(p, num_points = size, type = type)
+  }
+
+  # bug: value_seq should keep factor levels
+  # bug: not all have filter argument
+  vals <- purrr::map(params, ~ value_seq(.x, size))
+  vals <- purrr::map(vals, ~ base_recycle(.x, size))
+  grid <- sfd::update_values(grid, vals)
+  names(grid) <- names(params)
+
+  # filter res
+  new_param_grid(grid)
+}
+
+base_recycle <- function(x, size) {
+  inds <- rep_len(seq_along(x), size)
+  x[inds]
+}
+
+# ------------------------------------------------------------------------------
+
+#' @rdname grid_space_filling
 #' @export
 grid_max_entropy <- function(x, ..., size = 3, original = TRUE,
                              variogram_range = 0.5, iter = 1000) {
@@ -52,7 +226,7 @@ grid_max_entropy <- function(x, ..., size = 3, original = TRUE,
 }
 
 #' @export
-#' @rdname grid_max_entropy
+#' @rdname grid_space_filling
 grid_max_entropy.parameters <- function(x, ..., size = 3, original = TRUE,
                                         variogram_range = 0.5, iter = 1000) {
   # test for NA and finalized
@@ -71,7 +245,7 @@ grid_max_entropy.parameters <- function(x, ..., size = 3, original = TRUE,
 }
 
 #' @export
-#' @rdname grid_max_entropy
+#' @rdname grid_space_filling
 grid_max_entropy.list <- function(x, ..., size = 3, original = TRUE,
                                   variogram_range = 0.5, iter = 1000) {
   y <- parameters(x)
@@ -90,7 +264,7 @@ grid_max_entropy.list <- function(x, ..., size = 3, original = TRUE,
 
 
 #' @export
-#' @rdname grid_max_entropy
+#' @rdname grid_space_filling
 grid_max_entropy.param <- function(x, ..., size = 3, original = TRUE,
                                    variogram_range = 0.5, iter = 1000) {
   y <- parameters(list(x, ...))
@@ -108,7 +282,7 @@ grid_max_entropy.param <- function(x, ..., size = 3, original = TRUE,
 }
 
 #' @export
-#' @rdname grid_max_entropy
+#' @rdname grid_space_filling
 grid_max_entropy.workflow <- function(x, ..., size = 3, original = TRUE,
                                       variogram_range = 0.5, iter = 1000) {
   lifecycle::deprecate_stop(
@@ -158,7 +332,7 @@ make_max_entropy_grid <- function(..., size = 3, original = TRUE,
 }
 
 #' @export
-#' @rdname grid_max_entropy
+#' @rdname grid_space_filling
 grid_latin_hypercube <- function(x, ..., size = 3, original = TRUE) {
   dots <- list(...)
   if (any(names(dots) == "levels")) {
@@ -168,7 +342,7 @@ grid_latin_hypercube <- function(x, ..., size = 3, original = TRUE) {
 }
 
 #' @export
-#' @rdname grid_max_entropy
+#' @rdname grid_space_filling
 grid_latin_hypercube.parameters <- function(x, ..., size = 3, original = TRUE) {
   # test for NA and finalized
   # test for empty ...
@@ -181,7 +355,7 @@ grid_latin_hypercube.parameters <- function(x, ..., size = 3, original = TRUE) {
 }
 
 #' @export
-#' @rdname grid_max_entropy
+#' @rdname grid_space_filling
 grid_latin_hypercube.list <- function(x, ..., size = 3, original = TRUE) {
   y <- parameters(x)
   params <- y$object
@@ -193,7 +367,7 @@ grid_latin_hypercube.list <- function(x, ..., size = 3, original = TRUE) {
 
 
 #' @export
-#' @rdname grid_max_entropy
+#' @rdname grid_space_filling
 grid_latin_hypercube.param <- function(x, ..., size = 3, original = TRUE) {
   y <- parameters(list(x, ...))
   params <- y$object
@@ -205,7 +379,7 @@ grid_latin_hypercube.param <- function(x, ..., size = 3, original = TRUE) {
 
 
 #' @export
-#' @rdname grid_max_entropy
+#' @rdname grid_space_filling
 grid_latin_hypercube.workflow <- function(x, ..., size = 3, original = TRUE) {
   lifecycle::deprecate_stop(
     when = "1.2.0",
@@ -250,121 +424,3 @@ make_latin_hypercube_grid <- function(..., size = 3, original = TRUE, call = cal
 
 # ------------------------------------------------------------------------------
 
-#' @export
-#' @rdname grid_regular
-grid_space_filling <- function(x, ..., size = 5, type = "any", original = TRUE, filter = NULL) {
-  dots <- list(...)
-  if (any(names(dots) == "levels")) {
-    rlang::warn(
-      "`levels` is not an argument to `grid_space_filling()`. Did you mean `size`?"
-    )
-  }
-  UseMethod("grid_space_filling")
-}
-
-#' @export
-#' @rdname grid_regular
-grid_space_filling.parameters <- function(x,
-                                          ...,
-                                          size = 5,
-                                          type = "any",
-                                          original = TRUE,
-                                          filter = NULL) {
-  # test for NA and finalized
-  # test for empty ...
-  params <- x$object
-  names(params) <- x$id
-  grd <- make_sfd(
-    !!!params,
-    size = size,
-    type = type,
-    original = original,
-    filter = {{ filter }}
-  )
-  names(grd) <- x$id
-  grd
-}
-
-#' @export
-#' @rdname grid_regular
-grid_space_filling.list <- function(x, ..., size = 5, type = "any", original = TRUE, filter = NULL) {
-  y <- parameters(x)
-  params <- y$object
-  names(params) <- y$id
-  grd <- make_sfd(
-    !!!params,
-    size = size,
-    type = type,
-    original = original,
-    filter = {{ filter }}
-  )
-  names(grd) <- y$id
-  grd
-}
-
-
-#' @export
-#' @rdname grid_regular
-grid_space_filling.param <- function(x, ..., size = 5, type = "any", original = TRUE, filter = NULL) {
-  y <- parameters(list(x, ...))
-  params <- y$object
-  names(params) <- y$id
-  grd <- make_sfd(
-    !!!params,
-    size = size,
-    type = type,
-    original = original,
-    filter = {{ filter }}
-  )
-  names(grd) <- y$id
-  grd
-}
-
-
-#' @export
-#' @rdname grid_regular
-grid_space_filling.workflow <- function(x, ..., size = 5, type = "any", original = TRUE, filter = NULL) {
-  lifecycle::deprecate_stop(
-    when = "1.2.0",
-    what = "grid_space_filling.workflow()",
-    details = "Alternatively, first extract the parameter set with `extract_parameter_set_dials()`, then create the grid from that object."
-  )
-}
-
-
-make_sfd <- function(...,
-                     size = 5,
-                     type = "any",
-                     original = TRUE,
-                     filter = NULL,
-                     call = caller_env()) {
-  validate_params(..., call = call)
-  filter_quo <- enquo(filter)
-  param_quos <- quos(...)
-  params <- map(param_quos, eval_tidy)
-  p <- length(params)
-
-
-  # check available and maybe pass to other function
-  if (!sfd::sfd_available(size, p, type)) {
-    grd <- grid_max_entropy(params, size = size, original = original, ...)
-    return(grd)
-  } else {
-    grid <- sfd::get_design(p, num_points = size, type = type)
-  }
-
-  vals <- purrr::map(params, ~ value_seq(.x, size))
-  vals <- purrr::map(vals, ~ base_recycle(.x, size))
-  grid <- sfd::update_values(grid, vals)
-  # get/replace parameter ids
-
-  # filter res
-  # convert character to factors
-
-  new_param_grid(grid)
-}
-
-base_recycle <- function(x, size) {
-  inds <- rep_len(seq_along(x), size)
-  x[inds]
-}
