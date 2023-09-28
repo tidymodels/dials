@@ -41,10 +41,34 @@ glmn_mod <-
   set_engine("glmnet")
 
 set.seed(283)
-mix_grid_2 <- grid_latin_hypercube(extract_parameter_set_dials(glmn_mod), size = 1000)
+mix_grid_2 <-
+  glmn_mod %>% 
+  extract_parameter_set_dials()
+  grid_latin_hypercube(size = 1000)
+```
+
+```
+## Error in UseMethod("grid_latin_hypercube"): no applicable method for 'grid_latin_hypercube' applied to an object of class "c('double', 'numeric')"
+```
+
+```r
 range(mix_grid_2$mixture)
 ```
 
 ```
-## [1] 0.0501454 0.9999554
+## Warning: Unknown or uninitialised column: `mixture`.
+```
+
+```
+## Warning in min(x, na.rm = na.rm): no non-missing arguments to min; returning
+## Inf
+```
+
+```
+## Warning in max(x, na.rm = na.rm): no non-missing arguments to max; returning
+## -Inf
+```
+
+```
+## [1]  Inf -Inf
 ```

@@ -46,7 +46,7 @@
 #'
 #' set.seed(383)
 #' parameters(trees(), mixture()) %>%
-#'   grid_latin_hypercube(size = 25) %>%
+#'   grid_latin_hypercube(size = 15) %>%
 #'   ggplot(aes(trees, mixture)) +
 #'   geom_point() +
 #'   lims(y = 0:1, x = c(1, 2000)) +
@@ -54,14 +54,14 @@
 #'
 #' set.seed(383)
 #' parameters(trees(), mixture()) %>%
-#'   grid_max_entropy(size = 25) %>%
+#'   grid_max_entropy(size = 15) %>%
 #'   ggplot(aes(trees, mixture)) +
 #'   geom_point() +
 #'   lims(y = 0:1, x = c(1, 2000)) +
 #'   ggtitle("maximum entropy")
 #'
 #' parameters(trees(), mixture()) %>%
-#'   grid_space_filling(size = 25) %>%
+#'   grid_space_filling(size = 15) %>%
 #'   ggplot(aes(trees, mixture)) +
 #'   geom_point() +
 #'   lims(y = 0:1, x = c(1, 2000)) +
@@ -179,10 +179,8 @@ make_sfd <- function(...,
   params <- map(param_quos, eval_tidy)
   p <- length(params)
 
-
   # check available and maybe pass to other function
   if (!sfd::sfd_available(p, size, type)) {
-    # TODO make args for this
     grid <-
       grid_max_entropy(
         params,
@@ -191,17 +189,21 @@ make_sfd <- function(...,
         variogram_range = variogram_range,
         iter = iter
       )
-    return(grid)
   } else {
     grid <- sfd::get_design(p, num_points = size, type = type)
+    # TODO value_seq should keep factor levels
+    vals <- purrr::map(params, ~ value_seq(.x, size))
+    vals <- purrr::map(vals, ~ base_recycle(.x, size))
+    grid <- sfd::update_values(grid, vals)
+    names(grid) <- names(params)
   }
 
-  # bug: value_seq should keep factor levels
-  # bug: not all have filter argument
-  vals <- purrr::map(params, ~ value_seq(.x, size))
-  vals <- purrr::map(vals, ~ base_recycle(.x, size))
-  grid <- sfd::update_values(grid, vals)
-  names(grid) <- names(params)
+  # TODO this should be a function
+  # TODO not all have filter argument
+  if (!is.null(filter)) {
+    fltr <- rlang::eval_tidy(filter_quo, data = grid)
+    grid <- grid[fltr,]
+  }
 
   # filter res
   new_param_grid(grid)

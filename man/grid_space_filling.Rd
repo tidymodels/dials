@@ -212,11 +212,27 @@ glmn_mod <-
   set_engine("glmnet")
 
 set.seed(283)
-mix_grid_2 <- grid_latin_hypercube(extract_parameter_set_dials(glmn_mod), size = 1000)
-range(mix_grid_2$mixture)
+mix_grid_2 <-
+  glmn_mod \%>\% 
+  extract_parameter_set_dials()
+  grid_latin_hypercube(size = 1000)
 }\if{html}{\out{</div>}}
 
-\if{html}{\out{<div class="sourceCode">}}\preformatted{## [1] 0.0501454 0.9999554
+\if{html}{\out{<div class="sourceCode">}}\preformatted{## Error in UseMethod("grid_latin_hypercube"): no applicable method for 'grid_latin_hypercube' applied to an object of class "c('double', 'numeric')"
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{range(mix_grid_2$mixture)
+}\if{html}{\out{</div>}}
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{## Warning: Unknown or uninitialised column: `mixture`.
+
+## Warning in min(x, na.rm = na.rm): no non-missing arguments to min; returning
+## Inf
+
+## Warning in max(x, na.rm = na.rm): no non-missing arguments to max; returning
+## -Inf
+
+## [1]  Inf -Inf
 }\if{html}{\out{</div>}}
 }
 \examples{
@@ -237,7 +253,7 @@ grid_latin_hypercube(penalty(), mixture(), original = TRUE)
 
 set.seed(383)
 parameters(trees(), mixture()) \%>\%
-  grid_latin_hypercube(size = 25) \%>\%
+  grid_latin_hypercube(size = 15) \%>\%
   ggplot(aes(trees, mixture)) +
   geom_point() +
   lims(y = 0:1, x = c(1, 2000)) +
@@ -245,14 +261,14 @@ parameters(trees(), mixture()) \%>\%
 
 set.seed(383)
 parameters(trees(), mixture()) \%>\%
-  grid_max_entropy(size = 25) \%>\%
+  grid_max_entropy(size = 15) \%>\%
   ggplot(aes(trees, mixture)) +
   geom_point() +
   lims(y = 0:1, x = c(1, 2000)) +
   ggtitle("maximum entropy")
 
 parameters(trees(), mixture()) \%>\%
-  grid_space_filling(size = 25) \%>\%
+  grid_space_filling(size = 15) \%>\%
   ggplot(aes(trees, mixture)) +
   geom_point() +
   lims(y = 0:1, x = c(1, 2000)) +
