@@ -159,20 +159,21 @@ test_that("sampling - doubles", {
       label = c(param = "param")
     )
 
-  mix_test <- value_sample(mixture(), 5000)
+  mix_test <- value_sample(mixture(), 5000L)
   expect_true(min(mix_test) > 0)
   expect_true(max(mix_test) < 1)
 
-  L2_orig <- value_sample(penalty(), 5000)
+  L2_orig <- value_sample(penalty(), 5000L)
   expect_true(min(L2_orig) > 10^penalty()$range$lower)
   expect_true(max(L2_orig) < 10^penalty()$range$upper)
 
-  L2_tran <- value_sample(penalty(), 5000, FALSE)
+  L2_tran <- value_sample(penalty(), 5000L, FALSE)
   expect_true(min(L2_tran) > penalty()$range$lower)
   expect_true(max(L2_tran) < penalty()$range$upper)
 
-  expect_equal(
-    sort(unique(value_sample(value_seq, 40))),
+  # NB: ensure high enough 'n' that random failure here is "impossible", #308
+  expect_setequal(
+    value_sample(value_seq, 50L),
     value_seq$values
   )
 })
