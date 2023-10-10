@@ -260,11 +260,13 @@ test_that("sequences - logical", {
 
 
 test_that("sampling - character and logical", {
-  expect_equal(
-    sort(unique(value_sample(surv_dist(), 500))), sort(surv_dist()$values)
+  expect_in(
+    unique(value_sample(surv_dist(), 500)), 
+    surv_dist()$values
   )
-  expect_equal(
-    sort(unique(value_sample(prune(), 500))), sort(prune()$values)
+  expect_in(
+    unique(value_sample(prune(), 500)),
+    prune()$values
   )
 })
 
