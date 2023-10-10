@@ -171,10 +171,8 @@ test_that("sampling - doubles", {
   expect_true(min(L2_tran) > penalty()$range$lower)
   expect_true(max(L2_tran) < penalty()$range$upper)
 
-  expect_equal(
-    sort(unique(value_sample(value_seq, 40))),
-    value_seq$values
-  )
+  sampled_values <- unique(value_sample(value_seq, 40))
+  expect_in(sampled_values, value_seq$values)
 })
 
 test_that("sampling - integers", {
@@ -211,8 +209,8 @@ test_that("sampling - integers", {
   expect_true(max(p2_tran) < test_param_2$range$upper)
   expect_true(!is.integer(p2_tran))
 
-  int_sampled_values <- sort(unique(value_sample(int_seq, 50)))
-  expect_true(all(int_sampled_values %in% int_seq$values))
+  int_sampled_values <- unique(value_sample(int_seq, 50))
+  expect_in(int_sampled_values, int_seq$values)
 })
 
 
