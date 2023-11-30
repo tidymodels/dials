@@ -189,7 +189,7 @@ get_log_p <- function(object, x, ...) {
 #' @rdname finalize
 get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ...) {
   if (!inherits(object, "param")) {
-    rlang::abort("`object` should be a 'param' object.")
+    cli::cli_abort("{.arg object} should be a {.cls param} object.")
   }
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$upper)) {

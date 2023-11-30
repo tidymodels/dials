@@ -112,10 +112,13 @@ new_quant_param <- function(type = c("double", "integer"),
   }
 
   if (is.null(range)) {
-    rlang::abort("`range` must be supplied if `values` is `NULL`.", call = call)
+    cli::cli_abort(
+      "{.arg range} must be supplied if {.arg values} is `NULL`.",
+      call = call
+    )
   }
   if (is.null(inclusive)) {
-    rlang::abort(
+    cli::cli_abort(
       "`inclusive` must be supplied if `values` is `NULL`.",
       call = call
     )
@@ -129,16 +132,14 @@ new_quant_param <- function(type = c("double", "integer"),
 
   check_inclusive(inclusive)
 
-  if (!is.null(trans)) {
-    if (!is.trans(trans)) {
-      rlang::abort(
-        c(
-          "`trans` must be a 'trans' class object (or `NULL`).",
-          i = "See `?scales::trans_new`."
-        ),
-        call = call
-      )
-    }
+  if (!is.null(trans) && !is.trans(trans)) {
+    cli::cli_abort(
+      c(
+        x = "{.arg trans} must be a {.cls trans} class object (or `NULL`).",
+        i = "See {.fn scales::trans_new}."
+      ),
+      call = call
+    )
   }
 
   check_label(label, call = call)
@@ -158,20 +159,16 @@ new_quant_param <- function(type = c("double", "integer"),
 
   if (!is.null(values)) {
     ok_vals <- value_validate(res, values, call = call)
-    if (all(ok_vals)) {
-      res$values <- values
-    } else {
-      msg <- paste0(
-        "Some values are not valid: ",
-        glue_collapse(
-          values[!ok_vals],
-          sep = ", ",
-          last = " and ",
-          width = min(options()$width - 30, 10)
-        )
+
+    if (!all(ok_vals)) {
+      offenders <- values[!ok_vals]
+      cli::cli_abort(
+        "Some values are not valid: {.val {offenders}}.",
+        call = call
       )
-      rlang::abort(msg, call = call)
     }
+
+    res$values <- values
   }
 
   res

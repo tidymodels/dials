@@ -142,3 +142,23 @@ check_inclusive <- function(x, ..., call = caller_env()) {
   invisible(x)
 }
 
+check_param <- function(x,
+                        ...,
+                        allow_na = FALSE,
+                        allow_null = FALSE,
+                        arg = caller_arg(x),
+                        call = caller_env()) {
+  if (!missing(x) && inherits(x, "param")) {
+    return(invisible(NULL))
+  }
+
+  stop_input_type(
+    x,
+    c("a single parameter object"),
+    ...,
+    allow_na = allow_na,
+    allow_null = allow_null,
+    arg = arg,
+    call = call
+  )
+}
