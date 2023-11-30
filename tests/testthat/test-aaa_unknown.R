@@ -28,9 +28,11 @@ test_that("has_unknown", {
 test_that("unknowns in grid functions", {
   p1 <- parameters(q = mtry(), min_n())
   p2 <- parameters(mtry())
+  p3 <- parameters(mtry(), q = mtry())
 
   expect_snapshot(error = TRUE, grid_regular(p1))
   expect_snapshot(error = TRUE, grid_regular(p2))
+  expect_snapshot(error = TRUE, grid_regular(p3))
   expect_snapshot(error = TRUE, grid_random(p1))
   expect_snapshot(error = TRUE, grid_random(p2))
   expect_snapshot(error = TRUE, grid_latin_hypercube(p1))

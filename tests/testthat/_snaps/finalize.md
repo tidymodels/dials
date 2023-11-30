@@ -28,7 +28,7 @@
       get_n(1:10)
     Condition
       Error in `get_n_frac()`:
-      ! `object` should be a 'param' object.
+      ! `object` should be a <param> object.
 
 ---
 
@@ -36,7 +36,7 @@
       get_n(1:10, 1:10)
     Condition
       Error in `get_n_frac()`:
-      ! `object` should be a 'param' object.
+      ! `object` should be a <param> object.
 
 ---
 
