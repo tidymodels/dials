@@ -4,7 +4,7 @@
       get_p(1:10)
     Condition
       Error in `get_p()`:
-      ! `object` should be a 'param' object.
+      ! `object` must be a single parameter object, not an integer vector.
 
 ---
 
@@ -12,7 +12,7 @@
       get_p(1:10, 1:10)
     Condition
       Error in `get_p()`:
-      ! `object` should be a 'param' object.
+      ! `object` must be a single parameter object, not an integer vector.
 
 ---
 
@@ -28,7 +28,7 @@
       get_n(1:10)
     Condition
       Error in `get_n_frac()`:
-      ! `object` should be a <param> object.
+      ! `object` must be a single parameter object, not an integer vector.
 
 ---
 
@@ -36,7 +36,7 @@
       get_n(1:10, 1:10)
     Condition
       Error in `get_n_frac()`:
-      ! `object` should be a <param> object.
+      ! `object` must be a single parameter object, not an integer vector.
 
 ---
 
