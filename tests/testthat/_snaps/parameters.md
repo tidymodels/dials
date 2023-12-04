@@ -64,7 +64,7 @@
       update(p_1, penalty = 1:2)
     Condition
       Error in `update()`:
-      ! At least one parameter is not a dials parameter object or NA: 'penalty'
+      ! At least one parameter is not a dials parameter object or NA: penalty.
 
 ---
 

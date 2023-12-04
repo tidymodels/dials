@@ -84,8 +84,8 @@
       new_quant_param("integer", range = 1:2, inclusive = c(TRUE, TRUE), trans = log)
     Condition
       Error:
-      ! `trans` must be a 'trans' class object (or `NULL`).
-      i See `?scales::trans_new`.
+      x `trans` must be a <trans> class object (or `NULL`).
+      i See `scales::trans_new()`.
 
 ---
 
@@ -93,7 +93,7 @@
       new_quant_param("integer", range = 1:2, inclusive = c(TRUE, TRUE), values = 1:4)
     Condition
       Error:
-      ! Some values are not valid: 3 and 4
+      ! Some values are not valid: 3 and 4.
 
 ---
 
@@ -227,7 +227,7 @@
       label = c(foo = "Foo"))
     Condition
       Error:
-      ! Some values are not valid: 10
+      ! Some values are not valid: 10.
 
 ---
 
@@ -236,7 +236,7 @@
         FALSE), label = c(foo = "Foo"))
     Condition
       Error:
-      ! Some values are not valid: 10
+      ! Some values are not valid: 10.
 
 ---
 

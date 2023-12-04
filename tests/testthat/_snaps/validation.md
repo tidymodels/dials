@@ -12,7 +12,7 @@
       validate_params(1:2)
     Condition
       Error:
-      ! These arguments must have class 'param': `1:2`
+      ! This argument must have class <param>: `1:2`.
 
 ---
 
@@ -20,8 +20,8 @@
       validate_params(mtry())
     Condition
       Error:
-      ! These arguments contain unknowns: ``.
-      i See the `finalize()` function.
+      x This argument contains unknowns: ``.
+      i See the `dials::finalize()` function.
 
 ---
 
@@ -30,6 +30,6 @@
       validate_params(unfinalized_param)
     Condition
       Error:
-      ! These arguments contain unknowns: ``.
-      i See the `finalize()` function.
+      x This argument contains unknowns: ``.
+      i See the `dials::finalize()` function.
 
