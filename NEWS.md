@@ -1,5 +1,8 @@
 # dials (development version)
 
+* Improving error messages by switching to cli (#315).
+
+
 # dials 1.2.0
 
 ## New parameters
