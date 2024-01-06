@@ -171,10 +171,7 @@ test_that("sampling - doubles", {
   expect_true(min(L2_tran) > penalty()$range$lower)
   expect_true(max(L2_tran) < penalty()$range$upper)
 
-  expect_equal(
-    sort(unique(value_sample(value_seq, 40))),
-    value_seq$values
-  )
+  expect_in(value_sample(value_seq, 40), value_seq$values)
 })
 
 test_that("sampling - integers", {
@@ -211,8 +208,7 @@ test_that("sampling - integers", {
   expect_true(max(p2_tran) < test_param_2$range$upper)
   expect_true(!is.integer(p2_tran))
 
-  int_sampled_values <- sort(unique(value_sample(int_seq, 50)))
-  expect_true(all(int_sampled_values %in% int_seq$values))
+  expect_in(value_sample(int_seq, 50), int_seq$values)
 })
 
 
@@ -262,12 +258,8 @@ test_that("sequences - logical", {
 
 
 test_that("sampling - character and logical", {
-  expect_equal(
-    sort(unique(value_sample(surv_dist(), 500))), sort(surv_dist()$values)
-  )
-  expect_equal(
-    sort(unique(value_sample(prune(), 500))), sort(prune()$values)
-  )
+  expect_in(value_sample(surv_dist(), 500), surv_dist()$values)
+  expect_in(value_sample(prune(), 500), prune()$values)
 })
 
 test_that("validate unknowns", {

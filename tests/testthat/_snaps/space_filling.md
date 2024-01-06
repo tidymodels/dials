@@ -4,8 +4,8 @@
       grid_max_entropy(mtry(), size = 11, original = FALSE)
     Condition
       Error in `grid_max_entropy()`:
-      ! These arguments contain unknowns: `mtry`.
-      i See the `finalize()` function.
+      x This argument contains unknowns: `mtry`.
+      i See the `dials::finalize()` function.
 
 # latin square designs
 
@@ -13,6 +13,6 @@
       grid_latin_hypercube(mtry(), size = 11, original = FALSE)
     Condition
       Error in `grid_latin_hypercube()`:
-      ! These arguments contain unknowns: `mtry`.
-      i See the `finalize()` function.
+      x This argument contains unknowns: `mtry`.
+      i See the `dials::finalize()` function.
 

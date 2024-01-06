@@ -281,12 +281,12 @@ update.parameters <- function(object, ...) {
   not_null <- !purrr::map_lgl(args, ~ all(is.na(.x)))
   bad_input <- not_param & not_null
   if (any(bad_input)) {
-    msg <- paste0("'", nms[bad_input], "'", collapse = ", ")
-    msg <- paste(
-      "At least one parameter is not a dials parameter object",
-      "or NA:", msg
+    offenders <- nms[bad_input]
+
+    cli::cli_abort(
+      "At least one parameter is not a dials parameter object or NA: \\
+      {offenders}."
     )
-    rlang::abort(msg)
   }
 
   for (p in nms) {

@@ -312,9 +312,7 @@ value_set <- function(object, values) {
   if (length(values) == 0) {
     rlang::abort("`values` should at least one element.")
   }
-  if (!inherits(object, "param")) {
-    rlang::abort("`object` should be a 'param' object")
-  }
+  check_param(object)
 
   if (inherits(object, "quant_param")) {
     object <-

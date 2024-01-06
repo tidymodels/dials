@@ -152,9 +152,7 @@ finalize.default <- function(object, x, force = TRUE, ...) {
 #' @export
 #' @rdname finalize
 get_p <- function(object, x, log_vals = FALSE, ...) {
-  if (!inherits(object, "param")) {
-    rlang::abort("`object` should be a 'param' object.")
-  }
+  check_param(object)
 
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$upper)) {
@@ -188,9 +186,8 @@ get_log_p <- function(object, x, ...) {
 #' @export
 #' @rdname finalize
 get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ...) {
-  if (!inherits(object, "param")) {
-    rlang::abort("`object` should be a 'param' object.")
-  }
+  check_param(object)
+
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$upper)) {
     return(object)
