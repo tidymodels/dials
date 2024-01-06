@@ -31,6 +31,9 @@
 #' Husslage, B. G., Rennen, G., Van Dam, E. R., & Den Hertog, D. (2011).
 #' Space-filling Latin hypercube designs for computer experiments. _Optimization
 #' and Engineering_, 12, 611-630.
+#'
+#' Fang, K. T., Lin, D. K., Winker, P., & Zhang, Y. (2000). Uniform design:
+#' Theory and application. _Technometric_s, 42(3), 237-248
 #' @examples
 #' grid_space_filling(
 #'   hidden_units(),

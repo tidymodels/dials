@@ -288,4 +288,7 @@ Statistical Software, 65(11)
 Husslage, B. G., Rennen, G., Van Dam, E. R., & Den Hertog, D. (2011).
 Space-filling Latin hypercube designs for computer experiments. \emph{Optimization
 and Engineering}, 12, 611-630.
+
+Fang, K. T., Lin, D. K., Winker, P., & Zhang, Y. (2000). Uniform design:
+Theory and application. _Technometric_s, 42(3), 237-248
 }
