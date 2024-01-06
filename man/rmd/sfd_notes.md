@@ -2,7 +2,7 @@ The types of designs supported here are latin hypercube designs of different typ
  
 Latin hypercube and maximum entropy designs use random numbers to make the designs. 
 
-By default, [grid_space_filling()] will try to use a pre-optimized space-filling design from [`https://www.spacefillingdesigns.nl/`](https://www.spacefillingdesigns.nl/) (see Husslage _et al_, 2011). If no design is available, then a maximum entropy design is created. 
+By default, [grid_space_filling()] will try to use a pre-optimized space-filling design from [`https://www.spacefillingdesigns.nl/`](https://www.spacefillingdesigns.nl/) (see Husslage _et al_, 2011) or using a uniform design. If no pre-made design is available, then a maximum entropy design is created. 
 
 
 
@@ -43,32 +43,11 @@ glmn_mod <-
 set.seed(283)
 mix_grid_2 <-
   glmn_mod %>% 
-  extract_parameter_set_dials()
+  extract_parameter_set_dials() %>% 
   grid_latin_hypercube(size = 1000)
-```
-
-```
-## Error in UseMethod("grid_latin_hypercube"): no applicable method for 'grid_latin_hypercube' applied to an object of class "c('double', 'numeric')"
-```
-
-```r
 range(mix_grid_2$mixture)
 ```
 
 ```
-## Warning: Unknown or uninitialised column: `mixture`.
-```
-
-```
-## Warning in min(x, na.rm = na.rm): no non-missing arguments to min; returning
-## Inf
-```
-
-```
-## Warning in max(x, na.rm = na.rm): no non-missing arguments to max; returning
-## -Inf
-```
-
-```
-## [1]  Inf -Inf
+## [1] 0.0501454 0.9999554
 ```

@@ -10,6 +10,9 @@
 #' @param size A single integer for the total number of parameter value
 #' combinations returned. If duplicate combinations are
 #' generated from this size, the smaller, unique set is returned.
+#' @param type A character string with possible values: `"any"`,
+#' `"audze_eglais"`, `"max_min_l1"`, `"max_min_l2"`, and `"uniform"`. A value
+#' of `"any"` will choose the first design available (in alphabetical order).
 #' @param variogram_range A numeric value greater than zero. Larger values
 #'  reduce the likelihood of empty regions in the parameter space.
 #' @param iter An integer for the maximum number of iterations used to find
@@ -46,7 +49,7 @@
 #'
 #' set.seed(383)
 #' parameters(trees(), mixture()) %>%
-#'   grid_latin_hypercube(size = 15) %>%
+#'   grid_latin_hypercube(size = 21) %>%
 #'   ggplot(aes(trees, mixture)) +
 #'   geom_point() +
 #'   lims(y = 0:1, x = c(1, 2000)) +
@@ -54,19 +57,26 @@
 #'
 #' set.seed(383)
 #' parameters(trees(), mixture()) %>%
-#'   grid_max_entropy(size = 15) %>%
+#'   grid_max_entropy(size = 21) %>%
 #'   ggplot(aes(trees, mixture)) +
 #'   geom_point() +
 #'   lims(y = 0:1, x = c(1, 2000)) +
 #'   ggtitle("maximum entropy")
 #'
 #' parameters(trees(), mixture()) %>%
-#'   grid_space_filling(size = 15) %>%
+#'   grid_space_filling(size = 21, type = "audze_eglais") %>%
 #'   ggplot(aes(trees, mixture)) +
 #'   geom_point() +
 #'   lims(y = 0:1, x = c(1, 2000)) +
 #'   ggtitle("Audze-Eglais")
-
+#'
+#' parameters(trees(), mixture()) %>%
+#'   grid_space_filling(size = 21, type = "uniform") %>%
+#'   ggplot(aes(trees, mixture)) +
+#'   geom_point() +
+#'   lims(y = 0:1, x = c(1, 2000)) +
+#'   ggtitle("uniform")
+#'
 #' @export
 grid_space_filling <- function(x, ..., size = 5, type = "any", original = TRUE, filter = NULL) {
   dots <- list(...)

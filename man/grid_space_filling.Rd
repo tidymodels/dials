@@ -137,6 +137,10 @@ the parameter ranges or values.}
 combinations returned. If duplicate combinations are
 generated from this size, the smaller, unique set is returned.}
 
+\item{type}{A character string with possible values: \code{"any"},
+\code{"audze_eglais"}, \code{"max_min_l1"}, \code{"max_min_l2"}, and \code{"uniform"}. A value
+of \code{"any"} will choose the first design available (in alphabetical order).}
+
 \item{original}{A logical: should the parameters be in the original units or
 in the transformed space (if any)?}
 
@@ -174,8 +178,8 @@ the designs.
 By default, \code{\link[=grid_space_filling]{grid_space_filling()}} will try to
 use a pre-optimized space-filling design from
 \url{https://www.spacefillingdesigns.nl/}
-(see Husslage \emph{et al}, 2011). If no design is available, then a maximum
-entropy design is created.
+(see Husslage \emph{et al}, 2011) or using a uniform design. If no pre-made
+design is available, then a maximum entropy design is created.
 
 Also note that there may a difference in grids depending on how the
 function is called. If the call uses the parameter objects directly the
@@ -214,25 +218,12 @@ glmn_mod <-
 set.seed(283)
 mix_grid_2 <-
   glmn_mod \%>\% 
-  extract_parameter_set_dials()
+  extract_parameter_set_dials() \%>\% 
   grid_latin_hypercube(size = 1000)
+range(mix_grid_2$mixture)
 }\if{html}{\out{</div>}}
 
-\if{html}{\out{<div class="sourceCode">}}\preformatted{## Error in UseMethod("grid_latin_hypercube"): no applicable method for 'grid_latin_hypercube' applied to an object of class "c('double', 'numeric')"
-}\if{html}{\out{</div>}}
-
-\if{html}{\out{<div class="sourceCode r">}}\preformatted{range(mix_grid_2$mixture)
-}\if{html}{\out{</div>}}
-
-\if{html}{\out{<div class="sourceCode">}}\preformatted{## Warning: Unknown or uninitialised column: `mixture`.
-
-## Warning in min(x, na.rm = na.rm): no non-missing arguments to min; returning
-## Inf
-
-## Warning in max(x, na.rm = na.rm): no non-missing arguments to max; returning
-## -Inf
-
-## [1]  Inf -Inf
+\if{html}{\out{<div class="sourceCode">}}\preformatted{## [1] 0.0501454 0.9999554
 }\if{html}{\out{</div>}}
 }
 \examples{
@@ -253,7 +244,7 @@ grid_latin_hypercube(penalty(), mixture(), original = TRUE)
 
 set.seed(383)
 parameters(trees(), mixture()) \%>\%
-  grid_latin_hypercube(size = 15) \%>\%
+  grid_latin_hypercube(size = 21) \%>\%
   ggplot(aes(trees, mixture)) +
   geom_point() +
   lims(y = 0:1, x = c(1, 2000)) +
@@ -261,18 +252,26 @@ parameters(trees(), mixture()) \%>\%
 
 set.seed(383)
 parameters(trees(), mixture()) \%>\%
-  grid_max_entropy(size = 15) \%>\%
+  grid_max_entropy(size = 21) \%>\%
   ggplot(aes(trees, mixture)) +
   geom_point() +
   lims(y = 0:1, x = c(1, 2000)) +
   ggtitle("maximum entropy")
 
 parameters(trees(), mixture()) \%>\%
-  grid_space_filling(size = 15) \%>\%
+  grid_space_filling(size = 21, type = "audze_eglais") \%>\%
   ggplot(aes(trees, mixture)) +
   geom_point() +
   lims(y = 0:1, x = c(1, 2000)) +
   ggtitle("Audze-Eglais")
+
+parameters(trees(), mixture()) \%>\%
+  grid_space_filling(size = 21, type = "uniform") \%>\%
+  ggplot(aes(trees, mixture)) +
+  geom_point() +
+  lims(y = 0:1, x = c(1, 2000)) +
+  ggtitle("uniform")
+
 }
 \references{
 Sacks, Jerome & Welch, William & J. Mitchell, Toby, and Wynn, Henry.
