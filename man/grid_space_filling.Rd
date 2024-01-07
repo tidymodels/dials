@@ -5,7 +5,6 @@
 \alias{grid_space_filling.parameters}
 \alias{grid_space_filling.list}
 \alias{grid_space_filling.param}
-\alias{grid_space_filling.workflow}
 \alias{grid_max_entropy}
 \alias{grid_max_entropy.parameters}
 \alias{grid_max_entropy.list}
@@ -47,16 +46,6 @@ grid_space_filling(x, ..., size = 5, type = "any", original = TRUE)
   variogram_range = 0.5,
   iter = 1000,
   type = "any",
-  original = TRUE
-)
-
-\method{grid_space_filling}{workflow}(
-  x,
-  ...,
-  size = 5,
-  type = "any",
-  variogram_range = 0.5,
-  iter = 1000,
   original = TRUE
 )
 

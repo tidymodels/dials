@@ -168,20 +168,6 @@ grid_space_filling.param <- function(x, ..., size = 5,
   grd
 }
 
-
-#' @export
-#' @rdname grid_space_filling
-grid_space_filling.workflow <- function(x, ..., size = 5, type = "any",
-                                        variogram_range = 0.5,
-                                        iter = 1000,
-                                        original = TRUE) {
-  lifecycle::deprecate_stop(
-    when = "1.2.0",
-    what = "grid_space_filling.workflow()",
-    details = "Alternatively, first extract the parameter set with `extract_parameter_set_dials()`, then create the grid from that object."
-  )
-}
-
 sfd_types <-
   c("any", "audze_eglais", "max_min_l1", "max_min_l2", "uniform",
     "latin_hypercube", "max_entropy")
@@ -199,7 +185,7 @@ make_sfd <- function(...,
   params <- map(param_quos, eval_tidy)
   p <- length(params)
 
-  if (type %in% c("any", "audze_eglais", "max_min_l1", "max_min_l2")) {
+  if (type %in% c("any", "audze_eglais", "max_min_l1", "max_min_l2", "uniform")) {
     has_premade_design <- sfd::sfd_available(p, size, type)
 
     if (has_premade_design) {

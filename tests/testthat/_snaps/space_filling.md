@@ -16,3 +16,11 @@
       x This argument contains unknowns: `mtry`.
       i See the `dials::finalize()` function.
 
+# S3 methods for space-filling
+
+    Code
+      des <- grid_space_filling(prm, levels = size, type = "uniform")
+    Condition
+      Warning:
+      `levels` is not an argument to `grid_space_filling()`. Did you mean `size`?
+
