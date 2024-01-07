@@ -18,14 +18,7 @@
 \alias{grid_latin_hypercube.workflow}
 \title{Space-filling parameter grids}
 \usage{
-grid_space_filling(
-  x,
-  ...,
-  size = 5,
-  type = "any",
-  original = TRUE,
-  filter = NULL
-)
+grid_space_filling(x, ..., size = 5, type = "any", original = TRUE)
 
 \method{grid_space_filling}{parameters}(
   x,
@@ -34,8 +27,7 @@ grid_space_filling(
   type = "any",
   variogram_range = 0.5,
   iter = 1000,
-  original = TRUE,
-  filter = NULL
+  original = TRUE
 )
 
 \method{grid_space_filling}{list}(
@@ -45,8 +37,7 @@ grid_space_filling(
   type = "any",
   variogram_range = 0.5,
   iter = 1000,
-  original = TRUE,
-  filter = NULL
+  original = TRUE
 )
 
 \method{grid_space_filling}{param}(
@@ -56,8 +47,7 @@ grid_space_filling(
   variogram_range = 0.5,
   iter = 1000,
   type = "any",
-  original = TRUE,
-  filter = NULL
+  original = TRUE
 )
 
 \method{grid_space_filling}{workflow}(
@@ -67,8 +57,7 @@ grid_space_filling(
   type = "any",
   variogram_range = 0.5,
   iter = 1000,
-  original = TRUE,
-  filter = NULL
+  original = TRUE
 )
 
 grid_max_entropy(
@@ -133,31 +122,30 @@ grid_latin_hypercube(x, ..., size = 3, original = TRUE)
 \code{\link[=penalty]{penalty()}}). None of the objects can have \code{unknown()} values in
 the parameter ranges or values.}
 
-\item{size}{A single integer for the total number of parameter value
+\item{size}{A single integer for the maximum number of parameter value
 combinations returned. If duplicate combinations are
 generated from this size, the smaller, unique set is returned.}
 
 \item{type}{A character string with possible values: \code{"any"},
-\code{"audze_eglais"}, \code{"max_min_l1"}, \code{"max_min_l2"}, and \code{"uniform"}. A value
-of \code{"any"} will choose the first design available (in alphabetical order).}
+\code{"audze_eglais"}, \code{"max_min_l1"}, \code{"max_min_l2"}, \code{"uniform"},
+\code{"max_entropy"}, or \code{"latin_hypercube"}. A value of \code{"any"} will choose the
+first design available (in the order listed above).}
 
 \item{original}{A logical: should the parameters be in the original units or
 in the transformed space (if any)?}
 
-\item{filter}{A logical: should the parameters be filtered prior to
-generating the grid. Must be a single expression referencing parameter
-names that evaluates to a logical vector.}
-
 \item{variogram_range}{A numeric value greater than zero. Larger values
-reduce the likelihood of empty regions in the parameter space.}
+reduce the likelihood of empty regions in the parameter space. Only used
+for \code{type = "max_entropy"}.}
 
 \item{iter}{An integer for the maximum number of iterations used to find
-a good design.}
+a good design. Only used for \code{type = "max_entropy"}.}
 }
 \description{
 Experimental designs for computer experiments are used to construct parameter
 grids that try to cover the parameter space such that any portion of the
-space has an observed combination that is not too far from it.
+space has does not have an observed combination that is unnecessarily close
+to any other point.
 }
 \details{
 The types of designs supported here are latin hypercube designs of
@@ -168,9 +156,8 @@ don’t guarantee or optimize any other properties.
 designs that discourage grid points from being close to one another.
 There are a lot of methods for doing this, such as maximizing the
 minimum distance between points (see Husslage \emph{et al} 2001).
-\code{\link[=grid_grid_max_entropy]{grid_grid_max_entropy()}} attempts to
-maximize the determinant of the spatial correlation matrix between
-coordinates.
+\code{\link[=grid_max_entropy]{grid_max_entropy()}} attempts to maximize the
+determinant of the spatial correlation matrix between coordinates.
 
 Latin hypercube and maximum entropy designs use random numbers to make
 the designs.
@@ -242,35 +229,41 @@ grid_latin_hypercube(penalty(), mixture(), original = TRUE)
 # ------------------------------------------------------------------------------
 # comparing methods
 
-set.seed(383)
-parameters(trees(), mixture()) \%>\%
-  grid_latin_hypercube(size = 21) \%>\%
-  ggplot(aes(trees, mixture)) +
-  geom_point() +
-  lims(y = 0:1, x = c(1, 2000)) +
-  ggtitle("latin hypercube")
+if (rlang::is_installed("ggplot2")) {
 
-set.seed(383)
-parameters(trees(), mixture()) \%>\%
-  grid_max_entropy(size = 21) \%>\%
-  ggplot(aes(trees, mixture)) +
-  geom_point() +
-  lims(y = 0:1, x = c(1, 2000)) +
-  ggtitle("maximum entropy")
+  library(dplyr)
+  library(ggplot2)
 
-parameters(trees(), mixture()) \%>\%
-  grid_space_filling(size = 21, type = "audze_eglais") \%>\%
-  ggplot(aes(trees, mixture)) +
-  geom_point() +
-  lims(y = 0:1, x = c(1, 2000)) +
-  ggtitle("Audze-Eglais")
+  set.seed(383)
+  parameters(trees(), mixture()) \%>\%
+    grid_space_filling(size = 25, type = "latin_hypercube") \%>\%
+    ggplot(aes(trees, mixture)) +
+    geom_point() +
+    lims(y = 0:1, x = c(1, 2000)) +
+    ggtitle("latin hypercube")
 
-parameters(trees(), mixture()) \%>\%
-  grid_space_filling(size = 21, type = "uniform") \%>\%
-  ggplot(aes(trees, mixture)) +
-  geom_point() +
-  lims(y = 0:1, x = c(1, 2000)) +
-  ggtitle("uniform")
+  set.seed(383)
+  parameters(trees(), mixture()) \%>\%
+    grid_space_filling(size = 25, type = "max_entropy") \%>\%
+    ggplot(aes(trees, mixture)) +
+    geom_point() +
+    lims(y = 0:1, x = c(1, 2000)) +
+    ggtitle("maximum entropy")
+
+  parameters(trees(), mixture()) \%>\%
+    grid_space_filling(size = 25, type = "audze_eglais") \%>\%
+    ggplot(aes(trees, mixture)) +
+    geom_point() +
+    lims(y = 0:1, x = c(1, 2000)) +
+    ggtitle("Audze-Eglais")
+
+  parameters(trees(), mixture()) \%>\%
+    grid_space_filling(size = 25, type = "uniform") \%>\%
+    ggplot(aes(trees, mixture)) +
+    geom_point() +
+    lims(y = 0:1, x = c(1, 2000)) +
+    ggtitle("uniform")
+}
 
 }
 \references{

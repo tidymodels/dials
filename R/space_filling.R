@@ -2,21 +2,24 @@
 #'
 #' Experimental designs for computer experiments are used to construct parameter
 #'  grids that try to cover the parameter space such that any portion of the
-#'  space has an observed combination that is not too far from it.
+#'  space has does not have an observed combination that is unnecessarily close
+#'  to any other point.
 #'
 #' @includeRmd man/rmd/sfd_notes.md details
 #'
 #' @inheritParams grid_random
-#' @param size A single integer for the total number of parameter value
+#' @param size A single integer for the maximum number of parameter value
 #' combinations returned. If duplicate combinations are
 #' generated from this size, the smaller, unique set is returned.
 #' @param type A character string with possible values: `"any"`,
-#' `"audze_eglais"`, `"max_min_l1"`, `"max_min_l2"`, and `"uniform"`. A value
-#' of `"any"` will choose the first design available (in alphabetical order).
+#' `"audze_eglais"`, `"max_min_l1"`, `"max_min_l2"`, `"uniform"`,
+#' `"max_entropy"`, or `"latin_hypercube"`. A value of `"any"` will choose the
+#' first design available (in the order listed above).
 #' @param variogram_range A numeric value greater than zero. Larger values
-#'  reduce the likelihood of empty regions in the parameter space.
+#'  reduce the likelihood of empty regions in the parameter space. Only used
+#'  for `type = "max_entropy"`.
 #' @param iter An integer for the maximum number of iterations used to find
-#'  a good design.
+#'  a good design. Only used for `type = "max_entropy"`.
 #' @references Sacks, Jerome & Welch, William & J. Mitchell, Toby, and Wynn, Henry.
 #'  (1989). Design and analysis of computer experiments. With comments and a
 #'  rejoinder by the authors. Statistical Science. 4. 10.1214/ss/1177012413.
@@ -50,38 +53,44 @@
 #' # ------------------------------------------------------------------------------
 #' # comparing methods
 #'
-#' set.seed(383)
-#' parameters(trees(), mixture()) %>%
-#'   grid_latin_hypercube(size = 21) %>%
-#'   ggplot(aes(trees, mixture)) +
-#'   geom_point() +
-#'   lims(y = 0:1, x = c(1, 2000)) +
-#'   ggtitle("latin hypercube")
+#' if (rlang::is_installed("ggplot2")) {
 #'
-#' set.seed(383)
-#' parameters(trees(), mixture()) %>%
-#'   grid_max_entropy(size = 21) %>%
-#'   ggplot(aes(trees, mixture)) +
-#'   geom_point() +
-#'   lims(y = 0:1, x = c(1, 2000)) +
-#'   ggtitle("maximum entropy")
+#'   library(dplyr)
+#'   library(ggplot2)
 #'
-#' parameters(trees(), mixture()) %>%
-#'   grid_space_filling(size = 21, type = "audze_eglais") %>%
-#'   ggplot(aes(trees, mixture)) +
-#'   geom_point() +
-#'   lims(y = 0:1, x = c(1, 2000)) +
-#'   ggtitle("Audze-Eglais")
+#'   set.seed(383)
+#'   parameters(trees(), mixture()) %>%
+#'     grid_space_filling(size = 25, type = "latin_hypercube") %>%
+#'     ggplot(aes(trees, mixture)) +
+#'     geom_point() +
+#'     lims(y = 0:1, x = c(1, 2000)) +
+#'     ggtitle("latin hypercube")
 #'
-#' parameters(trees(), mixture()) %>%
-#'   grid_space_filling(size = 21, type = "uniform") %>%
-#'   ggplot(aes(trees, mixture)) +
-#'   geom_point() +
-#'   lims(y = 0:1, x = c(1, 2000)) +
-#'   ggtitle("uniform")
+#'   set.seed(383)
+#'   parameters(trees(), mixture()) %>%
+#'     grid_space_filling(size = 25, type = "max_entropy") %>%
+#'     ggplot(aes(trees, mixture)) +
+#'     geom_point() +
+#'     lims(y = 0:1, x = c(1, 2000)) +
+#'     ggtitle("maximum entropy")
+#'
+#'   parameters(trees(), mixture()) %>%
+#'     grid_space_filling(size = 25, type = "audze_eglais") %>%
+#'     ggplot(aes(trees, mixture)) +
+#'     geom_point() +
+#'     lims(y = 0:1, x = c(1, 2000)) +
+#'     ggtitle("Audze-Eglais")
+#'
+#'   parameters(trees(), mixture()) %>%
+#'     grid_space_filling(size = 25, type = "uniform") %>%
+#'     ggplot(aes(trees, mixture)) +
+#'     geom_point() +
+#'     lims(y = 0:1, x = c(1, 2000)) +
+#'     ggtitle("uniform")
+#' }
 #'
 #' @export
-grid_space_filling <- function(x, ..., size = 5, type = "any", original = TRUE, filter = NULL) {
+grid_space_filling <- function(x, ..., size = 5, type = "any", original = TRUE) {
   dots <- list(...)
   if (any(names(dots) == "levels")) {
     rlang::warn(
@@ -99,8 +108,7 @@ grid_space_filling.parameters <- function(x,
                                           type = "any",
                                           variogram_range = 0.5,
                                           iter = 1000,
-                                          original = TRUE,
-                                          filter = NULL) {
+                                          original = TRUE) {
   # test for NA and finalized
   # test for empty ...
   params <- x$object
@@ -111,8 +119,7 @@ grid_space_filling.parameters <- function(x,
     type = type,
     variogram_range = variogram_range,
     iter = iter,
-    original = original,
-    filter = {{ filter }}
+    original = original
   )
   names(grd) <- x$id
   grd
@@ -123,7 +130,7 @@ grid_space_filling.parameters <- function(x,
 grid_space_filling.list <- function(x, ..., size = 5, type = "any",
                                     variogram_range = 0.5,
                                     iter = 1000,
-                                    original = TRUE, filter = NULL) {
+                                    original = TRUE) {
   y <- parameters(x)
   params <- y$object
   names(params) <- y$id
@@ -133,8 +140,7 @@ grid_space_filling.list <- function(x, ..., size = 5, type = "any",
     type = type,
     variogram_range = variogram_range,
     iter = iter,
-    original = original,
-    filter = {{ filter }}
+    original = original
   )
   names(grd) <- y$id
   grd
@@ -146,7 +152,7 @@ grid_space_filling.list <- function(x, ..., size = 5, type = "any",
 grid_space_filling.param <- function(x, ..., size = 5,
                                      variogram_range = 0.5,
                                      iter = 1000,
-                                     type = "any", original = TRUE, filter = NULL) {
+                                     type = "any", original = TRUE) {
   y <- parameters(list(x, ...))
   params <- y$object
   names(params) <- y$id
@@ -156,8 +162,7 @@ grid_space_filling.param <- function(x, ..., size = 5,
     type = type,
     variogram_range = variogram_range,
     iter = iter,
-    original = original,
-    filter = {{ filter }}
+    original = original
   )
   names(grd) <- y$id
   grd
@@ -169,7 +174,7 @@ grid_space_filling.param <- function(x, ..., size = 5,
 grid_space_filling.workflow <- function(x, ..., size = 5, type = "any",
                                         variogram_range = 0.5,
                                         iter = 1000,
-                                        original = TRUE, filter = NULL) {
+                                        original = TRUE) {
   lifecycle::deprecate_stop(
     when = "1.2.0",
     what = "grid_space_filling.workflow()",
@@ -177,6 +182,9 @@ grid_space_filling.workflow <- function(x, ..., size = 5, type = "any",
   )
 }
 
+sfd_types <-
+  c("any", "audze_eglais", "max_min_l1", "max_min_l2", "uniform",
+    "latin_hypercube", "max_entropy")
 
 make_sfd <- function(...,
                      size = 5,
@@ -184,16 +192,41 @@ make_sfd <- function(...,
                      variogram_range = 0.5,
                      iter = 1000,
                      original = TRUE,
-                     filter = NULL,
                      call = caller_env()) {
+  type <- rlang::arg_match(type, sfd_types)
   validate_params(..., call = call)
-  filter_quo <- enquo(filter)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
   p <- length(params)
 
-  # check available and maybe pass to other function
-  if (!sfd::sfd_available(p, size, type)) {
+  if (type %in% c("any", "audze_eglais", "max_min_l1", "max_min_l2")) {
+    has_premade_design <- sfd::sfd_available(p, size, type)
+
+    if (has_premade_design) {
+      grid <- sfd::get_design(p, num_points = size, type = type)
+      # TODO value_seq should keep factor levels
+      vals <- purrr::map(params, ~ value_seq(.x, size))
+      vals <- purrr::map(vals, ~ base_recycle(.x, size))
+      grid <- sfd::update_values(grid, vals)
+      names(grid) <- names(params)
+    } else {
+      grid <-
+        grid_max_entropy(
+          params,
+          size = size,
+          original = original,
+          variogram_range = variogram_range,
+          iter = iter
+        )
+    }
+  } else if (type == "latin_hypercube") {
+    grid <-
+      grid_latin_hypercube(
+        params,
+        size = size,
+        original = original
+      )
+  } else {
     grid <-
       grid_max_entropy(
         params,
@@ -202,23 +235,8 @@ make_sfd <- function(...,
         variogram_range = variogram_range,
         iter = iter
       )
-  } else {
-    grid <- sfd::get_design(p, num_points = size, type = type)
-    # TODO value_seq should keep factor levels
-    vals <- purrr::map(params, ~ value_seq(.x, size))
-    vals <- purrr::map(vals, ~ base_recycle(.x, size))
-    grid <- sfd::update_values(grid, vals)
-    names(grid) <- names(params)
   }
 
-  # TODO this should be a function
-  # TODO not all have filter argument
-  if (!is.null(filter)) {
-    fltr <- rlang::eval_tidy(filter_quo, data = grid)
-    grid <- grid[fltr,]
-  }
-
-  # filter res
   new_param_grid(grid)
 }
 

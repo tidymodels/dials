@@ -33,6 +33,7 @@ Imports:
     withr
 Suggests: 
     covr,
+    ggplot2,    
     kernlab,
     knitr,
     rmarkdown,
