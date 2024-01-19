@@ -44,7 +44,7 @@
       new_quant_param("double", range = c(1, NA), inclusive = TRUE)
     Condition
       Error:
-      ! `inclusive` must have upper and lower values.
+      ! `inclusive` must be a logical vector of length 2, not `TRUE`.
 
 ---
 
@@ -52,7 +52,7 @@
       new_quant_param("double", range = c(1, NA), inclusive = c("(", "]"))
     Condition
       Error:
-      ! `inclusive` should be logical
+      ! `inclusive` must be a logical vector of length 2, not a character vector.
 
 ---
 
@@ -68,7 +68,7 @@
       new_quant_param("integer", range = 1:2, inclusive = c(TRUE, NA))
     Condition
       Error:
-      ! `inclusive` must be non-missing.
+      ! `inclusive` cannot contain missings.
 
 ---
 
@@ -76,7 +76,7 @@
       new_quant_param("integer", range = 1:2, inclusive = c(TRUE, unknown()))
     Condition
       Error:
-      ! `inclusive` should be logical
+      ! `inclusive` must be a logical vector of length 2, not a list.
 
 ---
 

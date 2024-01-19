@@ -52,7 +52,7 @@
       check_inclusive(TRUE)
     Condition
       Error:
-      ! `inclusive` must have upper and lower values.
+      ! `inclusive` must be a logical vector of length 2, not `TRUE`.
 
 ---
 
@@ -60,7 +60,7 @@
       check_inclusive(NULL)
     Condition
       Error:
-      ! `inclusive` must have upper and lower values.
+      ! `inclusive` must be a logical vector of length 2, not `NULL`.
 
 ---
 
@@ -68,7 +68,7 @@
       check_inclusive(c(TRUE, NA))
     Condition
       Error:
-      ! `inclusive` must be non-missing.
+      ! `inclusive` cannot contain missings.
 
 ---
 
@@ -76,5 +76,5 @@
       check_inclusive(1:2)
     Condition
       Error:
-      ! `inclusive` should be logical
+      ! `inclusive` must be a logical vector of length 2, not an integer vector.
 
