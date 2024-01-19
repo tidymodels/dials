@@ -49,24 +49,19 @@ check_installs <- function(x) {
 
 # checking functions -----------------------------------------------------------
 
-check_label <- function(txt, ..., call = caller_env()) {
+check_label <- function(label, ..., call = caller_env()) {
   check_dots_empty()
-  if (is.null(txt)) {
-    return(invisible(txt))
-  }
-  if (!is.character(txt) || length(txt) > 1) {
-    rlang::abort(
-      "`label` should be a single named character string or NULL.",
+  
+  check_string(label,  allow_null = TRUE, call = call)
+  
+  if (!is.null(label) && length(names(label)) != 1) {
+    cli::cli_abort(
+      "{.arg label} must be named.",
       call = call
     )
   }
-  if (length(names(txt)) != 1) {
-    rlang::abort(
-      "`label` should be a single named character string or NULL.",
-      call = call
-    )
-  }
-  invisible(txt)
+  
+  invisible(NULL)
 }
 
 check_range <- function(x, type, trans, ..., call = caller_env()) {
