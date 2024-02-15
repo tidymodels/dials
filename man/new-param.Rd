@@ -49,8 +49,8 @@ No longer used. If a value is supplied, it will be ignored and
 a warning will be thrown.}
 
 \item{trans}{A \code{trans} object from the \pkg{scales} package, such as
-\code{\link[scales:log_trans]{scales::log10_trans()}} or \code{\link[scales:reciprocal_trans]{scales::reciprocal_trans()}}. Create custom
-transforms with \code{\link[scales:trans_new]{scales::trans_new()}}.}
+\code{\link[scales:transform_log]{scales::log10_trans()}} or \code{\link[scales:transform_reciprocal]{scales::reciprocal_trans()}}. Create custom
+transforms with \code{\link[scales:new_transform]{scales::trans_new()}}.}
 
 \item{values}{A vector of possible values that is required when \code{type} is
 \code{"character"} or \code{"logical"} but optional otherwise. For quantitative
