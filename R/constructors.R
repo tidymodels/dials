@@ -23,8 +23,8 @@
 #' a warning will be thrown.
 #'
 #' @param trans A `trans` object from the \pkg{scales} package, such as
-#' [scales::log10_trans()] or [scales::reciprocal_trans()]. Create custom
-#' transforms with [scales::trans_new()].
+#' [scales::transform_log()] or [scales::transform_reciprocal()]. Create custom
+#' transforms with [scales::new_transform()].
 #'
 #' @param values A vector of possible values that is required when `type` is
 #' `"character"` or `"logical"` but optional otherwise. For quantitative
