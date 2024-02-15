@@ -55,3 +55,11 @@
       Error:
       ! Unknowns not allowed.
 
+# value_set() checks inputs
+
+    Code
+      value_set(cost_complexity(), numeric(0))
+    Condition
+      Error in `value_set()`:
+      ! `values` must have at least one element.
+

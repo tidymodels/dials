@@ -268,3 +268,9 @@ test_that("validate unknowns", {
     value_validate(mtry(), 17)
   )
 })
+
+test_that("value_set() checks inputs", {
+  expect_snapshot(error = TRUE, {
+    value_set(cost_complexity(), numeric(0))
+  })
+})
