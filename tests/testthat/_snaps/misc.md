@@ -12,7 +12,7 @@
       check_label("unnamed label")
     Condition
       Error:
-      ! `label` should be a single named character string or NULL.
+      ! `label` must be named.
 
 ---
 
@@ -20,7 +20,7 @@
       check_label(c("more", "than", "one", "label"))
     Condition
       Error:
-      ! `label` should be a single named character string or NULL.
+      ! `label` must be a single string or `NULL`, not a character vector.
 
 # check_values_quant()
 
@@ -52,7 +52,7 @@
       check_inclusive(TRUE)
     Condition
       Error:
-      ! `inclusive` must have upper and lower values.
+      ! `inclusive` must be a logical vector of length 2, not `TRUE`.
 
 ---
 
@@ -60,7 +60,7 @@
       check_inclusive(NULL)
     Condition
       Error:
-      ! `inclusive` must have upper and lower values.
+      ! `inclusive` must be a logical vector of length 2, not `NULL`.
 
 ---
 
@@ -68,7 +68,7 @@
       check_inclusive(c(TRUE, NA))
     Condition
       Error:
-      ! `inclusive` must be non-missing.
+      ! `inclusive` cannot contain missings.
 
 ---
 
@@ -76,5 +76,5 @@
       check_inclusive(1:2)
     Condition
       Error:
-      ! `inclusive` should be logical
+      ! `inclusive` must be a logical vector of length 2, not an integer vector.
 

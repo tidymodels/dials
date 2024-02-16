@@ -49,24 +49,19 @@ check_installs <- function(x) {
 
 # checking functions -----------------------------------------------------------
 
-check_label <- function(txt, ..., call = caller_env()) {
+check_label <- function(label, ..., call = caller_env()) {
   check_dots_empty()
-  if (is.null(txt)) {
-    return(invisible(txt))
-  }
-  if (!is.character(txt) || length(txt) > 1) {
-    rlang::abort(
-      "`label` should be a single named character string or NULL.",
+  
+  check_string(label,  allow_null = TRUE, call = call)
+  
+  if (!is.null(label) && length(names(label)) != 1) {
+    cli::cli_abort(
+      "{.arg label} must be named.",
       call = call
     )
   }
-  if (length(names(txt)) != 1) {
-    rlang::abort(
-      "`label` should be a single named character string or NULL.",
-      call = call
-    )
-  }
-  invisible(txt)
+  
+  invisible(NULL)
 }
 
 check_range <- function(x, type, trans, ..., call = caller_env()) {
@@ -130,16 +125,23 @@ check_values_quant <- function(x, ..., call = caller_env()) {
 
 check_inclusive <- function(x, ..., call = caller_env()) {
   check_dots_empty()
-  if (length(x) != 2) {
-    rlang::abort("`inclusive` must have upper and lower values.", call = call)
-  }
+
   if (any(is.na(x))) {
-    rlang::abort("`inclusive` must be non-missing.", call = call)
+    cli::cli_abort("{.arg inclusive} cannot contain missings.", call = call)
   }
-  if (!is.logical(x)) {
-    rlang::abort("`inclusive` should be logical", call = call)
+
+  if (is_logical(x, n = 2)) {
+    return(invisible(NULL))
   }
-  invisible(x)
+
+  stop_input_type(
+    x,
+    "a logical vector of length 2", 
+    allow_na = FALSE,
+    allow_null = FALSE,
+    arg = "inclusive",
+    call = call
+  )
 }
 
 check_param <- function(x,
