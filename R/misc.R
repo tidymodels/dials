@@ -33,20 +33,6 @@ format_bounds <- function(bnds) {
   res
 }
 
-# From parsnip:::check_installs
-check_installs <- function(x) {
-  lib_inst <- rownames(installed.packages())
-  is_inst <- x %in% lib_inst
-  if (any(!is_inst)) {
-    rlang::abort(
-      paste0(
-        "Package(s) not installed: ",
-        paste0("'", x[!is_inst], "'", collapse = ", ")
-      )
-    )
-  }
-}
-
 # checking functions -----------------------------------------------------------
 
 check_label <- function(label, ..., call = caller_env()) {
