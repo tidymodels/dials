@@ -4,7 +4,7 @@
 #' largest possible values, respectively.
 #'
 #' @param trans A `trans` object from the `scales` package, such as
-#' `scales::transform_log10()` or `scales::reciprocal_trans()`. If not provided,
+#' `scales::transform_log10()` or `scales::transform_reciprocal()`. If not provided,
 #' the default is used which matches the units used in `range`. If no
 #' transformation, `NULL`.
 #' @param values A character string of possible values.
