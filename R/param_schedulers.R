@@ -20,7 +20,7 @@
 #'
 #' @name scheduler-param
 #' @export
-rate_initial <- function (range = c(-3,-1), trans = log10_trans()) {
+rate_initial <- function (range = c(-3,-1), trans = transform_log10()) {
     new_quant_param(
       type = "double",
       range = range,
@@ -33,7 +33,7 @@ rate_initial <- function (range = c(-3,-1), trans = log10_trans()) {
 
 #' @rdname scheduler-param
 #' @export
-rate_largest <- function (range = c(-1, -1 / 2), trans = log10_trans()) {
+rate_largest <- function (range = c(-1, -1 / 2), trans = transform_log10()) {
   new_quant_param(
     type = "double",
     range = range,

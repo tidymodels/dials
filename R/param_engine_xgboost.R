@@ -28,7 +28,7 @@ scale_pos_weight <- function(range = c(0.8, 1.2), trans = NULL) {
 
 #' @rdname xgboost_parameters
 #' @export
-penalty_L2 <- function(range = c(-10, 1), trans = log10_trans()) {
+penalty_L2 <- function(range = c(-10, 1), trans = transform_log10()) {
   new_quant_param(
     type = "double",
     range = range,
@@ -41,7 +41,7 @@ penalty_L2 <- function(range = c(-10, 1), trans = log10_trans()) {
 
 #' @rdname xgboost_parameters
 #' @export
-penalty_L1 <- function(range = c(-10, 1), trans = log10_trans()) {
+penalty_L1 <- function(range = c(-10, 1), trans = transform_log10()) {
   new_quant_param(
     type = "double",
     range = range,

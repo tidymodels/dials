@@ -6,9 +6,9 @@
 \alias{kernel_offset}
 \title{Kernel parameters}
 \usage{
-rbf_sigma(range = c(-10, 0), trans = log10_trans())
+rbf_sigma(range = c(-10, 0), trans = transform_log10())
 
-scale_factor(range = c(-10, -1), trans = log10_trans())
+scale_factor(range = c(-10, -1), trans = transform_log10())
 
 kernel_offset(range = c(0, 2), trans = NULL)
 }
@@ -18,7 +18,7 @@ largest possible values, respectively. If a transformation is specified,
 these values should be in the \emph{transformed units}.}
 
 \item{trans}{A \code{trans} object from the \code{scales} package, such as
-\code{scales::log10_trans()} or \code{scales::reciprocal_trans()}. If not provided,
+\code{scales::transform_log10()} or \code{scales::reciprocal_trans()}. If not provided,
 the default is used which matches the units used in \code{range}. If no
 transformation, \code{NULL}.}
 }

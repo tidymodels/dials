@@ -31,7 +31,7 @@ mtry <- function(range = c(1L, unknown()), trans = NULL) {
 
 #' @export
 #' @rdname mtry
-mtry_long <- function(range = c(0L, unknown()), trans = log10_trans()) {
+mtry_long <- function(range = c(0L, unknown()), trans = transform_log10()) {
   new_quant_param(
     type = "integer",
     range = range,

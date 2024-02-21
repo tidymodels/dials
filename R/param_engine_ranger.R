@@ -43,7 +43,7 @@ regularize_depth <- function(values = c(TRUE, FALSE)) {
 
 #' @export
 #' @rdname ranger_parameters
-significance_threshold <- function(range = c(-10, 0), trans = log10_trans()) {
+significance_threshold <- function(range = c(-10, 0), trans = transform_log10()) {
   new_quant_param(
     type = "double",
     range = range,

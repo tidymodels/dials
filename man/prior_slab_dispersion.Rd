@@ -5,7 +5,7 @@
 \alias{prior_mixture_threshold}
 \title{Bayesian PCA parameters}
 \usage{
-prior_slab_dispersion(range = c(-1/2, log10(3)), trans = log10_trans())
+prior_slab_dispersion(range = c(-1/2, log10(3)), trans = transform_log10())
 
 prior_mixture_threshold(range = c(0, 1), trans = NULL)
 }
@@ -15,7 +15,7 @@ largest possible values, respectively. If a transformation is specified,
 these values should be in the \emph{transformed units}.}
 
 \item{trans}{A \code{trans} object from the \code{scales} package, such as
-\code{scales::log10_trans()} or \code{scales::reciprocal_trans()}. If not provided,
+\code{scales::transform_log10()} or \code{scales::reciprocal_trans()}. If not provided,
 the default is used which matches the units used in \code{range}. If no
 transformation, \code{NULL}.}
 }
