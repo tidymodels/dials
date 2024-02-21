@@ -38,7 +38,7 @@ format_bounds <- function(bnds) {
 check_label <- function(label, ..., call = caller_env()) {
   check_dots_empty()
   
-  check_string(label,  allow_null = TRUE, call = call)
+  check_string(label, allow_null = TRUE, call = call)
   
   if (!is.null(label) && length(names(label)) != 1) {
     cli::cli_abort(

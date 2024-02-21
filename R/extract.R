@@ -5,7 +5,7 @@ extract_parameter_dials.parameters <- function(x, parameter, ...) {
 
   which_id <- which(x$id == parameter)
   if (length(which_id) == 0) {
-    rlang::abort(paste0("No parameter exists with id '", parameter, "'."))
+    cli::cli_abort("No parameter exists with id {.val {parameter}}.")
   }
 
   x$object[[which_id]]
