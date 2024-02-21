@@ -16,7 +16,7 @@ An object of class \code{character} of length 2.
 \usage{
 conditional_min_criterion(
   range = c(1.386294, 15),
-  trans = scales::logit_trans()
+  trans = scales::transform_logit()
 )
 
 values_test_type
