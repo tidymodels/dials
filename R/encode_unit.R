@@ -7,8 +7,8 @@
 #' @param value The original values should be either numeric or character. When
 #'  converting back, these should be on \code{[0, 1]}.
 #' @param direction Either "forward" (to \code{[0, 1]}) or "backward".
-#' @param original A logical; should the values be transformed into their natural
-#'  units (not currently working).
+#' @param original A logical; should the values be transformed into their 
+#' natural units.
 #' @details For integer parameters, the encoding can be lossy.
 #' @return A vector of values.
 #' @keywords internal
@@ -23,6 +23,7 @@ encode_unit.default <- function(x, value, direction, ...) {
   rlang::abort("`x` should be a dials parameter object.")
 }
 
+#' @rdname encode_unit
 #' @export
 encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
   if (has_unknowns(x)) {
@@ -34,6 +35,7 @@ encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
   }
 
   param_rng <- x$range$upper - x$range$lower
+
   if (direction == "forward") {
     # convert to [0, 1]
     value <- (value - x$range$lower) / param_rng
@@ -61,6 +63,7 @@ encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
   value
 }
 
+#' @rdname encode_unit
 #' @export
 encode_unit.qual_param <- function(x, value, direction, ...) {
   if (has_unknowns(x)) {
