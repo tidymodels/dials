@@ -54,7 +54,7 @@ test_that("sequences - doubles", {
       type = "double",
       range = c(0.5, 1.5),
       inclusive = c(TRUE, TRUE),
-      trans = sqrt_trans(),
+      trans = scales::transform_sqrt(),
       label = c(param = "param")
     )
   param_with_values <-
@@ -100,7 +100,7 @@ test_that("sequences - integers", {
       type = "integer",
       range = c(2.1, 5.3),
       inclusive = c(TRUE, TRUE),
-      trans = sqrt_trans(),
+      trans = scales::transform_sqrt(),
       label = c(param = "param")
     )
   param_with_values <-
@@ -180,7 +180,7 @@ test_that("sampling - integers", {
       type = "integer",
       range = c(2.1, 5.3),
       inclusive = c(TRUE, TRUE),
-      trans = sqrt_trans(),
+      trans = scales::transform_sqrt(),
       label = c(param = "param")
     )
   int_seq <-
