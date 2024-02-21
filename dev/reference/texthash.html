@@ -60,7 +60,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">num_hash</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">8L</span>, <span class="fl">12L</span><span class="op">)</span>, trans <span class="op">=</span> <span class="fu">log2_trans</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">num_hash</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">8L</span>, <span class="fl">12L</span><span class="op">)</span>, trans <span class="op">=</span> <span class="fu">transform_log2</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">signed_hash</span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -75,7 +75,7 @@ these values should be in the <em>transformed units</em>.</p></dd>
 
 <dt>trans</dt>
 <dd><p>A <code>trans</code> object from the <code>scales</code> package, such as
-<code><a href="https://scales.r-lib.org/reference/transform_log.html" class="external-link">scales::log10_trans()</a></code> or <code><a href="https://scales.r-lib.org/reference/transform_reciprocal.html" class="external-link">scales::reciprocal_trans()</a></code>. If not provided,
+<code><a href="https://scales.r-lib.org/reference/transform_log.html" class="external-link">scales::transform_log10()</a></code> or <code><a href="https://scales.r-lib.org/reference/transform_reciprocal.html" class="external-link">scales::transform_reciprocal()</a></code>. If not provided,
 the default is used which matches the units used in <code>range</code>. If no
 transformation, <code>NULL</code>.</p></dd>
 
