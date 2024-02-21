@@ -7,7 +7,7 @@
 #' cost()
 #' svm_margin()
 #' @export
-cost <- function(range = c(-10, 5), trans = log2_trans()) {
+cost <- function(range = c(-10, 5), trans = transform_log2()) {
   new_quant_param(
     type = "double",
     range = range,

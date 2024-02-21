@@ -8,7 +8,7 @@
 \alias{rule_bands}
 \title{Parameters for possible engine parameters for C5.0}
 \usage{
-confidence_factor(range = c(-1, 0), trans = log10_trans())
+confidence_factor(range = c(-1, 0), trans = transform_log10())
 
 no_global_pruning(values = c(TRUE, FALSE))
 
@@ -24,7 +24,7 @@ largest possible values, respectively. If a transformation is specified,
 these values should be in the \emph{transformed units}.}
 
 \item{trans}{A \code{trans} object from the \code{scales} package, such as
-\code{scales::log10_trans()} or \code{scales::reciprocal_trans()}. If not provided,
+\code{scales::transform_log10()} or \code{scales::transform_reciprocal()}. If not provided,
 the default is used which matches the units used in \code{range}. If no
 transformation, \code{NULL}.}
 

@@ -12,7 +12,7 @@
 #' @examples
 #' learn_rate()
 #' @export
-learn_rate <- function(range = c(-10, -1), trans = log10_trans()) {
+learn_rate <- function(range = c(-10, -1), trans = transform_log10()) {
   new_quant_param(
     type = "double",
     range = range,

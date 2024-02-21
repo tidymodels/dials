@@ -6,7 +6,7 @@
 #' @examples
 #' min_dist()
 #' @export
-min_dist <- function(range = c(-4, 0), trans = log10_trans()) {
+min_dist <- function(range = c(-4, 0), trans = transform_log10()) {
   new_quant_param(
     type = "double",
     range = range,

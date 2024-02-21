@@ -17,9 +17,9 @@ These parameters are used for constructing neural network models.}
 An object of class \code{character} of length 5.
 }
 \usage{
-rate_initial(range = c(-3, -1), trans = log10_trans())
+rate_initial(range = c(-3, -1), trans = transform_log10())
 
-rate_largest(range = c(-1, -1/2), trans = log10_trans())
+rate_largest(range = c(-1, -1/2), trans = transform_log10())
 
 rate_reduction(range = c(1/5, 1), trans = NULL)
 
@@ -39,7 +39,7 @@ largest possible values, respectively. If a transformation is specified,
 these values should be in the \emph{transformed units}.}
 
 \item{trans}{A \code{trans} object from the \code{scales} package, such as
-\code{scales::log10_trans()} or \code{scales::reciprocal_trans()}. If not provided,
+\code{scales::transform_log10()} or \code{scales::transform_reciprocal()}. If not provided,
 the default is used which matches the units used in \code{range}. If no
 transformation, \code{NULL}.}
 

@@ -16,7 +16,7 @@ An object of class \code{character} of length 2.
 \usage{
 conditional_min_criterion(
   range = c(1.386294, 15),
-  trans = scales::logit_trans()
+  trans = scales::transform_logit()
 )
 
 values_test_type
@@ -32,7 +32,7 @@ conditional_test_statistic(values = values_test_statistic)
 largest possible values, respectively.}
 
 \item{trans}{A \code{trans} object from the \code{scales} package, such as
-\code{scales::log10_trans()} or \code{scales::reciprocal_trans()}. If not provided,
+\code{scales::transform_log10()} or \code{scales::transform_reciprocal()}. If not provided,
 the default is used which matches the units used in \code{range}. If no
 transformation, \code{NULL}.}
 

@@ -32,7 +32,7 @@ test_that("estimate rows", {
   )
   expect_equal(
     get_n_frac_range(
-      sample_size(c(unknown(), unknown()), trans = log10_trans()),
+      sample_size(c(unknown(), unknown()), trans = transform_log10()),
       x = warpbreaks,
       log_vals = TRUE,
       frac = c(.3, .7)
