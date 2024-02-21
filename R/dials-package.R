@@ -39,7 +39,7 @@
 #' @importFrom lifecycle deprecated
 #' @importFrom pillar type_sum
 #' @importFrom purrr map_lgl map2_dfc map_chr map map2 map_dfc map_dbl map_int
-#' @importFrom scales log2_trans is.trans log10_trans
+#' @importFrom scales transform_log2 is.trans log10_trans
 #' @importFrom stats runif
 #' @importFrom tibble as_tibble is_tibble tibble new_tibble
 #' @importFrom utils installed.packages globalVariables

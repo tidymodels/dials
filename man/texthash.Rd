@@ -5,7 +5,7 @@
 \alias{signed_hash}
 \title{Text hashing parameters}
 \usage{
-num_hash(range = c(8L, 12L), trans = log2_trans())
+num_hash(range = c(8L, 12L), trans = transform_log2())
 
 signed_hash(values = c(TRUE, FALSE))
 }
