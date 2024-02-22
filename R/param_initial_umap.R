@@ -6,10 +6,11 @@
 #' more details.
 #'
 #' @param values A character string of possible values. See `values_initial_umap`
-#'  in examples below.
+#' in examples below.
 #'
 #' @details
 #' This parameter is used in `recipes` via [embed::step_umap()].
+#' 
 #' @examples
 #' values_initial_umap
 #' initial_umap()
@@ -26,4 +27,4 @@ initial_umap <- function(values = values_initial_umap) {
 #' @rdname initial_umap
 #' @export
 values_initial_umap <- c("spectral", "normlaplacian", "random", "lvrandom",
-                       "laplacian", "pca", "spca", "agspectral")
+                         "laplacian", "pca", "spca", "agspectral")
