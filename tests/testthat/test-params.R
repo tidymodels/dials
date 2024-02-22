@@ -82,6 +82,7 @@ test_that("param ranges", {
   expect_equal(num_runs(c(2, 100))$range, list(lower = 2, upper = 100))
   expect_equal(harmonic_frequency(c(2, 100))$range, list(lower = 2, upper = 100))
   expect_equal(validation_set_prop(c(0.1, 0.4))$range, list(lower = 0.1, upper = 0.4))
+  expect_equal(target_weight(c(0.1, 0.4))$range, list(lower = 0.1, upper = 0.4))
 })
 
 
@@ -107,4 +108,5 @@ test_that("param values", {
   expect_equal(survival_link()$values, values_survival_link)
   expect_equal(activation()$values, values_activation)
   expect_equal(rate_schedule()$values, values_scheduler)
+  expect_equal(initial_umap()$values, values_initial_umap)
 })

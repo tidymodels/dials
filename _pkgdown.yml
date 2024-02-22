@@ -53,6 +53,7 @@ reference:
     - extrapolation
     - freq_cut
     - harmonic_frequency
+    - initial_umap
     - Laplace
     - learn_rate
     - max_nodes
@@ -93,6 +94,7 @@ reference:
     - summary_stat
     - surv_dist
     - survival_link
+    - target_weight
     - threshold
     - token
     - trees

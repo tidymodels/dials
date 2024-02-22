@@ -1,5 +1,11 @@
 # dials (development version)
 
+## New parameters
+
+* Added `initial_umap()` and `target_weight()` for `recipes::step_umap()` (#324).
+
+## Other changes
+
 * Improving error messages by switching to cli (#315, #317, #321).
 
 * Update usage of tranformation functions from the scales package to their new names and require the corresponding version v1.3.0 (#323).
