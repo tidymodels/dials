@@ -1,4 +1,4 @@
-# dials (development version)
+# dials 1.2.1
 
 ## New parameters
 
@@ -6,7 +6,7 @@
 
 ## Other changes
 
-* Improving error messages by switching to cli (#315, #317, #321).
+* Improving styling of error messages by switching to cli (#315, #317, #321).
 
 * Update usage of tranformation functions from the scales package to their new names and require the corresponding version v1.3.0 (#323).
 
