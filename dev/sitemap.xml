@@ -97,6 +97,9 @@
     <loc>https://dials.tidymodels.org/dev/reference/index.html</loc>
   </url>
   <url>
+    <loc>https://dials.tidymodels.org/dev/reference/initial_umap.html</loc>
+  </url>
+  <url>
     <loc>https://dials.tidymodels.org/dev/reference/learn_rate.html</loc>
   </url>
   <url>
@@ -215,6 +218,9 @@
   </url>
   <url>
     <loc>https://dials.tidymodels.org/dev/reference/survival_link.html</loc>
+  </url>
+  <url>
+    <loc>https://dials.tidymodels.org/dev/reference/target_weight.html</loc>
   </url>
   <url>
     <loc>https://dials.tidymodels.org/dev/reference/texthash.html</loc>
