@@ -17,13 +17,13 @@ the default is used which matches the units used in \code{range}. If no
 transformation, \code{NULL}.}
 }
 \description{
-For \code{\link[uwot:umap]{uwot::umap()}} and \code{\link[embed:step_umap]{embed::step_umap()}}, this is a weighting factor
+For \code{uwot::umap()} and \code{embed::step_umap()}, this is a weighting factor
 between data topology and target topology. A value of 0.0 weights entirely
 on data, a value of 1.0 weights entirely on target. The default of 0.5
 balances the weighting equally between data and target.
 }
 \details{
-This parameter is used in \code{recipes} via \code{\link[embed:step_umap]{embed::step_umap()}}.
+This parameter is used in \code{recipes} via \code{embed::step_umap()}.
 }
 \examples{
 target_weight()
