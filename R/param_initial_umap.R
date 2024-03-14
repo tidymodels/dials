@@ -2,7 +2,7 @@
 #'
 #' This parameter is the type of initialization for the UMAP coordinates. Can be
 #' one of `"spectral"`, `"normlaplacian"`, `"random"`, `"lvrandom"`,
-#' `"laplacian"`, `"pca"`, `"spca"`, or `"agspectral"`. See [uwot::umap()] for
+#' `"laplacian"`, `"pca"`, `"spca"`, or `"agspectral"`. See `uwot::umap()` for
 #' more details.
 #'
 #' @param values A character string of possible values. See `values_initial_umap`

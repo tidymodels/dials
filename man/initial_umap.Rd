@@ -20,7 +20,7 @@ in examples below.}
 \description{
 This parameter is the type of initialization for the UMAP coordinates. Can be
 one of \code{"spectral"}, \code{"normlaplacian"}, \code{"random"}, \code{"lvrandom"},
-\code{"laplacian"}, \code{"pca"}, \code{"spca"}, or \code{"agspectral"}. See \code{\link[uwot:umap]{uwot::umap()}} for
+\code{"laplacian"}, \code{"pca"}, \code{"spca"}, or \code{"agspectral"}. See \code{uwot::umap()} for
 more details.
 }
 \details{
