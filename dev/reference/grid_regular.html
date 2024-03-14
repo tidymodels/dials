@@ -139,12 +139,12 @@ parameter combination.</p>
 is called. If the call uses the parameter objects directly the possible
 ranges come from the objects in <code>dials</code>. For example:</p>
 <p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="../reference/mixture.html">mixture</a></span><span class="op">(</span><span class="op">)</span></span></code></pre><p></p></div>
-<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Proportion of Lasso Penalty (quantitative)</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Range: [0, 1]</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="do">## Proportion of Lasso Penalty (quantitative)</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="do">## Range: [0, 1]</span></span></code></pre><p></p></div>
 <p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">283</span><span class="op">)</span></span>
 <span><span class="va">mix_grid_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grid_regular.html">grid_random</a></span><span class="op">(</span><span class="fu"><a href="../reference/mixture.html">mixture</a></span><span class="op">(</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">mix_grid_1</span><span class="op">$</span><span class="va">mixture</span><span class="op">)</span></span></code></pre><p></p></div>
-<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.001490161 0.999741096</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="do">## [1] 0.001490161 0.999741096</span></span></code></pre><p></p></div>
 <p>However, in some cases, the <code>parsnip</code> and <code>recipe</code> packages overrides
 the default ranges for specific models and preprocessing steps. If the
 grid function uses a <code>parameters</code> object created from a model or recipe,
@@ -162,7 +162,7 @@ the example above, the <code>mixture</code> argument above is different for
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">283</span><span class="op">)</span></span>
 <span><span class="va">mix_grid_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grid_regular.html">grid_random</a></span><span class="op">(</span><span class="fu">extract_parameter_set_dials</span><span class="op">(</span><span class="va">glmn_mod</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">mix_grid_2</span><span class="op">$</span><span class="va">mixture</span><span class="op">)</span></span></code></pre><p></p></div>
-<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 0.05141565 0.99975404</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="do">## [1] 0.05141565 0.99975404</span></span></code></pre><p></p></div>
     </div>
 
     <div class="section level2">
