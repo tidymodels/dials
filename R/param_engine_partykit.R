@@ -4,7 +4,7 @@
 #' largest possible values, respectively.
 #'
 #' @param trans A `trans` object from the `scales` package, such as
-#' `scales::log10_trans()` or `scales::reciprocal_trans()`. If not provided,
+#' `scales::transform_log10()` or `scales::transform_reciprocal()`. If not provided,
 #' the default is used which matches the units used in `range`. If no
 #' transformation, `NULL`.
 #' @param values A character string of possible values.
@@ -15,7 +15,7 @@
 #' 0.99997 in the natural units. For several test types, this parameter
 #' corresponds to `1 - {p-value}`.
 #' @export
-conditional_min_criterion <- function(range = c(1.386294, 15), trans = scales::logit_trans()) {
+conditional_min_criterion <- function(range = c(1.386294, 15), trans = scales::transform_logit()) {
   dials::new_quant_param(
     type = "double",
     range = range,

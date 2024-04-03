@@ -54,7 +54,7 @@ test_that("sequences - doubles", {
       type = "double",
       range = c(0.5, 1.5),
       inclusive = c(TRUE, TRUE),
-      trans = sqrt_trans(),
+      trans = scales::transform_sqrt(),
       label = c(param = "param")
     )
   param_with_values <-
@@ -100,7 +100,7 @@ test_that("sequences - integers", {
       type = "integer",
       range = c(2.1, 5.3),
       inclusive = c(TRUE, TRUE),
-      trans = sqrt_trans(),
+      trans = scales::transform_sqrt(),
       label = c(param = "param")
     )
   param_with_values <-
@@ -180,7 +180,7 @@ test_that("sampling - integers", {
       type = "integer",
       range = c(2.1, 5.3),
       inclusive = c(TRUE, TRUE),
-      trans = sqrt_trans(),
+      trans = scales::transform_sqrt(),
       label = c(param = "param")
     )
   int_seq <-
@@ -267,4 +267,10 @@ test_that("validate unknowns", {
     error = TRUE,
     value_validate(mtry(), 17)
   )
+})
+
+test_that("value_set() checks inputs", {
+  expect_snapshot(error = TRUE, {
+    value_set(cost_complexity(), numeric(0))
+  })
 })

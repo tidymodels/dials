@@ -19,13 +19,13 @@ sample_size(range = c(unknown(), unknown()), trans = NULL)
 
 sample_prop(range = c(1/10, 1), trans = NULL)
 
-loss_reduction(range = c(-10, 1.5), trans = log10_trans())
+loss_reduction(range = c(-10, 1.5), trans = transform_log10())
 
 tree_depth(range = c(1L, 15L), trans = NULL)
 
 prune(values = c(TRUE, FALSE))
 
-cost_complexity(range = c(-10, -1), trans = log10_trans())
+cost_complexity(range = c(-10, -1), trans = transform_log10())
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and
@@ -33,7 +33,7 @@ largest possible values, respectively. If a transformation is specified,
 these values should be in the \emph{transformed units}.}
 
 \item{trans}{A \code{trans} object from the \code{scales} package, such as
-\code{scales::log10_trans()} or \code{scales::reciprocal_trans()}. If not provided,
+\code{scales::transform_log10()} or \code{scales::transform_reciprocal()}. If not provided,
 the default is used which matches the units used in \code{range}. If no
 transformation, \code{NULL}.}
 

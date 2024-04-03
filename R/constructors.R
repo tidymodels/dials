@@ -23,8 +23,8 @@
 #' a warning will be thrown.
 #'
 #' @param trans A `trans` object from the \pkg{scales} package, such as
-#' [scales::log10_trans()] or [scales::reciprocal_trans()]. Create custom
-#' transforms with [scales::trans_new()].
+#' [scales::transform_log()] or [scales::transform_reciprocal()]. Create custom
+#' transforms with [scales::new_transform()].
 #'
 #' @param values A vector of possible values that is required when `type` is
 #' `"character"` or `"logical"` but optional otherwise. For quantitative
@@ -113,13 +113,13 @@ new_quant_param <- function(type = c("double", "integer"),
 
   if (is.null(range)) {
     cli::cli_abort(
-      "{.arg range} must be supplied if {.arg values} is `NULL`.",
+      "{.arg range} must be supplied if {.arg values} is {.code NULL}.",
       call = call
     )
   }
   if (is.null(inclusive)) {
     cli::cli_abort(
-      "`inclusive` must be supplied if `values` is `NULL`.",
+      "{.arg inclusive} must be supplied if {.arg values} is {.code NULL}.",
       call = call
     )
   }
@@ -130,12 +130,12 @@ new_quant_param <- function(type = c("double", "integer"),
     range <- as.list(range)
   }
 
-  check_inclusive(inclusive)
+  check_inclusive(inclusive, call = call)
 
   if (!is.null(trans) && !is.trans(trans)) {
     cli::cli_abort(
       c(
-        x = "{.arg trans} must be a {.cls trans} class object (or `NULL`).",
+        x = "{.arg trans} must be a {.cls trans} class object (or {.code NULL}).",
         i = "See {.fn scales::trans_new}."
       ),
       call = call

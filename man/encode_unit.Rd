@@ -2,9 +2,15 @@
 % Please edit documentation in R/encode_unit.R
 \name{encode_unit}
 \alias{encode_unit}
+\alias{encode_unit.quant_param}
+\alias{encode_unit.qual_param}
 \title{Class for converting parameter values back and forth to the unit range}
 \usage{
 encode_unit(x, value, direction, ...)
+
+\method{encode_unit}{quant_param}(x, value, direction, original = TRUE, ...)
+
+\method{encode_unit}{qual_param}(x, value, direction, ...)
 }
 \arguments{
 \item{x}{A \code{param} object.}
@@ -14,8 +20,8 @@ converting back, these should be on \code{[0, 1]}.}
 
 \item{direction}{Either "forward" (to \code{[0, 1]}) or "backward".}
 
-\item{original}{A logical; should the values be transformed into their natural
-units (not currently working).}
+\item{original}{A logical; should the values be transformed into their
+natural units.}
 }
 \value{
 A vector of values.

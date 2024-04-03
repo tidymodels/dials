@@ -1,12 +1,4 @@
 
-test_that("package install checks", {
-  expect_snapshot(error = TRUE, dials:::check_installs("pistachio"))
-  expect_error(
-    dials:::check_installs("dials"),
-    NA
-  )
-})
-
 test_that("formatting", {
   expect_equal(
     dials:::format_bounds(c(TRUE, TRUE)),

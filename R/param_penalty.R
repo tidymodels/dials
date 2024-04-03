@@ -11,7 +11,7 @@
 #' @examples
 #' penalty()
 #' @export
-penalty <- function(range = c(-10, 0), trans = log10_trans()) {
+penalty <- function(range = c(-10, 0), trans = transform_log10()) {
   new_quant_param(
     type = "double",
     range = range,

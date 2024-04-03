@@ -43,7 +43,7 @@
 #'   penalty(),
 #'   epochs(),
 #'   activation(),
-#'   learn_rate(c(0, 1), trans = scales::log_trans()),
+#'   learn_rate(c(0, 1), trans = scales::transform_log()),
 #'   size = 10,
 #'   original = FALSE
 #' )

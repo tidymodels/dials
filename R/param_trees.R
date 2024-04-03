@@ -96,7 +96,7 @@ sample_prop <- function(range = c(1/10, 1), trans = NULL) {
 
 #' @rdname trees
 #' @export
-loss_reduction <- function(range = c(-10, 1.5), trans = log10_trans()) {
+loss_reduction <- function(range = c(-10, 1.5), trans = transform_log10()) {
   new_quant_param(
     type = "double",
     range = range,
@@ -133,7 +133,7 @@ prune <- function(values = c(TRUE, FALSE)) {
 
 #' @export
 #' @rdname trees
-cost_complexity <- function(range = c(-10, -1), trans = log10_trans()) {
+cost_complexity <- function(range = c(-10, -1), trans = transform_log10()) {
   new_quant_param(
     type = "double",
     range = range,

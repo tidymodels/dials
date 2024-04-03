@@ -16,7 +16,7 @@
 #' @examples
 #' mixture()
 #' @export
-prior_slab_dispersion <- function(range = c(-1/2, log10(3)), trans = log10_trans()) {
+prior_slab_dispersion <- function(range = c(-1/2, log10(3)), trans = transform_log10()) {
   new_quant_param(
     type = "double",
     range = range,

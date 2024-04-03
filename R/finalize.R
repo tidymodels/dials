@@ -248,7 +248,7 @@ get_n <- function(object, x, log_vals = FALSE, ...) {
 #' @export
 #' @rdname finalize
 get_rbf_range <- function(object, x, seed = sample.int(10^5, 1), ...) {
-  check_installs("kernlab")
+  rlang::check_installed("kernlab")
   suppressPackageStartupMessages(requireNamespace("kernlab", quietly = TRUE))
   x_mat <- as.matrix(x)
   if (!is.numeric(x_mat)) {

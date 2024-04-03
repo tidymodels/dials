@@ -10,7 +10,7 @@
 #' scale_factor()
 #' kernel_offset()
 #' @export
-rbf_sigma <- function(range = c(-10, 0), trans = log10_trans()) {
+rbf_sigma <- function(range = c(-10, 0), trans = transform_log10()) {
   new_quant_param(
     type = "double",
     range = range,
@@ -23,7 +23,7 @@ rbf_sigma <- function(range = c(-10, 0), trans = log10_trans()) {
 
 #' @rdname rbf_sigma
 #' @export
-scale_factor <- function(range = c(-10, -1), trans = log10_trans()) {
+scale_factor <- function(range = c(-10, -1), trans = transform_log10()) {
   new_quant_param(
     type = "double",
     range = range,

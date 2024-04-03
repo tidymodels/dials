@@ -17,7 +17,7 @@
 #' rule_bands()
 #' @rdname c5_parameters
 #' @export
-confidence_factor <- function(range = c(-1, 0), trans = log10_trans()) {
+confidence_factor <- function(range = c(-1, 0), trans = transform_log10()) {
   new_quant_param(
     type = "double",
     range = range,

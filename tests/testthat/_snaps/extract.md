@@ -4,7 +4,7 @@
       extract_parameter_dials(mod_param, "lambdas")
     Condition
       Error in `extract_parameter_dials()`:
-      ! No parameter exists with id 'lambdas'.
+      ! No parameter exists with id "lambdas".
 
 ---
 
