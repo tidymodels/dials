@@ -403,8 +403,6 @@ grid_latin_hypercube <- function(x, ..., size = 3, original = TRUE) {
 #' @export
 #' @rdname grid_space_filling
 grid_latin_hypercube.parameters <- function(x, ..., size = 3, original = TRUE) {
-  # test for NA and finalized
-  # test for empty ...
   params <- x$object
   names(params) <- x$id
   grd <- make_latin_hypercube_grid(!!!params, size = size, original = original)
