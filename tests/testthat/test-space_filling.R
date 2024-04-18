@@ -99,7 +99,7 @@ test_that("latin square designs", {
 })
 
 
-test_that("sfd package designs - default and AE", {
+test_that("sfd package designs - default", {
 
   size <- 11
   prm <- parameters(mom = momentum(), mixture())
@@ -113,21 +113,9 @@ test_that("sfd package designs - default and AE", {
   }
 
   expect_equal(dials_2_any, sfd_2_any)
-
-  # ------------------------------------------------------------------------------
-
-  dials_2_ae <- grid_space_filling(prm, size = size, method = "audze_eglais")
-  sfd_2_ae <- sfd::get_design(2, num_points = size, type = "audze_eglais")
-  names(sfd_2_ae) <- prm$id
-  for (i in 1:2) {
-    sfd_2_ae[[i]] <- vls[[ i ]][ sfd_2_ae[[i]]  ]
-  }
-
-  expect_equal(dials_2_ae, sfd_2_ae)
-  expect_equal(dials_2_any, sfd_2_ae)
 })
 
-test_that("sfd package designs - default and AE", {
+test_that("sfd package designs AE", {
 
   size <- 11
   prm <- parameters(mom = momentum(), mixture())
@@ -135,14 +123,6 @@ test_that("sfd package designs - default and AE", {
 
   dials_2_any <- grid_space_filling(prm, size = size, type = "any")
   sfd_2_any <- sfd::get_design(2, num_points = size, type = "any")
-  names(sfd_2_any) <- prm$id
-  for (i in 1:2) {
-    sfd_2_any[[i]] <- vls[[ i ]][ sfd_2_any[[i]]  ]
-  }
-
-  expect_equal(dials_2_any, sfd_2_any)
-
-  # ------------------------------------------------------------------------------
 
   dials_2_ae <- grid_space_filling(prm, size = size, method = "audze_eglais")
   sfd_2_ae <- sfd::get_design(2, num_points = size, type = "audze_eglais")
