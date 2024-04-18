@@ -127,10 +127,14 @@ grid_space_filling.parameters <- function(x,
 
 #' @export
 #' @rdname grid_space_filling
-grid_space_filling.list <- function(x, ..., size = 5, type = "any",
+grid_space_filling.list <- function(x,
+                                    ...,
+                                    size = 5,
+                                    type = "any",
                                     variogram_range = 0.5,
                                     iter = 1000,
                                     original = TRUE) {
+
   y <- parameters(x)
   params <- y$object
   names(params) <- y$id
@@ -149,10 +153,14 @@ grid_space_filling.list <- function(x, ..., size = 5, type = "any",
 
 #' @export
 #' @rdname grid_space_filling
-grid_space_filling.param <- function(x, ..., size = 5,
+grid_space_filling.param <- function(x,
+                                     ...,
+                                     size = 5,
                                      variogram_range = 0.5,
                                      iter = 1000,
-                                     type = "any", original = TRUE) {
+                                     type = "any",
+                                     original = TRUE) {
+
   y <- parameters(list(x, ...))
   params <- y$object
   names(params) <- y$id
@@ -235,8 +243,13 @@ base_recycle <- function(x, size) {
 
 #' @rdname grid_space_filling
 #' @export
-grid_max_entropy <- function(x, ..., size = 3, original = TRUE,
-                             variogram_range = 0.5, iter = 1000) {
+grid_max_entropy <- function(x,
+                             ...,
+                             size = 3,
+                             original = TRUE,
+                             variogram_range = 0.5,
+                             iter = 1000) {
+
   dots <- list(...)
   if (any(names(dots) == "levels")) {
     rlang::warn("`levels` is not an argument to `grid_max_entropy()`. Did you mean `size`?")
@@ -246,8 +259,14 @@ grid_max_entropy <- function(x, ..., size = 3, original = TRUE,
 
 #' @export
 #' @rdname grid_space_filling
-grid_max_entropy.parameters <- function(x, ..., size = 3, original = TRUE,
-                                        variogram_range = 0.5, iter = 1000) {
+grid_max_entropy.parameters <-
+  function(x,
+           ...,
+           size = 3,
+           original = TRUE,
+           variogram_range = 0.5,
+           iter = 1000) {
+
   # test for NA and finalized
   # test for empty ...
   params <- x$object
@@ -265,8 +284,13 @@ grid_max_entropy.parameters <- function(x, ..., size = 3, original = TRUE,
 
 #' @export
 #' @rdname grid_space_filling
-grid_max_entropy.list <- function(x, ..., size = 3, original = TRUE,
-                                  variogram_range = 0.5, iter = 1000) {
+grid_max_entropy.list <- function(x,
+                                  ...,
+                                  size = 3,
+                                  original = TRUE,
+                                  variogram_range = 0.5,
+                                  iter = 1000) {
+
   y <- parameters(x)
   params <- y$object
   names(params) <- y$id
@@ -284,8 +308,13 @@ grid_max_entropy.list <- function(x, ..., size = 3, original = TRUE,
 
 #' @export
 #' @rdname grid_space_filling
-grid_max_entropy.param <- function(x, ..., size = 3, original = TRUE,
-                                   variogram_range = 0.5, iter = 1000) {
+grid_max_entropy.param <- function(x,
+                                   ...,
+                                   size = 3,
+                                   original = TRUE,
+                                   variogram_range = 0.5,
+                                   iter = 1000) {
+
   y <- parameters(list(x, ...))
   params <- y$object
   names(params) <- y$id
@@ -302,8 +331,14 @@ grid_max_entropy.param <- function(x, ..., size = 3, original = TRUE,
 
 #' @export
 #' @rdname grid_space_filling
-grid_max_entropy.workflow <- function(x, ..., size = 3, original = TRUE,
-                                      variogram_range = 0.5, iter = 1000) {
+grid_max_entropy.workflow <-
+  function(x,
+           ...,
+           size = 3,
+           original = TRUE,
+           variogram_range = 0.5,
+           iter = 1000) {
+
   lifecycle::deprecate_stop(
     when = "1.2.0",
     what = "grid_max_entropy.workflow()",
@@ -313,8 +348,13 @@ grid_max_entropy.workflow <- function(x, ..., size = 3, original = TRUE,
 
 
 
-make_max_entropy_grid <- function(..., size = 3, original = TRUE,
-                                  variogram_range = 0.5, iter = 1000, call = caller_env()) {
+make_max_entropy_grid <- function(...,
+                                  size = 3,
+                                  original = TRUE,
+                                  variogram_range = 0.5,
+                                  iter = 1000,
+                                  call = caller_env()) {
+
   validate_params(..., call = call)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
