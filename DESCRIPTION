@@ -4,7 +4,7 @@ Version: 1.2.1.9000
 Authors@R: c(
     person("Max", "Kuhn", , "max@posit.co", role = "aut"),
     person("Hannah", "Frick", , "hannah@posit.co", role = c("aut", "cre")),
-    person(given = "Posit Software, PBC", role = c("cph", "fnd"))
+    person("Posit Software, PBC", role = c("cph", "fnd"))
   )
 Description: Many models contain tuning parameters (i.e. parameters that
     cannot be directly estimated from the data). These tools can be used
@@ -26,12 +26,14 @@ Imports:
     pillar,
     purrr,
     rlang (>= 1.1.0),
+    sfd,
     tibble,
     utils,
     vctrs (>= 0.3.8),
     withr
 Suggests: 
     covr,
+    ggplot2,
     kernlab,
     knitr,
     rmarkdown,
@@ -41,9 +43,8 @@ Suggests:
 VignetteBuilder: 
     knitr
 ByteCompile: true
+Config/Needs/website: tidyverse/tidytemplate
 Config/testthat/edition: 3
-Config/Needs/website: 
-    tidyverse/tidytemplate
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

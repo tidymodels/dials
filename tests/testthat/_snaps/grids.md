@@ -6,6 +6,16 @@
       Error in `grid_regular()`:
       ! `levels` should have length 1 or 2
 
+---
+
+    Code
+      grid_regular(mixture(), trees(), size = 3)
+    Condition
+      Warning:
+      `size` is not an argument to `grid_regular()`. Did you mean `levels`?
+      Error in `parameters()`:
+      ! The objects should all be `param` objects.
+
 # wrong argument name
 
     Code
