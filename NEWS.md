@@ -2,9 +2,11 @@
 
 ## Improvements
 
-* The space-filling design functionality was expanded to include several new types of designs: Audze-Eglais, max/min L1, max/min L2, and uniform. These are all pre-computed designs accessed from the sfd package. 
+* The space-filling design functionality was expanded to include several new types of designs: Audze-Eglais, max/min L1, max/min L2, and uniform. These are all pre-computed designs accessed from the sfd package (#329).
 
-* A new function is used to access all of the space-filling designs called `grid_space_filling()`. 
+* A new function is used to access all of the space-filling designs called `grid_space_filling()` (#329).
+
+* `grid_max_entropy()` and `grid_latin_hypercube()` are deprecated in favor of `grid_space_filling()` (#332).
 
 # dials 1.2.1
 
