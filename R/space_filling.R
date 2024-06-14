@@ -14,7 +14,8 @@
 #' @param type A character string with possible values: `"any"`,
 #' `"audze_eglais"`, `"max_min_l1"`, `"max_min_l2"`, `"uniform"`,
 #' `"max_entropy"`, or `"latin_hypercube"`. A value of `"any"` will choose the
-#' first design available (in the order listed above).
+#' first design available (in the order listed above, excluding 
+#' `"latin_hypercube"`).
 #' @param variogram_range A numeric value greater than zero. Larger values
 #'  reduce the likelihood of empty regions in the parameter space. Only used
 #'  for `type = "max_entropy"`.
@@ -259,13 +260,12 @@ grid_max_entropy <- function(x,
 
 #' @export
 #' @rdname grid_space_filling
-grid_max_entropy.parameters <-
-  function(x,
-           ...,
-           size = 3,
-           original = TRUE,
-           variogram_range = 0.5,
-           iter = 1000) {
+grid_max_entropy.parameters <- function(x,
+                                        ...,
+                                        size = 3,
+                                        original = TRUE,
+                                        variogram_range = 0.5,
+                                        iter = 1000) {
 
   # test for NA and finalized
   # test for empty ...
@@ -331,13 +331,12 @@ grid_max_entropy.param <- function(x,
 
 #' @export
 #' @rdname grid_space_filling
-grid_max_entropy.workflow <-
-  function(x,
-           ...,
-           size = 3,
-           original = TRUE,
-           variogram_range = 0.5,
-           iter = 1000) {
+grid_max_entropy.workflow <- function(x,
+                                      ...,
+                                      size = 3,
+                                      original = TRUE,
+                                      variogram_range = 0.5,
+                                      iter = 1000) {
 
   lifecycle::deprecate_stop(
     when = "1.2.0",
@@ -361,8 +360,6 @@ make_max_entropy_grid <- function(...,
   param_names <- names(param_quos)
   param_labs <- map_chr(params, function(x) x$label)
   names(param_labs) <- param_names
-
-  # ----------------------------------------------------------------------------
 
   rngs <- map(params, range_get, original = FALSE)
 
@@ -455,8 +452,6 @@ make_latin_hypercube_grid <- function(..., size = 3, original = TRUE, call = cal
   param_names <- names(param_quos)
   names(param_labs) <- param_names
 
-  # ----------------------------------------------------------------------------
-
   sfd <-
     DiceDesign::lhsDesign(
       n = size,
@@ -478,6 +473,3 @@ make_latin_hypercube_grid <- function(..., size = 3, original = TRUE, call = cal
 
   sf_grid
 }
-
-# ------------------------------------------------------------------------------
-
