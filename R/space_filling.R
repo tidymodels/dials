@@ -199,7 +199,6 @@ make_sfd <- function(...,
 
     if (has_premade_design) {
       grid <- sfd::get_design(p, num_points = size, type = type)
-      # TODO value_seq should keep factor levels
       vals <- purrr::map(params, ~ value_seq(.x, size))
       vals <- purrr::map(vals, ~ base_recycle(.x, size))
       grid <- sfd::update_values(grid, vals)
