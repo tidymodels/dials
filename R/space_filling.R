@@ -202,8 +202,8 @@ make_sfd <- function(...,
       names(grid) <- names(params)
     } else {
       grid <-
-        grid_max_entropy(
-          params,
+        make_max_entropy_grid(
+          !!!params,
           size = size,
           original = original,
           variogram_range = variogram_range,
@@ -212,15 +212,15 @@ make_sfd <- function(...,
     }
   } else if (type == "latin_hypercube") {
     grid <-
-      grid_latin_hypercube(
-        params,
+      make_latin_hypercube_grid(
+        !!!params,
         size = size,
         original = original
       )
   } else {
     grid <-
-      grid_max_entropy(
-        params,
+      make_max_entropy_grid(
+        !!!params,
         size = size,
         original = original,
         variogram_range = variogram_range,
