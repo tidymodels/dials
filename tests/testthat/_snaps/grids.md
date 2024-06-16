@@ -19,32 +19,36 @@
 # wrong argument name
 
     Code
-      grid_latin_hypercube(p, levels = 5)
+      grid_space_filling(p, levels = 5, type = "latin_hypercube")
     Condition
       Warning:
-      `levels` is not an argument to `grid_latin_hypercube()`. Did you mean `size`?
+      `levels` is not an argument to `grid_space_filling()`. Did you mean `size`?
     Output
-      # A tibble: 3 x 2
-             penalty mixture
-               <dbl>   <dbl>
-      1 0.000000438    0.191
-      2 0.0000000918   0.688
-      3 0.00102        0.395
+      # A tibble: 5 x 2
+              penalty mixture
+                <dbl>   <dbl>
+      1 0.00563         0.367
+      2 0.0689          0.754
+      3 0.0000374       0.841
+      4 0.00000000349   0.440
+      5 0.0000000402    0.198
 
 ---
 
     Code
-      grid_max_entropy(p, levels = 5)
+      grid_space_filling(p, levels = 5, type = "max_entropy")
     Condition
       Warning:
-      `levels` is not an argument to `grid_max_entropy()`. Did you mean `size`?
+      `levels` is not an argument to `grid_space_filling()`. Did you mean `size`?
     Output
-      # A tibble: 3 x 2
-            penalty mixture
-              <dbl>   <dbl>
-      1 0.281        0.251 
-      2 0.108        0.943 
-      3 0.000000124  0.0366
+      # A tibble: 5 x 2
+         penalty mixture
+           <dbl>   <dbl>
+      1 1.37e- 1   0.925
+      2 5.80e- 1   0.237
+      3 1.31e- 5   0.526
+      4 3.77e-10   0.946
+      5 2.56e- 8   0.108
 
 ---
 
@@ -55,13 +59,13 @@
       `levels` is not an argument to `grid_random()`. Did you mean `size`?
     Output
       # A tibble: 5 x 2
-         penalty mixture
-           <dbl>   <dbl>
-      1 1.27e-10 0.642  
-      2 1.43e- 2 0.942  
-      3 5.29e- 4 0.284  
-      4 7.45e- 2 0.523  
-      5 4.91e-10 0.00216
+              penalty mixture
+                <dbl>   <dbl>
+      1 0.00148         0.499
+      2 0.982           0.858
+      3 0.00000201      0.850
+      4 0.00000000125   0.493
+      5 0.0000864       0.968
 
 ---
 

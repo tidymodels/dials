@@ -69,8 +69,10 @@ test_that("random grid", {
 test_that("wrong argument name", {
   skip_if_below_r_version("3.6")
   p <- parameters(penalty(), mixture())
-  expect_snapshot(grid_latin_hypercube(p, levels = 5))
-  expect_snapshot(grid_max_entropy(p, levels = 5))
+  set.seed(1)
+  
+  expect_snapshot(grid_space_filling(p, levels = 5, type = "latin_hypercube"))
+  expect_snapshot(grid_space_filling(p, levels = 5, type = "max_entropy"))
   expect_snapshot(grid_random(p, levels = 5))
   expect_snapshot(grid_regular(p, size = 5))
 })
