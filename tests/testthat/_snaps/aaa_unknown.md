@@ -46,36 +46,36 @@
 ---
 
     Code
-      grid_latin_hypercube(p1)
+      grid_space_filling(p1, type = "latin_hypercube")
     Condition
-      Error in `grid_latin_hypercube()`:
+      Error in `grid_space_filling()`:
       x This argument contains unknowns: `q`.
       i See the `dials::finalize()` function.
 
 ---
 
     Code
-      grid_latin_hypercube(p2)
+      grid_space_filling(p2, type = "latin_hypercube")
     Condition
-      Error in `grid_latin_hypercube()`:
+      Error in `grid_space_filling()`:
       x This argument contains unknowns: `mtry`.
       i See the `dials::finalize()` function.
 
 ---
 
     Code
-      grid_max_entropy(p1)
+      grid_space_filling(p1, type = "max_entropy")
     Condition
-      Error in `grid_max_entropy()`:
+      Error in `grid_space_filling()`:
       x This argument contains unknowns: `q`.
       i See the `dials::finalize()` function.
 
 ---
 
     Code
-      grid_max_entropy(p2)
+      grid_space_filling(p2, type = "max_entropy")
     Condition
-      Error in `grid_max_entropy()`:
+      Error in `grid_space_filling()`:
       x This argument contains unknowns: `mtry`.
       i See the `dials::finalize()` function.
 
@@ -127,27 +127,27 @@
 ---
 
     Code
-      grid_latin_hypercube(mtry())
+      grid_space_filling(mtry(), type = "latin_hypercube")
     Condition
-      Error in `grid_latin_hypercube()`:
+      Error in `grid_space_filling()`:
       x This argument contains unknowns: `mtry`.
       i See the `dials::finalize()` function.
 
 ---
 
     Code
-      grid_max_entropy(min_n(), q = mtry())
+      grid_space_filling(min_n(), q = mtry(), type = "max_entropy")
     Condition
-      Error in `grid_max_entropy()`:
+      Error in `grid_space_filling()`:
       x This argument contains unknowns: `q`.
       i See the `dials::finalize()` function.
 
 ---
 
     Code
-      grid_max_entropy(mtry())
+      grid_space_filling(mtry(), type = "max_entropy")
     Condition
-      Error in `grid_max_entropy()`:
+      Error in `grid_space_filling()`:
       x This argument contains unknowns: `mtry`.
       i See the `dials::finalize()` function.
 
