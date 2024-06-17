@@ -102,70 +102,7 @@ to any other point.</p>
 <span>  iter <span class="op">=</span> <span class="fl">1000</span>,</span>
 <span>  type <span class="op">=</span> <span class="st">"any"</span>,</span>
 <span>  original <span class="op">=</span> <span class="cn">TRUE</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">grid_max_entropy</span><span class="op">(</span></span>
-<span>  <span class="va">x</span>,</span>
-<span>  <span class="va">...</span>,</span>
-<span>  size <span class="op">=</span> <span class="fl">3</span>,</span>
-<span>  original <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  variogram_range <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>  iter <span class="op">=</span> <span class="fl">1000</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for parameters</span></span>
-<span><span class="fu">grid_max_entropy</span><span class="op">(</span></span>
-<span>  <span class="va">x</span>,</span>
-<span>  <span class="va">...</span>,</span>
-<span>  size <span class="op">=</span> <span class="fl">3</span>,</span>
-<span>  original <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  variogram_range <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>  iter <span class="op">=</span> <span class="fl">1000</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for list</span></span>
-<span><span class="fu">grid_max_entropy</span><span class="op">(</span></span>
-<span>  <span class="va">x</span>,</span>
-<span>  <span class="va">...</span>,</span>
-<span>  size <span class="op">=</span> <span class="fl">3</span>,</span>
-<span>  original <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  variogram_range <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>  iter <span class="op">=</span> <span class="fl">1000</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for param</span></span>
-<span><span class="fu">grid_max_entropy</span><span class="op">(</span></span>
-<span>  <span class="va">x</span>,</span>
-<span>  <span class="va">...</span>,</span>
-<span>  size <span class="op">=</span> <span class="fl">3</span>,</span>
-<span>  original <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  variogram_range <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>  iter <span class="op">=</span> <span class="fl">1000</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for workflow</span></span>
-<span><span class="fu">grid_max_entropy</span><span class="op">(</span></span>
-<span>  <span class="va">x</span>,</span>
-<span>  <span class="va">...</span>,</span>
-<span>  size <span class="op">=</span> <span class="fl">3</span>,</span>
-<span>  original <span class="op">=</span> <span class="cn">TRUE</span>,</span>
-<span>  variogram_range <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span>  iter <span class="op">=</span> <span class="fl">1000</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">grid_latin_hypercube</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, size <span class="op">=</span> <span class="fl">3</span>, original <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for parameters</span></span>
-<span><span class="fu">grid_latin_hypercube</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, size <span class="op">=</span> <span class="fl">3</span>, original <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for list</span></span>
-<span><span class="fu">grid_latin_hypercube</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, size <span class="op">=</span> <span class="fl">3</span>, original <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for param</span></span>
-<span><span class="fu">grid_latin_hypercube</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, size <span class="op">=</span> <span class="fl">3</span>, original <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># S3 method for workflow</span></span>
-<span><span class="fu">grid_latin_hypercube</span><span class="op">(</span><span class="va">x</span>, <span class="va">...</span>, size <span class="op">=</span> <span class="fl">3</span>, original <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -214,13 +151,13 @@ a good design. Only used for <code>type = "max_entropy"</code>.</p></dd>
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>The types of designs supported here are latin hypercube designs of
 different types. The simple designs produced by
-<code>grid_latin_hypercube()</code> are space-filling but
+<code><a href="grid_max_entropy.html">grid_latin_hypercube()</a></code> are space-filling but
 don’t guarantee or optimize any other properties.
 <code>grid_space_filling()</code> might be able to produce
 designs that discourage grid points from being close to one another.
 There are a lot of methods for doing this, such as maximizing the
 minimum distance between points (see Husslage <em>et al</em> 2001).
-<code>grid_max_entropy()</code> attempts to maximize the
+<code><a href="grid_max_entropy.html">grid_max_entropy()</a></code> attempts to maximize the
 determinant of the spatial correlation matrix between coordinates.</p>
 <p>Latin hypercube and maximum entropy designs use random numbers to make
 the designs.</p>
@@ -236,7 +173,7 @@ possible ranges come from the objects in <code>dials</code>. For example:</p>
 <p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="do">## Proportion of Lasso Penalty (quantitative)</span></span>
 <span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="do">## Range: [0, 1]</span></span></code></pre><p></p></div>
 <p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">283</span><span class="op">)</span></span>
-<span><span class="va">mix_grid_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grid_space_filling.html">grid_latin_hypercube</a></span><span class="op">(</span><span class="fu"><a href="../reference/mixture.html">mixture</a></span><span class="op">(</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span><span class="va">mix_grid_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/grid_max_entropy.html">grid_latin_hypercube</a></span><span class="op">(</span><span class="fu"><a href="../reference/mixture.html">mixture</a></span><span class="op">(</span><span class="op">)</span>, size <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">mix_grid_1</span><span class="op">$</span><span class="va">mixture</span><span class="op">)</span></span></code></pre><p></p></div>
 <p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="do">## [1] 0.0001530482 0.9999530388</span></span></code></pre><p></p></div>
 <p>However, in some cases, the <code>parsnip</code> and <code>recipe</code> packages overrides
@@ -257,7 +194,7 @@ the example above, the <code>mixture</code> argument above is different for
 <span><span class="va">mix_grid_2</span> <span class="op">&lt;-</span></span>
 <span>  <span class="va">glmn_mod</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
 <span>  <span class="fu">extract_parameter_set_dials</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span> </span>
-<span>  <span class="fu"><a href="../reference/grid_space_filling.html">grid_latin_hypercube</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="../reference/grid_max_entropy.html">grid_latin_hypercube</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/range.html" class="external-link">range</a></span><span class="op">(</span><span class="va">mix_grid_2</span><span class="op">$</span><span class="va">mixture</span><span class="op">)</span></span></code></pre><p></p></div>
 <p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="do">## [1] 0.0501454 0.9999554</span></span></code></pre><p></p></div>
     </div>
@@ -302,15 +239,6 @@ Theory and application. _Technometric_s, 42(3), 237-248</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>            8 0.000<span style="text-decoration: underline;">035</span>9        670 tanh             1.12</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>            9 0.000<span style="text-decoration: underline;">464</span>         780 relu             2.72</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>           10 0.000<span style="text-decoration: underline;">000</span>016<span style="text-decoration: underline;">7</span>     120 linear           1.56</span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu">grid_latin_hypercube</span><span class="op">(</span><span class="fu"><a href="penalty.html">penalty</a></span><span class="op">(</span><span class="op">)</span>, <span class="fu"><a href="mixture.html">mixture</a></span><span class="op">(</span><span class="op">)</span>, original <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 3 × 2</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    penalty mixture</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> 2.39<span style="color: #949494;">e</span><span style="color: #BB0000;">-10</span>  0.468 </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> 1.84<span style="color: #949494;">e</span><span style="color: #BB0000;">- 5</span>  0.031<span style="text-decoration: underline;">5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> 4.81<span style="color: #949494;">e</span><span style="color: #BB0000;">- 1</span>  0.707 </span>
-<span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># ------------------------------------------------------------------------------</span></span></span>
 <span class="r-in"><span><span class="co"># comparing methods</span></span></span>
 <span class="r-in"><span></span></span>

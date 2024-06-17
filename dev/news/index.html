@@ -57,8 +57,9 @@
 <h2 class="pkg-version" data-toc-text="development version" id="dials-development-version">dials (development version)<a class="anchor" aria-label="anchor" href="#dials-development-version"></a></h2>
 <div class="section level3">
 <h3 id="improvements-development-version">Improvements<a class="anchor" aria-label="anchor" href="#improvements-development-version"></a></h3>
-<ul><li><p>The space-filling design functionality was expanded to include several new types of designs: Audze-Eglais, max/min L1, max/min L2, and uniform. These are all pre-computed designs accessed from the sfd package.</p></li>
-<li><p>A new function is used to access all of the space-filling designs called <code><a href="../reference/grid_space_filling.html">grid_space_filling()</a></code>.</p></li>
+<ul><li><p>The space-filling design functionality was expanded to include several new types of designs: Audze-Eglais, max/min L1, max/min L2, and uniform. These are all pre-computed designs accessed from the sfd package (<a href="https://github.com/tidymodels/dials/issues/329" class="external-link">#329</a>).</p></li>
+<li><p>A new function is used to access all of the space-filling designs called <code><a href="../reference/grid_space_filling.html">grid_space_filling()</a></code> (<a href="https://github.com/tidymodels/dials/issues/329" class="external-link">#329</a>).</p></li>
+<li><p><code><a href="../reference/grid_max_entropy.html">grid_max_entropy()</a></code> and <code><a href="../reference/grid_max_entropy.html">grid_latin_hypercube()</a></code> are deprecated in favor of <code><a href="../reference/grid_space_filling.html">grid_space_filling()</a></code> (<a href="https://github.com/tidymodels/dials/issues/332" class="external-link">#332</a>).</p></li>
 </ul></div>
 </div>
     <div class="section level2">
@@ -85,7 +86,7 @@
 <div class="section level3">
 <h3 id="other-changes-1-2-0">Other changes<a class="anchor" aria-label="anchor" href="#other-changes-1-2-0"></a></h3>
 <ul><li><p>Deprecation of <code><a href="../reference/pull_dials_object.html">pull_dials_object()</a></code> has been escalated to an error. Please use <code><a href="https://hardhat.tidymodels.org/reference/hardhat-extract.html" class="external-link">extract_parameter_dials()</a></code> instead (<a href="https://github.com/tidymodels/dials/issues/265" class="external-link">#265</a>).</p></li>
-<li><p>The methods <code><a href="../reference/grid_regular.html">grid_regular.workflow()</a></code>, <code><a href="../reference/grid_regular.html">grid_random.workflow()</a></code>, <code><a href="../reference/grid_space_filling.html">grid_max_entropy.workflow()</a></code>, and <code><a href="../reference/grid_space_filling.html">grid_latin_hypercube.workflow()</a></code> have been deprecated (<a href="https://github.com/tidymodels/dials/issues/302" class="external-link">#302</a>).</p></li>
+<li><p>The methods <code><a href="../reference/grid_regular.html">grid_regular.workflow()</a></code>, <code><a href="../reference/grid_regular.html">grid_random.workflow()</a></code>, <code><a href="../reference/grid_max_entropy.html">grid_max_entropy.workflow()</a></code>, and <code><a href="../reference/grid_max_entropy.html">grid_latin_hypercube.workflow()</a></code> have been deprecated (<a href="https://github.com/tidymodels/dials/issues/302" class="external-link">#302</a>).</p></li>
 <li><p>The constructor functions for single parameters, <code><a href="../reference/new-param.html">new_quant_param()</a></code> and <code><a href="../reference/new-param.html">new_qual_param()</a></code>, as well as for parameter sets, <code><a href="../reference/parameters_constr.html">parameters_constr()</a></code>, now have improved handling of the call shown in error messages (<a href="https://github.com/tidymodels/dials/issues/291" class="external-link">#291</a>, <a href="https://github.com/tidymodels/dials/issues/295" class="external-link">#295</a>).</p></li>
 <li><p>The constructor for parameter sets, <code><a href="../reference/parameters_constr.html">parameters_constr()</a></code>, now checks that all inputs have the same length (<a href="https://github.com/tidymodels/dials/issues/295" class="external-link">#295</a>).</p></li>
 </ul></div>
@@ -216,7 +217,7 @@
 </ul></div>
 <div class="section level3">
 <h3 id="other-changes-0-0-3">Other changes<a class="anchor" aria-label="anchor" href="#other-changes-0-0-3"></a></h3>
-<ul><li><p>Two functions for space-filling designs were added: <code><a href="../reference/grid_space_filling.html">grid_max_entropy()</a></code> and <code><a href="../reference/grid_space_filling.html">grid_latin_hypercube()</a></code>.</p></li>
+<ul><li><p>Two functions for space-filling designs were added: <code><a href="../reference/grid_max_entropy.html">grid_max_entropy()</a></code> and <code><a href="../reference/grid_max_entropy.html">grid_latin_hypercube()</a></code>.</p></li>
 <li><p>A data set was added for modeling ridership on the Chicago L trains.</p></li>
 </ul></div>
 <div class="section level3">
