@@ -5,16 +5,6 @@
 \alias{grid_space_filling.parameters}
 \alias{grid_space_filling.list}
 \alias{grid_space_filling.param}
-\alias{grid_max_entropy}
-\alias{grid_max_entropy.parameters}
-\alias{grid_max_entropy.list}
-\alias{grid_max_entropy.param}
-\alias{grid_max_entropy.workflow}
-\alias{grid_latin_hypercube}
-\alias{grid_latin_hypercube.parameters}
-\alias{grid_latin_hypercube.list}
-\alias{grid_latin_hypercube.param}
-\alias{grid_latin_hypercube.workflow}
 \title{Space-filling parameter grids}
 \usage{
 grid_space_filling(x, ..., size = 5, type = "any", original = TRUE)
@@ -48,61 +38,6 @@ grid_space_filling(x, ..., size = 5, type = "any", original = TRUE)
   type = "any",
   original = TRUE
 )
-
-grid_max_entropy(
-  x,
-  ...,
-  size = 3,
-  original = TRUE,
-  variogram_range = 0.5,
-  iter = 1000
-)
-
-\method{grid_max_entropy}{parameters}(
-  x,
-  ...,
-  size = 3,
-  original = TRUE,
-  variogram_range = 0.5,
-  iter = 1000
-)
-
-\method{grid_max_entropy}{list}(
-  x,
-  ...,
-  size = 3,
-  original = TRUE,
-  variogram_range = 0.5,
-  iter = 1000
-)
-
-\method{grid_max_entropy}{param}(
-  x,
-  ...,
-  size = 3,
-  original = TRUE,
-  variogram_range = 0.5,
-  iter = 1000
-)
-
-\method{grid_max_entropy}{workflow}(
-  x,
-  ...,
-  size = 3,
-  original = TRUE,
-  variogram_range = 0.5,
-  iter = 1000
-)
-
-grid_latin_hypercube(x, ..., size = 3, original = TRUE)
-
-\method{grid_latin_hypercube}{parameters}(x, ..., size = 3, original = TRUE)
-
-\method{grid_latin_hypercube}{list}(x, ..., size = 3, original = TRUE)
-
-\method{grid_latin_hypercube}{param}(x, ..., size = 3, original = TRUE)
-
-\method{grid_latin_hypercube}{workflow}(x, ..., size = 3, original = TRUE)
 }
 \arguments{
 \item{x}{A \code{param} object, list, or \code{parameters}.}
@@ -213,9 +148,6 @@ grid_space_filling(
   size = 10,
   original = FALSE
 )
-
-grid_latin_hypercube(penalty(), mixture(), original = TRUE)
-
 # ------------------------------------------------------------------------------
 # comparing methods
 

@@ -24,7 +24,7 @@
 #' random_set
 #'
 #' # A small space-filling design based on experimental design methods:
-#' design_set <- grid_max_entropy(penalty(), mixture(), deg_free(), size = 5)
+#' design_set <- grid_space_filling(penalty(), mixture(), deg_free(), size = 5)
 #' design_set
 #' @keywords internal
 "_PACKAGE"

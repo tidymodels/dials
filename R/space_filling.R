@@ -48,9 +48,6 @@
 #'   size = 10,
 #'   original = FALSE
 #' )
-#'
-#' grid_latin_hypercube(penalty(), mixture(), original = TRUE)
-#'
 #' # ------------------------------------------------------------------------------
 #' # comparing methods
 #'
@@ -205,8 +202,8 @@ make_sfd <- function(...,
       names(grid) <- names(params)
     } else {
       grid <-
-        grid_max_entropy(
-          params,
+        make_max_entropy_grid(
+          !!!params,
           size = size,
           original = original,
           variogram_range = variogram_range,
@@ -215,15 +212,15 @@ make_sfd <- function(...,
     }
   } else if (type == "latin_hypercube") {
     grid <-
-      grid_latin_hypercube(
-        params,
+      make_latin_hypercube_grid(
+        !!!params,
         size = size,
         original = original
       )
   } else {
     grid <-
-      grid_max_entropy(
-        params,
+      make_max_entropy_grid(
+        !!!params,
         size = size,
         original = original,
         variogram_range = variogram_range,
@@ -241,7 +238,28 @@ base_recycle <- function(x, size) {
 
 # ------------------------------------------------------------------------------
 
-#' @rdname grid_space_filling
+#' Max-entropy and latin hypercube grids
+#'
+#' @description
+#' `r lifecycle::badge("deprecated")`
+#' 
+#' These functions are deprecated because they have been replaced by 
+#' [grid_space_filling()].
+#' 
+#' @inheritParams grid_random
+#' @param size A single integer for the maximum number of parameter value
+#' combinations returned. If duplicate combinations are
+#' generated from this size, the smaller, unique set is returned.
+#' @param variogram_range A numeric value greater than zero. Larger values
+#'  reduce the likelihood of empty regions in the parameter space. Only used
+#'  for `type = "max_entropy"`.
+#' @param iter An integer for the maximum number of iterations used to find
+#'  a good design. Only used for `type = "max_entropy"`.
+#' 
+#' @examples
+#' grid_latin_hypercube(penalty(), mixture(), original = TRUE)
+#' 
+#' @keywords internal
 #' @export
 grid_max_entropy <- function(x,
                              ...,
@@ -249,6 +267,11 @@ grid_max_entropy <- function(x,
                              original = TRUE,
                              variogram_range = 0.5,
                              iter = 1000) {
+  lifecycle::deprecate_soft(
+    "1.2.1.9000",
+    "grid_max_entropy()",
+    "grid_space_filling()"    
+  )
 
   dots <- list(...)
   if (any(names(dots) == "levels")) {
@@ -258,7 +281,7 @@ grid_max_entropy <- function(x,
 }
 
 #' @export
-#' @rdname grid_space_filling
+#' @rdname grid_max_entropy
 grid_max_entropy.parameters <- function(x,
                                         ...,
                                         size = 3,
@@ -282,7 +305,7 @@ grid_max_entropy.parameters <- function(x,
 }
 
 #' @export
-#' @rdname grid_space_filling
+#' @rdname grid_max_entropy
 grid_max_entropy.list <- function(x,
                                   ...,
                                   size = 3,
@@ -306,7 +329,7 @@ grid_max_entropy.list <- function(x,
 
 
 #' @export
-#' @rdname grid_space_filling
+#' @rdname grid_max_entropy
 grid_max_entropy.param <- function(x,
                                    ...,
                                    size = 3,
@@ -329,7 +352,7 @@ grid_max_entropy.param <- function(x,
 }
 
 #' @export
-#' @rdname grid_space_filling
+#' @rdname grid_max_entropy
 grid_max_entropy.workflow <- function(x,
                                       ...,
                                       size = 3,
@@ -387,8 +410,14 @@ make_max_entropy_grid <- function(...,
 }
 
 #' @export
-#' @rdname grid_space_filling
+#' @rdname grid_max_entropy
 grid_latin_hypercube <- function(x, ..., size = 3, original = TRUE) {
+  lifecycle::deprecate_soft(
+    "1.2.1.9000",
+    "grid_latin_hypercube()",
+    "grid_space_filling()"    
+  )
+
   dots <- list(...)
   if (any(names(dots) == "levels")) {
     rlang::warn("`levels` is not an argument to `grid_latin_hypercube()`. Did you mean `size`?")
@@ -397,7 +426,7 @@ grid_latin_hypercube <- function(x, ..., size = 3, original = TRUE) {
 }
 
 #' @export
-#' @rdname grid_space_filling
+#' @rdname grid_max_entropy
 grid_latin_hypercube.parameters <- function(x, ..., size = 3, original = TRUE) {
   params <- x$object
   names(params) <- x$id
@@ -408,7 +437,7 @@ grid_latin_hypercube.parameters <- function(x, ..., size = 3, original = TRUE) {
 }
 
 #' @export
-#' @rdname grid_space_filling
+#' @rdname grid_max_entropy
 grid_latin_hypercube.list <- function(x, ..., size = 3, original = TRUE) {
   y <- parameters(x)
   params <- y$object
@@ -420,7 +449,7 @@ grid_latin_hypercube.list <- function(x, ..., size = 3, original = TRUE) {
 
 
 #' @export
-#' @rdname grid_space_filling
+#' @rdname grid_max_entropy
 grid_latin_hypercube.param <- function(x, ..., size = 3, original = TRUE) {
   y <- parameters(list(x, ...))
   params <- y$object
@@ -432,7 +461,7 @@ grid_latin_hypercube.param <- function(x, ..., size = 3, original = TRUE) {
 
 
 #' @export
-#' @rdname grid_space_filling
+#' @rdname grid_max_entropy
 grid_latin_hypercube.workflow <- function(x, ..., size = 3, original = TRUE) {
   lifecycle::deprecate_stop(
     when = "1.2.0",

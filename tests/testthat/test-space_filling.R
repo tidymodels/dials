@@ -1,5 +1,13 @@
+test_that("`grid_max_entropy()` is deprecated", {
+  set.seed(1)
+  expect_snapshot(
+    grid_max_entropy(mixture(), trees(), size = 2)
+  )
+})
 
 test_that("max entropy designs", {
+  withr::local_options(lifecycle_verbosity = "quiet")
+
   grid_1 <- grid_max_entropy(
     cost(), mixture(),
     size = 11,
@@ -46,7 +54,16 @@ test_that("max entropy designs", {
   )
 })
 
+test_that("`grid_latin_hypercube()` is deprecated", {
+  set.seed(1)
+  expect_snapshot(
+    grid_latin_hypercube(mixture(), trees(), size = 2)
+  )
+})
+
 test_that("latin square designs", {
+  withr::local_options(lifecycle_verbosity = "quiet")
+
   grid_1 <- grid_latin_hypercube(
     cost(), mixture(),
     size = 11,
@@ -187,6 +204,7 @@ test_that("sfd package designs - uniform", {
 })
 
 test_that("DiceDesign package designs - max entropy", {
+  withr::local_options(lifecycle_verbosity = "quiet")
 
   size <- 11
   prm <- parameters(mom = momentum(), mixture())
@@ -224,6 +242,7 @@ test_that("DiceDesign package designs - max entropy", {
 })
 
 test_that("DiceDesign package designs - latin hypercube", {
+  withr::local_options(lifecycle_verbosity = "quiet")
 
   size <- 11
   prm <- parameters(mom = momentum(), mixture())
