@@ -2,6 +2,7 @@
 #'
 #' These functions generate parameters that are useful for neural network models.
 #' @inheritParams Laplace
+#' @param label A label to use for plotting and printing.
 #' @details
 #' * `dropout()`: The parameter dropout rate. (See `parsnip:::mlp()`).
 #'
@@ -40,13 +41,13 @@ epochs <- function(range = c(10L, 1000L), trans = NULL) {
 
 #' @export
 #' @rdname dropout
-hidden_units <- function(range = c(1L, 10L), trans = NULL) {
+hidden_units <- function(range = c(1L, 10L), trans = NULL, label = "# Hidden Units") {
   new_quant_param(
     type = "integer",
     range = range,
     inclusive = c(TRUE, TRUE),
     trans = trans,
-    label = c(hidden_units = "# Hidden Units"),
+    label = c(hidden_units = label),
     finalize = NULL
   )
 }

@@ -8,6 +8,8 @@
 
 * `grid_max_entropy()` and `grid_latin_hypercube()` are deprecated in favor of `grid_space_filling()` (#332).
 
+* A printing label argument was added for `hidden_units()` and `activation()` to facilitate the same parameters being used in two-layer neural networks. 
+
 # dials 1.2.1
 
 ## New parameters

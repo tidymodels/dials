@@ -110,3 +110,10 @@ test_that("param values", {
   expect_equal(rate_schedule()$values, values_scheduler)
   expect_equal(initial_umap()$values, values_initial_umap)
 })
+
+test_that("cubstom labels", {
+  expect_snapshot(hidden_units())
+  expect_snapshot(hidden_units(label = "potato"))
+  expect_snapshot(activation())
+  expect_snapshot(activation(label = "potato"))
+})

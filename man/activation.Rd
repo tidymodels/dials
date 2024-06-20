@@ -4,18 +4,25 @@
 \name{activation}
 \alias{activation}
 \alias{values_activation}
+\alias{values_brulee_activation}
 \title{Activation functions between network layers}
 \format{
 An object of class \code{character} of length 5.
+
+An object of class \code{character} of length 18.
 }
 \usage{
-activation(values = values_activation)
+activation(values = values_activation, label = "Activation Function")
 
 values_activation
+
+values_brulee_activation
 }
 \arguments{
 \item{values}{A character string of possible values. See \code{values_activation}
 in examples below.}
+
+\item{label}{A label to use for plotting and printing.}
 }
 \description{
 Activation functions between network layers
@@ -27,5 +34,6 @@ This parameter is used in \code{parsnip} models for neural networks such as
 \examples{
 values_activation
 activation()
+values_brulee_activation
 }
 \keyword{datasets}

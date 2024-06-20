@@ -11,7 +11,7 @@ dropout(range = c(0, 1), trans = NULL)
 
 epochs(range = c(10L, 1000L), trans = NULL)
 
-hidden_units(range = c(1L, 10L), trans = NULL)
+hidden_units(range = c(1L, 10L), trans = NULL, label = "# Hidden Units")
 
 batch_size(range = c(unknown(), unknown()), trans = transform_log2())
 }
@@ -24,6 +24,8 @@ these values should be in the \emph{transformed units}.}
 \code{scales::transform_log10()} or \code{scales::transform_reciprocal()}. If not provided,
 the default is used which matches the units used in \code{range}. If no
 transformation, \code{NULL}.}
+
+\item{label}{A label to use for plotting and printing.}
 }
 \description{
 These functions generate parameters that are useful for neural network models.
