@@ -14,8 +14,9 @@
 #' @param type A character string with possible values: `"any"`,
 #' `"audze_eglais"`, `"max_min_l1"`, `"max_min_l2"`, `"uniform"`,
 #' `"max_entropy"`, or `"latin_hypercube"`. A value of `"any"` will choose the
-#' first design available (in the order listed above, excluding 
-#' `"latin_hypercube"`).
+#' first design available (in the order listed above, excluding
+#' `"latin_hypercube"`). If the design is extremely small, the function may
+#' change the type to `"latin_hypercube"` (with a warning).
 #' @param variogram_range A numeric value greater than zero. Larger values
 #'  reduce the likelihood of empty regions in the parameter space. Only used
 #'  for `type = "max_entropy"`.
@@ -191,6 +192,12 @@ make_sfd <- function(...,
   params <- map(param_quos, eval_tidy)
   p <- length(params)
 
+  if (size < p | size == 1) {
+    cli::cli_warn("Due to the small size of the grid, a Latin hypercube \\
+                  design will be used.")
+    type <- "latin_hypercube"
+  }
+
   if (type %in% c("any", "audze_eglais", "max_min_l1", "max_min_l2", "uniform")) {
     has_premade_design <- sfd::sfd_available(p, size, type)
 
@@ -242,10 +249,10 @@ base_recycle <- function(x, size) {
 #'
 #' @description
 #' `r lifecycle::badge("deprecated")`
-#' 
-#' These functions are deprecated because they have been replaced by 
+#'
+#' These functions are deprecated because they have been replaced by
 #' [grid_space_filling()].
-#' 
+#'
 #' @inheritParams grid_random
 #' @param size A single integer for the maximum number of parameter value
 #' combinations returned. If duplicate combinations are
@@ -255,10 +262,10 @@ base_recycle <- function(x, size) {
 #'  for `type = "max_entropy"`.
 #' @param iter An integer for the maximum number of iterations used to find
 #'  a good design. Only used for `type = "max_entropy"`.
-#' 
+#'
 #' @examples
 #' grid_latin_hypercube(penalty(), mixture(), original = TRUE)
-#' 
+#'
 #' @keywords internal
 #' @export
 grid_max_entropy <- function(x,
@@ -270,7 +277,7 @@ grid_max_entropy <- function(x,
   lifecycle::deprecate_soft(
     "1.2.1.9000",
     "grid_max_entropy()",
-    "grid_space_filling()"    
+    "grid_space_filling()"
   )
 
   dots <- list(...)
@@ -415,7 +422,7 @@ grid_latin_hypercube <- function(x, ..., size = 3, original = TRUE) {
   lifecycle::deprecate_soft(
     "1.2.1.9000",
     "grid_latin_hypercube()",
-    "grid_space_filling()"    
+    "grid_space_filling()"
   )
 
   dots <- list(...)

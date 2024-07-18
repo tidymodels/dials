@@ -54,7 +54,8 @@ generated from this size, the smaller, unique set is returned.}
 \code{"audze_eglais"}, \code{"max_min_l1"}, \code{"max_min_l2"}, \code{"uniform"},
 \code{"max_entropy"}, or \code{"latin_hypercube"}. A value of \code{"any"} will choose the
 first design available (in the order listed above, excluding
-\code{"latin_hypercube"}).}
+\code{"latin_hypercube"}). If the design is extremely small, the function may
+change the type to \code{"latin_hypercube"} (with a warning).}
 
 \item{original}{A logical: should the parameters be in the original units or
 in the transformed space (if any)?}
