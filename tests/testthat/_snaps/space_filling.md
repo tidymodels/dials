@@ -54,3 +54,11 @@
       Warning:
       `levels` is not an argument to `grid_space_filling()`. Did you mean `size`?
 
+# very small designs
+
+    Due to the small size of the grid, a Latin hypercube design will be used.
+
+---
+
+    Due to the small size of the grid, a Latin hypercube design will be used.
+
