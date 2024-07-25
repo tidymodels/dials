@@ -8,6 +8,9 @@
 
 * `grid_max_entropy()` and `grid_latin_hypercube()` are deprecated in favor of `grid_space_filling()` (#332).
 
+* Two new parameters, `activation_2()` and `hidden_units_2()`, for use with `brulee::brulee_mlp_two_layer()` (#339).
+
+
 # dials 1.2.1
 
 ## New parameters
