@@ -4,6 +4,7 @@
 \alias{dropout}
 \alias{epochs}
 \alias{hidden_units}
+\alias{hidden_units_2}
 \alias{batch_size}
 \title{Neural network parameters}
 \usage{
@@ -12,6 +13,8 @@ dropout(range = c(0, 1), trans = NULL)
 epochs(range = c(10L, 1000L), trans = NULL)
 
 hidden_units(range = c(1L, 10L), trans = NULL)
+
+hidden_units_2(range = c(1L, 10L), trans = NULL)
 
 batch_size(range = c(unknown(), unknown()), trans = transform_log2())
 }

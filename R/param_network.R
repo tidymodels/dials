@@ -53,6 +53,19 @@ hidden_units <- function(range = c(1L, 10L), trans = NULL) {
 
 #' @export
 #' @rdname dropout
+hidden_units_2 <- function(range = c(1L, 10L), trans = NULL) {
+  new_quant_param(
+    type = "integer",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(hidden_units = "# Hidden Units Layer 2"),
+    finalize = NULL
+  )
+}
+
+#' @export
+#' @rdname dropout
 batch_size <- function(range = c(unknown(), unknown()), trans = transform_log2()) {
   new_quant_param(
     type = "integer",
