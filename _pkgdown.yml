@@ -38,6 +38,7 @@ reference:
 
   - title: Parameter objects for preprocessing
     contents:
+    - all_neighbors
     - freq_cut
     - harmonic_frequency
     - initial_umap
@@ -64,7 +65,6 @@ reference:
     contents:
     - activation
     - adjust_deg_free
-    - all_neighbors
     - class_weights
     - cost
     - deg_free
