@@ -1,6 +1,6 @@
 #' Parameter for the moving window size
 #'
-#' Used in `recipes::step_window()`.
+#' Used in `recipes::step_window()` and `recipes::step_impute_roll()`.
 #'
 #' @inheritParams Laplace
 #' @examples
