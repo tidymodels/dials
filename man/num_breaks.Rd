@@ -18,6 +18,7 @@ transformation, \code{NULL}.}
 }
 \description{
 This parameter controls how many bins are used when discretizing predictors.
+Used in \code{recipes::step_discretize()} and \code{embed::step_discretize_xgb()}.
 }
 \examples{
 num_breaks()

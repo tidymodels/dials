@@ -22,7 +22,7 @@ transformation, \code{NULL}.}
 \item{values}{A vector of possible values (TRUE or FALSE).}
 }
 \description{
-Used in \code{textrecipes::step_texthash()}.
+Used in \code{textrecipes::step_texthash()} and \code{textrecipes::step_dummy_hash()}.
 }
 \examples{
 num_hash()

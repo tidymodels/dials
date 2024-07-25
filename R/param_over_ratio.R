@@ -1,12 +1,11 @@
 #' Parameters for class-imbalance sampling
 #'
 #' For up- and down-sampling methods, these parameters control how much data are
-#' added or removed from the training set.
+#' added or removed from the training set. Used in `themis::step_rose()`, 
+#' `themis::step_smotenc()`, `themis::step_bsmote()`, `themis::step_upsample()`, 
+#' `themis::step_downsample()`, and `themis::step_nearmiss()`.
 #'
 #' @inheritParams Laplace
-#' @details
-#' See `recipes::step_upsample()` and `recipes::step_downsample()` for the
-#' interpretation of these parameters.
 #' @examples
 #' under_ratio()
 #' over_ratio()

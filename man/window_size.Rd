@@ -17,7 +17,7 @@ the default is used which matches the units used in \code{range}. If no
 transformation, \code{NULL}.}
 }
 \description{
-Used in \code{recipes::step_window()}.
+Used in \code{recipes::step_window()} and \code{recipes::step_impute_roll()}.
 }
 \examples{
 window_size()
