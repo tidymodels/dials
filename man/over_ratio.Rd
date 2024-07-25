@@ -21,11 +21,9 @@ transformation, \code{NULL}.}
 }
 \description{
 For up- and down-sampling methods, these parameters control how much data are
-added or removed from the training set.
-}
-\details{
-See \code{recipes::step_upsample()} and \code{recipes::step_downsample()} for the
-interpretation of these parameters.
+added or removed from the training set. Used in \code{themis::step_rose()},
+\code{themis::step_smotenc()}, \code{themis::step_bsmote()}, \code{themis::step_upsample()},
+\code{themis::step_downsample()}, and \code{themis::step_nearmiss()}.
 }
 \examples{
 under_ratio()
