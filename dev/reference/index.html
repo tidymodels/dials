@@ -36,7 +36,7 @@
     </div>
 
     <div class="section level2">
-      <h2 id="parameter-sets">Parameter Sets<a class="anchor" aria-label="anchor" href="#parameter-sets"></a></h2>
+      <h2 id="parameter-sets">Parameter sets<a class="anchor" aria-label="anchor" href="#parameter-sets"></a></h2>
 
 
 
@@ -71,7 +71,7 @@
         </dt>
         <dd>Tools for working with parameter values</dd>
       </dl></div><div class="section level2">
-      <h2 id="grid-creation">Grid Creation<a class="anchor" aria-label="anchor" href="#grid-creation"></a></h2>
+      <h2 id="grid-creation">Grid creation<a class="anchor" aria-label="anchor" href="#grid-creation"></a></h2>
 
 
 
@@ -94,7 +94,138 @@
         </dt>
         <dd>Space-filling parameter grids</dd>
       </dl></div><div class="section level2">
-      <h2 id="parameter-objects">Parameter Objects<a class="anchor" aria-label="anchor" href="#parameter-objects"></a></h2>
+      <h2 id="parameter-objects-for-preprocessing">Parameter objects for preprocessing<a class="anchor" aria-label="anchor" href="#parameter-objects-for-preprocessing"></a></h2>
+
+
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="freq_cut.html">freq_cut()</a></code> <code><a href="freq_cut.html">unique_cut()</a></code>
+
+        </dt>
+        <dd>Near-zero variance parameters</dd>
+      </dl><dl><dt>
+
+          <code><a href="harmonic_frequency.html">harmonic_frequency()</a></code>
+
+        </dt>
+        <dd>Harmonic Frequency</dd>
+      </dl><dl><dt>
+
+          <code><a href="initial_umap.html">initial_umap()</a></code> <code><a href="initial_umap.html">values_initial_umap</a></code>
+
+        </dt>
+        <dd>Initialization method for UMAP</dd>
+      </dl><dl><dt>
+
+          <code><a href="max_times.html">max_times()</a></code> <code><a href="max_times.html">min_times()</a></code>
+
+        </dt>
+        <dd>Word frequencies for removal</dd>
+      </dl><dl><dt>
+
+          <code><a href="max_tokens.html">max_tokens()</a></code>
+
+        </dt>
+        <dd>Maximum number of retained tokens</dd>
+      </dl><dl><dt>
+
+          <code><a href="min_dist.html">min_dist()</a></code>
+
+        </dt>
+        <dd>Parameter for the effective minimum distance between embedded points</dd>
+      </dl><dl><dt>
+
+          <code><a href="min_unique.html">min_unique()</a></code>
+
+        </dt>
+        <dd>Number of unique values for pre-processing</dd>
+      </dl><dl><dt>
+
+          <code><a href="num_breaks.html">num_breaks()</a></code>
+
+        </dt>
+        <dd>Number of cut-points for binning</dd>
+      </dl><dl><dt>
+
+          <code><a href="texthash.html">num_hash()</a></code> <code><a href="texthash.html">signed_hash()</a></code>
+
+        </dt>
+        <dd>Text hashing parameters</dd>
+      </dl><dl><dt>
+
+          <code><a href="num_runs.html">num_runs()</a></code>
+
+        </dt>
+        <dd>Number of Computation Runs</dd>
+      </dl><dl><dt>
+
+          <code><a href="num_tokens.html">num_tokens()</a></code>
+
+        </dt>
+        <dd>Parameter to determine number of tokens in ngram</dd>
+      </dl><dl><dt>
+
+          <code><a href="over_ratio.html">over_ratio()</a></code> <code><a href="over_ratio.html">under_ratio()</a></code>
+
+        </dt>
+        <dd>Parameters for class-imbalance sampling</dd>
+      </dl><dl><dt>
+
+          <code><a href="prior_slab_dispersion.html">prior_slab_dispersion()</a></code> <code><a href="prior_slab_dispersion.html">prior_mixture_threshold()</a></code>
+
+        </dt>
+        <dd>Bayesian PCA parameters</dd>
+      </dl><dl><dt>
+
+          <code><a href="token.html">token()</a></code> <code><a href="token.html">values_token</a></code>
+
+        </dt>
+        <dd>Token types</dd>
+      </dl><dl><dt>
+
+          <code><a href="trim_amount.html">trim_amount()</a></code>
+
+        </dt>
+        <dd>Amount of Trimming</dd>
+      </dl><dl><dt>
+
+          <code><a href="validation_set_prop.html">validation_set_prop()</a></code>
+
+        </dt>
+        <dd>Proportion of data used for validation</dd>
+      </dl><dl><dt>
+
+          <code><a href="vocabulary_size.html">vocabulary_size()</a></code>
+
+        </dt>
+        <dd>Number of tokens in vocabulary</dd>
+      </dl><dl><dt>
+
+          <code><a href="weight.html">weight()</a></code>
+
+        </dt>
+        <dd>Parameter for <code>"double normalization"</code> when creating token counts</dd>
+      </dl><dl><dt>
+
+          <code><a href="weight_scheme.html">weight_scheme()</a></code> <code><a href="weight_scheme.html">values_weight_scheme</a></code>
+
+        </dt>
+        <dd>Term frequency weighting methods</dd>
+      </dl><dl><dt>
+
+          <code><a href="window_size.html">window_size()</a></code>
+
+        </dt>
+        <dd>Parameter for the moving window size</dd>
+      </dl></div><div class="section level2">
+      <h2 id="parameter-objects-for-modeling">Parameter objects for modeling<a class="anchor" aria-label="anchor" href="#parameter-objects-for-modeling"></a></h2>
 
 
 
@@ -124,28 +255,10 @@
         <dd>Parameter to determine which neighbors to use</dd>
       </dl><dl><dt>
 
-          <code><a href="bart-param.html">prior_terminal_node_coef()</a></code> <code><a href="bart-param.html">prior_terminal_node_expo()</a></code> <code><a href="bart-param.html">prior_outcome_range()</a></code>
-
-        </dt>
-        <dd>Parameters for BART models These parameters are used for constructing Bayesian adaptive regression tree (BART) models.</dd>
-      </dl><dl><dt>
-
           <code><a href="class_weights.html">class_weights()</a></code>
 
         </dt>
         <dd>Parameters for class weights for imbalanced problems</dd>
-      </dl><dl><dt>
-
-          <code><a href="conditional_min_criterion.html">conditional_min_criterion()</a></code> <code><a href="conditional_min_criterion.html">values_test_type</a></code> <code><a href="conditional_min_criterion.html">conditional_test_type()</a></code> <code><a href="conditional_min_criterion.html">values_test_statistic</a></code> <code><a href="conditional_min_criterion.html">conditional_test_statistic()</a></code>
-
-        </dt>
-        <dd>Parameters for possible engine parameters for partykit models</dd>
-      </dl><dl><dt>
-
-          <code><a href="c5_parameters.html">confidence_factor()</a></code> <code><a href="c5_parameters.html">no_global_pruning()</a></code> <code><a href="c5_parameters.html">predictor_winnowing()</a></code> <code><a href="c5_parameters.html">fuzzy_thresholding()</a></code> <code><a href="c5_parameters.html">rule_bands()</a></code>
-
-        </dt>
-        <dd>Parameters for possible engine parameters for C5.0</dd>
       </dl><dl><dt>
 
           <code><a href="cost.html">cost()</a></code> <code><a href="cost.html">svm_margin()</a></code>
@@ -178,30 +291,6 @@
         <dd>Neural network parameters</dd>
       </dl><dl><dt>
 
-          <code><a href="cubist_parameters.html">extrapolation()</a></code> <code><a href="cubist_parameters.html">unbiased_rules()</a></code> <code><a href="cubist_parameters.html">max_rules()</a></code>
-
-        </dt>
-        <dd>Parameters for possible engine parameters for Cubist</dd>
-      </dl><dl><dt>
-
-          <code><a href="freq_cut.html">freq_cut()</a></code> <code><a href="freq_cut.html">unique_cut()</a></code>
-
-        </dt>
-        <dd>Near-zero variance parameters</dd>
-      </dl><dl><dt>
-
-          <code><a href="harmonic_frequency.html">harmonic_frequency()</a></code>
-
-        </dt>
-        <dd>Harmonic Frequency</dd>
-      </dl><dl><dt>
-
-          <code><a href="initial_umap.html">initial_umap()</a></code> <code><a href="initial_umap.html">values_initial_umap</a></code>
-
-        </dt>
-        <dd>Initialization method for UMAP</dd>
-      </dl><dl><dt>
-
           <code><a href="Laplace.html">Laplace()</a></code>
 
         </dt>
@@ -212,42 +301,6 @@
 
         </dt>
         <dd>Learning rate</dd>
-      </dl><dl><dt>
-
-          <code><a href="randomForest_parameters.html">max_nodes()</a></code>
-
-        </dt>
-        <dd>Parameters for possible engine parameters for randomForest</dd>
-      </dl><dl><dt>
-
-          <code><a href="earth_parameters.html">max_num_terms()</a></code>
-
-        </dt>
-        <dd>Parameters for possible engine parameters for earth models</dd>
-      </dl><dl><dt>
-
-          <code><a href="max_times.html">max_times()</a></code> <code><a href="max_times.html">min_times()</a></code>
-
-        </dt>
-        <dd>Word frequencies for removal</dd>
-      </dl><dl><dt>
-
-          <code><a href="max_tokens.html">max_tokens()</a></code>
-
-        </dt>
-        <dd>Maximum number of retained tokens</dd>
-      </dl><dl><dt>
-
-          <code><a href="min_dist.html">min_dist()</a></code>
-
-        </dt>
-        <dd>Parameter for the effective minimum distance between embedded points</dd>
-      </dl><dl><dt>
-
-          <code><a href="min_unique.html">min_unique()</a></code>
-
-        </dt>
-        <dd>Number of unique values for pre-processing</dd>
       </dl><dl><dt>
 
           <code><a href="mixture.html">mixture()</a></code>
@@ -280,12 +333,6 @@
         <dd>Number of neighbors</dd>
       </dl><dl><dt>
 
-          <code><a href="num_breaks.html">num_breaks()</a></code>
-
-        </dt>
-        <dd>Number of cut-points for binning</dd>
-      </dl><dl><dt>
-
           <code><a href="num_clusters.html">num_clusters()</a></code>
 
         </dt>
@@ -298,40 +345,10 @@
         <dd>Number of new features</dd>
       </dl><dl><dt>
 
-          <code><a href="texthash.html">num_hash()</a></code> <code><a href="texthash.html">signed_hash()</a></code>
-
-        </dt>
-        <dd>Text hashing parameters</dd>
-      </dl><dl><dt>
-
           <code><a href="num_knots.html">num_knots()</a></code>
 
         </dt>
         <dd>Number of knots (integer)</dd>
-      </dl><dl><dt>
-
-          <code><a href="lightgbm_parameters.html">num_leaves()</a></code>
-
-        </dt>
-        <dd>Possible engine parameters for lightbgm</dd>
-      </dl><dl><dt>
-
-          <code><a href="num_runs.html">num_runs()</a></code>
-
-        </dt>
-        <dd>Number of Computation Runs</dd>
-      </dl><dl><dt>
-
-          <code><a href="num_tokens.html">num_tokens()</a></code>
-
-        </dt>
-        <dd>Parameter to determine number of tokens in ngram</dd>
-      </dl><dl><dt>
-
-          <code><a href="over_ratio.html">over_ratio()</a></code> <code><a href="over_ratio.html">under_ratio()</a></code>
-
-        </dt>
-        <dd>Parameters for class-imbalance sampling</dd>
       </dl><dl><dt>
 
           <code><a href="penalty.html">penalty()</a></code>
@@ -344,12 +361,6 @@
 
         </dt>
         <dd>Proportion of predictors</dd>
-      </dl><dl><dt>
-
-          <code><a href="prior_slab_dispersion.html">prior_slab_dispersion()</a></code> <code><a href="prior_slab_dispersion.html">prior_mixture_threshold()</a></code>
-
-        </dt>
-        <dd>Bayesian PCA parameters</dd>
       </dl><dl><dt>
 
           <code><a href="prune_method.html">prune_method()</a></code> <code><a href="prune_method.html">values_prune_method</a></code>
@@ -370,34 +381,16 @@
         <dd>Kernel parameters</dd>
       </dl><dl><dt>
 
-          <code><a href="ranger_parameters.html">regularization_factor()</a></code> <code><a href="ranger_parameters.html">regularize_depth()</a></code> <code><a href="ranger_parameters.html">significance_threshold()</a></code> <code><a href="ranger_parameters.html">lower_quantile()</a></code> <code><a href="ranger_parameters.html">splitting_rule()</a></code> <code><a href="ranger_parameters.html">ranger_class_rules</a></code> <code><a href="ranger_parameters.html">ranger_reg_rules</a></code> <code><a href="ranger_parameters.html">ranger_split_rules</a></code> <code><a href="ranger_parameters.html">num_random_splits()</a></code>
-
-        </dt>
-        <dd>Parameters for possible engine parameters for ranger</dd>
-      </dl><dl><dt>
-
           <code><a href="regularization_method.html">regularization_method()</a></code> <code><a href="regularization_method.html">values_regularization_method</a></code>
 
         </dt>
         <dd>Estimation methods for regularized models</dd>
       </dl><dl><dt>
 
-          <code><a href="xgboost_parameters.html">scale_pos_weight()</a></code> <code><a href="xgboost_parameters.html">penalty_L2()</a></code> <code><a href="xgboost_parameters.html">penalty_L1()</a></code>
-
-        </dt>
-        <dd>Parameters for possible engine parameters for xgboost</dd>
-      </dl><dl><dt>
-
           <code><a href="select_features.html">select_features()</a></code>
 
         </dt>
         <dd>Parameter to enable feature selection</dd>
-      </dl><dl><dt>
-
-          <code><a href="shrinkage_correlation.html">shrinkage_correlation()</a></code> <code><a href="shrinkage_correlation.html">shrinkage_variance()</a></code> <code><a href="shrinkage_correlation.html">shrinkage_frequencies()</a></code> <code><a href="shrinkage_correlation.html">diagonal_covariance()</a></code>
-
-        </dt>
-        <dd>Parameters for possible engine parameters for sda models</dd>
       </dl><dl><dt>
 
           <code><a href="smoothness.html">smoothness()</a></code>
@@ -442,60 +435,89 @@
         <dd>General thresholding parameter</dd>
       </dl><dl><dt>
 
-          <code><a href="token.html">token()</a></code> <code><a href="token.html">values_token</a></code>
-
-        </dt>
-        <dd>Token types</dd>
-      </dl><dl><dt>
-
           <code><a href="trees.html">trees()</a></code> <code><a href="trees.html">min_n()</a></code> <code><a href="trees.html">sample_size()</a></code> <code><a href="trees.html">sample_prop()</a></code> <code><a href="trees.html">loss_reduction()</a></code> <code><a href="trees.html">tree_depth()</a></code> <code><a href="trees.html">prune()</a></code> <code><a href="trees.html">cost_complexity()</a></code>
 
         </dt>
         <dd>Parameter functions related to tree- and rule-based models.</dd>
       </dl><dl><dt>
 
-          <code><a href="trim_amount.html">trim_amount()</a></code>
-
-        </dt>
-        <dd>Amount of Trimming</dd>
-      </dl><dl><dt>
-
-          <code><a href="validation_set_prop.html">validation_set_prop()</a></code>
-
-        </dt>
-        <dd>Proportion of data used for validation</dd>
-      </dl><dl><dt>
-
-          <code><a href="vocabulary_size.html">vocabulary_size()</a></code>
-
-        </dt>
-        <dd>Number of tokens in vocabulary</dd>
-      </dl><dl><dt>
-
-          <code><a href="weight.html">weight()</a></code>
-
-        </dt>
-        <dd>Parameter for <code>"double normalization"</code> when creating token counts</dd>
-      </dl><dl><dt>
-
           <code><a href="weight_func.html">weight_func()</a></code> <code><a href="weight_func.html">values_weight_func</a></code>
 
         </dt>
         <dd>Kernel functions for distance weighting</dd>
-      </dl><dl><dt>
-
-          <code><a href="weight_scheme.html">weight_scheme()</a></code> <code><a href="weight_scheme.html">values_weight_scheme</a></code>
-
-        </dt>
-        <dd>Term frequency weighting methods</dd>
-      </dl><dl><dt>
-
-          <code><a href="window_size.html">window_size()</a></code>
-
-        </dt>
-        <dd>Parameter for the moving window size</dd>
       </dl></div><div class="section level2">
-      <h2 id="finalizing-parameters">Finalizing Parameters<a class="anchor" aria-label="anchor" href="#finalizing-parameters"></a></h2>
+      <h2 id="parameter-objects-for-specific-model-engines">Parameter objects for specific model engines<a class="anchor" aria-label="anchor" href="#parameter-objects-for-specific-model-engines"></a></h2>
+
+
+
+
+    </div><div class="section level2">
+
+
+
+
+      <dl><dt>
+
+          <code><a href="bart-param.html">prior_terminal_node_coef()</a></code> <code><a href="bart-param.html">prior_terminal_node_expo()</a></code> <code><a href="bart-param.html">prior_outcome_range()</a></code>
+
+        </dt>
+        <dd>Parameters for BART models These parameters are used for constructing Bayesian adaptive regression tree (BART) models.</dd>
+      </dl><dl><dt>
+
+          <code><a href="conditional_min_criterion.html">conditional_min_criterion()</a></code> <code><a href="conditional_min_criterion.html">values_test_type</a></code> <code><a href="conditional_min_criterion.html">conditional_test_type()</a></code> <code><a href="conditional_min_criterion.html">values_test_statistic</a></code> <code><a href="conditional_min_criterion.html">conditional_test_statistic()</a></code>
+
+        </dt>
+        <dd>Parameters for possible engine parameters for partykit models</dd>
+      </dl><dl><dt>
+
+          <code><a href="c5_parameters.html">confidence_factor()</a></code> <code><a href="c5_parameters.html">no_global_pruning()</a></code> <code><a href="c5_parameters.html">predictor_winnowing()</a></code> <code><a href="c5_parameters.html">fuzzy_thresholding()</a></code> <code><a href="c5_parameters.html">rule_bands()</a></code>
+
+        </dt>
+        <dd>Parameters for possible engine parameters for C5.0</dd>
+      </dl><dl><dt>
+
+          <code><a href="cubist_parameters.html">extrapolation()</a></code> <code><a href="cubist_parameters.html">unbiased_rules()</a></code> <code><a href="cubist_parameters.html">max_rules()</a></code>
+
+        </dt>
+        <dd>Parameters for possible engine parameters for Cubist</dd>
+      </dl><dl><dt>
+
+          <code><a href="randomForest_parameters.html">max_nodes()</a></code>
+
+        </dt>
+        <dd>Parameters for possible engine parameters for randomForest</dd>
+      </dl><dl><dt>
+
+          <code><a href="earth_parameters.html">max_num_terms()</a></code>
+
+        </dt>
+        <dd>Parameters for possible engine parameters for earth models</dd>
+      </dl><dl><dt>
+
+          <code><a href="lightgbm_parameters.html">num_leaves()</a></code>
+
+        </dt>
+        <dd>Possible engine parameters for lightbgm</dd>
+      </dl><dl><dt>
+
+          <code><a href="ranger_parameters.html">regularization_factor()</a></code> <code><a href="ranger_parameters.html">regularize_depth()</a></code> <code><a href="ranger_parameters.html">significance_threshold()</a></code> <code><a href="ranger_parameters.html">lower_quantile()</a></code> <code><a href="ranger_parameters.html">splitting_rule()</a></code> <code><a href="ranger_parameters.html">ranger_class_rules</a></code> <code><a href="ranger_parameters.html">ranger_reg_rules</a></code> <code><a href="ranger_parameters.html">ranger_split_rules</a></code> <code><a href="ranger_parameters.html">num_random_splits()</a></code>
+
+        </dt>
+        <dd>Parameters for possible engine parameters for ranger</dd>
+      </dl><dl><dt>
+
+          <code><a href="xgboost_parameters.html">scale_pos_weight()</a></code> <code><a href="xgboost_parameters.html">penalty_L2()</a></code> <code><a href="xgboost_parameters.html">penalty_L1()</a></code>
+
+        </dt>
+        <dd>Parameters for possible engine parameters for xgboost</dd>
+      </dl><dl><dt>
+
+          <code><a href="shrinkage_correlation.html">shrinkage_correlation()</a></code> <code><a href="shrinkage_correlation.html">shrinkage_variance()</a></code> <code><a href="shrinkage_correlation.html">shrinkage_frequencies()</a></code> <code><a href="shrinkage_correlation.html">diagonal_covariance()</a></code>
+
+        </dt>
+        <dd>Parameters for possible engine parameters for sda models</dd>
+      </dl></div><div class="section level2">
+      <h2 id="finalizing-parameters">Finalizing parameters<a class="anchor" aria-label="anchor" href="#finalizing-parameters"></a></h2>
 
 
 
@@ -512,7 +534,7 @@
         </dt>
         <dd>Functions to finalize data-specific parameter ranges</dd>
       </dl></div><div class="section level2">
-      <h2 id="developer-tools">Developer Tools<a class="anchor" aria-label="anchor" href="#developer-tools"></a></h2>
+      <h2 id="developer-tools">Developer tools<a class="anchor" aria-label="anchor" href="#developer-tools"></a></h2>
 
 
 
