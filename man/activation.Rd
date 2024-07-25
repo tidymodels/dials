@@ -3,6 +3,7 @@
 \docType{data}
 \name{activation}
 \alias{activation}
+\alias{activation_2}
 \alias{values_activation}
 \title{Activation functions between network layers}
 \format{
@@ -10,6 +11,8 @@ An object of class \code{character} of length 5.
 }
 \usage{
 activation(values = values_activation)
+
+activation_2(values = values_activation)
 
 values_activation
 }

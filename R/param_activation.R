@@ -20,4 +20,15 @@ activation <- function(values = values_activation) {
 
 #' @rdname activation
 #' @export
+activation_2 <- function(values = values_activation) {
+  new_qual_param(
+    type = "character",
+    values = values,
+    label = c(activation = "Activation Function Layer 2"),
+    finalize = NULL
+  )
+}
+
+#' @rdname activation
+#' @export
 values_activation <- c("linear", "softmax", "relu", "elu", "tanh")
