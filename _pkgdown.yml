@@ -25,70 +25,69 @@ navbar:
       href: https://www.tidymodels.org/learn/develop/parameters/
 
 reference:
-  - title: Parameter Sets
+  - title: Parameter sets
     contents:
     - parameters
     - update.parameters
     - starts_with("range_")
     - starts_with("value_")
 
-  - title: Grid Creation
+  - title: Grid creation
     contents:
     - starts_with("grid_")
 
-  - title: Parameter Objects
+  - title: Parameter objects for preprocessing
     contents:
-    - activation
-    - adjust_deg_free
-    - all_neighbors
-    - bart-param
-    - class_weights
-    - conditional_min_criterion
-    - confidence_factor
-    - cost
-    - deg_free
-    - degree
-    - dist_power
-    - dropout
-    - extrapolation
     - freq_cut
     - harmonic_frequency
     - initial_umap
-    - Laplace
-    - learn_rate
-    - max_nodes
-    - max_num_terms
     - max_times
     - max_tokens
     - min_dist
     - min_times
     - min_unique
+    - num_breaks
+    - num_hash
+    - num_runs
+    - num_tokens
+    - over_ratio
+    - prior_slab_dispersion
+    - token
+    - trim_amount
+    - validation_set_prop
+    - vocabulary_size
+    - weight
+    - weight_scheme
+    - window_size
+
+  - title: Parameter objects for modeling
+    contents:
+    - activation
+    - adjust_deg_free
+    - all_neighbors
+    - class_weights
+    - cost
+    - deg_free
+    - degree
+    - dist_power
+    - dropout
+    - Laplace
+    - learn_rate
     - mixture
     - momentum
     - mtry
     - mtry_prop
     - neighbors
-    - num_breaks
     - num_clusters
     - num_comp
-    - num_hash
     - num_knots
-    - num_leaves
-    - num_runs
-    - num_tokens
-    - over_ratio
     - penalty
     - predictor_prop
-    - prior_slab_dispersion
     - prune_method
     - starts_with("rate_")
     - rbf_sigma
-    - regularization_factor
     - regularization_method
-    - rule_bands
-    - scale_pos_weight
     - select_features
-    - shrinkage_correlation
     - smoothness
     - stop_iter
     - summary_stat
@@ -96,21 +95,28 @@ reference:
     - survival_link
     - target_weight
     - threshold
-    - token
     - trees
-    - trim_amount
-    - validation_set_prop
-    - vocabulary_size
-    - weight
     - weight_func
-    - weight_scheme
-    - window_size
 
-  - title: Finalizing Parameters
+  - title: Parameter objects for specific model engines
+    contents:
+    - bart-param
+    - conditional_min_criterion
+    - confidence_factor
+    - extrapolation
+    - max_nodes
+    - max_num_terms
+    - num_leaves
+    - regularization_factor
+    - rule_bands
+    - scale_pos_weight
+    - shrinkage_correlation
+
+  - title: Finalizing parameters
     contents:
     - finalize
 
-  - title: Developer Tools
+  - title: Developer tools
     contents:
     - encode_unit
     - new_quant_param
