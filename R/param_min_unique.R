@@ -1,7 +1,7 @@
 #' Number of unique values for pre-processing
 #'
 #' Some pre-processing parameters require a minimum number of unique data points
-#' to proceed.
+#' to proceed. Used in `recipes::step_discretize()`.
 #'
 #' @inheritParams Laplace
 #' @examples

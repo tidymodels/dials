@@ -18,7 +18,7 @@ transformation, \code{NULL}.}
 }
 \description{
 Some pre-processing parameters require a minimum number of unique data points
-to proceed.
+to proceed. Used in \code{recipes::step_discretize()}.
 }
 \examples{
 min_unique()
