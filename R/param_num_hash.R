@@ -1,6 +1,6 @@
 #' Text hashing parameters
 #'
-#' Used in `textrecipes::step_texthash()`.
+#' Used in `textrecipes::step_texthash()` and `textrecipes::step_dummy_hash()`.
 #'
 #' @inheritParams Laplace
 #' @param values	A vector of possible values (TRUE or FALSE).
