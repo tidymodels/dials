@@ -16,6 +16,8 @@
 
 * The `grid_*()` methods for `workflow` objects have been removed (#344).
 
+* The deprecation of the `default` argument to the constructors `new_quant_param()` and `new_qual_param()` has been escalated to an error (#344).
+
 
 # dials 1.2.1
 
