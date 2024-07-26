@@ -6,9 +6,13 @@
 
 * A new function is used to access all of the space-filling designs called `grid_space_filling()` (#329).
 
+* Two new parameters, `activation_2()` and `hidden_units_2()`, for use with `brulee::brulee_mlp_two_layer()` (#339).
+
+## Deprecations
+
 * `grid_max_entropy()` and `grid_latin_hypercube()` are deprecated in favor of `grid_space_filling()` (#332).
 
-* Two new parameters, `activation_2()` and `hidden_units_2()`, for use with `brulee::brulee_mlp_two_layer()` (#339).
+* `pull_dials_object()` has been removed (#344).
 
 
 # dials 1.2.1
