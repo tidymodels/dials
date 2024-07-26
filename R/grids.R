@@ -116,20 +116,6 @@ grid_regular.param <- function(x,
   grd
 }
 
-#' @export
-#' @rdname grid_regular
-grid_regular.workflow <- function(x,
-                                  ...,
-                                  levels = 3,
-                                  original = TRUE,
-                                  filter = NULL) {
-  lifecycle::deprecate_stop(
-    when = "1.2.0",
-    what = "grid_regular.workflow()",
-    details = "Alternatively, first extract the parameter set with `extract_parameter_set_dials()`, then create the grid from that object."
-  )
-}
-
 make_regular_grid <- function(...,
                               levels = 3,
                               original = TRUE,
@@ -240,18 +226,6 @@ grid_random.param <- function(x, ..., size = 5, original = TRUE, filter = NULL) 
   names(grd) <- y$id
   grd
 }
-
-
-#' @export
-#' @rdname grid_regular
-grid_random.workflow <- function(x, ..., size = 5, original = TRUE, filter = NULL) {
-  lifecycle::deprecate_stop(
-    when = "1.2.0",
-    what = "grid_random.workflow()",
-    details = "Alternatively, first extract the parameter set with `extract_parameter_set_dials()`, then create the grid from that object."
-  )
-}
-
 
 make_random_grid <- function(...,
                              size = 5,

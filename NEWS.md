@@ -14,6 +14,8 @@
 
 * `pull_dials_object()` has been removed (#344).
 
+* The `grid_*()` methods for `workflow` objects have been removed (#344).
+
 
 # dials 1.2.1
 

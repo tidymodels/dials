@@ -358,24 +358,6 @@ grid_max_entropy.param <- function(x,
   new_param_grid(grd)
 }
 
-#' @export
-#' @rdname grid_max_entropy
-grid_max_entropy.workflow <- function(x,
-                                      ...,
-                                      size = 3,
-                                      original = TRUE,
-                                      variogram_range = 0.5,
-                                      iter = 1000) {
-
-  lifecycle::deprecate_stop(
-    when = "1.2.0",
-    what = "grid_max_entropy.workflow()",
-    details = "Alternatively, first extract the parameter set with `extract_parameter_set_dials()`, then create the grid from that object."
-  )
-}
-
-
-
 make_max_entropy_grid <- function(...,
                                   size = 3,
                                   original = TRUE,
@@ -465,19 +447,6 @@ grid_latin_hypercube.param <- function(x, ..., size = 3, original = TRUE) {
   names(grd) <- y$id
   new_param_grid(grd)
 }
-
-
-#' @export
-#' @rdname grid_max_entropy
-grid_latin_hypercube.workflow <- function(x, ..., size = 3, original = TRUE) {
-  lifecycle::deprecate_stop(
-    when = "1.2.0",
-    what = "grid_latin_hypercube.workflow()",
-    details = "Alternatively, first extract the parameter set with `extract_parameter_set_dials()`, then create the grid from that object."
-  )
-}
-
-
 
 make_latin_hypercube_grid <- function(..., size = 3, original = TRUE, call = caller_env()) {
   validate_params(..., call = call)
