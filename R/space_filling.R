@@ -275,7 +275,7 @@ grid_max_entropy <- function(x,
                              variogram_range = 0.5,
                              iter = 1000) {
   lifecycle::deprecate_soft(
-    "1.2.1.9000",
+    "1.3.0",
     "grid_max_entropy()",
     "grid_space_filling()"
   )
@@ -402,7 +402,7 @@ make_max_entropy_grid <- function(...,
 #' @rdname grid_max_entropy
 grid_latin_hypercube <- function(x, ..., size = 3, original = TRUE) {
   lifecycle::deprecate_soft(
-    "1.2.1.9000",
+    "1.3.0",
     "grid_latin_hypercube()",
     "grid_space_filling()"
   )
