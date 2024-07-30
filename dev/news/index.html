@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">dials</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.2.1.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.3.0.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,12 +38,21 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="dials-development-version">dials (development version)<a class="anchor" aria-label="anchor" href="#dials-development-version"></a></h2>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.3.0" id="dials-130">dials 1.3.0<a class="anchor" aria-label="anchor" href="#dials-130"></a></h2><p class="text-muted">CRAN release: 2024-07-30</p>
 <div class="section level3">
-<h3 id="improvements-development-version">Improvements<a class="anchor" aria-label="anchor" href="#improvements-development-version"></a></h3>
+<h3 id="improvements-1-3-0">Improvements<a class="anchor" aria-label="anchor" href="#improvements-1-3-0"></a></h3>
 <ul><li><p>The space-filling design functionality was expanded to include several new types of designs: Audze-Eglais, max/min L1, max/min L2, and uniform. These are all pre-computed designs accessed from the sfd package (<a href="https://github.com/tidymodels/dials/issues/329" class="external-link">#329</a>).</p></li>
 <li><p>A new function is used to access all of the space-filling designs called <code><a href="../reference/grid_space_filling.html">grid_space_filling()</a></code> (<a href="https://github.com/tidymodels/dials/issues/329" class="external-link">#329</a>).</p></li>
-<li><p><code><a href="../reference/grid_max_entropy.html">grid_max_entropy()</a></code> and <code><a href="../reference/grid_max_entropy.html">grid_latin_hypercube()</a></code> are deprecated in favor of <code><a href="../reference/grid_space_filling.html">grid_space_filling()</a></code> (<a href="https://github.com/tidymodels/dials/issues/332" class="external-link">#332</a>).</p></li>
 <li><p>Two new parameters, <code><a href="../reference/activation.html">activation_2()</a></code> and <code><a href="../reference/dropout.html">hidden_units_2()</a></code>, for use with <code>brulee::brulee_mlp_two_layer()</code> (<a href="https://github.com/tidymodels/dials/issues/339" class="external-link">#339</a>).</p></li>
+</ul></div>
+<div class="section level3">
+<h3 id="deprecations-1-3-0">Deprecations<a class="anchor" aria-label="anchor" href="#deprecations-1-3-0"></a></h3>
+<ul><li><p><code><a href="../reference/grid_max_entropy.html">grid_max_entropy()</a></code> and <code><a href="../reference/grid_max_entropy.html">grid_latin_hypercube()</a></code> are deprecated in favor of <code><a href="../reference/grid_space_filling.html">grid_space_filling()</a></code> (<a href="https://github.com/tidymodels/dials/issues/332" class="external-link">#332</a>).</p></li>
+<li><p><code>pull_dials_object()</code> has been removed (<a href="https://github.com/tidymodels/dials/issues/344" class="external-link">#344</a>).</p></li>
+<li><p>The <code>grid_*()</code> methods for <code>workflow</code> objects have been removed (<a href="https://github.com/tidymodels/dials/issues/344" class="external-link">#344</a>).</p></li>
+<li><p>The deprecation of the <code>default</code> argument to the constructors <code><a href="../reference/new-param.html">new_quant_param()</a></code> and <code><a href="../reference/new-param.html">new_qual_param()</a></code> has been escalated to an error (<a href="https://github.com/tidymodels/dials/issues/344" class="external-link">#344</a>).</p></li>
 </ul></div>
 </div>
     <div class="section level2">
@@ -69,8 +78,8 @@
 </ul></div>
 <div class="section level3">
 <h3 id="other-changes-1-2-0">Other changes<a class="anchor" aria-label="anchor" href="#other-changes-1-2-0"></a></h3>
-<ul><li><p>Deprecation of <code><a href="../reference/pull_dials_object.html">pull_dials_object()</a></code> has been escalated to an error. Please use <code><a href="https://hardhat.tidymodels.org/reference/hardhat-extract.html" class="external-link">extract_parameter_dials()</a></code> instead (<a href="https://github.com/tidymodels/dials/issues/265" class="external-link">#265</a>).</p></li>
-<li><p>The methods <code><a href="../reference/grid_regular.html">grid_regular.workflow()</a></code>, <code><a href="../reference/grid_regular.html">grid_random.workflow()</a></code>, <code><a href="../reference/grid_max_entropy.html">grid_max_entropy.workflow()</a></code>, and <code><a href="../reference/grid_max_entropy.html">grid_latin_hypercube.workflow()</a></code> have been deprecated (<a href="https://github.com/tidymodels/dials/issues/302" class="external-link">#302</a>).</p></li>
+<ul><li><p>Deprecation of <code>pull_dials_object()</code> has been escalated to an error. Please use <code><a href="https://hardhat.tidymodels.org/reference/hardhat-extract.html" class="external-link">extract_parameter_dials()</a></code> instead (<a href="https://github.com/tidymodels/dials/issues/265" class="external-link">#265</a>).</p></li>
+<li><p>The methods <code>grid_regular.workflow()</code>, <code>grid_random.workflow()</code>, <code>grid_max_entropy.workflow()</code>, and <code>grid_latin_hypercube.workflow()</code> have been deprecated (<a href="https://github.com/tidymodels/dials/issues/302" class="external-link">#302</a>).</p></li>
 <li><p>The constructor functions for single parameters, <code><a href="../reference/new-param.html">new_quant_param()</a></code> and <code><a href="../reference/new-param.html">new_qual_param()</a></code>, as well as for parameter sets, <code><a href="../reference/parameters_constr.html">parameters_constr()</a></code>, now have improved handling of the call shown in error messages (<a href="https://github.com/tidymodels/dials/issues/291" class="external-link">#291</a>, <a href="https://github.com/tidymodels/dials/issues/295" class="external-link">#295</a>).</p></li>
 <li><p>The constructor for parameter sets, <code><a href="../reference/parameters_constr.html">parameters_constr()</a></code>, now checks that all inputs have the same length (<a href="https://github.com/tidymodels/dials/issues/295" class="external-link">#295</a>).</p></li>
 </ul></div>
@@ -112,7 +121,7 @@
 </ul></div>
 <div class="section level3">
 <h3 id="other-changes-0-1-0">Other changes<a class="anchor" aria-label="anchor" href="#other-changes-0-1-0"></a></h3>
-<ul><li><p>The new <code><a href="https://hardhat.tidymodels.org/reference/hardhat-extract.html" class="external-link">extract_parameter_dials()</a></code> method supersedes <code><a href="../reference/pull_dials_object.html">pull_dials_object()</a></code> which has been deprecated.</p></li>
+<ul><li><p>The new <code><a href="https://hardhat.tidymodels.org/reference/hardhat-extract.html" class="external-link">extract_parameter_dials()</a></code> method supersedes <code>pull_dials_object()</code> which has been deprecated.</p></li>
 <li><p><code><a href="../reference/activation.html">activation()</a></code> now supports values of <code>"tanh"</code>.</p></li>
 <li><p>New link to article explaining how to make custom parameter objects was added to the pkgdown site.</p></li>
 </ul></div>
@@ -138,7 +147,7 @@
 <h2 class="pkg-version" data-toc-text="0.0.9" id="dials-009">dials 0.0.9<a class="anchor" aria-label="anchor" href="#dials-009"></a></h2><p class="text-muted">CRAN release: 2020-09-16</p>
 <ul><li><p>Quantitative parameters now print the number of possible values if they have been set with <code><a href="../reference/value_validate.html">value_set()</a></code> (<a href="https://github.com/kmdupr33" class="external-link">@kmdupr33</a>, <a href="https://github.com/tidymodels/dials/issues/138" class="external-link">#138</a>).</p></li>
 <li><p>The <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code> method for <code><a href="../reference/parameters.html">parameters()</a></code> has changed to be more clear.</p></li>
-<li><p>A new function, <code><a href="../reference/pull_dials_object.html">pull_dials_object()</a></code> was also added.</p></li>
+<li><p>A new function, <code>pull_dials_object()</code> was also added.</p></li>
 <li><p>Duplicate parameter combinations are now automatically removed from grid results.</p></li>
 <li><p>The range for <code><a href="../reference/dropout.html">epochs()</a></code> was change to start at 10 iterations instead of 1.</p></li>
 <li><p>The lower range for <code><a href="../reference/degree.html">spline_degree()</a></code> now starts at 1 instead of 3.</p></li>
