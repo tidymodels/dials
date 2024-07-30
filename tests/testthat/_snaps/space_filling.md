@@ -4,7 +4,7 @@
       grid_max_entropy(mixture(), trees(), size = 2)
     Condition
       Warning:
-      `grid_max_entropy()` was deprecated in dials 1.2.1.9000.
+      `grid_max_entropy()` was deprecated in dials 1.3.0.
       i Please use `grid_space_filling()` instead.
     Output
       # A tibble: 2 x 2
@@ -28,7 +28,7 @@
       grid_latin_hypercube(mixture(), trees(), size = 2)
     Condition
       Warning:
-      `grid_latin_hypercube()` was deprecated in dials 1.2.1.9000.
+      `grid_latin_hypercube()` was deprecated in dials 1.3.0.
       i Please use `grid_space_filling()` instead.
     Output
       # A tibble: 2 x 2

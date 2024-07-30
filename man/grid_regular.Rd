@@ -5,12 +5,10 @@
 \alias{grid_regular.parameters}
 \alias{grid_regular.list}
 \alias{grid_regular.param}
-\alias{grid_regular.workflow}
 \alias{grid_random}
 \alias{grid_random.parameters}
 \alias{grid_random.list}
 \alias{grid_random.param}
-\alias{grid_random.workflow}
 \title{Create grids of tuning parameters}
 \usage{
 grid_regular(x, ..., levels = 3, original = TRUE, filter = NULL)
@@ -21,8 +19,6 @@ grid_regular(x, ..., levels = 3, original = TRUE, filter = NULL)
 
 \method{grid_regular}{param}(x, ..., levels = 3, original = TRUE, filter = NULL)
 
-\method{grid_regular}{workflow}(x, ..., levels = 3, original = TRUE, filter = NULL)
-
 grid_random(x, ..., size = 5, original = TRUE, filter = NULL)
 
 \method{grid_random}{parameters}(x, ..., size = 5, original = TRUE, filter = NULL)
@@ -30,8 +26,6 @@ grid_random(x, ..., size = 5, original = TRUE, filter = NULL)
 \method{grid_random}{list}(x, ..., size = 5, original = TRUE, filter = NULL)
 
 \method{grid_random}{param}(x, ..., size = 5, original = TRUE, filter = NULL)
-
-\method{grid_random}{workflow}(x, ..., size = 5, original = TRUE, filter = NULL)
 }
 \arguments{
 \item{x}{A \code{param} object, list, or \code{parameters}.}

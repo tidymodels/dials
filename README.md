@@ -49,8 +49,8 @@ of Conduct](https://dials.tidymodels.org/CODE_OF_CONDUCT.html). By
 contributing to this project, you agree to abide by its terms.
 
 - For questions and discussions about tidymodels packages, modeling, and
-  machine learning, please [post on RStudio
-  Community](https://community.rstudio.com/new-topic?category_id=15&tags=tidymodels,question).
+  machine learning, please [post on Posit
+  Community](https://forum.posit.co/new-topic?category_id=15&tags=tidymodels,question).
 
 - If you think you have encountered a bug, please [submit an
   issue](https://github.com/tidymodels/dials/issues).

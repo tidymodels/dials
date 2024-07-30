@@ -194,7 +194,7 @@ test_that("`values` is validated", {
 
 
 test_that("`default` arg is deprecated", {
-  expect_snapshot({
+  expect_snapshot(error = TRUE, {
     quant_param <- new_quant_param(
       type = "integer",
       default = 5L,
@@ -202,9 +202,7 @@ test_that("`default` arg is deprecated", {
       label = c(foo = "Foo")
     )
   })
-  expect_null(quant_param$default)
-
-  expect_snapshot({
+  expect_snapshot(error = TRUE, {
     qual_param <- new_qual_param(
       type = "logical",
       values = c(FALSE, TRUE),
@@ -212,5 +210,4 @@ test_that("`default` arg is deprecated", {
       label = c(foo = "Foo")
     )
   })
-  expect_null(qual_param$default)
 })
