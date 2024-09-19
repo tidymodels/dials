@@ -49,7 +49,10 @@
 grid_regular <- function(x, ..., levels = 3, original = TRUE, filter = NULL) {
   dots <- list(...)
   if (any(names(dots) == "size")) {
-    rlang::warn("`size` is not an argument to `grid_regular()`. Did you mean `levels`?")
+    cli::cli_warn(
+      "{.arg size} is not an argument to {.fn grid_regular}.
+      Did you mean {.arg levels}?"
+    )
   }
   UseMethod("grid_regular")
 }
@@ -166,8 +169,9 @@ make_regular_grid <- function(...,
 grid_random <- function(x, ..., size = 5, original = TRUE, filter = NULL) {
   dots <- list(...)
   if (any(names(dots) == "levels")) {
-    rlang::warn(
-      "`levels` is not an argument to `grid_random()`. Did you mean `size`?"
+    cli::cli_warn(
+      "{.arg levels} is not an argument to {.fn grid_random}.
+      Did you mean {.arg size}?"
     )
   }
   UseMethod("grid_random")
