@@ -14,7 +14,7 @@
       Warning:
       `size` is not an argument to `grid_regular()`. Did you mean `levels`?
       Error in `parameters()`:
-      ! The objects should all be `param` objects.
+      ! The objects should all be <param> objects.
 
 # wrong argument name
 
