@@ -414,7 +414,7 @@ grid_latin_hypercube <- function(x, ..., size = 3, original = TRUE) {
   dots <- list(...)
   if (any(names(dots) == "levels")) {
     cli::cli_warn(
-      "{.arg levels} is not an argument to {.fn grid_latin_hypercube.
+      "{.arg levels} is not an argument to {.fn grid_latin_hypercube}.
       Did you mean {.arg size}?"
     )
   }
