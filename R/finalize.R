@@ -142,8 +142,9 @@ finalize.default <- function(object, x, force = TRUE, ...) {
   if (all(is.na(object))) {
     return(object)
   } else {
-    cls <- paste0("'", class(x), "'", collapse = ", ")
-    rlang::abort(paste0("Cannot finalize an object with class(es): ", cls))
+    cli::cli_abort(
+      "Cannot finalize an object with class{?es}: {.cls {class(x)}}."
+    )
   }
   object
 }
@@ -161,7 +162,9 @@ get_p <- function(object, x, log_vals = FALSE, ...) {
 
   x_dims <- dim(x)
   if (is.null(x_dims)) {
-    rlang::abort("Cannot determine number of columns. Is `x` a 2D data object?")
+    cli::cli_abort(
+      "Cannot determine number of columns. Is {.arg x} a 2D data object?"
+    )
   }
 
   if (log_vals) {
@@ -195,7 +198,9 @@ get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ...) {
 
   x_dims <- dim(x)
   if (is.null(x_dims)) {
-    rlang::abort("Cannot determine number of columns. Is `x` a 2D data object?")
+    cli::cli_abort(
+      "Cannot determine number of columns. Is {.arg x} a 2D data object?"
+    )
   }
 
   n_frac <- floor(x_dims[1] * frac)
@@ -221,7 +226,9 @@ get_n_frac_range <- function(object, x, log_vals = FALSE, frac = c(1/10, 5/10), 
 
   x_dims <- dim(x)
   if (is.null(x_dims)) {
-    rlang::abort("Cannot determine number of columns. Is `x` a 2D data object?")
+    cli::cli_abort(
+      "Cannot determine number of columns. Is {.arg x} a 2D data object?"
+    )
   }
 
   n_frac <- sort(floor(x_dims[1] * frac))
@@ -252,7 +259,9 @@ get_rbf_range <- function(object, x, seed = sample.int(10^5, 1), ...) {
   suppressPackageStartupMessages(requireNamespace("kernlab", quietly = TRUE))
   x_mat <- as.matrix(x)
   if (!is.numeric(x_mat)) {
-    rlang::abort("The matrix version of the initialization data is not numeric.")
+    cli::cli_abort(
+      "The matrix version of the initialization data is not numeric."
+    )
   }
   with_seed(seed, rng <- kernlab::sigest(x_mat, ...)[-2])
   rng <- log10(rng)
@@ -269,7 +278,9 @@ get_batch_sizes <- function(object, x, frac = c(1/10, 1/3), ...) {
 
   x_dims <- dim(x)
   if (is.null(x_dims)) {
-    rlang::abort("Cannot determine number of columns. Is `x` a 2D data object?")
+    cli::cli_abort(
+      "Cannot determine number of columns. Is {.arg x} a 2D data object?"
+    )
   }
 
   n_frac <- sort(floor(x_dims[1] * frac))
