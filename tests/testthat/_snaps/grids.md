@@ -4,7 +4,7 @@
       grid_regular(mixture(), trees(), levels = 1:4)
     Condition
       Error in `grid_regular()`:
-      ! `levels` should have length 1 or 2
+      ! `levels` should have length 1 or 2, not 4.
 
 ---
 

@@ -70,20 +70,21 @@ check_range <- function(x, type, trans, ..., call = caller_env()) {
       whole <-
         purrr::map_lgl(x0[known], ~ abs(.x - round(.x)) < .Machine$double.eps^0.5)
       if (!all(whole)) {
-        msg <- paste(x0[known][!whole], collapse = ", ")
-        msg <- paste0(
-          "An integer is required for the range and these do not appear to be ",
-          "whole numbers: ", msg
+        offenders <- x0[known][!whole]
+        cli::cli_abort(
+          "An integer is required for the range and these do not appear to be
+          whole numbers: {offenders}.",
+          call = call
         )
-        rlang::abort(msg, call = call)
       }
 
       x0[known] <- as.integer(x0[known])
     } else {
-      msg <- paste0(
-        "Since `type = '", type, "'`, please use that data type for the range."
+      cli::cli_abort(
+        "Since {.code type = \"{type}\"}, please use that data type for the 
+        range.",
+        call = call
       )
-      rlang::abort(msg, call = call)
     }
   }
   invisible(x0)
@@ -97,13 +98,13 @@ check_values_quant <- function(x, ..., call = caller_env()) {
   }
 
   if (!is.numeric(x)) {
-    rlang::abort("`values` must be numeric.", call = call)
+    cli::cli_abort("{.arg values} must be numeric.", call = call)
   }
   if (anyNA(x)) {
-    rlang::abort("`values` can't be `NA`.", call = call)
+    cli::cli_abort("{.arg values} can't be {.code NA}.", call = call)
   }
   if (length(x) == 0) {
-    rlang::abort("`values` can't be empty.", call = call)
+    cli::cli_abort("{.arg values} can't be empty.", call = call)
   }
 
   invisible(x)
