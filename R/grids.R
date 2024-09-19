@@ -50,8 +50,10 @@ grid_regular <- function(x, ..., levels = 3, original = TRUE, filter = NULL) {
   dots <- list(...)
   if (any(names(dots) == "size")) {
     cli::cli_warn(
-      "{.arg size} is not an argument to {.fn grid_regular}.
-      Did you mean {.arg levels}?"
+     c(
+      "{.arg size} is not an argument to {.fn grid_regular}.",
+      i = "Did you mean {.arg levels}?"
+     )
     )
   }
   UseMethod("grid_regular")
