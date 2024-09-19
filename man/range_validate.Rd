@@ -23,7 +23,7 @@ an acceptable value.}
 
 \item{...}{These dots are for future extensions and must be empty.}
 
-\item{call}{The call passed on to \code{\link[rlang:abort]{rlang::abort()}}.}
+\item{call}{The call passed on to \code{\link[cli:cli_abort]{cli::cli_abort()}}.}
 
 \item{original}{A single logical. Should the range values be in the natural
 units (\code{TRUE}) or in the transformed space (\code{FALSE}, if applicable)?}

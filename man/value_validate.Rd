@@ -30,7 +30,7 @@ consistent with the parameter object's definition.}
 
 \item{...}{These dots are for future extensions and must be empty.}
 
-\item{call}{The call passed on to \code{\link[rlang:abort]{rlang::abort()}}.}
+\item{call}{The call passed on to \code{\link[cli:cli_abort]{cli::cli_abort()}}.}
 
 \item{n}{An integer for the (maximum) number of values to return. In some
 cases where a sequence is requested, the result might have less than \code{n}
