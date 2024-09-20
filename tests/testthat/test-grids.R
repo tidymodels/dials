@@ -44,6 +44,11 @@ test_that("regular grid", {
     grid_regular(list(mixture(), trees()), levels = 3),
     grid_regular(mixture(), trees(), levels = 3)
   )
+
+  expect_snapshot(
+    error = TRUE,
+    grid_regular(mixture(), trees(), levels = c(2, trees = 4))
+  )
 })
 
 test_that("random grid", {

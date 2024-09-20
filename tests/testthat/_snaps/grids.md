@@ -16,6 +16,14 @@
       Error in `parameters()`:
       ! The objects should all be <param> objects.
 
+---
+
+    Code
+      grid_regular(mixture(), trees(), levels = c(2, trees = 4))
+    Condition
+      Error in `grid_regular()`:
+      ! Elements of `levels` should either be all named or unnamed, not mixed.
+
 # wrong argument name
 
     Code

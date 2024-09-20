@@ -157,7 +157,7 @@ make_regular_grid <- function(...,
     parameters <- dplyr::filter(parameters, !!filter_quo)
   }
 
-  new_param_grid(parameters)
+  new_param_grid(parameters, call = call)
 }
 
 # ------------------------------------------------------------------------------
@@ -246,12 +246,12 @@ make_random_grid <- function(...,
     parameters <- dplyr::filter(parameters, !!filter_quo)
   }
 
-  new_param_grid(parameters)
+  new_param_grid(parameters, call = call)
 }
 
 # ------------------------------------------------------------------------------
 
-new_param_grid <- function(x = new_data_frame()) {
+new_param_grid <- function(x = new_data_frame(), call = caller_env()) {
   if (!is.data.frame(x)) {
     cli::cli_abort(
       "{.arg x} must be a data frame to construct a new grid from."
