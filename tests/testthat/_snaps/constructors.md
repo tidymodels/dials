@@ -145,7 +145,7 @@
 
     Code
       mtry()
-    Output
+    Message
       # Randomly Selected Predictors (quantitative)
       Range: [1, ?]
 
@@ -164,7 +164,7 @@
 
     Code
       value_set(cost_complexity(), log10(c(0.09, 1e-04)))
-    Output
+    Message
       Cost-Complexity Parameter (quantitative)
       Transformer: log-10 [1e-100, Inf]
       Range (transformed scale): [-10, -1]

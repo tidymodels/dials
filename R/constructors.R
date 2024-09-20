@@ -225,9 +225,9 @@ print.quant_param <- function(x, digits = 3, ...) {
 
 cat_quant_param_header <- function(x) {
   if (!is.null(x$label)) {
-    cat_line(x$label, " (quantitative)")
+    cli::cli_text("{x$label} (quantitative)")
   } else {
-    cat_line("Quantitative Parameter")
+    cli::cli_text("Quantitative Parameter")
   }
 }
 
@@ -237,7 +237,7 @@ cat_quant_param_range <- function(x) {
   range <- map_chr(x$range, format_range_val)
   range <- format_range(x, range)
 
-  cat_line(label, range)
+  cli::cli_text("{label}{range}")
 }
 
 cat_quant_param_values <- function(x) {
@@ -249,17 +249,14 @@ cat_quant_param_values <- function(x) {
 
   n_values <- length(values)
 
-  cat_line(glue("Values: {n_values}"))
+  cli::cli_text("Values: {n_values}")
 }
 
 print_transformer <- function(x) {
   if (!is.null(x$trans)) {
-    print(eval(x$trans))
+    text <- utils::capture.output(eval(x$trans))
+    cli::cli_text(text)
   }
-}
-
-cat_line <- function(...) {
-  cat(paste0(..., "\n", collapse = ""))
 }
 
 #' @export
