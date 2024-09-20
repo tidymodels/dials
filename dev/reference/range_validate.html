@@ -73,7 +73,7 @@ an acceptable value.</p></dd>
 
 
 <dt id="arg-call">call<a class="anchor" aria-label="anchor" href="#arg-call"></a></dt>
-<dd><p>The call passed on to <code><a href="https://rlang.r-lib.org/reference/abort.html" class="external-link">rlang::abort()</a></code>.</p></dd>
+<dd><p>The call passed on to <code><a href="https://cli.r-lib.org/reference/cli_abort.html" class="external-link">cli::cli_abort()</a></code>.</p></dd>
 
 
 <dt id="arg-original">original<a class="anchor" aria-label="anchor" href="#arg-original"></a></dt>
@@ -102,13 +102,14 @@ a new range.</p>
 <span class="r-in"><span>  silent <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Error in eval(expr, envir) : Value ranges must be non-missing.\n"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Error in eval(expr, envir) : \n  \033[1m\033[22m\033[31m✖\033[39m Value ranges must be non-missing.\n\033[36mℹ\033[39m `Inf` and `unknown()` are acceptable values.\n"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"class")</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "try-error"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> attr(,"condition")</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">&lt;error/`Inf` and `unknown()` are acceptable values.&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #0000BB; font-weight: bold;">&lt;error/rlang_error&gt;</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00; font-weight: bold;">Error</span><span style="font-weight: bold;">:</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BBBB00;">!</span> Value ranges must be non-missing.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BB0000;">✖</span> Value ranges must be non-missing.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> `Inf` and `unknown()` are acceptable values.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> ---</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="font-weight: bold;">Backtrace:</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">     </span>▆</span>
