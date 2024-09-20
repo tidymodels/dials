@@ -31,7 +31,7 @@ encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
   }
 
   if (!is.numeric(value) || is.matrix(value)) {
-    cli::cli_abort("`value` should be a numeric vector.")
+    cli::cli_abort("{.arg value} should be a numeric vector.")
   }
 
   param_rng <- x$range$upper - x$range$lower
