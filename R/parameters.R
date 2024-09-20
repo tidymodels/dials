@@ -164,7 +164,9 @@ unk_check <- function(x) {
 print.parameters <- function(x, ...) {
   x <- tibble::as_tibble(x)
 
-  cat("Collection of", nrow(x), "parameters for tuning\n\n")
+  cli::cli_par()
+  cli::cli_text("Collection of {nrow(x)} parameters for tuning")
+  cli::cli_end()
 
   print_x <- x %>% dplyr::select(identifier = id, type = name, object)
   print_x$object <-
@@ -176,35 +178,21 @@ print.parameters <- function(x, ...) {
         pillar::type_sum(.x)
       }
     )
-
-  print.data.frame(print_x, row.names = FALSE)
-  cat("\n")
+ 
+  cli::cli_par()
+  cli::cli_verbatim(
+    utils::capture.output(print.data.frame(print_x, row.names = FALSE))
+  )
+  cli::cli_end()
 
   null_obj <- map_lgl(x$object, ~ all(is.na(.x)))
 
   if (any(null_obj)) {
-    needs_param <- print_x$identifier[null_obj]
+     needs_param <- print_x$identifier[null_obj]
 
-    last_sep <- if (length(needs_param) == 2) {
-      "` and `"
-    } else {
-      "`, and `"
-    }
-
-    param_descs <- paste0(
-      "`",
-      glue::glue_collapse(print_x$identifier[null_obj], sep = "`, `", last = last_sep),
-      "`"
-    )
-
-    plural <- length(needs_param) != 1
-
-    rlang::inform(
-      glue::glue(
-        "The parameter{if (plural) 's' else ''} {param_descs} ",
-        "{if (plural) {'need `param` objects'} else {'needs a `param` object'}}. ",
-        "\nSee `vignette('dials')` to learn more."
-      )
+    cli::cli_text(
+      "The parameter{?s} {.var {needs_param}} {?needs a/need} {.var param} 
+      {?object/objects}. See {.code vignette('dials')} to learn more."
     )
   }
 
@@ -220,23 +208,29 @@ print.parameters <- function(x, ...) {
     # There's a more elegant way to do this, I'm sure:
     mod_obj <- as_tibble(other_obj) %>% dplyr::filter(source == "model_spec" & not_final)
     if (nrow(mod_obj) > 0) {
-      cat("Model parameters needing finalization:\n")
-      cat(mod_obj$note, sep = "")
-      cat("\n")
+      cli::cli_par()
+      cli::cli_text("Model parameters needing finalization:")
+      cli::cli_text("{mod_obj$note}")
+      cli::cli_end()
     }
     rec_obj <- as_tibble(other_obj) %>% dplyr::filter(source == "recipe" & not_final)
     if (nrow(rec_obj) > 0) {
-      cat("Recipe parameters needing finalization:\n")
-      cat(rec_obj$note, sep = "")
-      cat("\n")
+      cli::cli_par()
+      cli::cli_text("Recipe parameters needing finalization:")
+      cli::cli_text("{rec_obj$note}")
+      cli::cli_end()
     }
     lst_obj <- as_tibble(other_obj) %>% dplyr::filter(source == "list" & not_final)
     if (nrow(lst_obj) > 0) {
-      cat("Parameters needing finalization:\n")
-      cat(lst_obj$note, sep = "")
-      cat("\n")
+      cli::cli_par()
+      cli::cli_text("Parameters needing finalization:")
+      cli::cli_text("{lst_obj$note}")
+      cli::cli_end()
     }
-    cat("See `?dials::finalize` or `?dials::update.parameters` for more information.\n\n")
+    cli::cli_text(
+      "See {.help dials::finalize} or {.help dials::update.parameters} for 
+      more information."
+    )
   }
 
   invisible(x)
