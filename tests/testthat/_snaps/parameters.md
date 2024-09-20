@@ -52,6 +52,14 @@
       x Element id should have unique values.
       i Duplicates exist for item: a
 
+---
+
+    Code
+      parameters(list(a = mtry, a = penalty()))
+    Condition
+      Error in `parameters()`:
+      ! The objects should all be <param> objects.
+
 # updating
 
     Code
@@ -71,10 +79,26 @@
 ---
 
     Code
+      update(p_1, not_penalty = 1:2)
+    Condition
+      Error in `update()`:
+      ! At least one parameter does not match any id's in the set: not_penalty.
+
+---
+
+    Code
       update(p_1, penalty(), mtry = mtry(3:4))
     Condition
       Error in `update()`:
       ! All arguments should be named.
+
+---
+
+    Code
+      update(p_1)
+    Condition
+      Error in `update()`:
+      ! Please supply at least one parameter object.
 
 # printing
 

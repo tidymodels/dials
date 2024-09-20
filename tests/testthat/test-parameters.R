@@ -46,6 +46,7 @@ test_that("create from lists of param objects", {
   expect_equal(p_3$id, c("a", "some name"))
 
   expect_snapshot(error = TRUE, parameters(list(a = mtry(), a = penalty())))
+  expect_snapshot(error = TRUE, parameters(list(a = mtry, a = penalty())))
 })
 
 test_that("updating", {
@@ -61,8 +62,10 @@ test_that("updating", {
 
   expect_snapshot(error = TRUE, update(p_1, new_pen))
   expect_snapshot(error = TRUE, update(p_1, penalty = 1:2))
+  expect_snapshot(error = TRUE, update(p_1, not_penalty = 1:2))
   expect_snapshot(error = TRUE, update(p_1, penalty(), mtry = mtry(3:4)))
   expect_error(update(p_1, penalty = NA), NA)
+  expect_snapshot(error = TRUE, update(p_1))
 })
 
 test_that("printing", {
