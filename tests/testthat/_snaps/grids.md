@@ -23,7 +23,8 @@
       grid_space_filling(p, levels = 5, type = "latin_hypercube")
     Condition
       Warning:
-      `levels` is not an argument to `grid_space_filling()`. Did you mean `size`?
+      `levels` is not an argument to `grid_space_filling()`.
+      i Did you mean `size`?
     Output
       # A tibble: 5 x 2
               penalty mixture
@@ -40,7 +41,8 @@
       grid_space_filling(p, levels = 5, type = "max_entropy")
     Condition
       Warning:
-      `levels` is not an argument to `grid_space_filling()`. Did you mean `size`?
+      `levels` is not an argument to `grid_space_filling()`.
+      i Did you mean `size`?
     Output
       # A tibble: 5 x 2
          penalty mixture
@@ -57,7 +59,8 @@
       grid_random(p, levels = 5)
     Condition
       Warning:
-      `levels` is not an argument to `grid_random()`. Did you mean `size`?
+      `levels` is not an argument to `grid_random()`.
+      i Did you mean `size`?
     Output
       # A tibble: 5 x 2
               penalty mixture

@@ -92,9 +92,9 @@
 grid_space_filling <- function(x, ..., size = 5, type = "any", original = TRUE) {
   dots <- list(...)
   if (any(names(dots) == "levels")) {
-    cli::cli_warn(
-      "{.arg levels} is not an argument to {.fn grid_space_filling}.
-      Did you mean {.arg size}?"
+    cli::cli_warn(c(
+      "{.arg levels} is not an argument to {.fn grid_space_filling}.",
+      i = "Did you mean {.arg size}?")
     )
   }
   UseMethod("grid_space_filling")
@@ -283,9 +283,9 @@ grid_max_entropy <- function(x,
 
   dots <- list(...)
   if (any(names(dots) == "levels")) {
-    cli::cli_warn(
-      "{.arg levels} is not an argument to {.fn grid_max_entropy}.
-      Did you mean {.arg size}?"
+    cli::cli_warn(c(
+      "{.arg levels} is not an argument to {.fn grid_max_entropy}.",
+      i = "Did you mean {.arg size}?")
     )
   }
   UseMethod("grid_max_entropy")
@@ -413,9 +413,9 @@ grid_latin_hypercube <- function(x, ..., size = 3, original = TRUE) {
 
   dots <- list(...)
   if (any(names(dots) == "levels")) {
-    cli::cli_warn(
-      "{.arg levels} is not an argument to {.fn grid_latin_hypercube}.
-      Did you mean {.arg size}?"
+    cli::cli_warn(c(
+      "{.arg levels} is not an argument to {.fn grid_latin_hypercube}.",
+      i = "Did you mean {.arg size}?")
     )
   }
   UseMethod("grid_latin_hypercube")

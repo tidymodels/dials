@@ -171,9 +171,9 @@ make_regular_grid <- function(...,
 grid_random <- function(x, ..., size = 5, original = TRUE, filter = NULL) {
   dots <- list(...)
   if (any(names(dots) == "levels")) {
-    cli::cli_warn(
-      "{.arg levels} is not an argument to {.fn grid_random}.
-      Did you mean {.arg size}?"
+    cli::cli_warn(c(
+      "{.arg levels} is not an argument to {.fn grid_random}.",
+      i = "Did you mean {.arg size}?")
     )
   }
   UseMethod("grid_random")
