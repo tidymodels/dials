@@ -52,7 +52,8 @@
       des <- grid_space_filling(prm, levels = size, type = "uniform")
     Condition
       Warning:
-      `levels` is not an argument to `grid_space_filling()`. Did you mean `size`?
+      `levels` is not an argument to `grid_space_filling()`.
+      i Did you mean `size`?
 
 # very small designs
 

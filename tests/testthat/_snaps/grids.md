@@ -12,7 +12,8 @@
       grid_regular(mixture(), trees(), size = 3)
     Condition
       Warning:
-      `size` is not an argument to `grid_regular()`. Did you mean `levels`?
+      `size` is not an argument to `grid_regular()`.
+      i Did you mean `levels`?
       Error in `parameters()`:
       ! The objects should all be `param` objects.
 
@@ -22,7 +23,8 @@
       grid_space_filling(p, levels = 5, type = "latin_hypercube")
     Condition
       Warning:
-      `levels` is not an argument to `grid_space_filling()`. Did you mean `size`?
+      `levels` is not an argument to `grid_space_filling()`.
+      i Did you mean `size`?
     Output
       # A tibble: 5 x 2
               penalty mixture
@@ -39,7 +41,8 @@
       grid_space_filling(p, levels = 5, type = "max_entropy")
     Condition
       Warning:
-      `levels` is not an argument to `grid_space_filling()`. Did you mean `size`?
+      `levels` is not an argument to `grid_space_filling()`.
+      i Did you mean `size`?
     Output
       # A tibble: 5 x 2
          penalty mixture
@@ -56,7 +59,8 @@
       grid_random(p, levels = 5)
     Condition
       Warning:
-      `levels` is not an argument to `grid_random()`. Did you mean `size`?
+      `levels` is not an argument to `grid_random()`.
+      i Did you mean `size`?
     Output
       # A tibble: 5 x 2
               penalty mixture
@@ -73,7 +77,8 @@
       grid_regular(p, size = 5)
     Condition
       Warning:
-      `size` is not an argument to `grid_regular()`. Did you mean `levels`?
+      `size` is not an argument to `grid_regular()`.
+      i Did you mean `levels`?
     Output
       # A tibble: 9 x 2
              penalty mixture
