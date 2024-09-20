@@ -153,12 +153,11 @@
 
     Code
       surv_dist()
-    Output
-      Distribution  (qualitative)
     Message
+      Distribution (qualitative)
       6 possible values include:
-    Output
-      'weibull', 'exponential', 'gaussian', 'logistic', 'lognormal' and 'loglogistic' 
+      'weibull', 'exponential', 'gaussian', 'logistic', 'lognormal', and
+      'loglogistic'
 
 ---
 

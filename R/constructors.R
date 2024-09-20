@@ -262,9 +262,9 @@ print_transformer <- function(x) {
 #' @export
 print.qual_param <- function(x, ...) {
   if (!is.null(x$label)) {
-    cat(x$label, " (qualitative)\n")
+    cli::cli_text("{x$label} (qualitative)")
   } else {
-    cat("Qualitative Parameter\n")
+    cli::cli_text("Qualitative Parameter")
   }
   n_values <- length(x$values)
   cli::cli_text("{n_values} possible value{?s} include:")
@@ -273,14 +273,7 @@ print.qual_param <- function(x, ...) {
   } else {
     lvls <- x$values
   }
-  cat(
-    glue_collapse(
-      lvls,
-      sep = ", ",
-      last = " and ",
-      width = options()$width
-    ),
-    "\n"
-  )
+
+  cli::cli_text("{lvls}")
   invisible(x)
 }
