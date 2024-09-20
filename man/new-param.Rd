@@ -66,7 +66,7 @@ values of a parameter (such as the \code{range}).}
 
 \item{...}{These dots are for future extensions and must be empty.}
 
-\item{call}{The call passed on to \code{\link[rlang:abort]{rlang::abort()}}.}
+\item{call}{The call passed on to \code{\link[cli:cli_abort]{cli::cli_abort()}}.}
 }
 \value{
 An object of class \code{"param"} with the primary class being either

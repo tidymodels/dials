@@ -51,13 +51,17 @@ range_validate <- function(object,
                            call = caller_env()
                            ) {
   ukn_txt <- if (ukn_ok) {
-    "`Inf` and `unknown()` are acceptable values."
+    c(i = "{.code Inf} and {.code unknown()} are acceptable values.")
   } else {
-    ""
+    NULL
   }
   if (length(range) != 2) {
-    rlang::abort(
-      paste("`range` must have two values: an upper and lower bound.", ukn_txt),
+    cli::cli_abort(
+      c(
+        x = "{.arg range} must have two values: an upper and lower bound.", 
+        i = "{length(range)} value{?s} {?was/were} provided.",
+        ukn_txt
+      ),
       call = call
     )
   }
@@ -68,22 +72,28 @@ range_validate <- function(object,
 
   if (!ukn_ok) {
     if (any(is_unk)) {
-      rlang::abort(
+      cli::cli_abort(
         "Cannot validate ranges when they contains 1+ unknown values.",
         call = call
       )
     }
     if (!any(is_num)) {
-      rlang::abort("`range` should be numeric.", call = call)
+      cli::cli_abort("{.arg range} should be numeric.", call = call)
     }
 
     # TODO check with transform
   } else {
     if (any(is_na[!is_unk])) {
-      rlang::abort("Value ranges must be non-missing.", ukn_txt, call = call)
+      cli::cli_abort(
+        c(x = "Value ranges must be non-missing.", ukn_txt), 
+        call = call
+      )
     }
     if (any(!is_num[!is_unk])) {
-      rlang::abort("Value ranges must be numeric.", ukn_txt, call = call)
+      cli::cli_abort(
+        c("Value ranges must be numeric.", ukn_txt), 
+        call = call
+      )
     }
   }
   range
@@ -104,7 +114,9 @@ range_get <- function(object, original = TRUE) {
 #' @rdname range_validate
 range_set <- function(object, range) {
   if (length(range) != 2) {
-    rlang::abort("`range` should have two elements.")
+    cli::cli_abort(
+      "{.arg range} should have two elements, not {length(range)}."
+    )
   }
   if (inherits(object, "quant_param")) {
     object <-
@@ -117,7 +129,10 @@ range_set <- function(object, range) {
         label = object$label
       )
   } else {
-    rlang::abort("`object` should be a 'quant_param' object")
+    cli::cli_abort(
+      "{.arg object} should be a {.cls quant_param} object, 
+      not {.obj_type_friendly {object}}."
+    )
   }
   object
 }

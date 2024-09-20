@@ -40,7 +40,7 @@
 #'
 #' @inheritParams rlang::args_dots_empty
 #'
-#' @param call The call passed on to [rlang::abort()].
+#' @param call The call passed on to [cli::cli_abort()].
 #'
 #' @return
 #'
