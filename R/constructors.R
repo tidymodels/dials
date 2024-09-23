@@ -255,7 +255,7 @@ print_quant_param_values <- function(x) {
 print_quant_param_transformer <- function(x) {
   if (!is.null(x$trans)) {
     text <- utils::capture.output(eval(x$trans))
-    cli::cli_text(text)
+    cli::cli_verbatim(text)
   }
 }
 
