@@ -216,14 +216,14 @@ new_qual_param <- function(type = c("character", "logical"),
 
 #' @export
 print.quant_param <- function(x, digits = 3, ...) {
-  cat_quant_param_header(x)
-  print_transformer(x)
-  cat_quant_param_range(x)
-  cat_quant_param_values(x)
+  print_quant_param_header(x)
+  print_quant_param_transformer(x)
+  print_quant_param_range(x)
+  print_quant_param_values(x)
   invisible(x)
 }
 
-cat_quant_param_header <- function(x) {
+print_quant_param_header <- function(x) {
   if (!is.null(x$label)) {
     cli::cli_text("{x$label} (quantitative)")
   } else {
@@ -231,7 +231,7 @@ cat_quant_param_header <- function(x) {
   }
 }
 
-cat_quant_param_range <- function(x) {
+print_quant_param_range <- function(x) {
   label <- format_range_label(x, "Range")
 
   range <- map_chr(x$range, format_range_val)
@@ -240,7 +240,7 @@ cat_quant_param_range <- function(x) {
   cli::cli_text("{label}{range}")
 }
 
-cat_quant_param_values <- function(x) {
+print_quant_param_values <- function(x) {
   values <- x$values
 
   if (is.null(values)) {
@@ -252,7 +252,7 @@ cat_quant_param_values <- function(x) {
   cli::cli_text("Values: {n_values}")
 }
 
-print_transformer <- function(x) {
+print_quant_param_transformer <- function(x) {
   if (!is.null(x$trans)) {
     text <- utils::capture.output(eval(x$trans))
     cli::cli_text(text)
@@ -266,6 +266,7 @@ print.qual_param <- function(x, ...) {
   } else {
     cli::cli_text("Qualitative Parameter")
   }
+
   n_values <- length(x$values)
   cli::cli_text("{n_values} possible value{?s} include:")
   if (x$type == "character") {
@@ -273,7 +274,7 @@ print.qual_param <- function(x, ...) {
   } else {
     lvls <- x$values
   }
-
   cli::cli_text("{lvls}")
+
   invisible(x)
 }
