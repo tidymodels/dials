@@ -4,7 +4,7 @@
       grid_regular(mixture(), trees(), levels = 1:4)
     Condition
       Error in `grid_regular()`:
-      ! `levels` should have length 1 or 2
+      ! `levels` should have length 1 or 2, not 4.
 
 ---
 
@@ -15,7 +15,15 @@
       `size` is not an argument to `grid_regular()`.
       i Did you mean `levels`?
       Error in `parameters()`:
-      ! The objects should all be `param` objects.
+      ! The objects should all be <param> objects.
+
+---
+
+    Code
+      grid_regular(mixture(), trees(), levels = c(2, trees = 4))
+    Condition
+      Error in `grid_regular()`:
+      ! Elements of `levels` should either be all named or unnamed, not mixed.
 
 # wrong argument name
 

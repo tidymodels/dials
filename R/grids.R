@@ -135,8 +135,8 @@ make_regular_grid <- function(...,
   # check levels
   p <- length(levels)
   if (p > 1 && p != length(param_quos)) {
-    rlang::abort(
-      paste0("`levels` should have length 1 or ", length(param_quos)),
+    cli::cli_abort(
+      "{.arg levels} should have length 1 or {length(param_quos)}, not {p}.",
       call = call
     )
   }
@@ -147,8 +147,9 @@ make_regular_grid <- function(...,
     if (all(rlang::has_name(levels, names(params)))) {
       levels <- levels[names(params)]
     } else if (any(rlang::has_name(levels, names(params)))) {
-      rlang::abort(
-        "Elements of `levels` should either be all named or unnamed, not mixed.",
+      cli::cli_abort(
+        "Elements of {.arg levels} should either be all named or unnamed, 
+        not mixed.",
         call = call
       )
     }
@@ -161,7 +162,7 @@ make_regular_grid <- function(...,
     parameters <- dplyr::filter(parameters, !!filter_quo)
   }
 
-  new_param_grid(parameters)
+  new_param_grid(parameters, call = call)
 }
 
 # ------------------------------------------------------------------------------
@@ -251,14 +252,16 @@ make_random_grid <- function(...,
     parameters <- dplyr::filter(parameters, !!filter_quo)
   }
 
-  new_param_grid(parameters)
+  new_param_grid(parameters, call = call)
 }
 
 # ------------------------------------------------------------------------------
 
-new_param_grid <- function(x = new_data_frame()) {
+new_param_grid <- function(x = new_data_frame(), call = caller_env()) {
   if (!is.data.frame(x)) {
-    rlang::abort("`x` must be a data frame to construct a new grid from.")
+    cli::cli_abort(
+      "{.arg x} must be a data frame to construct a new grid from."
+    )
   }
 
   x <- vctrs::vec_unique(x)

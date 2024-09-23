@@ -236,7 +236,7 @@ make_sfd <- function(...,
       )
   }
 
-  new_param_grid(grid)
+  new_param_grid(grid, call = call)
 }
 
 base_recycle <- function(x, size) {

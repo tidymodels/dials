@@ -12,11 +12,8 @@ parameters <- function(x, ...) {
 #' @export
 #' @rdname parameters
 parameters.default <- function(x, ...) {
-  rlang::abort(
-    glue(
-      "`parameters` objects cannot be created from objects ",
-      "of class `{class(x)[1]}`."
-    )
+  cli::cli_abort(
+    "{.cls parameters} objects cannot be created from {.obj_type_friendly {x}}."
   )
 }
 
@@ -34,7 +31,7 @@ parameters.param <- function(x, ...) {
 parameters.list <- function(x, ...) {
   elem_param <- purrr::map_lgl(x, inherits, "param")
   if (any(!elem_param)) {
-    rlang::abort("The objects should all be `param` objects.")
+    cli::cli_abort("The objects should all be {.cls param} objects.")
   }
   elem_name <- purrr::map_chr(x, ~ names(.x$label))
   elem_id <- names(x)
@@ -61,12 +58,14 @@ unique_check <- function(x, ..., call = caller_env()) {
   if (any(is_dup)) {
     dup_list <- x2[is_dup]
     cl <- match.call()
-    msg <- paste0(
-      "Element `", deparse(cl$x), "` should have unique values. Duplicates exist ",
-      "for item(s): ",
-      paste0("'", dup_list, "'", collapse = ", ")
+
+    cli::cli_abort(
+      c(
+        x = "Element {.field {deparse(cl$x)}} should have unique values.",
+        i = "Duplicates exist for {cli::qty(dup_list)} item{?s}: {dup_list}"
+      ),
+      call = call
     )
-    rlang::abort(msg, call = call)
   }
   invisible(TRUE)
 }
@@ -78,16 +77,18 @@ param_or_na <- function(x) {
 check_list_of_param <- function(x, ..., call = caller_env()) {
   check_dots_empty()
   if (!is.list(x)) {
-    abort("`object` must be a list of `param` objects.", call = call)
+    cli::cli_abort(
+      "{.arg object} must be a list of {.cls param} objects.",
+      call = call
+    )
   }
   is_good_boi <- map_lgl(x, param_or_na)
   if (any(!is_good_boi)) {
-    rlang::abort(
-      paste0(
-        "`object` elements in the following positions must be `NA` or a ",
-        "`param` object:",
-        paste0(which(!is_good_boi), collapse = ", ")
-      ),
+    offenders <- which(!is_good_boi)
+
+    cli::cli_abort(
+      "{.arg object} elements in the following positions must be {.code NA} or a 
+      {.cls param} object: {offenders}.",
       call = call
     )
   }
@@ -99,7 +100,7 @@ check_list_of_param <- function(x, ..., call = caller_env()) {
 #' length.
 #' @param object A list of `param` objects or NA values.
 #' @inheritParams rlang::args_dots_empty
-#' @param call The call passed on to [rlang::abort()].
+#' @param call The call passed on to [cli::cli_abort()].
 #'
 #' @return A tibble that encapsulates the input vectors into a tibble with an
 #' additional class of "parameters".
@@ -129,7 +130,7 @@ parameters_constr <- function(name,
     )
   n_elements_unique <- unique(n_elements)
   if (length(n_elements_unique) > 1) {
-    abort(
+    cli::cli_abort(
       "All inputs must contain contain the same number of elements.",
       call = call
     )
@@ -261,21 +262,21 @@ print.parameters <- function(x, ...) {
 update.parameters <- function(object, ...) {
   args <- rlang::list2(...)
   if (length(args) == 0) {
-    rlang::abort("Please supply at least one parameter object.")
+    cli::cli_abort("Please supply at least one parameter object.")
   }
   nms <- names(args)
   if (length(nms) == 0 || any(nms == "")) {
-    rlang::abort("All arguments should be named.")
+    cli::cli_abort("All arguments should be named.")
   }
 
   in_set <- nms %in% object$id
   if (!all(in_set)) {
-    msg <- paste0("'", nms[!in_set], "'", collapse = ", ")
-    msg <- paste(
-      "At least one parameter does not match any id's in the set:",
-      msg
+    offenders <- nms[!in_set]
+
+    cli::cli_abort(
+      "At least one parameter does not match any id's in the set:
+      {offenders}."
     )
-    rlang::abort(msg)
   }
   not_param <- !purrr::map_lgl(args, inherits, "param")
   not_null <- !purrr::map_lgl(args, ~ all(is.na(.x)))

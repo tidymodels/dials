@@ -13,7 +13,8 @@
       parameters_constr(ab, c("a", "a"), ab, ab, ab)
     Condition
       Error:
-      ! Element `id` should have unique values. Duplicates exist for item(s): 'a'
+      x Element id should have unique values.
+      i Duplicates exist for item: a
 
 ---
 
@@ -22,7 +23,7 @@
       parameters_constr(ab, ab, ab, ab, ab, "not a params list")
     Condition
       Error:
-      ! `object` must be a list of `param` objects.
+      ! `object` must be a list of <param> objects.
 
 ---
 
@@ -48,7 +49,16 @@
       parameters(list(a = mtry(), a = penalty()))
     Condition
       Error in `parameters()`:
-      ! Element `id` should have unique values. Duplicates exist for item(s): 'a'
+      x Element id should have unique values.
+      i Duplicates exist for item: a
+
+---
+
+    Code
+      parameters(list(a = mtry, a = penalty()))
+    Condition
+      Error in `parameters()`:
+      ! The objects should all be <param> objects.
 
 # updating
 
@@ -69,10 +79,26 @@
 ---
 
     Code
+      update(p_1, not_penalty = 1:2)
+    Condition
+      Error in `update()`:
+      ! At least one parameter does not match any id's in the set: not_penalty.
+
+---
+
+    Code
       update(p_1, penalty(), mtry = mtry(3:4))
     Condition
       Error in `update()`:
       ! All arguments should be named.
+
+---
+
+    Code
+      update(p_1)
+    Condition
+      Error in `update()`:
+      ! Please supply at least one parameter object.
 
 # printing
 
@@ -142,5 +168,5 @@
       parameters(tibble::as_tibble(mtcars))
     Condition
       Error in `parameters()`:
-      ! `parameters` objects cannot be created from objects of class `tbl_df`.
+      ! <parameters> objects cannot be created from a tibble.
 
