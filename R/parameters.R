@@ -189,11 +189,12 @@ print.parameters <- function(x, ...) {
 
   if (any(null_obj)) {
      needs_param <- print_x$identifier[null_obj]
-
+    cli::cli_par()
     cli::cli_text(
-      "The parameter{?s} {.var {needs_param}} {?needs a/need} {.var param} 
-      {?object/objects}. See {.code vignette('dials')} to learn more."
+      "The parameter{?s} {.var {needs_param}} {?needs a/need} {.var param}
+      {?object/objects}."
     )
+    cli::cli_end()
   }
 
   other_obj <-

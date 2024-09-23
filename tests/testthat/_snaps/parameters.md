@@ -100,8 +100,8 @@
        identifier   type  object
            trials trials missing
       
-      The parameter `trials` needs a `param` object. See `vignette('dials')` to learn
-      more.
+      The parameter `trials` needs a `param` object.
+      
 
 ---
 
@@ -114,8 +114,8 @@
            trials trials missing
             rules  rules missing
       
-      The parameters `trials` and `rules` need `param` objects. See
-      `vignette('dials')` to learn more.
+      The parameters `trials` and `rules` need `param` objects.
+      
 
 ---
 
@@ -129,8 +129,8 @@
             rules  rules missing
             costs  costs missing
       
-      The parameters `trials`, `rules`, and `costs` need `param` objects. See
-      `vignette('dials')` to learn more.
+      The parameters `trials`, `rules`, and `costs` need `param` objects.
+      
 
 # parameters.default
 
