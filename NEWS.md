@@ -1,5 +1,7 @@
 # dials (development version)
 
+* All messages, warnings and errors has been translated to use {cli} package (#311). 
+
 # dials 1.3.0
 
 ## Improvements
