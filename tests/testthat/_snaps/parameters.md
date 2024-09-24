@@ -100,7 +100,7 @@
        identifier   type  object
            trials trials missing
       
-      The parameter `trials` needs a `param` object.
+      The parameter `trials` needs a <param> object.
       
 
 ---
@@ -114,7 +114,7 @@
            trials trials missing
             rules  rules missing
       
-      The parameters `trials` and `rules` need `param` objects.
+      The parameters `trials` and `rules` need <param> objects.
       
 
 ---
@@ -129,7 +129,7 @@
             rules  rules missing
             costs  costs missing
       
-      The parameters `trials`, `rules`, and `costs` need `param` objects.
+      The parameters `trials`, `rules`, and `costs` need <param> objects.
       
 
 # parameters.default

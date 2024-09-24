@@ -191,7 +191,7 @@ print.parameters <- function(x, ...) {
      needs_param <- print_x$identifier[null_obj]
     cli::cli_par()
     cli::cli_text(
-      "The parameter{?s} {.var {needs_param}} {?needs a/need} {.var param}
+      "The parameter{?s} {.var {needs_param}} {?needs a/need} {.cls param}
       {?object/objects}."
     )
     cli::cli_end()
