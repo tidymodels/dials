@@ -11,6 +11,7 @@ parameters_constr(
   component,
   component_id,
   object,
+  constraint,
   ...,
   call = caller_env()
 )

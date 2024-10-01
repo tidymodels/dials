@@ -13,7 +13,7 @@ parameters(x, ...)
 
 \method{parameters}{param}(x, ...)
 
-\method{parameters}{list}(x, ...)
+\method{parameters}{list}(x, ..., .constraint = NULL)
 }
 \arguments{
 \item{x}{An object, such as a list of \code{param} objects or an actual \code{param}

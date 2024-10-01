@@ -122,6 +122,10 @@ grid_space_filling.parameters <- function(x,
     original = original
   )
   names(grd) <- x$id
+  if (has_constraint(x)) {
+    constr <- attr(x, "constraint")
+    grd <- dplyr::filter(grd, !!constr)
+  }
   grd
 }
 

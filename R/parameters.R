@@ -28,7 +28,8 @@ parameters.param <- function(x, ...) {
 
 #' @export
 #' @rdname parameters
-parameters.list <- function(x, ...) {
+parameters.list <- function(x, ..., .constraint = NULL) {
+  .constraint <- rlang::enquo(.constraint)
   elem_param <- purrr::map_lgl(x, inherits, "param")
   if (any(!elem_param)) {
     cli::cli_abort("The objects should all be {.cls param} objects.")
@@ -42,11 +43,12 @@ parameters.list <- function(x, ...) {
   }
   p <- length(x)
   parameters_constr(
-    elem_name,
-    elem_id,
-    rep("list", p),
-    rep("unknown", p),
-    rep("unknown", p),
+    name = elem_name,
+    id = elem_id,
+    source = rep("list", p),
+    component = rep("unknown", p),
+    component_id = rep("unknown", p),
+    constraint = .constraint,
     x
   )
 }
@@ -87,7 +89,7 @@ check_list_of_param <- function(x, ..., call = caller_env()) {
     offenders <- which(!is_good_boi)
 
     cli::cli_abort(
-      "{.arg object} elements in the following positions must be {.code NA} or a 
+      "{.arg object} elements in the following positions must be {.code NA} or a
       {.cls param} object: {offenders}.",
       call = call
     )
@@ -112,6 +114,7 @@ parameters_constr <- function(name,
                               component,
                               component_id,
                               object,
+                              constraint,
                               ...,
                               call = caller_env()) {
   check_dots_empty()
@@ -149,6 +152,8 @@ parameters_constr <- function(name,
       nrow = length(name)
     )
   class(res) <- c("parameters", class(res))
+  attr(res, "constraint") <- constraint
+
   res
 }
 
@@ -157,6 +162,16 @@ unk_check <- function(x) {
     res <- NA
   } else {
     res <- has_unknowns(x)
+  }
+  res
+}
+
+has_constraint <- function(x) {
+  if (any(names(attributes(x)) == "constraint")) {
+    constr <- attr(x, "constraint")
+    res <- rlang::is_quosure(constr) && !rlang::quo_is_null(constr)
+  } else {
+    res <- FALSE
   }
   res
 }
@@ -179,7 +194,7 @@ print.parameters <- function(x, ...) {
         pillar::type_sum(.x)
       }
     )
- 
+
   cli::cli_par()
   cli::cli_verbatim(
     utils::capture.output(print.data.frame(print_x, row.names = FALSE))
@@ -230,9 +245,16 @@ print.parameters <- function(x, ...) {
       cli::cli_end()
     }
     cli::cli_text(
-      "See {.help dials::finalize} or {.help dials::update.parameters} for 
+      "See {.help dials::finalize} or {.help dials::update.parameters} for
       more information."
     )
+  }
+
+  if (has_constraint(x)) {
+    constr <- attr(x, "constraint")
+    constr <- rlang::quo_get_expr(constr)
+    constr <- rlang::expr_deparse(constr)
+    cli::cli_inform("Parameter constraint: {.code {constr}}.")
   }
 
   invisible(x)
