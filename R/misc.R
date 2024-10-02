@@ -37,16 +37,16 @@ format_bounds <- function(bnds) {
 
 check_label <- function(label, ..., call = caller_env()) {
   check_dots_empty()
-  
+
   check_string(label, allow_null = TRUE, call = call)
-  
+
   if (!is.null(label) && length(names(label)) != 1) {
     cli::cli_abort(
       "{.arg label} must be named.",
       call = call
     )
   }
-  
+
   invisible(NULL)
 }
 
@@ -81,7 +81,7 @@ check_range <- function(x, type, trans, ..., call = caller_env()) {
       x0[known] <- as.integer(x0[known])
     } else {
       cli::cli_abort(
-        "Since {.code type = \"{type}\"}, please use that data type for the 
+        "Since {.code type = \"{type}\"}, please use that data type for the
         range.",
         call = call
       )
@@ -123,7 +123,7 @@ check_inclusive <- function(x, ..., call = caller_env()) {
 
   stop_input_type(
     x,
-    "a logical vector of length 2", 
+    "a logical vector of length 2",
     allow_na = FALSE,
     allow_null = FALSE,
     arg = "inclusive",
@@ -150,4 +150,12 @@ check_param <- function(x,
     arg = arg,
     call = call
   )
+}
+
+constrain_grid <- function(x, grid) {
+  if (has_constraint(x)) {
+    constr <- attr(x, "constraint")
+    grid <- dplyr::filter(grid, !!constr)
+  }
+  grid
 }

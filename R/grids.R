@@ -77,7 +77,7 @@ grid_regular.parameters <- function(x,
     filter = {{ filter }}
   )
   names(grd) <- x$id
-  grd
+  constrain_grid(x, grd)
 }
 
 #' @export
@@ -148,7 +148,7 @@ make_regular_grid <- function(...,
       levels <- levels[names(params)]
     } else if (any(rlang::has_name(levels, names(params)))) {
       cli::cli_abort(
-        "Elements of {.arg levels} should either be all named or unnamed, 
+        "Elements of {.arg levels} should either be all named or unnamed,
         not mixed.",
         call = call
       )
@@ -198,7 +198,7 @@ grid_random.parameters <- function(x,
     filter = {{ filter }}
   )
   names(grd) <- x$id
-  grd
+  constrain_grid(x, grd)
 }
 
 #' @export

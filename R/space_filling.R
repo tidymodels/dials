@@ -122,11 +122,7 @@ grid_space_filling.parameters <- function(x,
     original = original
   )
   names(grd) <- x$id
-  if (has_constraint(x)) {
-    constr <- attr(x, "constraint")
-    grd <- dplyr::filter(grd, !!constr)
-  }
-  grd
+  constrain_grid(x, grd)
 }
 
 #' @export
@@ -316,7 +312,8 @@ grid_max_entropy.parameters <- function(x,
     iter = iter
   )
   names(grd) <- x$id
-  new_param_grid(grd)
+  grd <- new_param_grid(grd)
+  constrain_grid(x, grd)
 }
 
 #' @export
@@ -433,7 +430,8 @@ grid_latin_hypercube.parameters <- function(x, ..., size = 3, original = TRUE) {
   grd <- make_latin_hypercube_grid(!!!params, size = size, original = original)
 
   names(grd) <- x$id
-  new_param_grid(grd)
+  grd <- new_param_grid(grd)
+  constrain_grid(x, grd)
 }
 
 #' @export
