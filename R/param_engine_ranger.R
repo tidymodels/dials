@@ -81,11 +81,11 @@ splitting_rule <- function(values = ranger_split_rules) {
 
 #' @rdname ranger_parameters
 #' @export
-ranger_class_rules <- c("variance", "extratrees", "maxstat", "beta")
+ranger_class_rules <- c("gini", "extratrees", "hellinger")
 
 #' @rdname ranger_parameters
 #' @export
-ranger_reg_rules <- c("gini", "extratrees", "hellinger")
+ranger_reg_rules <- c("variance", "extratrees", "maxstat", "beta")
 
 #' @rdname ranger_parameters
 #' @export
