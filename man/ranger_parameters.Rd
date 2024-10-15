@@ -13,9 +13,9 @@
 \alias{num_random_splits}
 \title{Parameters for possible engine parameters for ranger}
 \format{
-An object of class \code{character} of length 4.
-
 An object of class \code{character} of length 3.
+
+An object of class \code{character} of length 4.
 
 An object of class \code{character} of length 7.
 }
