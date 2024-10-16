@@ -6,6 +6,16 @@
 \usage{
 buffer(range = c(0, 0.5), trans = NULL)
 }
+\arguments{
+\item{range}{A two-element vector holding the \emph{defaults} for the smallest and
+largest possible values, respectively. If a transformation is specified,
+these values should be in the \emph{transformed units}.}
+
+\item{trans}{A \code{trans} object from the \code{scales} package, such as
+\code{scales::transform_log10()} or \code{scales::transform_reciprocal()}. If not provided,
+the default is used which matches the units used in \code{range}. If no
+transformation, \code{NULL}.}
+}
 \description{
 In equivocal zones, predictions are considered equivocal (i.e. "could
 go either way") if their probability falls within some distance on either

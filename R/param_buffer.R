@@ -9,7 +9,7 @@
 #' regardless of their value in \code{[0, 1]}.
 #' Otherwise, the maximum buffer is `min(threshold, 1 - threshold)`.
 #'
-#' @inheritParams buffer
+#' @inheritParams Laplace
 #' @seealso [threshold()]
 #' @examples
 #' buffer()
