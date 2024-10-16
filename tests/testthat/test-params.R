@@ -4,6 +4,7 @@ test_that("param ranges", {
   expect_equal(sample_size(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(learn_rate(c(.1, .9))$range, list(lower = 0.1, upper = 0.9))
   expect_equal(loss_reduction(c(.1, .9))$range, list(lower = 0.1, upper = 0.9))
+  expect_equal(buffer(c(0, .25))$range, list(lower = 0, upper = .25))
   expect_equal(cost_complexity(c(.1, .9))$range, list(lower = 0.1, upper = 0.9))
   expect_equal(epochs(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(degree()$range, list(lower = 1, upper = 3))
