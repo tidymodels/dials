@@ -84,6 +84,8 @@ test_that("param ranges", {
   expect_equal(harmonic_frequency(c(2, 100))$range, list(lower = 2, upper = 100))
   expect_equal(validation_set_prop(c(0.1, 0.4))$range, list(lower = 0.1, upper = 0.4))
   expect_equal(target_weight(c(0.1, 0.4))$range, list(lower = 0.1, upper = 0.4))
+  expect_equal(lower_limit(c(Inf, 0))$range, list(lower = Inf, upper = 0))
+  expect_equal(upper_limit(c(0, Inf))$range, list(lower = 0, upper = Inf))
 })
 
 
