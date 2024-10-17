@@ -8,7 +8,9 @@ output:
     toc: yes
 ---
 
-```{r setup, include = FALSE}
+```{r}
+#| label: setup
+#| include: false
 knitr::opts_chunk$set(
   message = FALSE,
   digits = 3,
@@ -45,14 +47,16 @@ Otherwise, the information contained in parameter objects are different for diff
 
 An example of a numeric tuning parameter is the cost-complexity parameter of CART trees, otherwise known as $C_p$. A parameter object for $C_p$ can be created in `dials` using:
 
-```{r cp}
+```{r}
+#| label: cp
 library(dials)
 cost_complexity()
 ```
 
 Note that this parameter is handled in log units and the default range of values is between `10^-10` and `0.1`. The range of possible values can be returned and changed based on some utility functions. We'll use the pipe operator here:
 
-```{r cp-range}
+```{r}
+#| label: cp-range
 library(dplyr)
 cost_complexity() %>% range_get()
 cost_complexity() %>% range_set(c(-5, 1))
@@ -64,7 +68,8 @@ cost_complexity(range = c(-5, 1))
 
 Values for this parameter can be obtained in a few different ways. To get a sequence of values that span the range: 
 
-```{r cp-seq}
+```{r}
+#| label: cp-seq
 # Natural units:
 cost_complexity() %>% value_seq(n = 4)
 
@@ -74,14 +79,17 @@ cost_complexity() %>% value_seq(n = 4, original = FALSE)
 
 Random values can be sampled too. A random uniform distribution is used (between the range values). Since this parameter has a transformation associated with it, the values are simulated in the transformed scale and then returned in the natural units (although the `original` argument can be used here): 
 
-```{r cp-sim}
+```{r}
+#| label: cp-sim
 set.seed(5473)
 cost_complexity() %>% value_sample(n = 4)
 ```
 
 For CART trees, there is a discrete set of values that exist for a given data set. It may be a good idea to assign these possible values to the object. We can get them by fitting an initial `rpart` model and then adding the values to the object. For `mtcars`, there are only three values:
 
-```{r rpart, error=TRUE}
+```{r}
+#| label: rpart
+#| error: true
 library(rpart)
 cart_mod <- rpart(mpg ~ ., data = mtcars, control = rpart.control(cp = 0.000001))
 cart_mod$cptable
@@ -96,14 +104,16 @@ mtcars_cp <- cost_complexity() %>% value_set(cp_vals)
 
 The error occurs because the values are not in the transformed scale:
 
-```{r rpart-cp}
+```{r}
+#| label: rpart-cp
 mtcars_cp <- cost_complexity() %>% value_set(log10(cp_vals))
 mtcars_cp
 ```
 
 Now, if a sequence or random sample is requested, it uses the set values:
 
-```{r rpart-cp-vals}
+```{r}
+#| label: rpart-cp-vals
 mtcars_cp %>% value_seq(2)
 # Sampling specific values is done with replacement
 mtcars_cp %>% 
@@ -113,7 +123,8 @@ mtcars_cp %>%
 
 Any transformations from the `scales` package can be used with the numeric parameters, or a custom transformation generated with `scales::trans_new()`.
 
-```{r custom-transform}
+```{r}
+#| label: custom-transform
 trans_raise <- scales::trans_new(
   "raise", 
   transform = function(x) 2^x , 
@@ -126,7 +137,8 @@ custom_cost
 Note that if a transformation is used, the `range` argument specifies the parameter range _on the transformed scale_. 
 For this version of `cost()`, parameter values are sampled between 1 and 10 and then transformed back to the original scale by the inverse `-log2()`. So on the original scale, the sampled values are between `-log2(10)` and `-log2(1)`.
 
-```{r custom-cost}
+```{r}
+#| label: custom-cost
 -log2(c(10, 1))
 value_sample(custom_cost, 100) %>% range()
 ```
@@ -136,13 +148,15 @@ value_sample(custom_cost, 100) %>% range()
 
 In the discrete case there is no notion of a range. The parameter objects are defined by their discrete values. For example, consider a parameter for the types of kernel functions that is used with distance functions:
 
-```{r wts}
+```{r}
+#| label: wts
 weight_func()
 ```
 
 The helper functions are analogues to the quantitative parameters:
 
-```{r wts-ex}
+```{r}
+#| label: wts-ex
 # redefine values
 weight_func() %>% value_set(c("rectangular", "triangular"))
 weight_func() %>% value_sample(3)
@@ -159,7 +173,8 @@ The package contains two constructors that can be used to create new quantitativ
 
 There are some cases where the range of parameter values are data dependent. For example, the upper bound on the number of neighbors cannot be known if the number of data points in the training set is not known. For that reason, some parameters have an _unknown_ placeholder:
 
-```{r unk}
+```{r}
+#| label: unk
 mtry()
 sample_size()
 num_terms()
@@ -169,7 +184,8 @@ num_comp()
 
 These values must be initialized prior to generating parameter values. The `finalize()` methods can be used to help remove the unknowns:
 
-```{r finalize-mtry}
+```{r}
+#| label: finalize-mtry
 finalize(mtry(), x = mtcars[, -1])
 ```
 
@@ -177,7 +193,8 @@ finalize(mtry(), x = mtcars[, -1])
 
 These are collection of parameters used in a model, recipe, or other object. They can also be created manually and can have alternate identification fields:
 
-```{r p-set}
+```{r}
+#| label: p-set
 glmnet_set <- parameters(list(lambda = penalty(), alpha = mixture()))
 glmnet_set
 
@@ -193,7 +210,8 @@ Sets or combinations of parameters can be created for use in grid search. `grid_
 
 For example, for a glmnet model, a regular grid might be:
 
-```{r glm-reg}
+```{r}
+#| label: glm-reg
 grid_regular(
   mixture(),
   penalty(),
@@ -203,7 +221,8 @@ grid_regular(
 
 and, similarly, a random grid is created using
 
-```{r glm-rnd}
+```{r}
+#| label: glm-rnd
 set.seed(1041)
 grid_random(
   mixture(),

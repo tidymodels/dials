@@ -37,13 +37,15 @@ The name reflects the idea that tuning predictive models can be like turning a s
 
 You can install the released version of dials from [CRAN](https://CRAN.R-project.org) with:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 install.packages("dials")
 ```
 
 You can install the development version from Github with:
 
-```{r, eval=FALSE}
+```{r}
+#| eval: false
 # install.packages("pak")
 pak::pak("tidymodels/dials")
 ```
