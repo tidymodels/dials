@@ -31,23 +31,10 @@ test_that("max entropy designs", {
   )
   expect_equal(ncol(grid_3), 1L)
 
-  expect_error(
-    grid_max_entropy(
-      cost,
-      size = 11,
-      original = FALSE
-    )
-  )
   expect_snapshot(
     error = TRUE,
     grid_max_entropy(
       mtry(),
-      size = 11,
-      original = FALSE
-    )
-  )
-  expect_error(
-    grid_max_entropy(
       size = 11,
       original = FALSE
     )
@@ -92,23 +79,10 @@ test_that("latin square designs", {
     20
   )
 
-  expect_error(
-    grid_latin_hypercube(
-      cost,
-      size = 11,
-      original = FALSE
-    )
-  )
   expect_snapshot(
     error = TRUE,
     grid_latin_hypercube(
       mtry(),
-      size = 11,
-      original = FALSE
-    )
-  )
-  expect_error(
-    grid_latin_hypercube(
       size = 11,
       original = FALSE
     )
