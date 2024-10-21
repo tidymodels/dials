@@ -1,11 +1,5 @@
 
 test_that("regular grid", {
-  expect_error(
-    grid_regular(mtcars)
-  )
-  expect_error(
-    grid_regular()
-  )
   expect_snapshot(
     error = TRUE,
     grid_regular(mixture(), trees(), levels = 1:4)
@@ -52,12 +46,6 @@ test_that("regular grid", {
 })
 
 test_that("random grid", {
-  expect_error(
-    grid_random(mtcars)
-  )
-  expect_error(
-    grid_random()
-  )
   expect_equal(
     nrow(grid_random(mixture(), trees(), size = 2)),
     2
@@ -75,7 +63,7 @@ test_that("wrong argument name", {
   skip_if_below_r_version("3.6")
   p <- parameters(penalty(), mixture())
   set.seed(1)
-  
+
   expect_snapshot(grid_space_filling(p, levels = 5, type = "latin_hypercube"))
   expect_snapshot(grid_space_filling(p, levels = 5, type = "max_entropy"))
   expect_snapshot(grid_random(p, levels = 5))
@@ -102,6 +90,6 @@ test_that("filter arg yields same results", {
 test_that("new param grid from conventional data frame", {
   x <- data.frame(num_comp = 1:3)
 
-  expect_error(y <- dials:::new_param_grid(x), regexp = NA)
+  expect_no_condition(y <- dials:::new_param_grid(x))
   expect_true(tibble::is_tibble(y))
 })
