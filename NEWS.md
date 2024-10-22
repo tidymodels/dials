@@ -1,5 +1,12 @@
 # dials (development version)
 
+* Added three new parameters for use in postprocessing in the tailor package (#357).
+     - `buffer()` sets the distance on either side of a classification threshold 
+       within which predictions are considered equivocal in 
+       `tailor::adjust_equivocal_zone()`.
+     - `lower_limit()` and `upper_limit()` sets the ranges for
+       numeric predictions in `tailor::adjust_numeric_range()`.
+
 * All messages, warnings and errors has been translated to use {cli} package (#311). 
 
 # dials 1.3.0
