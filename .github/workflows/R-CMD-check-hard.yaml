@@ -12,7 +12,7 @@ on:
   pull_request:
     branches: [main, master]
 
-name: check-no-suggests.yaml
+name: R-CMD-check-no-suggests.yaml
 
 permissions: read-all
 
