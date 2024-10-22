@@ -1,6 +1,4 @@
 
-suppressMessages(library(kernlab))
-
 test_that("estimate columns", {
   expect_snapshot(error = TRUE, get_p(1:10))
   expect_snapshot(error = TRUE, get_p(1:10, 1:10))
@@ -48,6 +46,9 @@ test_that("estimate rows", {
 
 
 test_that("estimate sigma", {
+  skip_if_not_installed("kernlab")
+  suppressMessages(library(kernlab))
+
   expect_snapshot(error = TRUE, get_rbf_range(rbf_sigma(), iris))
 
   run_1 <- range_get(get_rbf_range(rbf_sigma(), mtcars, seed = 5624))
@@ -58,6 +59,9 @@ test_that("estimate sigma", {
 
 
 test_that("force", {
+  skip_if_not_installed("kernlab")
+  suppressMessages(library(kernlab))
+
   rbf_sigma_final <- finalize(rbf_sigma(), mtcars)
   rbf_sigma_same <- finalize(rbf_sigma(), mtcars, force = FALSE)
 
