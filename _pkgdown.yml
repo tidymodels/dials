@@ -112,6 +112,11 @@ reference:
     - scale_pos_weight
     - shrinkage_correlation
 
+  - title: Parameter objects for post-processing
+    contents:
+    - buffer
+    - range_limits
+
   - title: Finalizing parameters
     contents:
     - finalize
