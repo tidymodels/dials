@@ -87,6 +87,20 @@ test_that("printing", {
   expect_snapshot(
     value_set(cost_complexity(), log10(c(.09, .0001)))
   )
+
+  expect_snapshot({
+    mtry_ish <- mtry()
+    mtry_ish$label <- NULL
+    print(mtry_ish)
+  })
+
+  expect_snapshot({
+    fun_ish <- weight_func()
+    fun_ish$label <- NULL
+    print(fun_ish)
+  })
+
+  expect_snapshot(signed_hash())
 })
 
 

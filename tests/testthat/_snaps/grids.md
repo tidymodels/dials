@@ -101,3 +101,11 @@
       8 0.00001          1  
       9 1                1  
 
+# new param grid from conventional data frame
+
+    Code
+      new_param_grid(as.matrix(x))
+    Condition
+      Error in `new_param_grid()`:
+      ! `x` must be a data frame to construct a new grid from.
+
