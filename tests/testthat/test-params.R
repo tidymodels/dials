@@ -19,6 +19,7 @@ test_that("param ranges", {
   expect_equal(svm_margin(c(.1, .15))$range, list(lower = .1, upper = .15))
   expect_equal(deg_free(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(hidden_units(1:2)$range, list(lower = 1L, upper = 2L))
+  expect_equal(hidden_units_2(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(batch_size(1:2)$range, list(lower = 1L, upper = 2L))
   expect_equal(Laplace(c(.1, .9))$range, list(lower = 0.1, upper = 0.9))
   expect_equal(dist_power(c(.1, .9))$range, list(lower = 0.1, upper = 0.9))
@@ -86,6 +87,11 @@ test_that("param ranges", {
   expect_equal(target_weight(c(0.1, 0.4))$range, list(lower = 0.1, upper = 0.4))
   expect_equal(lower_limit(c(Inf, 0))$range, list(lower = Inf, upper = 0))
   expect_equal(upper_limit(c(0, Inf))$range, list(lower = 0, upper = Inf))
+  expect_equal(max_num_terms(c(31,100))$range, list(lower = 31, upper = 100))
+  expect_equal(max_nodes(c(31,100))$range, list(lower = 31, upper = 100))
+  expect_equal(num_tokens(c(31,100))$range, list(lower = 31, upper = 100))
+  expect_equal(mtry_prop(c(.1,.2))$range, list(lower = .1, upper = .2))
+  expect_equal(dropout(c(.1,.2))$range, list(lower = .1, upper = .2))
 })
 
 
@@ -110,6 +116,8 @@ test_that("param values", {
   expect_equal(summary_stat()$values, values_summary_stat)
   expect_equal(survival_link()$values, values_survival_link)
   expect_equal(activation()$values, values_activation)
+  expect_equal(activation_2()$values, values_activation)
   expect_equal(rate_schedule()$values, values_scheduler)
   expect_equal(initial_umap()$values, values_initial_umap)
+  expect_equal(all_neighbors(TRUE)$values, TRUE)
 })
