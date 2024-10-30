@@ -143,7 +143,7 @@ finalize.default <- function(object, x, force = TRUE, ...) {
     return(object)
   } else {
     cli::cli_abort(
-      "Cannot finalize an object with class{?es}: {.cls {class(x)}}."
+      "Cannot finalize {.obj_type_friendly {object}}."
     )
   }
   object
