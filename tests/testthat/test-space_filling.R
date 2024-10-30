@@ -31,12 +31,29 @@ test_that("max entropy designs", {
   )
   expect_equal(ncol(grid_3), 1L)
 
+  grid_4 <- grid_max_entropy(
+    list(cost = cost(), mix = mixture()),
+    size = 11,
+    original = FALSE
+  )
+  expect_equal(nrow(grid_4), 11L)
+  expect_true(all(grid_4$mix > 0 & grid_4$mix < 1))
+  expect_true(all(grid_4$cost > -10 & grid_4$cost < 5))
+
   expect_snapshot(
     error = TRUE,
     grid_max_entropy(
       mtry(),
       size = 11,
       original = FALSE
+    )
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    grid_max_entropy(
+      mixture(),
+      levels = 11
     )
   )
 })
@@ -74,6 +91,15 @@ test_that("latin square designs", {
   )
   expect_equal(ncol(grid_3), 1L)
 
+  grid_4 <- grid_latin_hypercube(
+    list(cost = cost(), mix = mixture()),
+    size = 11,
+    original = FALSE
+  )
+  expect_equal(nrow(grid_4), 11L)
+  expect_true(all(grid_4$mix > 0 & grid_4$mix < 1))
+  expect_true(all(grid_4$cost > -10 & grid_4$cost < 5))
+
   expect_lt(
     nrow(grid_latin_hypercube(prod_degree(), prune_method(), size = 20)),
     20
@@ -85,6 +111,14 @@ test_that("latin square designs", {
       mtry(),
       size = 11,
       original = FALSE
+    )
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    grid_latin_hypercube(
+      mixture(),
+      levels = 11
     )
   )
 })
