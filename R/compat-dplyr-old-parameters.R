@@ -2,7 +2,7 @@ dplyr_pre_1.0.0 <- function() {
   utils::packageVersion("dplyr") <= "0.8.5"
 }
 
-
+# nocov start
 # Registered in `.onLoad()`
 mutate_parameters <- function(.data, ...) {
   out <- NextMethod()
@@ -38,3 +38,4 @@ slice_parameters <- function(.data, ...) {
   out <- NextMethod()
   parameters_reconstruct(out, .data)
 }
+# nocov end
