@@ -9,6 +9,10 @@ test_that("regular grid", {
     4
   )
   expect_equal(
+    nrow(grid_regular(mixture(), trees(), levels = 2, filter = trees == 1)),
+    2
+  )
+  expect_equal(
     nrow(grid_regular(mixture(), trees(), levels = 2:3)),
     prod(2:3)
   )
@@ -56,6 +60,10 @@ test_that("random grid", {
     nrow(grid_random(prod_degree(), prune_method(), size = 50)),
     12
   )
+  expect_equal(
+    nrow(grid_random(list(mixture(), trees()), size = 2)),
+    2
+  )
 })
 
 
@@ -92,4 +100,11 @@ test_that("new param grid from conventional data frame", {
 
   expect_no_condition(y <- dials:::new_param_grid(x))
   expect_true(tibble::is_tibble(y))
+
+  # or from a matrix?
+  expect_snapshot(
+    error = TRUE,
+    new_param_grid(as.matrix(x))
+  )
+
 })

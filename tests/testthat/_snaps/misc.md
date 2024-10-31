@@ -70,3 +70,13 @@
       Error:
       ! `inclusive` must be a logical vector of length 2, not an integer vector.
 
+# vctrs-helpers-parameters
+
+    Code
+      dials:::df_size(2)
+    Condition
+      Error in `dials:::df_size()`:
+      ! Cannot get the df size of a non-list.
+      i This is an internal error that was detected in the dials package.
+        Please report it at <https://github.com/tidymodels/dials/issues> with a reprex (<https://tidyverse.org/help/>) and the full backtrace.
+

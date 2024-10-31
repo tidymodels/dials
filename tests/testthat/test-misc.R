@@ -53,3 +53,12 @@ test_that("check_inclusive()", {
   expect_snapshot(error = TRUE, check_inclusive(c(TRUE, NA)))
   expect_snapshot(error = TRUE, check_inclusive(1:2))
 })
+
+
+test_that("vctrs-helpers-parameters", {
+  expect_false(dials:::is_parameters(2))
+  expect_snapshot(
+    error = TRUE,
+    dials:::df_size(2)
+  )
+})

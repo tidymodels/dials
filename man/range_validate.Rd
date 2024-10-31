@@ -10,7 +10,7 @@ range_validate(object, range, ukn_ok = TRUE, ..., call = caller_env())
 
 range_get(object, original = TRUE)
 
-range_set(object, range)
+range_set(object, range, call = caller_env())
 }
 \arguments{
 \item{object}{An object with class \code{quant_param}.}

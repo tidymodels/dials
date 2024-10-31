@@ -54,3 +54,21 @@
       Error in `get_rbf_range()`:
       ! The matrix version of the initialization data is not numeric.
 
+# finalize interfaces
+
+    Code
+      finalize("threshold", mtcars)
+    Condition
+      Error in `finalize()`:
+      ! Cannot finalize a string.
+
+---
+
+    Code
+      finalize(list(TRUE, 3), mtcars)
+    Condition
+      Error in `map()`:
+      i In index: 2.
+      Caused by error in `.f()`:
+      ! Cannot finalize a number.
+

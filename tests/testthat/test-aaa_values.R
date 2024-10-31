@@ -32,6 +32,8 @@ test_that("transforms", {
   expect_equal(
     value_transform(mtry(), 1:3), 1:3
   )
+  expect_false(value_validate(prior_terminal_node_coef(), 0))
+  expect_false(value_validate(activation(), "ham"))
 })
 
 

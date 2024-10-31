@@ -22,6 +22,17 @@
       x This argument contains unknowns: `mtry`.
       i See the `dials::finalize()` function.
 
+---
+
+    Code
+      grid_max_entropy(mixture(), levels = 11)
+    Condition
+      Warning:
+      `levels` is not an argument to `grid_max_entropy()`.
+      i Did you mean `size`?
+      Error in `parameters()`:
+      ! The objects should all be <param> objects.
+
 # `grid_latin_hypercube()` is deprecated
 
     Code
@@ -45,6 +56,17 @@
       Error in `grid_latin_hypercube()`:
       x This argument contains unknowns: `mtry`.
       i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_latin_hypercube(mixture(), levels = 11)
+    Condition
+      Warning:
+      `levels` is not an argument to `grid_latin_hypercube()`.
+      i Did you mean `size`?
+      Error in `parameters()`:
+      ! The objects should all be <param> objects.
 
 # S3 methods for space-filling
 
