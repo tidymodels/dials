@@ -84,6 +84,7 @@ test_that("force", {
 })
 
 test_that("finalize interfaces", {
+  skip_if_not_installed("kernlab")
   ## list interface
   set.seed(1)
   rbf_sigma_final <- finalize(rbf_sigma(), mtcars)
