@@ -90,6 +90,14 @@ is_parameters <- function(x) {
   inherits(x, "parameters")
 }
 
+check_parameters <- function(x) {
+  if (!is_parameters(x)) {
+    cli::cli_abort("The object should be a {.cls parameters} object, not
+                   {.obj_type_friendly {x}}.")
+  }
+  invisible(NULL)
+}
+
 # ------------------------------------------------------------------------------
 
 # Maybe this should live in vctrs?

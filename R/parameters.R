@@ -114,7 +114,7 @@ parameters_constr <- function(name,
                               component,
                               component_id,
                               object,
-                              constraint,
+                              constraint = NULL,
                               ...,
                               call = caller_env()) {
   check_dots_empty()
@@ -162,16 +162,6 @@ unk_check <- function(x) {
     res <- NA
   } else {
     res <- has_unknowns(x)
-  }
-  res
-}
-
-has_constraint <- function(x) {
-  if (any(names(attributes(x)) == "constraint")) {
-    constr <- attr(x, "constraint")
-    res <- rlang::is_quosure(constr) && !rlang::quo_is_null(constr)
-  } else {
-    res <- FALSE
   }
   res
 }
