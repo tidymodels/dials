@@ -6,16 +6,26 @@
 #' @return [has_constraint()] returns a logical, all others return parameter
 #' sets.
 #' @examples
-#' no_prm <- parameters(lambda = penalty(), mixture())
+#' library(dplyr)
 #'
-#' has_constraint(no_prm)
+#' no_constr_prm <- parameters(lambda = penalty(), mixture(), num_terms(c(1, 10)))
 #'
-#' constr_prm <- add_parameter_constraint(ex_prm, penalty < 0.01)
+#' has_constraint(no_constr_prm)
+#'
+#' constr_prm <- add_parameter_constraint(no_constr_prm, lambda < 0.01)
 #' constr_prm
 #' has_constraint(constr_prm)
 #'
 #' remove_parameter_constraint(constr_prm)
-#' update_parameter_constraint(constr_prm, log10(penalty) < -2 & mixture > 1 / 2)
+#' update_parameter_constraint(constr_prm, log10(lambda) < -2 & mixture > 1 / 2)
+#'
+#' # Using an existing expression? Splice it in
+#' is_even_exp <- quote(num_terms %% 2 == 0)
+#' even_prm <- add_parameter_constraint(no_constr_prm, !!is_even_exp)
+#' even_prm
+#'
+#' set.seed(1)
+#' grid_random(even_prm, size = 100) %>% count(num_terms)
 #' @export
 has_constraint <- function(object) {
   if (any(names(attributes(object)) == "constraint")) {
