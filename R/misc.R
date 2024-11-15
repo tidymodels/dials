@@ -156,6 +156,8 @@ constrain_grid <- function(x, grid) {
   if (has_constraint(x)) {
     constr <- attr(x, "constraint")
     grid <- dplyr::filter(grid, !!constr)
+  } else {
+    return(grid)
   }
   if (nrow(grid) == 0) {
     cli::cli_warn("There are no feasible points in the grid.")
