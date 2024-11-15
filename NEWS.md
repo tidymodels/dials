@@ -9,6 +9,8 @@
 
 * All messages, warnings and errors has been translated to use {cli} package (#311). 
 
+* For space-filling designs for $p$ parameters, there is a higher likelihood of finding a space-filling design for `1 < size <= p`. Also, single-point designs now default to a random grid. 
+
 # dials 1.3.0
 
 ## Improvements

@@ -285,19 +285,11 @@ test_that("S3 methods for space-filling", {
 
 })
 
-test_that("very small designs", {
-
-  expect_snapshot_warning({
-    set.seed(1)
-    small_1 <- grid_space_filling(parameters(neighbors()), size = 1)
+test_that("1-point grid", {
+   expect_silent({
+     set.seed(1)
+     grid <- grid_space_filling(parameters(neighbors()), size = 1)
   })
-  expect_equal(dim(small_1), c(1L, 1L))
-
-  expect_snapshot_warning({
-    set.seed(1)
-    small_2 <- grid_space_filling(parameters(neighbors(), mixture(), penalty()),
-                                  size = 2)
-  })
-  expect_equal(dim(small_2), c(2L, 3L))
-
+  expect_equal(nrow(grid), 1L)
 })
+

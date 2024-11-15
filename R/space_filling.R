@@ -15,8 +15,7 @@
 #' `"audze_eglais"`, `"max_min_l1"`, `"max_min_l2"`, `"uniform"`,
 #' `"max_entropy"`, or `"latin_hypercube"`. A value of `"any"` will choose the
 #' first design available (in the order listed above, excluding
-#' `"latin_hypercube"`). If the design is extremely small, the function may
-#' change the type to `"latin_hypercube"` (with a warning).
+#' `"latin_hypercube"`). For a single-point design, a random grid is created.
 #' @param variogram_range A numeric value greater than zero. Larger values
 #'  reduce the likelihood of empty regions in the parameter space. Only used
 #'  for `type = "max_entropy"`.
@@ -193,10 +192,9 @@ make_sfd <- function(...,
   params <- map(param_quos, eval_tidy)
   p <- length(params)
 
-  if (size < p | size == 1) {
-    cli::cli_warn("Due to the small size of the grid, a Latin hypercube \\
-                  design will be used.")
-    type <- "latin_hypercube"
+  if (size == 1) {
+    res <- dials::grid_random(params, size = size)
+    return(res)
   }
 
   if (type %in% c("any", "audze_eglais", "max_min_l1", "max_min_l2", "uniform")) {
