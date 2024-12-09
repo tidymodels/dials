@@ -193,7 +193,7 @@ make_sfd <- function(...,
   p <- length(params)
 
   if (size == 1) {
-    res <- dials::grid_random(params, size = size)
+    res <- grid_random(params, size = size)
     return(res)
   }
 
