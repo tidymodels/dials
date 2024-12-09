@@ -19,6 +19,12 @@ test_that("has_unknown", {
   expect_true(
     has_unknowns(mtry())
   )
+  expect_false(
+    is_unknown(NA)
+  )
+  expect_false(
+    dials:::has_unknowns_val(NA)
+  )
   expect_equal(
     has_unknowns(list(mtry(), mixture())),
     c(TRUE, FALSE)

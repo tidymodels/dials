@@ -28,4 +28,9 @@ test_that("setting ranges", {
   expect_equal(
     range_set(mtry(), c(unknown(), 10L))$range, list(lower = unknown(), upper = 10L)
   )
+  expect_snapshot(range_set(mtry(), 1), error = TRUE)
+  expect_snapshot(range_set(activation(), 1:2), error = TRUE)
+
+  expect_snapshot(range_validate(mtry(), letters[1:2]), error = TRUE)
+  expect_snapshot(range_validate(mtry(), letters[1:2], ukn_ok = FALSE), error = TRUE)
 })
