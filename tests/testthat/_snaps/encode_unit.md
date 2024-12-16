@@ -4,7 +4,7 @@
       encode_unit(prune_method(), "don't prune", direction = "forward")
     Condition
       Error in `encode_unit()`:
-      ! Some values are not in the reference set of possible values: "bad_vals"}.
+      ! Some values are not in the reference set of possible values: "don't prune".
 
 ---
 
