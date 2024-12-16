@@ -260,7 +260,8 @@ make_random_grid <- function(...,
 new_param_grid <- function(x = new_data_frame(), call = caller_env()) {
   if (!is.data.frame(x)) {
     cli::cli_abort(
-      "{.arg x} must be a data frame to construct a new grid from."
+      "{.arg x} must be a data frame to construct a new grid from.",
+      call = call
     )
   }
 
