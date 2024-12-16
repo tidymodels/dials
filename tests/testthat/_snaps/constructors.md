@@ -169,6 +169,37 @@
       Range (transformed scale): [-10, -1]
       Values: 2
 
+---
+
+    Code
+      mtry_ish <- mtry()
+      mtry_ish$label <- NULL
+      print(mtry_ish)
+    Message
+      Quantitative Parameter
+      Range: [1, ?]
+
+---
+
+    Code
+      fun_ish <- weight_func()
+      fun_ish$label <- NULL
+      print(fun_ish)
+    Message
+      Qualitative Parameter
+      10 possible values include:
+      'rectangular', 'triangular', 'epanechnikov', 'biweight', 'triweight', 'cos',
+      'inv', 'gaussian', 'rank', and 'optimal'
+
+---
+
+    Code
+      signed_hash()
+    Message
+      Signed Hash Value (qualitative)
+      2 possible values include:
+      TRUE and FALSE
+
 # bad ranges
 
     Code

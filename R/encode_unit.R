@@ -87,7 +87,7 @@ encode_unit.qual_param <- function(x, value, direction, ...) {
 
       cli::cli_abort(
         "Some values are not in the reference set of possible values: 
-          {.val bad_vals}}."
+          {.val {bad_vals}}."
       )
     }
     fac <- factor(value, levels = ref_vals)

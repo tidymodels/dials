@@ -1,3 +1,27 @@
+# to [0, 1] for qualitative values
+
+    Code
+      encode_unit(prune_method(), "don't prune", direction = "forward")
+    Condition
+      Error in `encode_unit()`:
+      ! Some values are not in the reference set of possible values: "don't prune".
+
+---
+
+    Code
+      encode_unit(prune_method(), 13, direction = "forward")
+    Condition
+      Error in `encode_unit()`:
+      ! `value` should be a character vector.
+
+# to [0, 1] for quantitative values
+
+    Code
+      encode_unit(penalty(), "penalty", direction = "forward")
+    Condition
+      Error in `encode_unit()`:
+      ! `value` should be a numeric vector.
+
 # bad args
 
     Code
@@ -94,4 +118,12 @@
     Condition
       Error in `encode_unit()`:
       ! Values should be on [0, 1].
+
+---
+
+    Code
+      encode_unit(mtry(), 1:2, direction = "backward")
+    Condition
+      Error in `encode_unit()`:
+      ! The parameter object contains unknowns.
 

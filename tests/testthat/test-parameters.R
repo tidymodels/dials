@@ -1,14 +1,18 @@
 test_that("parameters_const() input checks", {
   expect_snapshot(error = TRUE, {
-    parameters_constr(2)
+    parameters_constr(name = 2)
   })
   expect_snapshot(error = TRUE, {
     ab <- c("a", "b")
-    parameters_constr(ab, c("a", "a"), ab, ab, ab)
+    parameters_constr(ab, id = c("a", "a"), ab, ab, ab)
   })
   expect_snapshot(error = TRUE, {
     ab <- c("a", "b")
-    parameters_constr(ab, ab, ab, ab, ab, "not a params list")
+    parameters_constr(ab, ab, ab, ab, ab, object = "not a params list")
+  })
+  expect_snapshot(error = TRUE, {
+    ab <- c("a", "b")
+    parameters_constr(ab, ab, ab, ab, ab, object = list(penalty(), "not a param"))
   })
   expect_snapshot(error = TRUE, {
     ab <- c("a", "b")
