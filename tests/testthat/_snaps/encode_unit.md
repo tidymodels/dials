@@ -17,10 +17,10 @@
 # to [0, 1] for quantitative values
 
     Code
-      eencode_unit(penalty(), "penalty", direction = "forward")
+      encode_unit(penalty(), "penalty", direction = "forward")
     Condition
-      Error in `eencode_unit()`:
-      ! could not find function "eencode_unit"
+      Error in `encode_unit()`:
+      ! `value` should be a numeric vector.
 
 # bad args
 

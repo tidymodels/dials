@@ -36,7 +36,7 @@ test_that("to [0, 1] for quantitative values", {
   expect_equal(y_trans, log10(214), tolerance = 0.01)
   expect_snapshot(
     error = TRUE,
-    eencode_unit(penalty(), "penalty", direction = "forward")
+    encode_unit(penalty(), "penalty", direction = "forward")
   )
 })
 
