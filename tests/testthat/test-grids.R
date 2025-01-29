@@ -72,10 +72,14 @@ test_that("wrong argument name", {
   p <- parameters(penalty(), mixture())
   set.seed(1)
 
-  expect_snapshot(grid_space_filling(p, levels = 5, type = "latin_hypercube"))
-  expect_snapshot(grid_space_filling(p, levels = 5, type = "max_entropy"))
-  expect_snapshot(grid_random(p, levels = 5))
-  expect_snapshot(grid_regular(p, size = 5))
+  expect_snapshot(error = TRUE, {
+    grid_space_filling(p, levels = 5, type = "latin_hypercube")
+  })
+  expect_snapshot(error = TRUE, {
+    grid_space_filling(p, levels = 5, type = "max_entropy")
+  })
+  expect_snapshot(error = TRUE, grid_random(p, levels = 5))
+  expect_snapshot(error = TRUE, grid_regular(p, size = 5))
 })
 
 test_that("filter arg yields same results", {
