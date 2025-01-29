@@ -9,7 +9,7 @@
 #' in examples below.
 #'
 #' @details
-#' This parameter is used in `recipes` via [embed::step_umap()].
+#' This parameter is used in [embed::step_umap()].
 #' 
 #' @examples
 #' values_initial_umap
