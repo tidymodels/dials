@@ -106,6 +106,6 @@
     Code
       new_param_grid(as.matrix(x))
     Condition
-      Error:
+      Error in `new_param_grid()`:
       ! `x` must be a data frame to construct a new grid from.
 
