@@ -313,10 +313,9 @@ test_that("S3 methods for space-filling", {
   expect_equal(design_paramset, design_list)
 
   ## also:
-  expect_snapshot(
-    des <- grid_space_filling(prm, levels = size, type = "uniform")
-  )
-
+  expect_snapshot(error = TRUE, {
+    grid_space_filling(prm, levels = size, type = "uniform")
+  })
 })
 
 test_that("1-point grid", {

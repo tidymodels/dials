@@ -27,11 +27,9 @@
     Code
       grid_max_entropy(mixture(), levels = 11)
     Condition
-      Warning:
-      `levels` is not an argument to `grid_max_entropy()`.
+      Error in `grid_max_entropy()`:
+      ! `levels` is not an argument to `grid_max_entropy()`.
       i Did you mean `size`?
-      Error in `parameters()`:
-      ! The objects should all be <param> objects.
 
 # `grid_latin_hypercube()` is deprecated
 
@@ -62,18 +60,16 @@
     Code
       grid_latin_hypercube(mixture(), levels = 11)
     Condition
-      Warning:
-      `levels` is not an argument to `grid_latin_hypercube()`.
+      Error in `grid_latin_hypercube()`:
+      ! `levels` is not an argument to `grid_latin_hypercube()`.
       i Did you mean `size`?
-      Error in `parameters()`:
-      ! The objects should all be <param> objects.
 
 # S3 methods for space-filling
 
     Code
-      des <- grid_space_filling(prm, levels = size, type = "uniform")
+      grid_space_filling(prm, levels = size, type = "uniform")
     Condition
-      Warning:
-      `levels` is not an argument to `grid_space_filling()`.
+      Error in `grid_space_filling()`:
+      ! `levels` is not an argument to `grid_space_filling()`.
       i Did you mean `size`?
 
