@@ -187,9 +187,9 @@
       print(fun_ish)
     Message
       Qualitative Parameter
-      10 possible values include:
+      9 possible values include:
       'rectangular', 'triangular', 'epanechnikov', 'biweight', 'triweight', 'cos',
-      'inv', 'gaussian', 'rank', and 'optimal'
+      'inv', 'gaussian', and 'rank'
 
 ---
 
