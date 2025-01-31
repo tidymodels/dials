@@ -132,6 +132,19 @@ new_quant_param <- function(type = c("double", "integer"),
 
   check_inclusive(inclusive, call = call)
 
+  if (type == "integer" && !any(is_unknown(range))) {
+    range_of_2_consecutive_values <- identical(range[[1]] + 1L, range[[2]])
+    if (range_of_2_consecutive_values) {
+      if (!all(inclusive)) {
+        cli::cli_abort(
+          "{.arg inclusive} must be {.code c(TRUE, TRUE)} when the {.arg range} 
+          only covers two consecutive values.",
+          call = call
+        )
+      }
+    }
+  }
+
   if (!is.null(trans) && !is.trans(trans)) {
     cli::cli_abort(
       c(
