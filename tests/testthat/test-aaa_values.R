@@ -276,3 +276,59 @@ test_that("value_set() checks inputs", {
     value_set(cost_complexity(), numeric(0))
   })
 })
+
+test_that("`value_seq()` respects `inclusive` #347", {
+  double_non_incl <- new_quant_param(
+    type = "double",
+    range = c(0, 1),
+    inclusive = c(FALSE, FALSE),
+    trans = NULL,
+    label = c(param_non_incl = "some label"),
+    finalize = NULL
+  )
+
+  vals_double <- value_seq(double_non_incl, 10)
+  expect_gt(min(vals_double), 0)
+  expect_lt(max(vals_double), 1)
+
+  int_non_incl <- new_quant_param(
+    type = "integer",
+    range = c(0, 2),
+    inclusive = c(FALSE, FALSE),
+    trans = NULL,
+    label = c(param_non_incl = "some label"),
+    finalize = NULL
+  )
+
+  vals_int <- value_seq(int_non_incl, 10)
+  expect_gt(min(vals_int), 0)
+  expect_lt(max(vals_int), 2)
+})
+
+test_that("`value_sample()` respects `inclusive` #347", {
+  int_non_incl <- new_quant_param(
+    type = "integer",
+    range = c(0, 2),
+    inclusive = c(FALSE, FALSE),
+    trans = NULL,
+    label = c(param_non_incl = "some label"),
+    finalize = NULL
+  )
+
+  vals_int <- value_sample(int_non_incl, 10)
+  expect_gt(min(vals_int), 0)
+  expect_lt(max(vals_int), 2)
+
+  int_non_incl_trans <- new_quant_param(
+    type = "integer",
+    range = c(0, 2),
+    inclusive = c(FALSE, FALSE),
+    trans = scales::transform_log(),
+    label = c(param_non_incl = "some label"),
+    finalize = NULL
+  )
+
+  vals_int <- value_sample(int_non_incl_trans, n = 10, original = FALSE)
+  expect_gt(min(vals_int), 0)
+  expect_lt(max(vals_int), 2)
+})
