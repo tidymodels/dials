@@ -29,6 +29,5 @@ values_weight_func <- c(
   "cos",
   "inv",
   "gaussian",
-  "rank",
-  "optimal"
+  "rank"
 )
