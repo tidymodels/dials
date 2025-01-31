@@ -105,6 +105,24 @@
       Error:
       ! `finalize` must be a function or `NULL`, not the string "not a function or NULL".
 
+# integer parameter: compatibility of `inclusive` and `range` (#373)
+
+    Code
+      new_quant_param(type = "integer", range = c(0, 1), inclusive = c(FALSE, FALSE),
+      trans = NULL, label = c(param_non_incl = "some label"), finalize = NULL)
+    Condition
+      Error:
+      ! `inclusive` must be `c(TRUE, TRUE)` when the `range` only covers two consecutive values.
+
+---
+
+    Code
+      new_quant_param(type = "integer", range = c(0, 1), inclusive = c(FALSE, TRUE),
+      trans = NULL, label = c(param_non_incl = "some label"), finalize = NULL)
+    Condition
+      Error:
+      ! `inclusive` must be `c(TRUE, TRUE)` when the `range` only covers two consecutive values.
+
 # bad args to range_validate
 
     Code

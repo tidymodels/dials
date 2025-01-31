@@ -17,6 +17,8 @@
 
 * The `"optimal"` option for the `weight_func()` parameter has been removed since it is choosing the optimal value based on the resubstition error (#370). 
 
+* When constructing integer-valued parameters with a range of two consecutive values the `inclusive` argument needs to be set to `c(TRUE, TRUE)` to leave at least two values to sample from (#373). 
+
 
 # dials 1.3.0
 
