@@ -1,13 +1,4 @@
-# dials (development version)
-
-* Added three new parameters for use in postprocessing in the tailor package (#357).
-     - `buffer()` sets the distance on either side of a classification threshold 
-       within which predictions are considered equivocal in 
-       `tailor::adjust_equivocal_zone()`.
-     - `lower_limit()` and `upper_limit()` sets the ranges for
-       numeric predictions in `tailor::adjust_numeric_range()`.
-
-* All messages, warnings and errors has been translated to use {cli} package (#311). 
+# dials 1.4.0
 
 * For space-filling designs for $p$ parameters, there is a higher likelihood of finding a space-filling design for `1 < size <= p`. Also, single-point designs now default to a random grid (#363).
 
@@ -15,7 +6,16 @@
 
 * The constructors, `new_*_parameter()`, now label unlabeled parameter (i.e., constructed with `label = NULL`) as such (#349).
 
+* All messages, warnings and errors has been translated to use {cli} package (#311). 
+
 * `parameters.list()` now enforces the unused ellipsis to be empty (#378).
+
+* Added three new parameters for use in postprocessing in the tailor package (#357).
+     - `buffer()` sets the distance on either side of a classification threshold 
+       within which predictions are considered equivocal in 
+       `tailor::adjust_equivocal_zone()`.
+     - `lower_limit()` and `upper_limit()` sets the ranges for
+       numeric predictions in `tailor::adjust_numeric_range()`.
 
 ## Breaking changes
 
