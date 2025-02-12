@@ -268,6 +268,7 @@ value_samp_int <- function(object, n, original = TRUE) {
         size = n,
         replace = TRUE
       )
+      res <- as.integer(res)
     } else {
       res <- sample(
         object$values,
