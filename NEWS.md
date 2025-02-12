@@ -13,9 +13,13 @@
 
 * `value_seq()` and `value_sample()` now respect the `inclusive` argument of quantitative parameters (#347).
 
+* The constructors, `new_*_parameter()`, now label unlabeled parameter (i.e., constructed with `label = NULL`) as such (#349).
+
 ## Breaking changes
 
 * The `grid_*()` functions now error instead of warn when provided with the wrong argument to control the grid size. So `grid_space_filling()`, `grid_random()`, `grid_max_entropy()`, and `grid_latin_hypercube()` now error if used with a `levels` argument and `grid_regular()` now errors if used with a `size` argument (#368).
+
+* The `"optimal"` option for the `weight_func()` parameter has been removed since it is choosing the optimal value based on the resubstition error (#370). 
 
 * When constructing integer-valued parameters with a range of two consecutive values the `inclusive` argument needs to be set to `c(TRUE, TRUE)` to leave at least two values to sample from (#373). 
 
