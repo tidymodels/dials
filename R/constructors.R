@@ -32,8 +32,9 @@
 #' If set, these will be used by [value_seq()] and [value_sample()].
 #'
 #' @param label An optional named character string that can be used for
-#' printing and plotting. The name should match the object name (e.g.
-#' `"mtry"`, `"neighbors"`, etc.)
+#' printing and plotting. The name of the label should match the object name 
+#' (e.g., `"mtry"`, `"neighbors"`, etc.). If `NULL`, the parameter will be 
+#' labeled with `"Unlabeled parameter"`.
 #'
 #' @param finalize A function that can be used to set the data-specific
 #' values of a parameter (such as the `range`).
@@ -76,16 +77,18 @@ NULL
 
 #' @export
 #' @rdname new-param
-new_quant_param <- function(type = c("double", "integer"),
-                            range = NULL,
-                            inclusive = NULL,
-                            default = deprecated(),
-                            trans = NULL,
-                            values = NULL,
-                            label = NULL,
-                            finalize = NULL,
-                            ...,
-                            call = caller_env()) {
+new_quant_param <- function(
+  type = c("double", "integer"),
+  range = NULL,
+  inclusive = NULL,
+  default = deprecated(),
+  trans = NULL,
+  values = NULL,
+  label = NULL,
+  finalize = NULL,
+  ...,
+  call = caller_env()
+) {
   if (lifecycle::is_present(default)) {
     lifecycle::deprecate_stop(
       when = "1.1.0",
@@ -156,6 +159,11 @@ new_quant_param <- function(type = c("double", "integer"),
   }
 
   check_label(label, call = call)
+  if (is.null(label)) {
+    label = "Unlabeled parameter"
+    names(label) <- "Unlabeled parameter"
+  }
+
   check_function(finalize, allow_null = TRUE, call = call)
 
   names(range) <- names(inclusive) <- c("lower", "upper")
@@ -189,16 +197,18 @@ new_quant_param <- function(type = c("double", "integer"),
 
 #' @export
 #' @rdname new-param
-new_qual_param <- function(type = c("character", "logical"),
-                           values,
-                           default = deprecated(),
-                           label = NULL,
-                           finalize = NULL,
-                           ...,
-                           call = caller_env()) {
+new_qual_param <- function(
+  type = c("character", "logical"),
+  values,
+  default = deprecated(),
+  label = NULL,
+  finalize = NULL,
+  ...,
+  call = caller_env()
+) {
   if (lifecycle::is_present(default)) {
     lifecycle::deprecate_stop(
-      when = "1.1.0", 
+      when = "1.1.0",
       what = "new_qual_param(default)"
     )
   }
@@ -210,7 +220,13 @@ new_qual_param <- function(type = c("character", "logical"),
     "logical" = check_logical(values, call = call),
     "character" = check_character(values, call = call)
   )
+
   check_label(label, call = call)
+  if (is.null(label)) {
+    label = "Unlabeled parameter"
+    names(label) <- "Unlabeled parameter"
+  }
+
   check_function(finalize, allow_null = TRUE, call = call)
 
   res <- list(

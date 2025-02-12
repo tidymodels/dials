@@ -11,6 +11,8 @@
 
 * For space-filling designs for $p$ parameters, there is a higher likelihood of finding a space-filling design for `1 < size <= p`. Also, single-point designs now default to a random grid (#363).
 
+* The constructors, `new_*_parameter()`, now label unlabeled parameter (i.e., constructed with `label = NULL`) as such (#349).
+
 ## Breaking changes
 
 * The `grid_*()` functions now error instead of warn when provided with the wrong argument to control the grid size. So `grid_space_filling()`, `grid_random()`, `grid_max_entropy()`, and `grid_latin_hypercube()` now error if used with a `levels` argument and `grid_regular()` now errors if used with a `size` argument (#368).
