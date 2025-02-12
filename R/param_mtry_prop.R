@@ -36,7 +36,7 @@
 #'
 #' @export
 mtry_prop <- function(range = c(0.1, 1), trans = NULL) {
-  dials::new_quant_param(
+  new_quant_param(
     type = "double",
     range = range,
     inclusive = c(TRUE, TRUE),

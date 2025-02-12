@@ -21,7 +21,7 @@
 #'
 #' @export
 shrinkage_correlation <- function(range = c(0, 1), trans = NULL) {
-  dials::new_quant_param(
+  new_quant_param(
     type = "double",
     range = range,
     inclusive = c(TRUE, TRUE),
@@ -33,7 +33,7 @@ shrinkage_correlation <- function(range = c(0, 1), trans = NULL) {
 #' @export
 #' @rdname shrinkage_correlation
 shrinkage_variance <- function(range = c(0, 1), trans = NULL) {
-  dials::new_quant_param(
+  new_quant_param(
     type = "double",
     range = range,
     inclusive = c(TRUE, TRUE),
@@ -45,7 +45,7 @@ shrinkage_variance <- function(range = c(0, 1), trans = NULL) {
 #' @export
 #' @rdname shrinkage_correlation
 shrinkage_frequencies <- function(range = c(0, 1), trans = NULL) {
-  dials::new_quant_param(
+  new_quant_param(
     type = "double",
     range = range,
     inclusive = c(TRUE, TRUE),

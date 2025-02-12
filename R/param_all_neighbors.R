@@ -7,7 +7,7 @@
 #' all_neighbors()
 #' @export
 all_neighbors <- function(values = c(TRUE, FALSE)) {
-  dials::new_qual_param(
+  new_qual_param(
     type = "logical",
     values = values,
     label = c(all_neighbors = "All Neighbors"),
