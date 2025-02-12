@@ -29,11 +29,13 @@ parameters.param <- function(x, ...) {
 #' @export
 #' @rdname parameters
 parameters.list <- function(x, ...) {
+  check_dots_empty()
+
   elem_param <- purrr::map_lgl(x, inherits, "param")
   if (any(!elem_param)) {
     cli::cli_abort("The objects should all be {.cls param} objects.")
   }
-  elem_name <- purrr::map_chr(x, ~ names(.x$label))
+  elem_name <- purrr::map_chr(x, ~names(.x$label))
   elem_id <- names(x)
   if (length(elem_id) == 0) {
     elem_id <- elem_name

@@ -15,6 +15,8 @@
 
 * The constructors, `new_*_parameter()`, now label unlabeled parameter (i.e., constructed with `label = NULL`) as such (#349).
 
+* `parameters.list()` now enforces the unused ellipsis to be empty (#378).
+
 ## Breaking changes
 
 * The `grid_*()` functions now error instead of warn when provided with the wrong argument to control the grid size. So `grid_space_filling()`, `grid_random()`, `grid_max_entropy()`, and `grid_latin_hypercube()` now error if used with a `levels` argument and `grid_regular()` now errors if used with a `size` argument (#368).
