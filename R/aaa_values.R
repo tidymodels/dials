@@ -143,9 +143,19 @@ value_seq_dbl <- function(object, n, original = TRUE) {
     n_safely <- min(length(object$values), n)
     res <- object$values[seq_len(n_safely)]
   } else {
+    range_lower <- min(unlist(object$range))
+    if (!object$inclusive["lower"]) {
+      range_lower <- range_lower + .Machine$double.eps
+    }
+
+    range_upper <- max(unlist(object$range))
+    if (!object$inclusive["upper"]) {
+      range_upper <- range_upper - .Machine$double.eps
+    }
+
     res <- seq(
-      from = min(unlist(object$range)),
-      to = max(unlist(object$range)),
+      from = range_lower,
+      to = range_upper,
       length.out = n
     )
   }
@@ -161,9 +171,19 @@ value_seq_int <- function(object, n, original = TRUE) {
     n_safely <- min(length(object$values), n)
     res <- object$values[seq_len(n_safely)]
   } else {
+    range_lower <- min(unlist(object$range))
+    if (!object$inclusive["lower"]) {
+      range_lower <- range_lower + 1L
+    }
+
+    range_upper <- max(unlist(object$range))
+    if (!object$inclusive["upper"]) {
+      range_upper <- range_upper - 1L
+    }
+
     res <- seq(
-      from = min(unlist(object$range)),
-      to = max(unlist(object$range)),
+      from = range_lower,
+      to = range_upper,
       length.out = n
     )
   }
@@ -202,10 +222,20 @@ value_sample <- function(object, n, original = TRUE) {
 
 value_samp_dbl <- function(object, n, original = TRUE) {
   if (is.null(object$values)) {
+    range_lower <- min(unlist(object$range))
+    if (!object$inclusive["lower"]) {
+      range_lower <- range_lower + .Machine$double.eps
+    }
+
+    range_upper <- max(unlist(object$range))
+    if (!object$inclusive["upper"]) {
+      range_upper <- range_upper - .Machine$double.eps
+    }
+
     res <- runif(
       n,
-      min = min(unlist(object$range)),
-      max = max(unlist(object$range))
+      min = range_lower,
+      max = range_upper
     )
   } else {
     res <- sample(
@@ -223,11 +253,22 @@ value_samp_dbl <- function(object, n, original = TRUE) {
 value_samp_int <- function(object, n, original = TRUE) {
   if (is.null(object$trans)) {
     if (is.null(object$values)) {
+      range_lower <- min(unlist(object$range))
+      if (!object$inclusive["lower"]) {
+        range_lower <- range_lower + 1L
+      }
+
+      range_upper <- max(unlist(object$range))
+      if (!object$inclusive["upper"]) {
+        range_upper <- range_upper - 1L
+      }
+
       res <- sample(
-        min(unlist(object$range)):max(unlist(object$range)),
+        seq(from = range_lower, to = range_upper),
         size = n,
         replace = TRUE
       )
+      res <- as.integer(res)
     } else {
       res <- sample(
         object$values,
@@ -237,10 +278,20 @@ value_samp_int <- function(object, n, original = TRUE) {
     }
   } else {
     if (is.null(object$values)) {
+      range_lower <- min(unlist(object$range))
+      if (!object$inclusive["lower"]) {
+        range_lower <- range_lower + .Machine$double.eps
+      }
+
+      range_upper <- max(unlist(object$range))
+      if (!object$inclusive["upper"]) {
+        range_upper <- range_upper - .Machine$double.eps
+      }
+
       res <- runif(
         n,
-        min = min(unlist(object$range)),
-        max = max(unlist(object$range))
+        min = range_lower,
+        max = range_upper
       )
     } else {
       res <- sample(

@@ -11,6 +11,8 @@
 
 * For space-filling designs for $p$ parameters, there is a higher likelihood of finding a space-filling design for `1 < size <= p`. Also, single-point designs now default to a random grid (#363).
 
+* `value_seq()` and `value_sample()` now respect the `inclusive` argument of quantitative parameters (#347).
+
 * The constructors, `new_*_parameter()`, now label unlabeled parameter (i.e., constructed with `label = NULL`) as such (#349).
 
 ## Breaking changes
