@@ -7,7 +7,7 @@
 #' num_tokens()
 #' @export
 num_tokens <- function(range = c(1, 3), trans = NULL) {
-  dials::new_quant_param(
+  new_quant_param(
     type = "integer",
     range = range,
     inclusive = c(TRUE, TRUE),
