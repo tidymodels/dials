@@ -14,6 +14,7 @@
 <url><loc>https://dials.tidymodels.org/reference/adjust_deg_free.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/all_neighbors.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/bart-param.html</loc></url>
+<url><loc>https://dials.tidymodels.org/reference/buffer.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/c5_parameters.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/class_weights.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/conditional_min_criterion.html</loc></url>
@@ -60,6 +61,7 @@
 <url><loc>https://dials.tidymodels.org/reference/prior_slab_dispersion.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/prune_method.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/randomForest_parameters.html</loc></url>
+<url><loc>https://dials.tidymodels.org/reference/range_limits.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/range_validate.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/ranger_parameters.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/rbf_sigma.html</loc></url>
