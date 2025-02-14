@@ -23,7 +23,7 @@ regularization_factor <- function(range = c(0, 1), trans = NULL) {
   new_quant_param(
     type = "double",
     range = range,
-    inclusive = c(TRUE, TRUE),
+    inclusive = c(FALSE, TRUE),
     trans = trans,
     label = c(regularization_factor = "Gain Penalization"),
     finalize = NULL
