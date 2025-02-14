@@ -38,7 +38,9 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="dials-development-version">dials (development version)<a class="anchor" aria-label="anchor" href="#dials-development-version"></a></h2>
-</div>
+<ul><li>
+<code><a href="../reference/ranger_parameters.html">regularization_factor()</a></code> is now exclusive of the lower border 0 in compliance with <code>ranger::ranger()</code> (<a href="https://github.com/tidymodels/dials/issues/381" class="external-link">#381</a>).</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.4.0" id="dials-140">dials 1.4.0<a class="anchor" aria-label="anchor" href="#dials-140"></a></h2><p class="text-muted">CRAN release: 2025-02-13</p>
 <ul><li><p>For space-filling designs for <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>p</mi><annotation encoding="application/x-tex">p</annotation></semantics></math> parameters, there is a higher likelihood of finding a space-filling design for <code>1 &lt; size &lt;= p</code>. Also, single-point designs now default to a random grid (<a href="https://github.com/tidymodels/dials/issues/363" class="external-link">#363</a>).</p></li>
