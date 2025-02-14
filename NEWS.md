@@ -1,5 +1,8 @@
 # dials (development version)
 
+* `regularization_factor()` is now exclusive of the lower border 0 in compliance with `ranger::ranger()` (#381).
+
+
 # dials 1.4.0
 
 * For space-filling designs for $p$ parameters, there is a higher likelihood of finding a space-filling design for `1 < size <= p`. Also, single-point designs now default to a random grid (#363).
