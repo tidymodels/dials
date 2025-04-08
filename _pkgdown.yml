@@ -65,6 +65,7 @@ reference:
     contents:
     - activation
     - adjust_deg_free
+    - contains("cal_method")
     - class_weights
     - cost
     - deg_free
