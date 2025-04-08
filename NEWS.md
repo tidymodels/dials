@@ -2,7 +2,7 @@
 
 * `regularization_factor()` is now exclusive of the lower border 0 in compliance with `ranger::ranger()` (#381).
 
-
+* Two parameter functions were added, `class_cal_method()` and `reg_cal_method(),` to control which tool is used to calibrate model predictions.
 # dials 1.4.0
 
 * For space-filling designs for $p$ parameters, there is a higher likelihood of finding a space-filling design for `1 < size <= p`. Also, single-point designs now default to a random grid (#363).
