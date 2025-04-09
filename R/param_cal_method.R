@@ -4,30 +4,31 @@
 #'
 #' @details
 #' This parameter is used in postprocessing methods in the tailor package.
+#'
 #' @examples
 #' values_cal_cls
-#' class_cal_method()
+#' cal_method_class()
 #'
 #' values_cal_reg
-#' reg_cal_method()
+#' cal_method_reg()
 #' @rdname calibration
 #' @export
-class_cal_method <- function(values = values_cal_cls) {
+cal_method_class <- function(values = values_cal_cls) {
   new_qual_param(
     type = "character",
     values = values,
-    label = c(class_cal_method = "Calibration Method"),
+    label = c(cal_method_class = "Calibration Method"),
     finalize = NULL
   )
 }
 
 #' @rdname calibration
 #' @export
-reg_cal_method <- function(values = values_cal_reg) {
+cal_method_reg <- function(values = values_cal_reg) {
   new_qual_param(
     type = "character",
     values = values,
-    label = c(reg_cal_method = "Calibration Method"),
+    label = c(cal_method_reg = "Calibration Method"),
     finalize = NULL
   )
 }
