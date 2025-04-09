@@ -9,25 +9,25 @@
 #' class_cal_method()
 #'
 #' values_cal_reg
-#' class_reg_method()
+#' reg_cal_method()
 #' @rdname calibration
 #' @export
 class_cal_method <- function(values = values_cal_cls) {
   new_qual_param(
     type = "character",
     values = values,
-    label = c(activation = "Calibration Method"),
+    label = c(class_cal_method = "Calibration Method"),
     finalize = NULL
   )
 }
 
 #' @rdname calibration
 #' @export
-class_reg_method <- function(values = values_cal_reg) {
+reg_cal_method <- function(values = values_cal_reg) {
   new_qual_param(
     type = "character",
     values = values,
-    label = c(activation = "Calibration Method"),
+    label = c(reg_cal_method = "Calibration Method"),
     finalize = NULL
   )
 }

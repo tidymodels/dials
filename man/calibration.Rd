@@ -3,7 +3,7 @@
 \docType{data}
 \name{class_cal_method}
 \alias{class_cal_method}
-\alias{class_reg_method}
+\alias{reg_cal_method}
 \alias{values_cal_cls}
 \alias{values_cal_reg}
 \title{Methods for model calibration}
@@ -15,7 +15,7 @@ An object of class \code{character} of length 5.
 \usage{
 class_cal_method(values = values_cal_cls)
 
-class_reg_method(values = values_cal_reg)
+reg_cal_method(values = values_cal_reg)
 
 values_cal_cls
 
@@ -36,6 +36,6 @@ values_cal_cls
 class_cal_method()
 
 values_cal_reg
-class_reg_method()
+reg_cal_method()
 }
 \keyword{datasets}
