@@ -116,6 +116,7 @@ reference:
     contents:
     - buffer
     - range_limits
+    - contains("cal_method")
 
   - title: Finalizing parameters
     contents:

@@ -120,4 +120,6 @@ test_that("param values", {
   expect_equal(rate_schedule()$values, values_scheduler)
   expect_equal(initial_umap()$values, values_initial_umap)
   expect_equal(all_neighbors(TRUE)$values, TRUE)
+  expect_equal(cal_method_class()$values, values_cal_cls)
+  expect_equal(cal_method_reg()$values, values_cal_reg)
 })
