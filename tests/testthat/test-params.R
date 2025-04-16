@@ -92,6 +92,8 @@ test_that("param ranges", {
   expect_equal(num_tokens(c(31,100))$range, list(lower = 31, upper = 100))
   expect_equal(mtry_prop(c(.1,.2))$range, list(lower = .1, upper = .2))
   expect_equal(dropout(c(.1,.2))$range, list(lower = .1, upper = .2))
+  expect_equal(radius(c(0.01, 100))$range, list(lower = 0.01, upper = 100))
+  expect_equal(min_points(c(3, 50))$range, list(lower = 3, upper = 50))
 })
 
 
@@ -120,4 +122,9 @@ test_that("param values", {
   expect_equal(rate_schedule()$values, values_scheduler)
   expect_equal(initial_umap()$values, values_initial_umap)
   expect_equal(all_neighbors(TRUE)$values, TRUE)
+  expect_equal(circular(TRUE)$values, TRUE)
+  expect_equal(zero_covariance(TRUE)$values, TRUE)
+  expect_equal(shared_orientation(TRUE)$values, TRUE)
+  expect_equal(shared_shape(TRUE)$values, TRUE)
+  expect_equal(shared_size(TRUE)$values, TRUE)
 })

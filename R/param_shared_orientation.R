@@ -7,7 +7,7 @@
 #' @examples
 #' shared_orientation()
 #' @export
-zero_covariance <- function(values = c(TRUE, FALSE)) {
+shared_orientation <- function(values = c(TRUE, FALSE)) {
   new_qual_param(
     type = "logical",
     values = values,
