@@ -1,4 +1,3 @@
-
 test_that("estimate columns", {
   expect_snapshot(error = TRUE, get_p(1:10))
   expect_snapshot(error = TRUE, get_p(1:10, 1:10))
@@ -21,11 +20,18 @@ test_that("estimate rows", {
   expect_snapshot(error = TRUE, get_n(mtry(), 1:10))
 
   expect_equal(
-    range_get(get_n_frac(mtry_long(), mtcars, log_vals = TRUE), original = FALSE),
+    range_get(
+      get_n_frac(mtry_long(), mtcars, log_vals = TRUE),
+      original = FALSE
+    ),
     list(lower = 0, upper = 1)
   )
   expect_equal(
-    get_n_frac_range(sample_size(c(unknown(), unknown())), warpbreaks, frac = c(.3, .7))$range,
+    get_n_frac_range(
+      sample_size(c(unknown(), unknown())),
+      warpbreaks,
+      frac = c(.3, .7)
+    )$range,
     list(lower = 16, upper = 37)
   )
   expect_equal(
@@ -123,5 +129,4 @@ test_that("finalize interfaces", {
   expect_true(is.na(finalize(NA_character_, mtcars)))
   expect_snapshot(finalize("threshold", mtcars), error = TRUE)
   expect_snapshot(finalize(list(TRUE, 3), mtcars), error = TRUE)
-
 })

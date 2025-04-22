@@ -1,6 +1,6 @@
 #' Number of cut-points for binning
 #'
-#' This parameter controls how many bins are used when discretizing predictors. 
+#' This parameter controls how many bins are used when discretizing predictors.
 #' Used in `recipes::step_discretize()` and `embed::step_discretize_xgb()`.
 #'
 #' @inheritParams Laplace

@@ -35,7 +35,7 @@ parameters.list <- function(x, ...) {
   if (any(!elem_param)) {
     cli::cli_abort("The objects should all be {.cls param} objects.")
   }
-  elem_name <- purrr::map_chr(x, ~names(.x$label))
+  elem_name <- purrr::map_chr(x, ~ names(.x$label))
   elem_id <- names(x)
   if (length(elem_id) == 0) {
     elem_id <- elem_name
@@ -108,14 +108,16 @@ check_list_of_param <- function(x, ..., call = caller_env()) {
 #' additional class of "parameters".
 #' @keywords internal
 #' @export
-parameters_constr <- function(name,
-                              id,
-                              source,
-                              component,
-                              component_id,
-                              object,
-                              ...,
-                              call = caller_env()) {
+parameters_constr <- function(
+  name,
+  id,
+  source,
+  component,
+  component_id,
+  object,
+  ...,
+  call = caller_env()
+) {
   check_dots_empty()
 
   check_character(name, call = call)
@@ -129,7 +131,7 @@ parameters_constr <- function(name,
   n_elements <- map_int(
     list(name, id, source, component, component_id, object),
     length
-    )
+  )
   n_elements_unique <- unique(n_elements)
   if (length(n_elements_unique) > 1) {
     cli::cli_abort(
@@ -181,7 +183,7 @@ print.parameters <- function(x, ...) {
         pillar::type_sum(.x)
       }
     )
- 
+
   cli::cli_par()
   cli::cli_verbatim(
     utils::capture.output(print.data.frame(print_x, row.names = FALSE))
@@ -191,7 +193,7 @@ print.parameters <- function(x, ...) {
   null_obj <- map_lgl(x$object, ~ all(is.na(.x)))
 
   if (any(null_obj)) {
-     needs_param <- print_x$identifier[null_obj]
+    needs_param <- print_x$identifier[null_obj]
     cli::cli_par()
     cli::cli_text(
       "The parameter{?s} {.var {needs_param}} {?needs a/need} {.cls param}
@@ -210,21 +212,24 @@ print.parameters <- function(x, ...) {
     )
   if (any(other_obj$not_final)) {
     # There's a more elegant way to do this, I'm sure:
-    mod_obj <- as_tibble(other_obj) %>% dplyr::filter(source == "model_spec" & not_final)
+    mod_obj <- as_tibble(other_obj) %>%
+      dplyr::filter(source == "model_spec" & not_final)
     if (nrow(mod_obj) > 0) {
       cli::cli_par()
       cli::cli_text("Model parameters needing finalization:")
       cli::cli_text("{mod_obj$note}")
       cli::cli_end()
     }
-    rec_obj <- as_tibble(other_obj) %>% dplyr::filter(source == "recipe" & not_final)
+    rec_obj <- as_tibble(other_obj) %>%
+      dplyr::filter(source == "recipe" & not_final)
     if (nrow(rec_obj) > 0) {
       cli::cli_par()
       cli::cli_text("Recipe parameters needing finalization:")
       cli::cli_text("{rec_obj$note}")
       cli::cli_end()
     }
-    lst_obj <- as_tibble(other_obj) %>% dplyr::filter(source == "list" & not_final)
+    lst_obj <- as_tibble(other_obj) %>%
+      dplyr::filter(source == "list" & not_final)
     if (nrow(lst_obj) > 0) {
       cli::cli_par()
       cli::cli_text("Parameters needing finalization:")

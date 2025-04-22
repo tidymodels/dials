@@ -15,7 +15,10 @@
 #' 0.99997 in the natural units. For several test types, this parameter
 #' corresponds to `1 - {p-value}`.
 #' @export
-conditional_min_criterion <- function(range = c(1.386294, 15), trans = scales::transform_logit()) {
+conditional_min_criterion <- function(
+  range = c(1.386294, 15),
+  trans = scales::transform_logit()
+) {
   new_quant_param(
     type = "double",
     range = range,

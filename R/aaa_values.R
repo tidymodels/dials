@@ -73,7 +73,8 @@
 #'
 #' @export
 value_validate <- function(object, values, ..., call = caller_env()) {
-  res <- switch(object$type,
+  res <- switch(
+    object$type,
     double = ,
     integer = value_validate_quant(object, values, call = call),
     character = ,
@@ -100,7 +101,6 @@ value_validate_quant <- function(object, values, ..., call = caller_env()) {
   } else {
     is_valid <- ifelse(values < object$range[[2]], is_valid, FALSE)
   }
-
 
   if (!is.null(object$trans)) {
     orig_scale <- value_inverse(object, values)
@@ -129,7 +129,8 @@ value_seq <- function(object, n, original = TRUE) {
     range_validate(object, object$range, ukn_ok = FALSE)
   }
 
-  res <- switch(object$type,
+  res <- switch(
+    object$type,
     double = value_seq_dbl(object, n, original),
     integer = value_seq_int(object, n, original),
     character = ,
@@ -211,7 +212,8 @@ value_sample <- function(object, n, original = TRUE) {
     range_validate(object, object$range, ukn_ok = FALSE)
   }
 
-  res <- switch(object$type,
+  res <- switch(
+    object$type,
     double = value_samp_dbl(object, n, original),
     integer = value_samp_int(object, n, original),
     character = ,

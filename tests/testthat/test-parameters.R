@@ -12,7 +12,14 @@ test_that("parameters_const() input checks", {
   })
   expect_snapshot(error = TRUE, {
     ab <- c("a", "b")
-    parameters_constr(ab, ab, ab, ab, ab, object = list(penalty(), "not a param"))
+    parameters_constr(
+      ab,
+      ab,
+      ab,
+      ab,
+      ab,
+      object = list(penalty(), "not a param")
+    )
   })
   expect_snapshot(error = TRUE, {
     ab <- c("a", "b")
@@ -85,15 +92,15 @@ test_that("printing", {
   )
 
   expect_snapshot(
-    ex_params[1,] %>% structure(class = c("parameters", class(.)))
+    ex_params[1, ] %>% structure(class = c("parameters", class(.)))
   )
 
   expect_snapshot(
-    ex_params[1:2,] %>% structure(class = c("parameters", class(.)))
+    ex_params[1:2, ] %>% structure(class = c("parameters", class(.)))
   )
 
   expect_snapshot(
-    ex_params[1:3,] %>% structure(class = c("parameters", class(.)))
+    ex_params[1:3, ] %>% structure(class = c("parameters", class(.)))
   )
 })
 

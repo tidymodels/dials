@@ -53,9 +53,3 @@ values_cal_reg <- c(
   "isotonic_boot",
   "none"
 )
-
-
-
-
-
-

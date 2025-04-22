@@ -1,4 +1,3 @@
-
 test_that("qualitative parameter object creation - bad args", {
   expect_snapshot(
     error = TRUE,
@@ -46,16 +45,30 @@ test_that("quantitative parameter object creation - bad args", {
   )
   expect_snapshot(
     error = TRUE,
-    new_quant_param("integer", range = 1:2, inclusive = c(TRUE, TRUE), trans = log)
+    new_quant_param(
+      "integer",
+      range = 1:2,
+      inclusive = c(TRUE, TRUE),
+      trans = log
+    )
   )
   expect_snapshot(
     error = TRUE,
-    new_quant_param("integer", range = 1:2, inclusive = c(TRUE, TRUE), values = 1:4)
+    new_quant_param(
+      "integer",
+      range = 1:2,
+      inclusive = c(TRUE, TRUE),
+      values = 1:4
+    )
   )
   expect_snapshot(
     error = TRUE,
-    new_quant_param("integer", range = 1:2, inclusive = c(TRUE, TRUE),
-                    finalize = "not a function or NULL")
+    new_quant_param(
+      "integer",
+      range = 1:2,
+      inclusive = c(TRUE, TRUE),
+      finalize = "not a function or NULL"
+    )
   )
 })
 
@@ -139,19 +152,22 @@ test_that("printing", {
 })
 
 
-
 test_that("converting doubles to integers", {
   expect_type(
-    mtry(c(1, unknown()))$range$lower, "integer"
+    mtry(c(1, unknown()))$range$lower,
+    "integer"
   )
   expect_type(
-    mtry(c(unknown(), 1))$range$upper, "integer"
+    mtry(c(unknown(), 1))$range$upper,
+    "integer"
   )
   expect_type(
-    mtry(c(1, 10))$range$lower, "integer"
+    mtry(c(1, 10))$range$lower,
+    "integer"
   )
   expect_type(
-    mtry(c(1, 10))$range$upper, "integer"
+    mtry(c(1, 10))$range$upper,
+    "integer"
   )
 })
 
@@ -179,7 +195,6 @@ test_that("can supply `values` without `range` and `inclusive` (#87)", {
 })
 
 test_that("`values` must be compatible with `range` and `inclusive`", {
-
   expect_snapshot(error = TRUE, {
     new_quant_param(
       type = "integer",
@@ -214,7 +229,6 @@ test_that("`values` must be compatible with `range` and `inclusive`", {
       label = c(foo = "Foo")
     )
   })
-
 })
 
 test_that("`values` is validated", {
