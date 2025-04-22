@@ -20,4 +20,13 @@ summary_stat <- function(values = values_summary_stat) {
 
 #' @rdname summary_stat
 #' @export
-values_summary_stat <- c("mean", "median", "sd", "var", "sum", "prod", "min", "max")
+values_summary_stat <- c(
+  "mean",
+  "median",
+  "sd",
+  "var",
+  "sum",
+  "prod",
+  "min",
+  "max"
+)

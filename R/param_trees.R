@@ -82,7 +82,7 @@ sample_size <- function(range = c(unknown(), unknown()), trans = NULL) {
 
 #' @rdname trees
 #' @export
-sample_prop <- function(range = c(1/10, 1), trans = NULL) {
+sample_prop <- function(range = c(1 / 10, 1), trans = NULL) {
   new_quant_param(
     type = "double",
     range = range,

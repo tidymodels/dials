@@ -88,7 +88,13 @@
 #' }
 #'
 #' @export
-grid_space_filling <- function(x, ..., size = 5, type = "any", original = TRUE) {
+grid_space_filling <- function(
+  x,
+  ...,
+  size = 5,
+  type = "any",
+  original = TRUE
+) {
   dots <- list(...)
   if (any(names(dots) == "levels")) {
     cli::cli_abort(
@@ -103,13 +109,15 @@ grid_space_filling <- function(x, ..., size = 5, type = "any", original = TRUE) 
 
 #' @export
 #' @rdname grid_space_filling
-grid_space_filling.parameters <- function(x,
-                                          ...,
-                                          size = 5,
-                                          type = "any",
-                                          variogram_range = 0.5,
-                                          iter = 1000,
-                                          original = TRUE) {
+grid_space_filling.parameters <- function(
+  x,
+  ...,
+  size = 5,
+  type = "any",
+  variogram_range = 0.5,
+  iter = 1000,
+  original = TRUE
+) {
   # test for NA and finalized
   # test for empty ...
   params <- x$object
@@ -128,14 +136,15 @@ grid_space_filling.parameters <- function(x,
 
 #' @export
 #' @rdname grid_space_filling
-grid_space_filling.list <- function(x,
-                                    ...,
-                                    size = 5,
-                                    type = "any",
-                                    variogram_range = 0.5,
-                                    iter = 1000,
-                                    original = TRUE) {
-
+grid_space_filling.list <- function(
+  x,
+  ...,
+  size = 5,
+  type = "any",
+  variogram_range = 0.5,
+  iter = 1000,
+  original = TRUE
+) {
   y <- parameters(x)
   params <- y$object
   names(params) <- y$id
@@ -154,14 +163,15 @@ grid_space_filling.list <- function(x,
 
 #' @export
 #' @rdname grid_space_filling
-grid_space_filling.param <- function(x,
-                                     ...,
-                                     size = 5,
-                                     variogram_range = 0.5,
-                                     iter = 1000,
-                                     type = "any",
-                                     original = TRUE) {
-
+grid_space_filling.param <- function(
+  x,
+  ...,
+  size = 5,
+  variogram_range = 0.5,
+  iter = 1000,
+  type = "any",
+  original = TRUE
+) {
   y <- parameters(list(x, ...))
   params <- y$object
   names(params) <- y$id
@@ -177,17 +187,25 @@ grid_space_filling.param <- function(x,
   grd
 }
 
-sfd_types <-
-  c("any", "audze_eglais", "max_min_l1", "max_min_l2", "uniform",
-    "latin_hypercube", "max_entropy")
+sfd_types <- c(
+  "any",
+  "audze_eglais",
+  "max_min_l1",
+  "max_min_l2",
+  "uniform",
+  "latin_hypercube",
+  "max_entropy"
+)
 
-make_sfd <- function(...,
-                     size = 5,
-                     type = "any",
-                     variogram_range = 0.5,
-                     iter = 1000,
-                     original = TRUE,
-                     call = caller_env()) {
+make_sfd <- function(
+  ...,
+  size = 5,
+  type = "any",
+  variogram_range = 0.5,
+  iter = 1000,
+  original = TRUE,
+  call = caller_env()
+) {
   type <- rlang::arg_match(type, sfd_types)
   validate_params(..., call = call)
   param_quos <- quos(...)
@@ -199,7 +217,9 @@ make_sfd <- function(...,
     return(res)
   }
 
-  if (type %in% c("any", "audze_eglais", "max_min_l1", "max_min_l2", "uniform")) {
+  if (
+    type %in% c("any", "audze_eglais", "max_min_l1", "max_min_l2", "uniform")
+  ) {
     has_premade_design <- sfd::sfd_available(p, size, type)
 
     if (has_premade_design) {
@@ -269,12 +289,14 @@ base_recycle <- function(x, size) {
 #'
 #' @keywords internal
 #' @export
-grid_max_entropy <- function(x,
-                             ...,
-                             size = 3,
-                             original = TRUE,
-                             variogram_range = 0.5,
-                             iter = 1000) {
+grid_max_entropy <- function(
+  x,
+  ...,
+  size = 3,
+  original = TRUE,
+  variogram_range = 0.5,
+  iter = 1000
+) {
   lifecycle::deprecate_soft(
     "1.3.0",
     "grid_max_entropy()",
@@ -295,13 +317,14 @@ grid_max_entropy <- function(x,
 
 #' @export
 #' @rdname grid_max_entropy
-grid_max_entropy.parameters <- function(x,
-                                        ...,
-                                        size = 3,
-                                        original = TRUE,
-                                        variogram_range = 0.5,
-                                        iter = 1000) {
-
+grid_max_entropy.parameters <- function(
+  x,
+  ...,
+  size = 3,
+  original = TRUE,
+  variogram_range = 0.5,
+  iter = 1000
+) {
   # test for NA and finalized
   # test for empty ...
   params <- x$object
@@ -319,13 +342,14 @@ grid_max_entropy.parameters <- function(x,
 
 #' @export
 #' @rdname grid_max_entropy
-grid_max_entropy.list <- function(x,
-                                  ...,
-                                  size = 3,
-                                  original = TRUE,
-                                  variogram_range = 0.5,
-                                  iter = 1000) {
-
+grid_max_entropy.list <- function(
+  x,
+  ...,
+  size = 3,
+  original = TRUE,
+  variogram_range = 0.5,
+  iter = 1000
+) {
   y <- parameters(x)
   params <- y$object
   names(params) <- y$id
@@ -343,13 +367,14 @@ grid_max_entropy.list <- function(x,
 
 #' @export
 #' @rdname grid_max_entropy
-grid_max_entropy.param <- function(x,
-                                   ...,
-                                   size = 3,
-                                   original = TRUE,
-                                   variogram_range = 0.5,
-                                   iter = 1000) {
-
+grid_max_entropy.param <- function(
+  x,
+  ...,
+  size = 3,
+  original = TRUE,
+  variogram_range = 0.5,
+  iter = 1000
+) {
   y <- parameters(list(x, ...))
   params <- y$object
   names(params) <- y$id
@@ -364,13 +389,14 @@ grid_max_entropy.param <- function(x,
   new_param_grid(grd)
 }
 
-make_max_entropy_grid <- function(...,
-                                  size = 3,
-                                  original = TRUE,
-                                  variogram_range = 0.5,
-                                  iter = 1000,
-                                  call = caller_env()) {
-
+make_max_entropy_grid <- function(
+  ...,
+  size = 3,
+  original = TRUE,
+  variogram_range = 0.5,
+  iter = 1000,
+  call = caller_env()
+) {
   validate_params(..., call = call)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
@@ -459,7 +485,12 @@ grid_latin_hypercube.param <- function(x, ..., size = 3, original = TRUE) {
   new_param_grid(grd)
 }
 
-make_latin_hypercube_grid <- function(..., size = 3, original = TRUE, call = caller_env()) {
+make_latin_hypercube_grid <- function(
+  ...,
+  size = 3,
+  original = TRUE,
+  call = caller_env()
+) {
   validate_params(..., call = call)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)

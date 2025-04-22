@@ -7,7 +7,7 @@
 #' @param value The original values should be either numeric or character. When
 #'  converting back, these should be on \code{[0, 1]}.
 #' @param direction Either "forward" (to \code{[0, 1]}) or "backward".
-#' @param original A logical; should the values be transformed into their 
+#' @param original A logical; should the values be transformed into their
 #' natural units.
 #' @details For integer parameters, the encoding can be lossy.
 #' @return A vector of values.
@@ -104,7 +104,11 @@ encode_unit.qual_param <- function(x, value, direction, ...) {
       cli::cli_abort("{.arg value} should be a numeric vector.")
     }
 
-    ind <- cut(value, breaks = seq(0, 1, length.out = num_lvl + 1), include.lowest = TRUE)
+    ind <- cut(
+      value,
+      breaks = seq(0, 1, length.out = num_lvl + 1),
+      include.lowest = TRUE
+    )
     value <- ref_vals[as.integer(ind)]
   }
 

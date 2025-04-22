@@ -1,4 +1,3 @@
-
 test_that("transforms with unknowns", {
   expect_snapshot(
     error = TRUE,
@@ -22,7 +21,8 @@ test_that("transforms with unknowns", {
 test_that("transforms", {
   skip_if_below_r_version("3.5")
   expect_equal(
-    value_transform(penalty(), 1:3), log10(1:3)
+    value_transform(penalty(), 1:3),
+    log10(1:3)
   )
   expect_snapshot({
     value_object <- value_transform(penalty(), -1:3)
@@ -30,7 +30,8 @@ test_that("transforms", {
   })
   expect_equal(value_object, value_expected)
   expect_equal(
-    value_transform(mtry(), 1:3), 1:3
+    value_transform(mtry(), 1:3),
+    1:3
   )
   expect_false(value_validate(prior_terminal_node_coef(), 0))
   expect_false(value_validate(activation(), "ham"))
@@ -39,13 +40,16 @@ test_that("transforms", {
 
 test_that("inverses", {
   expect_equal(
-    value_inverse(penalty(), 1:3), 10^(1:3)
+    value_inverse(penalty(), 1:3),
+    10^(1:3)
   )
   expect_equal(
-    value_inverse(penalty(), c(NA, 1:3)), c(NA, 10^(1:3))
+    value_inverse(penalty(), c(NA, 1:3)),
+    c(NA, 10^(1:3))
   )
   expect_equal(
-    value_inverse(mtry(), 1:3), 1:3
+    value_inverse(mtry(), 1:3),
+    1:3
   )
 })
 
@@ -70,28 +74,36 @@ test_that("sequences - doubles", {
     )
 
   expect_equal(
-    value_seq(mixture(), 5), seq(0, 1, length = 5)
+    value_seq(mixture(), 5),
+    seq(0, 1, length = 5)
   )
   expect_equal(
-    value_seq(mixture(), 1), 0
+    value_seq(mixture(), 1),
+    0
   )
   expect_equal(
-    value_seq(penalty(), 5, FALSE), seq(-10, 0, length = 5)
+    value_seq(penalty(), 5, FALSE),
+    seq(-10, 0, length = 5)
   )
   expect_equal(
-    value_seq(penalty(), 1, FALSE), -10
+    value_seq(penalty(), 1, FALSE),
+    -10
   )
   expect_equal(
-    value_seq(param_with_transformation, 1), 0.5^2
+    value_seq(param_with_transformation, 1),
+    0.5^2
   )
   expect_equal(
-    value_seq(param_with_transformation, 1, FALSE), 0.5
+    value_seq(param_with_transformation, 1, FALSE),
+    0.5
   )
   expect_equal(
-    value_seq(param_with_values, 2), (0:1) / 5
+    value_seq(param_with_values, 2),
+    (0:1) / 5
   )
   expect_equal(
-    value_seq(param_with_values, 2, FALSE), (0:1) / 5
+    value_seq(param_with_values, 2, FALSE),
+    (0:1) / 5
   )
 })
 
@@ -116,36 +128,46 @@ test_that("sequences - integers", {
     )
 
   expect_equal(
-    value_seq(tree_depth(), 5), c(1, 4, 8, 11, 15)
+    value_seq(tree_depth(), 5),
+    c(1, 4, 8, 11, 15)
   )
   expect_equal(
-    value_seq(tree_depth(), 1), 1L
+    value_seq(tree_depth(), 1),
+    1L
   )
   expect_equal(
-    value_seq(tree_depth(), 15), 1L:15L
+    value_seq(tree_depth(), 15),
+    1L:15L
   )
   expect_equal(
-    value_seq(tree_depth(), 5, FALSE), seq(1, 15, length = 5)
+    value_seq(tree_depth(), 5, FALSE),
+    seq(1, 15, length = 5)
   )
   expect_equal(
-    value_seq(tree_depth(), 1, FALSE), 1L
+    value_seq(tree_depth(), 1, FALSE),
+    1L
   )
   expect_equal(
-    value_seq(tree_depth(), 15, FALSE), 1L:15L
+    value_seq(tree_depth(), 15, FALSE),
+    1L:15L
   )
 
   expect_equal(
-    value_seq(param_with_transformation, 1), 2L^2
+    value_seq(param_with_transformation, 1),
+    2L^2
   )
   expect_equal(
-    value_seq(param_with_transformation, 1, FALSE), 2.1
+    value_seq(param_with_transformation, 1, FALSE),
+    2.1
   )
 
   expect_equal(
-    value_seq(param_with_values, 2, FALSE), 1:2
+    value_seq(param_with_values, 2, FALSE),
+    1:2
   )
   expect_equal(
-    value_seq(param_with_values, 1, FALSE), 1
+    value_seq(param_with_values, 1, FALSE),
+    1
   )
 })
 
@@ -225,13 +247,16 @@ test_that("sequences - character", {
     )
 
   expect_equal(
-    value_seq(surv_dist(), 5), surv_dist()$values[1:5]
+    value_seq(surv_dist(), 5),
+    surv_dist()$values[1:5]
   )
   expect_equal(
-    value_seq(surv_dist(), 1), surv_dist()$values[1]
+    value_seq(surv_dist(), 1),
+    surv_dist()$values[1]
   )
   expect_equal(
-    value_seq(surv_dist(), Inf), surv_dist()$values
+    value_seq(surv_dist(), Inf),
+    surv_dist()$values
   )
   expect_equal(value_seq(test_param_5, 1), "a")
 })
@@ -248,13 +273,16 @@ test_that("sequences - logical", {
     value_seq(prune(), 1)
   )
   expect_equal(
-    value_seq(prune(), 2), c(TRUE, FALSE)
+    value_seq(prune(), 2),
+    c(TRUE, FALSE)
   )
   expect_equal(
-    value_seq(prune(), 21), c(TRUE, FALSE)
+    value_seq(prune(), 21),
+    c(TRUE, FALSE)
   )
   expect_equal(
-    value_seq(test_param_6, Inf), TRUE
+    value_seq(test_param_6, Inf),
+    TRUE
   )
 })
 

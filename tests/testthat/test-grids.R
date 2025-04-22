@@ -1,4 +1,3 @@
-
 test_that("regular grid", {
   expect_snapshot(
     error = TRUE,
@@ -110,5 +109,4 @@ test_that("new param grid from conventional data frame", {
     error = TRUE,
     new_param_grid(as.matrix(x))
   )
-
 })

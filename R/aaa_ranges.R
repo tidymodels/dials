@@ -44,12 +44,13 @@
 #'   range_get()
 #'
 #' @export
-range_validate <- function(object,
-                           range,
-                           ukn_ok = TRUE,
-                           ...,
-                           call = caller_env()
-                           ) {
+range_validate <- function(
+  object,
+  range,
+  ukn_ok = TRUE,
+  ...,
+  call = caller_env()
+) {
   ukn_txt <- if (ukn_ok) {
     c(i = "{.code Inf} and {.code unknown()} are acceptable values.")
   } else {

@@ -20,20 +20,20 @@
 #'
 #' @name scheduler-param
 #' @export
-rate_initial <- function (range = c(-3,-1), trans = transform_log10()) {
-    new_quant_param(
-      type = "double",
-      range = range,
-      inclusive = c(TRUE, TRUE),
-      trans = trans,
-      label = c(rate_initial = "Initial Learning Rate"),
-      finalize = NULL
-    )
-  }
+rate_initial <- function(range = c(-3, -1), trans = transform_log10()) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(rate_initial = "Initial Learning Rate"),
+    finalize = NULL
+  )
+}
 
 #' @rdname scheduler-param
 #' @export
-rate_largest <- function (range = c(-1, -1 / 2), trans = transform_log10()) {
+rate_largest <- function(range = c(-1, -1 / 2), trans = transform_log10()) {
   new_quant_param(
     type = "double",
     range = range,
@@ -47,7 +47,7 @@ rate_largest <- function (range = c(-1, -1 / 2), trans = transform_log10()) {
 
 #' @rdname scheduler-param
 #' @export
-rate_reduction <- function (range = c(1 / 5, 1), trans = NULL) {
+rate_reduction <- function(range = c(1 / 5, 1), trans = NULL) {
   new_quant_param(
     type = "double",
     range = range,
@@ -61,7 +61,7 @@ rate_reduction <- function (range = c(1 / 5, 1), trans = NULL) {
 
 #' @rdname scheduler-param
 #' @export
-rate_steps <- function (range = c(2, 10), trans = NULL) {
+rate_steps <- function(range = c(2, 10), trans = NULL) {
   new_quant_param(
     type = "integer",
     range = range,
@@ -74,7 +74,7 @@ rate_steps <- function (range = c(2, 10), trans = NULL) {
 
 #' @rdname scheduler-param
 #' @export
-rate_step_size <- function (range = c(2, 20), trans = NULL) {
+rate_step_size <- function(range = c(2, 20), trans = NULL) {
   new_quant_param(
     type = "integer",
     range = range,
@@ -87,7 +87,7 @@ rate_step_size <- function (range = c(2, 20), trans = NULL) {
 
 #' @rdname scheduler-param
 #' @export
-rate_decay <- function (range = c(0, 2), trans = NULL) {
+rate_decay <- function(range = c(0, 2), trans = NULL) {
   new_quant_param(
     type = "double",
     range = range,
@@ -112,5 +112,3 @@ rate_schedule <- function(values = values_scheduler) {
 #' @rdname scheduler-param
 #' @export
 values_scheduler <- c("none", "decay_time", "decay_expo", "cyclic", "step")
-
-

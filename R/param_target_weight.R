@@ -6,10 +6,10 @@
 #' balances the weighting equally between data and target.
 #'
 #' @inheritParams Laplace
-#' 
+#'
 #' @details
 #' This parameter is used in `recipes` via `embed::step_umap()`.
-#' 
+#'
 #' @examples
 #' target_weight()
 #' @export
