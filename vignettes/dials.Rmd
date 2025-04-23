@@ -53,11 +53,10 @@ library(dials)
 cost_complexity()
 ```
 
-Note that this parameter is handled in log units and the default range of values is between `10^-10` and `0.1`. The range of possible values can be returned and changed based on some utility functions. We'll use the pipe operator here:
+Note that this parameter is handled in log units and the default range of values is between `10^-10` and `0.1`. The range of possible values can be returned and changed based on some utility functions.
 
 ```{r}
 #| label: cp-range
-library(dplyr)
 cost_complexity() |> range_get()
 cost_complexity() |> range_set(c(-5, 1))
 
