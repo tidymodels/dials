@@ -133,7 +133,7 @@ the example above, the <code>mixture</code> argument above is different for
 <span></span>
 <span><span class="co"># When used with glmnet, the range is [0.05, 1.00]</span></span>
 <span><span class="va">glmn_mod</span> <span class="op">&lt;-</span></span>
-<span>  <span class="fu">linear_reg</span><span class="op">(</span>mixture <span class="op">=</span> <span class="fu">tune</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
+<span>  <span class="fu">linear_reg</span><span class="op">(</span>mixture <span class="op">=</span> <span class="fu">tune</span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">set_engine</span><span class="op">(</span><span class="st">"glmnet"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">283</span><span class="op">)</span></span>
