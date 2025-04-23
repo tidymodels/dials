@@ -75,15 +75,15 @@
 #' # Note that `rbf_sigma()` has a default range that does not need to be
 #' # finalized but will be changed if used in the function:
 #' complete_params <-
-#'   params %>%
+#'   params |>
 #'   mutate(object = map(object, finalize, car_pred))
 #' complete_params
 #'
-#' params %>%
-#'   dplyr::filter(parameter == "rbf_sigma") %>%
+#' params |>
+#'   dplyr::filter(parameter == "rbf_sigma") |>
 #'   pull(object)
-#' complete_params %>%
-#'   dplyr::filter(parameter == "rbf_sigma") %>%
+#' complete_params |>
+#'   dplyr::filter(parameter == "rbf_sigma") |>
 #'   pull(object)
 #'
 #' @export

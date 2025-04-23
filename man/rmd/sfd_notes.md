@@ -37,13 +37,13 @@ library(tune)
 
 # When used with glmnet, the range is [0.05, 1.00]
 glmn_mod <-
-  linear_reg(mixture = tune()) %>%
+  linear_reg(mixture = tune()) |>
   set_engine("glmnet")
 
 set.seed(283)
 mix_grid_2 <-
-  glmn_mod %>% 
-  extract_parameter_set_dials() %>% 
+  glmn_mod |> 
+  extract_parameter_set_dials() |> 
   grid_latin_hypercube(size = 1000)
 range(mix_grid_2$mixture)
 ```

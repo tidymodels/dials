@@ -173,7 +173,7 @@ print.parameters <- function(x, ...) {
   cli::cli_text("Collection of {nrow(x)} parameters for tuning")
   cli::cli_end()
 
-  print_x <- x %>% dplyr::select(identifier = id, type = name, object)
+  print_x <- x |> dplyr::select(identifier = id, type = name, object)
   print_x$object <-
     purrr::map_chr(
       print_x$object,
@@ -203,8 +203,8 @@ print.parameters <- function(x, ...) {
   }
 
   other_obj <-
-    x %>%
-    dplyr::filter(!is.na(object)) %>%
+    x |>
+    dplyr::filter(!is.na(object)) |>
     mutate(
       not_final = map_lgl(object, unk_check),
       label = map_chr(object, ~ .x$label),
@@ -212,7 +212,7 @@ print.parameters <- function(x, ...) {
     )
   if (any(other_obj$not_final)) {
     # There's a more elegant way to do this, I'm sure:
-    mod_obj <- as_tibble(other_obj) %>%
+    mod_obj <- as_tibble(other_obj) |>
       dplyr::filter(source == "model_spec" & not_final)
     if (nrow(mod_obj) > 0) {
       cli::cli_par()
@@ -220,7 +220,7 @@ print.parameters <- function(x, ...) {
       cli::cli_text("{mod_obj$note}")
       cli::cli_end()
     }
-    rec_obj <- as_tibble(other_obj) %>%
+    rec_obj <- as_tibble(other_obj) |>
       dplyr::filter(source == "recipe" & not_final)
     if (nrow(rec_obj) > 0) {
       cli::cli_par()
@@ -228,7 +228,7 @@ print.parameters <- function(x, ...) {
       cli::cli_text("{rec_obj$note}")
       cli::cli_end()
     }
-    lst_obj <- as_tibble(other_obj) %>%
+    lst_obj <- as_tibble(other_obj) |>
       dplyr::filter(source == "list" & not_final)
     if (nrow(lst_obj) > 0) {
       cli::cli_par()
