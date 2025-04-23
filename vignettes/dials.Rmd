@@ -53,13 +53,12 @@ library(dials)
 cost_complexity()
 ```
 
-Note that this parameter is handled in log units and the default range of values is between `10^-10` and `0.1`. The range of possible values can be returned and changed based on some utility functions. We'll use the pipe operator here:
+Note that this parameter is handled in log units and the default range of values is between `10^-10` and `0.1`. The range of possible values can be returned and changed based on some utility functions.
 
 ```{r}
 #| label: cp-range
-library(dplyr)
-cost_complexity() %>% range_get()
-cost_complexity() %>% range_set(c(-5, 1))
+cost_complexity() |> range_get()
+cost_complexity() |> range_set(c(-5, 1))
 
 # Or using the `range` argument
 # during creation
@@ -71,10 +70,10 @@ Values for this parameter can be obtained in a few different ways. To get a sequ
 ```{r}
 #| label: cp-seq
 # Natural units:
-cost_complexity() %>% value_seq(n = 4)
+cost_complexity() |> value_seq(n = 4)
 
 # Stay in the transformed space:
-cost_complexity() %>% value_seq(n = 4, original = FALSE)
+cost_complexity() |> value_seq(n = 4, original = FALSE)
 ```
 
 Random values can be sampled too. A random uniform distribution is used (between the range values). Since this parameter has a transformation associated with it, the values are simulated in the transformed scale and then returned in the natural units (although the `original` argument can be used here): 
@@ -82,7 +81,7 @@ Random values can be sampled too. A random uniform distribution is used (between
 ```{r}
 #| label: cp-sim
 set.seed(5473)
-cost_complexity() %>% value_sample(n = 4)
+cost_complexity() |> value_sample(n = 4)
 ```
 
 For CART trees, there is a discrete set of values that exist for a given data set. It may be a good idea to assign these possible values to the object. We can get them by fitting an initial `rpart` model and then adding the values to the object. For `mtcars`, there are only three values:
@@ -99,14 +98,14 @@ cp_vals <- cart_mod$cptable[, "CP"]
 cp_vals <- cp_vals[ cart_mod$cptable[, "nsplit"] > 0 ]
 
 # Here the specific Cp values, on their natural scale, are added:
-mtcars_cp <- cost_complexity() %>% value_set(cp_vals)
+mtcars_cp <- cost_complexity() |> value_set(cp_vals)
 ```
 
 The error occurs because the values are not in the transformed scale:
 
 ```{r}
 #| label: rpart-cp
-mtcars_cp <- cost_complexity() %>% value_set(log10(cp_vals))
+mtcars_cp <- cost_complexity() |> value_set(log10(cp_vals))
 mtcars_cp
 ```
 
@@ -114,10 +113,10 @@ Now, if a sequence or random sample is requested, it uses the set values:
 
 ```{r}
 #| label: rpart-cp-vals
-mtcars_cp %>% value_seq(2)
+mtcars_cp |> value_seq(2)
 # Sampling specific values is done with replacement
-mtcars_cp %>% 
-  value_sample(20) %>% 
+mtcars_cp |> 
+  value_sample(20) |> 
   table()
 ```
 
@@ -140,7 +139,7 @@ For this version of `cost()`, parameter values are sampled between 1 and 10 and 
 ```{r}
 #| label: custom-cost
 -log2(c(10, 1))
-value_sample(custom_cost, 100) %>% range()
+value_sample(custom_cost, 100) |> range()
 ```
 
 
@@ -158,11 +157,11 @@ The helper functions are analogues to the quantitative parameters:
 ```{r}
 #| label: wts-ex
 # redefine values
-weight_func() %>% value_set(c("rectangular", "triangular"))
-weight_func() %>% value_sample(3)
+weight_func() |> value_set(c("rectangular", "triangular"))
+weight_func() |> value_sample(3)
 
 # the sequence is returned in the order of the levels
-weight_func() %>% value_seq(3)
+weight_func() |> value_seq(3)
 ```
 
 ## Creating Novel Parameters

@@ -35,7 +35,7 @@ parameters.list <- function(x, ...) {
   if (any(!elem_param)) {
     cli::cli_abort("The objects should all be {.cls param} objects.")
   }
-  elem_name <- purrr::map_chr(x, ~ names(.x$label))
+  elem_name <- purrr::map_chr(x, \(.x) names(.x$label))
   elem_id <- names(x)
   if (length(elem_id) == 0) {
     elem_id <- elem_name
@@ -173,15 +173,16 @@ print.parameters <- function(x, ...) {
   cli::cli_text("Collection of {nrow(x)} parameters for tuning")
   cli::cli_end()
 
-  print_x <- x %>% dplyr::select(identifier = id, type = name, object)
+  print_x <- x |> dplyr::select(identifier = id, type = name, object)
   print_x$object <-
     purrr::map_chr(
       print_x$object,
-      ~ if (all(is.na(.x))) {
-        "missing"
-      } else {
-        pillar::type_sum(.x)
-      }
+      \(.x)
+        if (all(is.na(.x))) {
+          "missing"
+        } else {
+          pillar::type_sum(.x)
+        }
     )
 
   cli::cli_par()
@@ -190,7 +191,7 @@ print.parameters <- function(x, ...) {
   )
   cli::cli_end()
 
-  null_obj <- map_lgl(x$object, ~ all(is.na(.x)))
+  null_obj <- map_lgl(x$object, \(.x) all(is.na(.x)))
 
   if (any(null_obj)) {
     needs_param <- print_x$identifier[null_obj]
@@ -203,16 +204,16 @@ print.parameters <- function(x, ...) {
   }
 
   other_obj <-
-    x %>%
-    dplyr::filter(!is.na(object)) %>%
+    x |>
+    dplyr::filter(!is.na(object)) |>
     mutate(
       not_final = map_lgl(object, unk_check),
-      label = map_chr(object, ~ .x$label),
+      label = map_chr(object, \(.x) .x$label),
       note = paste0("   ", label, " ('", id, "')\n")
     )
   if (any(other_obj$not_final)) {
     # There's a more elegant way to do this, I'm sure:
-    mod_obj <- as_tibble(other_obj) %>%
+    mod_obj <- as_tibble(other_obj) |>
       dplyr::filter(source == "model_spec" & not_final)
     if (nrow(mod_obj) > 0) {
       cli::cli_par()
@@ -220,7 +221,7 @@ print.parameters <- function(x, ...) {
       cli::cli_text("{mod_obj$note}")
       cli::cli_end()
     }
-    rec_obj <- as_tibble(other_obj) %>%
+    rec_obj <- as_tibble(other_obj) |>
       dplyr::filter(source == "recipe" & not_final)
     if (nrow(rec_obj) > 0) {
       cli::cli_par()
@@ -228,7 +229,7 @@ print.parameters <- function(x, ...) {
       cli::cli_text("{rec_obj$note}")
       cli::cli_end()
     }
-    lst_obj <- as_tibble(other_obj) %>%
+    lst_obj <- as_tibble(other_obj) |>
       dplyr::filter(source == "list" & not_final)
     if (nrow(lst_obj) > 0) {
       cli::cli_par()
@@ -281,7 +282,7 @@ update.parameters <- function(object, ...) {
     )
   }
   not_param <- !purrr::map_lgl(args, inherits, "param")
-  not_null <- !purrr::map_lgl(args, ~ all(is.na(.x)))
+  not_null <- !purrr::map_lgl(args, \(.x) all(is.na(.x)))
   bad_input <- not_param & not_null
   if (any(bad_input)) {
     offenders <- nms[bad_input]

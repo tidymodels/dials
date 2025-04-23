@@ -70,7 +70,7 @@ check_range <- function(x, type, trans, ..., call = caller_env()) {
       whole <-
         purrr::map_lgl(
           x0[known],
-          ~ abs(.x - round(.x)) < .Machine$double.eps^0.5
+          \(.x) abs(.x - round(.x)) < .Machine$double.eps^0.5
         )
       if (!all(whole)) {
         offenders <- x0[known][!whole]

@@ -128,7 +128,8 @@
 ---
 
     Code
-      ex_params[1, ] %>% structure(class = c("parameters", class(.)))
+      param <- ex_params[1, ]
+      structure(param, class = c("parameters", class(param)))
     Message
       Collection of 1 parameters for tuning
       
@@ -141,7 +142,8 @@
 ---
 
     Code
-      ex_params[1:2, ] %>% structure(class = c("parameters", class(.)))
+      param <- ex_params[1:2, ]
+      structure(param, class = c("parameters", class(param)))
     Message
       Collection of 2 parameters for tuning
       
@@ -155,7 +157,8 @@
 ---
 
     Code
-      ex_params[1:3, ] %>% structure(class = c("parameters", class(.)))
+      param <- ex_params[1:3, ]
+      structure(param, class = c("parameters", class(param)))
     Message
       Collection of 3 parameters for tuning
       

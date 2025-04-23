@@ -131,7 +131,7 @@ test_that("latin square designs", {
 test_that("sfd package designs - default", {
   size <- 11
   prm <- parameters(mom = momentum(), mixture())
-  vls <- prm$object %>% purrr::map(~ dials::value_seq(.x, size))
+  vls <- prm$object |> purrr::map(\(.x) dials::value_seq(.x, size))
 
   dials_2_any <- grid_space_filling(prm, size = size, type = "any")
   sfd_2_any <- sfd::get_design(2, num_points = size, type = "any")
@@ -146,7 +146,7 @@ test_that("sfd package designs - default", {
 test_that("sfd package designs AE", {
   size <- 11
   prm <- parameters(mom = momentum(), mixture())
-  vls <- prm$object %>% purrr::map(~ dials::value_seq(.x, size))
+  vls <- prm$object |> purrr::map(\(.x) dials::value_seq(.x, size))
 
   dials_2_any <- grid_space_filling(prm, size = size, type = "any")
   sfd_2_any <- sfd::get_design(2, num_points = size, type = "any")
@@ -165,7 +165,7 @@ test_that("sfd package designs AE", {
 test_that("sfd package designs - MaxMin L1", {
   size <- 11
   prm <- parameters(mom = momentum(), mixture())
-  vls <- prm$object %>% purrr::map(~ dials::value_seq(.x, size))
+  vls <- prm$object |> purrr::map(\(.x) dials::value_seq(.x, size))
 
   dials_2_mml1 <- grid_space_filling(prm, size = size, type = "max_min_l1")
   sfd_2_mml1 <- sfd::get_design(2, num_points = size, type = "max_min_l1")
@@ -180,7 +180,7 @@ test_that("sfd package designs - MaxMin L1", {
 test_that("sfd package designs - MaxMin L2", {
   size <- 11
   prm <- parameters(mom = momentum(), mixture())
-  vls <- prm$object %>% purrr::map(~ dials::value_seq(.x, size))
+  vls <- prm$object |> purrr::map(\(.x) dials::value_seq(.x, size))
 
   dials_2_mml2 <- grid_space_filling(prm, size = size, type = "max_min_l2")
   sfd_2_mml2 <- sfd::get_design(2, num_points = size, type = "max_min_l2")
@@ -195,7 +195,7 @@ test_that("sfd package designs - MaxMin L2", {
 test_that("sfd package designs - uniform", {
   size <- 11
   prm <- parameters(mom = momentum(), mixture())
-  vls <- prm$object %>% purrr::map(~ dials::value_seq(.x, size))
+  vls <- prm$object |> purrr::map(\(.x) dials::value_seq(.x, size))
 
   dials_2_unif <- grid_space_filling(prm, size = size, type = "uniform")
   sfd_2_unif <- sfd::get_design(2, num_points = size, type = "uniform")

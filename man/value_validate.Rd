@@ -73,25 +73,25 @@ is used.
 \examples{
 library(dplyr)
 
-penalty() \%>\% value_set(-4:-1)
+penalty() |> value_set(-4:-1)
 
 # Is a specific value valid?
 penalty()
-penalty() \%>\% range_get()
+penalty() |> range_get()
 value_validate(penalty(), 17)
 
 # get a sequence of values
 cost_complexity()
-cost_complexity() \%>\% value_seq(4)
-cost_complexity() \%>\% value_seq(4, original = FALSE)
+cost_complexity() |> value_seq(4)
+cost_complexity() |> value_seq(4, original = FALSE)
 
-on_log_scale <- cost_complexity() \%>\% value_seq(4, original = FALSE)
+on_log_scale <- cost_complexity() |> value_seq(4, original = FALSE)
 nat_units <- value_inverse(cost_complexity(), on_log_scale)
 nat_units
 value_transform(cost_complexity(), nat_units)
 
 # random values in the range
 set.seed(3666)
-cost_complexity() \%>\% value_sample(2)
+cost_complexity() |> value_sample(2)
 
 }
