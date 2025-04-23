@@ -24,7 +24,7 @@ one of \code{"spectral"}, \code{"normlaplacian"}, \code{"random"}, \code{"lvrand
 more details.
 }
 \details{
-This parameter is used in \code{\link[embed:step_umap]{embed::step_umap()}}.
+This parameter is used in \code{embed::step_umap()}.
 }
 \examples{
 values_initial_umap
