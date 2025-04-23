@@ -34,7 +34,7 @@
 ## usethis namespace: start
 #' @import rlang
 #' @importFrom DiceDesign dmaxDesign lhsDesign
-#' @importFrom dplyr %>% filter mutate pull select
+#' @importFrom dplyr filter mutate pull select
 #' @importFrom glue glue glue_collapse
 #' @importFrom lifecycle deprecated
 #' @importFrom pillar type_sum
