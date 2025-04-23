@@ -35,7 +35,7 @@ parameters.list <- function(x, ...) {
   if (any(!elem_param)) {
     cli::cli_abort("The objects should all be {.cls param} objects.")
   }
-  elem_name <- purrr::map_chr(x, ~ names(.x$label))
+  elem_name <- purrr::map_chr(x, \(.x) names(.x$label))
   elem_id <- names(x)
   if (length(elem_id) == 0) {
     elem_id <- elem_name
@@ -177,11 +177,12 @@ print.parameters <- function(x, ...) {
   print_x$object <-
     purrr::map_chr(
       print_x$object,
-      ~ if (all(is.na(.x))) {
-        "missing"
-      } else {
-        pillar::type_sum(.x)
-      }
+      \(.x)
+        if (all(is.na(.x))) {
+          "missing"
+        } else {
+          pillar::type_sum(.x)
+        }
     )
 
   cli::cli_par()
@@ -190,7 +191,7 @@ print.parameters <- function(x, ...) {
   )
   cli::cli_end()
 
-  null_obj <- map_lgl(x$object, ~ all(is.na(.x)))
+  null_obj <- map_lgl(x$object, \(.x) all(is.na(.x)))
 
   if (any(null_obj)) {
     needs_param <- print_x$identifier[null_obj]
@@ -207,7 +208,7 @@ print.parameters <- function(x, ...) {
     dplyr::filter(!is.na(object)) |>
     mutate(
       not_final = map_lgl(object, unk_check),
-      label = map_chr(object, ~ .x$label),
+      label = map_chr(object, \(.x) .x$label),
       note = paste0("   ", label, " ('", id, "')\n")
     )
   if (any(other_obj$not_final)) {
@@ -281,7 +282,7 @@ update.parameters <- function(object, ...) {
     )
   }
   not_param <- !purrr::map_lgl(args, inherits, "param")
-  not_null <- !purrr::map_lgl(args, ~ all(is.na(.x)))
+  not_null <- !purrr::map_lgl(args, \(.x) all(is.na(.x)))
   bad_input <- not_param & not_null
   if (any(bad_input)) {
     offenders <- nms[bad_input]

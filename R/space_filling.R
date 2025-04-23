@@ -224,8 +224,8 @@ make_sfd <- function(
 
     if (has_premade_design) {
       grid <- sfd::get_design(p, num_points = size, type = type)
-      vals <- purrr::map(params, ~ value_seq(.x, size))
-      vals <- purrr::map(vals, ~ base_recycle(.x, size))
+      vals <- purrr::map(params, \(.x) value_seq(.x, size))
+      vals <- purrr::map(vals, \(.x) base_recycle(.x, size))
       grid <- sfd::update_values(grid, vals)
       names(grid) <- names(params)
     } else {
