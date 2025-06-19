@@ -1,4 +1,3 @@
-
 test_that("is_unknown", {
   expect_true(
     is_unknown(unknown())
@@ -41,8 +40,14 @@ test_that("unknowns in grid functions", {
   expect_snapshot(error = TRUE, grid_regular(p3))
   expect_snapshot(error = TRUE, grid_random(p1))
   expect_snapshot(error = TRUE, grid_random(p2))
-  expect_snapshot(error = TRUE, grid_space_filling(p1, type = "latin_hypercube"))
-  expect_snapshot(error = TRUE, grid_space_filling(p2, type = "latin_hypercube"))
+  expect_snapshot(
+    error = TRUE,
+    grid_space_filling(p1, type = "latin_hypercube")
+  )
+  expect_snapshot(
+    error = TRUE,
+    grid_space_filling(p2, type = "latin_hypercube")
+  )
   expect_snapshot(error = TRUE, grid_space_filling(p1, type = "max_entropy"))
   expect_snapshot(error = TRUE, grid_space_filling(p2, type = "max_entropy"))
 
@@ -51,7 +56,16 @@ test_that("unknowns in grid functions", {
   expect_snapshot(error = TRUE, grid_random(min_n(), q = mtry()))
   expect_snapshot(error = TRUE, grid_random(mtry()))
   expect_snapshot(error = TRUE, grid_regular(min_n(), q = mtry()))
-  expect_snapshot(error = TRUE, grid_space_filling(mtry(), type = "latin_hypercube"))
-  expect_snapshot(error = TRUE, grid_space_filling(min_n(), q = mtry(), type = "max_entropy"))
-  expect_snapshot(error = TRUE, grid_space_filling(mtry(), type = "max_entropy"))
+  expect_snapshot(
+    error = TRUE,
+    grid_space_filling(mtry(), type = "latin_hypercube")
+  )
+  expect_snapshot(
+    error = TRUE,
+    grid_space_filling(min_n(), q = mtry(), type = "max_entropy")
+  )
+  expect_snapshot(
+    error = TRUE,
+    grid_space_filling(mtry(), type = "max_entropy")
+  )
 })

@@ -11,9 +11,9 @@
 #' @export
 prune_method <- function(values = values_prune_method) {
   new_qual_param(
-    type     = c("character"),
-    values   = values,
-    label    = c(prune_method = "Pruning Method"),
+    type = c("character"),
+    values = values,
+    label = c(prune_method = "Pruning Method"),
     finalize = NULL
   )
 }
@@ -21,6 +21,10 @@ prune_method <- function(values = values_prune_method) {
 #' @rdname prune_method
 #' @export
 values_prune_method <- c(
-  "backward", "none", "exhaustive",
-  "forward", "seqrep", "cv"
+  "backward",
+  "none",
+  "exhaustive",
+  "forward",
+  "seqrep",
+  "cv"
 )

@@ -90,7 +90,7 @@ library(tune)
 
 # When used with glmnet, the range is [0.05, 1.00]
 glmn_mod <-
-  linear_reg(mixture = tune()) \%>\%
+  linear_reg(mixture = tune()) |>
   set_engine("glmnet")
 
 set.seed(283)

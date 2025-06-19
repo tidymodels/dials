@@ -37,16 +37,16 @@ format_bounds <- function(bnds) {
 
 check_label <- function(label, ..., call = caller_env()) {
   check_dots_empty()
-  
+
   check_string(label, allow_null = TRUE, call = call)
-  
+
   if (!is.null(label) && length(names(label)) != 1) {
     cli::cli_abort(
       "{.arg label} must be named.",
       call = call
     )
   }
-  
+
   invisible(NULL)
 }
 
@@ -68,7 +68,10 @@ check_range <- function(x, type, trans, ..., call = caller_env()) {
     if (convert_type) {
       # logic from from ?is.integer
       whole <-
-        purrr::map_lgl(x0[known], ~ abs(.x - round(.x)) < .Machine$double.eps^0.5)
+        purrr::map_lgl(
+          x0[known],
+          \(.x) abs(.x - round(.x)) < .Machine$double.eps^0.5
+        )
       if (!all(whole)) {
         offenders <- x0[known][!whole]
         cli::cli_abort(
@@ -123,7 +126,7 @@ check_inclusive <- function(x, ..., call = caller_env()) {
 
   stop_input_type(
     x,
-    "a logical vector of length 2", 
+    "a logical vector of length 2",
     allow_na = FALSE,
     allow_null = FALSE,
     arg = "inclusive",
@@ -131,12 +134,14 @@ check_inclusive <- function(x, ..., call = caller_env()) {
   )
 }
 
-check_param <- function(x,
-                        ...,
-                        allow_na = FALSE,
-                        allow_null = FALSE,
-                        arg = caller_arg(x),
-                        call = caller_env()) {
+check_param <- function(
+  x,
+  ...,
+  allow_na = FALSE,
+  allow_null = FALSE,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
   if (!missing(x) && inherits(x, "param")) {
     return(invisible(NULL))
   }

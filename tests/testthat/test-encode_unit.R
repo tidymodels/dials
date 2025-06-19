@@ -1,4 +1,3 @@
-
 test_that("to [0, 1] for qualitative values", {
   z <- prune_method()
 
@@ -25,7 +24,11 @@ test_that("to [0, 1] for quantitative values", {
   x_0 <- encode_unit(x, 2:7, direction = "forward")
   expect_equal(x_0, seq(0, 1, length = 6))
 
-  x_back <- encode_unit(x, c(0.000001, 1 / 3, .99999, 1), direction = "backward")
+  x_back <- encode_unit(
+    x,
+    c(0.000001, 1 / 3, .99999, 1),
+    direction = "backward"
+  )
   expect_equal(x_back, c(2L, 4L, 7L, 7L))
 
   y_0 <- encode_unit(y, log10(214), direction = "forward")

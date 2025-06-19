@@ -32,8 +32,8 @@
 #' If set, these will be used by [value_seq()] and [value_sample()].
 #'
 #' @param label An optional named character string that can be used for
-#' printing and plotting. The name of the label should match the object name 
-#' (e.g., `"mtry"`, `"neighbors"`, etc.). If `NULL`, the parameter will be 
+#' printing and plotting. The name of the label should match the object name
+#' (e.g., `"mtry"`, `"neighbors"`, etc.). If `NULL`, the parameter will be
 #' labeled with `"Unlabeled parameter"`.
 #'
 #' @param finalize A function that can be used to set the data-specific

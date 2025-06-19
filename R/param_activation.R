@@ -31,9 +31,29 @@ activation_2 <- function(values = values_activation) {
 
 #' @rdname activation
 #' @export
-values_activation <- c("celu", "elu", "exponential", "gelu", "hardshrink", 
-  "hardsigmoid", "hardtanh", "leaky_relu", "linear", "log_sigmoid", "relu", 
-  "relu6", "rrelu", "selu", "sigmoid", "silu", "softmax", "softplus", 
-  "softshrink", "softsign", "swish", "tanh", "tanhshrink"
+values_activation <- c(
+  "celu",
+  "elu",
+  "exponential",
+  "gelu",
+  "hardshrink",
+  "hardsigmoid",
+  "hardtanh",
+  "leaky_relu",
+  "linear",
+  "log_sigmoid",
+  "relu",
+  "relu6",
+  "rrelu",
+  "selu",
+  "sigmoid",
+  "silu",
+  "softmax",
+  "softplus",
+  "softshrink",
+  "softsign",
+  "swish",
+  "tanh",
+  "tanhshrink"
 )
 # sort(unique(c(brulee::brulee_activations(), parsnip::keras_activations())))

@@ -75,15 +75,15 @@
 #' # Note that `rbf_sigma()` has a default range that does not need to be
 #' # finalized but will be changed if used in the function:
 #' complete_params <-
-#'   params %>%
+#'   params |>
 #'   mutate(object = map(object, finalize, car_pred))
 #' complete_params
 #'
-#' params %>%
-#'   dplyr::filter(parameter == "rbf_sigma") %>%
+#' params |>
+#'   dplyr::filter(parameter == "rbf_sigma") |>
 #'   pull(object)
-#' complete_params %>%
-#'   dplyr::filter(parameter == "rbf_sigma") %>%
+#' complete_params |>
+#'   dplyr::filter(parameter == "rbf_sigma") |>
 #'   pull(object)
 #'
 #' @export
@@ -128,7 +128,6 @@ finalize.parameters <- function(object, x, force = TRUE, ...) {
 
 # These two finalize methods are for cases when a tuning parameter has no
 # parameter object or isn't listed in the tunable method.
-
 
 #' @export
 #' @rdname finalize
@@ -188,7 +187,7 @@ get_log_p <- function(object, x, ...) {
 
 #' @export
 #' @rdname finalize
-get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ...) {
+get_n_frac <- function(object, x, log_vals = FALSE, frac = 1 / 3, ...) {
   check_param(object)
 
   rngs <- range_get(object, original = FALSE)
@@ -218,7 +217,13 @@ get_n_frac <- function(object, x, log_vals = FALSE, frac = 1/3, ...) {
 
 #' @export
 #' @rdname finalize
-get_n_frac_range <- function(object, x, log_vals = FALSE, frac = c(1/10, 5/10), ...) {
+get_n_frac_range <- function(
+  object,
+  x,
+  log_vals = FALSE,
+  frac = c(1 / 10, 5 / 10),
+  ...
+) {
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$upper)) {
     return(object)
@@ -270,7 +275,7 @@ get_rbf_range <- function(object, x, seed = sample.int(10^5, 1), ...) {
 
 #' @export
 #' @rdname finalize
-get_batch_sizes <- function(object, x, frac = c(1/10, 1/3), ...) {
+get_batch_sizes <- function(object, x, frac = c(1 / 10, 1 / 3), ...) {
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$lower) & !is_unknown(rngs$upper)) {
     return(object)

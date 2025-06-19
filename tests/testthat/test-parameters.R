@@ -12,7 +12,14 @@ test_that("parameters_const() input checks", {
   })
   expect_snapshot(error = TRUE, {
     ab <- c("a", "b")
-    parameters_constr(ab, ab, ab, ab, ab, object = list(penalty(), "not a param"))
+    parameters_constr(
+      ab,
+      ab,
+      ab,
+      ab,
+      ab,
+      object = list(penalty(), "not a param")
+    )
   })
   expect_snapshot(error = TRUE, {
     ab <- c("a", "b")
@@ -27,28 +34,28 @@ test_that("parameters_const() input checks", {
 test_that("create from param objects", {
   expect_no_condition(p_1 <- parameters(mtry(), penalty()))
   expect_s3_class_parameters(p_1)
-  expect_equal(p_1 %>% nrow(), 2)
+  expect_equal(p_1 |> nrow(), 2)
 
   expect_no_condition(p_2 <- parameters(penalty()))
   expect_s3_class_parameters(p_2)
-  expect_equal(p_2 %>% nrow(), 1)
+  expect_equal(p_2 |> nrow(), 1)
 })
 
 
 test_that("create from lists of param objects", {
   expect_no_condition(p_1 <- parameters(list(mtry(), penalty())))
   expect_s3_class_parameters(p_1)
-  expect_equal(p_1 %>% nrow(), 2)
+  expect_equal(p_1 |> nrow(), 2)
 
   expect_no_condition(p_2 <- parameters(list(penalty())))
   expect_s3_class_parameters(p_2)
-  expect_equal(p_2 %>% nrow(), 1)
+  expect_equal(p_2 |> nrow(), 1)
 
   expect_no_condition(
     p_3 <- parameters(list(a = mtry(), "some name" = penalty()))
   )
   expect_s3_class_parameters(p_3)
-  expect_equal(p_3 %>% nrow(), 2)
+  expect_equal(p_3 |> nrow(), 2)
   expect_equal(p_3$id, c("a", "some name"))
 
   expect_snapshot(error = TRUE, parameters(list(a = mtry(), a = penalty())))
@@ -84,17 +91,20 @@ test_that("printing", {
     "costs",   "costs",  "model_spec", "boost_tree", NULL,       "engine",      NA,
   )
 
-  expect_snapshot(
-    ex_params[1,] %>% structure(class = c("parameters", class(.)))
-  )
+  expect_snapshot({
+    param <- ex_params[1, ]
+    structure(param, class = c("parameters", class(param)))
+  })
 
-  expect_snapshot(
-    ex_params[1:2,] %>% structure(class = c("parameters", class(.)))
-  )
+  expect_snapshot({
+    param <- ex_params[1:2, ]
+    structure(param, class = c("parameters", class(param)))
+  })
 
-  expect_snapshot(
-    ex_params[1:3,] %>% structure(class = c("parameters", class(.)))
-  )
+  expect_snapshot({
+    param <- ex_params[1:3, ]
+    structure(param, class = c("parameters", class(param)))
+  })
 })
 
 test_that("parameters.default", {
