@@ -1,6 +1,6 @@
 #' Radius used to determine core-points and cluster assignments
 #'
-#' Used in `tidyclust::db_clust`.
+#' Used in [tidyclust::db_clust()].
 #'
 #' @inheritParams Laplace
 #' @examples

@@ -10,7 +10,7 @@ shared_size(values = c(TRUE, FALSE))
 \item{values}{A vector of possible values (TRUE or FALSE).}
 }
 \description{
-Used in \code{tidyclust::gm_clust()}.
+Used in \code{\link[tidyclust:gm_clust]{tidyclust::gm_clust()}}.
 }
 \examples{
 shared_size()

@@ -1,6 +1,6 @@
 #' Parameter to control whether clusters have zero covariance between predictors
 #'
-#' Used in `tidyclust::gm_clust()`.
+#' Used in [tidyclust::gm_clust()].
 #'
 #' @param values A vector of possible values (TRUE or FALSE).
 #' @examples

@@ -17,7 +17,7 @@ the default is used which matches the units used in \code{range}. If no
 transformation, \code{NULL}.}
 }
 \description{
-Used in \code{tidyclust::db_clust}.
+Used in \code{\link[tidyclust:db_clust]{tidyclust::db_clust()}}.
 }
 \examples{
 radius()

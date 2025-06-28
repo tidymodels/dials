@@ -1,6 +1,6 @@
 #' Parameter to control whether clusters share the same size in the predictor space
 #'
-#' Used in `tidyclust::gm_clust()`.
+#' Used in [tidyclust::gm_clust()].
 #'
 #' @param values A vector of possible values (TRUE or FALSE).
 #' @examples
