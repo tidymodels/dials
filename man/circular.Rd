@@ -2,7 +2,7 @@
 % Please edit documentation in R/param_circular.R
 \name{circular}
 \alias{circular}
-\title{Parameter to control whether fitted Gaussian distributions have circular or ellipsoidal cluster shapes}
+\title{Circular cluster shapes?}
 \usage{
 circular(values = c(TRUE, FALSE))
 }
@@ -11,6 +11,9 @@ circular(values = c(TRUE, FALSE))
 }
 \description{
 Used in \code{\link[tidyclust:gm_clust]{tidyclust::gm_clust()}}.
+}
+\details{
+Parameter to control whether fitted Gaussian distributions have circular or ellipsoidal cluster shapes.
 }
 \examples{
 circular()

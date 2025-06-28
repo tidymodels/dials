@@ -2,7 +2,7 @@
 % Please edit documentation in R/param_shared_orientation.R
 \name{shared_orientation}
 \alias{shared_orientation}
-\title{Parameter to control whether whether fitted Gaussian distributions for clusters share the same orientation in the predictor space}
+\title{Same orientation for all clusters?}
 \usage{
 shared_orientation(values = c(TRUE, FALSE))
 }
@@ -10,14 +10,17 @@ shared_orientation(values = c(TRUE, FALSE))
 \item{values}{A vector of possible values (\code{TRUE} or \code{FALSE}).}
 }
 \description{
-Used in \code{\link[tidyclust:gm_clust]{tidyclust::gm_clust()}}. Only applicable if \code{circular == FALSE} and \code{zero_covariance == FALSE}.
+Used in \code{\link[tidyclust:gm_clust]{tidyclust::gm_clust()}}.
+}
+\details{
+Parameter to control whether whether fitted Gaussian distributions for clusters share the same orientation in the predictor space. Only applicable if \code{circular == FALSE} and \code{zero_covariance == FALSE}.
 }
 \examples{
 shared_orientation()
 }
 \seealso{
 \itemize{
-\item \code{\link[=circular]{circular()}} controls whether fitted Gaussian distributions have circular or ellipsoidal cluster shapes
-\item \code{\link[=zero_covariance]{zero_covariance()}} controls whether fitted Gaussian distributions for clusters have zero covariance between predictors
+\item \code{\link[=circular]{circular()}} controls whether fitted Gaussian distributions have circular or ellipsoidal cluster shapes.
+\item \code{\link[=zero_covariance]{zero_covariance()}} controls whether fitted Gaussian distributions for clusters have zero covariance between predictors.
 }
 }

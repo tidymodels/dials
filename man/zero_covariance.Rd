@@ -2,7 +2,7 @@
 % Please edit documentation in R/param_zero_covariance.R
 \name{zero_covariance}
 \alias{zero_covariance}
-\title{Parameter to control whether fitted Gaussian distributions for clusters have zero covariance between predictors}
+\title{Zero covariance between predictors?}
 \usage{
 zero_covariance(values = c(TRUE, FALSE))
 }
@@ -10,7 +10,10 @@ zero_covariance(values = c(TRUE, FALSE))
 \item{values}{A vector of possible values (\code{TRUE} or \code{FALSE}).}
 }
 \description{
-Used in \code{\link[tidyclust:gm_clust]{tidyclust::gm_clust()}}. Only applicable if \code{ciruclar == FALSE}
+Used in \code{\link[tidyclust:gm_clust]{tidyclust::gm_clust()}}.
+}
+\details{
+Parameter to control whether fitted Gaussian distributions for clusters have zero covariance between predictors. Only applicable if \code{ciruclar == FALSE}.
 }
 \examples{
 zero_covariance()
@@ -18,6 +21,6 @@ zero_covariance()
 }
 \seealso{
 \itemize{
-\item \code{\link[=circular]{circular()}} controls whether fitted Gaussian distributions have circular or ellipsoidal cluster shapes
+\item \code{\link[=circular]{circular()}} controls whether fitted Gaussian distributions have circular or ellipsoidal cluster shapes.
 }
 }

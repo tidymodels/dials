@@ -2,7 +2,7 @@
 % Please edit documentation in R/param_shared_shape.R
 \name{shared_shape}
 \alias{shared_shape}
-\title{Parameter to control whether fitted Gaussian distributions for clusters share the same shape in the predictor space}
+\title{Same shape for all clusters?}
 \usage{
 shared_shape(values = c(TRUE, FALSE))
 }
@@ -10,13 +10,16 @@ shared_shape(values = c(TRUE, FALSE))
 \item{values}{A vector of possible values (\code{TRUE} or \code{FALSE}).}
 }
 \description{
-Used in \code{\link[tidyclust:gm_clust]{tidyclust::gm_clust()}}. Only applicable if \code{circular == FALSE}.
+Used in \code{\link[tidyclust:gm_clust]{tidyclust::gm_clust()}}.
+}
+\details{
+Parameter to control whether fitted Gaussian distributions for clusters share the same shape in the predictor space. Only applicable if \code{circular == FALSE}.
 }
 \examples{
 shared_shape()
 }
 \seealso{
 \itemize{
-\item \code{\link[=circular]{circular()}} controls whether fitted Gaussian distributions have circular or ellipsoidal cluster shapes
+\item \code{\link[=circular]{circular()}} controls whether fitted Gaussian distributions have circular or ellipsoidal cluster shapes.
 }
 }
