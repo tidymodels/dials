@@ -1,8 +1,8 @@
-#' Parameter to control whether clusters share the same size in the predictor space
+#' Parameter to control whether fitted Gaussian distributions for have clusters share the same size in the predictor space
 #'
 #' Used in [tidyclust::gm_clust()].
 #'
-#' @param values A vector of possible values (TRUE or FALSE).
+#' @param values A vector of possible values (`TRUE` or `FALSE`).
 #' @examples
 #' shared_size()
 #' @export

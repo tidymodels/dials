@@ -2,12 +2,12 @@
 % Please edit documentation in R/param_shared_size.R
 \name{shared_size}
 \alias{shared_size}
-\title{Parameter to control whether clusters share the same size in the predictor space}
+\title{Parameter to control whether fitted Gaussian distributions for have clusters share the same size in the predictor space}
 \usage{
 shared_size(values = c(TRUE, FALSE))
 }
 \arguments{
-\item{values}{A vector of possible values (TRUE or FALSE).}
+\item{values}{A vector of possible values (\code{TRUE} or \code{FALSE}).}
 }
 \description{
 Used in \code{\link[tidyclust:gm_clust]{tidyclust::gm_clust()}}.
