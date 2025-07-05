@@ -26,6 +26,10 @@ dbscan engine. They correspond to tuning parameters that would be specified usin
 }
 \details{
 To use these, check \code{?tidyclust::db_clust} to see how they are used.
+\itemize{
+\item \code{radius()} controls the radius used to determine core-points and cluster assignments
+\item \code{min_points()} controls the minimum number of nearby points to be considered a core-point (including the point itself)
+}
 }
 \examples{
 radius()
