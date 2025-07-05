@@ -101,16 +101,23 @@ reference:
   - title: Parameter objects for specific model engines
     contents:
     - bart-param
+    - circular
     - conditional_min_criterion
     - confidence_factor
     - extrapolation
     - max_nodes
     - max_num_terms
+    - min_points
     - num_leaves
+    - radius
     - regularization_factor
     - rule_bands
     - scale_pos_weight
+    - shared_orientation
+    - shared_shape
+    - shared_size
     - shrinkage_correlation
+    - zero_covariance
 
   - title: Parameter objects for post-processing
     contents:
