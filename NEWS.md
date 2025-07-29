@@ -1,8 +1,8 @@
 # dials (development version)
 
-* `regularization_factor()` is now exclusive of the lower border 0 in compliance with `ranger::ranger()` (#381).
+* Two new parameters, `cal_method_class()` and `cal_method_reg(),` to control which method is used to calibrate model predictions (#383).
 
-* Two parameter functions were added, `cal_method_class()` and `cal_method_reg(),` to control which method is used to calibrate model predictions (#383).
+* `regularization_factor()` is now exclusive of the lower border 0 in compliance with `ranger::ranger()` (#381).
 
 
 # dials 1.4.0
