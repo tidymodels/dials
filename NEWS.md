@@ -1,3 +1,5 @@
+# dials (development version)
+
 # dials 1.4.1
 
 * Two new parameters, `cal_method_class()` and `cal_method_reg(),` to control which method is used to calibrate model predictions (#383).
