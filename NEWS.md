@@ -1,5 +1,7 @@
 # dials (development version)
 
+* `prop_terms()` is a new parameter object used for recipes that do supervised feature selection. 
+
 # dials 1.4.1
 
 * Two new parameters, `cal_method_class()` and `cal_method_reg(),` to control which method is used to calibrate model predictions (#383).
