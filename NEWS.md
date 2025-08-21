@@ -1,6 +1,6 @@
 # dials (development version)
 
-* `prop_terms()` is a new parameter object used for recipes that do supervised feature selection. 
+* `prop_terms()` is a new parameter object used for recipes that do supervised feature selection (#395). 
 
 # dials 1.4.1
 
