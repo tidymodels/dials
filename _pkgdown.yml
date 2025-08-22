@@ -53,6 +53,7 @@ reference:
     - num_tokens
     - over_ratio
     - prior_slab_dispersion
+    - prop_terms
     - token
     - trim_amount
     - validation_set_prop

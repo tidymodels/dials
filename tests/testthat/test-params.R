@@ -142,6 +142,7 @@ test_that("param ranges", {
   expect_equal(num_tokens(c(31, 100))$range, list(lower = 31, upper = 100))
   expect_equal(mtry_prop(c(.1, .2))$range, list(lower = .1, upper = .2))
   expect_equal(dropout(c(.1, .2))$range, list(lower = .1, upper = .2))
+  expect_equal(prop_terms(c(.1, .2))$range, list(lower = .1, upper = .2))
 })
 
 
