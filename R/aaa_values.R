@@ -149,7 +149,7 @@ value_seq_dbl <- function(object, n, original = TRUE) {
       range_lower <- range_lower + .Machine$double.eps
     }
     if (is.infinite(range_lower)) {
-      range_lower <- .Machine$double.xmin
+      range_lower <- -.Machine$double.xmax
     }
 
     range_upper <- max(unlist(object$range))
@@ -235,7 +235,7 @@ value_samp_dbl <- function(object, n, original = TRUE) {
       range_lower <- range_lower + .Machine$double.eps
     }
     if (is.infinite(range_lower)) {
-      range_lower <- .Machine$double.xmin
+      range_lower <- -.Machine$double.xmax
     }
 
     range_upper <- max(unlist(object$range))
