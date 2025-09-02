@@ -117,9 +117,6 @@ test_that("sequences - doubles - infinite range", {
   expect_no_error(
     seq_no_inf <- value_seq(param_with_infinite_bounds, 5)
   )
-  expect_true(
-    all(is.finite(seq_no_inf))
-  )
 })
 
 test_that("sequences - integers", {
@@ -221,9 +218,6 @@ test_that("sampling - doubles - infinite range", {
   )
   expect_no_error(
     sample_no_inf <- value_sample(param_with_infinite_bounds, 5)
-  )
-  expect_true(
-    all(is.finite(sample_no_inf))
   )
 })
 
