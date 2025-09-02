@@ -148,10 +148,16 @@ value_seq_dbl <- function(object, n, original = TRUE) {
     if (!object$inclusive["lower"]) {
       range_lower <- range_lower + .Machine$double.eps
     }
+    if (is.infinite(range_lower)) {
+      range_lower <- -.Machine$double.xmax
+    }
 
     range_upper <- max(unlist(object$range))
     if (!object$inclusive["upper"]) {
       range_upper <- range_upper - .Machine$double.eps
+    }
+    if (is.infinite(range_upper)) {
+      range_upper <- .Machine$double.xmax
     }
 
     res <- seq(
@@ -228,10 +234,16 @@ value_samp_dbl <- function(object, n, original = TRUE) {
     if (!object$inclusive["lower"]) {
       range_lower <- range_lower + .Machine$double.eps
     }
+    if (is.infinite(range_lower)) {
+      range_lower <- -.Machine$double.xmax
+    }
 
     range_upper <- max(unlist(object$range))
     if (!object$inclusive["upper"]) {
       range_upper <- range_upper - .Machine$double.eps
+    }
+    if (is.infinite(range_upper)) {
+      range_upper <- .Machine$double.xmax
     }
 
     res <- runif(

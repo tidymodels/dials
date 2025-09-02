@@ -107,6 +107,17 @@ test_that("sequences - doubles", {
   )
 })
 
+test_that("sequences - doubles - infinite range", {
+  param_with_infinite_bounds <- new_quant_param(
+    type = "double",
+    range = c(-Inf, Inf),
+    inclusive = c(FALSE, FALSE),
+    label = c(param = "param")
+  )
+  expect_no_error(
+    seq_no_inf <- value_seq(param_with_infinite_bounds, 5)
+  )
+})
 
 test_that("sequences - integers", {
   param_with_transformation <-
@@ -196,6 +207,18 @@ test_that("sampling - doubles", {
   expect_true(max(L2_tran) < penalty()$range$upper)
 
   expect_in(value_sample(value_seq, 40), value_seq$values)
+})
+
+test_that("sampling - doubles - infinite range", {
+  param_with_infinite_bounds <- new_quant_param(
+    type = "double",
+    range = c(-Inf, Inf),
+    inclusive = c(FALSE, FALSE),
+    label = c(param = "param")
+  )
+  expect_no_error(
+    sample_no_inf <- value_sample(param_with_infinite_bounds, 5)
+  )
 })
 
 test_that("sampling - integers", {
