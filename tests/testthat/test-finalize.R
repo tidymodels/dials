@@ -54,11 +54,6 @@ test_that("estimate rows", {
     list(lower = 16, upper = 37)
   )
 
-  expect_equal(
-    get_batch_sizes(batch_size(), iris, frac = c(.3, .7))$range,
-    list(lower = log2(45), upper = log2(105))
-  )
-
   expect_equal(get_n_frac(mtry(c(1, 2)), mtcars), mtry(c(1, 2)))
 })
 

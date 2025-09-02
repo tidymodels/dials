@@ -16,7 +16,7 @@ hidden_units(range = c(1L, 10L), trans = NULL)
 
 hidden_units_2(range = c(1L, 10L), trans = NULL)
 
-batch_size(range = c(unknown(), unknown()), trans = transform_log2())
+batch_size(range = c(2L, 7L), trans = transform_log2())
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and

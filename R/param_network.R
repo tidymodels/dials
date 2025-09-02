@@ -67,7 +67,7 @@ hidden_units_2 <- function(range = c(1L, 10L), trans = NULL) {
 #' @export
 #' @rdname dropout
 batch_size <- function(
-  range = c(unknown(), unknown()),
+  range = c(2L, 7L),
   trans = transform_log2()
 ) {
   new_quant_param(
@@ -76,6 +76,6 @@ batch_size <- function(
     inclusive = c(TRUE, TRUE),
     trans = trans,
     label = c(batch_size = "Batch Size"),
-    finalize = get_batch_sizes
+    finalize = NULL
   )
 }
