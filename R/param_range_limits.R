@@ -13,10 +13,13 @@
 #' @rdname range_limits
 #' @export
 lower_limit <- function(range = c(-Inf, Inf), trans = NULL) {
+  inclusive <- c(TRUE, TRUE)
+  inclusive[is.infinite(range)] <- FALSE
+
   new_quant_param(
     type = "double",
     range = range,
-    inclusive = c(TRUE, FALSE),
+    inclusive = inclusive,
     trans = trans,
     label = c(lower_limit = "Lower Limit"),
     finalize = NULL
@@ -26,10 +29,13 @@ lower_limit <- function(range = c(-Inf, Inf), trans = NULL) {
 #' @rdname range_limits
 #' @export
 upper_limit <- function(range = c(-Inf, Inf), trans = NULL) {
+  inclusive <- c(TRUE, TRUE)
+  inclusive[is.infinite(range)] <- FALSE
+
   new_quant_param(
     type = "double",
     range = range,
-    inclusive = c(FALSE, TRUE),
+    inclusive = inclusive,
     trans = trans,
     label = c(upper_limit = "Upper Limit"),
     finalize = NULL

@@ -2,6 +2,9 @@
 
 * `prop_terms()` is a new parameter object used for recipes that do supervised feature selection (#395). 
 
+* `upper_limit()` and `lower_limit()` now have ranges that are inclusive of the endpoints, unless the endpoint is infinite (#396).
+
+
 # dials 1.4.1
 
 * Two new parameters, `cal_method_class()` and `cal_method_reg(),` to control which method is used to calibrate model predictions (#383).
