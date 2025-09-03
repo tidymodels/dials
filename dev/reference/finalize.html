@@ -73,9 +73,7 @@ ranges based on a data set and simple heuristics."><meta property="og:image" con
 <span></span>
 <span><span class="fu">get_n</span><span class="op">(</span><span class="va">object</span>, <span class="va">x</span>, log_vals <span class="op">=</span> <span class="cn">FALSE</span>, <span class="va">...</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">get_rbf_range</span><span class="op">(</span><span class="va">object</span>, <span class="va">x</span>, seed <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample.int</a></span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu">get_batch_sizes</span><span class="op">(</span><span class="va">object</span>, <span class="va">x</span>, frac <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">/</span><span class="fl">10</span>, <span class="fl">1</span><span class="op">/</span><span class="fl">3</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">get_rbf_range</span><span class="op">(</span><span class="va">object</span>, <span class="va">x</span>, seed <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample.int</a></span><span class="op">(</span><span class="fl">10</span><span class="op">^</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">)</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -108,7 +106,7 @@ object is complete, should it update the ranges anyway?</p></dd>
 
 <dt id="arg-frac">frac<a class="anchor" aria-label="anchor" href="#arg-frac"></a></dt>
 <dd><p>A double for the fraction of the data to be used for the upper
-bound. For <code>get_n_frac_range()</code> and <code>get_batch_sizes()</code>, a vector of two
+bound. For <code>get_n_frac_range()</code> and <code><a href="get_batch_sizes.html">get_batch_sizes()</a></code>, a vector of two
 fractional values are required.</p></dd>
 
 

@@ -29,6 +29,7 @@
 <url><loc>https://dials.tidymodels.org/dev/reference/encode_unit.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/finalize.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/freq_cut.html</loc></url>
+<url><loc>https://dials.tidymodels.org/dev/reference/get_batch_sizes.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/grid_max_entropy.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/grid_regular.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/grid_space_filling.html</loc></url>
