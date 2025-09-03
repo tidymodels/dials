@@ -272,3 +272,28 @@ get_rbf_range <- function(object, x, seed = sample.int(10^5, 1), ...) {
   rng <- log10(rng)
   range_set(object, rng)
 }
+
+#' @export
+#' @rdname finalize
+get_batch_sizes <- function(object, x, frac = c(1 / 10, 1 / 3), ...) {
+  rngs <- range_get(object, original = FALSE)
+  if (!is_unknown(rngs$lower) & !is_unknown(rngs$upper)) {
+    return(object)
+  }
+
+  x_dims <- dim(x)
+  if (is.null(x_dims)) {
+    cli::cli_abort(
+      "Cannot determine number of columns. Is {.arg x} a 2D data object?"
+    )
+  }
+
+  n_frac <- sort(floor(x_dims[1] * frac))
+  n_frac <- log2(n_frac)
+
+  if (object$type == "integer" & is.null(object$trans)) {
+    n_frac <- as.integer(n_frac)
+  }
+
+  range_set(object, n_frac)
+}
