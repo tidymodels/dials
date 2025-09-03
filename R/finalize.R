@@ -114,7 +114,7 @@ safe_finalize <- function(object, x, force = TRUE, ...) {
   if (all(is.na(object))) {
     res <- NA
   } else {
-    res <- finalize(object, x, force = TRUE, ...)
+    res <- finalize(object, x, force = force, ...)
   }
   res
 }
@@ -273,9 +273,16 @@ get_rbf_range <- function(object, x, seed = sample.int(10^5, 1), ...) {
   range_set(object, rng)
 }
 
+#' Get batch sizes
+#'
+#' `r lifecycle::badge("deprecated")`
+#'
+#' @inheritParams finalize
+#' @keywords internal
 #' @export
-#' @rdname finalize
 get_batch_sizes <- function(object, x, frac = c(1 / 10, 1 / 3), ...) {
+  lifecycle::deprecate_warn("1.4.2", "get_batch_sizes()")
+
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$lower) & !is_unknown(rngs$upper)) {
     return(object)
