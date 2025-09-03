@@ -54,12 +54,33 @@ test_that("estimate rows", {
     list(lower = 16, upper = 37)
   )
 
+  expect_equal(get_n_frac(mtry(c(1, 2)), mtcars), mtry(c(1, 2)))
+})
+
+test_that("`get_batch_size() is deprecated", {
+  expect_snapshot(
+    bsizes <- get_batch_sizes(batch_size(), iris, frac = c(.3, .7))
+  )
+})
+
+test_that("`get_batch_size() works", {
+  withr::local_options(lifecycle_verbosity = "quiet")
+  mock_batch_size_with_unknown <- new_quant_param(
+    type = "integer",
+    range = c(unknown(), unknown()),
+    inclusive = c(TRUE, TRUE),
+    trans = transform_log2(),
+    label = c(batch_size = "Batch Size"),
+    finalize = get_batch_sizes
+  )
   expect_equal(
-    get_batch_sizes(batch_size(), iris, frac = c(.3, .7))$range,
+    get_batch_sizes(
+      mock_batch_size_with_unknown,
+      iris,
+      frac = c(.3, .7)
+    )$range,
     list(lower = log2(45), upper = log2(105))
   )
-
-  expect_equal(get_n_frac(mtry(c(1, 2)), mtcars), mtry(c(1, 2)))
 })
 
 

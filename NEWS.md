@@ -2,7 +2,7 @@
 
 * `prop_terms()` is a new parameter object used for recipes that do supervised feature selection (#395). 
 
-* `batch_size()` now has specific parameter ranges. 
+* `batch_size()` now has a specific default parameter range instead of an unknown default range. `get_batch_sizes()` is deprecated (#398).
 
 # dials 1.4.1
 

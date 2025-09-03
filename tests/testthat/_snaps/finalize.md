@@ -46,6 +46,14 @@
       Error in `get_n_frac()`:
       ! Cannot determine number of columns. Is `x` a 2D data object?
 
+# `get_batch_size() is deprecated
+
+    Code
+      bsizes <- get_batch_sizes(batch_size(), iris, frac = c(0.3, 0.7))
+    Condition
+      Warning:
+      `get_batch_sizes()` was deprecated in dials 1.4.2.
+
 # estimate sigma
 
     Code
