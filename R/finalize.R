@@ -114,7 +114,7 @@ safe_finalize <- function(object, x, force = TRUE, ...) {
   if (all(is.na(object))) {
     res <- NA
   } else {
-    res <- finalize(object, x, force = TRUE, ...)
+    res <- finalize(object, x, force = force, ...)
   }
   res
 }
