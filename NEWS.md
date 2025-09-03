@@ -2,6 +2,8 @@
 
 * `prop_terms()` is a new parameter object used for recipes that do supervised feature selection (#395). 
 
+* `batch_size()` now has a specific default parameter range instead of an unknown default range. `get_batch_sizes()` is deprecated (#398).
+
 # dials 1.4.1
 
 * Two new parameters, `cal_method_class()` and `cal_method_reg(),` to control which method is used to calibrate model predictions (#383).
