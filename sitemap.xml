@@ -30,6 +30,7 @@
 <url><loc>https://dials.tidymodels.org/reference/encode_unit.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/finalize.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/freq_cut.html</loc></url>
+<url><loc>https://dials.tidymodels.org/reference/get_batch_sizes.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/grid_max_entropy.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/grid_regular.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/grid_space_filling.html</loc></url>
@@ -60,6 +61,7 @@
 <url><loc>https://dials.tidymodels.org/reference/penalty.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/predictor_prop.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/prior_slab_dispersion.html</loc></url>
+<url><loc>https://dials.tidymodels.org/reference/prop_terms.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/prune_method.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/randomForest_parameters.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/range_limits.html</loc></url>
