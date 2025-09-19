@@ -1,9 +1,22 @@
-#' Information on tuning parameters within an object
+#' Return a parameter set from one or more dials `param` objects.
 #'
 #' @param x An object, such as a list of `param` objects or an actual `param`
-#' object.
+#'   object.
 #' @param ... Only used for the `param` method so that multiple `param` objects
-#' can be passed to the function.
+#'   can be passed to the function.
+#'
+#' @return
+#' A tibble of class `parameters` where each row represents one tunable
+#' parameter.
+#'
+#' @seealso [dials::update.parameters()], [dials::finalize()],
+#'   [hardhat::extract_parameter_set_dials()]
+#'
+#' @examples
+#' params <- list(lambda = penalty(), alpha = mixture(), `rand forest` = mtry())
+#' pset <- parameters(params)
+#' pset
+#'
 #' @export
 parameters <- function(x, ...) {
   UseMethod("parameters")
@@ -177,12 +190,13 @@ print.parameters <- function(x, ...) {
   print_x$object <-
     purrr::map_chr(
       print_x$object,
-      \(.x)
+      \(.x) {
         if (all(is.na(.x))) {
           "missing"
         } else {
           pillar::type_sum(.x)
         }
+      }
     )
 
   cli::cli_par()
