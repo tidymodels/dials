@@ -5,7 +5,7 @@
 \alias{parameters.default}
 \alias{parameters.param}
 \alias{parameters.list}
-\title{Information on tuning parameters within an object}
+\title{Create a parameter set}
 \usage{
 parameters(x, ...)
 
@@ -22,6 +22,20 @@ object.}
 \item{...}{Only used for the \code{param} method so that multiple \code{param} objects
 can be passed to the function.}
 }
+\value{
+A parameter set of class \code{parameters} in the form of a data frame where each
+row represents one tunable parameter.
+}
 \description{
-Information on tuning parameters within an object
+Create a parameter set
+}
+\examples{
+params <- list(lambda = penalty(), alpha = mixture(), `rand forest` = mtry())
+pset <- parameters(params)
+pset
+
+}
+\seealso{
+\code{\link[=update.parameters]{update.parameters()}}, \code{\link[=finalize]{finalize()}},
+\code{\link[hardhat:hardhat-extract]{hardhat::extract_parameter_set_dials()}}
 }
