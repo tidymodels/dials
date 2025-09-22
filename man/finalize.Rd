@@ -87,7 +87,7 @@ rows in the data or a fraction of the total number of rows.
 \code{\link[kernlab:sigest]{kernlab::sigest()}}. It requires that all columns in \code{x} be numeric.
 }
 \examples{
-\dontshow{if (interactive() || identical(Sys.getenv("IN_PKGDOWN"), "true")) withAutoprint(\{ # examplesIf}
+\dontshow{if (interactive() || identical(Sys.getenv("IN_PKGDOWN"), "true")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 library(dplyr)
 car_pred <- select(mtcars, -mpg)
 
