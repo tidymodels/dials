@@ -5,7 +5,7 @@
 \alias{parameters.default}
 \alias{parameters.param}
 \alias{parameters.list}
-\title{Return a parameter set from one or more dials \code{param} objects.}
+\title{Create a parameter set}
 \usage{
 parameters(x, ...)
 
@@ -23,11 +23,11 @@ object.}
 can be passed to the function.}
 }
 \value{
-A tibble of class \code{parameters} where each row represents one tunable
-parameter.
+A parameter set of class \code{parameters} in the form of a data frame where each
+row represents one tunable parameter.
 }
 \description{
-Return a parameter set from one or more dials \code{param} objects.
+Create a parameter set
 }
 \examples{
 params <- list(lambda = penalty(), alpha = mixture(), `rand forest` = mtry())

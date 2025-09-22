@@ -1,4 +1,4 @@
-#' Return a parameter set from one or more dials `param` objects.
+#' Create a parameter set
 #'
 #' @param x An object, such as a list of `param` objects or an actual `param`
 #'   object.
@@ -6,8 +6,8 @@
 #'   can be passed to the function.
 #'
 #' @return
-#' A tibble of class `parameters` where each row represents one tunable
-#' parameter.
+#' A parameter set of class `parameters` in the form of a data frame where each
+#' row represents one tunable parameter.
 #'
 #' @seealso [dials::update.parameters()], [dials::finalize()],
 #'   [hardhat::extract_parameter_set_dials()]
