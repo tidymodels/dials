@@ -26,7 +26,7 @@ tuning parameters for the tidymodels packages. If you are looking for
 The name reflects the idea that tuning predictive models can be like
 turning a set of dials on a complex machine under duress.
 
-<img src="http://tos.trekcore.com/hd/albums/1x04hd/thenakedtimehd1013.jpg" width="576" alt="two Star Trek characters in front of a machine with many dials, lights, and buttons">
+<img src="https://tos.trekcore.com/gallery/albums/screencaps/season1/106-naked-time/naked-time-br-604.jpg" width="576" alt="two Star Trek characters in front of a machine with many dials, lights, and buttons">
 
 ## Installation
 
