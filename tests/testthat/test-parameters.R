@@ -1,4 +1,4 @@
-test_that("parameters_const() input checks", {
+test_that("parameters_constr() input checks", {
   expect_snapshot(error = TRUE, {
     parameters_constr(name = 2)
   })
