@@ -53,7 +53,7 @@ odds_link <- function(values = values_odds_link) {
 #' @rdname ordinal_link
 #' @export
 values_odds_link <- c(
-  "cumulative_logits",
+  "cumulative_link",
   "adjacent_categories",
   "continuation_ratio",
   "stopping_ratio"
