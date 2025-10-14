@@ -1,4 +1,4 @@
-# parameters_const() input checks
+# parameters_constr() input checks
 
     Code
       parameters_constr(name = 2)
