@@ -1,5 +1,7 @@
 # dials (development version)
 
+* A bug was fixed where some space-filling designs did not respect the `original` argument (#409).
+
 # dials 1.4.2
 
 * `prop_terms()` is a new parameter object used for recipes that do supervised feature selection (#395). 
