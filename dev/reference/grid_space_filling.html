@@ -212,18 +212,18 @@ Theory and application. _Technometric_s, 42(3), 237-248</p>
 <span class="r-in"><span>  original <span class="op">=</span> <span class="cn">FALSE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 10 × 5</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    hidden_units       penalty epochs activation  learn_rate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>            1 0.005<span style="text-decoration: underline;">99</span>          890 hardtanh          1.74</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>            2 0.000<span style="text-decoration: underline;">000</span>215      230 hardshrink        1   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>            3 0.000<span style="text-decoration: underline;">002</span>78       340 celu              2.43</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>            4 0.000<span style="text-decoration: underline;">000</span>000<span style="text-decoration: underline;">1</span>     450 linear            2.18</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>            5 0.077<span style="text-decoration: underline;">4</span>            10 leaky_relu        1.95</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>            6 0.000<span style="text-decoration: underline;">000</span>001<span style="text-decoration: underline;">29</span>   <span style="text-decoration: underline;">1</span>000 exponential       1.40</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>            7 1                560 elu               1.25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>            8 0.000<span style="text-decoration: underline;">035</span>9        670 log_sigmoid       1.12</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>            9 0.000<span style="text-decoration: underline;">464</span>         780 hardsigmoid       2.72</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>           10 0.000<span style="text-decoration: underline;">000</span>016<span style="text-decoration: underline;">7</span>     120 gelu              1.56</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    hidden_units penalty epochs activation  learn_rate</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span>            1   -<span style="color: #BB0000;">2.22</span>    890 hardtanh         0.556</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span>            2   -<span style="color: #BB0000;">6.67</span>    230 hardshrink       0    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span>            3   -<span style="color: #BB0000;">5.56</span>    340 celu             0.889</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span>            4  -<span style="color: #BB0000;">10</span>       450 linear           0.778</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span>            5   -<span style="color: #BB0000;">1.11</span>     10 leaky_relu       0.667</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span>            6   -<span style="color: #BB0000;">8.89</span>   <span style="text-decoration: underline;">1</span>000 exponential      0.333</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span>            7    0       560 elu              0.222</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span>            8   -<span style="color: #BB0000;">4.44</span>    670 log_sigmoid      0.111</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span>            9   -<span style="color: #BB0000;">3.33</span>    780 hardsigmoid      1    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span>           10   -<span style="color: #BB0000;">7.78</span>    120 gelu             0.444</span>
 <span class="r-in"><span><span class="co"># ------------------------------------------------------------------------------</span></span></span>
 <span class="r-in"><span><span class="co"># comparing methods</span></span></span>
 <span class="r-in"><span></span></span>
