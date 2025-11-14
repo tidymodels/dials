@@ -1,0 +1,301 @@
+# Package index
+
+## Parameter sets
+
+- [`parameters()`](https://dials.tidymodels.org/dev/reference/parameters.md)
+  : Create a parameter set
+- [`update(`*`<parameters>`*`)`](https://dials.tidymodels.org/dev/reference/update.parameters.md)
+  : Update a single parameter in a parameter set
+- [`lower_limit()`](https://dials.tidymodels.org/dev/reference/range_limits.md)
+  [`upper_limit()`](https://dials.tidymodels.org/dev/reference/range_limits.md)
+  : Limits for the range of predictions
+- [`range_validate()`](https://dials.tidymodels.org/dev/reference/range_validate.md)
+  [`range_get()`](https://dials.tidymodels.org/dev/reference/range_validate.md)
+  [`range_set()`](https://dials.tidymodels.org/dev/reference/range_validate.md)
+  : Tools for working with parameter ranges
+- [`value_validate()`](https://dials.tidymodels.org/dev/reference/value_validate.md)
+  [`value_seq()`](https://dials.tidymodels.org/dev/reference/value_validate.md)
+  [`value_sample()`](https://dials.tidymodels.org/dev/reference/value_validate.md)
+  [`value_transform()`](https://dials.tidymodels.org/dev/reference/value_validate.md)
+  [`value_inverse()`](https://dials.tidymodels.org/dev/reference/value_validate.md)
+  [`value_set()`](https://dials.tidymodels.org/dev/reference/value_validate.md)
+  : Tools for working with parameter values
+
+## Grid creation
+
+- [`grid_regular()`](https://dials.tidymodels.org/dev/reference/grid_regular.md)
+  [`grid_random()`](https://dials.tidymodels.org/dev/reference/grid_regular.md)
+  : Create grids of tuning parameters
+- [`grid_space_filling()`](https://dials.tidymodels.org/dev/reference/grid_space_filling.md)
+  : Space-filling parameter grids
+
+## Parameter objects for preprocessing
+
+- [`all_neighbors()`](https://dials.tidymodels.org/dev/reference/all_neighbors.md)
+  : Parameter to determine which neighbors to use
+
+- [`freq_cut()`](https://dials.tidymodels.org/dev/reference/freq_cut.md)
+  [`unique_cut()`](https://dials.tidymodels.org/dev/reference/freq_cut.md)
+  : Near-zero variance parameters
+
+- [`harmonic_frequency()`](https://dials.tidymodels.org/dev/reference/harmonic_frequency.md)
+  : Harmonic Frequency
+
+- [`initial_umap()`](https://dials.tidymodels.org/dev/reference/initial_umap.md)
+  [`values_initial_umap`](https://dials.tidymodels.org/dev/reference/initial_umap.md)
+  : Initialization method for UMAP
+
+- [`max_times()`](https://dials.tidymodels.org/dev/reference/max_times.md)
+  [`min_times()`](https://dials.tidymodels.org/dev/reference/max_times.md)
+  : Word frequencies for removal
+
+- [`max_tokens()`](https://dials.tidymodels.org/dev/reference/max_tokens.md)
+  : Maximum number of retained tokens
+
+- [`min_dist()`](https://dials.tidymodels.org/dev/reference/min_dist.md)
+  : Parameter for the effective minimum distance between embedded points
+
+- [`min_unique()`](https://dials.tidymodels.org/dev/reference/min_unique.md)
+  : Number of unique values for pre-processing
+
+- [`num_breaks()`](https://dials.tidymodels.org/dev/reference/num_breaks.md)
+  : Number of cut-points for binning
+
+- [`num_hash()`](https://dials.tidymodels.org/dev/reference/texthash.md)
+  [`signed_hash()`](https://dials.tidymodels.org/dev/reference/texthash.md)
+  : Text hashing parameters
+
+- [`num_runs()`](https://dials.tidymodels.org/dev/reference/num_runs.md)
+  : Number of Computation Runs
+
+- [`num_tokens()`](https://dials.tidymodels.org/dev/reference/num_tokens.md)
+  : Parameter to determine number of tokens in ngram
+
+- [`over_ratio()`](https://dials.tidymodels.org/dev/reference/over_ratio.md)
+  [`under_ratio()`](https://dials.tidymodels.org/dev/reference/over_ratio.md)
+  : Parameters for class-imbalance sampling
+
+- [`prior_slab_dispersion()`](https://dials.tidymodels.org/dev/reference/prior_slab_dispersion.md)
+  [`prior_mixture_threshold()`](https://dials.tidymodels.org/dev/reference/prior_slab_dispersion.md)
+  : Bayesian PCA parameters
+
+- [`prop_terms()`](https://dials.tidymodels.org/dev/reference/prop_terms.md)
+  : Proportion of top predictors
+
+- [`token()`](https://dials.tidymodels.org/dev/reference/token.md)
+  [`values_token`](https://dials.tidymodels.org/dev/reference/token.md)
+  : Token types
+
+- [`trim_amount()`](https://dials.tidymodels.org/dev/reference/trim_amount.md)
+  : Amount of Trimming
+
+- [`validation_set_prop()`](https://dials.tidymodels.org/dev/reference/validation_set_prop.md)
+  : Proportion of data used for validation
+
+- [`vocabulary_size()`](https://dials.tidymodels.org/dev/reference/vocabulary_size.md)
+  : Number of tokens in vocabulary
+
+- [`weight()`](https://dials.tidymodels.org/dev/reference/weight.md) :
+
+  Parameter for `"double normalization"` when creating token counts
+
+- [`weight_scheme()`](https://dials.tidymodels.org/dev/reference/weight_scheme.md)
+  [`values_weight_scheme`](https://dials.tidymodels.org/dev/reference/weight_scheme.md)
+  : Term frequency weighting methods
+
+- [`window_size()`](https://dials.tidymodels.org/dev/reference/window_size.md)
+  : Parameter for the moving window size
+
+## Parameter objects for modeling
+
+- [`activation()`](https://dials.tidymodels.org/dev/reference/activation.md)
+  [`activation_2()`](https://dials.tidymodels.org/dev/reference/activation.md)
+  [`values_activation`](https://dials.tidymodels.org/dev/reference/activation.md)
+  : Activation functions between network layers
+- [`adjust_deg_free()`](https://dials.tidymodels.org/dev/reference/adjust_deg_free.md)
+  : Parameters to adjust effective degrees of freedom
+- [`class_weights()`](https://dials.tidymodels.org/dev/reference/class_weights.md)
+  : Parameters for class weights for imbalanced problems
+- [`cost()`](https://dials.tidymodels.org/dev/reference/cost.md)
+  [`svm_margin()`](https://dials.tidymodels.org/dev/reference/cost.md) :
+  Support vector machine parameters
+- [`deg_free()`](https://dials.tidymodels.org/dev/reference/deg_free.md)
+  : Degrees of freedom (integer)
+- [`degree()`](https://dials.tidymodels.org/dev/reference/degree.md)
+  [`degree_int()`](https://dials.tidymodels.org/dev/reference/degree.md)
+  [`spline_degree()`](https://dials.tidymodels.org/dev/reference/degree.md)
+  [`prod_degree()`](https://dials.tidymodels.org/dev/reference/degree.md)
+  : Parameters for exponents
+- [`dist_power()`](https://dials.tidymodels.org/dev/reference/dist_power.md)
+  : Minkowski distance parameter
+- [`dropout()`](https://dials.tidymodels.org/dev/reference/dropout.md)
+  [`epochs()`](https://dials.tidymodels.org/dev/reference/dropout.md)
+  [`hidden_units()`](https://dials.tidymodels.org/dev/reference/dropout.md)
+  [`hidden_units_2()`](https://dials.tidymodels.org/dev/reference/dropout.md)
+  [`batch_size()`](https://dials.tidymodels.org/dev/reference/dropout.md)
+  : Neural network parameters
+- [`Laplace()`](https://dials.tidymodels.org/dev/reference/Laplace.md) :
+  Laplace correction parameter
+- [`learn_rate()`](https://dials.tidymodels.org/dev/reference/learn_rate.md)
+  : Learning rate
+- [`mixture()`](https://dials.tidymodels.org/dev/reference/mixture.md) :
+  Mixture of penalization terms
+- [`momentum()`](https://dials.tidymodels.org/dev/reference/momentum.md)
+  : Gradient descent momentum parameter
+- [`mtry()`](https://dials.tidymodels.org/dev/reference/mtry.md)
+  [`mtry_long()`](https://dials.tidymodels.org/dev/reference/mtry.md) :
+  Number of randomly sampled predictors
+- [`mtry_prop()`](https://dials.tidymodels.org/dev/reference/mtry_prop.md)
+  : Proportion of Randomly Selected Predictors
+- [`neighbors()`](https://dials.tidymodels.org/dev/reference/neighbors.md)
+  : Number of neighbors
+- [`num_clusters()`](https://dials.tidymodels.org/dev/reference/num_clusters.md)
+  : Number of Clusters
+- [`num_comp()`](https://dials.tidymodels.org/dev/reference/num_comp.md)
+  [`num_terms()`](https://dials.tidymodels.org/dev/reference/num_comp.md)
+  : Number of new features
+- [`num_knots()`](https://dials.tidymodels.org/dev/reference/num_knots.md)
+  : Number of knots (integer)
+- [`penalty()`](https://dials.tidymodels.org/dev/reference/penalty.md) :
+  Amount of regularization/penalization
+- [`predictor_prop()`](https://dials.tidymodels.org/dev/reference/predictor_prop.md)
+  : Proportion of predictors
+- [`prune_method()`](https://dials.tidymodels.org/dev/reference/prune_method.md)
+  [`values_prune_method`](https://dials.tidymodels.org/dev/reference/prune_method.md)
+  : MARS pruning methods
+- [`rate_initial()`](https://dials.tidymodels.org/dev/reference/scheduler-param.md)
+  [`rate_largest()`](https://dials.tidymodels.org/dev/reference/scheduler-param.md)
+  [`rate_reduction()`](https://dials.tidymodels.org/dev/reference/scheduler-param.md)
+  [`rate_steps()`](https://dials.tidymodels.org/dev/reference/scheduler-param.md)
+  [`rate_step_size()`](https://dials.tidymodels.org/dev/reference/scheduler-param.md)
+  [`rate_decay()`](https://dials.tidymodels.org/dev/reference/scheduler-param.md)
+  [`rate_schedule()`](https://dials.tidymodels.org/dev/reference/scheduler-param.md)
+  [`values_scheduler`](https://dials.tidymodels.org/dev/reference/scheduler-param.md)
+  : Parameters for neural network learning rate schedulers These
+  parameters are used for constructing neural network models.
+- [`rbf_sigma()`](https://dials.tidymodels.org/dev/reference/rbf_sigma.md)
+  [`scale_factor()`](https://dials.tidymodels.org/dev/reference/rbf_sigma.md)
+  [`kernel_offset()`](https://dials.tidymodels.org/dev/reference/rbf_sigma.md)
+  : Kernel parameters
+- [`regularization_method()`](https://dials.tidymodels.org/dev/reference/regularization_method.md)
+  [`values_regularization_method`](https://dials.tidymodels.org/dev/reference/regularization_method.md)
+  : Estimation methods for regularized models
+- [`select_features()`](https://dials.tidymodels.org/dev/reference/select_features.md)
+  : Parameter to enable feature selection
+- [`smoothness()`](https://dials.tidymodels.org/dev/reference/smoothness.md)
+  : Kernel Smoothness
+- [`stop_iter()`](https://dials.tidymodels.org/dev/reference/stop_iter.md)
+  : Early stopping parameter
+- [`summary_stat()`](https://dials.tidymodels.org/dev/reference/summary_stat.md)
+  [`values_summary_stat`](https://dials.tidymodels.org/dev/reference/summary_stat.md)
+  : Rolling summary statistic for moving windows
+- [`surv_dist()`](https://dials.tidymodels.org/dev/reference/surv_dist.md)
+  [`values_surv_dist`](https://dials.tidymodels.org/dev/reference/surv_dist.md)
+  : Parametric distributions for censored data
+- [`survival_link()`](https://dials.tidymodels.org/dev/reference/survival_link.md)
+  [`values_survival_link`](https://dials.tidymodels.org/dev/reference/survival_link.md)
+  : Survival Model Link Function
+- [`target_weight()`](https://dials.tidymodels.org/dev/reference/target_weight.md)
+  : Amount of supervision parameter
+- [`threshold()`](https://dials.tidymodels.org/dev/reference/threshold.md)
+  : General thresholding parameter
+- [`trees()`](https://dials.tidymodels.org/dev/reference/trees.md)
+  [`min_n()`](https://dials.tidymodels.org/dev/reference/trees.md)
+  [`sample_size()`](https://dials.tidymodels.org/dev/reference/trees.md)
+  [`sample_prop()`](https://dials.tidymodels.org/dev/reference/trees.md)
+  [`loss_reduction()`](https://dials.tidymodels.org/dev/reference/trees.md)
+  [`tree_depth()`](https://dials.tidymodels.org/dev/reference/trees.md)
+  [`prune()`](https://dials.tidymodels.org/dev/reference/trees.md)
+  [`cost_complexity()`](https://dials.tidymodels.org/dev/reference/trees.md)
+  : Parameter functions related to tree- and rule-based models.
+- [`weight_func()`](https://dials.tidymodels.org/dev/reference/weight_func.md)
+  [`values_weight_func`](https://dials.tidymodels.org/dev/reference/weight_func.md)
+  : Kernel functions for distance weighting
+
+## Parameter objects for specific model engines
+
+- [`prior_terminal_node_coef()`](https://dials.tidymodels.org/dev/reference/bart-param.md)
+  [`prior_terminal_node_expo()`](https://dials.tidymodels.org/dev/reference/bart-param.md)
+  [`prior_outcome_range()`](https://dials.tidymodels.org/dev/reference/bart-param.md)
+  : Parameters for BART models These parameters are used for
+  constructing Bayesian adaptive regression tree (BART) models.
+- [`conditional_min_criterion()`](https://dials.tidymodels.org/dev/reference/conditional_min_criterion.md)
+  [`values_test_type`](https://dials.tidymodels.org/dev/reference/conditional_min_criterion.md)
+  [`conditional_test_type()`](https://dials.tidymodels.org/dev/reference/conditional_min_criterion.md)
+  [`values_test_statistic`](https://dials.tidymodels.org/dev/reference/conditional_min_criterion.md)
+  [`conditional_test_statistic()`](https://dials.tidymodels.org/dev/reference/conditional_min_criterion.md)
+  : Parameters for possible engine parameters for partykit models
+- [`confidence_factor()`](https://dials.tidymodels.org/dev/reference/c5_parameters.md)
+  [`no_global_pruning()`](https://dials.tidymodels.org/dev/reference/c5_parameters.md)
+  [`predictor_winnowing()`](https://dials.tidymodels.org/dev/reference/c5_parameters.md)
+  [`fuzzy_thresholding()`](https://dials.tidymodels.org/dev/reference/c5_parameters.md)
+  [`rule_bands()`](https://dials.tidymodels.org/dev/reference/c5_parameters.md)
+  : Parameters for possible engine parameters for C5.0
+- [`extrapolation()`](https://dials.tidymodels.org/dev/reference/cubist_parameters.md)
+  [`unbiased_rules()`](https://dials.tidymodels.org/dev/reference/cubist_parameters.md)
+  [`max_rules()`](https://dials.tidymodels.org/dev/reference/cubist_parameters.md)
+  : Parameters for possible engine parameters for Cubist
+- [`max_nodes()`](https://dials.tidymodels.org/dev/reference/randomForest_parameters.md)
+  : Parameters for possible engine parameters for randomForest
+- [`max_num_terms()`](https://dials.tidymodels.org/dev/reference/earth_parameters.md)
+  : Parameters for possible engine parameters for earth models
+- [`num_leaves()`](https://dials.tidymodels.org/dev/reference/lightgbm_parameters.md)
+  : Possible engine parameters for lightbgm
+- [`regularization_factor()`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
+  [`regularize_depth()`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
+  [`significance_threshold()`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
+  [`lower_quantile()`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
+  [`splitting_rule()`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
+  [`ranger_class_rules`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
+  [`ranger_reg_rules`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
+  [`ranger_split_rules`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
+  [`num_random_splits()`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
+  : Parameters for possible engine parameters for ranger
+- [`scale_pos_weight()`](https://dials.tidymodels.org/dev/reference/xgboost_parameters.md)
+  [`penalty_L2()`](https://dials.tidymodels.org/dev/reference/xgboost_parameters.md)
+  [`penalty_L1()`](https://dials.tidymodels.org/dev/reference/xgboost_parameters.md)
+  : Parameters for possible engine parameters for xgboost
+- [`shrinkage_correlation()`](https://dials.tidymodels.org/dev/reference/shrinkage_correlation.md)
+  [`shrinkage_variance()`](https://dials.tidymodels.org/dev/reference/shrinkage_correlation.md)
+  [`shrinkage_frequencies()`](https://dials.tidymodels.org/dev/reference/shrinkage_correlation.md)
+  [`diagonal_covariance()`](https://dials.tidymodels.org/dev/reference/shrinkage_correlation.md)
+  : Parameters for possible engine parameters for sda models
+
+## Parameter objects for post-processing
+
+- [`buffer()`](https://dials.tidymodels.org/dev/reference/buffer.md) :
+  Buffer size
+- [`lower_limit()`](https://dials.tidymodels.org/dev/reference/range_limits.md)
+  [`upper_limit()`](https://dials.tidymodels.org/dev/reference/range_limits.md)
+  : Limits for the range of predictions
+- [`cal_method_class()`](https://dials.tidymodels.org/dev/reference/calibration.md)
+  [`cal_method_reg()`](https://dials.tidymodels.org/dev/reference/calibration.md)
+  [`values_cal_cls`](https://dials.tidymodels.org/dev/reference/calibration.md)
+  [`values_cal_reg`](https://dials.tidymodels.org/dev/reference/calibration.md)
+  : Methods for model calibration
+
+## Finalizing parameters
+
+- [`finalize()`](https://dials.tidymodels.org/dev/reference/finalize.md)
+  [`get_p()`](https://dials.tidymodels.org/dev/reference/finalize.md)
+  [`get_log_p()`](https://dials.tidymodels.org/dev/reference/finalize.md)
+  [`get_n_frac()`](https://dials.tidymodels.org/dev/reference/finalize.md)
+  [`get_n_frac_range()`](https://dials.tidymodels.org/dev/reference/finalize.md)
+  [`get_n()`](https://dials.tidymodels.org/dev/reference/finalize.md)
+  [`get_rbf_range()`](https://dials.tidymodels.org/dev/reference/finalize.md)
+  : Functions to finalize data-specific parameter ranges
+
+## Developer tools
+
+- [`encode_unit()`](https://dials.tidymodels.org/dev/reference/encode_unit.md)
+  : Class for converting parameter values back and forth to the unit
+  range
+- [`new_quant_param()`](https://dials.tidymodels.org/dev/reference/new-param.md)
+  [`new_qual_param()`](https://dials.tidymodels.org/dev/reference/new-param.md)
+  : Tools for creating new parameter objects
+- [`parameters_constr()`](https://dials.tidymodels.org/dev/reference/parameters_constr.md)
+  : Construct a new parameter set object
+- [`unknown()`](https://dials.tidymodels.org/dev/reference/unknown.md)
+  [`is_unknown()`](https://dials.tidymodels.org/dev/reference/unknown.md)
+  [`has_unknowns()`](https://dials.tidymodels.org/dev/reference/unknown.md)
+  : Placeholder for unknown parameter values
