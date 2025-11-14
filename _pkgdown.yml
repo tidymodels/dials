@@ -6,8 +6,9 @@ template:
   bslib:
     primary: "#CA225E"
   includes:
-      in_header: |
-        <script defer data-domain="dials.tidymodels.org,all.tidymodels.org" src="https://plausible.io/js/plausible.js"></script>
+    in_header: |
+      <script src="https://cdn.jsdelivr.net/gh/posit-dev/supported-by-posit/js/badge.min.js" data-max-height="43" data-light-bg="#666f76" data-light-fg="#f9f9f9"></script>
+      <script defer data-domain="dials.tidymodels.org,all.tidymodels.org" src="https://plausible.io/js/plausible.js"></script>
 
 development:
   mode: auto
@@ -17,115 +18,115 @@ figures:
   fig.height: 5.75
 
 navbar:
- components:
-   articles:
-    text: Articles
-    menu:
-    - text: How to create a tuning parameter function
-      href: https://www.tidymodels.org/learn/develop/parameters/
+  components:
+    articles:
+      text: Articles
+      menu:
+      - text: How to create a tuning parameter function
+        href: https://www.tidymodels.org/learn/develop/parameters/
 
 reference:
-  - title: Parameter sets
-    contents:
-    - parameters
-    - update.parameters
-    - starts_with("range_")
-    - starts_with("value_")
+- title: Parameter sets
+  contents:
+  - parameters
+  - update.parameters
+  - starts_with("range_")
+  - starts_with("value_")
 
-  - title: Grid creation
-    contents:
-    - starts_with("grid_")
+- title: Grid creation
+  contents:
+  - starts_with("grid_")
 
-  - title: Parameter objects for preprocessing
-    contents:
-    - all_neighbors
-    - freq_cut
-    - harmonic_frequency
-    - initial_umap
-    - max_times
-    - max_tokens
-    - min_dist
-    - min_times
-    - min_unique
-    - num_breaks
-    - num_hash
-    - num_runs
-    - num_tokens
-    - over_ratio
-    - prior_slab_dispersion
-    - prop_terms
-    - token
-    - trim_amount
-    - validation_set_prop
-    - vocabulary_size
-    - weight
-    - weight_scheme
-    - window_size
+- title: Parameter objects for preprocessing
+  contents:
+  - all_neighbors
+  - freq_cut
+  - harmonic_frequency
+  - initial_umap
+  - max_times
+  - max_tokens
+  - min_dist
+  - min_times
+  - min_unique
+  - num_breaks
+  - num_hash
+  - num_runs
+  - num_tokens
+  - over_ratio
+  - prior_slab_dispersion
+  - prop_terms
+  - token
+  - trim_amount
+  - validation_set_prop
+  - vocabulary_size
+  - weight
+  - weight_scheme
+  - window_size
 
-  - title: Parameter objects for modeling
-    contents:
-    - activation
-    - adjust_deg_free
-    - class_weights
-    - cost
-    - deg_free
-    - degree
-    - dist_power
-    - dropout
-    - Laplace
-    - learn_rate
-    - mixture
-    - momentum
-    - mtry
-    - mtry_prop
-    - neighbors
-    - num_clusters
-    - num_comp
-    - num_knots
-    - penalty
-    - predictor_prop
-    - prune_method
-    - starts_with("rate_")
-    - rbf_sigma
-    - regularization_method
-    - select_features
-    - smoothness
-    - stop_iter
-    - summary_stat
-    - surv_dist
-    - survival_link
-    - target_weight
-    - threshold
-    - trees
-    - weight_func
+- title: Parameter objects for modeling
+  contents:
+  - activation
+  - adjust_deg_free
+  - class_weights
+  - cost
+  - deg_free
+  - degree
+  - dist_power
+  - dropout
+  - Laplace
+  - learn_rate
+  - mixture
+  - momentum
+  - mtry
+  - mtry_prop
+  - neighbors
+  - num_clusters
+  - num_comp
+  - num_knots
+  - penalty
+  - predictor_prop
+  - prune_method
+  - starts_with("rate_")
+  - rbf_sigma
+  - regularization_method
+  - select_features
+  - smoothness
+  - stop_iter
+  - summary_stat
+  - surv_dist
+  - survival_link
+  - target_weight
+  - threshold
+  - trees
+  - weight_func
 
-  - title: Parameter objects for specific model engines
-    contents:
-    - bart-param
-    - conditional_min_criterion
-    - confidence_factor
-    - extrapolation
-    - max_nodes
-    - max_num_terms
-    - num_leaves
-    - regularization_factor
-    - rule_bands
-    - scale_pos_weight
-    - shrinkage_correlation
+- title: Parameter objects for specific model engines
+  contents:
+  - bart-param
+  - conditional_min_criterion
+  - confidence_factor
+  - extrapolation
+  - max_nodes
+  - max_num_terms
+  - num_leaves
+  - regularization_factor
+  - rule_bands
+  - scale_pos_weight
+  - shrinkage_correlation
 
-  - title: Parameter objects for post-processing
-    contents:
-    - buffer
-    - range_limits
-    - contains("cal_method")
+- title: Parameter objects for post-processing
+  contents:
+  - buffer
+  - range_limits
+  - contains("cal_method")
 
-  - title: Finalizing parameters
-    contents:
-    - finalize
+- title: Finalizing parameters
+  contents:
+  - finalize
 
-  - title: Developer tools
-    contents:
-    - encode_unit
-    - new_quant_param
-    - parameters_constr
-    - unknown
+- title: Developer tools
+  contents:
+  - encode_unit
+  - new_quant_param
+  - parameters_constr
+  - unknown
