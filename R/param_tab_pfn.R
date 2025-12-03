@@ -29,7 +29,7 @@ softmax_temperature <- function(range = c(0, 10), trans = NULL) {
     range = range,
     inclusive = c(FALSE, TRUE),
     trans = trans,
-    label = c(softmax_temperature = "Softmax Tmperature"),
+    label = c(softmax_temperature = "Softmax Temperature"),
     finalize = NULL
   )
 }
