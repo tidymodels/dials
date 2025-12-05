@@ -1,7 +1,6 @@
-# Parameters for neural network learning rate schedulers These parameters are used for constructing neural network models.
+# Parameters for neural network learning rate schedulers
 
-Parameters for neural network learning rate schedulers These parameters
-are used for constructing neural network models.
+These parameters are used for constructing neural network models.
 
 ## Usage
 

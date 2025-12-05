@@ -6,6 +6,14 @@
   `original` argument
   ([\#409](https://github.com/tidymodels/dials/issues/409)).
 
+- Parameters were added for the `tab_pfn` model:
+  [`num_estimators()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md),
+  [`softmax_temperature()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md),
+  [`balance_probabilities()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md),
+  [`average_before_softmax()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md),
+  and
+  [`training_set_limit()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md).
+
 ## dials 1.4.2
 
 CRAN release: 2025-09-04

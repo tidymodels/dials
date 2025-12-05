@@ -209,6 +209,12 @@ contributing to this project, you agree to abide by its terms.
 - [`num_comp()`](https://dials.tidymodels.org/dev/reference/num_comp.md)
   [`num_terms()`](https://dials.tidymodels.org/dev/reference/num_comp.md)
   : Number of new features
+- [`num_estimators()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md)
+  [`softmax_temperature()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md)
+  [`balance_probabilities()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md)
+  [`average_before_softmax()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md)
+  [`training_set_limit()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md)
+  : Parameters for TabPFN models
 - [`num_knots()`](https://dials.tidymodels.org/dev/reference/num_knots.md)
   : Number of knots (integer)
 - [`penalty()`](https://dials.tidymodels.org/dev/reference/penalty.md) :
@@ -226,8 +232,7 @@ contributing to this project, you agree to abide by its terms.
   [`rate_decay()`](https://dials.tidymodels.org/dev/reference/scheduler-param.md)
   [`rate_schedule()`](https://dials.tidymodels.org/dev/reference/scheduler-param.md)
   [`values_scheduler`](https://dials.tidymodels.org/dev/reference/scheduler-param.md)
-  : Parameters for neural network learning rate schedulers These
-  parameters are used for constructing neural network models.
+  : Parameters for neural network learning rate schedulers
 - [`rbf_sigma()`](https://dials.tidymodels.org/dev/reference/rbf_sigma.md)
   [`scale_factor()`](https://dials.tidymodels.org/dev/reference/rbf_sigma.md)
   [`kernel_offset()`](https://dials.tidymodels.org/dev/reference/rbf_sigma.md)
