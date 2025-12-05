@@ -40,8 +40,6 @@ reference:
 - title: Parameter objects for preprocessing
   contents:
   - all_neighbors
-  - average_before_softmax
-  - balance_probabilities
   - freq_cut
   - harmonic_frequency
   - initial_umap
@@ -58,7 +56,6 @@ reference:
   - prior_slab_dispersion
   - prop_terms
   - token
-  - training_set_limit
   - trim_amount
   - validation_set_prop
   - vocabulary_size
@@ -95,13 +92,11 @@ reference:
   - regularization_method
   - select_features
   - smoothness
-  - softmax_temperature
   - stop_iter
   - summary_stat
   - surv_dist
   - survival_link
   - target_weight
-  - training_set_limit
   - threshold
   - trees
   - weight_func
