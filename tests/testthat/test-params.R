@@ -143,6 +143,15 @@ test_that("param ranges", {
   expect_equal(mtry_prop(c(.1, .2))$range, list(lower = .1, upper = .2))
   expect_equal(dropout(c(.1, .2))$range, list(lower = .1, upper = .2))
   expect_equal(prop_terms(c(.1, .2))$range, list(lower = .1, upper = .2))
+  expect_equal(num_estimators(c(1L, 10L))$range, list(lower = 1L, upper = 10L))
+  expect_equal(
+    softmax_temperature(c(0.1, 2.0))$range,
+    list(lower = 0.1, upper = 2.0)
+  )
+  expect_equal(
+    training_set_limit(c(2L, 10L))$range,
+    list(lower = 2L, upper = 10L)
+  )
 })
 
 
@@ -179,4 +188,6 @@ test_that("param values", {
   expect_equal(all_neighbors(TRUE)$values, TRUE)
   expect_equal(cal_method_class()$values, values_cal_cls)
   expect_equal(cal_method_reg()$values, values_cal_reg)
+  expect_equal(balance_probabilities(TRUE)$values, TRUE)
+  expect_equal(average_before_softmax(TRUE)$values, TRUE)
 })

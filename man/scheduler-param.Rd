@@ -11,8 +11,7 @@
 \alias{rate_decay}
 \alias{rate_schedule}
 \alias{values_scheduler}
-\title{Parameters for neural network learning rate schedulers
-These parameters are used for constructing neural network models.}
+\title{Parameters for neural network learning rate schedulers}
 \format{
 An object of class \code{character} of length 5.
 }
@@ -47,7 +46,6 @@ transformation, \code{NULL}.}
 in examples below.}
 }
 \description{
-Parameters for neural network learning rate schedulers
 These parameters are used for constructing neural network models.
 }
 \details{

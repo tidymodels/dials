@@ -82,6 +82,7 @@ reference:
   - neighbors
   - num_clusters
   - num_comp
+  - num_estimators
   - num_knots
   - penalty
   - predictor_prop
