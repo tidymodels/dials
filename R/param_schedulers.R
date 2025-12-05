@@ -1,5 +1,5 @@
 #' Parameters for neural network learning rate schedulers
-#
+#'
 #' These parameters are used for constructing neural network models.
 #'
 #' @inheritParams Laplace

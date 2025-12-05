@@ -1,5 +1,5 @@
 #' Parameters for TabPFN models
-#
+#'
 #' These parameters are used for constructing Prior data fitted network (TabPFN)
 #' models.
 #'

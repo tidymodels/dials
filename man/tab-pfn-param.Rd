@@ -7,9 +7,7 @@
 \alias{balance_probabilities}
 \alias{average_before_softmax}
 \alias{training_set_limit}
-\title{Parameters for TabPFN models
-These parameters are used for constructing Prior data fitted network (TabPFN)
-models.}
+\title{Parameters for TabPFN models}
 \usage{
 num_estimators(range = c(1, 25), trans = NULL)
 
@@ -34,7 +32,6 @@ transformation, \code{NULL}.}
 \item{values}{A vector of possible values (TRUE or FALSE).}
 }
 \description{
-Parameters for TabPFN models
 These parameters are used for constructing Prior data fitted network (TabPFN)
 models.
 }
