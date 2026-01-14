@@ -35,14 +35,19 @@ format_bounds <- function(bnds) {
 
 # checking functions -----------------------------------------------------------
 
-check_label <- function(label, ..., call = caller_env()) {
+check_label <- function(
+  x,
+  ...,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
   check_dots_empty()
 
-  check_string(label, allow_null = TRUE, call = call)
+  check_string(x, allow_null = TRUE, arg = arg, call = call)
 
-  if (!is.null(label) && length(names(label)) != 1) {
+  if (!is.null(x) && length(names(x)) != 1) {
     cli::cli_abort(
-      "{.arg label} must be named.",
+      "{.arg {arg}} must be named.",
       call = call
     )
   }

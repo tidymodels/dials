@@ -4,7 +4,7 @@
       check_label("unnamed label")
     Condition
       Error:
-      ! `label` must be named.
+      ! `"unnamed label"` must be named.
 
 ---
 
@@ -12,7 +12,7 @@
       check_label(c("more", "than", "one", "label"))
     Condition
       Error:
-      ! `label` must be a single string or `NULL`, not a character vector.
+      ! `c("more", "than", "one", "label")` must be a single string or `NULL`, not a character vector.
 
 # check_values_quant()
 
