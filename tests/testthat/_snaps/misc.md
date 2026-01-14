@@ -20,7 +20,7 @@
       check_values_quant("should have been a numeric")
     Condition
       Error:
-      ! `values` must be numeric.
+      ! `"should have been a numeric"` must be numeric.
 
 ---
 
@@ -28,7 +28,7 @@
       check_values_quant(c(1, NA))
     Condition
       Error:
-      ! `values` can't be `NA`.
+      ! `c(1, NA)` can't contain `NA` values.
 
 ---
 
@@ -36,7 +36,7 @@
       check_values_quant(numeric())
     Condition
       Error:
-      ! `values` can't be empty.
+      ! `numeric()` can't be empty.
 
 # check_inclusive()
 

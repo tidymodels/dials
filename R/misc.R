@@ -98,7 +98,13 @@ check_range <- function(x, type, trans, ..., call = caller_env()) {
   invisible(x0)
 }
 
-check_values_quant <- function(x, ..., call = caller_env()) {
+check_values_quant <- function(
+  x,
+  type = NULL,
+  ...,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
   check_dots_empty()
 
   if (is.null(x)) {
@@ -106,13 +112,32 @@ check_values_quant <- function(x, ..., call = caller_env()) {
   }
 
   if (!is.numeric(x)) {
-    cli::cli_abort("{.arg values} must be numeric.", call = call)
+    cli::cli_abort("{.arg {arg}} must be numeric.", call = call)
   }
+
   if (anyNA(x)) {
-    cli::cli_abort("{.arg values} can't be {.code NA}.", call = call)
+    cli::cli_abort("{.arg {arg}} can't contain {.code NA} values.", call = call)
   }
   if (length(x) == 0) {
-    cli::cli_abort("{.arg values} can't be empty.", call = call)
+    cli::cli_abort("{.arg {arg}} can't be empty.", call = call)
+  }
+  if (anyDuplicated(x)) {
+    cli::cli_abort("{.arg {arg}} can't contain duplicate values.", call = call)
+  }
+
+  if (!is.null(type) && type == "integer") {
+    # logic from from ?is.integer
+    not_whole <- abs(x - round(x)) >= .Machine$double.eps^0.5
+    if (any(not_whole)) {
+      offenders <- x[not_whole]
+      cli::cli_abort(
+        c(
+          "{.arg {arg}} must contain whole numbers for integer parameters.",
+          x = "These are not whole numbers: {offenders}."
+        ),
+        call = call
+      )
+    }
   }
 
   invisible(x)

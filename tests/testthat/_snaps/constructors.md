@@ -324,7 +324,7 @@
       new_quant_param(type = "integer", values = NA_integer_, label = c(foo = "Foo"))
     Condition
       Error:
-      ! `values` can't be `NA`.
+      ! `values` can't contain `NA` values.
 
 ---
 
@@ -351,4 +351,21 @@
     Condition
       Error:
       ! The `default` argument of `new_qual_param()` was deprecated in dials 1.1.0 and is now defunct.
+
+# duplicate values are rejected
+
+    Code
+      new_quant_param("double", values = c(1, 2, 2, 3))
+    Condition
+      Error:
+      ! `values` can't contain duplicate values.
+
+# integer type requires whole number values
+
+    Code
+      new_quant_param("integer", values = c(1.5, 2, 3))
+    Condition
+      Error:
+      ! `values` must contain whole numbers for integer parameters.
+      x These are not whole numbers: 1.5.
 
