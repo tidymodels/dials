@@ -143,25 +143,23 @@ check_values_quant <- function(
   invisible(x)
 }
 
-check_inclusive <- function(x, ..., call = caller_env()) {
+check_inclusive <- function(x, ..., arg = caller_arg(x), call = caller_env()) {
   check_dots_empty()
 
+  check_logical(x, arg = arg, call = call)
+
   if (any(is.na(x))) {
-    cli::cli_abort("{.arg inclusive} cannot contain missings.", call = call)
+    cli::cli_abort("{.arg {arg}} can't contain missing values.", call = call)
   }
 
-  if (is_logical(x, n = 2)) {
-    return(invisible(NULL))
+  if (length(x) != 2) {
+    cli::cli_abort(
+      "{.arg {arg}} must have length 2, not {length(x)}.",
+      call = call
+    )
   }
 
-  stop_input_type(
-    x,
-    "a logical vector of length 2",
-    allow_na = FALSE,
-    allow_null = FALSE,
-    arg = "inclusive",
-    call = call
-  )
+  invisible(NULL)
 }
 
 check_param <- function(

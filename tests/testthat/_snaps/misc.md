@@ -44,7 +44,7 @@
       check_inclusive(TRUE)
     Condition
       Error:
-      ! `inclusive` must be a logical vector of length 2, not `TRUE`.
+      ! `TRUE` must have length 2, not 1.
 
 ---
 
@@ -52,7 +52,7 @@
       check_inclusive(NULL)
     Condition
       Error:
-      ! `inclusive` must be a logical vector of length 2, not `NULL`.
+      ! `NULL` must be a logical vector, not `NULL`.
 
 ---
 
@@ -60,7 +60,7 @@
       check_inclusive(c(TRUE, NA))
     Condition
       Error:
-      ! `inclusive` cannot contain missings.
+      ! `c(TRUE, NA)` can't contain missing values.
 
 ---
 
@@ -68,7 +68,7 @@
       check_inclusive(1:2)
     Condition
       Error:
-      ! `inclusive` must be a logical vector of length 2, not an integer vector.
+      ! `1:2` must be a logical vector, not an integer vector.
 
 # vctrs-helpers-parameters
 
