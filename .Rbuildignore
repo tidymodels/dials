@@ -21,3 +21,6 @@
 ^CRAN-SUBMISSION$
 ^[\.]?air\.toml$
 ^\.vscode$
+
+CLAUDE.md
+^\.claude$

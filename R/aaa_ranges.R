@@ -81,6 +81,12 @@ range_validate <- function(
     if (!any(is_num)) {
       cli::cli_abort("{.arg range} should be numeric.", call = call)
     }
+    if (range[[1]] > range[[2]]) {
+      cli::cli_abort(
+        "The {.arg range} lower bound ({range[[1]]}) must not exceed upper bound ({range[[2]]}).",
+        call = call
+      )
+    }
 
     # TODO check with transform
   } else {

@@ -4,7 +4,7 @@
       check_label("unnamed label")
     Condition
       Error:
-      ! `label` must be named.
+      ! `"unnamed label"` must be named.
 
 ---
 
@@ -12,7 +12,7 @@
       check_label(c("more", "than", "one", "label"))
     Condition
       Error:
-      ! `label` must be a single string or `NULL`, not a character vector.
+      ! `c("more", "than", "one", "label")` must be a single string or `NULL`, not a character vector.
 
 # check_values_quant()
 
@@ -20,7 +20,7 @@
       check_values_quant("should have been a numeric")
     Condition
       Error:
-      ! `values` must be numeric.
+      ! `"should have been a numeric"` must be numeric.
 
 ---
 
@@ -28,7 +28,7 @@
       check_values_quant(c(1, NA))
     Condition
       Error:
-      ! `values` can't be `NA`.
+      ! `c(1, NA)` can't contain `NA` values.
 
 ---
 
@@ -36,7 +36,7 @@
       check_values_quant(numeric())
     Condition
       Error:
-      ! `values` can't be empty.
+      ! `numeric()` can't be empty.
 
 # check_inclusive()
 
@@ -44,7 +44,7 @@
       check_inclusive(TRUE)
     Condition
       Error:
-      ! `inclusive` must be a logical vector of length 2, not `TRUE`.
+      ! `TRUE` must have length 2, not 1.
 
 ---
 
@@ -52,7 +52,7 @@
       check_inclusive(NULL)
     Condition
       Error:
-      ! `inclusive` must be a logical vector of length 2, not `NULL`.
+      ! `NULL` must be a logical vector, not `NULL`.
 
 ---
 
@@ -60,7 +60,7 @@
       check_inclusive(c(TRUE, NA))
     Condition
       Error:
-      ! `inclusive` cannot contain missings.
+      ! `c(TRUE, NA)` can't contain missing values.
 
 ---
 
@@ -68,7 +68,7 @@
       check_inclusive(1:2)
     Condition
       Error:
-      ! `inclusive` must be a logical vector of length 2, not an integer vector.
+      ! `1:2` must be a logical vector, not an integer vector.
 
 # vctrs-helpers-parameters
 

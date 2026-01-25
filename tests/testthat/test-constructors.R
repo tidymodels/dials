@@ -274,3 +274,24 @@ test_that("`default` arg is deprecated", {
     )
   })
 })
+
+test_that("range ordering is validated", {
+  expect_snapshot(error = TRUE, {
+    new_quant_param("integer", range = c(10L, 1L), inclusive = c(TRUE, TRUE))
+  })
+  expect_no_error({
+    new_quant_param("integer", range = c(5L, 5L), inclusive = c(TRUE, TRUE))
+  })
+})
+
+test_that("duplicate values are rejected", {
+  expect_snapshot(error = TRUE, {
+    new_quant_param("double", values = c(1, 2, 2, 3))
+  })
+})
+
+test_that("integer type requires whole number values", {
+  expect_snapshot(error = TRUE, {
+    new_quant_param("integer", values = c(1.5, 2, 3))
+  })
+})

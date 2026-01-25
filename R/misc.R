@@ -35,14 +35,19 @@ format_bounds <- function(bnds) {
 
 # checking functions -----------------------------------------------------------
 
-check_label <- function(label, ..., call = caller_env()) {
+check_label <- function(
+  x,
+  ...,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
   check_dots_empty()
 
-  check_string(label, allow_null = TRUE, call = call)
+  check_string(x, allow_null = TRUE, arg = arg, call = call)
 
-  if (!is.null(label) && length(names(label)) != 1) {
+  if (!is.null(x) && length(names(x)) != 1) {
     cli::cli_abort(
-      "{.arg label} must be named.",
+      "{.arg {arg}} must be named.",
       call = call
     )
   }
@@ -50,16 +55,50 @@ check_label <- function(label, ..., call = caller_env()) {
   invisible(NULL)
 }
 
-check_range <- function(x, type, trans, ..., call = caller_env()) {
+check_range <- function(
+  x,
+  type,
+  trans,
+  ...,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
   check_dots_empty()
+
+  if (length(x) != 2) {
+    cli::cli_abort(
+      "{.arg {arg}} must have 2 elements, not {length(x)}.",
+      call = call,
+      arg = arg
+    )
+  }
+
+  known <- !is_unknown(x)
+
+  if (any(known) && !all(map_lgl(x[known], is.numeric))) {
+    cli::cli_abort(
+      "{.arg {arg}} must be numeric (or {.fn unknown}).",
+      call = call
+    )
+  }
+
+  if (all(known) && !anyNA(x) && x[[1]] > x[[2]]) {
+    cli::cli_abort(
+      "The {.arg {arg}} lower bound ({x[[1]]}) must not exceed upper bound ({x[[2]]}).",
+      call = call
+    )
+  }
+
   if (!is.null(trans)) {
     return(invisible(x))
   }
+
+  # only do this after `arg` is used but do it because
+  # this makes x0[known] <- as.integer(x0[known]) below work for e.g. c(1, 10)
   if (!is.list(x)) {
     x <- as.list(x)
   }
   x0 <- x
-  known <- !is_unknown(x)
   x <- x[known]
   x_type <- purrr::map_chr(x, typeof)
   wrong_type <- any(x_type != type)
@@ -84,7 +123,7 @@ check_range <- function(x, type, trans, ..., call = caller_env()) {
       x0[known] <- as.integer(x0[known])
     } else {
       cli::cli_abort(
-        "Since {.code type = \"{type}\"}, please use that data type for the 
+        "Since {.code type = \"{type}\"}, please use that data type for the
         range.",
         call = call
       )
@@ -93,7 +132,13 @@ check_range <- function(x, type, trans, ..., call = caller_env()) {
   invisible(x0)
 }
 
-check_values_quant <- function(x, ..., call = caller_env()) {
+check_values_quant <- function(
+  x,
+  type = NULL,
+  ...,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
   check_dots_empty()
 
   if (is.null(x)) {
@@ -101,37 +146,54 @@ check_values_quant <- function(x, ..., call = caller_env()) {
   }
 
   if (!is.numeric(x)) {
-    cli::cli_abort("{.arg values} must be numeric.", call = call)
+    cli::cli_abort("{.arg {arg}} must be numeric.", call = call)
   }
+
   if (anyNA(x)) {
-    cli::cli_abort("{.arg values} can't be {.code NA}.", call = call)
+    cli::cli_abort("{.arg {arg}} can't contain {.code NA} values.", call = call)
   }
   if (length(x) == 0) {
-    cli::cli_abort("{.arg values} can't be empty.", call = call)
+    cli::cli_abort("{.arg {arg}} can't be empty.", call = call)
+  }
+  if (anyDuplicated(x)) {
+    cli::cli_abort("{.arg {arg}} can't contain duplicate values.", call = call)
+  }
+
+  if (!is.null(type) && type == "integer") {
+    # logic from from ?is.integer
+    not_whole <- abs(x - round(x)) >= .Machine$double.eps^0.5
+    if (any(not_whole)) {
+      offenders <- x[not_whole]
+      cli::cli_abort(
+        c(
+          "{.arg {arg}} must contain whole numbers for integer parameters.",
+          x = "These are not whole numbers: {offenders}."
+        ),
+        call = call
+      )
+    }
   }
 
   invisible(x)
 }
 
-check_inclusive <- function(x, ..., call = caller_env()) {
+check_inclusive <- function(x, ..., arg = caller_arg(x), call = caller_env()) {
   check_dots_empty()
 
+  check_logical(x, arg = arg, call = call)
+
   if (any(is.na(x))) {
-    cli::cli_abort("{.arg inclusive} cannot contain missings.", call = call)
+    cli::cli_abort("{.arg {arg}} can't contain missing values.", call = call)
   }
 
-  if (is_logical(x, n = 2)) {
-    return(invisible(NULL))
+  if (length(x) != 2) {
+    cli::cli_abort(
+      "{.arg {arg}} must have length 2, not {length(x)}.",
+      call = call
+    )
   }
 
-  stop_input_type(
-    x,
-    "a logical vector of length 2",
-    allow_na = FALSE,
-    allow_null = FALSE,
-    arg = "inclusive",
-    call = call
-  )
+  invisible(NULL)
 }
 
 check_param <- function(
