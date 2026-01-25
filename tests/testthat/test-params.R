@@ -135,7 +135,7 @@ test_that("param ranges", {
     list(lower = 0.1, upper = 0.4)
   )
   expect_equal(target_weight(c(0.1, 0.4))$range, list(lower = 0.1, upper = 0.4))
-  expect_equal(lower_limit(c(Inf, 0))$range, list(lower = Inf, upper = 0))
+  expect_equal(lower_limit(c(-Inf, 0))$range, list(lower = -Inf, upper = 0))
   expect_equal(upper_limit(c(0, Inf))$range, list(lower = 0, upper = Inf))
   expect_equal(max_num_terms(c(31, 100))$range, list(lower = 31, upper = 100))
   expect_equal(max_nodes(c(31, 100))$range, list(lower = 31, upper = 100))
