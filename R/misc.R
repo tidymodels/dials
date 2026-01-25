@@ -55,16 +55,50 @@ check_label <- function(
   invisible(NULL)
 }
 
-check_range <- function(x, type, trans, ..., call = caller_env()) {
+check_range <- function(
+  x,
+  type,
+  trans,
+  ...,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
   check_dots_empty()
+
+  if (length(x) != 2) {
+    cli::cli_abort(
+      "{.arg {arg}} must have 2 elements, not {length(x)}.",
+      call = call,
+      arg = arg
+    )
+  }
+
+  known <- !is_unknown(x)
+
+  if (any(known) && !all(map_lgl(x[known], is.numeric))) {
+    cli::cli_abort(
+      "{.arg {arg}} must be numeric (or {.fn unknown}).",
+      call = call
+    )
+  }
+
+  if (all(known) && !anyNA(x) && x[[1]] > x[[2]]) {
+    cli::cli_abort(
+      "The {.arg {arg}} lower bound ({x[[1]]}) must not exceed upper bound ({x[[2]]}).",
+      call = call
+    )
+  }
+
   if (!is.null(trans)) {
     return(invisible(x))
   }
+
+  # only do this after `arg` is used but do it because
+  # this makes x0[known] <- as.integer(x0[known]) below work for e.g. c(1, 10)
   if (!is.list(x)) {
     x <- as.list(x)
   }
   x0 <- x
-  known <- !is_unknown(x)
   x <- x[known]
   x_type <- purrr::map_chr(x, typeof)
   wrong_type <- any(x_type != type)
@@ -89,7 +123,7 @@ check_range <- function(x, type, trans, ..., call = caller_env()) {
       x0[known] <- as.integer(x0[known])
     } else {
       cli::cli_abort(
-        "Since {.code type = \"{type}\"}, please use that data type for the 
+        "Since {.code type = \"{type}\"}, please use that data type for the
         range.",
         call = call
       )

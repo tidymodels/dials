@@ -27,8 +27,8 @@
     Code
       new_quant_param("double", range = 1, inclusive = c(TRUE, TRUE))
     Condition
-      Error in `names(range) <- names(inclusive) <- c("lower", "upper")`:
-      ! 'names' attribute [2] must be the same length as the vector [1]
+      Error:
+      ! `range` must have 2 elements, not 1.
 
 ---
 
@@ -248,7 +248,7 @@
       mixture(letters[1:2])
     Condition
       Error in `mixture()`:
-      ! Since `type = "double"`, please use that data type for the range.
+      ! `range` must be numeric (or `unknown()`).
 
 ---
 
@@ -351,6 +351,14 @@
     Condition
       Error:
       ! The `default` argument of `new_qual_param()` was deprecated in dials 1.1.0 and is now defunct.
+
+# range ordering is validated
+
+    Code
+      new_quant_param("integer", range = c(10L, 1L), inclusive = c(TRUE, TRUE))
+    Condition
+      Error:
+      ! The `range` lower bound (10) must not exceed upper bound (1).
 
 # duplicate values are rejected
 
