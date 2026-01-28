@@ -51,6 +51,8 @@ range_validate <- function(
   ...,
   call = caller_env()
 ) {
+  check_inherits(object, "quant_param", call = call)
+  check_bool(ukn_ok, call = call)
   ukn_txt <- if (ukn_ok) {
     c(i = "{.code Inf} and {.code unknown()} are acceptable values.")
   } else {
@@ -109,6 +111,8 @@ range_validate <- function(
 #' @export
 #' @rdname range_validate
 range_get <- function(object, original = TRUE) {
+  check_inherits(object, "quant_param")
+  check_bool(original)
   if (original & !is.null(object$trans)) {
     res <- map(object$range, inv_wrap, object)
   } else {
@@ -120,28 +124,24 @@ range_get <- function(object, original = TRUE) {
 #' @export
 #' @rdname range_validate
 range_set <- function(object, range, call = caller_env()) {
+  check_inherits(object, "quant_param", call = call)
+
   if (length(range) != 2) {
     cli::cli_abort(
       "{.arg range} should have two elements, not {length(range)}.",
       call = call
     )
   }
-  if (inherits(object, "quant_param")) {
-    object <-
-      new_quant_param(
-        type = object$type,
-        range = range,
-        inclusive = object$inclusive,
-        trans = object$trans,
-        values = object$values,
-        label = object$label
-      )
-  } else {
-    cli::cli_abort(
-      "{.arg object} should be a {.cls quant_param} object,
-      not {.obj_type_friendly {object}}.",
-      call = call
+
+  object <-
+    new_quant_param(
+      type = object$type,
+      range = range,
+      inclusive = object$inclusive,
+      trans = object$trans,
+      values = object$values,
+      label = object$label
     )
-  }
+
   object
 }

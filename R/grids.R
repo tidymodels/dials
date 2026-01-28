@@ -134,6 +134,8 @@ make_regular_grid <- function(
   filter = NULL,
   call = caller_env()
 ) {
+  check_levels(levels, call = call)
+  check_bool(original, call = call)
   validate_params(..., call = call)
   filter_quo <- enquo(filter)
   param_quos <- quos(...)
@@ -156,8 +158,14 @@ make_regular_grid <- function(
       levels <- levels[names(params)]
     } else if (any(rlang::has_name(levels, names(params)))) {
       cli::cli_abort(
-        "Elements of {.arg levels} should either be all named or unnamed, 
+        "Elements of {.arg levels} should either be all named or unnamed,
         not mixed.",
+        call = call
+      )
+    } else if (!is.null(names(levels))) {
+      cli::cli_abort(
+        "The names of {.arg levels} must match the parameter names:
+        {.val {names(params)}}.",
         call = call
       )
     }
@@ -259,6 +267,8 @@ make_random_grid <- function(
   filter = NULL,
   call = caller_env()
 ) {
+  check_number_whole(size, min = 1, call = call)
+  check_bool(original, call = call)
   validate_params(..., call = call)
   filter_quo <- enquo(filter)
   param_quos <- quos(...)

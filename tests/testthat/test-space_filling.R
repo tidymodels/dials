@@ -331,6 +331,17 @@ test_that("1-point grid", {
   expect_equal(nrow(grid), 1L)
 })
 
+test_that("grid_space_filling validates inputs", {
+  expect_snapshot(error = TRUE, grid_space_filling(penalty(), size = "five"))
+  expect_snapshot(error = TRUE, grid_space_filling(penalty(), size = -1))
+  expect_snapshot(
+    error = TRUE,
+    grid_space_filling(penalty(), variogram_range = -1)
+  )
+  expect_snapshot(error = TRUE, grid_space_filling(penalty(), iter = "many"))
+  expect_snapshot(error = TRUE, grid_space_filling(penalty(), original = "yes"))
+})
+
 test_that("pre-made designs respect the 'original argument", {
   # See issue #409
 

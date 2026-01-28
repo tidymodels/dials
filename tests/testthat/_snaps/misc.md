@@ -70,6 +70,110 @@
       Error:
       ! `1:2` must be a logical vector, not an integer vector.
 
+# check_inherits()
+
+    Code
+      check_inherits("not a data frame", "data.frame")
+    Condition
+      Error:
+      ! `"not a data frame"` must be a <data.frame> object, not the string "not a data frame".
+
+---
+
+    Code
+      check_inherits(NULL, "data.frame")
+    Condition
+      Error:
+      ! `NULL` must be a <data.frame> object, not `NULL`.
+
+# check_levels()
+
+    Code
+      check_levels(0)
+    Condition
+      Error:
+      ! `0` must be a positive integer or a vector of positive integers, not the number 0.
+
+---
+
+    Code
+      check_levels(-1)
+    Condition
+      Error:
+      ! `-1` must be a positive integer or a vector of positive integers, not the number -1.
+
+---
+
+    Code
+      check_levels(1.5)
+    Condition
+      Error:
+      ! `1.5` must be a positive integer or a vector of positive integers, not the number 1.5.
+
+---
+
+    Code
+      check_levels("a")
+    Condition
+      Error:
+      ! `"a"` must be a positive integer or a vector of positive integers, not the string "a".
+
+---
+
+    Code
+      check_levels(NULL)
+    Condition
+      Error:
+      ! `NULL` must be a positive integer or a vector of positive integers, not `NULL`.
+
+# check_frac_range()
+
+    Code
+      check_frac_range("not numeric")
+    Condition
+      Error:
+      ! `"not numeric"` must be a numeric vector of length 2 with values between 0 and 1, not the string "not numeric".
+
+---
+
+    Code
+      check_frac_range(0.5)
+    Condition
+      Error:
+      ! `0.5` must be a numeric vector of length 2 with values between 0 and 1, not the number 0.5.
+
+---
+
+    Code
+      check_frac_range(c(0.1, 0.5, 0.9))
+    Condition
+      Error:
+      ! `c(0.1, 0.5, 0.9)` must be a numeric vector of length 2 with values between 0 and 1, not a double vector.
+
+---
+
+    Code
+      check_frac_range(c(-0.1, 0.5))
+    Condition
+      Error:
+      ! `c(-0.1, 0.5)` must be a numeric vector of length 2 with values between 0 and 1, not a double vector.
+
+---
+
+    Code
+      check_frac_range(c(0.1, 1.5))
+    Condition
+      Error:
+      ! `c(0.1, 1.5)` must be a numeric vector of length 2 with values between 0 and 1, not a double vector.
+
+---
+
+    Code
+      check_frac_range(c(0.1, NA))
+    Condition
+      Error:
+      ! `c(0.1, NA)` must be a numeric vector of length 2 with values between 0 and 1, not a double vector.
+
 # vctrs-helpers-parameters
 
     Code

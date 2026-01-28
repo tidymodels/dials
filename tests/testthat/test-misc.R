@@ -56,6 +56,40 @@ test_that("check_inclusive()", {
   expect_snapshot(error = TRUE, check_inclusive(1:2))
 })
 
+test_that("check_inherits()", {
+  expect_no_error(check_inherits(mtcars, "data.frame"))
+  expect_no_error(check_inherits(NULL, "data.frame", allow_null = TRUE))
+
+  expect_snapshot(
+    error = TRUE,
+    check_inherits("not a data frame", "data.frame")
+  )
+  expect_snapshot(error = TRUE, check_inherits(NULL, "data.frame"))
+})
+
+test_that("check_levels()", {
+  expect_no_error(check_levels(1))
+  expect_no_error(check_levels(1:5))
+  expect_no_error(check_levels(NULL, allow_null = TRUE))
+
+  expect_snapshot(error = TRUE, check_levels(0))
+  expect_snapshot(error = TRUE, check_levels(-1))
+  expect_snapshot(error = TRUE, check_levels(1.5))
+  expect_snapshot(error = TRUE, check_levels("a"))
+  expect_snapshot(error = TRUE, check_levels(NULL))
+})
+
+test_that("check_frac_range()", {
+  expect_no_error(check_frac_range(c(0.1, 0.5)))
+  expect_no_error(check_frac_range(c(0, 1)))
+
+  expect_snapshot(error = TRUE, check_frac_range("not numeric"))
+  expect_snapshot(error = TRUE, check_frac_range(0.5))
+  expect_snapshot(error = TRUE, check_frac_range(c(0.1, 0.5, 0.9)))
+  expect_snapshot(error = TRUE, check_frac_range(c(-0.1, 0.5)))
+  expect_snapshot(error = TRUE, check_frac_range(c(0.1, 1.5)))
+  expect_snapshot(error = TRUE, check_frac_range(c(0.1, NA)))
+})
 
 test_that("vctrs-helpers-parameters", {
   expect_false(dials:::is_parameters(2))
