@@ -206,6 +206,14 @@ make_sfd <- function(
   original = TRUE,
   call = caller_env()
 ) {
+  check_number_whole(size, min = 1, call = call)
+  check_number_decimal(
+    variogram_range,
+    min = 0,
+    call = call
+  )
+  check_number_whole(iter, min = 1, call = call)
+  check_bool(original, call = call)
   type <- rlang::arg_match(type, sfd_types)
   validate_params(..., call = call)
   param_quos <- quos(...)
@@ -397,6 +405,14 @@ make_max_entropy_grid <- function(
   iter = 1000,
   call = caller_env()
 ) {
+  check_number_whole(size, min = 1, call = call)
+  check_number_decimal(
+    variogram_range,
+    min = 0,
+    call = call
+  )
+  check_number_whole(iter, min = 1, call = call)
+  check_bool(original, call = call)
   validate_params(..., call = call)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
@@ -491,6 +507,8 @@ make_latin_hypercube_grid <- function(
   original = TRUE,
   call = caller_env()
 ) {
+  check_number_whole(size, min = 1, call = call)
+  check_bool(original, call = call)
   validate_params(..., call = call)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)

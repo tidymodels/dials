@@ -73,3 +73,43 @@
       ! `levels` is not an argument to `grid_space_filling()`.
       i Did you mean `size`?
 
+# grid_space_filling validates inputs
+
+    Code
+      grid_space_filling(penalty(), size = "five")
+    Condition
+      Error in `grid_space_filling()`:
+      ! `size` must be a whole number, not the string "five".
+
+---
+
+    Code
+      grid_space_filling(penalty(), size = -1)
+    Condition
+      Error in `grid_space_filling()`:
+      ! `size` must be a whole number larger than or equal to 1, not the number -1.
+
+---
+
+    Code
+      grid_space_filling(penalty(), variogram_range = -1)
+    Condition
+      Error in `grid_space_filling()`:
+      ! `variogram_range` must be a number larger than or equal to 0, not the number -1.
+
+---
+
+    Code
+      grid_space_filling(penalty(), iter = "many")
+    Condition
+      Error in `grid_space_filling()`:
+      ! `iter` must be a whole number, not the string "many".
+
+---
+
+    Code
+      grid_space_filling(penalty(), original = "yes")
+    Condition
+      Error in `grid_space_filling()`:
+      ! `original` must be `TRUE` or `FALSE`, not the string "yes".
+
