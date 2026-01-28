@@ -56,6 +56,14 @@ test_that("missing data", {
 })
 
 
+test_that("encode_unit validates original argument", {
+  x <- mtry(c(2L, 7L))
+  expect_snapshot(
+    error = TRUE,
+    encode_unit(x, 0.5, direction = "backward", original = "yes")
+  )
+})
+
 test_that("bad args", {
   x <- mtry(c(2L, 7L))
   z <- prune_method()

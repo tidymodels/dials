@@ -20,12 +20,16 @@ encode_unit <- function(x, value, direction, ...) {
 
 #' @export
 encode_unit.default <- function(x, value, direction, ...) {
-  cli::cli_abort("{.arg x} should be a dials parameter object.")
+  cli::cli_abort(
+    "{.arg x} should be a dials parameter object,
+    not {.obj_type_friendly x}."
+  )
 }
 
 #' @rdname encode_unit
 #' @export
 encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
+  check_bool(original)
   if (has_unknowns(x)) {
     cli::cli_abort("The parameter object contains unknowns.")
   }
