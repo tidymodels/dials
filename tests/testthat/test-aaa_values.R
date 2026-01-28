@@ -1,3 +1,29 @@
+test_that("value_validate validates inputs", {
+  expect_snapshot(error = TRUE, value_validate("not a param", 1))
+})
+
+test_that("value_seq validates inputs", {
+  expect_snapshot(error = TRUE, value_seq("not a param", 5))
+  expect_snapshot(error = TRUE, value_seq(penalty(), "five"))
+  expect_snapshot(error = TRUE, value_seq(penalty(), -1))
+  expect_snapshot(error = TRUE, value_seq(penalty(), 5, original = "yes"))
+})
+
+test_that("value_sample validates inputs", {
+  expect_snapshot(error = TRUE, value_sample("not a param", 5))
+  expect_snapshot(error = TRUE, value_sample(penalty(), "five"))
+  expect_snapshot(error = TRUE, value_sample(penalty(), -1))
+  expect_snapshot(error = TRUE, value_sample(penalty(), 5, original = "yes"))
+})
+
+test_that("value_transform validates inputs", {
+  expect_snapshot(error = TRUE, value_transform("not a param", 1:3))
+})
+
+test_that("value_inverse validates inputs", {
+  expect_snapshot(error = TRUE, value_inverse("not a param", 1:3))
+})
+
 test_that("transforms with unknowns", {
   expect_snapshot(
     error = TRUE,
