@@ -79,6 +79,18 @@ test_that("check_levels()", {
   expect_snapshot(error = TRUE, check_levels(NULL))
 })
 
+test_that("check_frac_range()", {
+  expect_no_error(check_frac_range(c(0.1, 0.5)))
+  expect_no_error(check_frac_range(c(0, 1)))
+
+  expect_snapshot(error = TRUE, check_frac_range("not numeric"))
+  expect_snapshot(error = TRUE, check_frac_range(0.5))
+  expect_snapshot(error = TRUE, check_frac_range(c(0.1, 0.5, 0.9)))
+  expect_snapshot(error = TRUE, check_frac_range(c(-0.1, 0.5)))
+  expect_snapshot(error = TRUE, check_frac_range(c(0.1, 1.5)))
+  expect_snapshot(error = TRUE, check_frac_range(c(0.1, NA)))
+})
+
 test_that("vctrs-helpers-parameters", {
   expect_false(dials:::is_parameters(2))
   expect_snapshot(

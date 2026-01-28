@@ -275,3 +275,25 @@ check_levels <- function(
     call = call
   )
 }
+
+check_frac_range <- function(x, ..., arg = caller_arg(x), call = caller_env()) {
+  check_dots_empty()
+  if (
+    !missing(x) &&
+      is.numeric(x) &&
+      length(x) == 2 &&
+      !anyNA(x) &&
+      all(x >= 0) &&
+      all(x <= 1)
+  ) {
+    return(invisible(NULL))
+  }
+
+  stop_input_type(
+    x,
+    "a numeric vector of length 2 with values between 0 and 1",
+    ...,
+    arg = arg,
+    call = call
+  )
+}

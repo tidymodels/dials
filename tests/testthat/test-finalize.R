@@ -1,3 +1,16 @@
+test_that("finalize validates inputs", {
+  expect_snapshot(error = TRUE, finalize(penalty(), mtcars, force = "yes"))
+  expect_snapshot(error = TRUE, get_p(penalty(), mtcars, log_vals = "yes"))
+  expect_snapshot(error = TRUE, get_n_frac(mtry(), mtcars, frac = "half"))
+  expect_snapshot(error = TRUE, get_n_frac(mtry(), mtcars, frac = 1.5))
+  expect_snapshot(error = TRUE, get_n_frac_range(mtry(), mtcars, frac = 0.5))
+  expect_snapshot(
+    error = TRUE,
+    get_n_frac_range(mtry(), mtcars, frac = c(0.1, 1.5))
+  )
+  expect_snapshot(error = TRUE, get_rbf_range("not a param", mtcars))
+})
+
 test_that("estimate columns", {
   expect_snapshot(error = TRUE, get_p(1:10))
   expect_snapshot(error = TRUE, get_p(1:10, 1:10))
