@@ -218,3 +218,60 @@ check_param <- function(
     call = call
   )
 }
+
+check_inherits <- function(
+  x,
+  class,
+  ...,
+  allow_null = FALSE,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
+  check_dots_empty()
+  if (!missing(x)) {
+    if (inherits(x, class)) {
+      return(invisible(NULL))
+    }
+    if (allow_null && is.null(x)) {
+      return(invisible(NULL))
+    }
+  }
+
+  stop_input_type(
+    x,
+    paste0("a <", class, "> object"),
+    ...,
+    allow_null = allow_null,
+    arg = arg,
+    call = call
+  )
+}
+
+check_levels <- function(
+  levels,
+  ...,
+  allow_null = FALSE,
+  arg = caller_arg(levels),
+  call = caller_env()
+) {
+  check_dots_empty()
+  if (!missing(levels)) {
+    if (
+      is.numeric(levels) && all(levels >= 1) && all(levels == floor(levels))
+    ) {
+      return(invisible(NULL))
+    }
+    if (allow_null && is.null(levels)) {
+      return(invisible(NULL))
+    }
+  }
+
+  stop_input_type(
+    levels,
+    "a positive integer or a vector of positive integers",
+    ...,
+    allow_null = allow_null,
+    arg = arg,
+    call = call
+  )
+}

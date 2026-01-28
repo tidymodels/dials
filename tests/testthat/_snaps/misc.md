@@ -70,6 +70,62 @@
       Error:
       ! `1:2` must be a logical vector, not an integer vector.
 
+# check_inherits()
+
+    Code
+      check_inherits("not a data frame", "data.frame")
+    Condition
+      Error:
+      ! `"not a data frame"` must be a <data.frame> object, not the string "not a data frame".
+
+---
+
+    Code
+      check_inherits(NULL, "data.frame")
+    Condition
+      Error:
+      ! `NULL` must be a <data.frame> object, not `NULL`.
+
+# check_levels()
+
+    Code
+      check_levels(0)
+    Condition
+      Error:
+      ! `0` must be a positive integer or a vector of positive integers, not the number 0.
+
+---
+
+    Code
+      check_levels(-1)
+    Condition
+      Error:
+      ! `-1` must be a positive integer or a vector of positive integers, not the number -1.
+
+---
+
+    Code
+      check_levels(1.5)
+    Condition
+      Error:
+      ! `1.5` must be a positive integer or a vector of positive integers, not the number 1.5.
+
+---
+
+    Code
+      check_levels("a")
+    Condition
+      Error:
+      ! `"a"` must be a positive integer or a vector of positive integers, not the string "a".
+
+---
+
+    Code
+      check_levels(NULL)
+    Condition
+      Error:
+      ! `NULL` must be a positive integer or a vector of positive integers, not `NULL`.
+
 # vctrs-helpers-parameters
 
     Code
