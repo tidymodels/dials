@@ -23,6 +23,14 @@
       Error in `grid_regular()`:
       ! Elements of `levels` should either be all named or unnamed, not mixed.
 
+---
+
+    Code
+      grid_regular(mixture(), trees(), levels = c(wrong = 2, names = 4))
+    Condition
+      Error in `grid_regular()`:
+      ! The names of `levels` must match the parameter names: "mixture" and "trees".
+
 # wrong argument name
 
     Code
@@ -58,6 +66,54 @@
       Error in `grid_regular()`:
       ! `size` is not an argument to `grid_regular()`.
       i Did you mean `levels`?
+
+# grid_random validates inputs
+
+    Code
+      grid_random(penalty(), size = "five")
+    Condition
+      Error in `grid_random()`:
+      ! `size` must be a whole number, not the string "five".
+
+---
+
+    Code
+      grid_random(penalty(), size = -1)
+    Condition
+      Error in `grid_random()`:
+      ! `size` must be a whole number larger than or equal to 1, not the number -1.
+
+---
+
+    Code
+      grid_random(penalty(), original = "yes")
+    Condition
+      Error in `grid_random()`:
+      ! `original` must be `TRUE` or `FALSE`, not the string "yes".
+
+# grid_regular validates inputs
+
+    Code
+      grid_regular(penalty(), levels = "three")
+    Condition
+      Error in `grid_regular()`:
+      ! `levels` must be a positive integer or a vector of positive integers, not the string "three".
+
+---
+
+    Code
+      grid_regular(penalty(), levels = -1)
+    Condition
+      Error in `grid_regular()`:
+      ! `levels` must be a positive integer or a vector of positive integers, not the number -1.
+
+---
+
+    Code
+      grid_regular(penalty(), original = "yes")
+    Condition
+      Error in `grid_regular()`:
+      ! `original` must be `TRUE` or `FALSE`, not the string "yes".
 
 # new param grid from conventional data frame
 
