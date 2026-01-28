@@ -25,6 +25,19 @@ test_that("transforms", {
   )
 })
 
+test_that("`range_validate()` checks inputs", {
+  expect_snapshot(error = TRUE, range_validate("not a param", c(1, 10)))
+  expect_snapshot(
+    error = TRUE,
+    range_validate(penalty(), c(1, 10), ukn_ok = "maybe")
+  )
+})
+
+test_that("`range_get()` checks inputs", {
+  expect_snapshot(error = TRUE, range_get("not a param"))
+  expect_snapshot(error = TRUE, range_get(penalty(), original = "yes"))
+})
+
 test_that("setting ranges", {
   expect_equal(
     range_set(mtry(), c(5L, 10L))$range,
