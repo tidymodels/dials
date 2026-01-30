@@ -26,7 +26,7 @@ test_that("to [0, 1] for quantitative values", {
 
   x_back <- encode_unit(
     x,
-    c(0.000001, 1 / 3, .99999, 1),
+    c(0.000001, 1 / 3, 0.99999, 1),
     direction = "backward"
   )
   expect_equal(x_back, c(2L, 4L, 7L, 7L))

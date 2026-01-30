@@ -182,7 +182,7 @@ check_inclusive <- function(x, ..., arg = caller_arg(x), call = caller_env()) {
 
   check_logical(x, arg = arg, call = call)
 
-  if (any(is.na(x))) {
+  if (anyNA(x)) {
     cli::cli_abort("{.arg {arg}} can't contain missing values.", call = call)
   }
 

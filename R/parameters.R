@@ -45,7 +45,7 @@ parameters.list <- function(x, ...) {
   check_dots_empty()
 
   elem_param <- purrr::map_lgl(x, inherits, "param")
-  if (any(!elem_param)) {
+  if (!all(elem_param)) {
     cli::cli_abort("The objects should all be {.cls param} objects.")
   }
   elem_name <- purrr::map_chr(x, \(.x) names(.x$label))
@@ -98,7 +98,7 @@ check_list_of_param <- function(x, ..., call = caller_env()) {
     )
   }
   is_good_boi <- map_lgl(x, param_or_na)
-  if (any(!is_good_boi)) {
+  if (!all(is_good_boi)) {
     offenders <- which(!is_good_boi)
 
     cli::cli_abort(
@@ -141,10 +141,7 @@ parameters_constr <- function(
   check_character(component_id, call = call)
   check_list_of_param(object, call = call)
 
-  n_elements <- map_int(
-    list(name, id, source, component, component_id, object),
-    length
-  )
+  n_elements <- lengths(list(name, id, source, component, component_id, object))
   n_elements_unique <- unique(n_elements)
   if (length(n_elements_unique) > 1) {
     cli::cli_abort(

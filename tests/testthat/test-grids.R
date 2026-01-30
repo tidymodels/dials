@@ -88,16 +88,16 @@ test_that("wrong argument name", {
 test_that("filter arg yields same results", {
   p <- parameters(penalty(), mixture())
   expect_equal(
-    filter(with_seed(36L, grid_random(p)), penalty < .01),
-    with_seed(36L, grid_random(p, filter = penalty < .01))
+    filter(with_seed(36L, grid_random(p)), penalty < 0.01),
+    with_seed(36L, grid_random(p, filter = penalty < 0.01))
   )
   expect_equal(
-    filter(with_seed(36L, grid_random(p)), penalty > .001),
-    with_seed(36L, grid_random(p, filter = penalty > .001))
+    filter(with_seed(36L, grid_random(p)), penalty > 0.001),
+    with_seed(36L, grid_random(p, filter = penalty > 0.001))
   )
   expect_equal(
-    filter(with_seed(36L, grid_random(p)), mixture == .01),
-    with_seed(36L, grid_random(p, filter = mixture == .01))
+    filter(with_seed(36L, grid_random(p)), mixture == 0.01),
+    with_seed(36L, grid_random(p, filter = mixture == 0.01))
   )
 })
 

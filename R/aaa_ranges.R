@@ -98,7 +98,7 @@ range_validate <- function(
         call = call
       )
     }
-    if (any(!is_num[!is_unk])) {
+    if (!all(is_num[!is_unk])) {
       cli::cli_abort(
         c("Value ranges must be numeric.", ukn_txt),
         call = call

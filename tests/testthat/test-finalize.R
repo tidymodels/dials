@@ -72,7 +72,7 @@ test_that("estimate rows", {
 
 test_that("`get_batch_size() is deprecated", {
   expect_snapshot(
-    bsizes <- get_batch_sizes(batch_size(), iris, frac = c(.3, .7))
+    bsizes <- get_batch_sizes(batch_size(), iris, frac = c(0.3, 0.7))
   )
 })
 
