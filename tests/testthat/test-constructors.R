@@ -133,7 +133,7 @@ test_that("printing", {
   expect_snapshot(surv_dist())
 
   expect_snapshot(
-    value_set(cost_complexity(), log10(c(.09, .0001)))
+    value_set(cost_complexity(), log10(c(0.09, 0.0001)))
   )
 
   expect_snapshot({
@@ -177,9 +177,9 @@ test_that("bad ranges", {
   expect_snapshot(error = TRUE, mixture(c(1L, unknown())))
   expect_snapshot(error = TRUE, mixture(c(unknown(), 1L)))
   expect_snapshot(error = TRUE, mixture(letters[1:2]))
-  expect_snapshot(error = TRUE, mtry(c(.1, .5)))
-  expect_snapshot(error = TRUE, mtry(c(.1, unknown())))
-  expect_snapshot(error = TRUE, mtry(c(unknown(), .5)))
+  expect_snapshot(error = TRUE, mtry(c(0.1, 0.5)))
+  expect_snapshot(error = TRUE, mtry(c(0.1, unknown())))
+  expect_snapshot(error = TRUE, mtry(c(unknown(), 0.5)))
 })
 
 test_that("can supply `values` without `range` and `inclusive` (#87)", {

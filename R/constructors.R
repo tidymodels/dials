@@ -160,7 +160,7 @@ new_quant_param <- function(
 
   check_label(label, call = call)
   if (is.null(label)) {
-    label = "Unlabeled parameter"
+    label <- "Unlabeled parameter"
     names(label) <- "Unlabeled parameter"
   }
 
@@ -223,7 +223,7 @@ new_qual_param <- function(
 
   check_label(label, call = call)
   if (is.null(label)) {
-    label = "Unlabeled parameter"
+    label <- "Unlabeled parameter"
     names(label) <- "Unlabeled parameter"
   }
 
