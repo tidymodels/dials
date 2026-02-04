@@ -52,7 +52,7 @@
       get_rbf_range("not a param", mtcars)
     Condition
       Error in `get_rbf_range()`:
-      ! `object` must be a single parameter object, not the string "not a param".
+      ! `object` must be a <param> object, not the string "not a param".
 
 # estimate columns
 
@@ -60,7 +60,7 @@
       get_p(1:10)
     Condition
       Error in `get_p()`:
-      ! `object` must be a single parameter object, not an integer vector.
+      ! `object` must be a <param> object, not an integer vector.
 
 ---
 
@@ -68,7 +68,7 @@
       get_p(1:10, 1:10)
     Condition
       Error in `get_p()`:
-      ! `object` must be a single parameter object, not an integer vector.
+      ! `object` must be a <param> object, not an integer vector.
 
 ---
 
@@ -84,7 +84,7 @@
       get_n(1:10)
     Condition
       Error in `get_n()`:
-      ! `object` must be a single parameter object, not an integer vector.
+      ! `object` must be a <param> object, not an integer vector.
 
 ---
 
@@ -92,7 +92,7 @@
       get_n(1:10, 1:10)
     Condition
       Error in `get_n()`:
-      ! `object` must be a single parameter object, not an integer vector.
+      ! `object` must be a <param> object, not an integer vector.
 
 ---
 

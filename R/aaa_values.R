@@ -73,7 +73,7 @@
 #'
 #' @export
 value_validate <- function(object, values, ..., call = caller_env()) {
-  check_param(object)
+  check_inherits(object, "param")
   res <- switch(
     object$type,
     double = ,
@@ -126,7 +126,7 @@ value_validate_qual <- function(object, values, ..., call = caller_env()) {
 #' @export
 #' @rdname value_validate
 value_seq <- function(object, n, original = TRUE) {
-  check_param(object)
+  check_inherits(object, "param")
   if (inherits(object, "quant_param")) {
     range_validate(object, object$range, ukn_ok = FALSE)
     check_number_whole(n, min = 1)
@@ -220,7 +220,7 @@ value_seq_qual <- function(object, n) {
 #' @export
 #' @rdname value_validate
 value_sample <- function(object, n, original = TRUE) {
-  check_param(object)
+  check_inherits(object, "param")
   check_number_whole(n, min = 1)
   check_bool(original)
   if (inherits(object, "quant_param")) {
@@ -343,7 +343,7 @@ value_samp_qual <- function(object, n) {
 #' @export
 #' @rdname value_validate
 value_transform <- function(object, values) {
-  check_param(object)
+  check_inherits(object, "param")
   check_for_unknowns(values)
 
   if (is.null(object$trans)) {
@@ -363,7 +363,7 @@ trans_wrap <- function(x, object) {
 #' @export
 #' @rdname value_validate
 value_inverse <- function(object, values) {
-  check_param(object)
+  check_inherits(object, "param")
   check_for_unknowns(values)
 
   if (is.null(object$trans)) {
@@ -384,7 +384,7 @@ inv_wrap <- function(x, object) {
 #' @export
 #' @rdname value_validate
 value_set <- function(object, values) {
-  check_param(object)
+  check_inherits(object, "param")
   check_for_unknowns(values)
   if (length(values) == 0) {
     cli::cli_abort("{.arg values} must have at least one element.")
