@@ -434,16 +434,15 @@ make_max_entropy_grid <- function(
   sf_grid <- as_tibble(sfd$design)
 
   # Get back to parameter units
-  sf_grid <- map2_dfc(
+  sf_grid <- map2(
     params,
     sf_grid,
     encode_unit,
     direction = "backward",
     original = original
   )
-  colnames(sf_grid) <- param_names
-
-  sf_grid
+  names(sf_grid) <- param_names
+  as_tibble(sf_grid)
 }
 
 #' @export
@@ -526,14 +525,13 @@ make_latin_hypercube_grid <- function(
   sf_grid <- as_tibble(sfd$design)
 
   # Get back to parameter units
-  sf_grid <- map2_dfc(
+  sf_grid <- map2(
     params,
     sf_grid,
     encode_unit,
     direction = "backward",
     original = original
   )
-  colnames(sf_grid) <- param_names
-
-  sf_grid
+  names(sf_grid) <- param_names
+  as_tibble(sf_grid)
 }
