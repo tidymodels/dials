@@ -91,6 +91,27 @@ test_that("check_frac_range()", {
   expect_snapshot(error = TRUE, check_frac_range(c(0.1, NA)))
 })
 
+test_that("check_unique() passes with unique values", {
+  expect_null(check_unique(c("a", "b", "c")))
+  expect_null(check_unique(c(1, 2, 3)))
+  expect_null(check_unique(character()))
+})
+
+test_that("check_unique() ignores NA values", {
+  expect_null(check_unique(c("a", NA, "b")))
+  expect_null(check_unique(c(NA, NA, NA)))
+  expect_null(check_unique(c("a", NA, NA, "b")))
+})
+
+test_that("check_unique() errors on duplicates", {
+  expect_snapshot(error = TRUE, check_unique(c("a", "a")))
+  expect_snapshot(error = TRUE, check_unique(c("a", "b", "a", "b")))
+  expect_snapshot(error = TRUE, {
+    my_ids <- c("x", "x")
+    check_unique(my_ids)
+  })
+})
+
 test_that("vctrs-helpers-parameters", {
   expect_false(dials:::is_parameters(2))
   expect_snapshot(

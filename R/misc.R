@@ -297,3 +297,21 @@ check_frac_range <- function(x, ..., arg = caller_arg(x), call = caller_env()) {
     call = call
   )
 }
+
+check_unique <- function(x, ..., arg = caller_arg(x), call = caller_env()) {
+  check_dots_empty()
+  x2 <- x[!is.na(x)]
+  is_dup <- duplicated(x2)
+  if (!any(is_dup)) {
+    return(invisible(NULL))
+  }
+
+  dup_list <- x2[is_dup]
+  cli::cli_abort(
+    c(
+      x = "{.arg {arg}} must have unique values.",
+      i = "Duplicates: {.val {dup_list}}"
+    ),
+    call = call
+  )
+}

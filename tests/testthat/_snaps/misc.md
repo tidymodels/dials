@@ -174,6 +174,34 @@
       Error:
       ! `c(0.1, NA)` must be a numeric vector of length 2 with values between 0 and 1, not a double vector.
 
+# check_unique() errors on duplicates
+
+    Code
+      check_unique(c("a", "a"))
+    Condition
+      Error:
+      x `c("a", "a")` must have unique values.
+      i Duplicates: "a"
+
+---
+
+    Code
+      check_unique(c("a", "b", "a", "b"))
+    Condition
+      Error:
+      x `c("a", "b", "a", "b")` must have unique values.
+      i Duplicates: "a" and "b"
+
+---
+
+    Code
+      my_ids <- c("x", "x")
+      check_unique(my_ids)
+    Condition
+      Error:
+      x `my_ids` must have unique values.
+      i Duplicates: "x"
+
 # vctrs-helpers-parameters
 
     Code

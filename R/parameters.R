@@ -66,25 +66,6 @@ parameters.list <- function(x, ...) {
   )
 }
 
-unique_check <- function(x, ..., call = caller_env()) {
-  check_dots_empty()
-  x2 <- x[!is.na(x)]
-  is_dup <- duplicated(x2)
-  if (any(is_dup)) {
-    dup_list <- x2[is_dup]
-    cl <- match.call()
-
-    cli::cli_abort(
-      c(
-        x = "Element {.field {deparse(cl$x)}} should have unique values.",
-        i = "Duplicates exist for {cli::qty(dup_list)} item{?s}: {dup_list}"
-      ),
-      call = call
-    )
-  }
-  invisible(TRUE)
-}
-
 param_or_na <- function(x) {
   inherits(x, "param") | all(is.na(x))
 }
@@ -135,7 +116,7 @@ parameters_constr <- function(
 
   check_character(name, call = call)
   check_character(id, call = call)
-  unique_check(id, call = call)
+  check_unique(id, call = call)
   check_character(source, call = call)
   check_character(component, call = call)
   check_character(component_id, call = call)
