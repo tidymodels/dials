@@ -302,7 +302,6 @@ check_unique <- function(x, ..., arg = caller_arg(x), call = caller_env()) {
   check_dots_empty()
   x2 <- x[!is.na(x)]
   is_dup <- duplicated(x2)
-  
   if (!any(is_dup)) {
     return(invisible(NULL))
   }
