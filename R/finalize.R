@@ -154,7 +154,7 @@ finalize.default <- function(object, x, force = TRUE, ...) {
 #' @export
 #' @rdname finalize
 get_p <- function(object, x, log_vals = FALSE, ...) {
-  check_param(object)
+  check_inherits(object, "param")
   check_bool(log_vals)
 
   rngs <- range_get(object, original = FALSE)
@@ -185,14 +185,14 @@ get_p <- function(object, x, log_vals = FALSE, ...) {
 #' @export
 #' @rdname finalize
 get_log_p <- function(object, x, ...) {
-  check_param(object)
+  check_inherits(object, "param")
   get_p(object, x, log_vals = TRUE, ...)
 }
 
 #' @export
 #' @rdname finalize
 get_n_frac <- function(object, x, log_vals = FALSE, frac = 1 / 3, ...) {
-  check_param(object)
+  check_inherits(object, "param")
   check_bool(log_vals)
   check_number_decimal(frac, min = 0, max = 1)
 
@@ -230,7 +230,7 @@ get_n_frac_range <- function(
   frac = c(1 / 10, 5 / 10),
   ...
 ) {
-  check_param(object)
+  check_inherits(object, "param")
   check_bool(log_vals)
   check_frac_range(frac)
 
@@ -264,14 +264,14 @@ get_n_frac_range <- function(
 #' @export
 #' @rdname finalize
 get_n <- function(object, x, log_vals = FALSE, ...) {
-  check_param(object)
+  check_inherits(object, "param")
   get_n_frac(object, x, log_vals, frac = 1, ...)
 }
 
 #' @export
 #' @rdname finalize
 get_rbf_range <- function(object, x, seed = sample.int(10^5, 1), ...) {
-  check_param(object)
+  check_inherits(object, "param")
   rlang::check_installed("kernlab")
   suppressPackageStartupMessages(requireNamespace("kernlab", quietly = TRUE))
   x_mat <- as.matrix(x)
