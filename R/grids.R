@@ -275,9 +275,10 @@ make_random_grid <- function(
   params <- map(param_quos, eval_tidy)
 
   # for now assume equal levels
-  parameters <- map_dfc(params, value_sample, n = size, original = original)
   param_names <- names(param_quos)
+  parameters <- map(params, value_sample, n = size, original = original)
   names(parameters) <- param_names
+  parameters <- as_tibble(parameters)
   if (!(quo_is_null(filter_quo))) {
     parameters <- dplyr::filter(parameters, !!filter_quo)
   }
