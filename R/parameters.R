@@ -67,7 +67,7 @@ parameters.list <- function(x, ...) {
 }
 
 param_or_na <- function(x) {
-  inherits(x, "param") | all(is.na(x))
+  inherits(x, "param") || all(is.na(x))
 }
 
 check_list_of_param <- function(x, ..., call = caller_env()) {

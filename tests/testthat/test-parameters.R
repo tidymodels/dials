@@ -31,6 +31,15 @@ test_that("parameters_constr() input checks", {
   })
 })
 
+test_that("parameters_constr() allows NA instead of param object", {
+  ab <- c("a", "b")
+  expect_no_condition(
+    p <- parameters_constr(ab, ab, ab, ab, ab, object = list(penalty(), NA))
+  )
+  expect_s3_class_parameters(p)
+  expect_true(is.na(p$object[[2]]))
+})
+
 test_that("create from param objects", {
   expect_no_condition(p_1 <- parameters(mtry(), penalty()))
   expect_s3_class_parameters(p_1)
