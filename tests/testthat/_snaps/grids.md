@@ -115,6 +115,118 @@
       Error in `grid_regular()`:
       ! `original` must be `TRUE` or `FALSE`, not the string "yes".
 
+# grid_regular() errors with non-param inputs
+
+    Code
+      grid_regular()
+    Condition
+      Error in `UseMethod()`:
+      ! no applicable method for 'grid_regular' applied to an object of class "NULL"
+
+---
+
+    Code
+      grid_regular(penalty(), "min_n")
+    Condition
+      Error in `parameters()`:
+      ! The objects should all be <param> objects.
+
+---
+
+    Code
+      grid_regular(list())
+    Condition
+      Error in `grid_regular()`:
+      ! At least one parameter object is required.
+
+---
+
+    Code
+      grid_regular(list(penalty(), "min_n"))
+    Condition
+      Error in `parameters()`:
+      ! The objects should all be <param> objects.
+
+# grid_regular.parameters() checks for NA
+
+    Code
+      grid_regular(p)
+    Condition
+      Error in `grid_regular()`:
+      ! This argument must have class <param>: `NA`.
+
+# grid_regular() errors with params containing unknowns
+
+    Code
+      grid_regular(parameters(mtry()))
+    Condition
+      Error in `grid_regular()`:
+      x This argument contains unknowns: `mtry`.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_regular(mtry())
+    Condition
+      Error in `grid_regular()`:
+      x This argument contains unknowns: `mtry`.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_regular(mtry(), sample_size())
+    Condition
+      Error in `grid_regular()`:
+      x These arguments contain unknowns: `mtry` and `sample_size`.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_regular(list(mtry()))
+    Condition
+      Error in `grid_regular()`:
+      x This argument contains unknowns: `mtry`.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_regular(list(mtry_custom_name = mtry()))
+    Condition
+      Error in `grid_regular()`:
+      x This argument contains unknowns: `mtry_custom_name`.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_regular(list(mtry(), sample_size()))
+    Condition
+      Error in `grid_regular()`:
+      x These arguments contain unknowns: `mtry` and `sample_size`.
+      i See the `dials::finalize()` function.
+
+# grid_regular() errors with duplicate parameter ids
+
+    Code
+      grid_regular(penalty(), penalty())
+    Condition
+      Error in `parameters()`:
+      x `id` must have unique values.
+      i Duplicates: "penalty"
+
+---
+
+    Code
+      grid_regular(list(a = penalty(), a = mtry()))
+    Condition
+      Error in `parameters()`:
+      x `id` must have unique values.
+      i Duplicates: "a"
+
 # new param grid from conventional data frame
 
     Code

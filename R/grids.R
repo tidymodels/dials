@@ -68,7 +68,6 @@ grid_regular.parameters <- function(
   original = TRUE,
   filter = NULL
 ) {
-  # test for NA and finalized
   # test for empty ...
   params <- x$object
   names(params) <- x$id
