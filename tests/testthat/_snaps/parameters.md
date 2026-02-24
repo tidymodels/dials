@@ -178,3 +178,29 @@
       Error in `parameters()`:
       ! <parameters> objects cannot be created from a tibble.
 
+# parameters() errors with non-param inputs
+
+    Code
+      parameters()
+    Condition
+      Error:
+      ! ! Could not evaluate cli `{}` expression: `x`.
+      Caused by error in `eval(expr, envir = envir)`:
+      ! argument "x" is missing, with no default
+
+---
+
+    Code
+      parameters(mtry(), "min_n")
+    Condition
+      Error in `parameters()`:
+      ! The objects should all be <param> objects.
+
+---
+
+    Code
+      parameters(list(mtry(), "min_n"))
+    Condition
+      Error in `parameters()`:
+      ! The objects should all be <param> objects.
+
