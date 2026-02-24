@@ -342,6 +342,52 @@ test_that("grid_space_filling validates inputs", {
   expect_snapshot(error = TRUE, grid_space_filling(penalty(), original = "yes"))
 })
 
+test_that("grid_space_filling() errors with non-param inputs", {
+  # no input at all
+  expect_snapshot(error = TRUE, grid_space_filling())
+
+  # param method
+  expect_snapshot(error = TRUE, grid_space_filling(penalty(), "min_n"))
+
+  # list method
+  expect_snapshot(error = TRUE, grid_space_filling(list()))
+  expect_snapshot(error = TRUE, grid_space_filling(list(penalty(), "min_n")))
+})
+
+test_that("grid_space_filling.parameters() checks for NA", {
+  p <- parameters(penalty())
+  p <- update(p, penalty = NA)
+  expect_snapshot(error = TRUE, grid_space_filling(p))
+})
+
+test_that("grid_space_filling() errors with params containing unknowns", {
+  # parameters method
+  expect_snapshot(error = TRUE, grid_space_filling(parameters(mtry())))
+
+  # param method
+  expect_snapshot(error = TRUE, grid_space_filling(mtry()))
+  expect_snapshot(error = TRUE, grid_space_filling(mtry(), sample_size()))
+
+  # list method
+  expect_snapshot(error = TRUE, grid_space_filling(list(mtry())))
+  expect_snapshot(
+    error = TRUE,
+    grid_space_filling(list(mtry_custom_name = mtry()))
+  )
+  expect_snapshot(error = TRUE, grid_space_filling(list(mtry(), sample_size())))
+})
+
+test_that("grid_space_filling() errors with duplicate parameter ids", {
+  # param method
+  expect_snapshot(error = TRUE, grid_space_filling(penalty(), penalty()))
+
+  # list method
+  expect_snapshot(
+    error = TRUE,
+    grid_space_filling(list(a = penalty(), a = mtry()))
+  )
+})
+
 test_that("pre-made designs respect the 'original argument", {
   # See issue #409
 

@@ -118,7 +118,6 @@ grid_space_filling.parameters <- function(
   iter = 1000,
   original = TRUE
 ) {
-  # test for NA and finalized
   # test for empty ...
   params <- x$object
   names(params) <- x$id
