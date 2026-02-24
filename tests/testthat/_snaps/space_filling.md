@@ -132,6 +132,14 @@
 ---
 
     Code
+      grid_space_filling(mtry(), "min_n")
+    Condition
+      Error in `parameters()`:
+      ! The objects should all be <param> objects.
+
+---
+
+    Code
       grid_space_filling(list())
     Condition
       Error in `grid_space_filling()`:
@@ -141,6 +149,14 @@
 
     Code
       grid_space_filling(list(penalty(), "min_n"))
+    Condition
+      Error in `parameters()`:
+      ! The objects should all be <param> objects.
+
+---
+
+    Code
+      grid_space_filling(list(mtry(), "min_n"))
     Condition
       Error in `parameters()`:
       ! The objects should all be <param> objects.

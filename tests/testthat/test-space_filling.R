@@ -348,10 +348,12 @@ test_that("grid_space_filling() errors with non-param inputs", {
 
   # param method
   expect_snapshot(error = TRUE, grid_space_filling(penalty(), "min_n"))
+  expect_snapshot(error = TRUE, grid_space_filling(mtry(), "min_n"))
 
   # list method
   expect_snapshot(error = TRUE, grid_space_filling(list()))
   expect_snapshot(error = TRUE, grid_space_filling(list(penalty(), "min_n")))
+  expect_snapshot(error = TRUE, grid_space_filling(list(mtry(), "min_n")))
 })
 
 test_that("grid_space_filling.parameters() checks for NA", {

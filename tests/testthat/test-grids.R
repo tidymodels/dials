@@ -114,10 +114,12 @@ test_that("grid_random() errors with non-param inputs", {
 
   # param method
   expect_snapshot(error = TRUE, grid_random(penalty(), "min_n"))
+  expect_snapshot(error = TRUE, grid_random(mtry(), "min_n"))
 
   # list method
   expect_snapshot(error = TRUE, grid_random(list()))
   expect_snapshot(error = TRUE, grid_random(list(penalty(), "min_n")))
+  expect_snapshot(error = TRUE, grid_random(list(mtry(), "min_n")))
 })
 
 test_that("grid_random.parameters() checks for NA", {
@@ -160,10 +162,12 @@ test_that("grid_regular() errors with non-param inputs", {
 
   # param method
   expect_snapshot(error = TRUE, grid_regular(penalty(), "min_n"))
+  expect_snapshot(error = TRUE, grid_regular(mtry(), "min_n"))
 
   # list method
   expect_snapshot(error = TRUE, grid_regular(list()))
   expect_snapshot(error = TRUE, grid_regular(list(penalty(), "min_n")))
+  expect_snapshot(error = TRUE, grid_regular(list(mtry(), "min_n")))
 })
 
 test_that("grid_regular.parameters() checks for NA", {

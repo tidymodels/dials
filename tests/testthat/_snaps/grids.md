@@ -110,6 +110,14 @@
 ---
 
     Code
+      grid_random(mtry(), "min_n")
+    Condition
+      Error in `parameters()`:
+      ! The objects should all be <param> objects.
+
+---
+
+    Code
       grid_random(list())
     Condition
       Error in `grid_random()`:
@@ -119,6 +127,14 @@
 
     Code
       grid_random(list(penalty(), "min_n"))
+    Condition
+      Error in `parameters()`:
+      ! The objects should all be <param> objects.
+
+---
+
+    Code
+      grid_random(list(mtry(), "min_n"))
     Condition
       Error in `parameters()`:
       ! The objects should all be <param> objects.
@@ -246,6 +262,14 @@
 ---
 
     Code
+      grid_regular(mtry(), "min_n")
+    Condition
+      Error in `parameters()`:
+      ! The objects should all be <param> objects.
+
+---
+
+    Code
       grid_regular(list())
     Condition
       Error in `grid_regular()`:
@@ -255,6 +279,14 @@
 
     Code
       grid_regular(list(penalty(), "min_n"))
+    Condition
+      Error in `parameters()`:
+      ! The objects should all be <param> objects.
+
+---
+
+    Code
+      grid_regular(list(mtry(), "min_n"))
     Condition
       Error in `parameters()`:
       ! The objects should all be <param> objects.
