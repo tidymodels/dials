@@ -1,5 +1,10 @@
 # dials (development version)
 
+* Two dials are introduced for `ordinal_reg()` models:
+  `ordinal_link` and `odds_link`, which together define a composite link function as described in the documentation.
+  They are styled after `survival_link` and include analogous `values_*` option vectors.
+  Two new tests are added for each.
+
 * A bug was fixed where some space-filling designs did not respect the `original` argument (#409).
 
 * Parameters were added for the `tab_pfn` model: `num_estimators()`, `softmax_temperature()`, `balance_probabilities()`, `average_before_softmax()`, and `training_set_limit()`.
