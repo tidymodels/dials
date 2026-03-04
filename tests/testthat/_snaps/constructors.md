@@ -27,8 +27,8 @@
     Code
       new_quant_param("double", range = 1, inclusive = c(TRUE, TRUE))
     Condition
-      Error in `names(range) <- names(inclusive) <- c("lower", "upper")`:
-      ! 'names' attribute [2] must be the same length as the vector [1]
+      Error:
+      ! `range` must have 2 elements, not 1.
 
 ---
 
@@ -45,7 +45,7 @@
       new_quant_param("double", range = c(1, NA), inclusive = TRUE)
     Condition
       Error:
-      ! `inclusive` must be a logical vector of length 2, not `TRUE`.
+      ! `inclusive` must have length 2, not 1.
 
 ---
 
@@ -53,7 +53,7 @@
       new_quant_param("double", range = c(1, NA), inclusive = c("(", "]"))
     Condition
       Error:
-      ! `inclusive` must be a logical vector of length 2, not a character vector.
+      ! `inclusive` must be a logical vector, not a character vector.
 
 ---
 
@@ -70,7 +70,7 @@
       new_quant_param("integer", range = 1:2, inclusive = c(TRUE, NA))
     Condition
       Error:
-      ! `inclusive` cannot contain missings.
+      ! `inclusive` can't contain missing values.
 
 ---
 
@@ -78,7 +78,7 @@
       new_quant_param("integer", range = 1:2, inclusive = c(TRUE, unknown()))
     Condition
       Error:
-      ! `inclusive` must be a logical vector of length 2, not a list.
+      ! `inclusive` must be a logical vector, not a list.
 
 ---
 
@@ -248,7 +248,7 @@
       mixture(letters[1:2])
     Condition
       Error in `mixture()`:
-      ! Since `type = "double"`, please use that data type for the range.
+      ! `range` must be numeric (or `unknown()`).
 
 ---
 
@@ -324,7 +324,7 @@
       new_quant_param(type = "integer", values = NA_integer_, label = c(foo = "Foo"))
     Condition
       Error:
-      ! `values` can't be `NA`.
+      ! `values` can't contain `NA` values.
 
 ---
 
@@ -351,4 +351,29 @@
     Condition
       Error:
       ! The `default` argument of `new_qual_param()` was deprecated in dials 1.1.0 and is now defunct.
+
+# range ordering is validated
+
+    Code
+      new_quant_param("integer", range = c(10L, 1L), inclusive = c(TRUE, TRUE))
+    Condition
+      Error:
+      ! The `range` lower bound (10) must not exceed upper bound (1).
+
+# duplicate values are rejected
+
+    Code
+      new_quant_param("double", values = c(1, 2, 2, 3))
+    Condition
+      Error:
+      ! `values` can't contain duplicate values.
+
+# integer type requires whole number values
+
+    Code
+      new_quant_param("integer", values = c(1.5, 2, 3))
+    Condition
+      Error:
+      ! `values` must contain whole numbers for integer parameters.
+      x These are not whole numbers: 1.5.
 

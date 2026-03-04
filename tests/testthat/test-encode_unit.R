@@ -26,7 +26,7 @@ test_that("to [0, 1] for quantitative values", {
 
   x_back <- encode_unit(
     x,
-    c(0.000001, 1 / 3, .99999, 1),
+    c(0.000001, 1 / 3, 0.99999, 1),
     direction = "backward"
   )
   expect_equal(x_back, c(2L, 4L, 7L, 7L))
@@ -55,6 +55,14 @@ test_that("missing data", {
   expect_equal(z_0, c(0, NA_real_))
 })
 
+
+test_that("encode_unit validates original argument", {
+  x <- mtry(c(2L, 7L))
+  expect_snapshot(
+    error = TRUE,
+    encode_unit(x, 0.5, direction = "backward", original = "yes")
+  )
+})
 
 test_that("bad args", {
   x <- mtry(c(2L, 7L))

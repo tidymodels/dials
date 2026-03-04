@@ -45,7 +45,7 @@ parameters.list <- function(x, ...) {
   check_dots_empty()
 
   elem_param <- purrr::map_lgl(x, inherits, "param")
-  if (any(!elem_param)) {
+  if (!all(elem_param)) {
     cli::cli_abort("The objects should all be {.cls param} objects.")
   }
   elem_name <- purrr::map_chr(x, \(.x) names(.x$label))
@@ -66,27 +66,8 @@ parameters.list <- function(x, ...) {
   )
 }
 
-unique_check <- function(x, ..., call = caller_env()) {
-  check_dots_empty()
-  x2 <- x[!is.na(x)]
-  is_dup <- duplicated(x2)
-  if (any(is_dup)) {
-    dup_list <- x2[is_dup]
-    cl <- match.call()
-
-    cli::cli_abort(
-      c(
-        x = "Element {.field {deparse(cl$x)}} should have unique values.",
-        i = "Duplicates exist for {cli::qty(dup_list)} item{?s}: {dup_list}"
-      ),
-      call = call
-    )
-  }
-  invisible(TRUE)
-}
-
 param_or_na <- function(x) {
-  inherits(x, "param") | all(is.na(x))
+  inherits(x, "param") || all(is.na(x))
 }
 
 check_list_of_param <- function(x, ..., call = caller_env()) {
@@ -98,7 +79,7 @@ check_list_of_param <- function(x, ..., call = caller_env()) {
     )
   }
   is_good_boi <- map_lgl(x, param_or_na)
-  if (any(!is_good_boi)) {
+  if (!all(is_good_boi)) {
     offenders <- which(!is_good_boi)
 
     cli::cli_abort(
@@ -135,16 +116,13 @@ parameters_constr <- function(
 
   check_character(name, call = call)
   check_character(id, call = call)
-  unique_check(id, call = call)
+  check_unique(id, call = call)
   check_character(source, call = call)
   check_character(component, call = call)
   check_character(component_id, call = call)
   check_list_of_param(object, call = call)
 
-  n_elements <- map_int(
-    list(name, id, source, component, component_id, object),
-    length
-  )
+  n_elements <- lengths(list(name, id, source, component, component_id, object))
   n_elements_unique <- unique(n_elements)
   if (length(n_elements_unique) > 1) {
     cli::cli_abort(

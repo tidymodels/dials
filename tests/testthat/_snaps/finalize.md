@@ -1,10 +1,66 @@
+# finalize validates inputs
+
+    Code
+      finalize(penalty(), mtcars, force = "yes")
+    Condition
+      Error in `finalize()`:
+      ! `force` must be `TRUE` or `FALSE`, not the string "yes".
+
+---
+
+    Code
+      get_p(penalty(), mtcars, log_vals = "yes")
+    Condition
+      Error in `get_p()`:
+      ! `log_vals` must be `TRUE` or `FALSE`, not the string "yes".
+
+---
+
+    Code
+      get_n_frac(mtry(), mtcars, frac = "half")
+    Condition
+      Error in `get_n_frac()`:
+      ! `frac` must be a number, not the string "half".
+
+---
+
+    Code
+      get_n_frac(mtry(), mtcars, frac = 1.5)
+    Condition
+      Error in `get_n_frac()`:
+      ! `frac` must be a number between 0 and 1, not the number 1.5.
+
+---
+
+    Code
+      get_n_frac_range(mtry(), mtcars, frac = 0.5)
+    Condition
+      Error in `get_n_frac_range()`:
+      ! `frac` must be a numeric vector of length 2 with values between 0 and 1, not the number 0.5.
+
+---
+
+    Code
+      get_n_frac_range(mtry(), mtcars, frac = c(0.1, 1.5))
+    Condition
+      Error in `get_n_frac_range()`:
+      ! `frac` must be a numeric vector of length 2 with values between 0 and 1, not a double vector.
+
+---
+
+    Code
+      get_rbf_range("not a param", mtcars)
+    Condition
+      Error in `get_rbf_range()`:
+      ! `object` must be a <param> object, not the string "not a param".
+
 # estimate columns
 
     Code
       get_p(1:10)
     Condition
       Error in `get_p()`:
-      ! `object` must be a single parameter object, not an integer vector.
+      ! `object` must be a <param> object, not an integer vector.
 
 ---
 
@@ -12,7 +68,7 @@
       get_p(1:10, 1:10)
     Condition
       Error in `get_p()`:
-      ! `object` must be a single parameter object, not an integer vector.
+      ! `object` must be a <param> object, not an integer vector.
 
 ---
 
@@ -27,16 +83,16 @@
     Code
       get_n(1:10)
     Condition
-      Error in `get_n_frac()`:
-      ! `object` must be a single parameter object, not an integer vector.
+      Error in `get_n()`:
+      ! `object` must be a <param> object, not an integer vector.
 
 ---
 
     Code
       get_n(1:10, 1:10)
     Condition
-      Error in `get_n_frac()`:
-      ! `object` must be a single parameter object, not an integer vector.
+      Error in `get_n()`:
+      ! `object` must be a <param> object, not an integer vector.
 
 ---
 

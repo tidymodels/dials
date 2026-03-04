@@ -22,13 +22,21 @@
       Error in `encode_unit()`:
       ! `value` should be a numeric vector.
 
+# encode_unit validates original argument
+
+    Code
+      encode_unit(x, 0.5, direction = "backward", original = "yes")
+    Condition
+      Error in `encode_unit()`:
+      ! `original` must be `TRUE` or `FALSE`, not the string "yes".
+
 # bad args
 
     Code
       encode_unit(2, prune_method()$values, direction = "forward")
     Condition
       Error in `encode_unit()`:
-      ! `x` should be a dials parameter object.
+      ! `x` should be a dials parameter object, not a string.
 
 ---
 

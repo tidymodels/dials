@@ -206,6 +206,14 @@ make_sfd <- function(
   original = TRUE,
   call = caller_env()
 ) {
+  check_number_whole(size, min = 1, call = call)
+  check_number_decimal(
+    variogram_range,
+    min = 0,
+    call = call
+  )
+  check_number_whole(iter, min = 1, call = call)
+  check_bool(original, call = call)
   type <- rlang::arg_match(type, sfd_types)
   validate_params(..., call = call)
   param_quos <- quos(...)
@@ -224,7 +232,7 @@ make_sfd <- function(
 
     if (has_premade_design) {
       grid <- sfd::get_design(p, num_points = size, type = type)
-      vals <- purrr::map(params, \(.x) value_seq(.x, size))
+      vals <- purrr::map(params, \(.x) value_seq(.x, size, original = original))
       vals <- purrr::map(vals, \(.x) base_recycle(.x, size))
       grid <- sfd::update_values(grid, vals)
       names(grid) <- names(params)
@@ -397,6 +405,14 @@ make_max_entropy_grid <- function(
   iter = 1000,
   call = caller_env()
 ) {
+  check_number_whole(size, min = 1, call = call)
+  check_number_decimal(
+    variogram_range,
+    min = 0,
+    call = call
+  )
+  check_number_whole(iter, min = 1, call = call)
+  check_bool(original, call = call)
   validate_params(..., call = call)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
@@ -418,16 +434,15 @@ make_max_entropy_grid <- function(
   sf_grid <- as_tibble(sfd$design)
 
   # Get back to parameter units
-  sf_grid <- map2_dfc(
+  sf_grid <- map2(
     params,
     sf_grid,
     encode_unit,
     direction = "backward",
     original = original
   )
-  colnames(sf_grid) <- param_names
-
-  sf_grid
+  names(sf_grid) <- param_names
+  as_tibble(sf_grid)
 }
 
 #' @export
@@ -491,6 +506,8 @@ make_latin_hypercube_grid <- function(
   original = TRUE,
   call = caller_env()
 ) {
+  check_number_whole(size, min = 1, call = call)
+  check_bool(original, call = call)
   validate_params(..., call = call)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
@@ -508,14 +525,13 @@ make_latin_hypercube_grid <- function(
   sf_grid <- as_tibble(sfd$design)
 
   # Get back to parameter units
-  sf_grid <- map2_dfc(
+  sf_grid <- map2(
     params,
     sf_grid,
     encode_unit,
     direction = "backward",
     original = original
   )
-  colnames(sf_grid) <- param_names
-
-  sf_grid
+  names(sf_grid) <- param_names
+  as_tibble(sf_grid)
 }

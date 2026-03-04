@@ -38,7 +38,7 @@
 #' @importFrom glue glue glue_collapse
 #' @importFrom lifecycle deprecated
 #' @importFrom pillar type_sum
-#' @importFrom purrr map_lgl map2_dfc map_chr map map2 map_dfc map_dbl map_int
+#' @importFrom purrr map map_chr map_dbl map_int map_lgl map2
 #' @importFrom scales transform_log2 is.trans transform_log10
 #' @importFrom stats runif
 #' @importFrom tibble as_tibble is_tibble tibble new_tibble

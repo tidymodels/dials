@@ -330,3 +330,36 @@ test_that("1-point grid", {
   })
   expect_equal(nrow(grid), 1L)
 })
+
+test_that("grid_space_filling validates inputs", {
+  expect_snapshot(error = TRUE, grid_space_filling(penalty(), size = "five"))
+  expect_snapshot(error = TRUE, grid_space_filling(penalty(), size = -1))
+  expect_snapshot(
+    error = TRUE,
+    grid_space_filling(penalty(), variogram_range = -1)
+  )
+  expect_snapshot(error = TRUE, grid_space_filling(penalty(), iter = "many"))
+  expect_snapshot(error = TRUE, grid_space_filling(penalty(), original = "yes"))
+})
+
+test_that("pre-made designs respect the 'original argument", {
+  # See issue #409
+
+  prms <- parameters(penalty(), mixture())
+  types <- c(
+    "audze_eglais",
+    "max_min_l1",
+    "max_min_l2",
+    "uniform",
+    "max_entropy",
+    "latin_hypercube"
+  )
+
+  for (i in types) {
+    grd_orig <- grid_space_filling(prms, type = i, original = TRUE)
+    grd_trans <- grid_space_filling(prms, type = i, original = FALSE)
+
+    expect_true(all(grd_orig$penalty > 0))
+    expect_true(all(grd_trans$penalty <= 0))
+  }
+})

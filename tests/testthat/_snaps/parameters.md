@@ -1,4 +1,4 @@
-# parameters_const() input checks
+# parameters_constr() input checks
 
     Code
       parameters_constr(name = 2)
@@ -13,8 +13,8 @@
       parameters_constr(ab, id = c("a", "a"), ab, ab, ab)
     Condition
       Error:
-      x Element id should have unique values.
-      i Duplicates exist for item: a
+      x `id` must have unique values.
+      i Duplicates: "a"
 
 ---
 
@@ -58,8 +58,8 @@
       parameters(list(a = mtry(), a = penalty()))
     Condition
       Error in `parameters()`:
-      x Element id should have unique values.
-      i Duplicates exist for item: a
+      x `id` must have unique values.
+      i Duplicates: "a"
 
 ---
 

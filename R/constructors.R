@@ -100,7 +100,7 @@ new_quant_param <- function(
 
   type <- arg_match0(type, values = c("double", "integer"))
 
-  check_values_quant(values, call = call)
+  check_values_quant(values, type = type, call = call)
 
   if (!is.null(values)) {
     # fill in range if user didn't supply one
@@ -160,7 +160,7 @@ new_quant_param <- function(
 
   check_label(label, call = call)
   if (is.null(label)) {
-    label = "Unlabeled parameter"
+    label <- "Unlabeled parameter"
     names(label) <- "Unlabeled parameter"
   }
 
@@ -223,7 +223,7 @@ new_qual_param <- function(
 
   check_label(label, call = call)
   if (is.null(label)) {
-    label = "Unlabeled parameter"
+    label <- "Unlabeled parameter"
     names(label) <- "Unlabeled parameter"
   }
 
