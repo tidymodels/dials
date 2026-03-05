@@ -162,6 +162,11 @@
   : Parameters for TabPFN models
 - [`num_knots()`](https://dials.tidymodels.org/dev/reference/num_knots.md)
   : Number of knots (integer)
+- [`ordinal_link()`](https://dials.tidymodels.org/dev/reference/ordinal_link.md)
+  [`values_ordinal_link`](https://dials.tidymodels.org/dev/reference/ordinal_link.md)
+  [`odds_link()`](https://dials.tidymodels.org/dev/reference/ordinal_link.md)
+  [`values_odds_link`](https://dials.tidymodels.org/dev/reference/ordinal_link.md)
+  : Ordinal Regression Link Functions (character)
 - [`penalty()`](https://dials.tidymodels.org/dev/reference/penalty.md) :
   Amount of regularization/penalization
 - [`predictor_prop()`](https://dials.tidymodels.org/dev/reference/predictor_prop.md)

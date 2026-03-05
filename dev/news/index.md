@@ -2,6 +2,13 @@
 
 ## dials (development version)
 
+- [`ordinal_link()`](https://dials.tidymodels.org/dev/reference/ordinal_link.md)
+  and
+  [`odds_link()`](https://dials.tidymodels.org/dev/reference/ordinal_link.md)
+  are two new parameters for the new `ordinal_reg()` models in parsnip
+  ([@corybrunson](https://github.com/corybrunson),
+  [\#435](https://github.com/tidymodels/dials/issues/435)).
+
 - A bug was fixed where some space-filling designs did not respect the
   `original` argument
   ([\#409](https://github.com/tidymodels/dials/issues/409)).
