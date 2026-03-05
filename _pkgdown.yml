@@ -84,6 +84,7 @@ reference:
   - num_comp
   - num_estimators
   - num_knots
+  - ordinal_link
   - penalty
   - predictor_prop
   - prune_method

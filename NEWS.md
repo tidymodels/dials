@@ -1,5 +1,7 @@
 # dials (development version)
 
+* `ordinal_link()` and `odds_link()` are two new parameters for the new `ordinal_reg()` models in parsnip (@corybrunson, #435).
+
 * A bug was fixed where some space-filling designs did not respect the `original` argument (#409).
 
 * Parameters were added for the `tab_pfn` model: `num_estimators()`, `softmax_temperature()`, `balance_probabilities()`, `average_before_softmax()`, and `training_set_limit()`.

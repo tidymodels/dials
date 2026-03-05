@@ -199,4 +199,8 @@ test_that("param values", {
   expect_equal(cal_method_reg()$values, values_cal_reg)
   expect_equal(balance_probabilities(TRUE)$values, TRUE)
   expect_equal(average_before_softmax(TRUE)$values, TRUE)
+  expect_equal(ordinal_link(letters[1:3])$values, letters[1:3])
+  expect_equal(ordinal_link()$values, values_ordinal_link)
+  expect_equal(odds_link(letters[4:6])$values, letters[4:6])
+  expect_equal(odds_link()$values, values_odds_link)
 })
