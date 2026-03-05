@@ -1,9 +1,6 @@
 # dials (development version)
 
-* Two dials are introduced for `ordinal_reg()` models:
-  `ordinal_link` and `odds_link`, which together define a composite link function as described in the documentation.
-  They are styled after `survival_link` and include analogous `values_*` option vectors.
-  Two new tests are added for each.
+* `ordinal_link()` and `odds_link()` are two new parameters for the new `ordinal_reg()` models in parsnip (@corybrunson, #435).
 
 * A bug was fixed where some space-filling designs did not respect the `original` argument (#409).
 

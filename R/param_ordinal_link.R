@@ -6,8 +6,8 @@
 #'   values encoded in `values_*_link`. See the examples below.
 #'
 #' @details These parameters are used by ordinal regression models specified by
-#'   `ordinal_reg()`, for example `parsnip::set_engine('polr')`. The
-#'   nomenclature is taken from Wurm &al (2021), who characterize the pair of
+#'   `parsnip::ordinal_reg()`, for example `parsnip::set_engine('polr')`. The
+#'   nomenclature is taken from Wurm et al (2021), who characterize the pair of
 #'   functions as a composite link function. Note that different engines support
 #'   different subsets of link functions.
 #'
