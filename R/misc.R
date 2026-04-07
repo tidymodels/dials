@@ -292,3 +292,47 @@ check_unique <- function(x, ..., arg = caller_arg(x), call = caller_env()) {
     call = call
   )
 }
+
+check_param <- function(
+  x,
+  ...,
+  allow_na = FALSE,
+  allow_unknown = FALSE,
+  arg = caller_arg(x),
+  call = caller_env()
+) {
+  check_dots_empty()
+
+  if (allow_na && all(is.na(x))) {
+    return(invisible(NULL))
+  }
+
+  if (inherits(x, "param")) {
+    if (allow_unknown || !has_unknowns(x)) {
+      return(invisible(NULL))
+    }
+
+    cli::cli_abort(
+      c(
+        x = "{.arg {arg}} must be a {.cls param} object without unknowns.",
+        i = "See the {.fn dials::finalize} function."
+      ),
+      call = call
+    )
+  }
+
+  what <- if (allow_unknown) {
+    "a <param> object"
+  } else {
+    "a <param> object without unknowns"
+  }
+
+  stop_input_type(
+    x,
+    what,
+    ...,
+    allow_na = allow_na,
+    arg = arg,
+    call = call
+  )
+}

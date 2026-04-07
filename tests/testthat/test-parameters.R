@@ -127,7 +127,7 @@ test_that("parameters() errors with non-param inputs", {
   # param method
   expect_snapshot(error = TRUE, parameters(mtry(), "min_n"))
 
-  # list method 
+  # list method
   expect_snapshot(error = TRUE, parameters(list(mtry(), "min_n")))
 })
 
