@@ -2,16 +2,20 @@
 % Please edit documentation in R/grids.R
 \name{grid_regular}
 \alias{grid_regular}
+\alias{grid_regular.default}
 \alias{grid_regular.parameters}
 \alias{grid_regular.list}
 \alias{grid_regular.param}
 \alias{grid_random}
+\alias{grid_random.default}
 \alias{grid_random.parameters}
 \alias{grid_random.list}
 \alias{grid_random.param}
 \title{Create grids of tuning parameters}
 \usage{
 grid_regular(x, ..., levels = 3, original = TRUE, filter = NULL)
+
+\method{grid_regular}{default}(x, ..., levels = 3, original = TRUE, filter = NULL)
 
 \method{grid_regular}{parameters}(x, ..., levels = 3, original = TRUE, filter = NULL)
 
@@ -20,6 +24,8 @@ grid_regular(x, ..., levels = 3, original = TRUE, filter = NULL)
 \method{grid_regular}{param}(x, ..., levels = 3, original = TRUE, filter = NULL)
 
 grid_random(x, ..., size = 5, original = TRUE, filter = NULL)
+
+\method{grid_random}{default}(x, ..., size = 5, original = TRUE, filter = NULL)
 
 \method{grid_random}{parameters}(x, ..., size = 5, original = TRUE, filter = NULL)
 

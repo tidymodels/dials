@@ -61,6 +61,24 @@ grid_regular <- function(x, ..., levels = 3, original = TRUE, filter = NULL) {
 
 #' @export
 #' @rdname grid_regular
+grid_regular.default <- function(
+  x,
+  ...,
+  levels = 3,
+  original = TRUE,
+  filter = NULL
+) {
+  if (missing(x)) {
+    cli::cli_abort("At least one parameter object is required.")
+  }
+  cli::cli_abort(
+    "{.arg x} must be a {.cls param} object, list, or {.cls parameters} object, 
+    not {.obj_type_friendly {x}}."
+  )
+}
+
+#' @export
+#' @rdname grid_regular
 grid_regular.parameters <- function(
   x,
   ...,
@@ -237,6 +255,24 @@ grid_random <- function(x, ..., size = 5, original = TRUE, filter = NULL) {
     )
   }
   UseMethod("grid_random")
+}
+
+#' @export
+#' @rdname grid_regular
+grid_random.default <- function(
+  x,
+  ...,
+  size = 5,
+  original = TRUE,
+  filter = NULL
+) {
+  if (missing(x)) {
+    cli::cli_abort("At least one parameter object is required.")
+  }
+  cli::cli_abort(
+    "{.arg x} must be a {.cls param} object, list, or {.cls parameters} object,
+    not {.obj_type_friendly {x}}."
+  )
 }
 
 #' @export

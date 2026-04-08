@@ -96,8 +96,16 @@
     Code
       grid_random()
     Condition
-      Error in `UseMethod()`:
-      ! no applicable method for 'grid_random' applied to an object of class "NULL"
+      Error in `grid_random()`:
+      ! At least one parameter object is required.
+
+---
+
+    Code
+      grid_random("not a param")
+    Condition
+      Error in `grid_random()`:
+      ! `x` must be a <param> object, list, or <parameters> object, not a string.
 
 ---
 
@@ -250,8 +258,16 @@
     Code
       grid_regular()
     Condition
-      Error in `UseMethod()`:
-      ! no applicable method for 'grid_regular' applied to an object of class "NULL"
+      Error in `grid_regular()`:
+      ! At least one parameter object is required.
+
+---
+
+    Code
+      grid_regular("not a param")
+    Condition
+      Error in `grid_regular()`:
+      ! `x` must be a <param> object, list, or <parameters> object, not a string.
 
 ---
 

@@ -118,8 +118,16 @@
     Code
       grid_space_filling()
     Condition
-      Error in `UseMethod()`:
-      ! no applicable method for 'grid_space_filling' applied to an object of class "NULL"
+      Error in `grid_space_filling()`:
+      ! At least one parameter object is required.
+
+---
+
+    Code
+      grid_space_filling("not a param")
+    Condition
+      Error in `grid_space_filling()`:
+      ! `x` must be a <param> object, list, or <parameters> object, not a string.
 
 ---
 
