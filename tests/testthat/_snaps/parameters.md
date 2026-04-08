@@ -183,10 +183,8 @@
     Code
       parameters()
     Condition
-      Error:
-      ! ! Could not evaluate cli `{}` expression: `x`.
-      Caused by error in `eval(expr, envir = envir)`:
-      ! argument "x" is missing, with no default
+      Error in `parameters()`:
+      ! No input provided. Please supply at least one parameter object.
 
 ---
 

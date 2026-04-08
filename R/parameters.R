@@ -25,6 +25,11 @@ parameters <- function(x, ...) {
 #' @export
 #' @rdname parameters
 parameters.default <- function(x, ...) {
+  if (missing(x)) {
+    cli::cli_abort(
+      "No input provided. Please supply at least one parameter object."
+    )
+  }
   cli::cli_abort(
     "{.cls parameters} objects cannot be created from {.obj_type_friendly {x}}."
   )
