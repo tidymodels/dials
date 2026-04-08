@@ -23,7 +23,7 @@
       parameters_constr(ab, ab, ab, ab, ab, object = "not a params list")
     Condition
       Error:
-      ! `object` must be a list of <param> objects.
+      ! `object` must be a list.
 
 ---
 
@@ -32,7 +32,7 @@
       parameters_constr(ab, ab, ab, ab, ab, object = list(penalty(), "not a param"))
     Condition
       Error:
-      ! `object` elements in the following positions must be `NA` or a <param> object: 2.
+      ! `object[[2]]` must be a <param> object or `NA`, not the string "not a param".
 
 ---
 

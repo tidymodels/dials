@@ -71,30 +71,6 @@ parameters.list <- function(x, ...) {
   )
 }
 
-param_or_na <- function(x) {
-  inherits(x, "param") || all(is.na(x))
-}
-
-check_list_of_param <- function(x, ..., call = caller_env()) {
-  check_dots_empty()
-  if (!is.list(x)) {
-    cli::cli_abort(
-      "{.arg object} must be a list of {.cls param} objects.",
-      call = call
-    )
-  }
-  is_good_boi <- map_lgl(x, param_or_na)
-  if (!all(is_good_boi)) {
-    offenders <- which(!is_good_boi)
-
-    cli::cli_abort(
-      "{.arg object} elements in the following positions must be {.code NA} or a 
-      {.cls param} object: {offenders}.",
-      call = call
-    )
-  }
-}
-
 #' Construct a new parameter set object
 #'
 #' @param name,id,source,component,component_id Character strings with the same
@@ -125,7 +101,18 @@ parameters_constr <- function(
   check_character(source, call = call)
   check_character(component, call = call)
   check_character(component_id, call = call)
-  check_list_of_param(object, call = call)
+  if (!is.list(object)) {
+    cli::cli_abort("{.arg object} must be a list.", call = call)
+  }
+  for (i in seq_along(object)) {
+    check_param(
+      object[[i]],
+      allow_na = TRUE,
+      allow_unknown = TRUE,
+      arg = paste0("object[[", i, "]]"),
+      call = call
+    )
+  }
 
   n_elements <- lengths(list(name, id, source, component, component_id, object))
   n_elements_unique <- unique(n_elements)
