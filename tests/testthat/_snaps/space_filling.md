@@ -127,7 +127,7 @@
       grid_space_filling(penalty(), "min_n")
     Condition
       Error in `parameters()`:
-      ! The objects should all be <param> objects.
+      ! `Argument 2` must be a <param> object, not the string "min_n".
 
 ---
 
@@ -135,7 +135,7 @@
       grid_space_filling(mtry(), "min_n")
     Condition
       Error in `parameters()`:
-      ! The objects should all be <param> objects.
+      ! `Argument 2` must be a <param> object, not the string "min_n".
 
 ---
 
@@ -151,7 +151,7 @@
       grid_space_filling(list(penalty(), "min_n"))
     Condition
       Error in `parameters()`:
-      ! The objects should all be <param> objects.
+      ! `Argument 2` must be a <param> object, not the string "min_n".
 
 ---
 
@@ -159,7 +159,7 @@
       grid_space_filling(list(mtry(), "min_n"))
     Condition
       Error in `parameters()`:
-      ! The objects should all be <param> objects.
+      ! `Argument 2` must be a <param> object, not the string "min_n".
 
 # grid_space_filling.parameters() checks for NA
 

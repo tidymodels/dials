@@ -67,7 +67,7 @@
       parameters(list(a = mtry, a = penalty()))
     Condition
       Error in `parameters()`:
-      ! The objects should all be <param> objects.
+      ! `a` must be a <param> object, not a function.
 
 # updating
 
@@ -194,7 +194,7 @@
       parameters(mtry(), "min_n")
     Condition
       Error in `parameters()`:
-      ! The objects should all be <param> objects.
+      ! `Argument 2` must be a <param> object, not the string "min_n".
 
 ---
 
@@ -202,5 +202,5 @@
       parameters(list(mtry(), "min_n"))
     Condition
       Error in `parameters()`:
-      ! The objects should all be <param> objects.
+      ! `Argument 2` must be a <param> object, not the string "min_n".
 

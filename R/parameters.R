@@ -44,9 +44,14 @@ parameters.param <- function(x, ...) {
 parameters.list <- function(x, ...) {
   check_dots_empty()
 
-  elem_param <- purrr::map_lgl(x, inherits, "param")
-  if (!all(elem_param)) {
-    cli::cli_abort("The objects should all be {.cls param} objects.")
+  param_names <- names(x)
+  for (i in seq_along(x)) {
+    check_param(
+      x[[i]],
+      allow_na = FALSE,
+      allow_unknown = TRUE,
+      arg = param_names[i] %||% paste("Argument", i)
+    )
   }
   elem_name <- purrr::map_chr(x, \(.x) names(.x$label))
   elem_id <- names(x)

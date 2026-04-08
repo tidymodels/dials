@@ -105,7 +105,7 @@
       grid_random(penalty(), "min_n")
     Condition
       Error in `parameters()`:
-      ! The objects should all be <param> objects.
+      ! `Argument 2` must be a <param> object, not the string "min_n".
 
 ---
 
@@ -113,7 +113,7 @@
       grid_random(mtry(), "min_n")
     Condition
       Error in `parameters()`:
-      ! The objects should all be <param> objects.
+      ! `Argument 2` must be a <param> object, not the string "min_n".
 
 ---
 
@@ -129,7 +129,7 @@
       grid_random(list(penalty(), "min_n"))
     Condition
       Error in `parameters()`:
-      ! The objects should all be <param> objects.
+      ! `Argument 2` must be a <param> object, not the string "min_n".
 
 ---
 
@@ -137,7 +137,7 @@
       grid_random(list(mtry(), "min_n"))
     Condition
       Error in `parameters()`:
-      ! The objects should all be <param> objects.
+      ! `Argument 2` must be a <param> object, not the string "min_n".
 
 # grid_random.parameters() checks for NA
 
@@ -257,7 +257,7 @@
       grid_regular(penalty(), "min_n")
     Condition
       Error in `parameters()`:
-      ! The objects should all be <param> objects.
+      ! `Argument 2` must be a <param> object, not the string "min_n".
 
 ---
 
@@ -265,7 +265,7 @@
       grid_regular(mtry(), "min_n")
     Condition
       Error in `parameters()`:
-      ! The objects should all be <param> objects.
+      ! `Argument 2` must be a <param> object, not the string "min_n".
 
 ---
 
@@ -281,7 +281,7 @@
       grid_regular(list(penalty(), "min_n"))
     Condition
       Error in `parameters()`:
-      ! The objects should all be <param> objects.
+      ! `Argument 2` must be a <param> object, not the string "min_n".
 
 ---
 
@@ -289,7 +289,7 @@
       grid_regular(list(mtry(), "min_n"))
     Condition
       Error in `parameters()`:
-      ! The objects should all be <param> objects.
+      ! `Argument 2` must be a <param> object, not the string "min_n".
 
 # grid_regular.parameters() checks for NA
 
