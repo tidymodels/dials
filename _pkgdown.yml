@@ -30,7 +30,7 @@ reference:
   contents:
   - parameters
   - update.parameters
-  - starts_with("range_")
+  - range_validate
   - starts_with("value_")
 
 - title: Grid creation
