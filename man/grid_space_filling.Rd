@@ -2,12 +2,15 @@
 % Please edit documentation in R/space_filling.R
 \name{grid_space_filling}
 \alias{grid_space_filling}
+\alias{grid_space_filling.default}
 \alias{grid_space_filling.parameters}
 \alias{grid_space_filling.list}
 \alias{grid_space_filling.param}
 \title{Space-filling parameter grids}
 \usage{
 grid_space_filling(x, ..., size = 5, type = "any", original = TRUE)
+
+\method{grid_space_filling}{default}(x, ..., size = 5, type = "any", original = TRUE)
 
 \method{grid_space_filling}{parameters}(
   x,

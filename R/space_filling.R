@@ -109,6 +109,24 @@ grid_space_filling <- function(
 
 #' @export
 #' @rdname grid_space_filling
+grid_space_filling.default <- function(
+  x,
+  ...,
+  size = 5,
+  type = "any",
+  original = TRUE
+) {
+  if (missing(x)) {
+    cli::cli_abort("At least one parameter object is required.")
+  }
+  cli::cli_abort(
+    "{.arg x} must be a {.cls param} object, list, or {.cls parameters} object,
+    not {.obj_type_friendly {x}}."
+  )
+}
+
+#' @export
+#' @rdname grid_space_filling
 grid_space_filling.parameters <- function(
   x,
   ...,

@@ -343,8 +343,9 @@ test_that("grid_space_filling validates inputs", {
 })
 
 test_that("grid_space_filling() errors with non-param inputs", {
-  # no input at all
+  # default method
   expect_snapshot(error = TRUE, grid_space_filling())
+  expect_snapshot(error = TRUE, grid_space_filling("not a param"))
 
   # param method
   expect_snapshot(error = TRUE, grid_space_filling(penalty(), "min_n"))

@@ -109,8 +109,9 @@ test_that("grid_random validates inputs", {
 })
 
 test_that("grid_random() errors with non-param inputs", {
-  # no input at all
+  # default method
   expect_snapshot(error = TRUE, grid_random())
+  expect_snapshot(error = TRUE, grid_random("not a param"))
 
   # param method
   expect_snapshot(error = TRUE, grid_random(penalty(), "min_n"))
@@ -157,8 +158,9 @@ test_that("grid_regular validates inputs", {
 })
 
 test_that("grid_regular() errors with non-param inputs", {
-  # no input at all
+  # default method
   expect_snapshot(error = TRUE, grid_regular())
+  expect_snapshot(error = TRUE, grid_regular("not a param"))
 
   # param method
   expect_snapshot(error = TRUE, grid_regular(penalty(), "min_n"))

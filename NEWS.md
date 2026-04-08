@@ -6,7 +6,7 @@
 
 * Parameters were added for the `tab_pfn` model: `num_estimators()`, `softmax_temperature()`, `balance_probabilities()`, `average_before_softmax()`, and `training_set_limit()`.
 
-* `parameters()` and the `grid_*()` functions give more information in the error message when non-parameter objects are passed in (#437).
+* `parameters()` and the `grid_*()` functions give more information in the error message when non-parameter objects are passed in (#437, #438).
 
 
 # dials 1.4.2
