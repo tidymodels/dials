@@ -118,7 +118,20 @@ grid_space_filling.parameters <- function(
   iter = 1000,
   original = TRUE
 ) {
-  # test for empty ...
+  check_dots_empty()
+
+  if (nrow(x) == 0) {
+    cli::cli_abort("At least one parameter object is required.")
+  }
+  for (i in seq_along(x$object)) {
+    check_param(
+      x$object[[i]],
+      allow_na = FALSE,
+      allow_unknown = FALSE,
+      arg = x$id[i]
+    )
+  }
+
   params <- x$object
   names(params) <- x$id
   grd <- make_sfd(
@@ -144,6 +157,21 @@ grid_space_filling.list <- function(
   iter = 1000,
   original = TRUE
 ) {
+  check_dots_empty()
+
+  if (length(x) == 0) {
+    cli::cli_abort("At least one parameter object is required.")
+  }
+  param_names <- names(x)
+  for (i in seq_along(x)) {
+    check_param(
+      x[[i]],
+      allow_na = FALSE,
+      allow_unknown = FALSE,
+      arg = param_arg_name(param_names[i], x[[i]], i)
+    )
+  }
+
   y <- parameters(x)
   params <- y$object
   names(params) <- y$id
@@ -171,7 +199,18 @@ grid_space_filling.param <- function(
   type = "any",
   original = TRUE
 ) {
-  y <- parameters(list(x, ...))
+  param_list <- list(x, ...)
+  param_names <- names(param_list)
+  for (i in seq_along(param_list)) {
+    check_param(
+      param_list[[i]],
+      allow_na = FALSE,
+      allow_unknown = FALSE,
+      arg = param_arg_name(param_names[i], param_list[[i]], i)
+    )
+  }
+
+  y <- parameters(param_list)
   params <- y$object
   names(params) <- y$id
   grd <- make_sfd(

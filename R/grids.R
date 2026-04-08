@@ -68,7 +68,21 @@ grid_regular.parameters <- function(
   original = TRUE,
   filter = NULL
 ) {
-  # test for empty ...
+  check_dots_empty()
+
+  if (nrow(x) == 0) {
+    cli::cli_abort("At least one parameter object is required.")
+  }
+  # check for unknowns
+  for (i in seq_along(x$object)) {
+    check_param(
+      x$object[[i]],
+      allow_na = FALSE,
+      allow_unknown = FALSE,
+      arg = x$id[i]
+    )
+  }
+
   params <- x$object
   names(params) <- x$id
   grd <- make_regular_grid(
@@ -90,6 +104,22 @@ grid_regular.list <- function(
   original = TRUE,
   filter = NULL
 ) {
+  check_dots_empty()
+
+  if (length(x) == 0) {
+    cli::cli_abort("At least one parameter object is required.")
+  }
+  # check for unknowns
+  param_names <- names(x)
+  for (i in seq_along(x)) {
+    check_param(
+      x[[i]],
+      allow_na = FALSE,
+      allow_unknown = FALSE,
+      arg = param_arg_name(param_names[i], x[[i]], i)
+    )
+  }
+
   y <- parameters(x)
   params <- y$object
   names(params) <- y$id
@@ -113,7 +143,19 @@ grid_regular.param <- function(
   original = TRUE,
   filter = NULL
 ) {
-  y <- parameters(list(x, ...))
+  # check for unknowns
+  param_list <- list(x, ...)
+  param_names <- names(param_list)
+  for (i in seq_along(param_list)) {
+    check_param(
+      param_list[[i]],
+      allow_na = FALSE,
+      allow_unknown = FALSE,
+      arg = param_arg_name(param_names[i], param_list[[i]], i)
+    )
+  }
+
+  y <- parameters(param_list)
   params <- y$object
   names(params) <- y$id
   grd <- make_regular_grid(
@@ -206,7 +248,21 @@ grid_random.parameters <- function(
   original = TRUE,
   filter = NULL
 ) {
-  # test for empty ...
+  check_dots_empty()
+
+  if (nrow(x) == 0) {
+    cli::cli_abort("At least one parameter object is required.")
+  }
+  # check for unknowns
+  for (i in seq_along(x$object)) {
+    check_param(
+      x$object[[i]],
+      allow_na = FALSE,
+      allow_unknown = FALSE,
+      arg = x$id[i]
+    )
+  }
+
   params <- x$object
   names(params) <- x$id
   grd <- make_random_grid(
@@ -222,6 +278,22 @@ grid_random.parameters <- function(
 #' @export
 #' @rdname grid_regular
 grid_random.list <- function(x, ..., size = 5, original = TRUE, filter = NULL) {
+  check_dots_empty()
+
+  if (length(x) == 0) {
+    cli::cli_abort("At least one parameter object is required.")
+  }
+  # check for unknowns
+  param_names <- names(x)
+  for (i in seq_along(x)) {
+    check_param(
+      x[[i]],
+      allow_na = FALSE,
+      allow_unknown = FALSE,
+      arg = param_arg_name(param_names[i], x[[i]], i)
+    )
+  }
+
   y <- parameters(x)
   params <- y$object
   names(params) <- y$id
@@ -245,7 +317,19 @@ grid_random.param <- function(
   original = TRUE,
   filter = NULL
 ) {
-  y <- parameters(list(x, ...))
+  param_list <- list(x, ...)
+  # check for unknowns
+  param_names <- names(param_list)
+  for (i in seq_along(param_list)) {
+    check_param(
+      param_list[[i]],
+      allow_na = FALSE,
+      allow_unknown = FALSE,
+      arg = param_arg_name(param_names[i], param_list[[i]], i)
+    )
+  }
+
+  y <- parameters(param_list)
   params <- y$object
   names(params) <- y$id
   grd <- make_random_grid(

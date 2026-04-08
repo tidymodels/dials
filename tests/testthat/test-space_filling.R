@@ -151,7 +151,7 @@ test_that("sfd package designs AE", {
   dials_2_any <- grid_space_filling(prm, size = size, type = "any")
   sfd_2_any <- sfd::get_design(2, num_points = size, type = "any")
 
-  dials_2_ae <- grid_space_filling(prm, size = size, method = "audze_eglais")
+  dials_2_ae <- grid_space_filling(prm, size = size, type = "audze_eglais")
   sfd_2_ae <- sfd::get_design(2, num_points = size, type = "audze_eglais")
   names(sfd_2_ae) <- prm$id
   for (i in 1:2) {
