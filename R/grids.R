@@ -177,7 +177,7 @@ make_regular_grid <- function(
 ) {
   check_levels(levels, call = call)
   check_bool(original, call = call)
-  validate_params(..., call = call)
+
   filter_quo <- enquo(filter)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
@@ -351,7 +351,7 @@ make_random_grid <- function(
 ) {
   check_number_whole(size, min = 1, call = call)
   check_bool(original, call = call)
-  validate_params(..., call = call)
+
   filter_quo <- enquo(filter)
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)

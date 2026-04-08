@@ -253,7 +253,7 @@ make_sfd <- function(
   check_number_whole(iter, min = 1, call = call)
   check_bool(original, call = call)
   type <- rlang::arg_match(type, sfd_types)
-  validate_params(..., call = call)
+
   param_quos <- quos(...)
   params <- map(param_quos, eval_tidy)
   p <- length(params)
