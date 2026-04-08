@@ -10,6 +10,9 @@ unnecessarily close to any other point.
 ``` r
 grid_space_filling(x, ..., size = 5, type = "any", original = TRUE)
 
+# Default S3 method
+grid_space_filling(x, ..., size = 5, type = "any", original = TRUE)
+
 # S3 method for class 'parameters'
 grid_space_filling(
   x,

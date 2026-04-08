@@ -24,7 +24,8 @@
 - [`parameters()`](https://dials.tidymodels.org/dev/reference/parameters.md)
   and the `grid_*()` functions give more information in the error
   message when non-parameter objects are passed in
-  ([\#437](https://github.com/tidymodels/dials/issues/437)).
+  ([\#437](https://github.com/tidymodels/dials/issues/437),
+  [\#438](https://github.com/tidymodels/dials/issues/438)).
 
 ## dials 1.4.2
 

@@ -8,6 +8,9 @@ objects.
 ``` r
 grid_regular(x, ..., levels = 3, original = TRUE, filter = NULL)
 
+# Default S3 method
+grid_regular(x, ..., levels = 3, original = TRUE, filter = NULL)
+
 # S3 method for class 'parameters'
 grid_regular(x, ..., levels = 3, original = TRUE, filter = NULL)
 
@@ -17,6 +20,9 @@ grid_regular(x, ..., levels = 3, original = TRUE, filter = NULL)
 # S3 method for class 'param'
 grid_regular(x, ..., levels = 3, original = TRUE, filter = NULL)
 
+grid_random(x, ..., size = 5, original = TRUE, filter = NULL)
+
+# Default S3 method
 grid_random(x, ..., size = 5, original = TRUE, filter = NULL)
 
 # S3 method for class 'parameters'
