@@ -156,6 +156,7 @@ finalize.default <- function(object, x, force = TRUE, ...) {
 get_p <- function(object, x, log_vals = FALSE, ...) {
   check_inherits(object, "param")
   check_bool(log_vals)
+  check_dots_empty()
 
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$upper)) {
@@ -186,7 +187,8 @@ get_p <- function(object, x, log_vals = FALSE, ...) {
 #' @rdname finalize
 get_log_p <- function(object, x, ...) {
   check_inherits(object, "param")
-  get_p(object, x, log_vals = TRUE, ...)
+  check_dots_empty()
+  get_p(object, x, log_vals = TRUE)
 }
 
 #' @export
@@ -195,6 +197,7 @@ get_n_frac <- function(object, x, log_vals = FALSE, frac = 1 / 3, ...) {
   check_inherits(object, "param")
   check_bool(log_vals)
   check_number_decimal(frac, min = 0, max = 1)
+  check_dots_empty()
 
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$upper)) {
@@ -233,6 +236,7 @@ get_n_frac_range <- function(
   check_inherits(object, "param")
   check_bool(log_vals)
   check_frac_range(frac)
+  check_dots_empty()
 
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$upper)) {
@@ -265,7 +269,8 @@ get_n_frac_range <- function(
 #' @rdname finalize
 get_n <- function(object, x, log_vals = FALSE, ...) {
   check_inherits(object, "param")
-  get_n_frac(object, x, log_vals, frac = 1, ...)
+  check_dots_empty()
+  get_n_frac(object, x, log_vals, frac = 1)
 }
 
 #' @export
@@ -294,6 +299,7 @@ get_rbf_range <- function(object, x, seed = sample.int(10^5, 1), ...) {
 #' @export
 get_batch_sizes <- function(object, x, frac = c(1 / 10, 1 / 3), ...) {
   lifecycle::deprecate_warn("1.4.2", "get_batch_sizes()")
+  check_dots_empty()
 
   rngs <- range_get(object, original = FALSE)
   if (!is_unknown(rngs$lower) & !is_unknown(rngs$upper)) {
