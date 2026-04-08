@@ -120,6 +120,17 @@ test_that("parameters.default", {
   expect_snapshot(error = TRUE, parameters(tibble::as_tibble(mtcars)))
 })
 
+test_that("parameters() errors with non-param inputs", {
+  # no input at all
+  expect_snapshot(error = TRUE, parameters())
+
+  # param method
+  expect_snapshot(error = TRUE, parameters(mtry(), "min_n"))
+
+  # list method
+  expect_snapshot(error = TRUE, parameters(list(mtry(), "min_n")))
+})
+
 # ------------------------------------------------------------------------------
 # `[]`
 

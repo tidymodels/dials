@@ -25,6 +25,11 @@ parameters <- function(x, ...) {
 #' @export
 #' @rdname parameters
 parameters.default <- function(x, ...) {
+  if (missing(x)) {
+    cli::cli_abort(
+      "No input provided. Please supply at least one parameter object."
+    )
+  }
   cli::cli_abort(
     "{.cls parameters} objects cannot be created from {.obj_type_friendly {x}}."
   )
@@ -44,9 +49,14 @@ parameters.param <- function(x, ...) {
 parameters.list <- function(x, ...) {
   check_dots_empty()
 
-  elem_param <- purrr::map_lgl(x, inherits, "param")
-  if (!all(elem_param)) {
-    cli::cli_abort("The objects should all be {.cls param} objects.")
+  param_names <- names(x)
+  for (i in seq_along(x)) {
+    check_param(
+      x[[i]],
+      allow_na = FALSE,
+      allow_unknown = TRUE,
+      arg = param_arg_name(param_names[i], x[[i]], i)
+    )
   }
   elem_name <- purrr::map_chr(x, \(.x) names(.x$label))
   elem_id <- names(x)
@@ -64,30 +74,6 @@ parameters.list <- function(x, ...) {
     rep("unknown", p),
     x
   )
-}
-
-param_or_na <- function(x) {
-  inherits(x, "param") || all(is.na(x))
-}
-
-check_list_of_param <- function(x, ..., call = caller_env()) {
-  check_dots_empty()
-  if (!is.list(x)) {
-    cli::cli_abort(
-      "{.arg object} must be a list of {.cls param} objects.",
-      call = call
-    )
-  }
-  is_good_boi <- map_lgl(x, param_or_na)
-  if (!all(is_good_boi)) {
-    offenders <- which(!is_good_boi)
-
-    cli::cli_abort(
-      "{.arg object} elements in the following positions must be {.code NA} or a 
-      {.cls param} object: {offenders}.",
-      call = call
-    )
-  }
 }
 
 #' Construct a new parameter set object
@@ -120,7 +106,18 @@ parameters_constr <- function(
   check_character(source, call = call)
   check_character(component, call = call)
   check_character(component_id, call = call)
-  check_list_of_param(object, call = call)
+  if (!is.list(object)) {
+    cli::cli_abort("{.arg object} must be a list.", call = call)
+  }
+  for (i in seq_along(object)) {
+    check_param(
+      object[[i]],
+      allow_na = TRUE,
+      allow_unknown = TRUE,
+      arg = paste0("object[[", i, "]]"),
+      call = call
+    )
+  }
 
   n_elements <- lengths(list(name, id, source, component, component_id, object))
   n_elements_unique <- unique(n_elements)

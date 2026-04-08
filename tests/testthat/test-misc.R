@@ -119,3 +119,37 @@ test_that("vctrs-helpers-parameters", {
     dials:::df_size(2)
   )
 })
+
+test_that("check_param() passes for valid param objects", {
+  expect_no_error(check_param(penalty()))
+})
+
+test_that("check_param() passes for param with unknowns when allowed", {
+  expect_no_error(check_param(mtry(), allow_unknown = TRUE))
+})
+
+test_that("check_param() errors for param with unknowns when not allowed", {
+  expect_snapshot(error = TRUE, check_param(mtry()))
+  expect_snapshot(error = TRUE, check_param(mtry(), allow_unknown = FALSE))
+})
+
+test_that("check_param() passes for NA when allowed", {
+  expect_no_error(check_param(NA, allow_na = TRUE))
+})
+
+test_that("check_param() errors for NA when not allowed", {
+  expect_snapshot(error = TRUE, check_param(NA))
+  expect_snapshot(error = TRUE, check_param(NA, allow_na = FALSE))
+})
+
+test_that("check_param() errors for non-param objects", {
+  expect_snapshot(error = TRUE, check_param("not a param"))
+})
+
+test_that("check_param() uses custom arg name", {
+  expect_snapshot(error = TRUE, check_param("x", arg = "my_param"))
+})
+
+test_that("check_param() error mentions NA when allowed", {
+  expect_snapshot(error = TRUE, check_param("x", allow_na = TRUE))
+})

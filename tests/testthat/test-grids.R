@@ -108,10 +108,97 @@ test_that("grid_random validates inputs", {
   expect_snapshot(error = TRUE, grid_random(penalty(), original = "yes"))
 })
 
+test_that("grid_random() errors with non-param inputs", {
+  # no input at all
+  expect_snapshot(error = TRUE, grid_random())
+
+  # param method
+  expect_snapshot(error = TRUE, grid_random(penalty(), "min_n"))
+  expect_snapshot(error = TRUE, grid_random(mtry(), "min_n"))
+
+  # list method
+  expect_snapshot(error = TRUE, grid_random(list()))
+  expect_snapshot(error = TRUE, grid_random(list(penalty(), "min_n")))
+  expect_snapshot(error = TRUE, grid_random(list(mtry(), "min_n")))
+})
+
+test_that("grid_random.parameters() checks for NA", {
+  p <- parameters(penalty())
+  p <- update(p, penalty = NA)
+  expect_snapshot(error = TRUE, grid_random(p))
+})
+
+test_that("grid_random() errors with params containing unknowns", {
+  # parameters method
+  expect_snapshot(error = TRUE, grid_random(parameters(mtry())))
+
+  # param method
+  expect_snapshot(error = TRUE, grid_random(mtry()))
+  expect_snapshot(error = TRUE, grid_random(mtry(), sample_size()))
+
+  # list method
+  expect_snapshot(error = TRUE, grid_random(list(mtry())))
+  expect_snapshot(error = TRUE, grid_random(list(mtry_custom_name = mtry())))
+  expect_snapshot(error = TRUE, grid_random(list(mtry(), sample_size())))
+})
+
+test_that("grid_random() errors with duplicate parameter ids", {
+  # param method
+  expect_snapshot(error = TRUE, grid_random(penalty(), penalty()))
+
+  # list method
+  expect_snapshot(error = TRUE, grid_random(list(a = penalty(), a = penalty())))
+})
+
 test_that("grid_regular validates inputs", {
   expect_snapshot(error = TRUE, grid_regular(penalty(), levels = "three"))
   expect_snapshot(error = TRUE, grid_regular(penalty(), levels = -1))
   expect_snapshot(error = TRUE, grid_regular(penalty(), original = "yes"))
+})
+
+test_that("grid_regular() errors with non-param inputs", {
+  # no input at all
+  expect_snapshot(error = TRUE, grid_regular())
+
+  # param method
+  expect_snapshot(error = TRUE, grid_regular(penalty(), "min_n"))
+  expect_snapshot(error = TRUE, grid_regular(mtry(), "min_n"))
+
+  # list method
+  expect_snapshot(error = TRUE, grid_regular(list()))
+  expect_snapshot(error = TRUE, grid_regular(list(penalty(), "min_n")))
+  expect_snapshot(error = TRUE, grid_regular(list(mtry(), "min_n")))
+})
+
+test_that("grid_regular.parameters() checks for NA", {
+  p <- parameters(penalty())
+  p <- update(p, penalty = NA)
+  expect_snapshot(error = TRUE, grid_regular(p))
+})
+
+test_that("grid_regular() errors with params containing unknowns", {
+  # parameters method
+  expect_snapshot(error = TRUE, grid_regular(parameters(mtry())))
+
+  # param method
+  expect_snapshot(error = TRUE, grid_regular(mtry()))
+  expect_snapshot(error = TRUE, grid_regular(penalty(), sample_size()))
+
+  # list method
+  expect_snapshot(error = TRUE, grid_regular(list(mtry())))
+  expect_snapshot(error = TRUE, grid_regular(list(mtry_custom_name = mtry())))
+  expect_snapshot(error = TRUE, grid_regular(list(mtry(), sample_size())))
+})
+
+test_that("grid_regular() errors with duplicate parameter ids", {
+  # param method
+  expect_snapshot(error = TRUE, grid_regular(penalty(), penalty()))
+
+  # list method
+  expect_snapshot(
+    error = TRUE,
+    grid_regular(list(a = penalty(), a = penalty()))
+  )
 })
 
 test_that("new param grid from conventional data frame", {

@@ -91,6 +91,136 @@
       Error in `grid_random()`:
       ! `original` must be `TRUE` or `FALSE`, not the string "yes".
 
+# grid_random() errors with non-param inputs
+
+    Code
+      grid_random()
+    Condition
+      Error in `UseMethod()`:
+      ! no applicable method for 'grid_random' applied to an object of class "NULL"
+
+---
+
+    Code
+      grid_random(penalty(), "min_n")
+    Condition
+      Error in `grid_random()`:
+      ! `Argument 2` must be a <param> object without unknowns, not the string "min_n".
+
+---
+
+    Code
+      grid_random(mtry(), "min_n")
+    Condition
+      Error in `grid_random()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_random(list())
+    Condition
+      Error in `grid_random()`:
+      ! At least one parameter object is required.
+
+---
+
+    Code
+      grid_random(list(penalty(), "min_n"))
+    Condition
+      Error in `grid_random()`:
+      ! `Argument 2` must be a <param> object without unknowns, not the string "min_n".
+
+---
+
+    Code
+      grid_random(list(mtry(), "min_n"))
+    Condition
+      Error in `grid_random()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+# grid_random.parameters() checks for NA
+
+    Code
+      grid_random(p)
+    Condition
+      Error in `grid_random()`:
+      ! `penalty` must be a <param> object without unknowns, not `NA`.
+
+# grid_random() errors with params containing unknowns
+
+    Code
+      grid_random(parameters(mtry()))
+    Condition
+      Error in `grid_random()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_random(mtry())
+    Condition
+      Error in `grid_random()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_random(mtry(), sample_size())
+    Condition
+      Error in `grid_random()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_random(list(mtry()))
+    Condition
+      Error in `grid_random()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_random(list(mtry_custom_name = mtry()))
+    Condition
+      Error in `grid_random()`:
+      x `mtry_custom_name` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_random(list(mtry(), sample_size()))
+    Condition
+      Error in `grid_random()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+# grid_random() errors with duplicate parameter ids
+
+    Code
+      grid_random(penalty(), penalty())
+    Condition
+      Error in `parameters()`:
+      x `id` must have unique values.
+      i Duplicates: "penalty"
+
+---
+
+    Code
+      grid_random(list(a = penalty(), a = penalty()))
+    Condition
+      Error in `parameters()`:
+      x `id` must have unique values.
+      i Duplicates: "a"
+
 # grid_regular validates inputs
 
     Code
@@ -114,6 +244,136 @@
     Condition
       Error in `grid_regular()`:
       ! `original` must be `TRUE` or `FALSE`, not the string "yes".
+
+# grid_regular() errors with non-param inputs
+
+    Code
+      grid_regular()
+    Condition
+      Error in `UseMethod()`:
+      ! no applicable method for 'grid_regular' applied to an object of class "NULL"
+
+---
+
+    Code
+      grid_regular(penalty(), "min_n")
+    Condition
+      Error in `grid_regular()`:
+      ! `Argument 2` must be a <param> object without unknowns, not the string "min_n".
+
+---
+
+    Code
+      grid_regular(mtry(), "min_n")
+    Condition
+      Error in `grid_regular()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_regular(list())
+    Condition
+      Error in `grid_regular()`:
+      ! At least one parameter object is required.
+
+---
+
+    Code
+      grid_regular(list(penalty(), "min_n"))
+    Condition
+      Error in `grid_regular()`:
+      ! `Argument 2` must be a <param> object without unknowns, not the string "min_n".
+
+---
+
+    Code
+      grid_regular(list(mtry(), "min_n"))
+    Condition
+      Error in `grid_regular()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+# grid_regular.parameters() checks for NA
+
+    Code
+      grid_regular(p)
+    Condition
+      Error in `grid_regular()`:
+      ! `penalty` must be a <param> object without unknowns, not `NA`.
+
+# grid_regular() errors with params containing unknowns
+
+    Code
+      grid_regular(parameters(mtry()))
+    Condition
+      Error in `grid_regular()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_regular(mtry())
+    Condition
+      Error in `grid_regular()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_regular(penalty(), sample_size())
+    Condition
+      Error in `grid_regular()`:
+      x `sample_size` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_regular(list(mtry()))
+    Condition
+      Error in `grid_regular()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_regular(list(mtry_custom_name = mtry()))
+    Condition
+      Error in `grid_regular()`:
+      x `mtry_custom_name` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_regular(list(mtry(), sample_size()))
+    Condition
+      Error in `grid_regular()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+# grid_regular() errors with duplicate parameter ids
+
+    Code
+      grid_regular(penalty(), penalty())
+    Condition
+      Error in `parameters()`:
+      x `id` must have unique values.
+      i Duplicates: "penalty"
+
+---
+
+    Code
+      grid_regular(list(a = penalty(), a = penalty()))
+    Condition
+      Error in `parameters()`:
+      x `id` must have unique values.
+      i Duplicates: "a"
 
 # new param grid from conventional data frame
 

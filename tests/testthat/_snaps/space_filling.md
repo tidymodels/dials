@@ -113,3 +113,133 @@
       Error in `grid_space_filling()`:
       ! `original` must be `TRUE` or `FALSE`, not the string "yes".
 
+# grid_space_filling() errors with non-param inputs
+
+    Code
+      grid_space_filling()
+    Condition
+      Error in `UseMethod()`:
+      ! no applicable method for 'grid_space_filling' applied to an object of class "NULL"
+
+---
+
+    Code
+      grid_space_filling(penalty(), "min_n")
+    Condition
+      Error in `grid_space_filling()`:
+      ! `Argument 2` must be a <param> object without unknowns, not the string "min_n".
+
+---
+
+    Code
+      grid_space_filling(mtry(), "min_n")
+    Condition
+      Error in `grid_space_filling()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_space_filling(list())
+    Condition
+      Error in `grid_space_filling()`:
+      ! At least one parameter object is required.
+
+---
+
+    Code
+      grid_space_filling(list(penalty(), "min_n"))
+    Condition
+      Error in `grid_space_filling()`:
+      ! `Argument 2` must be a <param> object without unknowns, not the string "min_n".
+
+---
+
+    Code
+      grid_space_filling(list(mtry(), "min_n"))
+    Condition
+      Error in `grid_space_filling()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+# grid_space_filling.parameters() checks for NA
+
+    Code
+      grid_space_filling(p)
+    Condition
+      Error in `grid_space_filling()`:
+      ! `penalty` must be a <param> object without unknowns, not `NA`.
+
+# grid_space_filling() errors with params containing unknowns
+
+    Code
+      grid_space_filling(parameters(mtry()))
+    Condition
+      Error in `grid_space_filling()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_space_filling(mtry())
+    Condition
+      Error in `grid_space_filling()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_space_filling(mtry(), sample_size())
+    Condition
+      Error in `grid_space_filling()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_space_filling(list(mtry()))
+    Condition
+      Error in `grid_space_filling()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_space_filling(list(mtry_custom_name = mtry()))
+    Condition
+      Error in `grid_space_filling()`:
+      x `mtry_custom_name` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      grid_space_filling(list(mtry(), sample_size()))
+    Condition
+      Error in `grid_space_filling()`:
+      x `mtry` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+# grid_space_filling() errors with duplicate parameter ids
+
+    Code
+      grid_space_filling(penalty(), penalty())
+    Condition
+      Error in `parameters()`:
+      x `id` must have unique values.
+      i Duplicates: "penalty"
+
+---
+
+    Code
+      grid_space_filling(list(a = penalty(), a = mtry()))
+    Condition
+      Error in `grid_space_filling()`:
+      x `a` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+

@@ -212,3 +212,61 @@
       i This is an internal error that was detected in the dials package.
         Please report it at <https://github.com/tidymodels/dials/issues> with a reprex (<https://tidyverse.org/help/>) and the full backtrace.
 
+# check_param() errors for param with unknowns when not allowed
+
+    Code
+      check_param(mtry())
+    Condition
+      Error:
+      x `mtry()` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+---
+
+    Code
+      check_param(mtry(), allow_unknown = FALSE)
+    Condition
+      Error:
+      x `mtry()` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
+
+# check_param() errors for NA when not allowed
+
+    Code
+      check_param(NA)
+    Condition
+      Error:
+      ! `NA` must be a <param> object without unknowns, not `NA`.
+
+---
+
+    Code
+      check_param(NA, allow_na = FALSE)
+    Condition
+      Error:
+      ! `NA` must be a <param> object without unknowns, not `NA`.
+
+# check_param() errors for non-param objects
+
+    Code
+      check_param("not a param")
+    Condition
+      Error:
+      ! `"not a param"` must be a <param> object without unknowns, not the string "not a param".
+
+# check_param() uses custom arg name
+
+    Code
+      check_param("x", arg = "my_param")
+    Condition
+      Error:
+      ! `my_param` must be a <param> object without unknowns, not the string "x".
+
+# check_param() error mentions NA when allowed
+
+    Code
+      check_param("x", allow_na = TRUE)
+    Condition
+      Error:
+      ! `"x"` must be a <param> object without unknowns or `NA`, not the string "x".
+

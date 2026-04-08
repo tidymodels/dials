@@ -23,7 +23,7 @@
       parameters_constr(ab, ab, ab, ab, ab, object = "not a params list")
     Condition
       Error:
-      ! `object` must be a list of <param> objects.
+      ! `object` must be a list.
 
 ---
 
@@ -32,7 +32,7 @@
       parameters_constr(ab, ab, ab, ab, ab, object = list(penalty(), "not a param"))
     Condition
       Error:
-      ! `object` elements in the following positions must be `NA` or a <param> object: 2.
+      ! `object[[2]]` must be a <param> object or `NA`, not the string "not a param".
 
 ---
 
@@ -67,7 +67,7 @@
       parameters(list(a = mtry, a = penalty()))
     Condition
       Error in `parameters()`:
-      ! The objects should all be <param> objects.
+      ! `a` must be a <param> object, not a function.
 
 # updating
 
@@ -177,4 +177,28 @@
     Condition
       Error in `parameters()`:
       ! <parameters> objects cannot be created from a tibble.
+
+# parameters() errors with non-param inputs
+
+    Code
+      parameters()
+    Condition
+      Error in `parameters()`:
+      ! No input provided. Please supply at least one parameter object.
+
+---
+
+    Code
+      parameters(mtry(), "min_n")
+    Condition
+      Error in `parameters()`:
+      ! `Argument 2` must be a <param> object, not the string "min_n".
+
+---
+
+    Code
+      parameters(list(mtry(), "min_n"))
+    Condition
+      Error in `parameters()`:
+      ! `Argument 2` must be a <param> object, not the string "min_n".
 
