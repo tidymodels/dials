@@ -336,3 +336,13 @@ check_param <- function(
     call = call
   )
 }
+
+param_arg_name <- function(name, x, position) {
+  if (!is.null(name) && nzchar(name)) {
+    return(name)
+  }
+  if (inherits(x, "param")) {
+    return(names(x$label))
+  }
+  paste("Argument", position)
+}

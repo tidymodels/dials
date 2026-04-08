@@ -50,7 +50,7 @@ parameters.list <- function(x, ...) {
       x[[i]],
       allow_na = FALSE,
       allow_unknown = TRUE,
-      arg = param_names[i] %||% paste("Argument", i)
+      arg = param_arg_name(param_names[i], x[[i]], i)
     )
   }
   elem_name <- purrr::map_chr(x, \(.x) names(.x$label))
