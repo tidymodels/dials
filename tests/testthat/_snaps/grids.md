@@ -215,11 +215,11 @@
 ---
 
     Code
-      grid_random(list(a = penalty(), a = mtry()))
+      grid_random(list(a = penalty(), a = penalty()))
     Condition
-      Error in `grid_random()`:
-      x `a` must be a <param> object without unknowns.
-      i See the `dials::finalize()` function.
+      Error in `parameters()`:
+      x `id` must have unique values.
+      i Duplicates: "a"
 
 # grid_regular validates inputs
 
@@ -324,10 +324,10 @@
 ---
 
     Code
-      grid_regular(mtry(), sample_size())
+      grid_regular(penalty(), sample_size())
     Condition
       Error in `grid_regular()`:
-      x `mtry` must be a <param> object without unknowns.
+      x `sample_size` must be a <param> object without unknowns.
       i See the `dials::finalize()` function.
 
 ---
@@ -369,11 +369,11 @@
 ---
 
     Code
-      grid_regular(list(a = penalty(), a = mtry()))
+      grid_regular(list(a = penalty(), a = penalty()))
     Condition
-      Error in `grid_regular()`:
-      x `a` must be a <param> object without unknowns.
-      i See the `dials::finalize()` function.
+      Error in `parameters()`:
+      x `id` must have unique values.
+      i Duplicates: "a"
 
 # new param grid from conventional data frame
 

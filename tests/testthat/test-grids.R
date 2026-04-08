@@ -147,7 +147,7 @@ test_that("grid_random() errors with duplicate parameter ids", {
   expect_snapshot(error = TRUE, grid_random(penalty(), penalty()))
 
   # list method
-  expect_snapshot(error = TRUE, grid_random(list(a = penalty(), a = mtry())))
+  expect_snapshot(error = TRUE, grid_random(list(a = penalty(), a = penalty())))
 })
 
 test_that("grid_regular validates inputs", {
@@ -182,7 +182,7 @@ test_that("grid_regular() errors with params containing unknowns", {
 
   # param method
   expect_snapshot(error = TRUE, grid_regular(mtry()))
-  expect_snapshot(error = TRUE, grid_regular(mtry(), sample_size()))
+  expect_snapshot(error = TRUE, grid_regular(penalty(), sample_size()))
 
   # list method
   expect_snapshot(error = TRUE, grid_regular(list(mtry())))
@@ -195,7 +195,10 @@ test_that("grid_regular() errors with duplicate parameter ids", {
   expect_snapshot(error = TRUE, grid_regular(penalty(), penalty()))
 
   # list method
-  expect_snapshot(error = TRUE, grid_regular(list(a = penalty(), a = mtry())))
+  expect_snapshot(
+    error = TRUE,
+    grid_regular(list(a = penalty(), a = penalty()))
+  )
 })
 
 test_that("new param grid from conventional data frame", {
