@@ -6,9 +6,6 @@
   : Create a parameter set
 - [`update(`*`<parameters>`*`)`](https://dials.tidymodels.org/dev/reference/update.parameters.md)
   : Update a single parameter in a parameter set
-- [`lower_limit()`](https://dials.tidymodels.org/dev/reference/range_limits.md)
-  [`upper_limit()`](https://dials.tidymodels.org/dev/reference/range_limits.md)
-  : Limits for the range of predictions
 - [`range_validate()`](https://dials.tidymodels.org/dev/reference/range_validate.md)
   [`range_get()`](https://dials.tidymodels.org/dev/reference/range_validate.md)
   [`range_set()`](https://dials.tidymodels.org/dev/reference/range_validate.md)
