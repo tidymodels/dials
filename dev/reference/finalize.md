@@ -193,6 +193,6 @@ complete_params |>
 #> [[1]]
 #> Radial Basis Function sigma (quantitative)
 #> Transformer: log-10 [1e-100, Inf]
-#> Range (transformed scale): [-1.59, -0.32]
+#> Range (transformed scale): [-1.61, 0.0841]
 #> 
 ```

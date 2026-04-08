@@ -191,11 +191,11 @@ grid_regular(penalty(), mixture(), levels = c(mixture = 4, penalty = 3))
 #> 12 1              1    
 grid_random(penalty(), mixture())
 #> # A tibble: 5 × 2
-#>    penalty mixture
-#>      <dbl>   <dbl>
-#> 1 1.91e-10   0.817
-#> 2 6.80e- 9   0.248
-#> 3 4.86e- 3   0.109
-#> 4 9.53e- 9   0.868
-#> 5 3.12e- 5   0.502
+#>        penalty mixture
+#>          <dbl>   <dbl>
+#> 1 0.0000000246  0.490 
+#> 2 0.000000510   0.985 
+#> 3 0.000458      0.923 
+#> 4 0.00202       0.590 
+#> 5 0.827         0.0951
 ```
