@@ -70,6 +70,7 @@ encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
 #' @rdname encode_unit
 #' @export
 encode_unit.qual_param <- function(x, value, direction, ...) {
+  check_dots_empty()
   if (has_unknowns(x)) {
     cli::cli_abort("The parameter object contains unknowns.")
   }

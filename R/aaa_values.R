@@ -74,6 +74,7 @@
 #' @export
 value_validate <- function(object, values, ..., call = caller_env()) {
   check_inherits(object, "param")
+  check_dots_empty()
   res <- switch(
     object$type,
     double = ,

@@ -493,9 +493,13 @@ make_max_entropy_grid <- function(
   sf_grid <- map2(
     params,
     sf_grid,
-    encode_unit,
-    direction = "backward",
-    original = original
+    \(param, grid) {
+      if (inherits(param, "quant_param")) {
+        encode_unit(param, grid, direction = "backward", original = original)
+      } else {
+        encode_unit(param, grid, direction = "backward")
+      }
+    }
   )
   names(sf_grid) <- param_names
   as_tibble(sf_grid)
@@ -584,9 +588,13 @@ make_latin_hypercube_grid <- function(
   sf_grid <- map2(
     params,
     sf_grid,
-    encode_unit,
-    direction = "backward",
-    original = original
+    \(param, grid) {
+      if (inherits(param, "quant_param")) {
+        encode_unit(param, grid, direction = "backward", original = original)
+      } else {
+        encode_unit(param, grid, direction = "backward")
+      }
+    }
   )
   names(sf_grid) <- param_names
   as_tibble(sf_grid)
