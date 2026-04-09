@@ -73,6 +73,10 @@ test_that("bad args", {
 
   expect_snapshot(
     error = TRUE,
+    encode_unit("foo")
+  )
+  expect_snapshot(
+    error = TRUE,
     encode_unit(2, prune_method()$values, direction = "forward")
   )
   expect_snapshot(

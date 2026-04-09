@@ -33,6 +33,14 @@
 # bad args
 
     Code
+      encode_unit("foo")
+    Condition
+      Error in `encode_unit()`:
+      ! `x` should be a dials parameter object, not a string.
+
+---
+
+    Code
       encode_unit(2, prune_method()$values, direction = "forward")
     Condition
       Error in `encode_unit()`:

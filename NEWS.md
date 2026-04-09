@@ -8,6 +8,8 @@
 
 * `parameters()` and the `grid_*()` functions give more information in the error message when non-parameter objects are passed in (#437, #438).
 
+* `encode_unit()` now provides a helpful error when `x` is not a parameter object (#430).
+
 * `value_validate()`, `encode_unit()`, `get_p()`, `get_log_p()`, `get_n()`, `get_n_frac()`, `get_n_frac_range()`, and `get_batch_sizes()` now enforce empty dots (#439).
 
 
