@@ -32,6 +32,14 @@
   ([\#430](https://github.com/tidymodels/dials/issues/430)).
 
 - [`value_validate()`](https://dials.tidymodels.org/dev/reference/value_validate.md),
+  [`value_transform()`](https://dials.tidymodels.org/dev/reference/value_validate.md),
+  [`value_inverse()`](https://dials.tidymodels.org/dev/reference/value_validate.md),
+  and
+  [`value_set()`](https://dials.tidymodels.org/dev/reference/value_validate.md)
+  now produce more informative error messages when values contain
+  unknowns ([\#445](https://github.com/tidymodels/dials/issues/445)).
+
+- [`value_validate()`](https://dials.tidymodels.org/dev/reference/value_validate.md),
   [`encode_unit()`](https://dials.tidymodels.org/dev/reference/encode_unit.md),
   [`get_p()`](https://dials.tidymodels.org/dev/reference/finalize.md),
   [`get_log_p()`](https://dials.tidymodels.org/dev/reference/finalize.md),
