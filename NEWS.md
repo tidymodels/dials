@@ -8,6 +8,8 @@
 
 * `parameters()` and the `grid_*()` functions give more information in the error message when non-parameter objects are passed in (#437, #438).
 
+* Improved several type-checking error messages to include the actual type of the input (#423).
+
 * `encode_unit()` now provides a helpful error when `x` is not a parameter object (#430).
 
 * `value_validate()`, `value_transform()`, `value_inverse()`, and `value_set()` now produce more informative error messages when values contain unknowns (#445).

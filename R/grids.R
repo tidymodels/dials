@@ -407,11 +407,7 @@ make_random_grid <- function(
 # ------------------------------------------------------------------------------
 
 new_param_grid <- function(x = new_data_frame()) {
-  if (!is.data.frame(x)) {
-    cli::cli_abort(
-      "{.arg x} must be a data frame to construct a new grid from."
-    )
-  }
+  check_data_frame(x)
 
   x <- vctrs::vec_unique(x)
   size <- vctrs::vec_size(x)

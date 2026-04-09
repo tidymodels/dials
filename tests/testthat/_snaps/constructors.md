@@ -316,7 +316,7 @@
       new_quant_param(type = "integer", values = "not_numeric", label = c(foo = "Foo"))
     Condition
       Error:
-      ! `values` must be numeric.
+      ! `values` must be a numeric vector, not the string "not_numeric".
 
 ---
 

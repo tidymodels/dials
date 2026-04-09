@@ -19,10 +19,7 @@ encode_unit <- function(x, value, direction, ...) {
 
 #' @export
 encode_unit.default <- function(x, value, direction, ...) {
-  cli::cli_abort(
-    "{.arg x} should be a dials parameter object,
-    not {.obj_type_friendly x}."
-  )
+  stop_input_type(x, "a dials parameter object")
 }
 
 #' @rdname encode_unit
@@ -35,7 +32,7 @@ encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
   }
 
   if (!is.numeric(value) || is.matrix(value)) {
-    cli::cli_abort("{.arg value} should be a numeric vector.")
+    stop_input_type(value, "a numeric vector")
   }
 
   param_rng <- x$range$upper - x$range$lower
@@ -83,7 +80,7 @@ encode_unit.qual_param <- function(x, value, direction, ...) {
     # convert to [0, 1]
 
     if (!is.character(value) || is.matrix(value)) {
-      cli::cli_abort("{.arg value} should be a character vector.")
+      stop_input_type(value, "a character vector")
     }
 
     compl <- value[!is.na(value)]
@@ -107,7 +104,7 @@ encode_unit.qual_param <- function(x, value, direction, ...) {
     }
 
     if (!is.numeric(value) || is.matrix(value)) {
-      cli::cli_abort("{.arg value} should be a numeric vector.")
+      stop_input_type(value, "a numeric vector")
     }
 
     ind <- cut(
