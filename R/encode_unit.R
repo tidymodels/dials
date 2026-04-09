@@ -14,7 +14,6 @@
 #' @keywords internal
 #' @export
 encode_unit <- function(x, value, direction, ...) {
-  arg_match0(direction, values = c("forward", "backward"))
   UseMethod("encode_unit")
 }
 
@@ -29,6 +28,7 @@ encode_unit.default <- function(x, value, direction, ...) {
 #' @rdname encode_unit
 #' @export
 encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
+  arg_match0(direction, values = c("forward", "backward"))
   check_bool(original)
   if (has_unknowns(x)) {
     cli::cli_abort("The parameter object contains unknowns.")
@@ -70,6 +70,7 @@ encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
 #' @rdname encode_unit
 #' @export
 encode_unit.qual_param <- function(x, value, direction, ...) {
+  arg_match0(direction, values = c("forward", "backward"))
   check_dots_empty()
   if (has_unknowns(x)) {
     cli::cli_abort("The parameter object contains unknowns.")
