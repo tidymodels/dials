@@ -27,6 +27,10 @@
   ([\#437](https://github.com/tidymodels/dials/issues/437),
   [\#438](https://github.com/tidymodels/dials/issues/438)).
 
+- [`encode_unit()`](https://dials.tidymodels.org/dev/reference/encode_unit.md)
+  now provides a helpful error when `x` is not a parameter object
+  ([\#430](https://github.com/tidymodels/dials/issues/430)).
+
 - [`value_validate()`](https://dials.tidymodels.org/dev/reference/value_validate.md),
   [`encode_unit()`](https://dials.tidymodels.org/dev/reference/encode_unit.md),
   [`get_p()`](https://dials.tidymodels.org/dev/reference/finalize.md),
