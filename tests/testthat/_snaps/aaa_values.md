@@ -92,7 +92,7 @@
       value_transform(penalty(), unknown())
     Condition
       Error in `value_transform()`:
-      ! Unknowns not allowed.
+      ! `values` can't contain `unknown()` values.
 
 ---
 
@@ -100,7 +100,7 @@
       value_transform(penalty(), c(unknown(), 1, unknown()))
     Condition
       Error in `value_transform()`:
-      ! Unknowns not allowed.
+      ! `values` can't contain `unknown()` values.
 
 ---
 
@@ -108,7 +108,7 @@
       value_inverse(penalty(), unknown())
     Condition
       Error in `value_inverse()`:
-      ! Unknowns not allowed.
+      ! `values` can't contain `unknown()` values.
 
 ---
 
@@ -116,7 +116,7 @@
       value_inverse(penalty(), c(unknown(), 1, unknown()))
     Condition
       Error in `value_inverse()`:
-      ! Unknowns not allowed.
+      ! `values` can't contain `unknown()` values.
 
 # transforms
 
@@ -141,7 +141,8 @@
       value_validate(mtry(), 17)
     Condition
       Error:
-      ! Unknowns not allowed.
+      x `object` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
 
 # value_set() checks inputs
 
