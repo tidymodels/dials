@@ -10,6 +10,8 @@
 
 * `encode_unit()` now provides a helpful error when `x` is not a parameter object (#430).
 
+* `value_validate()`, `value_transform()`, `value_inverse()`, and `value_set()` now produce more informative error messages when values contain unknowns (#445).
+
 * `value_validate()`, `encode_unit()`, `get_p()`, `get_log_p()`, `get_n()`, `get_n_frac()`, `get_n_frac_range()`, and `get_batch_sizes()` now enforce empty dots (#439).
 
 
