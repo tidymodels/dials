@@ -27,6 +27,18 @@
   ([\#437](https://github.com/tidymodels/dials/issues/437),
   [\#438](https://github.com/tidymodels/dials/issues/438)).
 
+- [`value_validate()`](https://dials.tidymodels.org/dev/reference/value_validate.md),
+  [`encode_unit()`](https://dials.tidymodels.org/dev/reference/encode_unit.md),
+  [`get_p()`](https://dials.tidymodels.org/dev/reference/finalize.md),
+  [`get_log_p()`](https://dials.tidymodels.org/dev/reference/finalize.md),
+  [`get_n()`](https://dials.tidymodels.org/dev/reference/finalize.md),
+  [`get_n_frac()`](https://dials.tidymodels.org/dev/reference/finalize.md),
+  [`get_n_frac_range()`](https://dials.tidymodels.org/dev/reference/finalize.md),
+  and
+  [`get_batch_sizes()`](https://dials.tidymodels.org/dev/reference/get_batch_sizes.md)
+  now enforce empty dots
+  ([\#439](https://github.com/tidymodels/dials/issues/439)).
+
 ## dials 1.4.2
 
 CRAN release: 2025-09-04
