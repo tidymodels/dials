@@ -87,7 +87,7 @@ value_validate <- function(object, values, ..., call = caller_env()) {
 
 value_validate_quant <- function(object, values, ..., call = caller_env()) {
   check_dots_empty()
-  check_known(object$range, arg = "range", call = call)
+  check_param(object, allow_unknown = FALSE, call = call)
   check_known(values, call = call)
 
   is_valid <- rep(TRUE, length(values))

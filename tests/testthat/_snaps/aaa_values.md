@@ -141,7 +141,8 @@
       value_validate(mtry(), 17)
     Condition
       Error:
-      ! `range` can't contain `unknown()` values.
+      x `object` must be a <param> object without unknowns.
+      i See the `dials::finalize()` function.
 
 # value_set() checks inputs
 
