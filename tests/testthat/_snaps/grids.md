@@ -397,5 +397,5 @@
       new_param_grid(as.matrix(x))
     Condition
       Error in `new_param_grid()`:
-      ! `x` must be a data frame to construct a new grid from.
+      ! `x` must be a data frame, not an integer matrix.
 

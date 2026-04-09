@@ -20,7 +20,7 @@
       check_values_quant("should have been a numeric")
     Condition
       Error:
-      ! `"should have been a numeric"` must be numeric.
+      ! `"should have been a numeric"` must be a numeric vector, not the string "should have been a numeric".
 
 ---
 

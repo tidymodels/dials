@@ -146,7 +146,7 @@ check_values_quant <- function(
   }
 
   if (!is.numeric(x)) {
-    cli::cli_abort("{.arg {arg}} must be numeric.", call = call)
+    stop_input_type(x, "a numeric vector", arg = arg, call = call)
   }
 
   if (anyNA(x)) {
