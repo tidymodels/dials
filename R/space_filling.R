@@ -476,8 +476,6 @@ make_max_entropy_grid <- function(
   param_labs <- map_chr(params, function(x) x$label)
   names(param_labs) <- param_names
 
-  rngs <- map(params, range_get, original = FALSE)
-
   sfd <-
     DiceDesign::dmaxDesign(
       n = size,
