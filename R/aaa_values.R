@@ -115,7 +115,6 @@ value_validate_quant <- function(object, values, ..., call = caller_env()) {
 
 value_validate_qual <- function(object, values, ..., call = caller_env()) {
   check_dots_empty()
-  check_known(object$range, arg = "range", call = call)
   check_known(values, call = call)
 
   res <- values %in% object$values
