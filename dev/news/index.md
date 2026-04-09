@@ -27,6 +27,10 @@
   ([\#437](https://github.com/tidymodels/dials/issues/437),
   [\#438](https://github.com/tidymodels/dials/issues/438)).
 
+- Improved several type-checking error messages to include the actual
+  type of the input
+  ([\#423](https://github.com/tidymodels/dials/issues/423)).
+
 - [`encode_unit()`](https://dials.tidymodels.org/dev/reference/encode_unit.md)
   now provides a helpful error when `x` is not a parameter object
   ([\#430](https://github.com/tidymodels/dials/issues/430)).
