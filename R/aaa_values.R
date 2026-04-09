@@ -87,8 +87,8 @@ value_validate <- function(object, values, ..., call = caller_env()) {
 
 value_validate_quant <- function(object, values, ..., call = caller_env()) {
   check_dots_empty()
-  check_for_unknowns(object$range, call = call)
-  check_for_unknowns(values, call = call)
+  check_known(object$range, arg = "range", call = call)
+  check_known(values, call = call)
 
   is_valid <- rep(TRUE, length(values))
 
@@ -115,8 +115,8 @@ value_validate_quant <- function(object, values, ..., call = caller_env()) {
 
 value_validate_qual <- function(object, values, ..., call = caller_env()) {
   check_dots_empty()
-  check_for_unknowns(object$range)
-  check_for_unknowns(values)
+  check_known(object$range, arg = "range", call = call)
+  check_known(values, call = call)
 
   res <- values %in% object$values
   res[is.na(res)] <- FALSE
@@ -345,7 +345,7 @@ value_samp_qual <- function(object, n) {
 #' @rdname value_validate
 value_transform <- function(object, values) {
   check_inherits(object, "param")
-  check_for_unknowns(values)
+  check_known(values)
 
   if (is.null(object$trans)) {
     return(values)
@@ -365,7 +365,7 @@ trans_wrap <- function(x, object) {
 #' @rdname value_validate
 value_inverse <- function(object, values) {
   check_inherits(object, "param")
-  check_for_unknowns(values)
+  check_known(values)
 
   if (is.null(object$trans)) {
     return(values)
@@ -386,7 +386,7 @@ inv_wrap <- function(x, object) {
 #' @rdname value_validate
 value_set <- function(object, values) {
   check_inherits(object, "param")
-  check_for_unknowns(values)
+  check_known(values)
   if (length(values) == 0) {
     cli::cli_abort("{.arg values} must have at least one element.")
   }
