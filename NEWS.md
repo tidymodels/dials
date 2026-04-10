@@ -1,4 +1,4 @@
-# dials (development version)
+# dials 1.4.3
 
 ## New parameters
 
