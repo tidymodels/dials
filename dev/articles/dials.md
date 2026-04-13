@@ -25,7 +25,7 @@ should be a positive integer). `dials` is designed to:
   syntactical minutiae of every package.
 - Work with the other [tidymodels](https://www.tidymodels.org) packages
   for modeling and machine learning using
-  [tidyverse](https://www.tidyverse.org/) principles.
+  [tidyverse](https://tidyverse.org/) principles.
 
 ## Parameter Objects
 

@@ -2,6 +2,12 @@
 
 ## dials (development version)
 
+## dials 1.4.3
+
+CRAN release: 2026-04-11
+
+### New parameters
+
 - [`ordinal_link()`](https://dials.tidymodels.org/dev/reference/ordinal_link.md)
   and
   [`odds_link()`](https://dials.tidymodels.org/dev/reference/ordinal_link.md)
@@ -9,27 +15,26 @@
   ([@corybrunson](https://github.com/corybrunson),
   [\#435](https://github.com/tidymodels/dials/issues/435)).
 
-- A bug was fixed where some space-filling designs did not respect the
-  `original` argument
-  ([\#409](https://github.com/tidymodels/dials/issues/409)).
-
-- Parameters were added for the `tab_pfn` model:
-  [`num_estimators()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md),
+- [`num_estimators()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md),
   [`softmax_temperature()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md),
   [`balance_probabilities()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md),
   [`average_before_softmax()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md),
   and
-  [`training_set_limit()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md).
+  [`training_set_limit()`](https://dials.tidymodels.org/dev/reference/tab-pfn-param.md)
+  are new parameters for the `tab_pfn()` model in parsnip
+  ([\#412](https://github.com/tidymodels/dials/issues/412)).
+
+### Other changes
+
+- [`grid_space_filling()`](https://dials.tidymodels.org/dev/reference/grid_space_filling.md)
+  now also respects the `original` argument when pre-made designs are
+  available ([\#409](https://github.com/tidymodels/dials/issues/409)).
 
 - [`parameters()`](https://dials.tidymodels.org/dev/reference/parameters.md)
   and the `grid_*()` functions give more information in the error
   message when non-parameter objects are passed in
   ([\#437](https://github.com/tidymodels/dials/issues/437),
   [\#438](https://github.com/tidymodels/dials/issues/438)).
-
-- Improved several type-checking error messages to include the actual
-  type of the input
-  ([\#423](https://github.com/tidymodels/dials/issues/423)).
 
 - [`encode_unit()`](https://dials.tidymodels.org/dev/reference/encode_unit.md)
   now provides a helpful error when `x` is not a parameter object
@@ -54,6 +59,10 @@
   [`get_batch_sizes()`](https://dials.tidymodels.org/dev/reference/get_batch_sizes.md)
   now enforce empty dots
   ([\#439](https://github.com/tidymodels/dials/issues/439)).
+
+- Several further type-checking error messages now include the actual
+  type of the input
+  ([\#423](https://github.com/tidymodels/dials/issues/423)).
 
 ## dials 1.4.2
 

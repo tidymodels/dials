@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">dials</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.2.9001</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.3.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,15 +41,24 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="dials-development-version">dials (development version)<a class="anchor" aria-label="anchor" href="#dials-development-version"></a></h2>
+</div>
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.4.3" id="dials-143">dials 1.4.3<a class="anchor" aria-label="anchor" href="#dials-143"></a></h2><p class="text-muted">CRAN release: 2026-04-11</p>
+<div class="section level3">
+<h3 id="new-parameters-1-4-3">New parameters<a class="anchor" aria-label="anchor" href="#new-parameters-1-4-3"></a></h3>
 <ul><li><p><code><a href="../reference/ordinal_link.html">ordinal_link()</a></code> and <code><a href="../reference/ordinal_link.html">odds_link()</a></code> are two new parameters for the new <code>ordinal_reg()</code> models in parsnip (<a href="https://github.com/corybrunson" class="external-link">@corybrunson</a>, <a href="https://github.com/tidymodels/dials/issues/435" class="external-link">#435</a>).</p></li>
-<li><p>A bug was fixed where some space-filling designs did not respect the <code>original</code> argument (<a href="https://github.com/tidymodels/dials/issues/409" class="external-link">#409</a>).</p></li>
-<li><p>Parameters were added for the <code>tab_pfn</code> model: <code><a href="../reference/tab-pfn-param.html">num_estimators()</a></code>, <code><a href="../reference/tab-pfn-param.html">softmax_temperature()</a></code>, <code><a href="../reference/tab-pfn-param.html">balance_probabilities()</a></code>, <code><a href="../reference/tab-pfn-param.html">average_before_softmax()</a></code>, and <code><a href="../reference/tab-pfn-param.html">training_set_limit()</a></code>.</p></li>
+<li><p><code><a href="../reference/tab-pfn-param.html">num_estimators()</a></code>, <code><a href="../reference/tab-pfn-param.html">softmax_temperature()</a></code>, <code><a href="../reference/tab-pfn-param.html">balance_probabilities()</a></code>, <code><a href="../reference/tab-pfn-param.html">average_before_softmax()</a></code>, and <code><a href="../reference/tab-pfn-param.html">training_set_limit()</a></code> are new parameters for the <code>tab_pfn()</code> model in parsnip (<a href="https://github.com/tidymodels/dials/issues/412" class="external-link">#412</a>).</p></li>
+</ul></div>
+<div class="section level3">
+<h3 id="other-changes-1-4-3">Other changes<a class="anchor" aria-label="anchor" href="#other-changes-1-4-3"></a></h3>
+<ul><li><p><code><a href="../reference/grid_space_filling.html">grid_space_filling()</a></code> now also respects the <code>original</code> argument when pre-made designs are available (<a href="https://github.com/tidymodels/dials/issues/409" class="external-link">#409</a>).</p></li>
 <li><p><code><a href="../reference/parameters.html">parameters()</a></code> and the <code>grid_*()</code> functions give more information in the error message when non-parameter objects are passed in (<a href="https://github.com/tidymodels/dials/issues/437" class="external-link">#437</a>, <a href="https://github.com/tidymodels/dials/issues/438" class="external-link">#438</a>).</p></li>
-<li><p>Improved several type-checking error messages to include the actual type of the input (<a href="https://github.com/tidymodels/dials/issues/423" class="external-link">#423</a>).</p></li>
 <li><p><code><a href="../reference/encode_unit.html">encode_unit()</a></code> now provides a helpful error when <code>x</code> is not a parameter object (<a href="https://github.com/tidymodels/dials/issues/430" class="external-link">#430</a>).</p></li>
 <li><p><code><a href="../reference/value_validate.html">value_validate()</a></code>, <code><a href="../reference/value_validate.html">value_transform()</a></code>, <code><a href="../reference/value_validate.html">value_inverse()</a></code>, and <code><a href="../reference/value_validate.html">value_set()</a></code> now produce more informative error messages when values contain unknowns (<a href="https://github.com/tidymodels/dials/issues/445" class="external-link">#445</a>).</p></li>
 <li><p><code><a href="../reference/value_validate.html">value_validate()</a></code>, <code><a href="../reference/encode_unit.html">encode_unit()</a></code>, <code><a href="../reference/finalize.html">get_p()</a></code>, <code><a href="../reference/finalize.html">get_log_p()</a></code>, <code><a href="../reference/finalize.html">get_n()</a></code>, <code><a href="../reference/finalize.html">get_n_frac()</a></code>, <code><a href="../reference/finalize.html">get_n_frac_range()</a></code>, and <code><a href="../reference/get_batch_sizes.html">get_batch_sizes()</a></code> now enforce empty dots (<a href="https://github.com/tidymodels/dials/issues/439" class="external-link">#439</a>).</p></li>
+<li><p>Several further type-checking error messages now include the actual type of the input (<a href="https://github.com/tidymodels/dials/issues/423" class="external-link">#423</a>).</p></li>
 </ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.4.2" id="dials-142">dials 1.4.2<a class="anchor" aria-label="anchor" href="#dials-142"></a></h2><p class="text-muted">CRAN release: 2025-09-04</p>
 <ul><li><p><code><a href="../reference/prop_terms.html">prop_terms()</a></code> is a new parameter object used for recipes that do supervised feature selection (<a href="https://github.com/tidymodels/dials/issues/395" class="external-link">#395</a>).</p></li>
