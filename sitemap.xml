@@ -55,6 +55,7 @@
 <url><loc>https://dials.tidymodels.org/reference/num_knots.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/num_runs.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/num_tokens.html</loc></url>
+<url><loc>https://dials.tidymodels.org/reference/ordinal_link.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/over_ratio.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/parameters.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/parameters_constr.html</loc></url>
@@ -78,6 +79,7 @@
 <url><loc>https://dials.tidymodels.org/reference/summary_stat.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/surv_dist.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/survival_link.html</loc></url>
+<url><loc>https://dials.tidymodels.org/reference/tab-pfn-param.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/target_weight.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/texthash.html</loc></url>
 <url><loc>https://dials.tidymodels.org/reference/threshold.html</loc></url>
