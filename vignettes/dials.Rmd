@@ -30,7 +30,7 @@ In any case, some information is needed to create a grid or to validate whether 
 
  * Create an easy to use framework for describing and querying tuning parameters. This can include getting sequences or random tuning values, validating current values, transforming parameters, and other tasks.
  * Standardize the names of different parameters. Different packages in R use different argument names for the same quantities. `dials` proposes some standardized names so that the user doesn't need to memorize the syntactical minutiae of every package. 
- * Work with the other [tidymodels](https://www.tidymodels.org) packages for modeling and machine learning using [tidyverse](https://www.tidyverse.org/) principles.
+ * Work with the other [tidymodels](https://www.tidymodels.org) packages for modeling and machine learning using [tidyverse](https://tidyverse.org/) principles.
 
 
 ## Parameter Objects
