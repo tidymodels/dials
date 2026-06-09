@@ -29,6 +29,7 @@ Imports:
     rlang (>= 1.1.0),
     sfd,
     tibble,
+    tidyr,
     utils,
     vctrs (>= 0.3.8),
     withr
@@ -50,4 +51,4 @@ Config/usethis/last-upkeep: 2025-04-23
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
+Config/roxygen2/version: 8.0.0

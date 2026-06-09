@@ -1,5 +1,7 @@
 # dials (development version)
 
+* _Hybrid_ grids that cross space-filling and regular grids was added (`grid_hybrid()`). 
+
 # dials 1.4.3
 
 ## New parameters
