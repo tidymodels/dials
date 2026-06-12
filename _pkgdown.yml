@@ -110,16 +110,27 @@ reference:
 - title: Parameter objects for specific model engines
   contents:
   - bart-param
+  - bottleneck_units
   - conditional_min_criterion
   - confidence_factor
+  - dropout_attn
+  - dropout_embedding
   - extrapolation
   - max_nodes
   - max_num_terms
+  - num_attn_blocks
+  - num_attn_feat
+  - num_attn_heads
+  - num_embedding
   - num_leaves
+  - penalty_average
+  - penalty_type
   - regularization_factor
+  - resid_at
   - rule_bands
   - scale_pos_weight
   - shrinkage_correlation
+  - step_rate
 
 - title: Parameter objects for post-processing
   contents:
