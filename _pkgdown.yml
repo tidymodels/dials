@@ -109,12 +109,15 @@ reference:
 
 - title: Parameter objects for specific model engines
   contents:
+  - attention_type
   - bart-param
   - bottleneck_units
   - conditional_min_criterion
   - confidence_factor
   - dropout_attn
   - dropout_embedding
+  - dropout_hidden
+  - dropout_last
   - extrapolation
   - max_nodes
   - max_num_terms
