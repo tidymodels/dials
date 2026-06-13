@@ -6,7 +6,7 @@
 #' @inheritParams Laplace
 #'
 #' @details
-#' Used as a tuning parameter for `tabular_auto_int()` in the `tdl` package
+#' Used as a tuning parameter for `tabular_auto_int()` in the \pkg{tabular} package
 #' when fit with the `brulee` engine. Multiple attention heads allow the model
 #' to attend to different aspects of the input features simultaneously.
 #'

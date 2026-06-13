@@ -4,7 +4,7 @@
 
 * `attention_type()`, `dropout_hidden()`, and `dropout_last()` are new parameters for the SAINT model in the `brulee` package (#452).
 
-* `bottleneck_units()`, `dropout_attn()`, `dropout_embedding()`, `num_attn_blocks()`, `num_attn_feat()`, `num_attn_heads()`, `num_embedding()`, `penalty_average()`, `penalty_type()`, `resid_at()`, and `step_rate()` are new parameters for deep learning models in the `tdl` package when fit with the `brulee` engine (#452).
+* `bottleneck_units()`, `dropout_attn()`, `dropout_embedding()`, `num_attn_blocks()`, `num_attn_feat()`, `num_attn_heads()`, `num_embedding()`, `penalty_average()`, `penalty_type()`, `resid_at()`, and `step_rate()` are new parameters for deep learning models in the \pkg{tabular} package when fit with the `brulee` engine (#452).
 
 # dials 1.4.3
 

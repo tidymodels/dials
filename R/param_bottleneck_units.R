@@ -5,7 +5,7 @@
 #' @inheritParams Laplace
 #'
 #' @details
-#' Used as a tuning parameter for `tabular_resnet()` in the `tdl` package
+#' Used as a tuning parameter for `tabular_resnet()` in the \pkg{tabular} package
 #' when fit with the `brulee` engine.
 #'
 #' @examples

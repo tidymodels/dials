@@ -7,7 +7,7 @@
 #' @inheritParams Laplace
 #'
 #' @details
-#' Used as a tuning parameter for `tabular_rln()` in the `tdl` package when
+#' Used as a tuning parameter for `tabular_rln()` in the \pkg{tabular} package when
 #' fit with the `brulee` engine. The value is passed to `brulee::brulee_rln()`
 #' on the natural scale.
 #'

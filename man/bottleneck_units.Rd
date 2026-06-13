@@ -20,7 +20,7 @@ transformation, \code{NULL}.}
 The number of units used in ResNet layers within a residual block.
 }
 \details{
-Used as a tuning parameter for \code{tabular_resnet()} in the \code{tdl} package
+Used as a tuning parameter for \code{tabular_resnet()} in the \pkg{tabular} package
 when fit with the \code{brulee} engine.
 }
 \examples{

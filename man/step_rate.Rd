@@ -22,7 +22,7 @@ The step size used to update the per-weight regularization coefficients
 Best tuned on the log10 scale.
 }
 \details{
-Used as a tuning parameter for \code{tabular_rln()} in the \code{tdl} package when
+Used as a tuning parameter for \code{tabular_rln()} in the \pkg{tabular} package when
 fit with the \code{brulee} engine. The value is passed to \code{brulee::brulee_rln()}
 on the natural scale.
 }

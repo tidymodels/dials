@@ -21,7 +21,7 @@ The dimensionality of the feature space used in the attention mechanism
 of tabular models.
 }
 \details{
-Used as a tuning parameter for \code{tabular_auto_int()} in the \code{tdl} package
+Used as a tuning parameter for \code{tabular_auto_int()} in the \pkg{tabular} package
 when fit with the \code{brulee} engine.
 }
 \examples{

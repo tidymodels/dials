@@ -17,7 +17,7 @@ The type of regularization norm applied to per-weight coefficients in
 Regularization Learning Networks.
 }
 \details{
-Used as a tuning parameter for \code{tabular_rln()} in the \code{tdl} package when
+Used as a tuning parameter for \code{tabular_rln()} in the \pkg{tabular} package when
 fit with the \code{brulee} engine. L1 is recommended by the original paper.
 }
 \examples{

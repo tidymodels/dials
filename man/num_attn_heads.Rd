@@ -21,7 +21,7 @@ The number of parallel attention mechanisms (heads) in the multi-head
 attention layer.
 }
 \details{
-Used as a tuning parameter for \code{tabular_auto_int()} in the \code{tdl} package
+Used as a tuning parameter for \code{tabular_auto_int()} in the \pkg{tabular} package
 when fit with the \code{brulee} engine. Multiple attention heads allow the model
 to attend to different aspects of the input features simultaneously.
 }

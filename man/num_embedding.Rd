@@ -21,7 +21,7 @@ The dimensionality of the embedding space for features in attention-based
 tabular models.
 }
 \details{
-Used as a tuning parameter for \code{tabular_auto_int()} in the \code{tdl} package
+Used as a tuning parameter for \code{tabular_auto_int()} in the \pkg{tabular} package
 when fit with the \code{brulee} engine.
 }
 \examples{
