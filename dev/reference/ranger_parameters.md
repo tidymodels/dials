@@ -26,14 +26,6 @@ ranger_split_rules
 num_random_splits(range = c(1L, 15L), trans = NULL)
 ```
 
-## Format
-
-An object of class `character` of length 3.
-
-An object of class `character` of length 4.
-
-An object of class `character` of length 7.
-
 ## Arguments
 
 - range:

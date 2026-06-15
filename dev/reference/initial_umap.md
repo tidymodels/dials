@@ -13,10 +13,6 @@ initial_umap(values = values_initial_umap)
 values_initial_umap
 ```
 
-## Format
-
-An object of class `character` of length 8.
-
 ## Arguments
 
 - values:

@@ -14,12 +14,6 @@ values_cal_cls
 values_cal_reg
 ```
 
-## Format
-
-An object of class `character` of length 6.
-
-An object of class `character` of length 5.
-
 ## Arguments
 
 - values:

@@ -5,4 +5,4 @@ to see their documentation.
 
 - hardhat:
 
-  [`extract_parameter_dials`](https://hardhat.tidymodels.org/reference/hardhat-extract.html)
+  [`extract_parameter_dials()`](https://hardhat.tidymodels.org/reference/hardhat-extract.html)

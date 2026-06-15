@@ -10,10 +10,6 @@ regularization_method(values = values_regularization_method)
 values_regularization_method
 ```
 
-## Format
-
-An object of class `character` of length 4.
-
 ## Arguments
 
 - values:

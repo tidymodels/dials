@@ -10,10 +10,6 @@ survival_link(values = values_survival_link)
 values_survival_link
 ```
 
-## Format
-
-An object of class `character` of length 3.
-
 ## Arguments
 
 - values:

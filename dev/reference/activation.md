@@ -12,10 +12,6 @@ activation_2(values = values_activation)
 values_activation
 ```
 
-## Format
-
-An object of class `character` of length 23.
-
 ## Arguments
 
 - values:

@@ -19,12 +19,6 @@ values_test_statistic
 conditional_test_statistic(values = values_test_statistic)
 ```
 
-## Format
-
-An object of class `character` of length 4.
-
-An object of class `character` of length 2.
-
 ## Arguments
 
 - range:

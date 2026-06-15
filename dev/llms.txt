@@ -21,12 +21,14 @@ You can install the released version of dials from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
+
 install.packages("dials")
 ```
 
 You can install the development version from Github with:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("tidymodels/dials")
 ```

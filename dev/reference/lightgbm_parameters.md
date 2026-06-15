@@ -38,6 +38,7 @@ webpage](https://lightgbm.readthedocs.io/en/latest/Parameters.html).
 ## Examples
 
 ``` r
+
 num_leaves()
 #> Number of Leaves (quantitative)
 #> Range: [5, 100]

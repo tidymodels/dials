@@ -105,7 +105,7 @@ CRAN release: 2025-07-29
 
 CRAN release: 2025-02-13
 
-- For space-filling designs for $p$ parameters, there is a higher
+- For space-filling designs for $`p`$ parameters, there is a higher
   likelihood of finding a space-filling design for `1 < size <= p`.
   Also, single-point designs now default to a random grid
   ([\#363](https://github.com/tidymodels/dials/issues/363)).

@@ -39,6 +39,7 @@ webpage](https://xgboost.readthedocs.io/en/latest/parameter.html).
 ## Examples
 
 ``` r
+
 scale_pos_weight()
 #> Balance of Events and Non-Events (quantitative)
 #> Range: [0.8, 1.2]

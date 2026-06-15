@@ -10,10 +10,6 @@ prune_method(values = values_prune_method)
 values_prune_method
 ```
 
-## Format
-
-An object of class `character` of length 6.
-
 ## Arguments
 
 - values:
