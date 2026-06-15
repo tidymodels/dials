@@ -48,6 +48,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Hannah Frick \email{hannah@posit.co}
   \item Max Kuhn \email{max@posit.co}
 }
 
