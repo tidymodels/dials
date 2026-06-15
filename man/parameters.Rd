@@ -37,5 +37,5 @@ pset
 }
 \seealso{
 \code{\link[=update.parameters]{update.parameters()}}, \code{\link[=finalize]{finalize()}},
-\code{\link[hardhat:hardhat-extract]{hardhat::extract_parameter_set_dials()}}
+\code{\link[hardhat:extract_parameter_set_dials]{hardhat::extract_parameter_set_dials()}}
 }
