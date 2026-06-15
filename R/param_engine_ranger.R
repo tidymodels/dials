@@ -7,8 +7,9 @@
 #'
 #' @inheritParams Laplace
 #' @param values For `splitting_rule()`, a character string of possible values.
-#'  See `ranger_split_rules`, `ranger_class_rules`, and `ranger_reg_rules` for
-#'  appropriate values. For `regularize_depth()`, either `TRUE` or `FALSE`.
+#'  See `ranger_split_rules`, `ranger_class_rules`, `ranger_reg_rules`, and
+#'  `ranger_survival_rules` for appropriate values. For `regularize_depth()`,
+#'  either `TRUE` or `FALSE`.
 #' @details
 #' To use these, check `?ranger::ranger` to see how they are used. Some are
 #' conditional on others. For example, `significance_threshold()`,
@@ -92,7 +93,15 @@ ranger_reg_rules <- c("variance", "extratrees", "maxstat", "beta")
 
 #' @rdname ranger_parameters
 #' @export
-ranger_split_rules <- c(ranger_class_rules, ranger_reg_rules)
+ranger_survival_rules <- c("logrank", "extratrees", "C", "maxstat")
+
+#' @rdname ranger_parameters
+#' @export
+ranger_split_rules <- unique(c(
+  ranger_class_rules,
+  ranger_reg_rules,
+  ranger_survival_rules
+))
 
 #' @rdname ranger_parameters
 #' @export
