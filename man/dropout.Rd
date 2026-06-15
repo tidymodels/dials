@@ -6,6 +6,10 @@
 \alias{hidden_units}
 \alias{hidden_units_2}
 \alias{batch_size}
+\alias{dropout_hidden}
+\alias{dropout_last}
+\alias{num_embedding}
+\alias{dropout_embedding}
 \title{Neural network parameters}
 \usage{
 dropout(range = c(0, 1), trans = NULL)
@@ -17,6 +21,14 @@ hidden_units(range = c(1L, 10L), trans = NULL)
 hidden_units_2(range = c(1L, 10L), trans = NULL)
 
 batch_size(range = c(2L, 7L), trans = transform_log2())
+
+dropout_hidden(range = c(0, 0.5), trans = NULL)
+
+dropout_last(range = c(0, 0.5), trans = NULL)
+
+num_embedding(range = c(8L, 64L), trans = NULL)
+
+dropout_embedding(range = c(0, 0.5), trans = NULL)
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and
@@ -38,6 +50,13 @@ These functions generate parameters that are useful for neural network models.
 \item \code{hidden_units()}: The number of hidden units in a network layer.
 (See \code{parsnip:::mlp()}).
 \item \code{batch_size()}: The mini-batch size for neural networks.
+\item \code{dropout_hidden()}: The proportion of hidden-layer units to randomly set to
+zero during model training.
+\item \code{dropout_last()}: The proportion of final-layer units to randomly set to
+zero during model training.
+\item \code{num_embedding()}: The dimensionality of the embedding space for features.
+\item \code{dropout_embedding()}: The proportion of embedding values to randomly set to
+zero during model training.
 }
 }
 \examples{
