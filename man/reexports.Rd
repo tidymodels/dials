@@ -11,6 +11,6 @@ These objects are imported from other packages. Follow the links
 below to see their documentation.
 
 \describe{
-  \item{hardhat}{\code{\link[hardhat:hardhat-extract]{extract_parameter_dials}}}
+  \item{hardhat}{\code{\link[hardhat:extract_parameter_dials]{extract_parameter_dials()}}}
 }}
 
