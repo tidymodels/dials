@@ -12,6 +12,7 @@
 <url><loc>https://dials.tidymodels.org/dev/reference/activation.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/adjust_deg_free.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/all_neighbors.html</loc></url>
+<url><loc>https://dials.tidymodels.org/dev/reference/attention-param.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/bart-param.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/buffer.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/c5_parameters.html</loc></url>
@@ -70,6 +71,8 @@
 <url><loc>https://dials.tidymodels.org/dev/reference/rbf_sigma.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/reexports.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/regularization_method.html</loc></url>
+<url><loc>https://dials.tidymodels.org/dev/reference/resnet-param.html</loc></url>
+<url><loc>https://dials.tidymodels.org/dev/reference/rln-param.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/scheduler-param.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/select_features.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/shrinkage_correlation.html</loc></url>

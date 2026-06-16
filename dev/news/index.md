@@ -2,6 +2,31 @@
 
 ## dials (development version)
 
+### New parameters
+
+- [`attention_type()`](https://dials.tidymodels.org/dev/reference/attention-param.md),
+  [`dropout_hidden()`](https://dials.tidymodels.org/dev/reference/dropout.md),
+  and
+  [`dropout_last()`](https://dials.tidymodels.org/dev/reference/dropout.md)
+  are new parameters for the SAINT model in the `brulee` package
+  ([\#452](https://github.com/tidymodels/dials/issues/452)).
+
+- [`bottleneck_units()`](https://dials.tidymodels.org/dev/reference/resnet-param.md),
+  [`dropout_attn()`](https://dials.tidymodels.org/dev/reference/attention-param.md),
+  [`dropout_embedding()`](https://dials.tidymodels.org/dev/reference/dropout.md),
+  [`num_attn_blocks()`](https://dials.tidymodels.org/dev/reference/attention-param.md),
+  [`num_attn_feat()`](https://dials.tidymodels.org/dev/reference/attention-param.md),
+  [`num_attn_heads()`](https://dials.tidymodels.org/dev/reference/attention-param.md),
+  [`num_embedding()`](https://dials.tidymodels.org/dev/reference/dropout.md),
+  [`penalty_average()`](https://dials.tidymodels.org/dev/reference/rln-param.md),
+  [`penalty_type()`](https://dials.tidymodels.org/dev/reference/rln-param.md),
+  [`resid_at()`](https://dials.tidymodels.org/dev/reference/resnet-param.md),
+  and
+  [`step_rate()`](https://dials.tidymodels.org/dev/reference/rln-param.md)
+  are new parameters for deep learning models in the package when fit
+  with the `brulee` engine
+  ([\#452](https://github.com/tidymodels/dials/issues/452)).
+
 - [`splitting_rule()`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
   gains support for survival forests via a new `ranger_survival_rules`
   vector (`"logrank"`, `"extratrees"`, `"C"`, `"maxstat"`), which is now

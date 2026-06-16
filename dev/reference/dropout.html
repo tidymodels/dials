@@ -54,7 +54,15 @@
 <span></span>
 <span><span class="fu">hidden_units_2</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">10L</span><span class="op">)</span>, trans <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">batch_size</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2L</span>, <span class="fl">7L</span><span class="op">)</span>, trans <span class="op">=</span> <span class="fu">transform_log2</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">batch_size</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2L</span>, <span class="fl">7L</span><span class="op">)</span>, trans <span class="op">=</span> <span class="fu">transform_log2</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">dropout_hidden</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.5</span><span class="op">)</span>, trans <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">dropout_last</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.5</span><span class="op">)</span>, trans <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">num_embedding</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">8L</span>, <span class="fl">64L</span><span class="op">)</span>, trans <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">dropout_embedding</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">0.5</span><span class="op">)</span>, trans <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -82,6 +90,13 @@ transformation, <code>NULL</code>.</p></dd>
 <li><p><code>hidden_units()</code>: The number of hidden units in a network layer.
 (See <code>parsnip:::mlp()</code>).</p></li>
 <li><p><code>batch_size()</code>: The mini-batch size for neural networks.</p></li>
+<li><p><code>dropout_hidden()</code>: The proportion of hidden-layer units to randomly set to
+zero during model training.</p></li>
+<li><p><code>dropout_last()</code>: The proportion of final-layer units to randomly set to
+zero during model training.</p></li>
+<li><p><code>num_embedding()</code>: The dimensionality of the embedding space for features.</p></li>
+<li><p><code>dropout_embedding()</code>: The proportion of embedding values to randomly set to
+zero during model training.</p></li>
 </ul></div>
 
     <div class="section level2">
