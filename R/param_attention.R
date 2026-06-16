@@ -23,10 +23,14 @@
 #'
 #' * `num_attn_feat()`: The dimensionality of the feature space used in the
 #'   attention mechanism.
+#'
+#' * `use_target_token()`: A logical to specify whether the SAINT model should
+#'    add a supervised token to the embeddings.
 #' @examples
 #' values_attention_type
 #' attention_type()
 #' num_attn_heads()
+#' use_target_token()
 #' @name attention-param
 #' @export
 attention_type <- function(values = values_attention_type) {
@@ -90,6 +94,17 @@ num_attn_feat <- function(range = c(8L, 64L), trans = NULL) {
     inclusive = c(TRUE, TRUE),
     trans = trans,
     label = c(num_attn_feat = "# Attention Features"),
+    finalize = NULL
+  )
+}
+
+#' @rdname attention-param
+#' @export
+use_target_token <- function(values = c(TRUE, FALSE)) {
+  new_qual_param(
+    type = "logical",
+    values = values,
+    label = c(use_target_token = "Use Target Token?"),
     finalize = NULL
   )
 }
