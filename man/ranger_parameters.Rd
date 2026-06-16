@@ -8,6 +8,7 @@
 \alias{splitting_rule}
 \alias{ranger_class_rules}
 \alias{ranger_reg_rules}
+\alias{ranger_survival_rules}
 \alias{ranger_split_rules}
 \alias{num_random_splits}
 \title{Parameters for possible engine parameters for ranger}
@@ -26,6 +27,8 @@ ranger_class_rules
 
 ranger_reg_rules
 
+ranger_survival_rules
+
 ranger_split_rules
 
 num_random_splits(range = c(1L, 15L), trans = NULL)
@@ -41,8 +44,9 @@ the default is used which matches the units used in \code{range}. If no
 transformation, \code{NULL}.}
 
 \item{values}{For \code{splitting_rule()}, a character string of possible values.
-See \code{ranger_split_rules}, \code{ranger_class_rules}, and \code{ranger_reg_rules} for
-appropriate values. For \code{regularize_depth()}, either \code{TRUE} or \code{FALSE}.}
+See \code{ranger_split_rules}, \code{ranger_class_rules}, \code{ranger_reg_rules}, and
+\code{ranger_survival_rules} for appropriate values. For \code{regularize_depth()},
+either \code{TRUE} or \code{FALSE}.}
 }
 \description{
 These parameters are auxiliary to random forest models that use the "ranger"
