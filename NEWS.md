@@ -6,6 +6,9 @@
 
 * `bottleneck_units()`, `dropout_attn()`, `dropout_embedding()`, `num_attn_blocks()`, `num_attn_feat()`, `num_attn_heads()`, `num_embedding()`, `penalty_average()`, `penalty_type()`, `resid_at()`, and `step_rate()` are new parameters for deep learning models in the \pkg{tabular} package when fit with the `brulee` engine (#452).
 
+* `splitting_rule()` gains support for survival forests via a new `ranger_survival_rules` vector (`"logrank"`, `"extratrees"`, `"C"`, `"maxstat"`), which is now included in `ranger_split_rules`.
+
+
 # dials 1.4.3
 
 ## New parameters
