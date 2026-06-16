@@ -66,6 +66,8 @@ engine. They correspond to tuning parameters that would be specified using
 <span></span>
 <span><span class="va">ranger_reg_rules</span></span>
 <span></span>
+<span><span class="va">ranger_survival_rules</span></span>
+<span></span>
 <span><span class="va">ranger_split_rules</span></span>
 <span></span>
 <span><span class="fu">num_random_splits</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">15L</span><span class="op">)</span>, trans <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
@@ -90,8 +92,9 @@ transformation, <code>NULL</code>.</p></dd>
 
 <dt id="arg-values">values<a class="anchor" aria-label="anchor" href="#arg-values"></a></dt>
 <dd><p>For <code>splitting_rule()</code>, a character string of possible values.
-See <code>ranger_split_rules</code>, <code>ranger_class_rules</code>, and <code>ranger_reg_rules</code> for
-appropriate values. For <code>regularize_depth()</code>, either <code>TRUE</code> or <code>FALSE</code>.</p></dd>
+See <code>ranger_split_rules</code>, <code>ranger_class_rules</code>, <code>ranger_reg_rules</code>, and
+<code>ranger_survival_rules</code> for appropriate values. For <code>regularize_depth()</code>,
+either <code>TRUE</code> or <code>FALSE</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">

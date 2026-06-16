@@ -2,6 +2,11 @@
 
 ## dials (development version)
 
+- [`splitting_rule()`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
+  gains support for survival forests via a new `ranger_survival_rules`
+  vector (`"logrank"`, `"extratrees"`, `"C"`, `"maxstat"`), which is now
+  included in `ranger_split_rules`.
+
 ## dials 1.4.3
 
 CRAN release: 2026-04-11

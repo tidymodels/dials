@@ -255,6 +255,7 @@
   [`splitting_rule()`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
   [`ranger_class_rules`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
   [`ranger_reg_rules`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
+  [`ranger_survival_rules`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
   [`ranger_split_rules`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
   [`num_random_splits()`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
   : Parameters for possible engine parameters for ranger
