@@ -133,6 +133,8 @@ test_that("param ranges", {
   expect_equal(rate_decay(c(1, 2))$range, list(lower = 1, upper = 2))
   expect_equal(num_clusters(c(1, 2))$range, list(lower = 1, upper = 2))
   expect_equal(num_leaves(c(31, 100))$range, list(lower = 31, upper = 100))
+  expect_equal(l2_leaf_reg(c(-5, 3))$range, list(lower = -5, upper = 3))
+  expect_equal(max_leaves(c(10, 50))$range, list(lower = 10, upper = 50))
   expect_equal(trim_amount(c(0.1, 0.4))$range, list(lower = 0.1, upper = 0.4))
   expect_equal(num_runs(c(2, 100))$range, list(lower = 2, upper = 100))
   expect_equal(
