@@ -114,6 +114,8 @@ reference:
   - conditional_min_criterion
   - confidence_factor
   - extrapolation
+  - l2_leaf_reg
+  - max_leaves
   - max_nodes
   - max_num_terms
   - num_leaves

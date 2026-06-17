@@ -6,6 +6,8 @@
 
 * `bottleneck_units()`, `dropout_attn()`, `dropout_embedding()`, `num_attn_blocks()`, `num_attn_feat()`, `num_attn_heads()`, `num_embedding()`, `penalty_average()`, `penalty_type()`, `resid_at()`, and `step_rate()` are new parameters for deep learning models in the \pkg{tabular} package when fit with the `brulee` engine (#452).
 
+* `l2_leaf_reg()` and `max_leaves()` are new parameter objects for tree-based models that use the "catboost" engine in the `bonsai` package (#453).
+
 * `splitting_rule()` gains support for survival forests via a new `ranger_survival_rules` vector (`"logrank"`, `"extratrees"`, `"C"`, `"maxstat"`), which is now included in `ranger_split_rules`.
 
 
