@@ -254,9 +254,6 @@
   [`unbiased_rules()`](https://dials.tidymodels.org/dev/reference/cubist_parameters.md)
   [`max_rules()`](https://dials.tidymodels.org/dev/reference/cubist_parameters.md)
   : Parameters for possible engine parameters for Cubist
-- [`l2_leaf_reg()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md)
-  [`max_leaves()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md)
-  : Possible engine parameters for catboost
 - [`max_nodes()`](https://dials.tidymodels.org/dev/reference/randomForest_parameters.md)
   : Parameters for possible engine parameters for randomForest
 - [`max_num_terms()`](https://dials.tidymodels.org/dev/reference/earth_parameters.md)

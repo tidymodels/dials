@@ -27,13 +27,6 @@
   with the `brulee` engine
   ([\#452](https://github.com/tidymodels/dials/issues/452)).
 
-- [`l2_leaf_reg()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md)
-  and
-  [`max_leaves()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md)
-  are new parameter objects for tree-based models that use the
-  “catboost” engine in the `bonsai` package
-  ([\#453](https://github.com/tidymodels/dials/issues/453)).
-
 - [`splitting_rule()`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
   gains support for survival forests via a new `ranger_survival_rules`
   vector (`"logrank"`, `"extratrees"`, `"C"`, `"maxstat"`), which is now
