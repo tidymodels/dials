@@ -19,7 +19,7 @@ num_attn_blocks(range = c(1L, 6L), trans = NULL)
 
 num_attn_feat(range = c(8L, 64L), trans = NULL)
 
-use_target_token(values = c(TRUE, FALSE))
+target_token(values = c(TRUE, FALSE))
 ```
 
 ## Arguments
@@ -63,8 +63,8 @@ use_target_token(values = c(TRUE, FALSE))
 - `num_attn_feat()`: The dimensionality of the feature space used in the
   attention mechanism.
 
-- `use_target_token()`: A logical to specify whether the SAINT model
-  should add a supervised token to the embeddings.
+- `target_token()`: A logical to specify whether the SAINT model should
+  add a supervised token to the embeddings.
 
 ## Examples
 
@@ -78,7 +78,7 @@ attention_type()
 num_attn_heads()
 #> # Attention Heads (quantitative)
 #> Range: [1, 8]
-use_target_token()
+target_token()
 #> Use Target Token? (qualitative)
 #> 2 possible values include:
 #> TRUE and FALSE
