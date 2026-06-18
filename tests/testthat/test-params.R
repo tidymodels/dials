@@ -222,5 +222,5 @@ test_that("param values", {
   expect_equal(odds_link(letters[4:6])$values, letters[4:6])
   expect_equal(odds_link()$values, values_odds_link)
   expect_equal(penalty_type()$values, values_penalty_type)
-  expect_equal(use_target_token(TRUE)$values, TRUE)
+  expect_equal(target_token(TRUE)$values, TRUE)
 })
