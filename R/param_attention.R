@@ -108,3 +108,18 @@ target_token <- function(values = c(TRUE, FALSE)) {
     finalize = NULL
   )
 }
+
+#' @rdname attention-param
+#' @export
+normalization <- function(values = values_normalization) {
+  new_qual_param(
+    type = "character",
+    values = values,
+    label = c(normalization = "Normalization"),
+    finalize = NULL
+  )
+}
+
+#' @rdname attention-param
+#' @export
+values_normalization <- c("none", "YeoJohnson")
