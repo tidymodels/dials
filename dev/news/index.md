@@ -2,13 +2,16 @@
 
 ## dials (development version)
 
-### New parameters
+## dials 1.4.4
+
+CRAN release: 2026-06-22
 
 - [`attention_type()`](https://dials.tidymodels.org/dev/reference/attention-param.md),
   [`dropout_hidden()`](https://dials.tidymodels.org/dev/reference/dropout.md),
+  [`dropout_last()`](https://dials.tidymodels.org/dev/reference/dropout.md),
   and
-  [`dropout_last()`](https://dials.tidymodels.org/dev/reference/dropout.md)
-  are new parameters for the SAINT model in the `brulee` package
+  [`target_token()`](https://dials.tidymodels.org/dev/reference/attention-param.md)
+  are new parameters for the SAINT model in the brulee package
   ([\#452](https://github.com/tidymodels/dials/issues/452)).
 
 - [`bottleneck_units()`](https://dials.tidymodels.org/dev/reference/resnet-param.md),
@@ -24,21 +27,21 @@
   [`resid_at()`](https://dials.tidymodels.org/dev/reference/resnet-param.md),
   and
   [`step_rate()`](https://dials.tidymodels.org/dev/reference/rln-param.md)
-  are new parameters for deep learning models in the package when fit
-  with the `brulee` engine
-  ([\#452](https://github.com/tidymodels/dials/issues/452)).
+  are new parameters for deep learning models in the tabular package
+  when fit with the brulee engine
+  ([\#452](https://github.com/tidymodels/dials/issues/452),
+  [\#461](https://github.com/tidymodels/dials/issues/461)).
 
 - [`l2_leaf_reg()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md)
   and
   [`max_leaves()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md)
   are new parameter objects for tree-based models that use the
-  “catboost” engine in the `bonsai` package
+  “catboost” engine in the bonsai package
   ([\#453](https://github.com/tidymodels/dials/issues/453)).
 
 - [`splitting_rule()`](https://dials.tidymodels.org/dev/reference/ranger_parameters.md)
-  gains support for survival forests via a new `ranger_survival_rules`
-  vector (`"logrank"`, `"extratrees"`, `"C"`, `"maxstat"`), which is now
-  included in `ranger_split_rules`.
+  gains support for survival forests
+  ([\#456](https://github.com/tidymodels/dials/issues/456)).
 
 ## dials 1.4.3
 
