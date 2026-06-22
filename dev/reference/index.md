@@ -232,6 +232,8 @@
   [`num_attn_blocks()`](https://dials.tidymodels.org/dev/reference/attention-param.md)
   [`num_attn_feat()`](https://dials.tidymodels.org/dev/reference/attention-param.md)
   [`target_token()`](https://dials.tidymodels.org/dev/reference/attention-param.md)
+  [`normalization()`](https://dials.tidymodels.org/dev/reference/attention-param.md)
+  [`values_normalization`](https://dials.tidymodels.org/dev/reference/attention-param.md)
   : Parameters for attention-based tabular models
 - [`prior_terminal_node_coef()`](https://dials.tidymodels.org/dev/reference/bart-param.md)
   [`prior_terminal_node_expo()`](https://dials.tidymodels.org/dev/reference/bart-param.md)

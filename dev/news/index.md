@@ -20,6 +20,7 @@
   [`num_embedding()`](https://dials.tidymodels.org/dev/reference/dropout.md),
   [`penalty_average()`](https://dials.tidymodels.org/dev/reference/rln-param.md),
   [`penalty_type()`](https://dials.tidymodels.org/dev/reference/rln-param.md),
+  [`normalization()`](https://dials.tidymodels.org/dev/reference/attention-param.md),
   [`resid_at()`](https://dials.tidymodels.org/dev/reference/resnet-param.md),
   and
   [`step_rate()`](https://dials.tidymodels.org/dev/reference/rln-param.md)

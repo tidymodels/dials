@@ -20,6 +20,10 @@ num_attn_blocks(range = c(1L, 6L), trans = NULL)
 num_attn_feat(range = c(8L, 64L), trans = NULL)
 
 target_token(values = c(TRUE, FALSE))
+
+normalization(values = values_normalization)
+
+values_normalization
 ```
 
 ## Arguments
