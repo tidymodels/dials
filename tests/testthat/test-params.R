@@ -208,6 +208,7 @@ test_that("param values", {
   expect_equal(summary_stat()$values, values_summary_stat)
   expect_equal(survival_link()$values, values_survival_link)
   expect_equal(attention_type()$values, values_attention_type)
+  expect_equal(normalization()$values, values_normalization)
   expect_equal(activation()$values, values_activation)
   expect_equal(activation_2()$values, values_activation)
   expect_equal(rate_schedule()$values, values_scheduler)
