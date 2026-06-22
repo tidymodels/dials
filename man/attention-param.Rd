@@ -9,6 +9,8 @@
 \alias{num_attn_blocks}
 \alias{num_attn_feat}
 \alias{target_token}
+\alias{normalization}
+\alias{values_normalization}
 \title{Parameters for attention-based tabular models}
 \usage{
 attention_type(values = values_attention_type)
@@ -24,6 +26,10 @@ num_attn_blocks(range = c(1L, 6L), trans = NULL)
 num_attn_feat(range = c(8L, 64L), trans = NULL)
 
 target_token(values = c(TRUE, FALSE))
+
+normalization(values = values_normalization)
+
+values_normalization
 }
 \arguments{
 \item{values}{A character string of possible values. See
