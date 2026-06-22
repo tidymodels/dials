@@ -14,12 +14,6 @@ odds_link(values = values_odds_link)
 values_odds_link
 ```
 
-## Format
-
-An object of class `character` of length 5.
-
-An object of class `character` of length 4.
-
 ## Arguments
 
 - values:

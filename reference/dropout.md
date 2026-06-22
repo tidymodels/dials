@@ -15,6 +15,14 @@ hidden_units(range = c(1L, 10L), trans = NULL)
 hidden_units_2(range = c(1L, 10L), trans = NULL)
 
 batch_size(range = c(2L, 7L), trans = transform_log2())
+
+dropout_hidden(range = c(0, 0.5), trans = NULL)
+
+dropout_last(range = c(0, 0.5), trans = NULL)
+
+num_embedding(range = c(8L, 64L), trans = NULL)
+
+dropout_embedding(range = c(0, 0.5), trans = NULL)
 ```
 
 ## Arguments
@@ -45,6 +53,18 @@ batch_size(range = c(2L, 7L), trans = transform_log2())
   `parsnip:::mlp()`).
 
 - `batch_size()`: The mini-batch size for neural networks.
+
+- `dropout_hidden()`: The proportion of hidden-layer units to randomly
+  set to zero during model training.
+
+- `dropout_last()`: The proportion of final-layer units to randomly set
+  to zero during model training.
+
+- `num_embedding()`: The dimensionality of the embedding space for
+  features.
+
+- `dropout_embedding()`: The proportion of embedding values to randomly
+  set to zero during model training.
 
 ## Examples
 

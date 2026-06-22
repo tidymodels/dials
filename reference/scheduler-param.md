@@ -22,10 +22,6 @@ rate_schedule(values = values_scheduler)
 values_scheduler
 ```
 
-## Format
-
-An object of class `character` of length 5.
-
 ## Arguments
 
 - range:

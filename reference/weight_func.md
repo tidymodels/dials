@@ -10,10 +10,6 @@ weight_func(values = values_weight_func)
 values_weight_func
 ```
 
-## Format
-
-An object of class `character` of length 9.
-
 ## Arguments
 
 - values:

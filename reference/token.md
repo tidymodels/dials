@@ -10,10 +10,6 @@ token(values = values_token)
 values_token
 ```
 
-## Format
-
-An object of class `character` of length 12.
-
 ## Arguments
 
 - values:

@@ -36,6 +36,7 @@ has_unknowns(object)
 ## Examples
 
 ``` r
+
 # Just returns an expression
 unknown()
 #> unknown()

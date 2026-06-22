@@ -10,10 +10,6 @@ summary_stat(values = values_summary_stat)
 values_summary_stat
 ```
 
-## Format
-
-An object of class `character` of length 8.
-
 ## Arguments
 
 - values:

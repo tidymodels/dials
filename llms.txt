@@ -21,12 +21,14 @@ You can install the released version of dials from
 [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
+
 install.packages("dials")
 ```
 
 You can install the development version from Github with:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("tidymodels/dials")
 ```
@@ -184,8 +186,12 @@ contributing to this project, you agree to abide by its terms.
   [`epochs()`](https://dials.tidymodels.org/reference/dropout.md)
   [`hidden_units()`](https://dials.tidymodels.org/reference/dropout.md)
   [`hidden_units_2()`](https://dials.tidymodels.org/reference/dropout.md)
-  [`batch_size()`](https://dials.tidymodels.org/reference/dropout.md) :
-  Neural network parameters
+  [`batch_size()`](https://dials.tidymodels.org/reference/dropout.md)
+  [`dropout_hidden()`](https://dials.tidymodels.org/reference/dropout.md)
+  [`dropout_last()`](https://dials.tidymodels.org/reference/dropout.md)
+  [`num_embedding()`](https://dials.tidymodels.org/reference/dropout.md)
+  [`dropout_embedding()`](https://dials.tidymodels.org/reference/dropout.md)
+  : Neural network parameters
 - [`Laplace()`](https://dials.tidymodels.org/reference/Laplace.md) :
   Laplace correction parameter
 - [`learn_rate()`](https://dials.tidymodels.org/reference/learn_rate.md)
@@ -276,6 +282,16 @@ contributing to this project, you agree to abide by its terms.
 
 ## Parameter objects for specific model engines
 
+- [`attention_type()`](https://dials.tidymodels.org/reference/attention-param.md)
+  [`values_attention_type`](https://dials.tidymodels.org/reference/attention-param.md)
+  [`dropout_attn()`](https://dials.tidymodels.org/reference/attention-param.md)
+  [`num_attn_heads()`](https://dials.tidymodels.org/reference/attention-param.md)
+  [`num_attn_blocks()`](https://dials.tidymodels.org/reference/attention-param.md)
+  [`num_attn_feat()`](https://dials.tidymodels.org/reference/attention-param.md)
+  [`target_token()`](https://dials.tidymodels.org/reference/attention-param.md)
+  [`normalization()`](https://dials.tidymodels.org/reference/attention-param.md)
+  [`values_normalization`](https://dials.tidymodels.org/reference/attention-param.md)
+  : Parameters for attention-based tabular models
 - [`prior_terminal_node_coef()`](https://dials.tidymodels.org/reference/bart-param.md)
   [`prior_terminal_node_expo()`](https://dials.tidymodels.org/reference/bart-param.md)
   [`prior_outcome_range()`](https://dials.tidymodels.org/reference/bart-param.md)
@@ -297,6 +313,9 @@ contributing to this project, you agree to abide by its terms.
   [`unbiased_rules()`](https://dials.tidymodels.org/reference/cubist_parameters.md)
   [`max_rules()`](https://dials.tidymodels.org/reference/cubist_parameters.md)
   : Parameters for possible engine parameters for Cubist
+- [`l2_leaf_reg()`](https://dials.tidymodels.org/reference/catboost_parameters.md)
+  [`max_leaves()`](https://dials.tidymodels.org/reference/catboost_parameters.md)
+  : Possible engine parameters for catboost
 - [`max_nodes()`](https://dials.tidymodels.org/reference/randomForest_parameters.md)
   : Parameters for possible engine parameters for randomForest
 - [`max_num_terms()`](https://dials.tidymodels.org/reference/earth_parameters.md)
@@ -310,9 +329,18 @@ contributing to this project, you agree to abide by its terms.
   [`splitting_rule()`](https://dials.tidymodels.org/reference/ranger_parameters.md)
   [`ranger_class_rules`](https://dials.tidymodels.org/reference/ranger_parameters.md)
   [`ranger_reg_rules`](https://dials.tidymodels.org/reference/ranger_parameters.md)
+  [`ranger_survival_rules`](https://dials.tidymodels.org/reference/ranger_parameters.md)
   [`ranger_split_rules`](https://dials.tidymodels.org/reference/ranger_parameters.md)
   [`num_random_splits()`](https://dials.tidymodels.org/reference/ranger_parameters.md)
   : Parameters for possible engine parameters for ranger
+- [`bottleneck_units()`](https://dials.tidymodels.org/reference/resnet-param.md)
+  [`resid_at()`](https://dials.tidymodels.org/reference/resnet-param.md)
+  : Parameters for residual networks
+- [`penalty_average()`](https://dials.tidymodels.org/reference/rln-param.md)
+  [`step_rate()`](https://dials.tidymodels.org/reference/rln-param.md)
+  [`penalty_type()`](https://dials.tidymodels.org/reference/rln-param.md)
+  [`values_penalty_type`](https://dials.tidymodels.org/reference/rln-param.md)
+  : Parameters for regularization learning networks
 - [`scale_pos_weight()`](https://dials.tidymodels.org/reference/xgboost_parameters.md)
   [`penalty_L2()`](https://dials.tidymodels.org/reference/xgboost_parameters.md)
   [`penalty_L1()`](https://dials.tidymodels.org/reference/xgboost_parameters.md)

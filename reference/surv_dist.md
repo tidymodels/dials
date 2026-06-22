@@ -10,10 +10,6 @@ surv_dist(values = values_surv_dist)
 values_surv_dist
 ```
 
-## Format
-
-An object of class `character` of length 6.
-
 ## Arguments
 
 - values:

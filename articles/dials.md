@@ -47,10 +47,11 @@ for different data types.
 ### Numeric Parameters
 
 An example of a numeric tuning parameter is the cost-complexity
-parameter of CART trees, otherwise known as $C_{p}$. A parameter object
-for $C_{p}$ can be created in `dials` using:
+parameter of CART trees, otherwise known as $`C_p`$. A parameter object
+for $`C_p`$ can be created in `dials` using:
 
 ``` r
+
 library(dials)
 cost_complexity()
 ```
@@ -60,6 +61,7 @@ of values is between `10^-10` and `0.1`. The range of possible values
 can be returned and changed based on some utility functions.
 
 ``` r
+
 cost_complexity() |> range_get()
 #> $lower
 #> [1] 1e-10
@@ -77,6 +79,7 @@ Values for this parameter can be obtained in a few different ways. To
 get a sequence of values that span the range:
 
 ``` r
+
 # Natural units:
 cost_complexity() |> value_seq(n = 4)
 #> [1] 1e-10 1e-07 1e-04 1e-01
@@ -93,6 +96,7 @@ and then returned in the natural units (although the `original` argument
 can be used here):
 
 ``` r
+
 set.seed(5473)
 cost_complexity() |> value_sample(n = 4)
 #> [1] 6.91e-09 8.46e-04 3.45e-06 5.90e-10
@@ -105,6 +109,7 @@ adding the values to the object. For `mtcars`, there are only three
 values:
 
 ``` r
+
 library(rpart)
 cart_mod <- rpart(mpg ~ ., data = mtcars, control = rpart.control(cp = 0.000001))
 cart_mod$cptable
@@ -126,6 +131,7 @@ mtcars_cp <- cost_complexity() |> value_set(cp_vals)
 The error occurs because the values are not in the transformed scale:
 
 ``` r
+
 mtcars_cp <- cost_complexity() |> value_set(log10(cp_vals))
 mtcars_cp
 ```
@@ -134,6 +140,7 @@ Now, if a sequence or random sample is requested, it uses the set
 values:
 
 ``` r
+
 mtcars_cp |> value_seq(2)
 #> [1] 0.097484 0.000001
 # Sampling specific values is done with replacement
@@ -150,6 +157,7 @@ numeric parameters, or a custom transformation generated with
 [`scales::trans_new()`](https://scales.r-lib.org/reference/new_transform.html).
 
 ``` r
+
 trans_raise <- scales::trans_new(
   "raise", 
   transform = function(x) 2^x , 
@@ -167,6 +175,7 @@ original scale by the inverse `-log2()`. So on the original scale, the
 sampled values are between `-log2(10)` and `-log2(1)`.
 
 ``` r
+
 -log2(c(10, 1))
 #> [1] -3.32  0.00
 value_sample(custom_cost, 100) |> range()
@@ -181,12 +190,14 @@ parameter for the types of kernel functions that is used with distance
 functions:
 
 ``` r
+
 weight_func()
 ```
 
 The helper functions are analogues to the quantitative parameters:
 
 ``` r
+
 # redefine values
 weight_func() |> value_set(c("rectangular", "triangular"))
 weight_func() |> value_sample(3)
@@ -216,6 +227,7 @@ cannot be known if the number of data points in the training set is not
 known. For that reason, some parameters have an *unknown* placeholder:
 
 ``` r
+
 mtry()
 sample_size()
 num_terms()
@@ -228,6 +240,7 @@ The [`finalize()`](https://dials.tidymodels.org/reference/finalize.md)
 methods can be used to help remove the unknowns:
 
 ``` r
+
 finalize(mtry(), x = mtcars[, -1])
 ```
 
@@ -238,6 +251,7 @@ object. They can also be created manually and can have alternate
 identification fields:
 
 ``` r
+
 glmnet_set <- parameters(list(lambda = penalty(), alpha = mixture()))
 glmnet_set
 
@@ -261,6 +275,7 @@ take any number of `param` objects or a parameter set.
 For example, for a glmnet model, a regular grid might be:
 
 ``` r
+
 grid_regular(
   mixture(),
   penalty(),
@@ -283,6 +298,7 @@ grid_regular(
 and, similarly, a random grid is created using
 
 ``` r
+
 set.seed(1041)
 grid_random(
   mixture(),

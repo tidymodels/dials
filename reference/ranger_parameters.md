@@ -21,18 +21,12 @@ ranger_class_rules
 
 ranger_reg_rules
 
+ranger_survival_rules
+
 ranger_split_rules
 
 num_random_splits(range = c(1L, 15L), trans = NULL)
 ```
-
-## Format
-
-An object of class `character` of length 3.
-
-An object of class `character` of length 4.
-
-An object of class `character` of length 7.
 
 ## Arguments
 
@@ -54,9 +48,9 @@ An object of class `character` of length 7.
 - values:
 
   For `splitting_rule()`, a character string of possible values. See
-  `ranger_split_rules`, `ranger_class_rules`, and `ranger_reg_rules` for
-  appropriate values. For `regularize_depth()`, either `TRUE` or
-  `FALSE`.
+  `ranger_split_rules`, `ranger_class_rules`, `ranger_reg_rules`, and
+  `ranger_survival_rules` for appropriate values. For
+  `regularize_depth()`, either `TRUE` or `FALSE`.
 
 ## Details
 

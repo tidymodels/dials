@@ -10,10 +10,6 @@ weight_scheme(values = values_weight_scheme)
 values_weight_scheme
 ```
 
-## Format
-
-An object of class `character` of length 5.
-
 ## Arguments
 
 - values:

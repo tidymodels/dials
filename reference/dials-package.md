@@ -26,6 +26,8 @@ Useful links:
 
 Authors:
 
+- Hannah Frick <hannah@posit.co>
+
 - Max Kuhn <max@posit.co>
 
 Other contributors:
@@ -36,6 +38,7 @@ Other contributors:
 ## Examples
 
 ``` r
+
 # Suppose we were tuning a linear regression model that was fit with glmnet
 # and there was a predictor that used a spline basis function to enable a
 # nonlinear fit. We can use `penalty()` and `mixture()` for the glmnet parts
