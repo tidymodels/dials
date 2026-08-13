@@ -11,6 +11,17 @@
 #' (See `parsnip:::mlp()`).
 #'
 #' * `batch_size()`: The mini-batch size for neural networks.
+#'
+#' * `dropout_hidden()`: The proportion of hidden-layer units to randomly set to
+#'   zero during model training.
+#'
+#' * `dropout_last()`: The proportion of final-layer units to randomly set to
+#'   zero during model training.
+#'
+#' * `num_embedding()`: The dimensionality of the embedding space for features.
+#'
+#' * `dropout_embedding()`: The proportion of embedding values to randomly set to
+#'   zero during model training.
 #' @examples
 #' dropout()
 #' @export
@@ -76,6 +87,58 @@ batch_size <- function(
     inclusive = c(TRUE, TRUE),
     trans = trans,
     label = c(batch_size = "Batch Size"),
+    finalize = NULL
+  )
+}
+
+#' @export
+#' @rdname dropout
+dropout_hidden <- function(range = c(0, 0.5), trans = NULL) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(dropout_hidden = "Hidden Dropout Rate"),
+    finalize = NULL
+  )
+}
+
+#' @export
+#' @rdname dropout
+dropout_last <- function(range = c(0, 0.5), trans = NULL) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(dropout_last = "Final Layer Dropout Rate"),
+    finalize = NULL
+  )
+}
+
+#' @export
+#' @rdname dropout
+num_embedding <- function(range = c(8L, 64L), trans = NULL) {
+  new_quant_param(
+    type = "integer",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(num_embedding = "# Embedding Dimensions"),
+    finalize = NULL
+  )
+}
+
+#' @export
+#' @rdname dropout
+dropout_embedding <- function(range = c(0, 0.5), trans = NULL) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(dropout_embedding = "Embedding Dropout Rate"),
     finalize = NULL
   )
 }

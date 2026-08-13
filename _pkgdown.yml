@@ -109,14 +109,18 @@ reference:
 
 - title: Parameter objects for specific model engines
   contents:
+  - attention-param
   - bart-param
   - conditional_min_criterion
   - confidence_factor
   - extrapolation
+  - l2_leaf_reg
   - max_nodes
   - max_num_terms
   - num_leaves
   - regularization_factor
+  - resnet-param
+  - rln-param
   - rule_bands
   - scale_pos_weight
   - shrinkage_correlation

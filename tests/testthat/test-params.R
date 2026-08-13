@@ -133,6 +133,8 @@ test_that("param ranges", {
   expect_equal(rate_decay(c(1, 2))$range, list(lower = 1, upper = 2))
   expect_equal(num_clusters(c(1, 2))$range, list(lower = 1, upper = 2))
   expect_equal(num_leaves(c(31, 100))$range, list(lower = 31, upper = 100))
+  expect_equal(l2_leaf_reg(c(-5, 3))$range, list(lower = -5, upper = 3))
+  expect_equal(max_leaves(c(10, 50))$range, list(lower = 10, upper = 50))
   expect_equal(trim_amount(c(0.1, 0.4))$range, list(lower = 0.1, upper = 0.4))
   expect_equal(num_runs(c(2, 100))$range, list(lower = 2, upper = 100))
   expect_equal(
@@ -161,6 +163,21 @@ test_that("param ranges", {
     training_set_limit(c(2L, 10L))$range,
     list(lower = 2L, upper = 10L)
   )
+  expect_equal(
+    bottleneck_units(c(2L, 10L))$range,
+    list(lower = 2L, upper = 10L)
+  )
+  expect_equal(dropout_attn(c(0, 0.3))$range, list(lower = 0, upper = 0.3))
+  expect_equal(dropout_embedding(c(0, 0.3))$range, list(lower = 0, upper = 0.3))
+  expect_equal(dropout_hidden(c(0, 0.3))$range, list(lower = 0, upper = 0.3))
+  expect_equal(dropout_last(c(0, 0.3))$range, list(lower = 0, upper = 0.3))
+  expect_equal(num_attn_blocks(c(1L, 4L))$range, list(lower = 1L, upper = 4L))
+  expect_equal(num_attn_feat(c(8L, 32L))$range, list(lower = 8L, upper = 32L))
+  expect_equal(num_attn_heads(c(1L, 4L))$range, list(lower = 1L, upper = 4L))
+  expect_equal(num_embedding(c(8L, 32L))$range, list(lower = 8L, upper = 32L))
+  expect_equal(penalty_average(c(-12, -4))$range, list(lower = -12, upper = -4))
+  expect_equal(resid_at()$range$lower, 2L)
+  expect_equal(step_rate(c(2, 6))$range, list(lower = 2, upper = 6))
 })
 
 
@@ -190,6 +207,8 @@ test_that("param values", {
   expect_equal(diagonal_covariance(TRUE)$values, TRUE)
   expect_equal(summary_stat()$values, values_summary_stat)
   expect_equal(survival_link()$values, values_survival_link)
+  expect_equal(attention_type()$values, values_attention_type)
+  expect_equal(normalization()$values, values_normalization)
   expect_equal(activation()$values, values_activation)
   expect_equal(activation_2()$values, values_activation)
   expect_equal(rate_schedule()$values, values_scheduler)
@@ -203,4 +222,6 @@ test_that("param values", {
   expect_equal(ordinal_link()$values, values_ordinal_link)
   expect_equal(odds_link(letters[4:6])$values, letters[4:6])
   expect_equal(odds_link()$values, values_odds_link)
+  expect_equal(penalty_type()$values, values_penalty_type)
+  expect_equal(target_token(TRUE)$values, TRUE)
 })
