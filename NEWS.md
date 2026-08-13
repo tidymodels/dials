@@ -1,5 +1,9 @@
 # dials (development version)
 
+* _Hybrid_ grids that cross space-filling and regular grids was added (`grid_hybrid()`). 
+
+* `splitting_rule()` gains support for survival forests via a new `ranger_survival_rules` vector (`"logrank"`, `"extratrees"`, `"C"`, `"maxstat"`), which is now included in `ranger_split_rules`.
+
 # dials 1.4.4
 
 * `attention_type()`, `dropout_hidden()`, `dropout_last()`, and `target_token()` are new parameters for the SAINT model in the brulee package (#452).
@@ -9,7 +13,6 @@
 * `l2_leaf_reg()` and `max_leaves()` are new parameter objects for tree-based models that use the "catboost" engine in the bonsai package (#453).
 
 * `splitting_rule()` gains support for survival forests (#456).
-
 
 # dials 1.4.3
 
