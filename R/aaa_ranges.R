@@ -81,7 +81,7 @@ range_validate <- function(
       )
     }
     if (!any(is_num)) {
-      cli::cli_abort("{.arg range} should be numeric.", call = call)
+      cli::cli_abort("{.arg range} must be numeric.", call = call)
     }
     if (range[[1]] > range[[2]]) {
       cli::cli_abort(
@@ -128,7 +128,7 @@ range_set <- function(object, range, call = caller_env()) {
 
   if (length(range) != 2) {
     cli::cli_abort(
-      "{.arg range} should have two elements, not {length(range)}.",
+      "{.arg range} must have two elements, not {length(range)}.",
       call = call
     )
   }
