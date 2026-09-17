@@ -252,46 +252,62 @@ export(weight_func)
 export(weight_scheme)
 export(window_size)
 import(rlang)
-importFrom(DiceDesign,dmaxDesign)
-importFrom(DiceDesign,lhsDesign)
-importFrom(dplyr,filter)
-importFrom(dplyr,mutate)
-importFrom(dplyr,pull)
-importFrom(dplyr,select)
-importFrom(glue,glue)
-importFrom(glue,glue_collapse)
+importFrom(DiceDesign,
+  dmaxDesign,
+  lhsDesign
+)
+importFrom(dplyr,
+  filter,
+  mutate,
+  pull,
+  select
+)
+importFrom(glue,
+  glue,
+  glue_collapse
+)
 importFrom(hardhat,extract_parameter_dials)
 importFrom(lifecycle,deprecated)
 importFrom(pillar,type_sum)
-importFrom(purrr,map)
-importFrom(purrr,map2)
-importFrom(purrr,map_chr)
-importFrom(purrr,map_dbl)
-importFrom(purrr,map_int)
-importFrom(purrr,map_lgl)
-importFrom(scales,is.trans)
-importFrom(scales,transform_log10)
-importFrom(scales,transform_log2)
+importFrom(purrr,
+  map,
+  map2,
+  map_chr,
+  map_dbl,
+  map_int,
+  map_lgl
+)
+importFrom(scales,
+  is.trans,
+  transform_log10,
+  transform_log2
+)
 importFrom(stats,runif)
-importFrom(tibble,as_tibble)
-importFrom(tibble,is_tibble)
-importFrom(tibble,new_tibble)
-importFrom(tibble,tibble)
-importFrom(utils,globalVariables)
-importFrom(utils,installed.packages)
-importFrom(vctrs,df_cast)
-importFrom(vctrs,new_data_frame)
-importFrom(vctrs,stop_incompatible_cast)
-importFrom(vctrs,tib_cast)
-importFrom(vctrs,tib_ptype2)
-importFrom(vctrs,vec_c)
-importFrom(vctrs,vec_cast)
-importFrom(vctrs,vec_cbind)
-importFrom(vctrs,vec_init)
-importFrom(vctrs,vec_proxy)
-importFrom(vctrs,vec_ptype)
-importFrom(vctrs,vec_ptype2)
-importFrom(vctrs,vec_rbind)
-importFrom(vctrs,vec_restore)
-importFrom(vctrs,vec_slice)
+importFrom(tibble,
+  as_tibble,
+  is_tibble,
+  new_tibble,
+  tibble
+)
+importFrom(utils,
+  globalVariables,
+  installed.packages
+)
+importFrom(vctrs,
+  df_cast,
+  new_data_frame,
+  stop_incompatible_cast,
+  tib_cast,
+  tib_ptype2,
+  vec_c,
+  vec_cast,
+  vec_cbind,
+  vec_init,
+  vec_proxy,
+  vec_ptype,
+  vec_ptype2,
+  vec_rbind,
+  vec_restore,
+  vec_slice
+)
 importFrom(withr,with_seed)

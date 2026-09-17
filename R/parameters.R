@@ -258,7 +258,7 @@ update.parameters <- function(object, ...) {
   }
   nms <- names(args)
   if (length(nms) == 0 || any(nms == "")) {
-    cli::cli_abort("All arguments should be named.")
+    cli::cli_abort("All arguments must be named.")
   }
 
   in_set <- nms %in% object$id
