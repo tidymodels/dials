@@ -91,6 +91,7 @@ reference:
   - num_knots
   - ordinal_link
   - penalty
+  - threshold_structure
   - predictor_prop
   - prune_method
   - starts_with("rate_")
