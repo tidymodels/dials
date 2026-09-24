@@ -2,9 +2,8 @@
 #'
 #' The ordinal and odds link functions of an ordinal regression model.
 #'
-#' @param values For `*_link()`, a character string from among the possible
-#'   values encoded in `values_*_link`. See the examples below.
-#'
+#' @param values For `*_link()`, a character string of possible values. See
+#'   `values_*_link` in examples below.
 #' @details These parameters are used by ordinal regression models specified by
 #'   `parsnip::ordinal_reg()`, for example `parsnip::set_engine('polr')`. The
 #'   nomenclature is taken from Wurm et al (2021), who characterize the pair of

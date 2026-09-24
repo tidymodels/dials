@@ -16,8 +16,8 @@ odds_link(values = values_odds_link)
 values_odds_link
 }
 \arguments{
-\item{values}{For \verb{*_link()}, a character string from among the possible
-values encoded in \verb{values_*_link}. See the examples below.}
+\item{values}{For \verb{*_link()}, a character string of possible values. See
+\verb{values_*_link} in examples below.}
 }
 \description{
 The ordinal and odds link functions of an ordinal regression model.

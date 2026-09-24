@@ -1,5 +1,7 @@
 # dials (development version)
 
+* `threshold_structure()` and `parallel_reg()` are new parameter dials for the `ordinal_reg()` model. They respectively control threshold constraints and the parallel regression assumption (applied to all terms).
+
 # dials 1.4.4
 
 * `attention_type()`, `dropout_hidden()`, `dropout_last()`, and `target_token()` are new parameters for the SAINT model in the brulee package (#452).
