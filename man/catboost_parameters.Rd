@@ -3,11 +3,20 @@
 \name{l2_leaf_reg}
 \alias{l2_leaf_reg}
 \alias{max_leaves}
+\alias{grow_policy}
+\alias{values_grow_policy}
+\alias{one_hot_max_size}
 \title{Possible engine parameters for catboost}
 \usage{
 l2_leaf_reg(range = c(0, 1), trans = transform_log10())
 
 max_leaves(range = c(10, 64), trans = NULL)
+
+grow_policy(values = values_grow_policy)
+
+values_grow_policy
+
+one_hot_max_size(range = c(1L, 25L), trans = NULL)
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and
@@ -18,6 +27,9 @@ these values should be in the \emph{transformed units}.}
 \code{scales::transform_log10()} or \code{scales::transform_reciprocal()}. If not provided,
 the default is used which matches the units used in \code{range}. If no
 transformation, \code{NULL}.}
+
+\item{values}{A character string of possible values. See
+\code{values_grow_policy} in examples below.}
 }
 \description{
 These parameters are auxiliary to tree-based models that use the "catboost"
@@ -28,13 +40,53 @@ engine. They correspond to tuning parameters that would be specified using
 "catboost" is an available engine in the parsnip extension package
 \href{https://bonsai.tidymodels.org/}{bonsai}
 
-\code{max_leaves()} is only used when the grow policy is set to \code{"Lossguide"}.
+The parameters are:
+\itemize{
+\item \code{l2_leaf_reg()}: the L2 regularization coefficient for the leaf values.
+\item \code{max_leaves()}: the maximum number of terminal nodes in a tree.
+\item \code{grow_policy()}: the method for growing trees. \code{"SymmetricTree"} (the
+default in catboost) splits every node at a given depth using the same
+condition. \code{"Depthwise"} grows the tree level-by-level, choosing the best
+split for each node. \code{"Lossguide"} grows the tree leaf-by-leaf, splitting
+the leaf with the best loss improvement.
+\item \code{one_hot_max_size()}: categorical predictors with this many distinct
+values or fewer are one-hot encoded. Those with more values are encoded
+using target statistics.
+}
+\subsection{Conditional constraints}{
+
+Several catboost parameters are only used for specific values of other
+parameters. Using the dials parameter names:
+\itemize{
+\item \code{max_leaves()} is only used when \code{grow_policy()} is \code{"Lossguide"}.
+catboost will fail with an error for other grow policies.
+\item \code{min_n()} (\code{min_data_in_leaf} in catboost) is only used when
+\code{grow_policy()} is \code{"Depthwise"} or \code{"Lossguide"}. For \code{"SymmetricTree"},
+it is silently ignored.
+\item \code{tree_depth()} is used for all grow policies, but its effect differs.
+For \code{"SymmetricTree"}, each tree has exactly \code{2^tree_depth} terminal
+nodes. For \code{"Lossguide"}, it is a cap on the depth of any branch while
+\code{max_leaves()} controls the tree size. catboost's maximum depth is 16.
+\item \code{sample_prop()} (\code{subsample} in catboost) cannot be used with Bayesian
+bootstrapping. Bayesian bootstrapping is catboost's default for
+multiclass outcomes, so catboost will fail with an error in that case
+unless a different \code{bootstrap_type} is set as an engine argument.
+\item \code{one_hot_max_size()} only affects predictors that are passed to catboost
+as factors. If categorical predictors are converted to indicator
+variables beforehand (e.g., with a recipe), it has no effect.
+\item \code{mtry_prop()} (\code{rsm} in catboost) is only supported on the CPU, except for
+pairwise ranking models.
+}
 
 For more information, see the \href{https://catboost.ai/docs/en/references/training-parameters/}{catboost webpage}.
+}
 }
 \examples{
 
 l2_leaf_reg()
 max_leaves()
+values_grow_policy
+grow_policy()
+one_hot_max_size()
 
 }
