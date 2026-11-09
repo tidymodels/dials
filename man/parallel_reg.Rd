@@ -3,27 +3,27 @@
 \name{parallel_reg}
 \alias{parallel_reg}
 \alias{values_parallel_reg}
-\title{Parallel Regression Specification (logical)}
+\title{Parallel regression assumption (logical)}
 \usage{
 parallel_reg(values = values_parallel_reg)
 
 values_parallel_reg
 }
 \arguments{
-\item{values}{A vector of possible values (TRUE or FALSE).}
+\item{values}{A vector of possible values (\code{TRUE} or \code{FALSE}).}
 }
 \description{
-Whether the parallel regression assumption is relaxed in an ordinal
+Whether the parallel regression assumption is imposed in an ordinal
 regression model.
 }
 \details{
 This parameter is used by ordinal regression models specified by
-\code{parsnip::ordinal_reg()}, for example \code{parsnip::set_engine("clm")}. It
-controls whether the regression coefficients are shared across all ordinal
-thresholds (e.g. proportional odds in logit-linked models) or allowed to
-vary (generalized ordered logit). \code{TRUE} makes all effects parallel,
-\code{FALSE} makes all effects nominal or category-specific. The default is
-\code{NULL}, which uses the engine default.
+\code{parsnip::ordinal_reg()}, for example with the \code{"clm"}, \code{"vglm"}, or
+\code{"ordinalNet"} engines. It controls whether the regression coefficients are
+shared across all ordinal thresholds (e.g. proportional odds in
+logit-linked models) or allowed to vary (generalized ordered logit). \code{TRUE}
+makes all effects parallel, \code{FALSE} makes all effects nominal or
+category-specific.
 }
 \examples{
 values_parallel_reg

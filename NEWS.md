@@ -1,6 +1,6 @@
 # dials (development version)
 
-* `threshold_structure()` and `parallel_reg()` are new parameter dials for the `ordinal_reg()` model. They respectively control threshold constraints and the parallel regression assumption (applied to all terms).
+* `parallel_reg()` and `threshold_structure()` are new parameters for the `ordinal_reg()` model. They respectively control the parallel regression assumption (applied to all terms) and threshold constraints (#462).
 
 # dials 1.4.4
 

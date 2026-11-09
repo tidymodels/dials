@@ -18,8 +18,8 @@ The threshold structure for the cutpoints of an ordinal regression model.
 }
 \details{
 This parameter is used by ordinal regression models specified by
-\code{parsnip::ordinal_reg()}, for example \code{parsnip::set_engine("clm")}. It
-controls how thresholds/cutpoints are constrained.
+\code{parsnip::ordinal_reg()}, for example with the \code{"clm"} or \code{"vglm"} engines.
+It controls how thresholds/cutpoints are constrained.
 \itemize{
 \item \code{"flexible"} (default): No constraints.
 \item \code{"symmetric_median"}: Symmetry about the median threshold.

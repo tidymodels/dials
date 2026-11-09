@@ -5,7 +5,7 @@
 \alias{values_ordinal_link}
 \alias{odds_link}
 \alias{values_odds_link}
-\title{Ordinal Regression Link Functions (character)}
+\title{Ordinal regression link functions (character)}
 \usage{
 ordinal_link(values = values_ordinal_link)
 

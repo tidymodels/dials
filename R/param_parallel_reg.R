@@ -1,17 +1,17 @@
-#' Parallel Regression Specification (logical)
+#' Parallel regression assumption (logical)
 #'
-#' Whether the parallel regression assumption is relaxed in an ordinal
+#' Whether the parallel regression assumption is imposed in an ordinal
 #' regression model.
 #'
-#' @param values A vector of possible values (TRUE or FALSE).
+#' @param values A vector of possible values (`TRUE` or `FALSE`).
 #'
 #' @details This parameter is used by ordinal regression models specified by
-#'   `parsnip::ordinal_reg()`, for example `parsnip::set_engine("clm")`. It
-#'   controls whether the regression coefficients are shared across all ordinal
-#'   thresholds (e.g. proportional odds in logit-linked models) or allowed to
-#'   vary (generalized ordered logit). `TRUE` makes all effects parallel,
-#'   `FALSE` makes all effects nominal or category-specific. The default is
-#'   `NULL`, which uses the engine default.
+#'   `parsnip::ordinal_reg()`, for example with the `"clm"`, `"vglm"`, or
+#'   `"ordinalNet"` engines. It controls whether the regression coefficients are
+#'   shared across all ordinal thresholds (e.g. proportional odds in
+#'   logit-linked models) or allowed to vary (generalized ordered logit). `TRUE`
+#'   makes all effects parallel, `FALSE` makes all effects nominal or
+#'   category-specific.
 #' @examples
 #' values_parallel_reg
 #' parallel_reg()

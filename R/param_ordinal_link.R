@@ -1,4 +1,4 @@
-#' Ordinal Regression Link Functions (character)
+#' Ordinal regression link functions (character)
 #'
 #' The ordinal and odds link functions of an ordinal regression model.
 #'

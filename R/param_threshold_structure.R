@@ -5,8 +5,8 @@
 #' @param values A character string of possible values. See
 #'   `values_threshold_structure` in examples below.
 #' @details This parameter is used by ordinal regression models specified by
-#'   `parsnip::ordinal_reg()`, for example `parsnip::set_engine("clm")`. It
-#'   controls how thresholds/cutpoints are constrained.
+#'   `parsnip::ordinal_reg()`, for example with the `"clm"` or `"vglm"` engines.
+#'   It controls how thresholds/cutpoints are constrained.
 #'
 #'   * `"flexible"` (default): No constraints.
 #'
@@ -17,7 +17,6 @@
 #'   * `"equidistant"`: Equal differences between consecutive thresholds.
 #'
 #'   See engine documentation for more detail and supported structures.
-
 #' @examples
 #' values_threshold_structure
 #' threshold_structure()

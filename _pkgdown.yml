@@ -90,8 +90,8 @@ reference:
   - num_estimators
   - num_knots
   - ordinal_link
+  - parallel_reg
   - penalty
-  - threshold_structure
   - predictor_prop
   - prune_method
   - starts_with("rate_")
@@ -105,6 +105,7 @@ reference:
   - survival_link
   - target_weight
   - threshold
+  - threshold_structure
   - trees
   - weight_func
 
