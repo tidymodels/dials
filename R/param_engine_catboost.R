@@ -23,6 +23,8 @@
 #' - `one_hot_max_size()`: categorical predictors with this many distinct
 #'   values or fewer are one-hot encoded. Those with more values are encoded
 #'   using target statistics.
+#' - `score_randomness()`: a multiplier for the amount of Gaussian noise added
+#'   to the splitting score (zero means no additional noise).
 #'
 #' ## Conditional constraints
 #'
@@ -56,6 +58,7 @@
 #' values_grow_policy
 #' grow_policy()
 #' one_hot_max_size()
+#' score_randomness()
 #'
 #' @rdname catboost_parameters
 #' @export
@@ -107,6 +110,19 @@ one_hot_max_size <- function(range = c(1L, 25L), trans = NULL) {
     inclusive = c(TRUE, TRUE),
     trans = trans,
     label = c(one_hot_max_size = "Maximum Levels for One-Hot Encoding"),
+    finalize = NULL
+  )
+}
+
+#' @rdname catboost_parameters
+#' @export
+score_randomness <- function(range = c(0.0, 1.5), trans = NULL) {
+  new_quant_param(
+    type = "double",
+    range = range,
+    inclusive = c(TRUE, TRUE),
+    trans = trans,
+    label = c(score_randomness = "Random Noise Level"),
     finalize = NULL
   )
 }

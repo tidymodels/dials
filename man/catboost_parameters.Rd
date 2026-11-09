@@ -6,6 +6,7 @@
 \alias{grow_policy}
 \alias{values_grow_policy}
 \alias{one_hot_max_size}
+\alias{score_randomness}
 \title{Possible engine parameters for catboost}
 \usage{
 l2_leaf_reg(range = c(0, 1), trans = transform_log10())
@@ -17,6 +18,8 @@ grow_policy(values = values_grow_policy)
 values_grow_policy
 
 one_hot_max_size(range = c(1L, 25L), trans = NULL)
+
+score_randomness(range = c(0, 1.5), trans = NULL)
 }
 \arguments{
 \item{range}{A two-element vector holding the \emph{defaults} for the smallest and
@@ -52,6 +55,8 @@ the leaf with the best loss improvement.
 \item \code{one_hot_max_size()}: categorical predictors with this many distinct
 values or fewer are one-hot encoded. Those with more values are encoded
 using target statistics.
+\item \code{score_randomness()}: a multiplier for the amount of Gaussian noise added
+to the splitting score (zero means no additional noise).
 }
 \subsection{Conditional constraints}{
 
@@ -88,5 +93,6 @@ max_leaves()
 values_grow_policy
 grow_policy()
 one_hot_max_size()
+score_randomness()
 
 }

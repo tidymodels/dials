@@ -182,6 +182,7 @@ test_that("param ranges", {
   expect_equal(penalty_average(c(-12, -4))$range, list(lower = -12, upper = -4))
   expect_equal(resid_at()$range$lower, 2L)
   expect_equal(step_rate(c(2, 6))$range, list(lower = 2, upper = 6))
+  expect_equal(score_randomness(c(1, 2))$range, list(lower = 1, upper = 2))
 })
 
 
