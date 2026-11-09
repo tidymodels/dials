@@ -90,6 +90,7 @@ reference:
   - num_estimators
   - num_knots
   - ordinal_link
+  - parallel_reg
   - penalty
   - predictor_prop
   - prune_method
@@ -104,6 +105,7 @@ reference:
   - survival_link
   - target_weight
   - threshold
+  - threshold_structure
   - trees
   - weight_func
 
