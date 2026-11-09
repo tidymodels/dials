@@ -167,7 +167,10 @@
   [`values_ordinal_link`](https://dials.tidymodels.org/dev/reference/ordinal_link.md)
   [`odds_link()`](https://dials.tidymodels.org/dev/reference/ordinal_link.md)
   [`values_odds_link`](https://dials.tidymodels.org/dev/reference/ordinal_link.md)
-  : Ordinal Regression Link Functions (character)
+  : Ordinal regression link functions (character)
+- [`parallel_reg()`](https://dials.tidymodels.org/dev/reference/parallel_reg.md)
+  [`values_parallel_reg`](https://dials.tidymodels.org/dev/reference/parallel_reg.md)
+  : Parallel regression assumption (logical)
 - [`penalty()`](https://dials.tidymodels.org/dev/reference/penalty.md) :
   Amount of regularization/penalization
 - [`predictor_prop()`](https://dials.tidymodels.org/dev/reference/predictor_prop.md)
@@ -210,6 +213,9 @@
   : Amount of supervision parameter
 - [`threshold()`](https://dials.tidymodels.org/dev/reference/threshold.md)
   : General thresholding parameter
+- [`threshold_structure()`](https://dials.tidymodels.org/dev/reference/threshold_structure.md)
+  [`values_threshold_structure`](https://dials.tidymodels.org/dev/reference/threshold_structure.md)
+  : Threshold structure (character)
 - [`trees()`](https://dials.tidymodels.org/dev/reference/trees.md)
   [`min_n()`](https://dials.tidymodels.org/dev/reference/trees.md)
   [`sample_size()`](https://dials.tidymodels.org/dev/reference/trees.md)

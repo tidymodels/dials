@@ -2,6 +2,14 @@
 
 ## dials (development version)
 
+- [`parallel_reg()`](https://dials.tidymodels.org/dev/reference/parallel_reg.md)
+  and
+  [`threshold_structure()`](https://dials.tidymodels.org/dev/reference/threshold_structure.md)
+  are new parameters for the `ordinal_reg()` model. They respectively
+  control the parallel regression assumption (applied to all terms) and
+  threshold constraints ([@corybrunson](https://github.com/corybrunson),
+  [\#462](https://github.com/tidymodels/dials/issues/462)).
+
 - [`grow_policy()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md),
   [`one_hot_max_size()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md),
   and

@@ -58,6 +58,7 @@
 <url><loc>https://dials.tidymodels.org/dev/reference/num_tokens.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/ordinal_link.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/over_ratio.html</loc></url>
+<url><loc>https://dials.tidymodels.org/dev/reference/parallel_reg.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/parameters.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/parameters_constr.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/penalty.html</loc></url>
@@ -86,6 +87,7 @@
 <url><loc>https://dials.tidymodels.org/dev/reference/target_weight.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/texthash.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/threshold.html</loc></url>
+<url><loc>https://dials.tidymodels.org/dev/reference/threshold_structure.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/token.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/trees.html</loc></url>
 <url><loc>https://dials.tidymodels.org/dev/reference/trim_amount.html</loc></url>
