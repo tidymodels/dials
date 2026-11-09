@@ -60,7 +60,9 @@ engine. They correspond to tuning parameters that would be specified using
 <span></span>
 <span><span class="va">values_grow_policy</span></span>
 <span></span>
-<span><span class="fu">one_hot_max_size</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">25L</span><span class="op">)</span>, trans <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">one_hot_max_size</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">25L</span><span class="op">)</span>, trans <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">score_randomness</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1.5</span><span class="op">)</span>, trans <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -99,6 +101,8 @@ the leaf with the best loss improvement.</p></li>
 <li><p><code>one_hot_max_size()</code>: categorical predictors with this many distinct
 values or fewer are one-hot encoded. Those with more values are encoded
 using target statistics.</p></li>
+<li><p><code>score_randomness()</code>: a multiplier for the amount of Gaussian noise added
+to the splitting score (zero means no additional noise).</p></li>
 </ul><div class="section">
 <h3 id="conditional-constraints">Conditional constraints<a class="anchor" aria-label="anchor" href="#conditional-constraints"></a></h3>
 
@@ -146,6 +150,9 @@ pairwise ranking models.</p></li>
 <span class="r-in"><span><span class="fu">one_hot_max_size</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Maximum Levels for One-Hot Encoding (quantitative)</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Range: [1, 25]</span>
+<span class="r-in"><span><span class="fu">score_randomness</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Random Noise Level (quantitative)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Range: [0, 1.5]</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>

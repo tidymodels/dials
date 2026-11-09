@@ -16,6 +16,8 @@ grow_policy(values = values_grow_policy)
 values_grow_policy
 
 one_hot_max_size(range = c(1L, 25L), trans = NULL)
+
+score_randomness(range = c(0, 1.5), trans = NULL)
 ```
 
 ## Arguments
@@ -61,6 +63,9 @@ The parameters are:
 - `one_hot_max_size()`: categorical predictors with this many distinct
   values or fewer are one-hot encoded. Those with more values are
   encoded using target statistics.
+
+- `score_randomness()`: a multiplier for the amount of Gaussian noise
+  added to the splitting score (zero means no additional noise).
 
 ### Conditional constraints
 
@@ -119,4 +124,7 @@ grow_policy()
 one_hot_max_size()
 #> Maximum Levels for One-Hot Encoding (quantitative)
 #> Range: [1, 25]
+score_randomness()
+#> Random Noise Level (quantitative)
+#> Range: [0, 1.5]
 ```

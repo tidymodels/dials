@@ -2,14 +2,16 @@
 
 ## dials (development version)
 
-- [`grow_policy()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md)
+- [`grow_policy()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md),
+  [`one_hot_max_size()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md),
   and
-  [`one_hot_max_size()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md)
+  [`score_randomness()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md)
   are new parameter objects for tree-based models that use the
   “catboost” engine in the bonsai package. The documentation for
   catboost parameters now describes which parameters depend on the
   values of others
-  ([\#465](https://github.com/tidymodels/dials/issues/465)).
+  ([\#465](https://github.com/tidymodels/dials/issues/465),
+  [\#466](https://github.com/tidymodels/dials/issues/466)).
 
 ## dials 1.4.4
 

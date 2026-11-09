@@ -261,6 +261,7 @@
   [`grow_policy()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md)
   [`values_grow_policy`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md)
   [`one_hot_max_size()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md)
+  [`score_randomness()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md)
   : Possible engine parameters for catboost
 - [`max_nodes()`](https://dials.tidymodels.org/dev/reference/randomForest_parameters.md)
   : Parameters for possible engine parameters for randomForest
