@@ -1,6 +1,6 @@
 # dials (development version)
 
-* `parallel_reg()` and `threshold_structure()` are new parameters for the `ordinal_reg()` model. They respectively control the parallel regression assumption (applied to all terms) and threshold constraints (#462).
+* `parallel_reg()` and `threshold_structure()` are new parameters for the `ordinal_reg()` model. They respectively control the parallel regression assumption (applied to all terms) and threshold constraints (@corybrunson, #462).
 
 * `grow_policy()`, `one_hot_max_size()`, and `score_randomness()` are new parameter objects for tree-based models that use the "catboost" engine in the bonsai package. The documentation for catboost parameters now describes which parameters depend on the values of others (#465, #466).
 
