@@ -1,8 +1,6 @@
 # dials (development version)
 
-* _Hybrid_ grids that cross space-filling and regular grids was added (`grid_hybrid()`). 
-
-* `splitting_rule()` gains support for survival forests via a new `ranger_survival_rules` vector (`"logrank"`, `"extratrees"`, `"C"`, `"maxstat"`), which is now included in `ranger_split_rules`.
+* `grid_hybrid()` is a new function that crosses a space-filling design for some parameters with a regular grid for others. This is helpful for "submodel" parameters that are cheap to tune (#451).
 
 # dials 1.4.4
 
