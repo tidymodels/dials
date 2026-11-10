@@ -244,5 +244,6 @@ make_hybrid <- function(
     type = type
   )
   reg <- grid_regular(reg_param, levels = levels, original = original)
-  tidyr::crossing(sfd, reg)
+  res <- tidyr::crossing(sfd, reg)
+  res[, x$id]
 }

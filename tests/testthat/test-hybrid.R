@@ -63,6 +63,13 @@ test_that("basic hybrid designs", {
   )
 })
 
+test_that("hybrid designs keep the parameter order", {
+  params_3 <- parameters(list(n_min = min_n(), hidden_units(), neighbors()))
+  grid <- grid_hybrid(params_3, parameters = "n_min", size = 5, levels = 2)
+
+  expect_named(grid, c("n_min", "hidden_units", "neighbors"))
+})
+
 test_that("other arguments work", {
   params_3 <- parameters(list(n_min = min_n(), penalty(), learn_rate()))
   grid_1 <- grid_hybrid(
