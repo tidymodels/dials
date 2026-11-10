@@ -146,9 +146,9 @@
 ---
 
     Code
-      grid_hybrid(list(a = penalty(), a = mtry()))
+      grid_hybrid(list(a = penalty(), a = mixture()))
     Condition
-      Error in `grid_hybrid()`:
-      x `a` must be a <param> object without unknowns.
-      i See the `dials::finalize()` function.
+      Error in `parameters()`:
+      x `id` must have unique values.
+      i Duplicates: "a"
 

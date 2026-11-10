@@ -208,6 +208,6 @@ test_that("grid_hybrid() errors with duplicate parameter ids", {
   # list method
   expect_snapshot(
     error = TRUE,
-    grid_hybrid(list(a = penalty(), a = mtry()))
+    grid_hybrid(list(a = penalty(), a = mixture()))
   )
 })
