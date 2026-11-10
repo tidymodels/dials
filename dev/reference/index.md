@@ -20,6 +20,8 @@
 
 ## Grid creation
 
+- [`grid_hybrid()`](https://dials.tidymodels.org/dev/reference/grid_hybrid.md)
+  : Hybrid space-filling/regular parameter grids
 - [`grid_regular()`](https://dials.tidymodels.org/dev/reference/grid_regular.md)
   [`grid_random()`](https://dials.tidymodels.org/dev/reference/grid_regular.md)
   : Create grids of tuning parameters

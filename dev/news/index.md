@@ -2,6 +2,12 @@
 
 ## dials (development version)
 
+- [`grid_hybrid()`](https://dials.tidymodels.org/dev/reference/grid_hybrid.md)
+  is a new function that crosses a space-filling design for some
+  parameters with a regular grid for others. This is helpful for
+  “submodel” parameters that are cheap to tune
+  ([\#451](https://github.com/tidymodels/dials/issues/451)).
+
 - [`parallel_reg()`](https://dials.tidymodels.org/dev/reference/parallel_reg.md)
   and
   [`threshold_structure()`](https://dials.tidymodels.org/dev/reference/threshold_structure.md)

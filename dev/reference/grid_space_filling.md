@@ -236,10 +236,5 @@ if (rlang::is_installed("ggplot2")) {
     lims(y = 0:1, x = c(1, 2000)) +
     ggtitle("uniform")
 }
-#> 
-#> Attaching package: ‘ggplot2’
-#> The following object is masked from ‘package:kernlab’:
-#> 
-#>     alpha
 
 ```
