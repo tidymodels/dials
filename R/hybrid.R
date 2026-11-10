@@ -218,20 +218,22 @@ make_hybrid <- function(
   original = TRUE,
   type = "any"
 ) {
-  if (is.null(parameters)) {
+  unknown_names <- setdiff(parameters, x$id)
+  if (length(unknown_names) > 0) {
+    cli::cli_abort(
+      "{.arg parameters} contains {.val {unknown_names}}, which {?is/are} not
+      among the parameter identifiers: {.val {x$id}}."
+    )
+  }
+
+  reg_param <- x$id %in% parameters
+  if (!any(reg_param)) {
     res <- grid_space_filling(x, size = size, original = original, type = type)
     return(res)
-  } else {
-    reg_param <- x$id %in% parameters
-    if (!any(reg_param)) {
-      cli::cli_abort(
-        "The {.arg parameters} argument value {.val {parameters}} did not select
-        any of the parameter identifiers: {.val {x$id}}"
-      )
-    } else if (all(reg_param)) {
-      res <- grid_regular(x, levels = levels, original = original)
-      return(res)
-    }
+  }
+  if (all(reg_param)) {
+    res <- grid_regular(x, levels = levels, original = original)
+    return(res)
   }
 
   sfd_param <- x[!reg_param, ]

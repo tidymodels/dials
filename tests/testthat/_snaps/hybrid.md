@@ -1,18 +1,18 @@
 # basic hybrid designs
 
     Code
-      grid_hybrid(params_3, parameters = character(0))
+      grid_hybrid(params_3, parameters = "potato")
     Condition
       Error in `make_hybrid()`:
-      ! The `parameters` argument value did not select any of the parameter identifiers: "n_min", "hidden_units", and "neighbors"
+      ! `parameters` contains "potato", which is not among the parameter identifiers: "n_min", "hidden_units", and "neighbors".
 
 ---
 
     Code
-      grid_hybrid(params_3, parameters = "potato")
+      grid_hybrid(params_3, parameters = c("n_min", "potato", "tomato"))
     Condition
       Error in `make_hybrid()`:
-      ! The `parameters` argument value "potato" did not select any of the parameter identifiers: "n_min", "hidden_units", and "neighbors"
+      ! `parameters` contains "potato" and "tomato", which are not among the parameter identifiers: "n_min", "hidden_units", and "neighbors".
 
 ---
 

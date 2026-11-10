@@ -47,14 +47,17 @@ test_that("basic hybrid designs", {
   expect_equal(vctrs::vec_unique_count(grid_4$neighbors), 5L)
   expect_equal(nrow(grid_4), 5)
 
+  grid_5 <- grid_hybrid(params_3, parameters = character(0), size = 5)
+  expect_equal(grid_5, grid_4)
+
   expect_snapshot(
-    grid_hybrid(params_3, parameters = character(0)),
-    error = TRUE
+    error = TRUE,
+    grid_hybrid(params_3, parameters = "potato")
   )
 
   expect_snapshot(
-    grid_hybrid(params_3, parameters = "potato"),
-    error = TRUE
+    error = TRUE,
+    grid_hybrid(params_3, parameters = c("n_min", "potato", "tomato"))
   )
 
   expect_snapshot(
