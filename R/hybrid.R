@@ -6,23 +6,24 @@
 #'
 #'
 #' @inheritParams grid_regular
-#' @inheritParams grid_space_filling
-#' @param size An integer for the maximum size of the space-filling portion
+#' @param sfd_size An integer for the maximum size of the space-filling portion
 #' of the design.
-#' @param levels The number of values for _each_ regular grid parameter.
-#' @param regular <[`tidy-select`][tidyselect::language]> The parameter(s)
-#' used to make the regular portion of the grid, selected by their
+#' @param sfd_type The type of space-filling design. See the `type` argument of
+#' [grid_space_filling()] for possible values.
+#' @param reg_parameters <[`tidy-select`][tidyselect::language]> The
+#' parameter(s) used to make the regular portion of the grid, selected by their
 #' identifiers. If no parameters are selected, a space-filling design with
-#' `size` candidates is created. If all parameters are selected, a regular grid
-#' with `levels^p` candidates is created where `p` is the number of selected
-#' parameters.
+#' `sfd_size` candidates is created. If all parameters are selected, a regular
+#' grid with `reg_levels^p` candidates is created where `p` is the number of
+#' selected parameters.
+#' @param reg_levels The number of values for _each_ regular grid parameter.
 #' @details
 #'
 #' This function first creates a space-filling design for the parameters that
-#' are not selected by `regular` (with `size` total candidates). Then a regular
-#' grid is created with `levels^p` candidates where `p` is the number of
-#' parameters selected by `regular`. These two grids are crossed to produce the
-#' end result.
+#' are not selected by `reg_parameters` (with `sfd_size` total candidates). Then
+#' a regular grid is created with `reg_levels^p` candidates where `p` is the
+#' number of parameters selected by `reg_parameters`. These two grids are
+#' crossed to produce the end result.
 #'
 #' @examples
 #' if (rlang::is_installed("ggplot2")) {
@@ -39,7 +40,7 @@
 #'     parameters(list(trees = trees(), learn_rate = learn_rate(), min_n = min_n()))
 #'
 #'   boost_example |>
-#'     grid_hybrid(regular = trees, size = 20, levels = 4) |>
+#'     grid_hybrid(reg_parameters = trees, sfd_size = 20, reg_levels = 4) |>
 #'     ggplot(aes(learn_rate, min_n)) +
 #'     geom_point() +
 #'     facet_wrap(~ trees, labeller = "label_both") +
@@ -60,7 +61,11 @@
 #'     )
 #'
 #'   nnet_example |>
-#'     grid_hybrid(regular = c(activation, schedule), size = 20, levels = 3) |>
+#'     grid_hybrid(
+#'       reg_parameters = c(activation, schedule),
+#'       sfd_size = 20,
+#'       reg_levels = 3
+#'     ) |>
 #'     ggplot(aes(learn_rate, dropout)) +
 #'     geom_point() +
 #'     facet_grid(activation ~ schedule, labeller = "label_both") +
@@ -71,11 +76,11 @@
 grid_hybrid <- function(
   x,
   ...,
-  regular = NULL,
-  size = 10,
-  levels = 20,
-  original = TRUE,
-  type = "any"
+  sfd_size = 10,
+  sfd_type = "any",
+  reg_parameters = NULL,
+  reg_levels = 20,
+  original = TRUE
 ) {
   UseMethod("grid_hybrid")
 }
@@ -85,11 +90,11 @@ grid_hybrid <- function(
 grid_hybrid.default <- function(
   x,
   ...,
-  regular = NULL,
-  size = 10,
-  levels = 20,
-  original = TRUE,
-  type = "any"
+  sfd_size = 10,
+  sfd_type = "any",
+  reg_parameters = NULL,
+  reg_levels = 20,
+  original = TRUE
 ) {
   if (missing(x)) {
     cli::cli_abort("At least one parameter object is required.")
@@ -105,11 +110,11 @@ grid_hybrid.default <- function(
 grid_hybrid.parameters <- function(
   x,
   ...,
-  regular = NULL,
-  size = 10,
-  levels = 20,
-  original = TRUE,
-  type = "any"
+  sfd_size = 10,
+  sfd_type = "any",
+  reg_parameters = NULL,
+  reg_levels = 20,
+  original = TRUE
 ) {
   check_dots_empty()
 
@@ -127,11 +132,11 @@ grid_hybrid.parameters <- function(
 
   grd <- make_hybrid(
     x,
-    regular = enquo(regular),
-    size = size,
-    levels = levels,
-    original = original,
-    type = type
+    sfd_size = sfd_size,
+    sfd_type = sfd_type,
+    reg_parameters = enquo(reg_parameters),
+    reg_levels = reg_levels,
+    original = original
   )
   grd
 }
@@ -141,11 +146,11 @@ grid_hybrid.parameters <- function(
 grid_hybrid.list <- function(
   x,
   ...,
-  regular = NULL,
-  size = 10,
-  levels = 20,
-  original = TRUE,
-  type = "any"
+  sfd_size = 10,
+  sfd_type = "any",
+  reg_parameters = NULL,
+  reg_levels = 20,
+  original = TRUE
 ) {
   check_dots_empty()
 
@@ -165,11 +170,11 @@ grid_hybrid.list <- function(
   params <- parameters(x)
   grd <- make_hybrid(
     params,
-    regular = enquo(regular),
-    size = size,
-    levels = levels,
-    original = original,
-    type = type
+    sfd_size = sfd_size,
+    sfd_type = sfd_type,
+    reg_parameters = enquo(reg_parameters),
+    reg_levels = reg_levels,
+    original = original
   )
   grd
 }
@@ -180,11 +185,11 @@ grid_hybrid.list <- function(
 grid_hybrid.param <- function(
   x,
   ...,
-  regular = NULL,
-  size = 10,
-  levels = 20,
-  original = TRUE,
-  type = "any"
+  sfd_size = 10,
+  sfd_type = "any",
+  reg_parameters = NULL,
+  reg_levels = 20,
+  original = TRUE
 ) {
   param_list <- list(x, ...)
   param_names <- names(param_list)
@@ -200,11 +205,11 @@ grid_hybrid.param <- function(
   params <- parameters(param_list)
   grd <- make_hybrid(
     params,
-    regular = enquo(regular),
-    size = size,
-    levels = levels,
-    original = original,
-    type = type
+    sfd_size = sfd_size,
+    sfd_type = sfd_type,
+    reg_parameters = enquo(reg_parameters),
+    reg_levels = reg_levels,
+    original = original
   )
   grd
 }
@@ -213,26 +218,26 @@ grid_hybrid.param <- function(
 make_hybrid <- function(
   x,
   ...,
-  regular = NULL,
-  size = 10,
-  levels = 20,
+  sfd_size = 10,
+  sfd_type = "any",
+  reg_parameters = NULL,
+  reg_levels = 20,
   original = TRUE,
-  type = "any",
   call = caller_env()
 ) {
   # We manually check for unknown names to give a custom error that refers to
   # parameter identifiers instead of tidyselect's "columns".
   selected <- try_fetch(
     tidyselect::eval_select(
-      regular,
+      reg_parameters,
       data = set_names(x$id),
       allow_rename = FALSE,
       error_call = call
     ),
     vctrs_error_subscript_oob = function(cnd) {
       cli::cli_abort(
-        "{.arg regular} contains {.val {cnd$i}}, which {?is/are} not among the
-        parameter identifiers: {.val {x$id}}.",
+        "{.arg reg_parameters} contains {.val {cnd$i}}, which {?is/are} not
+        among the parameter identifiers: {.val {x$id}}.",
         call = call
       )
     }
@@ -240,11 +245,16 @@ make_hybrid <- function(
 
   reg_param <- x$id %in% names(selected)
   if (!any(reg_param)) {
-    res <- grid_space_filling(x, size = size, original = original, type = type)
+    res <- grid_space_filling(
+      x,
+      size = sfd_size,
+      original = original,
+      type = sfd_type
+    )
     return(res)
   }
   if (all(reg_param)) {
-    res <- grid_regular(x, levels = levels, original = original)
+    res <- grid_regular(x, levels = reg_levels, original = original)
     return(res)
   }
 
@@ -253,11 +263,11 @@ make_hybrid <- function(
 
   sfd <- grid_space_filling(
     sfd_param,
-    size = size,
+    size = sfd_size,
     original = original,
-    type = type
+    type = sfd_type
   )
-  reg <- grid_regular(reg_param, levels = levels, original = original)
+  reg <- grid_regular(reg_param, levels = reg_levels, original = original)
   res <- tidyr::crossing(sfd, reg)
   res[, x$id]
 }

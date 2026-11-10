@@ -1,26 +1,26 @@
 # basic hybrid designs
 
     Code
-      grid_hybrid(params_3, regular = "potato")
+      grid_hybrid(params_3, reg_parameters = "potato")
     Condition
       Error in `grid_hybrid()`:
-      ! `regular` contains "potato", which is not among the parameter identifiers: "n_min", "hidden_units", and "neighbors".
+      ! `reg_parameters` contains "potato", which is not among the parameter identifiers: "n_min", "hidden_units", and "neighbors".
 
 ---
 
     Code
-      grid_hybrid(params_3, regular = c("n_min", "potato", "tomato"))
+      grid_hybrid(params_3, reg_parameters = c("n_min", "potato", "tomato"))
     Condition
       Error in `grid_hybrid()`:
-      ! `regular` contains "potato", which is not among the parameter identifiers: "n_min", "hidden_units", and "neighbors".
+      ! `reg_parameters` contains "potato", which is not among the parameter identifiers: "n_min", "hidden_units", and "neighbors".
 
 ---
 
     Code
-      grid_hybrid(params_3, regular = all_of(c("potato", "tomato")))
+      grid_hybrid(params_3, reg_parameters = all_of(c("potato", "tomato")))
     Condition
       Error in `grid_hybrid()`:
-      ! `regular` contains "potato" and "tomato", which are not among the parameter identifiers: "n_min", "hidden_units", and "neighbors".
+      ! `reg_parameters` contains "potato" and "tomato", which are not among the parameter identifiers: "n_min", "hidden_units", and "neighbors".
 
 # grid_hybrid() errors with non-param inputs
 

@@ -11,51 +11,51 @@
 grid_hybrid(
   x,
   ...,
-  regular = NULL,
-  size = 10,
-  levels = 20,
-  original = TRUE,
-  type = "any"
+  sfd_size = 10,
+  sfd_type = "any",
+  reg_parameters = NULL,
+  reg_levels = 20,
+  original = TRUE
 )
 
 \method{grid_hybrid}{default}(
   x,
   ...,
-  regular = NULL,
-  size = 10,
-  levels = 20,
-  original = TRUE,
-  type = "any"
+  sfd_size = 10,
+  sfd_type = "any",
+  reg_parameters = NULL,
+  reg_levels = 20,
+  original = TRUE
 )
 
 \method{grid_hybrid}{parameters}(
   x,
   ...,
-  regular = NULL,
-  size = 10,
-  levels = 20,
-  original = TRUE,
-  type = "any"
+  sfd_size = 10,
+  sfd_type = "any",
+  reg_parameters = NULL,
+  reg_levels = 20,
+  original = TRUE
 )
 
 \method{grid_hybrid}{list}(
   x,
   ...,
-  regular = NULL,
-  size = 10,
-  levels = 20,
-  original = TRUE,
-  type = "any"
+  sfd_size = 10,
+  sfd_type = "any",
+  reg_parameters = NULL,
+  reg_levels = 20,
+  original = TRUE
 )
 
 \method{grid_hybrid}{param}(
   x,
   ...,
-  regular = NULL,
-  size = 10,
-  levels = 20,
-  original = TRUE,
-  type = "any"
+  sfd_size = 10,
+  sfd_type = "any",
+  reg_parameters = NULL,
+  reg_levels = 20,
+  original = TRUE
 )
 }
 \arguments{
@@ -65,26 +65,23 @@ grid_hybrid(
 \code{\link[=penalty]{penalty()}}). None of the objects can have \code{unknown()} values in
 the parameter ranges or values.}
 
-\item{regular}{<\code{\link[tidyselect:language]{tidy-select}}> The parameter(s)
-used to make the regular portion of the grid, selected by their
-identifiers. If no parameters are selected, a space-filling design with
-\code{size} candidates is created. If all parameters are selected, a regular grid
-with \code{levels^p} candidates is created where \code{p} is the number of selected
-parameters.}
-
-\item{size}{An integer for the maximum size of the space-filling portion
+\item{sfd_size}{An integer for the maximum size of the space-filling portion
 of the design.}
 
-\item{levels}{The number of values for \emph{each} regular grid parameter.}
+\item{sfd_type}{The type of space-filling design. See the \code{type} argument of
+\code{\link[=grid_space_filling]{grid_space_filling()}} for possible values.}
+
+\item{reg_parameters}{<\code{\link[tidyselect:language]{tidy-select}}> The
+parameter(s) used to make the regular portion of the grid, selected by their
+identifiers. If no parameters are selected, a space-filling design with
+\code{sfd_size} candidates is created. If all parameters are selected, a regular
+grid with \code{reg_levels^p} candidates is created where \code{p} is the number of
+selected parameters.}
+
+\item{reg_levels}{The number of values for \emph{each} regular grid parameter.}
 
 \item{original}{A logical: should the parameters be in the original units or
 in the transformed space (if any)?}
-
-\item{type}{A character string with possible values: \code{"any"},
-\code{"audze_eglais"}, \code{"max_min_l1"}, \code{"max_min_l2"}, \code{"uniform"},
-\code{"max_entropy"}, or \code{"latin_hypercube"}. A value of \code{"any"} will choose the
-first design available (in the order listed above, excluding
-\code{"latin_hypercube"}). For a single-point design, a random grid is created.}
 }
 \description{
 A grid can be created that is efficient for some parameter(s) but
@@ -93,10 +90,10 @@ a "submodel" parameter that can be tuned with virtually no cost.
 }
 \details{
 This function first creates a space-filling design for the parameters that
-are not selected by \code{regular} (with \code{size} total candidates). Then a regular
-grid is created with \code{levels^p} candidates where \code{p} is the number of
-parameters selected by \code{regular}. These two grids are crossed to produce the
-end result.
+are not selected by \code{reg_parameters} (with \code{sfd_size} total candidates). Then
+a regular grid is created with \code{reg_levels^p} candidates where \code{p} is the
+number of parameters selected by \code{reg_parameters}. These two grids are
+crossed to produce the end result.
 }
 \examples{
 if (rlang::is_installed("ggplot2")) {
@@ -113,7 +110,7 @@ if (rlang::is_installed("ggplot2")) {
     parameters(list(trees = trees(), learn_rate = learn_rate(), min_n = min_n()))
 
   boost_example |>
-    grid_hybrid(regular = trees, size = 20, levels = 4) |>
+    grid_hybrid(reg_parameters = trees, sfd_size = 20, reg_levels = 4) |>
     ggplot(aes(learn_rate, min_n)) +
     geom_point() +
     facet_wrap(~ trees, labeller = "label_both") +
@@ -134,7 +131,11 @@ if (rlang::is_installed("ggplot2")) {
     )
 
   nnet_example |>
-    grid_hybrid(regular = c(activation, schedule), size = 20, levels = 3) |>
+    grid_hybrid(
+      reg_parameters = c(activation, schedule),
+      sfd_size = 20,
+      reg_levels = 3
+    ) |>
     ggplot(aes(learn_rate, dropout)) +
     geom_point() +
     facet_grid(activation ~ schedule, labeller = "label_both") +
