@@ -1,5 +1,7 @@
 # dials (development version)
 
+* `grid_hybrid()` is a new function that crosses a space-filling design for some parameters with a regular grid for others. This is helpful for "submodel" parameters that are cheap to tune (#451).
+
 * `parallel_reg()` and `threshold_structure()` are new parameters for the `ordinal_reg()` model. They respectively control the parallel regression assumption (applied to all terms) and threshold constraints (@corybrunson, #462).
 
 * `grow_policy()`, `one_hot_max_size()`, and `score_randomness()` are new parameter objects for tree-based models that use the "catboost" engine in the bonsai package. The documentation for catboost parameters now describes which parameters depend on the values of others (#465, #466).
@@ -14,7 +16,6 @@
 * `l2_leaf_reg()` and `max_leaves()` are new parameter objects for tree-based models that use the "catboost" engine in the bonsai package (#453).
 
 * `splitting_rule()` gains support for survival forests (#456).
-
 
 # dials 1.4.3
 

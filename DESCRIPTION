@@ -29,6 +29,8 @@ Imports:
     rlang (>= 1.1.0),
     sfd,
     tibble,
+    tidyr,
+    tidyselect,
     utils,
     vctrs (>= 0.3.8),
     withr
