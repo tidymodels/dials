@@ -216,13 +216,15 @@ make_hybrid <- function(
   size = 10,
   levels = 20,
   original = TRUE,
-  type = "any"
+  type = "any",
+  call = caller_env()
 ) {
   unknown_names <- setdiff(parameters, x$id)
   if (length(unknown_names) > 0) {
     cli::cli_abort(
       "{.arg parameters} contains {.val {unknown_names}}, which {?is/are} not
-      among the parameter identifiers: {.val {x$id}}."
+      among the parameter identifiers: {.val {x$id}}.",
+      call = call
     )
   }
 
