@@ -10,17 +10,19 @@
 #' @param size An integer for the maximum size of the space-filling portion
 #' of the design.
 #' @param levels The number of values for _each_ regular grid parameter.
-#' @param parameters A character string that matches the _names_ of the
-#' parameter(s) that are used to make the regular portion of the grid. If no
-#' value is given, a space-filling design with `size` candidates is created. If
-#' all parameters are selected, a regular grid with `levels^p` candidates is
-#' created where `p` is the length of `parameters`.
+#' @param regular <[`tidy-select`][tidyselect::language]> The parameter(s)
+#' used to make the regular portion of the grid, selected by their
+#' identifiers. If no parameters are selected, a space-filling design with
+#' `size` candidates is created. If all parameters are selected, a regular grid
+#' with `levels^p` candidates is created where `p` is the number of selected
+#' parameters.
 #' @details
 #'
 #' This function first creates a space-filling design for the parameters that
-#' do not match `parameters` (with `size` total candidates). Then a regular grid
-#' is created with `levels^p` candidates where `p` is the length of
-#' `parameters`. These two grids are crossed to produce the end result.
+#' are not selected by `regular` (with `size` total candidates). Then a regular
+#' grid is created with `levels^p` candidates where `p` is the number of
+#' parameters selected by `regular`. These two grids are crossed to produce the
+#' end result.
 #'
 #' @examples
 #' if (rlang::is_installed("ggplot2")) {
@@ -37,7 +39,7 @@
 #'     parameters(list(trees = trees(), learn_rate = learn_rate(), min_n = min_n()))
 #'
 #'   boost_example |>
-#'     grid_hybrid(parameters = "trees", size = 20, levels = 4) |>
+#'     grid_hybrid(regular = trees, size = 20, levels = 4) |>
 #'     ggplot(aes(learn_rate, min_n)) +
 #'     geom_point() +
 #'     facet_wrap(~ trees, labeller = "label_both") +
@@ -58,7 +60,7 @@
 #'     )
 #'
 #'   nnet_example |>
-#'     grid_hybrid(parameters = c("activation", "schedule"), size = 20, levels = 3) |>
+#'     grid_hybrid(regular = c(activation, schedule), size = 20, levels = 3) |>
 #'     ggplot(aes(learn_rate, dropout)) +
 #'     geom_point() +
 #'     facet_grid(activation ~ schedule, labeller = "label_both") +
@@ -69,7 +71,7 @@
 grid_hybrid <- function(
   x,
   ...,
-  parameters = NULL,
+  regular = NULL,
   size = 10,
   levels = 20,
   original = TRUE,
@@ -83,7 +85,7 @@ grid_hybrid <- function(
 grid_hybrid.default <- function(
   x,
   ...,
-  parameters = NULL,
+  regular = NULL,
   size = 10,
   levels = 20,
   original = TRUE,
@@ -103,7 +105,7 @@ grid_hybrid.default <- function(
 grid_hybrid.parameters <- function(
   x,
   ...,
-  parameters = NULL,
+  regular = NULL,
   size = 10,
   levels = 20,
   original = TRUE,
@@ -125,7 +127,7 @@ grid_hybrid.parameters <- function(
 
   grd <- make_hybrid(
     x,
-    parameters = parameters,
+    regular = enquo(regular),
     size = size,
     levels = levels,
     original = original,
@@ -139,7 +141,7 @@ grid_hybrid.parameters <- function(
 grid_hybrid.list <- function(
   x,
   ...,
-  parameters = NULL,
+  regular = NULL,
   size = 10,
   levels = 20,
   original = TRUE,
@@ -163,7 +165,7 @@ grid_hybrid.list <- function(
   params <- parameters(x)
   grd <- make_hybrid(
     params,
-    parameters = parameters,
+    regular = enquo(regular),
     size = size,
     levels = levels,
     original = original,
@@ -178,7 +180,7 @@ grid_hybrid.list <- function(
 grid_hybrid.param <- function(
   x,
   ...,
-  parameters = NULL,
+  regular = NULL,
   size = 10,
   levels = 20,
   original = TRUE,
@@ -198,7 +200,7 @@ grid_hybrid.param <- function(
   params <- parameters(param_list)
   grd <- make_hybrid(
     params,
-    parameters = parameters,
+    regular = enquo(regular),
     size = size,
     levels = levels,
     original = original,
@@ -211,23 +213,32 @@ grid_hybrid.param <- function(
 make_hybrid <- function(
   x,
   ...,
-  parameters = NULL,
+  regular = NULL,
   size = 10,
   levels = 20,
   original = TRUE,
   type = "any",
   call = caller_env()
 ) {
-  unknown_names <- setdiff(parameters, x$id)
-  if (length(unknown_names) > 0) {
-    cli::cli_abort(
-      "{.arg parameters} contains {.val {unknown_names}}, which {?is/are} not
-      among the parameter identifiers: {.val {x$id}}.",
-      call = call
-    )
-  }
+  # We manually check for unknown names to give a custom error that refers to
+  # parameter identifiers instead of tidyselect's "columns".
+  selected <- try_fetch(
+    tidyselect::eval_select(
+      regular,
+      data = set_names(x$id),
+      allow_rename = FALSE,
+      error_call = call
+    ),
+    vctrs_error_subscript_oob = function(cnd) {
+      cli::cli_abort(
+        "{.arg regular} contains {.val {cnd$i}}, which {?is/are} not among the
+        parameter identifiers: {.val {x$id}}.",
+        call = call
+      )
+    }
+  )
 
-  reg_param <- x$id %in% parameters
+  reg_param <- x$id %in% names(selected)
   if (!any(reg_param)) {
     res <- grid_space_filling(x, size = size, original = original, type = type)
     return(res)

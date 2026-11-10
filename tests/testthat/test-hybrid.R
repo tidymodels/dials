@@ -2,7 +2,7 @@ test_that("basic hybrid designs", {
   params_3 <- parameters(list(n_min = min_n(), hidden_units(), neighbors()))
   grid_1 <- grid_hybrid(
     params_3,
-    parameters = "n_min",
+    regular = "n_min",
     size = 5,
     levels = 6
   )
@@ -14,7 +14,7 @@ test_that("basic hybrid designs", {
 
   grid_2 <- grid_hybrid(
     params_3,
-    parameters = c("n_min", "neighbors"),
+    regular = c("n_min", "neighbors"),
     size = 5,
     levels = 6
   )
@@ -26,7 +26,7 @@ test_that("basic hybrid designs", {
 
   grid_3 <- grid_hybrid(
     params_3,
-    parameters = c("n_min", "neighbors", "hidden_units"),
+    regular = c("n_min", "neighbors", "hidden_units"),
     size = 5,
     levels = 6
   )
@@ -47,23 +47,72 @@ test_that("basic hybrid designs", {
   expect_equal(vctrs::vec_unique_count(grid_4$neighbors), 5L)
   expect_equal(nrow(grid_4), 5)
 
-  grid_5 <- grid_hybrid(params_3, parameters = character(0), size = 5)
+  grid_5 <- grid_hybrid(params_3, regular = character(0), size = 5)
   expect_equal(grid_5, grid_4)
 
   expect_snapshot(
     error = TRUE,
-    grid_hybrid(params_3, parameters = "potato")
+    grid_hybrid(params_3, regular = "potato")
   )
 
   expect_snapshot(
     error = TRUE,
-    grid_hybrid(params_3, parameters = c("n_min", "potato", "tomato"))
+    grid_hybrid(params_3, regular = c("n_min", "potato", "tomato"))
   )
+
+  expect_snapshot(
+    error = TRUE,
+    grid_hybrid(params_3, regular = all_of(c("potato", "tomato")))
+  )
+})
+
+test_that("parameters can be selected with tidyselect", {
+  params_3 <- parameters(list(n_min = min_n(), hidden_units(), neighbors()))
+  grid_strings <- grid_hybrid(
+    params_3,
+    regular = "n_min",
+    size = 5,
+    levels = 3
+  )
+
+  grid_names <- grid_hybrid(
+    params_3,
+    regular = n_min,
+    size = 5,
+    levels = 3
+  )
+  expect_equal(grid_names, grid_strings)
+
+  grid_helper <- grid_hybrid(
+    params_3,
+    regular = starts_with("n_"),
+    size = 5,
+    levels = 3
+  )
+  expect_equal(grid_helper, grid_strings)
+
+  grid_list <- grid_hybrid(
+    list(n_min = min_n(), hidden_units(), neighbors()),
+    regular = n_min,
+    size = 5,
+    levels = 3
+  )
+  expect_equal(grid_list, grid_strings)
+
+  grid_dots <- grid_hybrid(
+    min_n(),
+    hidden_units(),
+    neighbors(),
+    regular = min_n,
+    size = 5,
+    levels = 3
+  )
+  expect_equal(grid_dots, dplyr::rename(grid_strings, min_n = n_min))
 })
 
 test_that("hybrid designs keep the parameter order", {
   params_3 <- parameters(list(n_min = min_n(), hidden_units(), neighbors()))
-  grid <- grid_hybrid(params_3, parameters = "n_min", size = 5, levels = 2)
+  grid <- grid_hybrid(params_3, regular = "n_min", size = 5, levels = 2)
 
   expect_named(grid, c("n_min", "hidden_units", "neighbors"))
 })
@@ -72,21 +121,21 @@ test_that("other arguments work", {
   params_3 <- parameters(list(n_min = min_n(), penalty(), learn_rate()))
   grid_1 <- grid_hybrid(
     params_3,
-    parameters = "n_min",
+    regular = "n_min",
     size = 5,
     levels = 6,
     type = "audze_eglais"
   )
   grid_2 <- grid_hybrid(
     params_3,
-    parameters = "n_min",
+    regular = "n_min",
     size = 5,
     levels = 6,
     type = "uniform"
   )
   grid_3 <- grid_hybrid(
     params_3,
-    parameters = "n_min",
+    regular = "n_min",
     size = 5,
     levels = 6,
     type = "uniform"
@@ -97,7 +146,7 @@ test_that("other arguments work", {
 
   grid_4 <- grid_hybrid(
     params_3,
-    parameters = "n_min",
+    regular = "n_min",
     size = 5,
     levels = 6,
     type = "uniform",
@@ -114,7 +163,7 @@ test_that("S3 methods for hybrid designs", {
 
   design_paramset <- grid_hybrid(
     prm,
-    parameters = "mixture",
+    regular = "mixture",
     size = size,
     levels = lvls,
     type = "uniform"
@@ -124,7 +173,7 @@ test_that("S3 methods for hybrid designs", {
       mixture(),
       mom = momentum(),
       activation(c("relu", "tanh")),
-      parameters = "mixture",
+      regular = "mixture",
       size = size,
       levels = lvls,
       type = "uniform"
@@ -140,7 +189,7 @@ test_that("S3 methods for hybrid designs", {
         mom = momentum(),
         activation(c("relu", "tanh"))
       ),
-      parameters = "mixture",
+      regular = "mixture",
       size = size,
       levels = lvls,
       type = "uniform"
@@ -151,13 +200,13 @@ test_that("S3 methods for hybrid designs", {
 test_that("1-point grid", {
   prm <- parameters(mixture(), mom = momentum(), activation(c("relu", "tanh")))
 
-  grid_1 <- grid_hybrid(prm, parameters = "mixture", size = 1, levels = 1)
+  grid_1 <- grid_hybrid(prm, regular = "mixture", size = 1, levels = 1)
   expect_equal(nrow(grid_1), 1L)
 
-  grid_2 <- grid_hybrid(prm, parameters = "mixture", size = 4, levels = 1)
+  grid_2 <- grid_hybrid(prm, regular = "mixture", size = 4, levels = 1)
   expect_equal(nrow(grid_2), 4L)
 
-  grid_3 <- grid_hybrid(prm, parameters = "mixture", size = 1, levels = 4)
+  grid_3 <- grid_hybrid(prm, regular = "mixture", size = 1, levels = 4)
   expect_equal(nrow(grid_3), 4L)
 })
 

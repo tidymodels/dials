@@ -11,7 +11,7 @@
 grid_hybrid(
   x,
   ...,
-  parameters = NULL,
+  regular = NULL,
   size = 10,
   levels = 20,
   original = TRUE,
@@ -21,7 +21,7 @@ grid_hybrid(
 \method{grid_hybrid}{default}(
   x,
   ...,
-  parameters = NULL,
+  regular = NULL,
   size = 10,
   levels = 20,
   original = TRUE,
@@ -31,7 +31,7 @@ grid_hybrid(
 \method{grid_hybrid}{parameters}(
   x,
   ...,
-  parameters = NULL,
+  regular = NULL,
   size = 10,
   levels = 20,
   original = TRUE,
@@ -41,7 +41,7 @@ grid_hybrid(
 \method{grid_hybrid}{list}(
   x,
   ...,
-  parameters = NULL,
+  regular = NULL,
   size = 10,
   levels = 20,
   original = TRUE,
@@ -51,7 +51,7 @@ grid_hybrid(
 \method{grid_hybrid}{param}(
   x,
   ...,
-  parameters = NULL,
+  regular = NULL,
   size = 10,
   levels = 20,
   original = TRUE,
@@ -65,11 +65,12 @@ grid_hybrid(
 \code{\link[=penalty]{penalty()}}). None of the objects can have \code{unknown()} values in
 the parameter ranges or values.}
 
-\item{parameters}{A character string that matches the \emph{names} of the
-parameter(s) that are used to make the regular portion of the grid. If no
-value is given, a space-filling design with \code{size} candidates is created. If
-all parameters are selected, a regular grid with \code{levels^p} candidates is
-created where \code{p} is the length of \code{parameters}.}
+\item{regular}{<\code{\link[tidyselect:language]{tidy-select}}> The parameter(s)
+used to make the regular portion of the grid, selected by their
+identifiers. If no parameters are selected, a space-filling design with
+\code{size} candidates is created. If all parameters are selected, a regular grid
+with \code{levels^p} candidates is created where \code{p} is the number of selected
+parameters.}
 
 \item{size}{An integer for the maximum size of the space-filling portion
 of the design.}
@@ -92,9 +93,10 @@ a "submodel" parameter that can be tuned with virtually no cost.
 }
 \details{
 This function first creates a space-filling design for the parameters that
-do not match \code{parameters} (with \code{size} total candidates). Then a regular grid
-is created with \code{levels^p} candidates where \code{p} is the length of
-\code{parameters}. These two grids are crossed to produce the end result.
+are not selected by \code{regular} (with \code{size} total candidates). Then a regular
+grid is created with \code{levels^p} candidates where \code{p} is the number of
+parameters selected by \code{regular}. These two grids are crossed to produce the
+end result.
 }
 \examples{
 if (rlang::is_installed("ggplot2")) {
@@ -111,7 +113,7 @@ if (rlang::is_installed("ggplot2")) {
     parameters(list(trees = trees(), learn_rate = learn_rate(), min_n = min_n()))
 
   boost_example |>
-    grid_hybrid(parameters = "trees", size = 20, levels = 4) |>
+    grid_hybrid(regular = trees, size = 20, levels = 4) |>
     ggplot(aes(learn_rate, min_n)) +
     geom_point() +
     facet_wrap(~ trees, labeller = "label_both") +
@@ -132,7 +134,7 @@ if (rlang::is_installed("ggplot2")) {
     )
 
   nnet_example |>
-    grid_hybrid(parameters = c("activation", "schedule"), size = 20, levels = 3) |>
+    grid_hybrid(regular = c(activation, schedule), size = 20, levels = 3) |>
     ggplot(aes(learn_rate, dropout)) +
     geom_point() +
     facet_grid(activation ~ schedule, labeller = "label_both") +
