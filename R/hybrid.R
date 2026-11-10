@@ -21,11 +21,10 @@
 #' do not match `parameters` (with `size` total candidates). Then a regular grid
 #' is created with `levels^p` candidates where `p` is the length of
 #' `parameters`. These two grids are crossed to produce the end result.
-
+#'
 #' @examples
 #' if (rlang::is_installed("ggplot2")) {
 #'
-#'   library(dplyr)
 #'   library(ggplot2)
 #'
 #'   # Most boosting methods can make many predictions across a number of trees

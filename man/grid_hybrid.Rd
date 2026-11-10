@@ -99,7 +99,6 @@ is created with \code{levels^p} candidates where \code{p} is the length of
 \examples{
 if (rlang::is_installed("ggplot2")) {
 
-  library(dplyr)
   library(ggplot2)
 
   # Most boosting methods can make many predictions across a number of trees
