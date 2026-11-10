@@ -75,7 +75,7 @@
       update(p_1, new_pen)
     Condition
       Error in `update()`:
-      ! All arguments should be named.
+      ! All arguments must be named.
 
 ---
 
@@ -99,7 +99,7 @@
       update(p_1, penalty(), mtry = mtry(3:4))
     Condition
       Error in `update()`:
-      ! All arguments should be named.
+      ! All arguments must be named.
 
 ---
 

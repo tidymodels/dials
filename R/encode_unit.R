@@ -45,7 +45,7 @@ encode_unit.quant_param <- function(x, value, direction, original = TRUE, ...) {
 
     compl <- value[!is.na(value)]
     if (any(compl < 0) | any(compl > 1)) {
-      cli::cli_abort("Values should be on [0, 1].")
+      cli::cli_abort("Values must be on [0, 1].")
     }
 
     value <- (value * param_rng) + x$range$lower
@@ -100,7 +100,7 @@ encode_unit.qual_param <- function(x, value, direction, ...) {
 
     compl <- value[!is.na(value)]
     if (any(compl < 0) | any(compl > 1)) {
-      cli::cli_abort("Values should be on [0, 1].")
+      cli::cli_abort("Values must be on [0, 1].")
     }
 
     if (!is.numeric(value) || is.matrix(value)) {

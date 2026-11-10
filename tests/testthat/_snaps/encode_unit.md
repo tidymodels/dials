@@ -117,7 +117,7 @@
       encode_unit(z, prune_method()$values, direction = "backward")
     Condition
       Error in `encode_unit()`:
-      ! Values should be on [0, 1].
+      ! Values must be on [0, 1].
 
 ---
 
@@ -125,7 +125,7 @@
       encode_unit(x, 1:2, direction = "backward")
     Condition
       Error in `encode_unit()`:
-      ! Values should be on [0, 1].
+      ! Values must be on [0, 1].
 
 ---
 
@@ -133,7 +133,7 @@
       encode_unit(z, 1:2, direction = "backward")
     Condition
       Error in `encode_unit()`:
-      ! Values should be on [0, 1].
+      ! Values must be on [0, 1].
 
 ---
 

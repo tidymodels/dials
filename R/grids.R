@@ -205,7 +205,7 @@ make_regular_grid <- function(
   p <- length(levels)
   if (p > 1 && p != length(param_quos)) {
     cli::cli_abort(
-      "{.arg levels} should have length 1 or {length(param_quos)}, not {p}.",
+      "{.arg levels} must have length 1 or {length(param_quos)}, not {p}.",
       call = call
     )
   }
@@ -217,7 +217,7 @@ make_regular_grid <- function(
       levels <- levels[names(params)]
     } else if (any(rlang::has_name(levels, names(params)))) {
       cli::cli_abort(
-        "Elements of {.arg levels} should either be all named or unnamed,
+        "Elements of {.arg levels} must either be all named or unnamed,
         not mixed.",
         call = call
       )

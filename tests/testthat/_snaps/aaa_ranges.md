@@ -36,7 +36,7 @@
       range_set(mtry(), 1)
     Condition
       Error:
-      ! `range` should have two elements, not 1.
+      ! `range` must have two elements, not 1.
 
 ---
 
@@ -61,5 +61,5 @@
       range_validate(mtry(), letters[1:2], ukn_ok = FALSE)
     Condition
       Error:
-      ! `range` should be numeric.
+      ! `range` must be numeric.
 
