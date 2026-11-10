@@ -92,8 +92,8 @@ test_that("other arguments work", {
     type = "uniform"
   )
 
-  expect_false(isTRUE(all.equal(grid_1, grid_2)))
-  expect_true(isTRUE(all.equal(grid_2, grid_3)))
+  expect_false(identical(grid_1, grid_2))
+  expect_equal(grid_2, grid_3)
 
   grid_4 <- grid_hybrid(
     params_3,
@@ -103,7 +103,7 @@ test_that("other arguments work", {
     type = "uniform",
     original = FALSE
   )
-  expect_false(isTRUE(all.equal(grid_3, grid_4)))
+  expect_false(identical(grid_3, grid_4))
 })
 
 
@@ -149,8 +149,6 @@ test_that("S3 methods for hybrid designs", {
 })
 
 test_that("1-point grid", {
-  size <- 12
-  lvls <- 4
   prm <- parameters(mixture(), mom = momentum(), activation(c("relu", "tanh")))
 
   grid_1 <- grid_hybrid(prm, parameters = "mixture", size = 1, levels = 1)
