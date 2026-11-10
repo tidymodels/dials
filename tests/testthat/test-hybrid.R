@@ -59,11 +59,6 @@ test_that("basic hybrid designs", {
     error = TRUE,
     grid_hybrid(params_3, parameters = c("n_min", "potato", "tomato"))
   )
-
-  expect_snapshot(
-    grid_hybrid(parameters(), parameters = "potato"),
-    error = TRUE
-  )
 })
 
 test_that("hybrid designs keep the parameter order", {

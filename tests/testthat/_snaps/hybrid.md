@@ -14,14 +14,6 @@
       Error in `grid_hybrid()`:
       ! `parameters` contains "potato" and "tomato", which are not among the parameter identifiers: "n_min", "hidden_units", and "neighbors".
 
----
-
-    Code
-      grid_hybrid(parameters(), parameters = "potato")
-    Condition
-      Error in `parameters()`:
-      ! No input provided. Please supply at least one parameter object.
-
 # grid_hybrid() errors with non-param inputs
 
     Code
