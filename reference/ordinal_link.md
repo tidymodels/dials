@@ -1,4 +1,4 @@
-# Ordinal Regression Link Functions (character)
+# Ordinal regression link functions (character)
 
 The ordinal and odds link functions of an ordinal regression model.
 
@@ -18,8 +18,8 @@ values_odds_link
 
 - values:
 
-  For `*_link()`, a character string from among the possible values
-  encoded in `values_*_link`. See the examples below.
+  For `*_link()`, a character string of possible values. See
+  `values_*_link` in examples below.
 
 ## Details
 

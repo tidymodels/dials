@@ -16,12 +16,12 @@ Source:
 [`DESCRIPTION`](https://github.com/tidymodels/dials/blob/main/DESCRIPTION)
 
 Kuhn M, Frick H (2026). *dials: Tools for Creating Tuning Parameter
-Values*. R package version 1.4.4, <https://dials.tidymodels.org>.
+Values*. R package version 1.4.5, <https://dials.tidymodels.org>.
 
     @Manual{,
       title = {dials: Tools for Creating Tuning Parameter Values},
       author = {Max Kuhn and Hannah Frick},
       year = {2026},
-      note = {R package version 1.4.4},
+      note = {R package version 1.4.5},
       url = {https://dials.tidymodels.org},
     }

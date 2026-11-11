@@ -14,7 +14,7 @@ set_engine("catboost", ...).'><meta property="og:image" content="https://dials.t
 
     <a class="navbar-brand me-2" href="../index.html">dials</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.5</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,7 +54,15 @@ engine. They correspond to tuning parameters that would be specified using
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">l2_leaf_reg</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>, trans <span class="op">=</span> <span class="fu">transform_log10</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">max_leaves</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">64</span><span class="op">)</span>, trans <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">max_leaves</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>, <span class="fl">64</span><span class="op">)</span>, trans <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">grow_policy</span><span class="op">(</span>values <span class="op">=</span> <span class="va">values_grow_policy</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">values_grow_policy</span></span>
+<span></span>
+<span><span class="fu">one_hot_max_size</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1L</span>, <span class="fl">25L</span><span class="op">)</span>, trans <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">score_randomness</span><span class="op">(</span>range <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1.5</span><span class="op">)</span>, trans <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -73,13 +81,54 @@ these values should be in the <em>transformed units</em>.</p></dd>
 the default is used which matches the units used in <code>range</code>. If no
 transformation, <code>NULL</code>.</p></dd>
 
+
+<dt id="arg-values">values<a class="anchor" aria-label="anchor" href="#arg-values"></a></dt>
+<dd><p>A character string of possible values. See
+<code>values_grow_policy</code> in examples below.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>"catboost" is an available engine in the parsnip extension package
 <a href="https://bonsai.tidymodels.org/" class="external-link">bonsai</a></p>
-<p><code>max_leaves()</code> is only used when the grow policy is set to <code>"Lossguide"</code>.</p>
-<p>For more information, see the <a href="https://catboost.ai/docs/en/references/training-parameters/" class="external-link">catboost webpage</a>.</p>
+<p>The parameters are:</p><ul><li><p><code>l2_leaf_reg()</code>: the L2 regularization coefficient for the leaf values.</p></li>
+<li><p><code>max_leaves()</code>: the maximum number of terminal nodes in a tree.</p></li>
+<li><p><code>grow_policy()</code>: the method for growing trees. <code>"SymmetricTree"</code> (the
+default in catboost) splits every node at a given depth using the same
+condition. <code>"Depthwise"</code> grows the tree level-by-level, choosing the best
+split for each node. <code>"Lossguide"</code> grows the tree leaf-by-leaf, splitting
+the leaf with the best loss improvement.</p></li>
+<li><p><code>one_hot_max_size()</code>: categorical predictors with this many distinct
+values or fewer are one-hot encoded. Those with more values are encoded
+using target statistics.</p></li>
+<li><p><code>score_randomness()</code>: a multiplier for the amount of Gaussian noise added
+to the splitting score (zero means no additional noise).</p></li>
+</ul><div class="section">
+<h3 id="conditional-constraints">Conditional constraints<a class="anchor" aria-label="anchor" href="#conditional-constraints"></a></h3>
+
+
+<p>Several catboost parameters are only used for specific values of other
+parameters. Using the dials parameter names:</p><ul><li><p><code>max_leaves()</code> is only used when <code>grow_policy()</code> is <code>"Lossguide"</code>.
+catboost will fail with an error for other grow policies.</p></li>
+<li><p><code><a href="trees.html">min_n()</a></code> (<code>min_data_in_leaf</code> in catboost) is only used when
+<code>grow_policy()</code> is <code>"Depthwise"</code> or <code>"Lossguide"</code>. For <code>"SymmetricTree"</code>,
+it is silently ignored.</p></li>
+<li><p><code><a href="trees.html">tree_depth()</a></code> is used for all grow policies, but its effect differs.
+For <code>"SymmetricTree"</code>, each tree has exactly <code>2^tree_depth</code> terminal
+nodes. For <code>"Lossguide"</code>, it is a cap on the depth of any branch while
+<code>max_leaves()</code> controls the tree size. catboost's maximum depth is 16.</p></li>
+<li><p><code><a href="trees.html">sample_prop()</a></code> (<code>subsample</code> in catboost) cannot be used with Bayesian
+bootstrapping. Bayesian bootstrapping is catboost's default for
+multiclass outcomes, so catboost will fail with an error in that case
+unless a different <code>bootstrap_type</code> is set as an engine argument.</p></li>
+<li><p><code>one_hot_max_size()</code> only affects predictors that are passed to catboost
+as factors. If categorical predictors are converted to indicator
+variables beforehand (e.g., with a recipe), it has no effect.</p></li>
+<li><p><code><a href="mtry_prop.html">mtry_prop()</a></code> (<code>rsm</code> in catboost) is only supported on the CPU, except for
+pairwise ranking models.</p></li>
+</ul><p>For more information, see the <a href="https://catboost.ai/docs/en/references/training-parameters/" class="external-link">catboost webpage</a>.</p>
+</div>
+
     </div>
 
     <div class="section level2">
@@ -92,6 +141,18 @@ transformation, <code>NULL</code>.</p></dd>
 <span class="r-in"><span><span class="fu">max_leaves</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Maximum Number of Leaves (quantitative)</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Range: [10, 64]</span>
+<span class="r-in"><span><span class="va">values_grow_policy</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "SymmetricTree" "Depthwise"     "Lossguide"    </span>
+<span class="r-in"><span><span class="fu">grow_policy</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Tree Growing Policy (qualitative)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 3 possible values include:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 'SymmetricTree', 'Depthwise', and 'Lossguide'</span>
+<span class="r-in"><span><span class="fu">one_hot_max_size</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Maximum Levels for One-Hot Encoding (quantitative)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Range: [1, 25]</span>
+<span class="r-in"><span><span class="fu">score_randomness</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Random Noise Level (quantitative)</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Range: [0, 1.5]</span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
@@ -106,7 +167,7 @@ transformation, <code>NULL</code>.</p></dd>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
   </div></footer></body></html>

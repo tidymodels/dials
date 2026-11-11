@@ -110,7 +110,7 @@ Latin hypercube and maximum entropy designs use random numbers to make
 the designs.
 
 By default, `grid_space_filling()` will try to use a pre-optimized
-space-filling design from <https://www.spacefillingdesigns.nl/> (see
+space-filling design from `https://www.spacefillingdesigns.nl/` (see
 Husslage *et al*, 2011) or using a uniform design. If no pre-made design
 is available, then a maximum entropy design is created.
 
@@ -236,10 +236,5 @@ if (rlang::is_installed("ggplot2")) {
     lims(y = 0:1, x = c(1, 2000)) +
     ggtitle("uniform")
 }
-#> 
-#> Attaching package: ‘ggplot2’
-#> The following object is masked from ‘package:kernlab’:
-#> 
-#>     alpha
 
 ```

@@ -77,6 +77,8 @@ contributing to this project, you agree to abide by its terms.
 
 ## Grid creation
 
+- [`grid_hybrid()`](https://dials.tidymodels.org/reference/grid_hybrid.md)
+  : Hybrid space-filling/regular parameter grids
 - [`grid_regular()`](https://dials.tidymodels.org/reference/grid_regular.md)
   [`grid_random()`](https://dials.tidymodels.org/reference/grid_regular.md)
   : Create grids of tuning parameters
@@ -224,7 +226,10 @@ contributing to this project, you agree to abide by its terms.
   [`values_ordinal_link`](https://dials.tidymodels.org/reference/ordinal_link.md)
   [`odds_link()`](https://dials.tidymodels.org/reference/ordinal_link.md)
   [`values_odds_link`](https://dials.tidymodels.org/reference/ordinal_link.md)
-  : Ordinal Regression Link Functions (character)
+  : Ordinal regression link functions (character)
+- [`parallel_reg()`](https://dials.tidymodels.org/reference/parallel_reg.md)
+  [`values_parallel_reg`](https://dials.tidymodels.org/reference/parallel_reg.md)
+  : Parallel regression assumption (logical)
 - [`penalty()`](https://dials.tidymodels.org/reference/penalty.md) :
   Amount of regularization/penalization
 - [`predictor_prop()`](https://dials.tidymodels.org/reference/predictor_prop.md)
@@ -267,6 +272,9 @@ contributing to this project, you agree to abide by its terms.
   : Amount of supervision parameter
 - [`threshold()`](https://dials.tidymodels.org/reference/threshold.md) :
   General thresholding parameter
+- [`threshold_structure()`](https://dials.tidymodels.org/reference/threshold_structure.md)
+  [`values_threshold_structure`](https://dials.tidymodels.org/reference/threshold_structure.md)
+  : Threshold structure (character)
 - [`trees()`](https://dials.tidymodels.org/reference/trees.md)
   [`min_n()`](https://dials.tidymodels.org/reference/trees.md)
   [`sample_size()`](https://dials.tidymodels.org/reference/trees.md)
@@ -315,6 +323,10 @@ contributing to this project, you agree to abide by its terms.
   : Parameters for possible engine parameters for Cubist
 - [`l2_leaf_reg()`](https://dials.tidymodels.org/reference/catboost_parameters.md)
   [`max_leaves()`](https://dials.tidymodels.org/reference/catboost_parameters.md)
+  [`grow_policy()`](https://dials.tidymodels.org/reference/catboost_parameters.md)
+  [`values_grow_policy`](https://dials.tidymodels.org/reference/catboost_parameters.md)
+  [`one_hot_max_size()`](https://dials.tidymodels.org/reference/catboost_parameters.md)
+  [`score_randomness()`](https://dials.tidymodels.org/reference/catboost_parameters.md)
   : Possible engine parameters for catboost
 - [`max_nodes()`](https://dials.tidymodels.org/reference/randomForest_parameters.md)
   : Parameters for possible engine parameters for randomForest

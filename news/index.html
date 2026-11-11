@@ -10,7 +10,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">dials</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.4.5</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,6 +39,12 @@
       <small>Source: <a href="https://github.com/tidymodels/dials/blob/main/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.4.5" id="dials-145">dials 1.4.5<a class="anchor" aria-label="anchor" href="#dials-145"></a></h2>
+<ul><li><p><code><a href="../reference/grid_hybrid.html">grid_hybrid()</a></code> is a new function that crosses a space-filling design for some parameters with a regular grid for others. This is helpful for “submodel” parameters that are cheap to tune (<a href="https://github.com/tidymodels/dials/issues/451" class="external-link">#451</a>).</p></li>
+<li><p><code><a href="../reference/catboost_parameters.html">grow_policy()</a></code>, <code><a href="../reference/catboost_parameters.html">one_hot_max_size()</a></code>, and <code><a href="../reference/catboost_parameters.html">score_randomness()</a></code> are new parameter objects for tree-based models that use the “catboost” engine in the bonsai package. The documentation for catboost parameters now describes which parameters depend on the values of others (<a href="https://github.com/tidymodels/dials/issues/465" class="external-link">#465</a>, <a href="https://github.com/tidymodels/dials/issues/466" class="external-link">#466</a>).</p></li>
+<li><p><code><a href="../reference/parallel_reg.html">parallel_reg()</a></code> and <code><a href="../reference/threshold_structure.html">threshold_structure()</a></code> are new parameters for the <code>ordinal_reg()</code> model. They respectively control the parallel regression assumption (applied to all terms) and threshold constraints (<a href="https://github.com/corybrunson" class="external-link">@corybrunson</a>, <a href="https://github.com/tidymodels/dials/issues/462" class="external-link">#462</a>).</p></li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.4.4" id="dials-144">dials 1.4.4<a class="anchor" aria-label="anchor" href="#dials-144"></a></h2><p class="text-muted">CRAN release: 2026-06-22</p>
 <ul><li><p><code><a href="../reference/attention-param.html">attention_type()</a></code>, <code><a href="../reference/dropout.html">dropout_hidden()</a></code>, <code><a href="../reference/dropout.html">dropout_last()</a></code>, and <code><a href="../reference/attention-param.html">target_token()</a></code> are new parameters for the SAINT model in the brulee package (<a href="https://github.com/tidymodels/dials/issues/452" class="external-link">#452</a>).</p></li>
@@ -297,7 +303,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
   </div></footer></body></html>
