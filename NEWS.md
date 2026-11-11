@@ -1,4 +1,4 @@
-# dials (development version)
+# dials 1.4.5
 
 * `grid_hybrid()` is a new function that crosses a space-filling design for some parameters with a regular grid for others. This is helpful for "submodel" parameters that are cheap to tune (#451).
 
