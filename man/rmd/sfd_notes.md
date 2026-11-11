@@ -2,7 +2,7 @@ The types of designs supported here are latin hypercube designs of different typ
  
 Latin hypercube and maximum entropy designs use random numbers to make the designs. 
 
-By default, [grid_space_filling()] will try to use a pre-optimized space-filling design from [`https://www.spacefillingdesigns.nl/`](https://www.spacefillingdesigns.nl/) (see Husslage _et al_, 2011) or using a uniform design. If no pre-made design is available, then a maximum entropy design is created. 
+By default, [grid_space_filling()] will try to use a pre-optimized space-filling design from `https://www.spacefillingdesigns.nl/` (see Husslage _et al_, 2011) or using a uniform design. If no pre-made design is available, then a maximum entropy design is created. 
 
 
 

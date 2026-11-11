@@ -92,9 +92,9 @@ the designs.
 
 By default, \code{\link[=grid_space_filling]{grid_space_filling()}} will try to
 use a pre-optimized space-filling design from
-\url{https://www.spacefillingdesigns.nl/}
-(see Husslage \emph{et al}, 2011) or using a uniform design. If no pre-made
-design is available, then a maximum entropy design is created.
+\verb{https://www.spacefillingdesigns.nl/} (see Husslage \emph{et al}, 2011) or
+using a uniform design. If no pre-made design is available, then a
+maximum entropy design is created.
 
 Also note that there may a difference in grids depending on how the
 function is called. If the call uses the parameter objects directly the
