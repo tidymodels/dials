@@ -16,7 +16,7 @@ to any other point."><meta property="og:image" content="https://dials.tidymodels
 
     <a class="navbar-brand me-2" href="../index.html">dials</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.4.9000</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="In-development version">1.4.5.9000</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -154,9 +154,9 @@ determinant of the spatial correlation matrix between coordinates.</p>
 the designs.</p>
 <p>By default, <code>grid_space_filling()</code> will try to
 use a pre-optimized space-filling design from
-<a href="https://www.spacefillingdesigns.nl/" class="external-link">https://www.spacefillingdesigns.nl/</a>
-(see Husslage <em>et al</em>, 2011) or using a uniform design. If no pre-made
-design is available, then a maximum entropy design is created.</p>
+<code>https://www.spacefillingdesigns.nl/</code> (see Husslage <em>et al</em>, 2011) or
+using a uniform design. If no pre-made design is available, then a
+maximum entropy design is created.</p>
 <p>Also note that there may a difference in grids depending on how the
 function is called. If the call uses the parameter objects directly the
 possible ranges come from the objects in <code>dials</code>. For example:</p>

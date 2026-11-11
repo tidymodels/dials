@@ -2,19 +2,13 @@
 
 ## dials (development version)
 
+## dials 1.4.5
+
 - [`grid_hybrid()`](https://dials.tidymodels.org/dev/reference/grid_hybrid.md)
   is a new function that crosses a space-filling design for some
   parameters with a regular grid for others. This is helpful for
   “submodel” parameters that are cheap to tune
   ([\#451](https://github.com/tidymodels/dials/issues/451)).
-
-- [`parallel_reg()`](https://dials.tidymodels.org/dev/reference/parallel_reg.md)
-  and
-  [`threshold_structure()`](https://dials.tidymodels.org/dev/reference/threshold_structure.md)
-  are new parameters for the `ordinal_reg()` model. They respectively
-  control the parallel regression assumption (applied to all terms) and
-  threshold constraints ([@corybrunson](https://github.com/corybrunson),
-  [\#462](https://github.com/tidymodels/dials/issues/462)).
 
 - [`grow_policy()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md),
   [`one_hot_max_size()`](https://dials.tidymodels.org/dev/reference/catboost_parameters.md),
@@ -26,6 +20,14 @@
   values of others
   ([\#465](https://github.com/tidymodels/dials/issues/465),
   [\#466](https://github.com/tidymodels/dials/issues/466)).
+
+- [`parallel_reg()`](https://dials.tidymodels.org/dev/reference/parallel_reg.md)
+  and
+  [`threshold_structure()`](https://dials.tidymodels.org/dev/reference/threshold_structure.md)
+  are new parameters for the `ordinal_reg()` model. They respectively
+  control the parallel regression assumption (applied to all terms) and
+  threshold constraints ([@corybrunson](https://github.com/corybrunson),
+  [\#462](https://github.com/tidymodels/dials/issues/462)).
 
 ## dials 1.4.4
 
