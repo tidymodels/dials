@@ -329,6 +329,19 @@ test_that("1-point grid", {
     grid <- grid_space_filling(parameters(neighbors()), size = 1)
   })
   expect_equal(nrow(grid), 1L)
+
+  prms <- parameters(penalty(), mixture())
+  set.seed(1)
+  grd_orig <- grid_space_filling(prms, size = 1, original = TRUE)
+  set.seed(1)
+  grd_trans <- grid_space_filling(prms, size = 1, original = FALSE)
+  set.seed(1)
+  grd_rand <- grid_random(prms, size = 1, original = FALSE)
+
+  expect_gt(grd_orig$penalty, 0)
+  expect_lte(grd_trans$penalty, 0)
+  expect_gte(grd_trans$penalty, -10)
+  expect_equal(grd_trans, grd_rand)
 })
 
 test_that("grid_space_filling validates inputs", {
