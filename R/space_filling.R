@@ -277,7 +277,7 @@ make_sfd <- function(
   p <- length(params)
 
   if (size == 1) {
-    res <- grid_random(params, size = size)
+    res <- grid_random(params, size = size, original = original)
     return(res)
   }
 
